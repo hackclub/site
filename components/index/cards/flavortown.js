@@ -28,7 +28,7 @@ export default function Flavortown() {
       >
         <Box sx={{ textAlign: ['left', 'left', 'left'] }}>
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/78c8f69432a9421d_flavortown-logo.png"
+            src="/hc-cdn/78c8f69432a9421d_flavortown-logo.png"
             alt="Flavortown Text Logo"
             sx={{
               height: '70px'
@@ -79,7 +79,7 @@ export default function Flavortown() {
           >
             <Image
               alt="Flavortown Logo"
-              src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/0256e44f53eb79e4_logo-b28e0e8b.avif"
+              src="/hc-cdn/0256e44f53eb79e4_logo-b28e0e8b.avif"
               sx={{
                 position: 'absolute',
                 top: '-150px',
@@ -91,7 +91,7 @@ export default function Flavortown() {
             />
             <Image
               alt="Flavortown Sticker"
-              src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/b36ee8d6ceeea5f9_sticker.png"
+              src="/hc-cdn/b36ee8d6ceeea5f9_sticker.png"
               sx={{
                 position: 'absolute',
                 bottom: '-80px',

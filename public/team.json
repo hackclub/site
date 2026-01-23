@@ -39,13 +39,13 @@
     "name": "Graham Darcey",
     "department": "HQ",
     "role": "Creative Technologist",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Originally from Vermont, Graham has worked as a full-stack software engineer in Silicon Valley for over twenty years, most recently at Uber where he worked on their core routing services and map data platform. He recently (2021) moved back east, and currently resides in Shelburne VT. Graham's hobbies include gaming, gamedev, cooking with his wife, and playing joyfully with his five year old daughter.",
     "bioHackFoundation": "",
     "slackId": "U04QH1TTMBP",
     "email": "graham",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ba0e4f09a7d26809ffd166edf96bae4e6371b39e_bio.jpg"
+    "avatar": "/hc-cdn/ba0e4f09a7d26809ffd166edf96bae4e6371b39e_bio.jpg"
   },
   {
     "name": "Arpan",
@@ -115,7 +115,7 @@
     "slackId": "U01PJ08PR7S",
     "email": "josias",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/234cbab4bf5b91be85d4aef26608deaf949fce50_screenshot_2025-05-07_at_1.17.34___pm.png"
+    "avatar": "/hc-cdn/234cbab4bf5b91be85d4aef26608deaf949fce50_screenshot_2025-05-07_at_1.17.34___pm.png"
   },
   {
     "name": "Arav Narula",
@@ -151,7 +151,7 @@
     "slackId": "U040N4ESCEL",
     "email": "lucas",
     "website": "https://devlucas.page",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a0da86cdb050733a_img_7387.jpg"
+    "avatar": "/hc-cdn/a0da86cdb050733a_img_7387.jpg"
   },
   {
     "name": "Shubham Panth",
@@ -199,7 +199,7 @@
     "slackId": "U06T30DNB3L",
     "email": "euan",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b896479422f28250d8ee0468c23f1e67404f537a_IMG_20250727_131859572_HDR.jpg"
+    "avatar": "/hc-cdn/b896479422f28250d8ee0468c23f1e67404f537a_IMG_20250727_131859572_HDR.jpg"
   },
   {
     "name": "Leo W",
@@ -223,7 +223,7 @@
     "slackId": "U083W5CCFDG",
     "email": "joaquin",
     "website": "https://jschere.com",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/8d63d3533b6039468208f0ba4d5e422fd8af1a07_image.png"
+    "avatar": "/hc-cdn/8d63d3533b6039468208f0ba4d5e422fd8af1a07_image.png"
   },
   {
     "name": "Lux Loff",
@@ -295,7 +295,7 @@
     "slackId": "U06U80G86H1", 
     "email": "reem",
     "website": "https://reemkhalifa.xyz",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b419a2679e0f5a23c9779f479c0ead155edeb875_image.png"
+    "avatar": "/hc-cdn/b419a2679e0f5a23c9779f479c0ead155edeb875_image.png"
   },
   {
     "name": "Rebeka Lawrence-Gomez",
@@ -306,7 +306,7 @@
     "slackId": "U093FC28A82", 
     "email": "rebeka",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/7d53388eeda6547a309ca478d455e2b824791bbf_image.png"
+    "avatar": "/hc-cdn/7d53388eeda6547a309ca478d455e2b824791bbf_image.png"
   },
   {
     "name": "Amber",
@@ -366,7 +366,7 @@
     "slackId": "U06UYA4AH6F",
     "email": "estella",
     "website": "https://estellagu.com",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/fd48e2e86d64bf98099b25a6cfd8f5bdc315781d_headshot.png"
+    "avatar": "/hc-cdn/fd48e2e86d64bf98099b25a6cfd8f5bdc315781d_headshot.png"
   },
   {
     "name": "Karthik Sankar",
@@ -482,7 +482,7 @@
     "slackId": "U054JRXUNG0",
     "email": "charlien",
     "website": "https://crnicholson.com",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a676e768a45c68eea74c7c3b602feae2eea22d45_screenshot_2024-11-17_at_5.22.37___pm.png"
+    "avatar": "/hc-cdn/a676e768a45c68eea74c7c3b602feae2eea22d45_screenshot_2024-11-17_at_5.22.37___pm.png"
   },
   {
     "name": "Kate Caulfield",
@@ -493,7 +493,7 @@
     "slackId": "U07PXU0657B",
     "email": "katec",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/7bf19e299e3e8253096906cef8d599c7aedeed09_image.png"
+    "avatar": "/hc-cdn/7bf19e299e3e8253096906cef8d599c7aedeed09_image.png"
   },
   {
     "name": "Micha Albert",
@@ -504,7 +504,7 @@
     "slackId": "U05C64XMMHV",
     "email": "micha",
     "website": "https://mra.sh",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ca950cf3586abf03d8c3ee2f58e174a7d8a36889_18.jpg"
+    "avatar": "/hc-cdn/ca950cf3586abf03d8c3ee2f58e174a7d8a36889_18.jpg"
   },
   {
     "name": "Gus Ruben",
@@ -537,7 +537,7 @@
     "slackId": "U06FMCCDS1K",
     "email": "nick",
     "website": "https://bunnyguy.foo/",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0a4ca9139bb87c6438e241096a1513fe4d477d44_bunnyguy-colors.png"
+    "avatar": "/hc-cdn/0a4ca9139bb87c6438e241096a1513fe4d477d44_bunnyguy-colors.png"
   },
   {
     "name": "Echo",
@@ -559,7 +559,7 @@
     "slackId": "U073Q4F60LQ",
     "email": "jonathan",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/534fd4f5d2643dc80e4ea6a6c6f2eb839528645d_headshot.jpg"
+    "avatar": "/hc-cdn/534fd4f5d2643dc80e4ea6a6c6f2eb839528645d_headshot.jpg"
   },
   {
     "name": "Manitej Boorgu",
@@ -570,7 +570,7 @@
     "slackId": "U04QD71QWS0",
     "email": "manitej",
     "website": "https://manitej.com",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/67d9d436641ebb92d105815f98352851456131e5_a4ff0caf-c22e-44ec-b58a-89d18fa37997_1_105_c.jpeg"
+    "avatar": "/hc-cdn/67d9d436641ebb92d105815f98352851456131e5_a4ff0caf-c22e-44ec-b58a-89d18fa37997_1_105_c.jpeg"
   },
   {
     "name": "Melanie Smith",
@@ -666,7 +666,7 @@
     "slackId": "U02CWS020SD",
     "email": "alexd",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/cc32793d5022517d19c7f34d06b2d84425335bf4_img_5743.jpeg"
+    "avatar": "/hc-cdn/cc32793d5022517d19c7f34d06b2d84425335bf4_img_5743.jpeg"
   },
   {
     "name": "Rhys Panopio",
@@ -702,7 +702,7 @@
     "slackId": "U078DFX40A2",
     "email": "emma",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b7417c399bb6512d4c3b2fdb012ccba2a7769689_IMG_8784.jpeg"
+    "avatar": "/hc-cdn/b7417c399bb6512d4c3b2fdb012ccba2a7769689_IMG_8784.jpeg"
   },
   {
     "name": "Clay Nicholson",
@@ -714,7 +714,7 @@
     "slackId": "U078DFX40A2",
     "email": "clay",
     "website": "https://claynicholson.com/",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/8cc1b22323fe330d2e13a5d59334c9b58cc7bc14_1756333983052.jpg"
+    "avatar": "/hc-cdn/8cc1b22323fe330d2e13a5d59334c9b58cc7bc14_1756333983052.jpg"
   },
   {
     "name": "Sam Poder",
@@ -738,7 +738,7 @@
     "slackId": "U022XFD2TML",
     "email": "ian",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/014772700ca097a561ae3f9535f5a972b63c7371_ian.png"
+    "avatar": "/hc-cdn/014772700ca097a561ae3f9535f5a972b63c7371_ian.png"
   },
   {
     "name": "Ruien Luo",
@@ -750,7 +750,7 @@
     "slackId": "U04JRBGPH5G",
     "email": "ruien",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0f881116f6bfe31df850476833e4602b7b7a0f40_0img_4162_cropped.jpg"
+    "avatar": "/hc-cdn/0f881116f6bfe31df850476833e4602b7b7a0f40_0img_4162_cropped.jpg"
   },
   {
     "name": "Manu Gurudath",
@@ -774,7 +774,7 @@
     "slackId": "U04G40QKAAD",
     "email": "samuelf",
     "website": "https://sfernandez.dev",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a87bb79e3bb856cdccc585a5d0cbeaa9166de0cf_scrapyard-samuel.jpg"
+    "avatar": "/hc-cdn/a87bb79e3bb856cdccc585a5d0cbeaa9166de0cf_scrapyard-samuel.jpg"
   },
   {
     "name": "Luke Oldenburg",
@@ -797,7 +797,7 @@
     "slackId": "U05UQ2RTJ6T",
     "email": "mohamad",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/63a2643b5d7fa7ead71eb93ef06f628f0080e9ee_image_1558.png"
+    "avatar": "/hc-cdn/63a2643b5d7fa7ead71eb93ef06f628f0080e9ee_image_1558.png"
   },
   {
     "name": "Sean Outram",
@@ -968,40 +968,16 @@
     "avatar": "https://cachet.dunkirk.sh/users/U07346379NY/r"
   },
   {
-    "name": "Manitej Boorgu",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
-    "acknowledged": false,
-    "bio": "Manitej is a Hack Clubber from Texas, USA. During their time in Hack Club, Manitej has run several programs including Hack Hour, Arcade and Cafe. He also has a passion for community building and urban planning.",
-    "bioHackFoundation": "",
-    "slackId": "U04QD71QWS0",
-    "email": "manitej",
-    "website": "https://www.manitej.com/",
-    "avatar": "https://cachet.dunkirk.sh/users/U04QD71QWS0/r"
-  },
-  {
     "name": "Aram",
     "department": "Moderation",
     "role": "Moderation & Conduct",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "",
     "bioHackFoundation": "",
     "slackId": "U0616280E6P",
     "email": "",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U0616280E6P/r"
-  },
-  {
-    "name": "Dhyan",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
-    "acknowledged": false,
-    "bio": "",
-    "bioHackFoundation": "",
-    "slackId": "U0824G9PTFE",
-    "email": "dhyan",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U0824G9PTFE/r"
   },
   {
     "name": "Hasan",
@@ -1055,25 +1031,13 @@
     "name": "Miguel",
     "department": "Moderation",
     "role": "Moderation & Conduct",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "",
     "bioHackFoundation": "",
     "slackId": "U07VC9705D4",
     "email": "",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U07VC9705D4/r"
-  },
-  {
-    "name": "Darlene Wu",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
-    "acknowledged": false,
-    "bio": "Darlene is a 16 year old Hack Clubber from Indonesia who runs virtual events for the Hack Club community. She also helps welcome members into the Slack",
-    "bioHackFoundation": "",
-    "slackId": "U07SX29CECA",
-    "email": "",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U07SX29CECA/r"
   },
   {
     "name": "Sean Outram",
@@ -1155,7 +1119,7 @@
     "slackId": "U040N4ESCEL",
     "email": "lucas",
     "website": "https://devlucas.page",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a0da86cdb050733a_img_7387.jpg"
+    "avatar": "/hc-cdn/a0da86cdb050733a_img_7387.jpg"
   },
   {
     "name": "Aishaani",
@@ -1323,7 +1287,7 @@
     "slackId": "U07V1ND4H0Q",
     "email": "",
     "website": "https://pianoman0.com/",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0beef222fac6d4440cd07b2546dc04e547c08293_pianoman0_profile_pic.jpeg"
+    "avatar": "/hc-cdn/0beef222fac6d4440cd07b2546dc04e547c08293_pianoman0_profile_pic.jpeg"
   },
   {
     "name": "Ruby",
@@ -1920,7 +1884,7 @@
     "slackId": "U0823F39GV8",
     "email": "",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/812f456bcb039cc2add7e8fba7b742a8b54639c8_45-13042025-5p7a7188-x2.jpg"
+    "avatar": "/hc-cdn/812f456bcb039cc2add7e8fba7b742a8b54639c8_45-13042025-5p7a7188-x2.jpg"
   },
   {
     "name": "Olive Wu",
@@ -1944,7 +1908,7 @@
     "slackId": "U03UBRVG2MS",
     "email": "samliu",
     "website": "https://samliu.dev",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/1f2d09365b0ed42d8e9864c80ba4d8561d85ab9b_frame_1.png"
+    "avatar": "/hc-cdn/1f2d09365b0ed42d8e9864c80ba4d8561d85ab9b_frame_1.png"
   },
   {
     "name": "Jiang Tongyu",
@@ -1956,7 +1920,7 @@
     "slackId": "U07DJMFAQQP",
     "email": "tongyu",
     "website": "https://tongyu.fish",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ae856042089cb4a5e0c6b53cf93f29008c1bc54e_big.png"
+    "avatar": "/hc-cdn/ae856042089cb4a5e0c6b53cf93f29008c1bc54e_big.png"
   },
   {
     "name": "Chan Kai Ling",
@@ -1968,7 +1932,7 @@
     "slackId": "U07DJMFAQQP",
     "email": "kl",
     "website": "https://kailings.garden",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a7f4268474dc54c0ecabf4dbd66b51abb6f8ac0d_img_1687.jpg"
+    "avatar": "/hc-cdn/a7f4268474dc54c0ecabf4dbd66b51abb6f8ac0d_img_1687.jpg"
   },
   {
     "name": "ascpixi",
@@ -2015,7 +1979,7 @@
     "slackId": "U07DPHQCCCS",
     "email": "mattsoh",
     "website": "https://youthacks.org",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/4926a04e4aa9a101e4919d8b8071991a74c20b08_compressjpeg.online_img_512x512_.jpg"
+    "avatar": "/hc-cdn/4926a04e4aa9a101e4919d8b8071991a74c20b08_compressjpeg.online_img_512x512_.jpg"
   },
   {
     "name": "Bartosz Budnik",
@@ -2027,7 +1991,7 @@
     "slackId": "U079VBNLTPD",
     "email": "bartosz",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/61f1b6d29e7880f8b02a72dd0ec25f891a77cc85_image.png"
+    "avatar": "/hc-cdn/61f1b6d29e7880f8b02a72dd0ec25f891a77cc85_image.png"
   },
   {
     "name": "Alex Park",
