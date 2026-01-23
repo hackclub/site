@@ -293,6 +293,10 @@ const nextConfig = {
         destination: 'https://workshops.hackclub.com/privacy-and-terms/'
       },
       {
+        source: '/safeguarding-policy/',
+        destination: 'https://workshops.hackclub.com/safeguarding-policy/'
+      },
+      {
         source: '/workshop-bounty/',
         destination: 'https://workshops.hackclub.com/workshop-bounty/'
       },

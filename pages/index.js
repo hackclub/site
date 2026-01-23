@@ -19,7 +19,6 @@ import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
-import Pizza from '../components/index/cards/pizza'
 import Sprig from '../components/index/cards/sprig'
 import Sinerider from '../components/index/cards/sinerider'
 import SprigConsole from '../components/index/cards/sprig-console'
@@ -41,13 +40,44 @@ import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Blueprint from '../components/index/cards/blueprint'
-import Moonshot from '../components/index/cards/moonshot'
+import CampfireFlagship from '../components/index/cards/campfire-flagship'
 import Milkyway from '../components/index/cards/milkyway'
+import Flavortown from '../components/index/cards/flavortown'
 import Aces from '../components/index/cards/aces'
-import Highway from '../components/index/cards/highway'
-import Shipwrecked from '../components/index/cards/shipwrecked'
 import CTAS from '../components/index/ctas'
 /** @jsxImportSource theme-ui */
+
+const ANNOUNCEMENTS = [
+  {
+    id: 'blueprint',
+    expiresAt: new Date('2026-01-31'),
+    copy: 'Get up to $400 to make a hardware project!',
+    caption: 'Design a project and get a grant to make it real with Blueprint, Hack Club\'s largest hardware program',
+    href: 'https://blueprint.hackclub.com/?utm_source=site-announcement',
+    imgSrc: '/hc-cdn/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png'
+  },
+  {
+    id: 'campfire-flagship',
+    expiresAt: new Date('2026-02-20'),
+    copy: 'Code with your favorite YouTubers at a Game Jam!',
+    caption: 'Spend up to 60 hours building games, earn a ticket to attend. Join us in LA with YouTubers like Michael Reeves this February!',
+    href: 'https://flagship.hackclub.com?utm_source=site_announcement',
+    imgSrc: '/hc-cdn/533c527e1ab6a77f_smore.png'
+  },
+  {
+    id: 'flavortown',
+    expiresAt: new Date('2026-12-31'),
+    copy: 'Build projects, earn cookies, get free tech!',
+    caption: 'Make a website, game, or hardware project and exchange cookies for iPads, MacBooks, and more',
+    href: 'https://flavortown.hackclub.com/?ref=site-announcement',
+    imgSrc: '/hc-cdn/0256e44f53eb79e4_logo-b28e0e8b.avif'
+  }
+]
+
+function getActiveAnnouncements() {
+  const now = new Date()
+  return ANNOUNCEMENTS.filter(a => a.expiresAt > now)
+}
 
 function Page({
   hackathonsData,
@@ -74,8 +104,7 @@ function Page({
   let [github, setGithub] = useState(0)
   let [slackKey, setSlackKey] = useState(0)
   let [key, setKey] = useState(0)
-  const [announcementVariant, setAnnouncementVariant] = useState('blueprint')
-  const [ctaVariant, setCtaVariant] = useState('blueprint')
+  const [announcement, setAnnouncement] = useState(null)
 
   const { asPath } = useRouter()
 
@@ -88,16 +117,13 @@ function Page({
     window.paper = `Welcome, intrepid hacker! We'd love to have you in our community. Get your invite at hack.af/slack. Under "Why do you want to join the Hack Club Slack?" add a 🦄 and we'll ship you some exclusive stickers! `
   }, [])
 
-  // Decide which announcement to show on the client to avoid hydration mismatches
+  // Pick a random active announcement on client to avoid hydration mismatches
   useEffect(() => {
-    const roll = Math.floor(Math.random() * 2) + 1 // 1d2
-    if (roll === 2) setAnnouncementVariant('moonshot')
-  }, [])
-
-  // Decide which CTA to show on the client (default to Blueprint on SSR)
-  useEffect(() => {
-    const roll = Math.floor(Math.random() * 2) + 1 // 1d2
-    if (roll === 2) setCtaVariant('moonshot')
+    const active = getActiveAnnouncements()
+    if (active.length > 0) {
+      const randomIndex = Math.floor(Math.random() * active.length)
+      setAnnouncement(active[randomIndex])
+    }
   }, [])
 
   const easterEgg = () => {
@@ -224,21 +250,13 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
-          {announcementVariant === 'blueprint' ? (
+          {announcement && (
             <Announcement
               width="90vw"
-              copy="Get up to $400 to make a hardware project!"
-              caption="Design a project and get a grant to make it real with Blueprint, Hack Club's largest hardware program"
-              href="https://blueprint.hackclub.com/?utm_source=site-announcement"
-              imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png"
-            />
-          ) : (
-            <Announcement
-              width="90vw"
-              copy="Moonshot: 4-day hackathon in Orlando"
-              caption="Join us — free NASA & Universal Studios trips"
-              href="https://moonshot.hackclub.com?t=webt"
-              imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/20dccaf98bc294f15d07534c407c56debcb6ec8d_favicon.png"
+              copy={announcement.copy}
+              caption={announcement.caption}
+              href={announcement.href}
+              imgSrc={announcement.imgSrc}
             />
           )}
           <Box
@@ -412,7 +430,8 @@ function Page({
                     marginBottom: 'auto',
                     alignSelf: 'center',
                     color: 'white',
-                    textShadow: 'rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 0.5) 0 0 10px'
+                    textShadow:
+                      'rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 0.5) 0 0 10px'
                   }}
                 >
                   Or, check out our programs:
@@ -436,7 +455,7 @@ function Page({
                   fontSize: [1, '16px', '18px'],
                   backdropFilter: 'blur(2px)',
                   fontWeight: 'normal',
-                  zIndex: 999,
+                  zIndex: 999
                 }}
                 as="a"
                 href="#spotlight"
@@ -834,15 +853,16 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Aces/>                  
-            <Milkyway/>
-            <Moonshot />
+            <Flavortown />
             <Blueprint
               blueprintData={blueprintData}
               stars={stars.onboard.stargazerCount}
             />
+            <CampfireFlagship />
+            <Milkyway />
+            <Aces />
+
             <Slack slackKey={slackKey} data={slackData} events={events} />
-            <Pizza />
           </Box>
         </Box>
         <Box>
@@ -992,7 +1012,7 @@ function Page({
                 left: 0
               }}
             >
-              {}
+              { }
             </Box>
             <Box
               py={[4, 5, '82px']}
@@ -1281,74 +1301,74 @@ function Page({
 
         {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
           'z' && (
-          <>
-            <Box
-              sx={{
-                position: 'fixed',
-                top: 0,
-                width: '100%',
-                zIndex: 1000
-              }}
-            >
+            <>
               <Box
                 sx={{
-                  position: 'relative',
-                  margin: 'auto',
-                  width: 'fit-content',
+                  position: 'fixed',
+                  top: 0,
+                  width: '100%',
+                  zIndex: 1000
+                }}
+              >
+                <Box
+                  sx={{
+                    position: 'relative',
+                    margin: 'auto',
+                    width: 'fit-content',
+                    lineHeight: 0
+                  }}
+                >
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  right: 0,
+                  zIndex: 1000,
                   lineHeight: 0
                 }}
               >
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                  src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                 ></iframe>
               </Box>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                right: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                left: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-          </>
-        )}
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  left: 0,
+                  zIndex: 1000,
+                  lineHeight: 0
+                }}
+              >
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </Box>
+            </>
+          )}
         <MailingList />
       </Box>
       <Footer
@@ -1408,7 +1428,7 @@ export async function getStaticProps() {
   const { fetchGitHub } = require('./api/github')
   // let gitHubData = await fetchGitHub()
 
-    let gitHubData = null
+  let gitHubData = null
 
   // GitHub: get latest GitHub stars
   const { fetchStars } = require('./api/stars')

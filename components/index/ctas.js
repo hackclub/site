@@ -33,7 +33,7 @@ export default function CTAS({ cards }) {
             mt: 1,
             py: [3, 3, 3]
           }}>
-          {cards.slice(cards.length - 3).reverse().map((card, idx) => {
+          {cards.map((card, idx) => {
             const {
               background,
               backgroundImage,

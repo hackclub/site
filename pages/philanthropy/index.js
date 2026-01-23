@@ -728,7 +728,7 @@ const Philanthropy = ({ posts = [] }) => {
               <Button
                   as="a"
                   variant="outline"
-                  href="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9182271af3e9fd99e2333e07e1ab5de3d4db3730_final-2024-annual-report.pdf"
+                  href="/hc-cdn/9182271af3e9fd99e2333e07e1ab5de3d4db3730_final-2024-annual-report.pdf"
                   target="_blank"
                   mb={4}
                   sx={{

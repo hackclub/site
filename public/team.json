@@ -45,7 +45,7 @@
     "slackId": "U04QH1TTMBP",
     "email": "graham",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ba0e4f09a7d26809ffd166edf96bae4e6371b39e_bio.jpg"
+    "avatar": "/hc-cdn/ba0e4f09a7d26809ffd166edf96bae4e6371b39e_bio.jpg"
   },
   {
     "name": "Arpan",
@@ -115,7 +115,7 @@
     "slackId": "U01PJ08PR7S",
     "email": "josias",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/234cbab4bf5b91be85d4aef26608deaf949fce50_screenshot_2025-05-07_at_1.17.34___pm.png"
+    "avatar": "/hc-cdn/234cbab4bf5b91be85d4aef26608deaf949fce50_screenshot_2025-05-07_at_1.17.34___pm.png"
   },
   {
     "name": "Arav Narula",
@@ -146,12 +146,12 @@
     "department": "HQ",
     "role": "Engineering",
     "acknowledged": false,
-    "bio": "Lucas is a 15 year old Hack Clubber from Sao Paulo, Brazil. Since joining the Hack Club, he has been fascinated by Sprig and is currently leading Sprig App Review Team, and working to make it the best it possibly can be. He loves all aspects of aviation, and scours the internet/skies looking for and investigating flying machines. He spends a good portion of his time with his dog, a happy and playful dog.",
+    "bio": "Lucas is a Hack Clubber from Sao Paulo, Brazil. Since joining the Hack Club, he has been fascinated by Sprig and is currently leading Sprig App Review Team, and working to make it the best it possibly can be. He is also member of Special Activities Division. He loves all aspects of aviation, and scours the internet/skies looking for and investigating flying machines. He spends a good portion of his time with his dog, a happy and playful dog.",
     "bioHackFoundation": "",
     "slackId": "U040N4ESCEL",
     "email": "lucas",
-    "website": "",
-    "avatar": "https://cloud-jaaokph0b-hack-club-bot.vercel.app/0lucash_1836x1835.png"
+    "website": "https://devlucas.page",
+    "avatar": "/hc-cdn/a0da86cdb050733a_img_7387.jpg"
   },
   {
     "name": "Shubham Panth",
@@ -199,7 +199,7 @@
     "slackId": "U06T30DNB3L",
     "email": "euan",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b896479422f28250d8ee0468c23f1e67404f537a_IMG_20250727_131859572_HDR.jpg"
+    "avatar": "/hc-cdn/b896479422f28250d8ee0468c23f1e67404f537a_IMG_20250727_131859572_HDR.jpg"
   },
   {
     "name": "Leo W",
@@ -216,14 +216,14 @@
   {
     "name": "Joaquin Schere",
     "department": "HQ",
-    "role": "Partnerships and Communications",
+    "role": "Event Operations and Communications",
     "acknowledged": false,
     "bio": "Despite studying computer science all of high school, Joaquin had never had the courage to build a project himself until his first Hack Club hackathon. That first all-nighter changed his life, and now he's proud to work in Partnerships and Communications for the Events team, securing meaningful benefits and experiences for Hack Clubbers. When he's not writing emails to intimidating tech innovators, you can find him playing guitar or building websites.",
     "bioHackFoundation": "",
     "slackId": "U083W5CCFDG",
     "email": "joaquin",
     "website": "https://jschere.com",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/8d63d3533b6039468208f0ba4d5e422fd8af1a07_image.png"
+    "avatar": "/hc-cdn/8d63d3533b6039468208f0ba4d5e422fd8af1a07_image.png"
   },
   {
     "name": "Lux Loff",
@@ -295,7 +295,7 @@
     "slackId": "U06U80G86H1", 
     "email": "reem",
     "website": "https://reemkhalifa.xyz",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b419a2679e0f5a23c9779f479c0ead155edeb875_image.png"
+    "avatar": "/hc-cdn/b419a2679e0f5a23c9779f479c0ead155edeb875_image.png"
   },
   {
     "name": "Rebeka Lawrence-Gomez",
@@ -306,7 +306,7 @@
     "slackId": "U093FC28A82", 
     "email": "rebeka",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/7d53388eeda6547a309ca478d455e2b824791bbf_image.png"
+    "avatar": "/hc-cdn/7d53388eeda6547a309ca478d455e2b824791bbf_image.png"
   },
   {
     "name": "Amber",
@@ -366,7 +366,7 @@
     "slackId": "U06UYA4AH6F",
     "email": "estella",
     "website": "https://estellagu.com",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/fd48e2e86d64bf98099b25a6cfd8f5bdc315781d_headshot.png"
+    "avatar": "/hc-cdn/fd48e2e86d64bf98099b25a6cfd8f5bdc315781d_headshot.png"
   },
   {
     "name": "Karthik Sankar",
@@ -482,7 +482,7 @@
     "slackId": "U054JRXUNG0",
     "email": "charlien",
     "website": "https://crnicholson.com",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a676e768a45c68eea74c7c3b602feae2eea22d45_screenshot_2024-11-17_at_5.22.37___pm.png"
+    "avatar": "/hc-cdn/a676e768a45c68eea74c7c3b602feae2eea22d45_screenshot_2024-11-17_at_5.22.37___pm.png"
   },
   {
     "name": "Kate Caulfield",
@@ -493,7 +493,7 @@
     "slackId": "U07PXU0657B",
     "email": "katec",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/7bf19e299e3e8253096906cef8d599c7aedeed09_image.png"
+    "avatar": "/hc-cdn/7bf19e299e3e8253096906cef8d599c7aedeed09_image.png"
   },
   {
     "name": "Micha Albert",
@@ -504,7 +504,7 @@
     "slackId": "U05C64XMMHV",
     "email": "micha",
     "website": "https://mra.sh",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ca950cf3586abf03d8c3ee2f58e174a7d8a36889_18.jpg"
+    "avatar": "/hc-cdn/ca950cf3586abf03d8c3ee2f58e174a7d8a36889_18.jpg"
   },
   {
     "name": "Gus Ruben",
@@ -537,7 +537,7 @@
     "slackId": "U06FMCCDS1K",
     "email": "nick",
     "website": "https://bunnyguy.foo/",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0a4ca9139bb87c6438e241096a1513fe4d477d44_bunnyguy-colors.png"
+    "avatar": "/hc-cdn/0a4ca9139bb87c6438e241096a1513fe4d477d44_bunnyguy-colors.png"
   },
   {
     "name": "Echo",
@@ -559,7 +559,7 @@
     "slackId": "U073Q4F60LQ",
     "email": "jonathan",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/534fd4f5d2643dc80e4ea6a6c6f2eb839528645d_headshot.jpg"
+    "avatar": "/hc-cdn/534fd4f5d2643dc80e4ea6a6c6f2eb839528645d_headshot.jpg"
   },
   {
     "name": "Manitej Boorgu",
@@ -570,7 +570,7 @@
     "slackId": "U04QD71QWS0",
     "email": "manitej",
     "website": "https://manitej.com",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/67d9d436641ebb92d105815f98352851456131e5_a4ff0caf-c22e-44ec-b58a-89d18fa37997_1_105_c.jpeg"
+    "avatar": "/hc-cdn/67d9d436641ebb92d105815f98352851456131e5_a4ff0caf-c22e-44ec-b58a-89d18fa37997_1_105_c.jpeg"
   },
   {
     "name": "Melanie Smith",
@@ -666,7 +666,7 @@
     "slackId": "U02CWS020SD",
     "email": "alexd",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/cc32793d5022517d19c7f34d06b2d84425335bf4_img_5743.jpeg"
+    "avatar": "/hc-cdn/cc32793d5022517d19c7f34d06b2d84425335bf4_img_5743.jpeg"
   },
   {
     "name": "Rhys Panopio",
@@ -702,7 +702,7 @@
     "slackId": "U078DFX40A2",
     "email": "emma",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b7417c399bb6512d4c3b2fdb012ccba2a7769689_IMG_8784.jpeg"
+    "avatar": "/hc-cdn/b7417c399bb6512d4c3b2fdb012ccba2a7769689_IMG_8784.jpeg"
   },
   {
     "name": "Clay Nicholson",
@@ -714,7 +714,7 @@
     "slackId": "U078DFX40A2",
     "email": "clay",
     "website": "https://claynicholson.com/",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/8cc1b22323fe330d2e13a5d59334c9b58cc7bc14_1756333983052.jpg"
+    "avatar": "/hc-cdn/8cc1b22323fe330d2e13a5d59334c9b58cc7bc14_1756333983052.jpg"
   },
   {
     "name": "Sam Poder",
@@ -738,7 +738,7 @@
     "slackId": "U022XFD2TML",
     "email": "ian",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/014772700ca097a561ae3f9535f5a972b63c7371_ian.png"
+    "avatar": "/hc-cdn/014772700ca097a561ae3f9535f5a972b63c7371_ian.png"
   },
   {
     "name": "Ruien Luo",
@@ -750,7 +750,7 @@
     "slackId": "U04JRBGPH5G",
     "email": "ruien",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0f881116f6bfe31df850476833e4602b7b7a0f40_0img_4162_cropped.jpg"
+    "avatar": "/hc-cdn/0f881116f6bfe31df850476833e4602b7b7a0f40_0img_4162_cropped.jpg"
   },
   {
     "name": "Manu Gurudath",
@@ -774,7 +774,7 @@
     "slackId": "U04G40QKAAD",
     "email": "samuelf",
     "website": "https://sfernandez.dev",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a87bb79e3bb856cdccc585a5d0cbeaa9166de0cf_scrapyard-samuel.jpg"
+    "avatar": "/hc-cdn/a87bb79e3bb856cdccc585a5d0cbeaa9166de0cf_scrapyard-samuel.jpg"
   },
   {
     "name": "Luke Oldenburg",
@@ -797,7 +797,7 @@
     "slackId": "U05UQ2RTJ6T",
     "email": "mohamad",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/63a2643b5d7fa7ead71eb93ef06f628f0080e9ee_image_1558.png"
+    "avatar": "/hc-cdn/63a2643b5d7fa7ead71eb93ef06f628f0080e9ee_image_1558.png"
   },
   {
     "name": "Sean Outram",
@@ -868,20 +868,20 @@
     "bioHackFoundation": "",
     "slackId": "",
     "email": "louisa",
-    "website": "",
-    "avatar": "https://cloud-o2bkq84pj-hack-club-bot.vercel.app/0image.png"
+    "website": "U06EMBJH71S",
+    "avatar": "https://cachet.dunkirk.sh/users/U06EMBJH71S/r"
   },
   {
     "name": "Saran Wagner",
     "department": "Moderation",
     "role": "Moderation & Conduct",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Saran is a current high schooler who comes from the land of corn (the Midwest) in the United States who loves anything technology and engineering. At Hack Club, she is responsible of handling Slack moderation and being a welcoming figure to all in the community. In her free time, Saran can be found hacking up one of her projects, hanging out with others, and listening to copious and unhealthy amounts of music.",
     "bioHackFoundation": "",
     "slackId": "U060YRK2734",
     "email": "saran",
     "website": "",
-    "avatar": "https://cloud-cyw053qnp-hack-club-bot.vercel.app/1image.png"
+    "avatar": "https://cachet.dunkirk.sh/users/U060YRK2734/r"
   },
   {
     "name": "Phaedra Sanon",
@@ -917,7 +917,7 @@
     "slackId": "U078J6H1XL3",
     "email": "annabel",
     "website": "https://phthallo.com",
-    "avatar": "https://cloud-6fxxs7j9y-hack-club-bot.vercel.app/11733036812219.jpg"
+    "avatar": "https://cachet.dunkirk.sh/users/U078J6H1XL3/r"
   },
   {
     "name": "Angad Behl",
@@ -947,7 +947,7 @@
     "name": "Elliot",
     "department": "Moderation",
     "role": "Moderation & Conduct",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Elliot is a 15 year old Hack Clubber from Vermont, USA. He is a passionate coder and has made several esoteric languages. Elliot is currently a member of the Hack Club moderation team and helps out in the community a lot.",
     "bioHackFoundation": "",
     "slackId": "U041DAECHHA",
@@ -959,7 +959,7 @@
     "name": "Kestrel",
     "department": "Moderation",
     "role": "Moderation & Conduct",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Kestrel is an 18 year old Hack Clubber from the US. Throughout their time at Hack Club they've ran a You Ship We Ship program focusing on size limitations, helped countless people and have contributed to the moderation team.",
     "bioHackFoundation": "",
     "slackId": "U07346379NY",
@@ -968,22 +968,82 @@
     "avatar": "https://cachet.dunkirk.sh/users/U07346379NY/r"
   },
   {
-    "name": "Manitej Boorgu",
+    "name": "Aram",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": true,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U0616280E6P",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U0616280E6P/r"
+  },
+  {
+    "name": "Hasan",
     "department": "Moderation",
     "role": "Moderation & Conduct",
     "acknowledged": false,
-    "bio": "Manitej is a Hack Clubber from Texas, USA. During their time in Hack Club, Manitej has run several programs including Hack Hour, Arcade and Cafe. He also has a passion for community building and urban planning.",
+    "bio": "",
     "bioHackFoundation": "",
-    "slackId": "U04QD71QWS0",
-    "email": "manitej",
-    "website": "https://www.manitej.com/",
-    "avatar": "https://cachet.dunkirk.sh/users/U04QD71QWS0/r"
+    "slackId": "U062U3SQ2T1",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U062U3SQ2T1/r"
+  },
+  {
+    "name": "Felix Gao",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": false,
+    "bio": "Felix, a teen Hack Clubber from Toronto, Canada, leads a team that writes various newsletters, ensuring Hack Clubbers know what's going on in the Slack and beyond. You'll often find him writing code or drowning two metres deep in homework. He has an absurd variety of niche interests and loves learning more about them, one of the biggest being urban planning/design.",
+    "bioHackFoundation": "",
+    "slackId": "U07BU2HS17Z",
+    "email": "felix",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U07BU2HS17Z/r"
+  },
+  {
+    "name": "Leo W",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": false,
+    "bio": "Leo has a heart for equitable access to the digital world, especially when it comes to ensuring safety for children online. Formerly at HCB, he's now leveraging his passion and experience in Operations, helping hackathons share the magic of code to students worldwide.",
+    "bioHackFoundation": "",
+    "slackId": "U07BLJ1MBEE",
+    "email": "leo",
+    "website": "",
+    "avatar": "https://avatars.githubusercontent.com/u/64415791"
+  },
+  {
+    "name": "Junya",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": false,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U082PAFDDS5",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U082PAFDDS5/r"
+  },
+  {
+    "name": "Miguel",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": true,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U07VC9705D4",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U07VC9705D4/r"
   },
   {
     "name": "Sean Outram",
     "department": "Moderation",
     "role": "Moderation & Conduct",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Sean is a hackclubber hailing from the UK, they started by helping with HCB's operations, however more recently, they've started helping to moderate the Slack. They have also taken part in programs like HCB mentorship and helped with Arcade prize fulfillment and still help with ID verifications.",
     "bioHackFoundation": "",
     "slackId": "U04FATFRE6T",
@@ -1054,12 +1114,12 @@
     "department": "Events",
     "role": "Event Organiser",
     "acknowledged": false,
-    "bio": "Lucas is a 16 year old Hack Clubber from Brazil who runs virtual events for the Hack Club community. He's also worked on the Sprig review team in the past.",
+    "bio": "Lucas is a Hack Clubber from Sao Paulo, Brazil. Since joining the Hack Club, he has been fascinated by Sprig and is currently leading Sprig App Review Team, and working to make it the best it possibly can be. He is also member of Special Activities Division. He loves all aspects of aviation, and scours the internet/skies looking for and investigating flying machines. He spends a good portion of his time with his dog, a happy and playful dog.",
     "bioHackFoundation": "",
     "slackId": "U040N4ESCEL",
     "email": "lucas",
-    "website": "https://page.devlucas.page/",
-    "avatar": "https://cachet.dunkirk.sh/users/U040N4ESCEL/r"
+    "website": "https://devlucas.page",
+    "avatar": "/hc-cdn/a0da86cdb050733a_img_7387.jpg"
   },
   {
     "name": "Aishaani",
@@ -1185,18 +1245,6 @@
     "avatar": "https://cachet.dunkirk.sh/users/U03RG1Y7HNW/r"
   },
   {
-    "name": "Saran Wagner",
-    "department": "Welcoming",
-    "role": "Welcomer",
-    "acknowledged": false,
-    "bio": "Saran is a current high schooler who comes from the land of corn (the Midwest) in the United States who loves anything technology and engineering. At Hack Club, she is responsible of handling Slack moderation and being a welcoming figure to all in the community. In her free time, Saran can be found hacking up one of her projects, hanging out with others, and listening to copious and unhealthy amounts of music.",
-    "bioHackFoundation": "",
-    "slackId": "U060YRK2734",
-    "email": "saran",
-    "website": "",
-    "avatar": "https://cloud-cyw053qnp-hack-club-bot.vercel.app/1image.png"
-  },
-  {
     "name": "Louisa",
     "department": "Welcoming",
     "role": "Welcomer",
@@ -1239,7 +1287,7 @@
     "slackId": "U07V1ND4H0Q",
     "email": "",
     "website": "https://pianoman0.com/",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0beef222fac6d4440cd07b2546dc04e547c08293_pianoman0_profile_pic.jpeg"
+    "avatar": "/hc-cdn/0beef222fac6d4440cd07b2546dc04e547c08293_pianoman0_profile_pic.jpeg"
   },
   {
     "name": "Ruby",
@@ -1836,7 +1884,7 @@
     "slackId": "U0823F39GV8",
     "email": "",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/812f456bcb039cc2add7e8fba7b742a8b54639c8_45-13042025-5p7a7188-x2.jpg"
+    "avatar": "/hc-cdn/812f456bcb039cc2add7e8fba7b742a8b54639c8_45-13042025-5p7a7188-x2.jpg"
   },
   {
     "name": "Olive Wu",
@@ -1860,7 +1908,7 @@
     "slackId": "U03UBRVG2MS",
     "email": "samliu",
     "website": "https://samliu.dev",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/1f2d09365b0ed42d8e9864c80ba4d8561d85ab9b_frame_1.png"
+    "avatar": "/hc-cdn/1f2d09365b0ed42d8e9864c80ba4d8561d85ab9b_frame_1.png"
   },
   {
     "name": "Jiang Tongyu",
@@ -1872,7 +1920,7 @@
     "slackId": "U07DJMFAQQP",
     "email": "tongyu",
     "website": "https://tongyu.fish",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ae856042089cb4a5e0c6b53cf93f29008c1bc54e_big.png"
+    "avatar": "/hc-cdn/ae856042089cb4a5e0c6b53cf93f29008c1bc54e_big.png"
   },
   {
     "name": "Chan Kai Ling",
@@ -1884,7 +1932,7 @@
     "slackId": "U07DJMFAQQP",
     "email": "kl",
     "website": "https://kailings.garden",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a7f4268474dc54c0ecabf4dbd66b51abb6f8ac0d_img_1687.jpg"
+    "avatar": "/hc-cdn/a7f4268474dc54c0ecabf4dbd66b51abb6f8ac0d_img_1687.jpg"
   },
   {
     "name": "ascpixi",
@@ -1931,7 +1979,7 @@
     "slackId": "U07DPHQCCCS",
     "email": "mattsoh",
     "website": "https://youthacks.org",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/4926a04e4aa9a101e4919d8b8071991a74c20b08_compressjpeg.online_img_512x512_.jpg"
+    "avatar": "/hc-cdn/4926a04e4aa9a101e4919d8b8071991a74c20b08_compressjpeg.online_img_512x512_.jpg"
   },
   {
     "name": "Bartosz Budnik",
@@ -1943,6 +1991,18 @@
     "slackId": "U079VBNLTPD",
     "email": "bartosz",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/61f1b6d29e7880f8b02a72dd0ec25f891a77cc85_image.png"
+    "avatar": "/hc-cdn/61f1b6d29e7880f8b02a72dd0ec25f891a77cc85_image.png"
+  },
+  {
+    "name": "Alex Park",
+    "department": "HQ",
+    "role": "Events & Engineering",
+    "acknowledged": false,
+    "bio": "Alex is a Hack Clubber from the Houston area who likes trains and PCB design. Alex loves building infrastructure and has helped organize hackathons like The Boreal Express and Shipwrecked.",
+    "bioHackFoundation": "",
+    "slackId": "U01581HFAGZ",
+    "email": "alexp",
+    "website": "https://parkalex.dev",
+    "avatar": "https://cachet.dunkirk.sh/users/U01581HFAGZ/r"
   }
 ]
