@@ -92,7 +92,7 @@ export default function Aces() {
           >
             <Image
               alt="Aces Card"
-              src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/fd4556d7b7bf0f54ae51bfa72df0e4a2194e0cd1_favicon.png"
+              src="/hc-cdn/fd4556d7b7bf0f54ae51bfa72df0e4a2194e0cd1_favicon.png"
               sx={{
                 position: 'absolute',
                 top: [null, null, '-60px', '-80px'],
