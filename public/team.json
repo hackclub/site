@@ -180,13 +180,13 @@
   {
     "name": "Alex Ren",
     "department": "HQ",
-    "role": "Engineering",
+    "role": "Hardware Events",
     "acknowledged": false,
-    "bio": "",
+    "bio": "Alex is a long-time maker from Toronto who's been in and out of the hardware scene for over 10 years. They focus on building the hardware community they wish they had in high school.",
     "bioHackFoundation": "",
     "slackId": "U06PR6B8D37",
     "email": "alexren",
-    "website": "",
+    "website": "https://dari.zone",
     "avatar": "https://cachet.dunkirk.sh/users/U06PR6B8D37/r"
   },
   {
