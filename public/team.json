@@ -39,7 +39,7 @@
     "name": "Graham Darcey",
     "department": "HQ",
     "role": "Creative Technologist",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Originally from Vermont, Graham has worked as a full-stack software engineer in Silicon Valley for over twenty years, most recently at Uber where he worked on their core routing services and map data platform. He recently (2021) moved back east, and currently resides in Shelburne VT. Graham's hobbies include gaming, gamedev, cooking with his wife, and playing joyfully with his five year old daughter.",
     "bioHackFoundation": "",
     "slackId": "U04QH1TTMBP",
