@@ -37,7 +37,7 @@ const RelonPage = () => (
       as={Head}
       title="HCB is now open source!"
       description="Our fiscal sponsorship platform’s codebase is now publicly available under the AGPL license and we’re continuing to encourage transparency amongst nonprofits."
-      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9f07613f2f1a8fa166d56695015fab73c0ab8060_og_image.png"
+      image="/hc-cdn/9f07613f2f1a8fa166d56695015fab73c0ab8060_og_image.png"
     />
     <ForceTheme theme="light" />
     <Nav />
@@ -95,7 +95,7 @@ const RelonPage = () => (
         <AuthorPill
           firstName="Ian"
           tag="Ian Madden"
-          image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/eb65161e4fdd194bc39916abc7b9acd358fa9d8a_image.png"
+          image="/hc-cdn/eb65161e4fdd194bc39916abc7b9acd358fa9d8a_image.png"
         />
         <AuthorPill
           firstName="Gary"

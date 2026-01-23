@@ -53,7 +53,7 @@ export default function Blueprint({ stars, blueprintData }) {
         }}
       >
         <img
-          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a1ac108c50a27a1a7f6ba78122a19b427a84231f_IMG_3101__1_.png"
+          src="/hc-cdn/a1ac108c50a27a1a7f6ba78122a19b427a84231f_IMG_3101__1_.png"
           alt="Blueprint Logo"
           style={{
             width: '220px',
@@ -69,7 +69,7 @@ export default function Blueprint({ stars, blueprintData }) {
         }}
       >
         <img
-          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c06427309a3db7299065c0a41f1e8cc70531f0a9_blueprint.png"
+          src="/hc-cdn/c06427309a3db7299065c0a41f1e8cc70531f0a9_blueprint.png"
           alt="Blueprint"
           style={{
             maxWidth: '300px',

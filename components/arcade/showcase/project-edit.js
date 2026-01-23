@@ -12,7 +12,7 @@ const ProjectEditForm = ({ project }) => {
     {
       method: 'PATCH',
       initData: { ...project, recordId: project.id },
-      bearer: window.localStorage.getItem('arcade.authToken'),
+      bearer: typeof window !== 'undefined' ? window.localStorage.getItem('arcade.authToken') : null,
       clearOnSubmit: null
     }
   )
