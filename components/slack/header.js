@@ -1,8 +1,10 @@
-import { Box, Grid, Heading } from 'theme-ui'
+import { Box, Card, Grid, Heading, Text } from 'theme-ui'
 import SlideUp from '../slide-up'
 import JoinForm from './join-form'
 import usePrefersMotion from '../../lib/use-prefers-motion'
 import useHasMounted from '../../lib/use-has-mounted'
+
+const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
 
 const Content = () => (
   <Grid gap={3} pt={[5, '100px']} pb={[3, 4]}>
@@ -28,14 +30,68 @@ const Content = () => (
       </Heading>
     </Box>
     <SlideUp sx={{ zIndex: 5, display: 'flex', alignItems: 'center' }}>
-      <JoinForm
-        sx={{
-          variant: 'cards.translucent',
-          position: 'relative',
-          zIndex: 3,
-          maxWidth: 'null'
-        }}
-      />
+      {useWaitlist ? (
+        <JoinForm
+          sx={{
+            variant: 'cards.translucent',
+            position: 'relative',
+            zIndex: 3,
+            maxWidth: 'null'
+          }}
+        />
+      ) : (
+        <Card
+          sx={{
+            variant: 'cards.translucent',
+            maxWidth: 'narrow',
+            mx: 'auto',
+            textAlign: 'center'
+          }}
+        >
+          <Text as="p" sx={{ fontSize: [2, 3], mb: 3 }}>
+            Join thousands of teen hackers chatting, coding, and building together!
+          </Text>
+          <Text
+            as="a"
+            href="https://auth.hackclub.com/slack"
+            sx={{
+              bg: 'red',
+              backgroundImage: t => t.util.gx('orange', 'red'),
+              color: 'white',
+              fontSize: [2, 3],
+              px: 4,
+              py: 3,
+              borderRadius: 'extra',
+              fontWeight: 'bold',
+              textDecoration: 'none',
+              display: 'inline-block',
+              position: 'relative',
+              overflow: 'hidden',
+              transition: 'transform 0.125s ease-in-out',
+              ':hover': {
+                transform: 'scale(1.05)'
+              },
+              '::before': {
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                background: 'linear-gradient(120deg, transparent 10%, rgba(255,255,255,0.2) 50%, transparent 90%)',
+                transform: 'translateX(-100%)',
+                animation: 'shimmer 2.5s ease-in-out infinite'
+              },
+              '@keyframes shimmer': {
+                '0%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(100%)' }
+              }
+            }}
+          >
+            Join the Slack →
+          </Text>
+        </Card>
+      )}
     </SlideUp>
   </Grid>
 )

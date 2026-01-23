@@ -417,7 +417,7 @@ const Philanthropy = ({ posts = [] }) => {
                   my={3}
                   sx={{ width: ['100%', 'auto'] }}
                   as="a"
-                  href="https://hcb.hackclub.com/donations/start/hq"
+                  href="https://hcb.hackclub.com/donations/start/hq?utm_source=site&utm_medium=internal&utm_campaign=philanthropy_page&utm_content=hero_button"
                 >
                   Donate
                   <Text sx={{ display: ['none', 'inline-block'], ml: 2 }}>
@@ -605,7 +605,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Box mt={[2, 3]}>
                   <Text
                     as="a"
-                    href="https://hcb.hackclub.com/donations/start/hq"
+                    href="https://hcb.hackclub.com/donations/start/hq?utm_source=site&utm_medium=internal&utm_campaign=philanthropy_page&utm_content=body_link"
                     target="_blank"
                     sx={{
                       color: '#ec3750',
@@ -628,9 +628,39 @@ const Philanthropy = ({ posts = [] }) => {
             <Flex sx={{ justifyContent: 'space-between' }} mt={[3, 4]}>
               <Box>
                 <Text as="h2">View Hack Club's IRS Form 990s</Text>
-                <Text as="p">2023 Form will be shared when ready.</Text>
+                <Text as="p">2025 Form will be shared when ready.</Text>
               </Box>
               <Box>
+                <Button
+                  as="a"
+                  variant="outline"
+                  href="https://projects.propublica.org/nonprofits/organizations/812908499/202533219349309698/full"
+                  target="_blank"
+                  mb={4}
+                  sx={{
+                    fontSize: '1em !important',
+                    width: 'fit-content',
+                    float: 'right',
+                    mt: 2
+                  }}
+                >
+                  2024
+                </Button>
+                <Button
+                  as="a"
+                  variant="outline"
+                  href="https://projects.propublica.org/nonprofits/organizations/812908499/202423209349312247/full"
+                  target="_blank"
+                  mb={4}
+                  sx={{
+                    fontSize: '1em !important',
+                    width: 'fit-content',
+                    float: 'right',
+                    mt: 2
+                  }}
+                >
+                  2023
+                </Button>
                 <Button
                   as="a"
                   variant="outline"
@@ -641,7 +671,8 @@ const Philanthropy = ({ posts = [] }) => {
                     fontSize: '1em !important',
                     width: 'fit-content',
                     float: 'right',
-                    mt: 2
+                    mt: 2,
+                    mr: 2
                   }}
                 >
                   2022
@@ -683,6 +714,67 @@ const Philanthropy = ({ posts = [] }) => {
             <span>
               Starting in 2021, Hack Club has engaged with an external auditing
               firm and has audited financials through the current fiscal year.
+            </span>
+          </Fade>
+          <Line />
+          <Fade delay={100}>
+            <Flex sx={{ justifyContent: 'space-between' }} mt={[3, 4]}>
+              <Box>
+                <Text as="h2">View Hack Club's Annual Reports</Text>
+                <Text as="p">Reports from 2022-2024</Text>
+              </Box>
+              <Box>
+              <Button
+                  as="a"
+                  variant="outline"
+                  href="/hc-cdn/9182271af3e9fd99e2333e07e1ab5de3d4db3730_final-2024-annual-report.pdf"
+                  target="_blank"
+                  mb={4}
+                  sx={{
+                    fontSize: '1em !important',
+                    width: 'fit-content',
+                    float: 'right',
+                    mt: 2
+                  }}
+                >
+                  2024
+                </Button>
+                <Button
+                  as="a"
+                  variant="outline"
+                  href="https://cloud-qfyq0eotn-hack-club-bot.vercel.app/02023_annual_report.pdf"
+                  target="_blank"
+                  mb={4}
+                  sx={{
+                    fontSize: '1em !important',
+                    width: 'fit-content',
+                    float: 'right',
+                    mt: 2,
+                    mr: 2
+                  }}
+                >
+                  2023
+                </Button>
+                <Button
+                  as="a"
+                  variant="outline"
+                  href="https://cloud-8zfcx3ub5-hack-club-bot.vercel.app/0hack_club_annual_report_2022.pdf"
+                  target="_blank"
+                  mb={4}
+                  sx={{
+                    fontSize: '1em !important',
+                    width: 'fit-content',
+                    float: 'right',
+                    mt: 2,
+                    mr: 2
+                  }}
+                >
+                  2022
+                </Button>
+              </Box>
+            </Flex>
+            <span>
+            Explore Hack Club's annual reports from 2022 onward, showcasing each year's impact and key milestones.
             </span>
           </Fade>
           {/* <Fade delay={300}>
@@ -1029,12 +1121,15 @@ const Philanthropy = ({ posts = [] }) => {
               <Box>
                 <Fade delay={50}>
                   <Text as="h3" sx={{ marginBottom: '8px' }}>
-                    Above $5M{' '}
+                    $5M - $10M{' '}
                   </Text>
                 </Fade>
                 <Fade delay={70}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Musk Foundation (4x)
+                    Tom Preston-Werner (8x)
+                  </Text>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Musk Foundation (5x)
                   </Text>
                 </Fade>
                 <br></br>
@@ -1042,11 +1137,6 @@ const Philanthropy = ({ posts = [] }) => {
                   <Text as="h3" sx={{ marginBottom: '8px' }}>
                     {' '}
                     $1M - $5M{' '}
-                  </Text>
-                </Fade>
-                <Fade delay={110}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Tom Preston-Werner (7x)
                   </Text>
                 </Fade>
                 <Fade delay={120}>
@@ -1073,17 +1163,17 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <Fade delay={190}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Lizzy Danhakl/Andrew Reed (3x)
+                    Lizzy Danhakl/Andrew Reed (5x)
                   </Text>
                 </Fade>
                 <Fade delay={210}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Craig Newmark (4x)
+                    Craig Newmark (5x)
                   </Text>
                 </Fade>
                 <Fade delay={230}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Endless Network (2x)
+                    Endless Network (3x)
                   </Text>
                 </Fade>
                 <Fade delay={250}>
@@ -1091,10 +1181,18 @@ const Philanthropy = ({ posts = [] }) => {
                     Joe Liemandt
                   </Text>
                 </Fade>
+
+                <Fade delay={260}>
+                  <Fade delay={410}>
+                    <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                      Argosy Foundation (4x)
+                    </Text>
+                  </Fade>
+                </Fade>
               </Box>
               <Box>
-                <Fade delay={260}>
-                  <Text as="h3" sx={{ marginBottom: '8px' }}>
+                <Fade>
+                  <Text as="h3" sx={{ lineHeight: '1.8em' }}>
                     $200k - $500k
                   </Text>
                 </Fade>
@@ -1118,15 +1216,23 @@ const Philanthropy = ({ posts = [] }) => {
                     Ron Baron
                   </Text>
                 </Fade>
-                <Fade delay={360}>
+                <Fade delay={530}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Ron Conway (4x)
+                    Adam Ross (4x)
                   </Text>
                 </Fade>
-                <Fade delay={410}>
+                <Fade delay={360}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Argosy Foundation (3x)
+                    Ron Conway (5x)
                   </Text>
+                </Fade>
+
+                <Fade delay={470}>
+                  <Fade delay={360}>
+                    <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                      GitHub Education (5x)
+                    </Text>
+                  </Fade>
                 </Fade>
               </Box>
               <Box>
@@ -1140,11 +1246,6 @@ const Philanthropy = ({ posts = [] }) => {
                     Quinn Slack (3x)
                   </Text>
                 </Fade>
-                <Fade delay={530}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Adam Ross (3x)
-                  </Text>
-                </Fade>
                 <Fade delay={560}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Peter Levine
@@ -1152,7 +1253,7 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <Fade delay={590}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    FUTO
+                    FUTO (3x)
                   </Text>
                 </Fade>
               </Box>
@@ -1160,7 +1261,7 @@ const Philanthropy = ({ posts = [] }) => {
             <Fade delay={800}>
               <br />
               <Text sx={{ color: 'muted', fontSize: '90%' }}>
-                * The numbers in bracket indicates repeated gifts
+                * The numbers in bracket indicates # of gifts since 2018
               </Text>
             </Fade>
           </Box>

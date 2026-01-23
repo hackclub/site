@@ -203,7 +203,7 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
               content="click here to get started in our editor"
               id="6"
               icon="emoji"
-              link="https://editor.sprig.hackclub.com"
+              link="https://sprig.hackclub.com/editor"
               primary="#FFDE4D"
               sx={{ color: 'black' }}
             >

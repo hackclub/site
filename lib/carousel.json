@@ -9,6 +9,32 @@
     "link": "https://jams.hackclub.com"
   },
   {
+    "background": "#0e305b",
+    "backgroundImage": "linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)",
+    "backgroundSize": "50px 50px",
+    "titleColor": "#dbe4ee",
+    "textColor": "#dbe4ee",
+    "descriptionColor": "#dbe4ee",
+    "title": "Blueprint",
+    "description": "Design a hardware project and get up to $400 to make it real",
+    "img": "/hc-cdn/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png",
+    "link": "https://blueprint.hackclub.com/?utm_source=site-carousel"
+  },
+  
+  {
+    "background": "#0b0a08",
+    "backgroundImage": "radial-gradient(ellipse at 50% 0%, rgba(255, 90, 31, 0.25) 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, rgba(255, 176, 0, 0.15) 0%, transparent 50%)",
+    "backgroundSize": "100% 100%",
+    "titleColor": "#ffd7a1",
+    "textColor": "#ffd7a1",
+    "descriptionColor": "rgba(255, 215, 161, 0.85)",
+    "title": "Campfire Flagship",
+    "description": "Make games with your favorite YouTubers at a game jam in Los Angeles!",
+    "img": "/hc-cdn/2de1ef0d2b0822b6_marsh2-flip.png",
+    "link": "https://flagship.hackclub.com/?utm_source=c-carousel",
+    "tag": "Game Jam"
+  },
+  {
     "background": "#C76B0F",
     "titleColor": "#F6D193",
     "descriptionColor": "#F6D193",
@@ -18,15 +44,6 @@
     "link": "https://hack.club/boba"
   },
   {
-    "background": "#FFF1DE",
-    "titleColor": "#4F2A0E",
-    "descriptionColor": "#4F2A0E",
-    "title": "Hackaccino",
-    "description": "Make a 3D Website • Get a free Frappuccino",
-    "img": "https://cloud-ahkc8uotv-hack-club-bot.vercel.app/0group_15.png",
-    "link": "https://hack.club/fraps"
-  },
-  {
     "background": "#EF6C46",
     "titleColor": "#EDE2DC",
     "descriptionColor": "#EDE2DC",
@@ -34,15 +51,6 @@
     "description": "Design, Code, and Ship an iOS app to the App Store in 30 days.",
     "img": "https://cloud-m33gqgkp6-hack-club-bot.vercel.app/0image.png",
     "link": "https://cider.hackclub.com/"
-  },
-    {
-    "background": "#30AE1F",
-    "titleColor": "#FFFFFF",
-    "descriptionColor": "#FFFFFF",
-    "title": "HackCraft",
-    "description": "Ship a mod - Get Minecraft",
-    "img": "https://cloud-kgilrkgl7-hack-club-bot.vercel.app/0image.png",
-    "link": "https://hackcraft.hackclub.com/"
   },
   {
     "background": "snow",
@@ -81,15 +89,6 @@
     "link": "https://sinerider.com"
   },
   {
-    "background": "dark",
-    "titleColor": "green",
-    "descriptionColor": "white",
-    "title": "OnBoard",
-    "description": "Join 1k teens designing PCBs, learning hardware, and building electronics",
-    "img": "https://cloud-6skkg6eck-hack-club-bot.vercel.app/0image.png",
-    "link": "/onboard"
-  },
-  {
     "background": "#e9e9e9",
     "titleColor": "black",
     "textColor": "black",
@@ -98,5 +97,23 @@
     "description": "Free Linux server for all Hack Clubbers to host anything they need",
     "img": "https://emoji.slack-edge.com/T0266FRGM/nest/aa345378581cee0c.png",
     "link": "https://hackclub.app"
+  },
+  {
+   "background": "#ec3750",
+   "titleColor": "white",
+   "descriptionColor": "white",
+   "title": "YSWS Programs",
+   "description": "Build something amazing, and Hack Club will ship you something epic in return.",
+   "img":"https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f680@2x.png",
+   "link": "https://ysws.hackclub.com"
+  },
+  {
+    "background": "#7B4942",
+    "titleColor": "white",
+    "descriptionColor": "#f0dcc8",
+    "title": "Flavortown",
+    "description": "Build projects, earn cookies, and exchange them for iPads, MacBooks, and more!",
+    "img": "/hc-cdn/0256e44f53eb79e4_logo-b28e0e8b.avif",
+    "link": "https://flavortown.hackclub.com/?ref=site-carousel"
   }
 ]

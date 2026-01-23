@@ -11,3 +11,4 @@ bun.lockb
 .idea
 .yarn
 .yarnrc.yml
+.env*.local

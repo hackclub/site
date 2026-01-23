@@ -17,7 +17,7 @@ async function inviteToArcadius({ email }) {
 async function inviteToAirtable({ email, ip }) {
   const airtable = new AirtablePlus({
     baseID: 'appaqcJtn33vb59Au',
-    apiKey: process.env.AIRTABLE_API_KEY,
+    apiKey: process.env.AIRTABLE_WRITE_API_KEY,
     tableName: 'Arcade Joins'
   })
   return await airtable.create({ 'Email': email, 'IP': ip })
@@ -26,7 +26,7 @@ async function inviteToAirtable({ email, ip }) {
 async function markInvitedInAirtable({ recordID }) {
   const airtable = new AirtablePlus({
     baseID: 'appaqcJtn33vb59Au',
-    apiKey: process.env.AIRTABLE_API_KEY,
+    apiKey: process.env.AIRTABLE_WRITE_API_KEY,
     tableName: 'Arcade Joins'
   })
   const result = await airtable.update(recordID, { 'Invited': true })

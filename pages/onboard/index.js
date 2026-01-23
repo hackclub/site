@@ -104,8 +104,11 @@ const ShipPage = () => {
   const spotlightRef = useRef()
   useEffect(() => {
     const handler = event => {
+      const rect = spotlightRef.current.getBoundingClientRect()
+      const x = event.clientX - rect.left
+      const y = event.clientY - rect.top
       spotlightRef.current.style.background = `radial-gradient(
-				circle at ${event.pageX}px ${event.pageY}px,
+				circle at ${x}px ${y}px,
 				rgba(0, 0, 0, 0) 10px,
 				rgba(0, 0, 0, 0.8) 80px
 			)`
@@ -163,7 +166,34 @@ const ShipPage = () => {
         <link rel="preload" href={wandImgRendered} as="image" />
       </Head>
 
+      <Box sx={{ bg: '#000000', height: '64px' }} />
       <Nav />
+
+      <Box
+        sx={{
+          backgroundColor: '#0e305b',
+          backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
+          backgroundSize: '50px 50px',
+          backgroundPosition: '0 0, 0 0',
+          color: 'white',
+          p: 3,
+          textAlign: 'center',
+          fontSize: 3,
+          fontWeight: 'bold',
+          position: 'relative',
+          border: '4px solid white'
+        }}
+      >
+        OnBoard has ended!{' '}
+        <Link
+          href="https://blueprint.hackclub.com/?utm_source=onboard-site"
+          target="_blank"
+          sx={{ color: 'white', textDecoration: 'underline' }}
+        >
+          Click here
+        </Link>{' '}
+        to sign up for Blueprint - the next hardware program
+      </Box>
 
       <Box
         as="header"
@@ -200,7 +230,7 @@ const ShipPage = () => {
             position: 'relative'
           }}
         >
-          <Box sx={{ pt: [3, 6] }}>
+          <Box sx={{ pt: [3, 5] }}>
             <Announcement
               copy="Steve Wozniak, Apple co-founder, about OnBoard"
               caption="I’m so glad young people can create PCBs online. May your creativity change the world! Mine did."

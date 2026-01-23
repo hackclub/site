@@ -1,0 +1,36 @@
+[
+     {
+        "title": "Flavortown",
+        "logo": "/hc-cdn/78c8f69432a9421d_flavortown-logo.png",
+        "background": "#7B4942",
+        "stickerImage": "/hc-cdn/0256e44f53eb79e4_logo-b28e0e8b.avif",
+        "description": "Cook tasty personal projects, win free prizes!",
+        "descriptionColor": "white",
+        "buttonText": "JOIN NOW",
+        "buttonColor": "#AD7858",
+        "link": "https://flavortown.hackclub.com/?ref=site-0"
+    },
+    {
+        "title": "Blueprint",
+        "logo": "/hc-cdn/c06427309a3db7299065c0a41f1e8cc70531f0a9_blueprint.png",
+        "background": "#0e305b",
+        "gridBackground": true,
+        "stickerImage": "/hc-cdn/8292f6b4eba5e1fc29b51e9bc08eea5521e9ff46_IMG_3099__1_.png",
+        "description": "Design a Hardware project and get up to $400 to make it real!",
+        "descriptionColor": "white",
+        "buttonText": "JOIN NOW",
+        "buttonColor": "rgb(50, 70, 110)",
+        "link": "https://blueprint.hackclub.com/?utm_source=cta"
+    },
+    {
+        "title": "Campfire Flagship",
+        "logo": "/hc-cdn/542f4bf6aa9cd5cc_logo-w-info-v2.png",
+        "background": "#000015",
+        "stickerImage": "/hc-cdn/a02495e0d090461b_smore-smaller.png",
+        "description": "Code with your favorite YouTubers at a Game Jam this February!",
+        "descriptionColor": "white",
+        "buttonText": "JOIN NOW",
+        "buttonColor": "#2b2b59",
+        "link": "https://flagship.hackclub.com/?utm_source=site_cta"
+    }
+]

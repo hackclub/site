@@ -58,7 +58,7 @@ export default function KeepExploring() {
 
       <Container>
         <Grid
-          columns={[null, '1fr 2fr']}
+          columns={[null, '1fr 1fr']}
           my={[3, 5]}
           sx={{ maxWidth: 'copyUltra', mx: 'auto' }}
         >
@@ -83,9 +83,6 @@ export default function KeepExploring() {
               Windy&nbsp;City&nbsp;Hacks
             </a>
             . The&nbsp;hack’s the limit.
-            <Box as="div" sx={{ mt: 3 }}></Box>
-            Hack Club is providing grants, support, and more, to help you run
-            the next amazing hackathon.
           </Text>
         </Grid>
       </Container>

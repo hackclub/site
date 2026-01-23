@@ -1,0 +1,23 @@
+name: Validate Team JSON
+
+on:
+  push:
+    paths:
+      - 'public/team.json'
+  pull_request:
+    paths:
+      - 'public/team.json'
+
+jobs:
+  validate:
+    name: Validate team.json
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Validate JSON format
+        run: |
+          if ! jq empty public/team.json 2>/dev/null; then
+            echo "Error: team.json is not valid JSON"
+            exit 1
+          fi
+          echo "✓ team.json is valid JSON"

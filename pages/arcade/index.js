@@ -1906,31 +1906,42 @@ export async function getStaticProps() {
     .readdirSync(stickersDir)
     .filter(sticker => sticker !== 'hero.jpg')
 
-  const items = await shopParts()
+  let carousel = []
+  let highlightedItems = []
 
-  const carousel = items
-    .map(record => ({
-      hours: record['Cost Hours'] || 0,
-      imageURL: record['Image URL'] || '',
-      enabledCarousel: record['Enabled Carousel'] || false
-    }))
-    .filter(item => item.enabledCarousel)
-    .filter(item => item.imageURL !== '')
+  // Only fetch shop data if API key is available
+  if (process.env.AIRTABLE_API_KEY) {
+    try {
+      const items = await shopParts()
 
-  const highlightedItems = items
-    .filter(item => item['Enabled Highlight'])
-    .sort((_a, _b) => Math.random() - 0.5 > 0)
-    .map(record => ({
-      // id: record['ID'],
-      'Image URL': record['Image URL'] || null,
-      Name: record['Name'] || null,
-      'Small Name': record['Small Name'] || null,
-      'Full Name': record['Full Name'] || null,
-      'Cost Hours': record['Cost Hours'] || null,
-      Description: record['Description'] || null,
-      'Fulfillment Description': record['Fulfillment Description'] || null,
-      'Extra tags': record['Extra tags'] || []
-    }))
+      carousel = items
+        .map(record => ({
+          hours: record['Cost Hours'] || 0,
+          imageURL: record['Image URL'] || '',
+          enabledCarousel: record['Enabled Carousel'] || false
+        }))
+        .filter(item => item.enabledCarousel)
+        .filter(item => item.imageURL !== '')
+
+      highlightedItems = items
+        .filter(item => item['Enabled Highlight'])
+        .sort((_a, _b) => Math.random() - 0.5 > 0)
+        .map(record => ({
+          'Image URL': record['Image URL'] || null,
+          Name: record['Name'] || null,
+          'Small Name': record['Small Name'] || null,
+          'Full Name': record['Full Name'] || null,
+          'Cost Hours': record['Cost Hours'] || null,
+          Description: record['Description'] || null,
+          'Fulfillment Description': record['Fulfillment Description'] || null,
+          'Extra tags': record['Extra tags'] || []
+        }))
+    } catch (error) {
+      console.error('Airtable fetch failed:', error)
+    }
+  } else {
+    console.log('AIRTABLE_API_KEY not defined, using empty shop data')
+  }
 
   return {
     props: {

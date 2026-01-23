@@ -23,6 +23,14 @@ import Features from '../../components/fiscal-sponsorship/features'
 import OuternetImgFile from '../../public/home/outernet-110.jpg'
 import SignIn from '../../components/fiscal-sponsorship/sign-in'
 import OrganizationSpotlight from '../../components/fiscal-sponsorship/organization-spotlight'
+import { setCookie, getCookie } from 'cookies-next'
+import { useEffect, useState } from 'react'
+import { unfold } from '../../components/announcement'
+import Announcement from '../../components/announcement'
+import OpenSource from '../../components/fiscal-sponsorship/open-source'
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import Sparkles from '../../components/sparkles'
+import Icon from '../../components/icon'
 
 const organizations = [
   {
@@ -31,9 +39,7 @@ const organizations = [
     description:
       'Publishing techno-optimism, through newsletters, magazines, and events.',
     slug: 'reboot',
-    location: {
-      readable: 'Bay Area, CA, USA'
-    },
+    location: { readable: 'Bay Area, CA, USA' },
     logo: '/fiscal-sponsorship/reboot.png',
     background_image: '/fiscal-sponsorship/reboot-bg.jpg'
   },
@@ -42,9 +48,7 @@ const organizations = [
     name: 'Apocalypse',
     description: "Canada's largest in-person high school hackathon.",
     slug: 'apocalypse',
-    location: {
-      readable: 'Toronto, Canada'
-    },
+    location: { readable: 'Toronto, Canada' },
     logo: '/fiscal-sponsorship/apocalypse.png',
     background_image: '/fiscal-sponsorship/apocalypse-bg.png'
   },
@@ -53,9 +57,7 @@ const organizations = [
     name: 'Green Mountain Robotics',
     description: 'Spreading STEM interest, one robot at a time.',
     slug: 'green-mountain-robotics',
-    location: {
-      readable: 'Chittenden County, VT, USA'
-    },
+    location: { readable: 'Chittenden County, VT, USA' },
     logo: '/fiscal-sponsorship/green-mountain-robotics.png',
     background_image: 'green-mountain-robotics-bg.png'
   },
@@ -64,15 +66,140 @@ const organizations = [
     name: 'Hack Club HQ',
     description: 'This is us! We run our operations on HCB.',
     slug: 'hq',
-    location: {
-      readable: 'Vermont, USA'
-    },
-    logo: 'https://cloud-91boqw8z9-hack-club-bot.vercel.app/0icon-rounded.png',
+    location: { readable: 'Vermont, USA' },
+    logo: '/fiscal-sponsorship/hq.png',
     background_image: '/fiscal-sponsorship/hq-bg.jpg'
   }
 ]
 
+function MobileAppAlert() {
+  return (
+    <Container sx={{ position: 'relative' }}>
+      <Box
+        sx={{
+          position: 'relative',
+          overflow: 'hidden',
+          py: ['25px', 3],
+          px: 4,
+          background: [
+            'rgba(200, 200, 200, 0.3)',
+            'linear-gradient(rgba(255,255,255,0.4), rgba(200,200,200,.3))'
+          ],
+          backdropFilter: 'blur(20px)',
+          borderRadius: 20,
+          boxShadow:
+            '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 10,
+          mt: [20, -50],
+          transform: 'scaleY(0)',
+          '@media (prefers-reduced-motion: no-preference)': {
+            animation: `${unfold} 0.5s ease-out forwards`,
+            animationDelay: '0.5s'
+          },
+          flexDirection: ['column', 'row']
+        }}
+      >
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 15,
+            right: -30,
+            bg: 'red',
+            color: 'white',
+            transform: 'rotate(45deg)',
+            width: 120,
+            textAlign: 'center',
+            py: 1,
+            fontSize: 1,
+            zIndex: 40,
+            fontWeight: 'bold',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+          }}
+        >
+          New!
+        </Box>
+        <span style={{ fontSize: 20 }}>
+          <strong style={{ fontSize: 23 }}>HCB Mobile is here!</strong>
+          <br />
+          Manage your HCB organizations on the go. Issue cards, view transactions, and more!
+          <br />
+          Get <strong>limited edition</strong> stickers by downloading the app and signing in.
+        </span>
+
+        <Box
+          sx={{
+            gap: 2,
+            display: 'flex',
+            width: ['100%', 'auto'],
+            alignItems: ['stretch', 'center'],
+            flexShrink: 0,
+            ml: [undefined, 'auto'],
+            flexDirection: ['column', 'row'],
+            flexWrap: 'wrap',
+            alignItems: 'center',
+          }}
+        >
+          <a
+            href="https://apps.apple.com/us/app/hcb-by-hack-club/id6465424810"
+            target="_blank"
+            rel="noreferrer"
+            style={{ padding: 0, margin: 0, height: 40 }}
+          >
+            <img
+              src="apple-web-badge.svg"
+              alt="Download on the App Store"
+              style={{ height: 40 }}
+            />
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.hackclub.hcb"
+            target="_blank"
+            rel="noreferrer"
+            style={{ padding: 0, margin: 0, height: 40 }}
+          >
+            <img
+              src="google-play-web-badge.png"
+              alt="Get it on Google Play"
+              style={{ height: 40 }}
+            />
+          </a>
+        </Box>
+      </Box>
+    </Container>
+  )
+}
+
 export default function Page() {
+  const [hasReferral, setHasReferral] = useState(false)
+  const [mobileInstalls, setMobileInstalls] = useState(0)
+  useEffect(() => {
+    fetch('https://hcb.hackclub.com/stats')
+      .then(res => res.json())
+      .then(data => {
+        setMobileInstalls(data.mobile_installs)
+      })
+  }, [])
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+
+    const tubProgram = params.get('tub_program')
+    const referral = params.get('referral')
+    const referralCookie = getCookie('referral')
+
+    if (referral) {
+      setCookie('referral', referral)
+      setCookie('tub_program', 'GFGS')
+    } else if (tubProgram) {
+      setCookie('tub_program', tubProgram)
+      setCookie('referral', '')
+    }
+
+    setHasReferral(!!referral || !!referralCookie)
+  }, [])
+
   return (
     <>
       <Meta
@@ -88,7 +215,7 @@ export default function Page() {
         sx={{
           position: 'relative',
           pt: 6,
-          pb: [4, 5],
+          pb: [4, '90px'],
           bg: 'rgb(104, 41, 205)',
           backgroundImage:
             'radial-gradient(ellipse at 5% 5%, #ec555c 0%, rgba(236,85,92,0) 75%),radial-gradient(ellipse at 95% 5%, #dc71a1 0%, rgba(220,113,161,0) 75%),radial-gradient(ellipse at 95% 95%, #fcc8bf 0%, rgba(252,200,191,0) 75%),radial-gradient(ellipse at 5% 95%, #ffce33 0%, rgba(255,206,51,0) 75%)'
@@ -174,6 +301,36 @@ export default function Page() {
               best-in-class software.
             </Balancer>
           </Text>
+
+          {hasReferral && (
+            <Text variant="lead" sx={{ my: [3, 4] }}>
+              <Box
+                sx={{
+                  bg: 'rgba(255, 255, 255, 0.2)',
+                  p: 3,
+                  borderRadius: 'default',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  backdropFilter: 'blur(8px)',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                  mt: 3
+                }}
+              >
+                Apply by <strong>April 16th</strong> using referral code (
+                {getCookie('referral')}) and get stickers + fiscal sponsorship
+                fees waived for the month of May.
+                <Link
+                  href="https://docs.google.com/document/d/e/2PACX-1vTPygv_qfd2FnU3Dslt4o69nBlOoKhvWDuexk67ApjuIH96ghjpLjw9wJhsRUtTZYX3XO4EVdxXVx7Q/pub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Terms apply"
+                  style={{ marginLeft: '4px' }}
+                >
+                  *
+                </Link>
+              </Box>
+            </Text>
+          )}
+
           <Flex
             sx={{
               flexDirection: ['column', 'row'],
@@ -199,21 +356,79 @@ export default function Page() {
           </Flex>
         </Container>
       </Box>
-      <Box id="organizations" as="section" sx={{ py: [4, 5] }}>
+      <MobileAppAlert />
+      <Box as="section" sx={{ py: [4, 5], alignItems: 'center' }}>
+        <Container sx={{ alignItems: 'center' }}>
+          <Grid gap={[4, 5]} columns={[null, null, 2]} sx={{ alignItems: 'center' }}>
+            <Box>
+              <Heading as="h2" variant="title" sx={{ mb: 3, maxWidth: 'copyUltra' }}>
+                HCB in your <Sparkles sx={{ color: 'red' }}>pocket</Sparkles>
+              </Heading>
+              <Text as="p" variant="lead" sx={{ mb: 3 }}>
+                The official mobile app lets you manage your
+                organization&apos;s finances, issue cards, and more!
+              </Text>
+              <Grid columns={[1, 2]} gap={3}>
+                <Card variant="sunken" sx={{ p: '1.5rem !important', bg: 'snow', borderRadius: 'default' }}>
+                  <Text as="strong" color="slate" sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1, justifyContent: 'space-between' }}>
+                    <span style={{ maxWidth: 'calc(100% - 36px)' }}>See your organization's spending</span><Icon glyph="view" size={36} sx={{ color: 'red', flexShrink: 0 }} />
+                  </Text>
+                  <Text>
+                    Stay up to date on your organization's balance and transactions.
+                  </Text>
+                </Card>
+                <Card variant="sunken" sx={{ p: '1.5rem !important', bg: 'snow', borderRadius: 'default' }}>
+                  <Text as="strong" color="slate" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2, mb: 1 }}>
+                    <span style={{ maxWidth: 'calc(100% - 32px)' }}>Accept Tap to Pay donations</span><Icon glyph="bolt-circle" size={32} sx={{ color: 'red', flexShrink: 0 }} />
+                  </Text>
+                  <Text>
+                    No extra hardware required! Tap any card against your phone. Great for in-person fundraisers.
+                  </Text>
+                </Card>
+                <Card variant="sunken" sx={{ p: '1.5rem !important', bg: 'snow', borderRadius: 'default' }}>
+                  <Text as="strong" color="slate" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2, mb: 1 }}>
+                    <span style={{ maxWidth: 'calc(100% - 32px)' }}>Issue, manage, and<br />add cards</span><Icon glyph="card" size={32} sx={{ color: 'red', flexShrink: 0 }} />
+                  </Text>
+                  <Text>
+                    You can directly add cards to Apple&nbsp;Wallet and Google&nbsp;Wallet. No more forgetting your card!
+                  </Text>
+                </Card>
+                <Card variant="sunken" sx={{ p: '1.5rem !important', bg: 'snow', borderRadius: 'default' }}>
+                  <Text as="strong" color="slate" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2, mb: 1 }}>
+                    <span style={{ maxWidth: 'calc(100% - 32px)' }}>Upload receipts the easy way</span><Icon glyph="docs" size={32} sx={{ color: 'red', flexShrink: 0 }} />
+                  </Text>
+                  <Text>Quickly snap a photo or upload a file!</Text>
+                </Card>
+              </Grid>
+              <Button
+                as="a"
+                sx={{ flexShrink: 0, gap: 1, paddingLeft: 25, paddingRight: '5px', marginTop: '20px' }}
+                href="/hcb/mobile"
+                target="_blank"
+              >
+                Read our story
+                <Icon glyph="view-forward" />
+              </Button>
+            </Box>
+            <Card sx={{ backgroundImage: 'linear-gradient(to right, #fcc8bf, #ffce33)', px: [5, 5], py: '0 !important', height: 'fit-content', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative' }}>
+              <Text as="span" sx={{ position: 'absolute', bottom: 12, left: 12, bg: 'white', color: 'slate', fontSize: 14, fontWeight: 'bold', px: 3, py: 2, borderRadius: 30, boxShadow: 'small' }}>
+                {mobileInstalls.toLocaleString()} installs
+              </Text>
+              <Box as="img" src="mobile-mockup.png" sx={{ display: 'block', width: '100%', height: 'auto' }} />
+            </Card>
+          </Grid>
+        </Container>
+      </Box>
+      <Box id="organizations" as="section" sx={{ py: [4, 5], bg: 'snow' }}>
         <Container sx={{}}>
-          {/* <Text as="p" variant="headline" sx={{ mt: 0 }}>
-            Powering nonprofits at every scale
-          </Text> */}
-          <Flex
-            sx={{
-              flexWrap: 'wrap',
-              rowGap: 3,
-              columnGap: [4, 5],
-              mb: 4
-            }}
-          >
-            <Stat value="$30M+" label="processed transactions" reversed />
-            <Stat value="2000+" label="projects" reversed />
+          <Heading as="h2" variant="title" sx={{ mt: 0, mb: 3, maxWidth: 'copyUltra' }}>
+            <Balancer>
+              Powering nonprofits at every scale
+            </Balancer>
+          </Heading>
+          <Flex sx={{ flexWrap: 'wrap', rowGap: 3, columnGap: [4, 5], mb: 4 }}>
+            <Stat value="$80M+" label="processed transactions" reversed />
+            <Stat value="6500+" label="projects" reversed />
             <Stat value="2018" label="serving nonprofits since" reversed />
           </Flex>
           <Grid columns={[1, 2]} gap={[3, 4]} sx={{ mt: 4 }}>
@@ -251,8 +466,7 @@ export default function Page() {
         </Container>
       </Box>
       <Features />
-
-      <Box id="fees" as="section" sx={{ position: 'relative', py: 5 }}>
+      <Box id="fees" as="section" sx={{ position: 'relative', py: 5, bg: 'snow' }}>
         <Container>
           <Grid columns={[null, null, 2]} gap={[4, 5]}>
             <div>
@@ -262,7 +476,7 @@ export default function Page() {
               >
                 One simple, transparent fee:
                 <br />
-                7% of income.
+                7% of revenue.
               </Text>
               <Text
                 as="p"
@@ -291,10 +505,10 @@ export default function Page() {
                     'linear-gradient(to right, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
                 },
                 '@supports (-webkit-background-clip: text) and (background: linear-gradient(to right in oklch, white, black)':
-                  {
-                    backgroundImage:
-                      'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
-                  }
+                {
+                  backgroundImage:
+                    'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
+                }
               }}
               style={{ margin: 0 }}
             >
@@ -315,6 +529,7 @@ export default function Page() {
           </Grid>
         </Container>
       </Box>
+      {/** removed for now
       <Box as="section" bg="snow" sx={{ py: 5 }}>
         <Container>
           <Grid columns={[null, null, 2]} gap={[4, 5]}>
@@ -340,7 +555,7 @@ export default function Page() {
                   }
                 }}
               >
-                {['128.png', 'ycjf.png', 'first.png'].map(file => (
+                {['ycjf.png', 'first.png'].map(file => (
                   <img
                     key={file}
                     src={`/fiscal-sponsorship/${file}`}
@@ -362,9 +577,7 @@ export default function Page() {
                   textIndent: '-0.33em'
                 }}
               >
-                “HCB’s Climate fiscal sponsorship program removes funding
-                barriers with a blend of youth-centered, tech-savvy services and
-                a deep commitment to authentic youth empowerment.”
+                “Quote goes here”
               </Text>
               <Text
                 as="p"
@@ -373,18 +586,18 @@ export default function Page() {
               >
                 —
                 <Text as="strong" color="slate">
-                  Kate Goss
+                  FirstName LastName
                 </Text>
-                , Executive Director,{' '}
-                <UILink href="https://128collective.org">
-                  128&nbsp;Collective
+                , Title,{' '}
+                <UILink href="https://example.com">
+                  Organization
                 </UILink>
               </Text>
             </Card>
           </Grid>
         </Container>
       </Box>
-
+      */}
       <Container>
         <Grid
           columns={[null, null, 2]}
@@ -394,7 +607,7 @@ export default function Page() {
           <Link href="https://outernet.hackclub.com/">
             <Photo
               src={OuternetImgFile}
-              alt="Each year, 1000s of teenagers attend Hack Club events like this"
+              alt="Each year, thousands of teenagers attend Hack Club events like this"
               showAlt
               sx={{ height: '100%' }}
             />
@@ -409,7 +622,7 @@ export default function Page() {
                 <UILink>Hack Club</UILink>
               </Link>{' '}
               grew, we needed a way to empower our members. We currently have
-              over 30,000 high schoolers involved in Hack Club with over 400
+              over 60,000 high schoolers involved in Hack Club with over 400
               clubs around the world.
             </p>
             <p>
@@ -440,7 +653,7 @@ export default function Page() {
                 <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
               </svg>
               <span>
-                As part of our commitment to climate justice, funding for HCB’s
+                As part of our commitment to the environment, funding for HCB&apos;s
                 operations&nbsp;and staff will never come from the{' '}
                 <UILink
                   href="https://www.ffisolutions.com/the-carbon-underground-200-500/"
@@ -454,7 +667,7 @@ export default function Page() {
           </div>
         </Grid>
       </Container>
-
+      <OpenSource />
       <Box
         as="section"
         id="apply"
@@ -508,9 +721,6 @@ export default function Page() {
               Apply now
             </Button>
           </Link>
-          <Text as="p" variant="lead" sx={{ color: 'white', mb: [0, 0] }}>
-            <Balancer>No startup fees, no&nbsp;minimum balance.</Balancer>
-          </Text>
         </Flex>
       </Box>
       <ContactBanner sx={{ justifyContent: 'center' }} />

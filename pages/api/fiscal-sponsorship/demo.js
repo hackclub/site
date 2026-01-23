@@ -5,11 +5,13 @@ import AirtablePlus from 'airtable-plus'
 
 const applicationsTable = new AirtablePlus({
   baseID: 'apppALh5FEOKkhjLR',
-  apiKey: process.env.AIRTABLE_API_KEY,
+  apiKey: process.env.AIRTABLE_WRITE_API_KEY,
   tableName: 'Events'
 })
 
 export default async function handler(req, res) {
+  return res.status(500).json({ status: 'error', error: 'API unsupported' })
+
   if (req.method === 'POST') {
     const data = JSON.parse(req.body)
 

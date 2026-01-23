@@ -44,12 +44,12 @@ export default function Pizza() {
               }}
             >
               {' '}
-              $100 In Pizza
+              Pizza for Every Project
             </Text>
           </Text>
 
           <Text as="p" variant="subtitle" sx={{ color: '#000', mb: 3 }}>
-            GitHub is providing $100 pizza grants to every teen who starts a
+            GitHub is providing pizza grants to every teen who starts a
             Hack Club at their school.
           </Text>
 

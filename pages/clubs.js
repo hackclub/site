@@ -302,7 +302,7 @@ const Page = () => (
               sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
             >
               <strong>Everyone gets hacking, individually.</strong> Not hacking
-              bank accounts, being creative and{' '}
+              bank accounts, but rather being creative and{' '}
               <Link href="/ship">making something awesome</Link>.
             </Text>
             <Text as="span" color="blue">
@@ -366,7 +366,7 @@ const Page = () => (
       />
       <Container>
         <Text as="p" variant="eyebrow" sx={{ color: 'white', opacity: 0.75 }}>
-          ~ Welcome to Hackerland ~
+          ~ Welcome to the club ~
         </Text>
         <Heading as="h2" variant="title">
           By the students, for the students.
@@ -430,7 +430,7 @@ const Page = () => (
           <Feature
             icon="slack-fill"
             color="#5d114c"
-            name="Chat with 100s of club leaders"
+            name="Chat with thousands of club leaders"
             desc={
               <>
                 In our <Link href="/slack">Slack community</Link>, you’ll be
@@ -530,18 +530,18 @@ const Page = () => (
             desc={
               <>
                 We're always building new tools for leaders, such as{' '}
-                <a href="https://sprig.hackclub.com">Sprig</a>! We've also got
+                <a href="https://dashboard.hackclub.com">The Dashboard</a>! A place to manage your club! We've also got
                 free subscriptions to Figma Pro, Postman, and more for running a
-                great computer science club club.
+                great computer science club.
               </>
             }
           />
-          {/* <Feature
+          <Feature
             icon="sam"
             color="blue"
             name="Free Zoom Pro"
             desc="24/7 access to Zoom Pro enabled meeting rooms for your club (that means no time limit)."
-          /> */}
+          /> 
         </Grid>
         <Feature
           icon="welcome"
