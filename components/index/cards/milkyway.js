@@ -25,7 +25,7 @@ export default function Milkyway() {
         }}
       >
         <Image
-          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/777b6ad2be99eedaa758bc5d786d357968a209d3_overglade_ticket.png"
+          src="/hc-cdn/777b6ad2be99eedaa758bc5d786d357968a209d3_overglade_ticket.png"
           alt="Overglade ticket"
           sx={{ width: '100%', height: 'auto', display: 'block' }}
         />
@@ -41,7 +41,7 @@ export default function Milkyway() {
           height: '358.2px',
           overflow: 'hidden',
           textAlign: 'center',
-          backgroundImage: "url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/5367f6d369ba4096754fa44f532565db9d352a68_image.png)",
+          backgroundImage: "url(/hc-cdn/5367f6d369ba4096754fa44f532565db9d352a68_image.png)",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderRadius: 'extra'
@@ -65,7 +65,7 @@ export default function Milkyway() {
         aria-hidden={false}
       >
         <Image
-          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/498fb748a77a87981b37fe71774f622357279bfd_just_text__1_.png"
+          src="/hc-cdn/498fb748a77a87981b37fe71774f622357279bfd_just_text__1_.png"
           alt="Milkyway badge"
           sx={{
             width: '100%',
