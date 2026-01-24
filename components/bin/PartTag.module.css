@@ -1,0 +1,24 @@
+.tag{
+    color: e1e1e1;
+    padding: 4px 10px; 
+    border-radius: 20px; 
+    width: fit-content;
+    max-width: 300px; 
+    display: flex; 
+    text-align: center; 
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+}
+
+.tag:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.outlined {
+    border: 5px dotted #c5c5c5;
+  }
+

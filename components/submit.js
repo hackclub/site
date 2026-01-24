@@ -18,6 +18,10 @@ const bg = {
     bg: 'orange',
     backgroundImage: theme.util.gx('orange', 'red'),
     boxShadow: `0 0 0 1px ${theme.colors.white}, 0 0 0 4px ${theme.colors.primary}`
+  },
+  disabled: {
+    bg: 'gray',
+    backgroundImage: theme.util.gx('gray', 'gray'),
   }
 }
 
@@ -37,21 +41,22 @@ const Submit = ({
   },
   width = '100%',
   sx,
+  disabled,
   ...props
 }) => (
   <Button
     as="button"
-    type="submit"
+    type={'submit' || props.type}
     sx={{
       py: 2,
       px: 3,
       mt: 3,
       fontSize: 2,
       width,
-      ...(status === 'submitting' ? submitting : bg[status]),
+      ...(disabled ? bg['disabled'] : (status === 'submitting' ? submitting : bg[status])),
       ...sx
     }}
-    disabled={status === 'submitting'}
+    disabled={status === 'submitting' || disabled}
     {...props}
   >
     {status === 'submitting' ? 'Submitting…' : labels[status]}

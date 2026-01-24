@@ -20,7 +20,6 @@ import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
-import Pizza from '../components/index/cards/pizza'
 import Sprig from '../components/index/cards/sprig'
 import Sinerider from '../components/index/cards/sinerider'
 import SprigConsole from '../components/index/cards/sprig-console'
@@ -41,9 +40,45 @@ import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
-import Wonderland from '../components/index/cards/wonderland'
-
+import Blueprint from '../components/index/cards/blueprint'
+import CampfireFlagship from '../components/index/cards/campfire-flagship'
+import Milkyway from '../components/index/cards/milkyway'
+import Flavortown from '../components/index/cards/flavortown'
+import Aces from '../components/index/cards/aces'
+import CTAS from '../components/index/ctas'
 /** @jsxImportSource theme-ui */
+
+const ANNOUNCEMENTS = [
+  {
+    id: 'blueprint',
+    expiresAt: new Date('2026-01-31'),
+    copy: 'Get up to $400 to make a hardware project!',
+    caption: 'Design a project and get a grant to make it real with Blueprint, Hack Club\'s largest hardware program',
+    href: 'https://blueprint.hackclub.com/?utm_source=site-announcement',
+    imgSrc: '/hc-cdn/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png'
+  },
+  {
+    id: 'campfire-flagship',
+    expiresAt: new Date('2026-02-20'),
+    copy: 'Code with your favorite YouTubers at a Game Jam!',
+    caption: 'Spend up to 60 hours building games, earn a ticket to attend. Join us in LA with YouTubers like Michael Reeves this February!',
+    href: 'https://flagship.hackclub.com?utm_source=site_announcement',
+    imgSrc: '/hc-cdn/533c527e1ab6a77f_smore.png'
+  },
+  {
+    id: 'flavortown',
+    expiresAt: new Date('2026-12-31'),
+    copy: 'Build projects, earn cookies, get free tech!',
+    caption: 'Make a website, game, or hardware project and exchange cookies for iPads, MacBooks, and more',
+    href: 'https://flavortown.hackclub.com/?ref=site-announcement',
+    imgSrc: '/hc-cdn/0256e44f53eb79e4_logo-b28e0e8b.avif'
+  }
+]
+
+function getActiveAnnouncements() {
+  const now = new Date()
+  return ANNOUNCEMENTS.filter(a => a.expiresAt > now)
+}
 
 function Page({
   hackathonsData,
@@ -59,7 +94,9 @@ function Page({
   gameTitle,
   events,
   carouselCards,
-  context
+  blueprintData,
+  context,
+  ctaCards
 }) {
   let [gameImage, setGameImage] = useState('')
   let [gameImage1, setGameImage1] = useState('')
@@ -68,6 +105,7 @@ function Page({
   let [github, setGithub] = useState(0)
   let [slackKey, setSlackKey] = useState(0)
   let [key, setKey] = useState(0)
+  const [announcement, setAnnouncement] = useState(null)
 
   const { asPath } = useRouter()
 
@@ -78,6 +116,15 @@ function Page({
 
     window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
     window.paper = `Welcome, intrepid hacker! We'd love to have you in our community. Get your invite at hack.af/slack. Under "Why do you want to join the Hack Club Slack?" add a 🦄 and we'll ship you some exclusive stickers! `
+  }, [])
+
+  // Pick a random active announcement on client to avoid hydration mismatches
+  useEffect(() => {
+    const active = getActiveAnnouncements()
+    if (active.length > 0) {
+      const randomIndex = Math.floor(Math.random() * active.length)
+      setAnnouncement(active[randomIndex])
+    }
   }, [])
 
   const easterEgg = () => {
@@ -212,13 +259,15 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
-          <Announcement
-            copy="Hop OnBoard and create your first PCB"
-            caption="Join 1,000 others to create your first circuit board."
-            href="https://hackclub.com/onboard/"
-            iconLeft="idea"
-            color="primary"
-          />
+          {announcement && (
+            <Announcement
+              width="90vw"
+              copy={announcement.copy}
+              caption={announcement.caption}
+              href={announcement.href}
+              imgSrc={announcement.imgSrc}
+            />
+          )}
           <Box
             sx={{
               width: '90vw',
@@ -243,7 +292,7 @@ function Page({
             </Text>
             <Heading>
               <Text
-                as="h1"
+                as="p"
                 variant="title"
                 sx={{
                   color: 'white',
@@ -291,14 +340,142 @@ function Page({
                 <br sx={{ display: ['inline', 'none', 'none'] }} /> from around
                 the world who code together
               </Text>
-              <Button
-                variant="ctaLg"
-                as="a"
-                href="/slack"
-                mt={[3, 0, 0]}
-                sx={{ transformOrigin: 'center left' }}
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexWrap: 'nowrap',
+                  flexDirection: 'row',
+                  rowGap: 3
+                }}
               >
-                Join our community
+                {/* {ctaVariant === 'blueprint' ? (
+                  <Button
+                    variant="ctaLg"
+                    as="a"
+                    href="https://blueprint.hackclub.com/?utm_source=site-cta"
+                    mt={[3, 0, 0]}
+                    mr={3}
+                    sx={{
+                      transformOrigin: 'center',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      width: 'fit-content',
+                      backgroundColor: '#0e305b',
+                      backgroundImage:
+                        'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
+                      backgroundSize: '50px 50px',
+                      border: '2px solid #dbe4ee',
+                      color: '#dbe4ee',
+                      '&:hover': {
+                        transform: 'scale(1.05)',
+                        boxShadow: '0 0 20px rgba(219, 228, 238, 0.4)'
+                      }
+                    }}
+                  >
+                    Sign Up for Blueprint
+                    <Text
+                      as="span"
+                      sx={{
+                        fontSize: 0,
+                        opacity: 0.8,
+                        mt: 1,
+                        color: '#dbe4ee'
+                      }}
+                    >
+                      Get up to $400 to make Hardware
+                    </Text>
+                  </Button>
+                ) : (
+                  <>
+                    <Button
+                      variant="ctaLg"
+                      as="a"
+                      href="https://moonshot.hackclub.com?t=webt"
+                      mt={[3, 0, 0]}
+                      mr={3}
+                      sx={{
+                        transformOrigin: 'center left',
+                        backgroundColor: 'black',
+                        color: 'white',
+                        border: '2px solid white',
+                        boxShadow: '0 0 10px rgba(255,255,255,0.25)',
+                        animation: 'moonshotPulse 2s ease-in-out infinite',
+                        textShadow: '0 1px 1px rgba(0,0,0,0.6)',
+                        backgroundImage: 'none',
+                        '&:hover': {
+                          transform: 'scale(1.05)'
+                        }
+                      }}
+                    >
+                      RSVP for Moonshot!
+                    </Button>
+                    <style>{`
+                      @keyframes moonshotPulse {
+                        0% { box-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 0 rgba(255,255,255,0.15); }
+                        50% { box-shadow: 0 0 16px rgba(255,255,255,0.6), 0 0 24px rgba(255,255,255,0.35); }
+                        100% { box-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 0 rgba(255,255,255,0.15); }
+                      }
+                    `}</style>
+                  </>
+                )} */}
+                <Button
+                  variant="ctaLg"
+                  as="a"
+                  href="/slack"
+                  mt={[3, 0, 0]}
+                  mr={3}
+                  sx={{ transformOrigin: 'center left' }}
+                >
+                  Join Slack
+                </Button>
+                <Text
+                  variant="eyebrow"
+                  as="h4"
+                  sx={{
+                    fontSize: ['16px', 2, 3],
+                    maxWidth: 'layout',
+                    marginTop: 'auto',
+                    marginBottom: 'auto',
+                    alignSelf: 'center',
+                    color: 'white',
+                    textShadow:
+                      'rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 0.5) 0 0 10px'
+                  }}
+                >
+                  Or, check out our programs:
+                </Text>
+              </Box>
+              <CTAS cards={ctaCards} />
+              <Button
+                sx={{
+                  background: 'rgb(255, 255, 255, 0.3)',
+                  color: 'white',
+
+                  borderRadius: '100px',
+                  border: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  px: '3',
+                  py: 2,
+                  width: 'fit-content',
+                  textTransform: 'none',
+                  fontWeight: '400',
+                  fontSize: [1, '16px', '18px'],
+                  backdropFilter: 'blur(2px)',
+                  fontWeight: 'normal',
+                  zIndex: 999
+                }}
+                as="a"
+                href="#spotlight"
+              >
+                <Icon
+                  glyph={'rep'}
+                  sx={{ color: 'inherit', marginRight: 2 }}
+                  size={24}
+                  mr={2}
+                />
+                View more programs
               </Button>
             </Heading>
           </Box>
@@ -357,8 +534,8 @@ function Page({
                   whiteSpace: ['wrap', 'nowrap', 'nowrap'],
                   color: 'white',
                   background: theme => theme.util.gx('red', 'orange'),
-                  '-webkit-background-clip': 'text',
-                  '-webkit-text-fill-color': 'transparent'
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent'
                 }}
               >
                 joy of code
@@ -375,8 +552,8 @@ function Page({
               }}
             >
               Every day, thousands of Hack&nbsp;Clubbers gather online and
-              in-person to make things with code. Whether you’re a beginner
-              programmer or have years of experience, there’s a place for you at
+              in-person to make things with code. Whether you're a beginner
+              programmer or have years of experience, there's a place for you at
               Hack&nbsp;Club. Read about our{' '}
               <Link href="/philosophy" target="_blank" rel="noopener">
                 hacker ethic
@@ -576,7 +753,7 @@ function Page({
                     <strong sx={{ mb: 1 }}>
                       Connect with other teenage coders
                     </strong>
-                    Have a coding question? Looking for project feedback? You’ll
+                    Have a coding question? Looking for project feedback? You'll
                     find hundreds of fabulous people to talk to in our global{' '}
                     <Link href="/slack" target="_blank" rel="noopener">
                       Slack{' '}
@@ -637,7 +814,7 @@ function Page({
                   <Text as="p" variant="subtitle">
                     <strong sx={{ mb: 1 }}>Gather IRL with other makers</strong>
                     Meet other Hack&nbsp;Clubbers in your community to build
-                    together at one of the 400+{' '}
+                    together at one of the 1000+{' '}
                     <Link href="/clubs" target="_blank" rel="noopener">
                       Hack&nbsp;Clubs
                     </Link>{' '}
@@ -716,8 +893,15 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Wonderland />
-            <Pizza />
+            <Flavortown />
+            <Blueprint
+              blueprintData={blueprintData}
+              stars={stars.onboard.stargazerCount}
+            />
+            <CampfireFlagship />
+            <Milkyway />
+            <Aces />
+
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
@@ -834,7 +1018,6 @@ function Page({
                 gameImage={gameImage}
                 gameImage1={gameImage1}
               />
-              <Onboard stars={stars.onboard.stargazerCount} delay={100} />
               <Haxidraw stars={stars.blot.stargazerCount} delay={100} />
               <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <Box as="section" id="sprig">
@@ -869,7 +1052,7 @@ function Page({
                 left: 0
               }}
             >
-              {}
+              { }
             </Box>
             <Box
               py={[4, 5, '82px']}
@@ -944,7 +1127,7 @@ function Page({
                 variant="eyebrow"
                 sx={{ fontSize: ['22px', 2, 3], textAlign: 'center' }}
               >
-                We've got a lot going on - Let’s recap
+                We've got a lot going on - Let's recap
               </Text>
               <Text
                 variant="title"
@@ -964,8 +1147,8 @@ function Page({
                     ml: 0,
                     whiteSpace: ['wrap', 'nowrap'],
                     background: theme => theme.util.gx('red', 'orange'),
-                    '-webkit-background-clip': 'text',
-                    '-webkit-text-fill-color': 'transparent'
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent'
                   }}
                 >
                   Hack&nbsp;Club
@@ -1087,7 +1270,7 @@ function Page({
                   icon="github"
                   color="white"
                   name="Explore Our Open Source Tools"
-                  desc="We’re currently building a game engine, daily streak system, graphing game, and more!"
+                  desc="We're currently building a game engine, daily streak system, graphing game, and more!"
                   sx={{
                     p: {
                       fontSize: [1, '16px', '20px']
@@ -1141,7 +1324,7 @@ function Page({
                   icon="clubs"
                   color="white"
                   name="Start A Club"
-                  desc="Build an in-person community of high school hackers, and we’re here to help."
+                  desc="Build an in-person community of high school hackers, and we're here to help."
                   sx={{
                     p: {
                       fontSize: ['18px', '20px', '22px']
@@ -1158,74 +1341,74 @@ function Page({
 
         {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
           'z' && (
-          <>
-            <Box
-              sx={{
-                position: 'fixed',
-                top: 0,
-                width: '100%',
-                zIndex: 1000
-              }}
-            >
+            <>
               <Box
                 sx={{
-                  position: 'relative',
-                  margin: 'auto',
-                  width: 'fit-content',
+                  position: 'fixed',
+                  top: 0,
+                  width: '100%',
+                  zIndex: 1000
+                }}
+              >
+                <Box
+                  sx={{
+                    position: 'relative',
+                    margin: 'auto',
+                    width: 'fit-content',
+                    lineHeight: 0
+                  }}
+                >
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  right: 0,
+                  zIndex: 1000,
                   lineHeight: 0
                 }}
               >
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                  src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                 ></iframe>
               </Box>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                right: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                left: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-          </>
-        )}
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  left: 0,
+                  zIndex: 1000,
+                  lineHeight: 0
+                }}
+              >
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </Box>
+            </>
+          )}
         <MailingList />
       </Box>
       <Footer
@@ -1256,20 +1439,24 @@ const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export async function getStaticProps() {
   const carouselCards = require('../lib/carousel.json')
+  const ctaCards = require('../lib/cta.json')
 
   // HCB: get total raised
   let bankData = []
-  let initialBankData = await fetch('https://hcb.hackclub.com/stats').then(r =>
-    r.json()
-  )
-  let raised = initialBankData.raised / 100
+  let initialBankData = await fetch('https://hcb.hackclub.com/stats')
+  try {
+    const bd = await initialBankData.json()
+    let raised = bd.raised / 100
 
-  bankData.push(
-    `💰 ${raised.toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'USD'
-    })} raised`
-  )
+    bankData.push(
+      `💰 ${raised.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      })} raised`
+    )
+  } catch {
+    bankData.push('error')
+  }
 
   // Slack: get total raised
   const { Slack: Slacky } = require('./api/slack')
@@ -1279,9 +1466,9 @@ export async function getStaticProps() {
   // preventing the site from deploying
 
   const { fetchGitHub } = require('./api/github')
-  let gitHubData = await fetchGitHub()
+  // let gitHubData = await fetchGitHub()
 
-  //   let gitHubData = null
+  let gitHubData = null
 
   // GitHub: get latest GitHub stars
   const { fetchStars } = require('./api/stars')
@@ -1299,6 +1486,10 @@ export async function getStaticProps() {
   const { getConsoles } = require('./api/sprig-console')
   const consoleCount = await getConsoles()
 
+  // Blueprint: get project count
+  const { fetchBlueprint } = require('./api/blueprint')
+  const blueprintData = await fetchBlueprint()
+
   // Hackathons: get latest hackathons
   let hackathonsData
   try {
@@ -1315,9 +1506,14 @@ export async function getStaticProps() {
   }
   hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start))
 
-  let events = await fetch(
-    'https://events.hackclub.com/api/events/upcoming/'
-  ).then(res => res.json())
+  let events = []
+  try {
+    await fetch('https://events.hackclub.com/api/events/upcoming/').then(res =>
+      res.json()
+    )
+  } catch (error) {
+    console.error('Error fetching events:', error)
+  }
 
   return {
     props: {
@@ -1330,7 +1526,9 @@ export async function getStaticProps() {
       slackData,
       stars,
       events,
-      carouselCards
+      carouselCards,
+      blueprintData,
+      ctaCards
     },
     revalidate: 60
   }

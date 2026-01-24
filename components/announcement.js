@@ -1,9 +1,9 @@
-import { Card, Text, Box } from 'theme-ui'
 import { keyframes } from '@emotion/react'
-import Icon from './icon'
 import Image from 'next/image'
+import { Box, Card, Text } from 'theme-ui'
+import Icon from './icon'
 
-const unfold = keyframes({
+export const unfold = keyframes({
   from: { transform: 'scaleY(0)' },
   to: { transform: 'scaleY(100%)' }
 })
@@ -16,7 +16,9 @@ const Announcement = ({
   imgSrc,
   imgAlt,
   color = 'accent',
+  textColor = 'secondary',
   sx = {},
+  width,
   ...props
 }) => (
   <Card
@@ -26,7 +28,7 @@ const Announcement = ({
       variant: 'cards.translucent',
       mx: 'auto',
       maxWidth: 'narrow',
-      width: '100%',
+      width: width ? width : '100%',
       textAlign: 'left',
       textDecoration: 'none',
       lineHeight: 'caption',
@@ -52,22 +54,20 @@ const Announcement = ({
       />
     )}
     {imgSrc && (
-      <Box sx={{ mr: [2,3], width: 32, flexShrink: 0 }}>
-        <Image
-          src={imgSrc}
-          alt={imgAlt}
-          width={32}
-          height={32}
-        />
+      <Box sx={{ mr: [2, 3], ml: 2, width: 32, flexShrink: 0 }}>
+        <Image src={imgSrc} alt={imgAlt} width={32} height={32} />
       </Box>
     )}
     <Text
       as="p"
-      sx={{ flex: '1 1 auto', strong: { display: ['inline', 'block'] } }}
+      sx={{
+        flex: '1 1 auto',
+        strong: { display: ['inline', 'block'], color: textColor }
+      }}
     >
       <strong>{copy}</strong>
       {caption && (
-        <Text as="span" variant="caption" color="secondary">
+        <Text as="span" variant="caption" color={textColor}>
           {' '}
           {caption}
         </Text>

@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { Box, Card, Text, useColorMode } from 'theme-ui'
 import Image from 'next/image'
 import theme from '../lib/theme'
+import React from 'react'
 
 const Caption = styled(Text)`
   display: block;
@@ -16,22 +17,17 @@ const Caption = styled(Text)`
   z-index: 0;
 `
 
-const Photo = ({
-  src,
-  width,
-  height,
-  alt,
-  showAlt,
-  dark,
-  loading,
-  ...props
-}) => {
+const Photo = React.forwardRef(function Photo(
+  { src, width, height, alt, showAlt, dark, loading, ...props },
+  ref
+) {
   const [colorMode] = useColorMode()
   const showCaption = showAlt && alt
   return (
     <Card
       {...props}
       as="figure"
+      ref={ref}
       sx={{
         p: [0, 0, 0],
         boxShadow: 'elevated',
@@ -62,6 +58,6 @@ const Photo = ({
       )}
     </Card>
   )
-}
+})
 
 export default Photo

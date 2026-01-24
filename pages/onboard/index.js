@@ -12,6 +12,8 @@ import usePrefersReducedMotion from '../../lib/use-prefers-reduced-motion'
 import { useEffect, useRef, useState } from 'react'
 import sleep from '../../lib/sleep'
 import Announcement from '../../components/announcement'
+import YoutubeVideo from '../../components/onboard/youtube-video'
+import Icon from '@hackclub/icons'
 
 /**
  * @type {import('theme-ui').ThemeUIStyleObject}
@@ -102,8 +104,11 @@ const ShipPage = () => {
   const spotlightRef = useRef()
   useEffect(() => {
     const handler = event => {
+      const rect = spotlightRef.current.getBoundingClientRect()
+      const x = event.clientX - rect.left
+      const y = event.clientY - rect.top
       spotlightRef.current.style.background = `radial-gradient(
-				circle at ${event.pageX}px ${event.pageY}px,
+				circle at ${x}px ${y}px,
 				rgba(0, 0, 0, 0) 10px,
 				rgba(0, 0, 0, 0.8) 80px
 			)`
@@ -129,14 +134,13 @@ const ShipPage = () => {
     return () => observer.disconnect()
   }, [])
 
-
   return (
     <>
       <Meta
         as={Head}
         name="OnBoard"
         description={`We'll pay manufacturing costs for any high schooler (or younger!) who designs a circuit board.`}
-        image="https://cloud-2x7lcsf1p-hack-club-bot.vercel.app/0onboard-og-card-2024feb19-075x.png"
+        image="https://cloud-n2wfd6ra6-hack-club-bot.vercel.app/0onboard-twitter.png"
       />
 
       <style>{`
@@ -162,7 +166,34 @@ const ShipPage = () => {
         <link rel="preload" href={wandImgRendered} as="image" />
       </Head>
 
+      <Box sx={{ bg: '#000000', height: '64px' }} />
       <Nav />
+
+      <Box
+        sx={{
+          backgroundColor: '#0e305b',
+          backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
+          backgroundSize: '50px 50px',
+          backgroundPosition: '0 0, 0 0',
+          color: 'white',
+          p: 3,
+          textAlign: 'center',
+          fontSize: 3,
+          fontWeight: 'bold',
+          position: 'relative',
+          border: '4px solid white'
+        }}
+      >
+        OnBoard has ended!{' '}
+        <Link
+          href="https://blueprint.hackclub.com/?utm_source=onboard-site"
+          target="_blank"
+          sx={{ color: 'white', textDecoration: 'underline' }}
+        >
+          Click here
+        </Link>{' '}
+        to sign up for Blueprint - the next hardware program
+      </Box>
 
       <Box
         as="header"
@@ -199,10 +230,10 @@ const ShipPage = () => {
             position: 'relative'
           }}
         >
-          <Box sx={{ pt: [3, 6]}}>
+          <Box sx={{ pt: [3, 5] }}>
             <Announcement
               copy="Steve Wozniak, Apple co-founder, about OnBoard"
-              caption="I’m so glad young people can create PCBs online."
+              caption="I’m so glad young people can create PCBs online. May your creativity change the world! Mine did."
               imgSrc="https://cloud-iddh16j0r-hack-club-bot.vercel.app/0stevew.png"
               imgAlt="A picture of Steve Wozniak who is a co-founder of Apple."
               color="primary"
@@ -210,7 +241,7 @@ const ShipPage = () => {
           </Box>
           <Flex
             sx={{
-              pt: [3,1],
+              pt: [3, 1],
               width: '100%',
               maxWidth: 'layout',
               alignItems: 'center'
@@ -236,9 +267,9 @@ const ShipPage = () => {
                 <Balancer ratio={0.3}>
                   Circuit boards are{' '}
                   <Sparkles>
-                    <Text sx={{ fontWeight: 400 }}>magical</Text>
-                  </Sparkles>
-                  . You design one, we'll print it!
+                    <Text sx={{ fontWeight: 400 }}>magical{'.'}</Text>
+                  </Sparkles>{' '}
+                  You design one, we'll print it!
                 </Balancer>
               </Heading>
 
@@ -323,49 +354,6 @@ const ShipPage = () => {
               </Text>
             </Flex>
           </Grid>
-
-          <Flex
-            as="div"
-            sx={{
-              flexDirection: 'row',
-              gap: 3,
-              alignItems: 'end',
-              justifyContent: 'center',
-              margin: '0 auto',
-              padding: '0.8rem 1rem',
-              borderRadius: 'default',
-              border: '1px dashed white',
-              background: '#000000',
-            }}
-          >
-            <Image
-              src="https://cloud-iddh16j0r-hack-club-bot.vercel.app/0stevew.png"
-              alt="A picture of Steve Wozniak who is a co-founder of Apple."
-              sx={{
-                width: 50,
-                height: 50
-              }}
-            />
-            <Flex
-              as="div"
-              sx={{ flexDirection: 'column', gap: 1, width: '90%' }}
-            >
-              <Text as="p" sx={{ fontSize: 20 }}>
-                <Balancer>
-                  "I’m so glad young people can create PCBs online. May your
-                  creativity change the world! Mine did.”
-                </Balancer>
-              </Text>
-              <Text
-                as="p"
-                sx={{ fontSize: 20, fontStyle: 'italic' }}
-              >
-                <Balancer>
-                  -<span style={{ textDecoration: 'underline' }}>Steve Wozniak "Woz"</span>, Apple co-founder, on Hack Club OnBoard
-                </Balancer>
-              </Text>
-            </Flex>
-          </Flex>
         </Flex>
       </Box>
 
@@ -402,6 +390,23 @@ const ShipPage = () => {
               Never made a circuit board before? No problem.
             </Balancer>
           </Heading>
+          <Flex sx={{ flexDirection: 'column' }}>
+            <YoutubeVideo
+              youtube-id="LrSKs35nR8k"
+              list="PLbNbddgD-XxECO7C2z-FAlSoJ57VqcJA3"
+              height="300px"
+            />
+            <Text sx={{ fontSize: 2, color: 'muted' }}>
+              See the{' '}
+              <Link
+                href="https://www.youtube.com/watch?v=LrSKs35nR8k&list=PLbNbddgD-XxECO7C2z-FAlSoJ57VqcJA3"
+                target="_blank"
+              >
+                full playlist
+                <Icon glyph="external" size={18} />
+              </Link>
+            </Text>
+          </Flex>
           <Text sx={{ fontSize: 3 }}>
             Learn how to design your own circuit boards from scratch with our{' '}
             <strong>official tutorials</strong> and jams, like Maggie’s{' '}
@@ -842,7 +847,7 @@ const ShipPage = () => {
             Let's Recap
           </Heading>
 
-            <Recap />
+          <Recap />
           <Grid
             width={300}
             gap={4}

@@ -1,16 +1,18 @@
 import React from 'react'
 import { Box, Button, Text } from 'theme-ui'
-import ReactTooltip from 'react-tooltip'
+import ReactTooltip from '../../react-tooltip'
 import Icon from '@hackclub/icons'
 
 export default function Buttons({
   children,
   icon,
+  customIcon,
   id,
   content,
   link,
   primary,
   overrideColor,
+  zIndex,
   ...props
 }) {
   let fontWeight = primary ? '700' : '400'
@@ -18,8 +20,9 @@ export default function Buttons({
   return (
     <Box
       as="button"
-      sx={{ background: 'transparent', border: 'none', color: 'white' }}
+      sx={{ background: 'transparent', border: 'none', color: 'white', zIndex: zIndex ||0 }}
       py={1}
+
     >
       <Button
         data-place="right"
@@ -40,7 +43,8 @@ export default function Buttons({
           fontWeight: '400',
           fontSize: primary ? ['18px', '20px', '22px'] : [1, '16px', '18px'],
           backdropFilter: 'blur(2px)',
-          fontWeight: fontWeight
+          fontWeight: fontWeight,
+          zIndex: 999,
         }}
         as="a"
         href={link || '/'}
@@ -48,12 +52,18 @@ export default function Buttons({
         rel="noreferrer"
         {...props}
       >
-        <Icon
-          glyph={icon || 'plus-fill'}
-          sx={{ color: 'inherit', marginRight: 2 }}
-          size={24}
-          mr={2}
-        />
+        {customIcon ? (
+          <Box sx={{ marginRight: 2, display: 'flex', alignItems: 'center' }}>
+            {customIcon}
+          </Box>
+        ) : (
+          <Icon
+            glyph={icon || 'plus-fill'}
+            sx={{ color: 'inherit', marginRight: 2 }}
+            size={24}
+            mr={2}
+          />
+        )}
         <Text sx={{ fontFamily: 'Phantom Sans', textAlign: 'left' }}>
           {children}
         </Text>

@@ -1,3 +1,4 @@
+import { getCookie, hasCookie } from 'cookies-next'
 import {
   Box,
   Card,
@@ -9,29 +10,30 @@ import {
   Text,
   Textarea
 } from 'theme-ui'
-import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
-import { getCookie, hasCookie } from 'cookies-next'
 
-const JoinForm = ({ sx = {} }) => {
-  const router = useRouter()
+import { withRouter } from 'next/router'
+
+const JoinForm = ({ sx = {}, router }) => {
+  const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
+
   const { status, formProps, useField } = useForm('/api/join/', null, {
     clearOnSubmit: 60000,
     method: 'POST',
     initData: hasCookie('continent')
       ? {
-          continent: getCookie('continent'),
-          reason: router.query.reason,
-          event: router.query.event
-        }
+        continent: getCookie('continent'),
+        reason: router.query.reason,
+        event: router.query.event
+      }
       : { reason: router.query.reason, event: router.query.event }
   })
 
   const eventReferrer = useField('event').value
-  const isAdult = useField('educationLevel').value === 'tertiary'
-  const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
 
+  const isAdult = useField('year').value === 'tertiary'
+  
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
       <form {...formProps}>
@@ -58,16 +60,17 @@ const JoinForm = ({ sx = {} }) => {
             </Text>
           </Box>
         )}
-        <Grid columns={[1, 2]} gap={1} sx={{ columnGap: 2 }}>
+        <Grid columns={[1, 3]} gap={1} sx={{ columnGap: 2 }}>
           <Label>
             Full name
             <Input
               {...useField('name')}
               placeholder="Fiona Hackworth"
               required
+              id="joiner_full_name"
             />
           </Label>
-          <Label>
+          <Label sx={{ width: '100%' }}>
             Email address
             <Input
               {...useField('email')}
@@ -76,52 +79,29 @@ const JoinForm = ({ sx = {} }) => {
             />
           </Label>
           <Label>
-            Your home continent
+            School level
             <Select
-              {...useField('continent')}
+              {...useField('year')}
               required
               sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
             >
               <option value="" selected disabled hidden>
-                Select a continent...
-              </option>
-              <option>Africa</option>
-              <option>Asia</option>
-              <option>Europe</option>
-              <option>North America</option>
-              <option value="Australia">Oceania / Australia</option>
-              <option>South America</option>
-            </Select>
-          </Label>
-          <Label>
-            Current education level
-            <Select
-              {...useField('educationLevel')}
-              required
-              sx={{
-                color: useField('educationLevel').value === '' ? 'muted' : ''
-              }}
-            >
-              <option value="" selected disabled hidden>
                 Select a level...
               </option>
-              <option value="middle">
-                Middle School (approx. 11 to 14)&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-              </option>
-              <option value="high">High School (approx. 14 to 18)</option>
+              <option value="middle">Middle School</option>
+              <option value="high">High School</option>
               <option value="tertiary">Tertiary Education (18+)</option>
             </Select>
           </Label>
         </Grid>
         <Label>
-          Why do you want to join the Hack Club Slack?
+          How did you hear about us/the Slack? What are you most looking forward to?
           <Textarea
             {...useField('reason')}
-            placeholder="Write a few sentences."
+            placeholder="I heard about Hack Club from..."
             required
           />
         </Label>
-
         {isAdult && (
           <Text
             variant="caption"
@@ -137,43 +117,67 @@ const JoinForm = ({ sx = {} }) => {
             <Link href="mailto:team@hackclub.com">team@hackclub.com</Link>.
           </Text>
         )}
-
-        {!isAdult && (
-          <Box>
-            <Submit
-              status={status}
-              mt={'0px!important'}
-              labels={{
-                default: useWaitlist ? 'Join Waitlist' : 'Get Invite',
-                error: 'Something went wrong',
-                success: useWaitlist
-                  ? "We'll be in touch soon!"
-                  : 'Check your email for invite!'
+        <Box>
+          <Submit
+            status={status}
+            mt={'0px!important'}
+            labels={{
+              default: useWaitlist ? 'Join Waitlist' : 'Join Now',
+              error: 'Something went wrong',
+              success: useWaitlist
+                ? "You're on the Waitlist!"
+                : 'Check your email for invite!'
+            }}
+            disabled={status === 'loading' || status === 'success' || isAdult}
+          />
+          {status === 'success' && !useWaitlist && (
+            <Text
+              variant="caption"
+              color="secondary"
+              as="div"
+              sx={{
+                maxWidth: '600px',
+                textAlign: 'center',
+                mt: 3
               }}
-              disabled={status === 'loading' || status === 'success'}
-            />
-            {status === 'success' && (
-              <Text
-                variant="caption"
-                color="secondary"
-                as="div"
-                sx={{
-                  maxWidth: '600px',
-                  textAlign: 'center',
-                  mt: 3
-                }}
-              >
-                Search for "Slack" in your mailbox! Not there?{' '}
-                <Link href="mailto:slack@hackclub.com" sx={{ ml: 1 }}>
-                  Send us an email
-                </Link>
-              </Text>
-            )}
-          </Box>
-        )}
+            >
+              Search for "Slack" in your mailbox! Not there?{' '}
+              <Link href="mailto:slack@hackclub.com" sx={{ ml: 1 }}>
+                Send us an email
+              </Link>
+            </Text>
+          )}
+        </Box>
       </form>
     </Card>
   )
 }
 
-export default JoinForm
+function AdultChecker() {
+  return (
+    <Label>
+      Birthday
+      <Select
+        required
+        onChange={handleYearChange}
+        sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
+      >
+        <option value="" selected disabled hidden>
+          Year
+        </option>
+        <option value="middle" disabled hidden>
+          Hi, I'm hidden!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        </option>
+        {years
+          .map(year => (
+            <option key={year} value={year}>
+              {year}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </option>
+          ))
+          .reverse()}
+      </Select>
+    </Label>
+  )
+}
+
+export default withRouter(JoinForm)

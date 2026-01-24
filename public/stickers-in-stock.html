@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hack Club | Available Stickers</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="favicon" href="/favicon.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="icon" href="/favicon.png">
+</head>
+<body>
+    <h1>Available Hack Club Stickers</h1>
+    <h2 id="header">Stickers In-Stock</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody id="body">
+            <tr>
+                <td>Loading...</td>
+                <td>Please wait</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        const header = document.querySelector('#header');
+        const tbody = document.querySelector('#body');
+
+        fetch("https://arcade-stickers.hackclub.dev/api/skus/all")
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                blocked = false;
+                tbody.innerHTML = `
+                    ${data.items.map(i => `
+                        <tr>
+                            <td>${i.name}</td>
+                            <td><img src="${i.picture}" alt="${i.name}" width="100"></td>
+                        </tr>
+                    `).join("")}
+                `;
+                header.textContent = `Stickers In-Stock (${data.items.length})`;
+            }).catch(err => {
+                console.error(err);
+                blocked = false;
+                tbody.innerHTML = `<tr>
+                    <td>Error</td>
+                    <td>Error</td>
+                </tr>`;
+            });
+    </script>
+</body>
+</html>

@@ -73,6 +73,7 @@ function Field({
           onChange={onChange}
           value={value}
           required={required}
+          disabled={true}
         />
       </Box>
     </Box>
@@ -88,7 +89,7 @@ export default function Signup() {
   const handleSubmit = async e => {
     e.preventDefault()
 
-    await fetch('/api/hcb/demo', {
+    await fetch('/api/fiscal-sponsorship/demo', {
       method: 'POST',
       body: JSON.stringify({
         eventName,
@@ -109,7 +110,7 @@ export default function Signup() {
       <Base
         id="form"
         method="POST"
-        action="/api/hcb/demo"
+        action="/api/fiscal-sponsorship/demo"
         onSubmit={handleSubmit}
       >
         <Field
@@ -134,6 +135,7 @@ export default function Signup() {
             py: 2
           }}
           type="submit"
+          disabled={true}
         >
           Create new account
         </Button>

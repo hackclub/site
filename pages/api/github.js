@@ -19,7 +19,7 @@ const getMessage = (type, payload, repo) => {
 const getUrl = (type, payload, repo) => {
   switch (type) {
     case 'PushEvent':
-      return payload.commits?.[0].url
+      return payload.commits?.[0]?.url
         ? normalizeGitHubCommitUrl(payload.commits[0].url)
         : 'https://github.com/hackclub'
     case 'PullRequestEvent':
@@ -32,6 +32,8 @@ const getUrl = (type, payload, repo) => {
 }
 
 export async function fetchGitHub() {
+  try {
+
   const initialGitHubData = await fetch(
     'https://api.github.com/orgs/hackclub/events'
   ).then(r => r.json())
@@ -48,6 +50,10 @@ export async function fetchGitHub() {
     }))
 
   return gitHubData
+  } catch (error) {
+    console.error(error)
+    return []
+  }
 }
 
 export default async function github(req, res) {

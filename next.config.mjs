@@ -5,7 +5,7 @@ const nextConfig = {
     ignoreDuringBuilds: true
   },
   trailingSlash: true,
-  pageExtensions: ['js', 'jsx', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   images: {
     domains: [
       'hackclub.com',
@@ -15,7 +15,8 @@ const nextConfig = {
       'scrapbook.hackclub.com',
       'assets.hackclub.com',
       'v5.airtableusercontent.com',
-      ''
+      'hcb.hackclub.com',
+      "hc-cdn.hel1.your-objectstorage.com"
     ],
     remotePatterns: [
       {
@@ -34,7 +35,18 @@ const nextConfig = {
         destination: '/hcb/:path*',
         permanent: true
       },
+      {
+        source: '/hcb/fiscal-sponsorship/',
+        destination: '/fiscal-sponsorship/about/',
+        permanent: false
+      },
+      {
+        source: '/hcb/:path*',
+        destination: '/fiscal-sponsorship/:path*',
+        permanent: false
+      },
       { source: '/grant/', destination: '/hackathons/grant', permanent: false },
+      { source: '/privacy/', destination: '/privacy-and-terms/', permanent: true },
       {
         source: '/sprig/',
         destination: 'https://sprig.hackclub.com',
@@ -175,14 +187,70 @@ const nextConfig = {
         source: '/daysofservice/',
         destination: 'https://daysofservice.hackclub.com',
         permanent: true
+      },
+      {
+        source: '/blot/',
+        destination: 'https://blot.hackclub.com',
+        permanent: false
+      },
+      {
+        source: '/donate',
+        destination: '/philanthropy',
+        permanent: false
+      },
+      {
+        source: '/github',
+        destination: 'https://github.com/hackclub',
+        permanent: true
+
+      },
+      {
+        source: '/nest',
+        destination: 'https://hackclub.app',
+        permanent: true
+      },
+      {
+        source: '/security',
+        destination: 'https://security.hackclub.com',
+        permanent: true
+      },
+      {
+        source: '/congressional-app-challenge',
+        destination: 'https://finalist.hackclub.com',
+        permanent: true
+      },
+      {
+        source: '/hardware',
+        destination: 'https://blueprint.hackclub.com',
+        permanent: true
       }
     ]
   },
   async rewrites() {
     return [
       {
-        source: '/v3/_next/:path*',
-        destination: '/_next/:path*'
+        source: '/fiscal-sponsorship/mobile-app/',
+        destination: '/fiscal-sponsorship/mobile/'
+      },
+      {
+        source: '/clubs/leaders-letters',
+        destination: 'https://leaders-letters.vercel.app/'
+      },
+      {
+        source: '/letters',
+        destination: 'https://leaders-letters.vercel.app/'
+      },
+      {
+        source: '/clubs/leaders-letters/:path*',
+        destination: 'https://leaders-letters.vercel.app/:path*'
+      },
+      {
+        source: '/letter/:path*',
+        destination: 'https://leaders-letters.vercel.app/letter/:path*'
+      },
+      {
+        source: '/clubs/leaders-letters/_next/:path*',
+        destination: 'https://leaders-letters.vercel.app/_next/:path*'
       },
       {
         source: '/workshops/_next/:path*',
@@ -195,6 +263,10 @@ const nextConfig = {
       {
         source: '/sponsorship/',
         destination: '/content/sponsorship/'
+      },
+      {
+        source: '/bin/beta',
+        destination: '/bin/landing-new/'
       },
       {
         source: '/covid19/',
@@ -215,6 +287,14 @@ const nextConfig = {
       {
         source: '/conduct/',
         destination: 'https://workshops.hackclub.com/conduct/'
+      },
+      {
+        source: '/privacy-and-terms/',
+        destination: 'https://workshops.hackclub.com/privacy-and-terms/'
+      },
+      {
+        source: '/safeguarding-policy/',
+        destination: 'https://workshops.hackclub.com/safeguarding-policy/'
       },
       {
         source: '/workshop-bounty/',
@@ -255,7 +335,23 @@ const nextConfig = {
       {
         source: '/how-to-organize-a-hackathon/style.css',
         destination: 'https://expandables.hackclub.dev/style.css'
-      }
+      },
+      {
+        source: '/bin/',
+        destination: '/bin/index.html'
+      },
+      {
+        source: '/bin/:path*',
+        destination: '/bin/:path*'
+      },
+      {
+        source: '/bin/selector/',
+        destination: '/bin/selector/index.html'
+      },
+      {
+        source: '/arcade/power-hour',
+        destination: '/arcade/power-hour/index.html'
+      },
     ]
   },
   async headers() {
@@ -277,6 +373,26 @@ const nextConfig = {
             value: 'GET, POST, OPTIONS'
           },
           { key: 'Access-Control-Allow-Headers', value: 'Content-Type' }
+        ]
+      },
+      {
+        source: '/api/bin/wokwi/(.+)',
+        headers: [
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, OPTIONS'
+          },
+          { key: 'Access-Control-Allow-Headers', value: 'Content-Type' }
+        ]
+      },
+      {
+        source: '/api/onboard/svg/(.+)',
+        headers: [
+          {
+            key: 'content-type',
+            value: 'image/svg+xml'
+          }
         ]
       }
     ]

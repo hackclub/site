@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Buttons from './button'
 import CardModel from './card-model'
 import { Box, Grid, Flex, Image, Text } from 'theme-ui'
-import ReactTooltip from 'react-tooltip'
 
 /** @jsxImportSource theme-ui */
 
@@ -61,7 +60,7 @@ export default function Clubs() {
           width: 'fit-content'
         }}
       >
-        A Network of 400+ Coding Clubs
+        A Network of 1000+ Coding Clubs
       </Text>
       <Grid columns={[1, 1, 2]} sx={{ position: 'relative', zIndex: 2 }}>
         <Box>
