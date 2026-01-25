@@ -13,7 +13,7 @@ jobs:
     name: Validate team.json
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
       - name: Validate JSON format
         run: |
           if ! jq empty public/team.json 2>/dev/null; then
