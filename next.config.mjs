@@ -399,13 +399,11 @@ const nextConfig = {
   }
 }
 
-import million from 'million/compiler'
 import withMDX from '@next/mdx'
-import withTM from 'next-transpile-modules'
 
 const withMDXConfig = withMDX({ extension: /\.mdx?$/ })
-const withAnimeJS = withTM(['animejs'])
 
-export default million.next(withAnimeJS(withMDXConfig(nextConfig)), {
-  auto: true
+export default withMDXConfig({
+  ...nextConfig,
+  transpilePackages: ['animejs']
 })

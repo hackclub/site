@@ -106,25 +106,24 @@ const HackathonGrant = () => {
               <Flex
                 sx={{ justifyContent: 'center', alignItems: 'center', mb: 2 }}
               >
-                <NextLink href="https://hackclub.com" passHref>
-                  <Box
-                    as="a"
-                    width={64}
-                    height={64}
-                    sx={{
-                      width: 72,
-                      height: 72,
-                      backgroundImage:
-                        "url('https://assets.hackclub.com/icon-square.svg')",
-                      backgroundSize: 'contain',
-                      backgroundPosition: 'center center',
+                <Box
+                  as={NextLink}
+                  href="https://hackclub.com"
+                  width={64}
+                  height={64}
+                  sx={{
+                    width: 72,
+                    height: 72,
+                    backgroundImage:
+                      "url('https://assets.hackclub.com/icon-square.svg')",
+                    backgroundSize: 'contain',
+                    backgroundPosition: 'center center',
                       backgroundRepeat: 'no-repeat',
                       mr: 3,
                       borderRadius: 8
                     }}
                     target="_blank"
-                  ></Box>
-                </NextLink>
+                  />
               </Flex>
               A <MSparkles>$500</MSparkles> grant for your{' '}
               <a sx={{ whiteSpace: 'nowrap' }}>in-person</a> hackathon.

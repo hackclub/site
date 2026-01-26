@@ -329,9 +329,7 @@ const Page = () => (
             sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
           >
             Hack Clubs attend and run{' '}
-            <NextLink href="/hackathons" passHref>
-              <a>hackathons</a>
-            </NextLink>{' '}
+            <Link as={NextLink} href="/hackathons">hackathons</Link>{' '}
             like <a href="https://daydream.hackclub.com/">Daydream</a> &{' '}
             <a href="https://scrapyard.hackclub.com/">Scrapyard</a>,
             take part in year long programs like{' '}
@@ -379,17 +377,16 @@ const Page = () => (
           <Highlight>every&nbsp;Hack&nbsp;Club is student-led</Highlight> &
           members make self-directed projects.
         </Text>
-        <NextLink href="/philosophy" passHref>
-          <Button
-            as="a"
-            variant="ctaLg"
-            sx={{
-              background: 'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)'
-            }}
-          >
-            Our philosophy →
-          </Button>
-        </NextLink>
+        <Button
+          as={NextLink}
+          href="/philosophy"
+          variant="ctaLg"
+          sx={{
+            background: 'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)'
+          }}
+        >
+          Our philosophy →
+        </Button>
       </Container>
     </Box>
     <Box as="section" sx={{ py: [4, 5, 6], color: 'black' }}>

@@ -143,11 +143,9 @@ const ShipPage = ({ posts = [] }) => (
           teenagers from around the world share what they’re working on & help
           each other.
         </Text>
-        <NextLink href="/slack" passHref>
-          <Button variant="cta" sx={{ py: 2, px: 3, fontSize: 2 }} as="a">
-            Join our Slack
-          </Button>
-        </NextLink>
+        <Button as={NextLink} href="/slack" variant="cta" sx={{ py: 2, px: 3, fontSize: 2 }}>
+          Join our Slack
+        </Button>
       </Container>
     </Box>
     <Footer />

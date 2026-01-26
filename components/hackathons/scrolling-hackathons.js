@@ -1,4 +1,3 @@
-import Ticker from 'react-ticker'
 import {
   Box,
   Card,
@@ -9,12 +8,14 @@ import {
   Image,
   Link
 } from 'theme-ui'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { keyframes } from '@emotion/react'
 import Tilt from '../tilt'
 import NextLink from 'next/link'
-import PageVisibility from 'react-page-visibility'
+import dynamic from 'next/dynamic'
 import { formatAddress } from '../../lib/helpers'
+
+const Ticker = dynamic(() => import('react-ticker'), { ssr: false })
 
 export default function ScrollingHackathons({
   eventData,
@@ -22,10 +23,11 @@ export default function ScrollingHackathons({
   title,
   ...props
 }) {
-  const [pageIsVisible, setPageIsVisible] = useState(true)
-  const handleVisibilityChange = isVisible => {
-    setPageIsVisible(isVisible)
-  }
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <>
@@ -61,11 +63,9 @@ export default function ScrollingHackathons({
               sx={{ color: 'muted', mr: 2, textAlign: 'center' }}
             >
               from{' '}
-              <NextLink href="https://hackathons.hackclub.com" passHref>
-                <Link sx={{ color: 'currentcolor' }}>
-                  hackathons.hackclub.com
-                </Link>
-              </NextLink>
+              <Link as={NextLink} href="https://hackathons.hackclub.com" sx={{ color: 'currentcolor' }}>
+                hackathons.hackclub.com
+              </Link>
               , last updated just now.
             </Text>
           </Box>
@@ -73,19 +73,23 @@ export default function ScrollingHackathons({
       ) : (
         <></>
       )}
-      <PageVisibility onChange={handleVisibilityChange}>
-        {pageIsVisible && (
-          <Ticker mode={mode || 'string'} {...props}>
-            {() => (
-              <Box as="div" sx={{ display: 'flex', py: 3 }}>
-                {eventData.map(({ ...props }) => (
-                  <EventCard key={eventData.id} {...props} />
-                ))}
-              </Box>
-            )}
-          </Ticker>
-        )}
-      </PageVisibility>
+      {mounted ? (
+        <Ticker mode={mode || 'string'} {...props}>
+          {() => (
+            <Box as="div" sx={{ display: 'flex', py: 3 }}>
+              {eventData.map(({ ...props }) => (
+                <EventCard key={eventData.id} {...props} />
+              ))}
+            </Box>
+          )}
+        </Ticker>
+      ) : (
+        <Box as="div" sx={{ display: 'flex', py: 3, overflowX: 'auto' }}>
+          {eventData.map(({ ...props }) => (
+            <EventCard key={eventData.id} {...props} />
+          ))}
+        </Box>
+      )}
     </>
   )
 }

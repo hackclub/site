@@ -269,11 +269,9 @@ export default function Philosophy() {
           >
             Start a club
           </Button>
-          <NextLink href="/slack" passHref>
-            <Button sx={{ bg: 'white', color: 'red' }} as="a">
-              Join our Slack
-            </Button>
-          </NextLink>
+          <Button as={NextLink} href="/slack" sx={{ bg: 'white', color: 'red' }}>
+            Join our Slack
+          </Button>
         </Box>
       </Box>
       <Footer light />
