@@ -221,6 +221,7 @@
   },
   {
     "name": "Alex DeForrest",
+    "staff": true,
     "department": "HCB",
     "role": "Operations Engineer",
     "acknowledged": false,
@@ -229,8 +230,7 @@
     "slackId": "U02CWS020SD",
     "email": "alexd",
     "website": "",
-    "avatar": "https://i.ibb.co/hJqLm5Cn/adf.png",
-    "gapyear": true
+    "avatar": "https://i.ibb.co/hJqLm5Cn/adf.png"
   },
   {
     "name": "Alex Luo",
