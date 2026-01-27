@@ -28,11 +28,14 @@ import { TypeAnimation } from 'react-type-animation'
 const RsvpCount = () => {
   const targetRSVPs = 500
   const [rsvpCount, setRsvpCount] = useState(0)
-  useEffect(async () => {
-    // const url = 'https://api2.hackclub.com/v0.1/The Bin/rsvp'  <- switch to this once we have api2 back up and running
-    const url = '/api/bin/rsvp'
-    const results = await fetch(url).then(r => r.json())
-    setRsvpCount(results)
+  useEffect(() => {
+    const fetchRsvpCount = async () => {
+      // const url = 'https://api2.hackclub.com/v0.1/The Bin/rsvp'  <- switch to this once we have api2 back up and running
+      const url = '/api/bin/rsvp'
+      const results = await fetch(url).then(r => r.json())
+      setRsvpCount(results)
+    }
+    fetchRsvpCount()
   }, [])
 
   if (rsvpCount < targetRSVPs) {
@@ -91,10 +94,13 @@ const PartPicker = () => {
 const OnboardCount = () => {
   const [onboardCount, setOnboardCount] = useState(200)
 
-  useEffect(async () => {
-    const url = '/api/onboard/p/count'
-    const results = await fetch(url).then(r => r.json())
-    setOnboardCount(results.count)
+  useEffect(() => {
+    const fetchOnboardCount = async () => {
+      const url = '/api/onboard/p/count'
+      const results = await fetch(url).then(r => r.json())
+      setOnboardCount(results.count)
+    }
+    fetchOnboardCount()
   }, [])
 
   return <Text>{onboardCount}</Text>
@@ -106,7 +112,7 @@ const Electronic = ({ imageUrl, name, description }) => {
       <Flex
         sx={{ mx: 'auto', flexDirection: 'column', display: 'inline-flex' }}
       >
-        <Image src={imageUrl} width="100" />
+        <Image src={imageUrl} width="100" alt={name} />
         <Heading as="span" variant="headline">
           {name}
         </Heading>
@@ -207,6 +213,7 @@ export default function Bin() {
               }}>
                 <Image
                   src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/0rummaging.png"
+                  alt="Rummaging through The Bin"
                   onClick={(e) => { fireConfetti(); crunch(); spinIt(e.target) }}
                   sx={{
                     cursor: 'pointer',
@@ -223,7 +230,7 @@ export default function Bin() {
               <RsvpCount />
               <Box id="rsvp">
                 <Sparkles size="100px">
-                  <Image src="https://cloud-rdlz8he4l-hack-club-bot.vercel.app/0thebin.svg" sx={{ maxWidth: '250px' }} />
+                  <Image src="https://cloud-rdlz8he4l-hack-club-bot.vercel.app/0thebin.svg" alt="The Bin logo" sx={{ maxWidth: '250px' }} />
                 </Sparkles>
               </Box>
               <Text sx={{ fontWeight: 'bold' }}>
@@ -309,7 +316,7 @@ export default function Bin() {
             <Box sx={{ textAlign: 'left' }}>
               <Flex sx={{ my: 4 }}>
                 <Box>
-                  <Image src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/0rummaging.png" />
+                  <Image src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/0rummaging.png" alt="Rummage" />
                 </Box>
                 <Box>
                   <Heading as="p" variant="headline">
@@ -321,10 +328,10 @@ export default function Bin() {
                   </Text>
                 </Box>
               </Flex>
-              <Image src="https://cloud-2wkwrydc4-hack-club-bot.vercel.app/0parts.svg" sx={{ width: '100%' }} />
+              <Image src="https://cloud-2wkwrydc4-hack-club-bot.vercel.app/0parts.svg" alt="Example parts" sx={{ width: '100%' }} />
               <Flex sx={{ my: 4 }}>
                 <Box>
-                  <Image src="https://cloud-h7vwjlwe3-hack-club-bot.vercel.app/0frame_1__50_.png" />
+                  <Image src="https://cloud-h7vwjlwe3-hack-club-bot.vercel.app/0frame_1__50_.png" alt="Think" />
                 </Box>
                 <Box>
                   <Text as="p" variant="headline">
@@ -347,7 +354,7 @@ export default function Bin() {
                   </Text>
                 </Box>
                 <Box>
-                  <Image src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/1prototype.png" />
+                  <Image src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/1prototype.png" alt="Prototype" />
                 </Box>
               </Flex>
               <Box sx={{
@@ -388,6 +395,7 @@ export default function Bin() {
               </Flex>
               <Image
                 src="https://cloud-ge8yutn2q-hack-club-bot.vercel.app/0image.png"
+                alt="Build it"
                 width="100%"
               />
             </Box>
