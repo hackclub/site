@@ -73,7 +73,7 @@
   {
     "name": "Aishaani",
     "department": "Events",
-    "role": "Special Activities Division",
+    "role": "Virtual Event Organizer",
     "acknowledged": false,
     "bio": "Aishaani is a 15 year old Hack Clubber from Canada. She focuses on organizing and supporting virtual events through Slack as part of the Special Activities Division and loves organizing hackathons. She revolves around all things tech; hardware, web development, 3D design/CAD... and sometimes helps out with art for Hack Club projects. In her free time, she enjoys listening to music and producing her own songs, writing, rollerblading, and ice skating. She is also working on her podcast series, Orbiting the Future.",
     "bioHackFoundation": "",
@@ -99,7 +99,7 @@
   {
     "name": "Charlotte",
     "department": "Events",
-    "role": "Special Activities Division",
+    "role": "Virtual Event Organizer",
     "acknowledged": false,
     "bio": "Charlotte is a 16-year-old aspiring software engineer and AI enthusiast. As a Virtual Events member, she organizes virtual events in the Slack to make Hack Club a closer community, and outside of Hack Club she programs for her school's FIRST robotics team, 2415, and runs on cross country. In the past, she has organized Daydream Atlanta, a Hack Club affiliated satellite event, and qualified for Shipwrecked, a four-day island hackathon. In her free time, she enjoys building projects, whether coding a Flask website, creating a game in Godot, or, more recently, exploring CAD in Onshape.",
     "bioHackFoundation": "",
@@ -123,7 +123,7 @@
   {
     "name": "Irtaza",
     "department": "Events",
-    "role": "Special Activities Division",
+    "role": "Virtual Event Organizer",
     "acknowledged": false,
     "bio": "Irtaza is a 15 year old Hack Clubber from Pakistan who runs virtual events for the Hack Club community.",
     "bioHackFoundation": "",
@@ -135,7 +135,7 @@
   {
     "name": "Lucas Honda",
     "department": "Events",
-    "role": "Special Activities Division",
+    "role": "Virtual Event Organizer",
     "acknowledged": false,
     "bio": "Lucas is a Hack Clubber from Sao Paulo, Brazil. Since joining the Hack Club, he has been fascinated by Sprig and is currently leading Sprig App Review Team, and working to make it the best it possibly can be. He is also member of Special Activities Division. He loves all aspects of aviation, and scours the internet/skies looking for and investigating flying machines. He spends a good portion of his time with his dog, a happy and playful dog.",
     "bioHackFoundation": "",
@@ -1816,7 +1816,7 @@
     {
     "name": "Darlene Wu",
     "department": "Events",
-    "role": "Special Activities Division",
+    "role": "Virtual Event Organizer",
     "acknowledged": false,
     "bio": "Darlene is a 16 year old Hack Clubber from Indonesia who runs virtual events for the Hack Club community. She also helps welcome members into the Slack",
     "bioHackFoundation": "",
