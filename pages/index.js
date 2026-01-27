@@ -43,6 +43,7 @@ import Blueprint from '../components/index/cards/blueprint'
 import CampfireFlagship from '../components/index/cards/campfire-flagship'
 import Milkyway from '../components/index/cards/milkyway'
 import Flavortown from '../components/index/cards/flavortown'
+import Flavorless from '../components/index/cards/flavorless'
 import Aces from '../components/index/cards/aces'
 import CTAS from '../components/index/ctas'
 /** @jsxImportSource theme-ui */
@@ -861,6 +862,7 @@ function Page({
             <CampfireFlagship />
             <Milkyway />
             <Aces />
+            <Flavorless />
 
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
