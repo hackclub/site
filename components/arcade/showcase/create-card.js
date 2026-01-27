@@ -7,7 +7,7 @@ const CreateCard = ({ createCardLink }) => {
     <>
     <a href={createCardLink} className={styles.linkWrapper} rel="noopener noreferrer">
       <div className={styles.card}>
-        <img src={img}/>
+        <img src={img} alt="Create a card" />
         Create a card
       </div>
     </a>

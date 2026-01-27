@@ -57,6 +57,7 @@ const ReplitForm = ({ cssDark }) => {
         draggedSticker.current = null
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleInputChange = e => {

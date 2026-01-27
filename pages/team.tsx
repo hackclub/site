@@ -413,7 +413,7 @@ email="zach"
             </Box>
             <br />
                   <div style={{ fontWeight: 'bold' }}>
-        <a href="/acknowledged/">
+        <Link href="/acknowledged/">
         <Text
           variant="title"
                 color="orange"
@@ -423,7 +423,7 @@ email="zach"
         >
           Acknowledgements
         </Text>
-        </a>
+        </Link>
       </div>
           </Container>
           
