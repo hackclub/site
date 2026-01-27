@@ -1,5 +1,5 @@
 [
-      {
+  {
     "name": "Louisa",
     "department": "Moderation",
     "role": "Community Moderation Lead",
@@ -23,7 +23,7 @@
     "website": "",
     "avatar": "https://cloud-qz70b5lb7-hack-club-bot.vercel.app/0tsw6s4shwqjyta7_thumbnail.jpg"
   },
-   {
+  {
     "name": "Eesha",
     "department": "Events",
     "role": "Virtual Events Lead",
@@ -95,7 +95,6 @@
     "website": "https://transcental.dev",
     "avatar": "https://cachet.dunkirk.sh/users/U054VC2KM9P/r"
   },
-  
   {
     "name": "Charlotte",
     "department": "Events",
@@ -437,7 +436,7 @@
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U04C8LLPKS7/r"
   },
-    {
+  {
     "name": "Lilia Dostie",
     "department": "Welcoming",
     "role": "Welcome Team Lead",
@@ -631,7 +630,7 @@
     "website": "",
     "avatar": "https://i.ibb.co/fYtqhhrN/Leo.png"
   },
-    {
+  {
     "name": "Leo Wilkin",
     "staff": true,
     "department": "Community",
@@ -814,7 +813,7 @@
     "website": "https://angad.me",
     "avatar": "https://cachet.dunkirk.sh/users/U075RTSLDQ8/r"
   },
-    {
+  {
     "name": "Angad Behl",
     "department": "Moderation",
     "role": "Moderation & Conduct",
@@ -1165,7 +1164,7 @@
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U07FCRNHS1J/r"
   },
-    {
+  {
     "name": "Renran Sun",
     "department": "HQ",
     "role": "Engineering",
@@ -1252,7 +1251,7 @@
     "name": "Jenin Henin",
     "department": "HQ",
     "role": "Club Operations",
-    "acknowledged": true,
+    "acknowledged": false,
     "bio": "Jenin is a 14-year-old Hack Clubber from Canada who got involved with Hack Club in July 2025. He hopes to help Hack Clubbers achieve new things!",
     "bioHackFoundation": "",
     "slackId": "U0926UASBJ7",
@@ -1486,7 +1485,7 @@
     "website": "https://meghana.co",
     "avatar": "https://cachet.dunkirk.sh/users/U06P62WGWAV/r"
   },
-    {
+  {
     "name": "Celeste Roselli",
     "department": "HQ",
     "role": "Engineering, Athena Initiative",
@@ -1661,6 +1660,17 @@
     "avatar": "https://github.com/EerierGosling/Personal-Website/blob/main/public/hc-team-pfp.jpg?raw=true"
   },
   {
+    "name": "Neon",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Hi I'm Neon, a 17 year old coder for Hack Club who works on the General YSWS's and other eng tasks!",
+    "slackId": "U07L45W79E1",
+    "website": "https://saahild.com",
+    "email": "neon",
+    "avatar": "https://cachet.dunkirk.sh/users/U07L45W79E1/r"
+  },
+  {
     "name": "Tina Soriano",
     "department": "HQ",
     "role": "Exec. Assistant",
@@ -1813,7 +1823,7 @@
     "website": "",
     "avatar": "https://i.ibb.co/DPKBJt0C/aishaani.png"
   },
-    {
+  {
     "name": "Darlene Wu",
     "department": "Events",
     "role": "Virtual Event Organizer",
@@ -1825,7 +1835,7 @@
     "website": "",
     "avatar": "https://i.ibb.co/1GtwNqN7/darlene.jpg"
   },
-      {
+  {
     "name": "Joel Gallagher",
     "department": "Welcoming",
     "role": "Welcomer",
@@ -1954,7 +1964,7 @@
     "website": "https://felixgao.dev/",
     "avatar": "https://i.ibb.co/3mCMrhZ2/Felix.png"
   },
-    {
+  {
     "name": "Felix Gao",
     "department": "Moderation",
     "role": "Moderation & Conduct",
@@ -2030,7 +2040,7 @@
     "slackId": "",
     "email": "louisa",
     "website": "",
-    "avatar": "https://athena.hackclub.com/_next/image?url=https%3A%2F%2Fhc-cdn.hel1.your-objectstorage.com%2Fs%2Fv3%2F0c0306bad2c52f721b120474ade9de27f4857cd7_lou.png&w=256&q=75"
+    "avatar": "https://cachet.dunkirk.sh/users/U06EMBJH71S/r"
   },
   {
     "name": "Parneel Bhakhri",
@@ -2065,7 +2075,7 @@
     "website": "https://samvid.bearblog.dev/",
     "avatar": "https://i.ibb.co/WpkTQDQf/samvid.jpg"
   },
-      {
+  {
     "name": "Victorio",
     "department": "Welcoming",
     "role": "Welcomer",
@@ -2075,7 +2085,7 @@
     "email": "",
     "website": "https://v1c.rocks/",
     "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U072PTA5BNG-66f740620bcc-512"
-  }, 
+  },
   {
     "name": "Annlee Fores",
     "department": "HQ",
@@ -2083,7 +2093,8 @@
     "acknowledged": true,
     "bio": "As the COO of Hack Club APAC, Annlee oversaw operations and handled event organisation & logistics at Hack Club APAC. When not busy juggling different tasks he takes up, he enjoys tinkering & building fun projects."
   },
-  {"name": "Aram",
+  {
+    "name": "Aram",
     "department": "Moderation",
     "role": "Moderation & Conduct",
     "acknowledged": true,
@@ -2093,8 +2104,9 @@
     "email": "",
     "website": "",
     "avatar": "https://cloud-9oehj9fy6-hack-club-bot.vercel.app/0annlee_fores_avatar.jpeg"
-  }, 
-  {"name": "Arav Narula",
+  },
+  {
+    "name": "Arav Narula",
     "department": "HQ",
     "role": "Community Operations & Engineering",
     "acknowledged": true,
@@ -2116,4 +2128,4 @@
     "website": "https://arpanpandey.dev",
     "avatar": "https://media.licdn.com/dms/image/v2/D5603AQHgJ1rUos6FFA/profile-displayphoto-shrink_800_800/B56Zd.1nF2H8Ac-/0/1750179673148?e=1759363200&v=beta&t=Ta3W1GF6ZNYl7U-D6YSCAzNUJl4SHwERjslWbDsvEdQ"
   }
-  ]
+]
