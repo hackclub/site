@@ -6,10 +6,6 @@ export default function BoardBox({ popup = true, ...props }) {
   const { img, name, teamRole, pronouns, text, subrole, email, href, video } = props
   const [expand, setExpand] = useState(false)
 
-  if (subrole) {
-    console.log("yes subrole")
-  }
-
   return (
     <>
       <Card
