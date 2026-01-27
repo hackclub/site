@@ -622,7 +622,7 @@
     "name": "Leo Wilkin",
     "staff": true,
     "department": "Moderation",
-    "role": "Fire Department",
+    "role": "Moderation & Conduct",
     "acknowledged": false,
     "bio": "Leo has a heart for equitable access to the digital world, especially when it comes to ensuring safety for children online. Formerly at HCB, he's now leveraging his passion and experience in Operations, helping hackathons share the magic of code to students worldwide.",
     "bioHackFoundation": "",
@@ -1490,7 +1490,7 @@
     "name": "Celeste Roselli",
     "department": "HQ",
     "role": "Engineering, Athena Initiative",
-    "avatar": "https://media.licdn.com/dms/image/v2/D5603AQFoozVA0wJ91Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731707096650?e=1770854400&v=beta&t=kpJm0x_YsHXdvatZurHfIT76nvz9oMuIzrYo4Kmf8_Q"
+    "avatar": "https://i.ibb.co/XrBqbYF7/2026-01-27-0j2-Kleki.jpg"
   },
   {
     "name": "Micha Albert",
@@ -1897,18 +1897,6 @@
     "avatar": "https://cachet.dunkirk.sh/users/U07346379NY/r"
   },
   {
-    "name": "Manitej Boorgu",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
-    "acknowledged": false,
-    "bio": "Manitej is a Hack Clubber from Texas, USA. During their time in Hack Club, Manitej has run several programs including Hack Hour, Arcade and Cafe. He also has a passion for community building and urban planning.",
-    "bioHackFoundation": "",
-    "slackId": "U04QD71QWS0",
-    "email": "manitej",
-    "website": "https://www.manitej.com/",
-    "avatar": "https://cachet.dunkirk.sh/users/U04QD71QWS0/r"
-  },
-  {
     "name": "Miguel",
     "department": "Moderation",
     "role": "Moderation & Conduct",
@@ -1945,6 +1933,17 @@
     "avatar": "https://cachet.dunkirk.sh/users/U04FATFRE6T/r"
   },
   {
+    "name": "Jeremy",
+    "department": "Moderation",
+    "role": "Moderation Engineering",
+    "acknowledged": false,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U06UYA5GMB5",
+    "website": "https://jeremywoolley.com",
+    "avatar": "https://cachet.dunkirk.sh/users/U06UYA5GMB5/r"
+  },
+  {
     "name": "Felix Gao",
     "department": "Newspaper",
     "role": "Newspaper Team Lead",
@@ -1958,7 +1957,7 @@
     {
     "name": "Felix Gao",
     "department": "Moderation",
-    "role": "Fire Department",
+    "role": "Moderation & Conduct",
     "acknowledged": false,
     "bio": "Felix, a teen Hack Clubber from Toronto, Canada, leads a team that writes various newsletters, ensuring Hack Clubbers know what's going on in the Slack and beyond. You'll often find him writing code or drowning two metres deep in homework. He has an absurd variety of niche interests and loves learning more about them, one of the biggest being urban planning/design.",
     "slackId": "U07BU2HS17Z",
