@@ -290,36 +290,7 @@ email="zach"
                   </Grid>
                 </>
               )}
-              {team.current?.filter(member => member.department === 'HCB' && member.gapyear).length > 0 && (
-                <>
-                  <Text
-                    variant="headline"
-                    mt={3}
-                    mb={2}
-                    as="h4"
-                    sx={{ fontSize:3 }}
-                  >
-                    2025-2026 Gap Years:
-                  </Text>
-                  <Grid columns={[1, null, 2, 3]} gap={3}>
-                    {team.current
-                      ?.filter(member => member.department === 'HCB' && member.gapyear)
-                      .map(member => (
-                        <Bio
-                          img={member.avatar}
-                          name={member.name}
-                          teamRole={member.role}
-                          text={member.bio}
-                          pronouns={member.pronouns}
-                          email={member.email}
-                          href={member.website}
-                          key={member.name}
-                        />
-                      ))}
-                  </Grid>
-                </>
-              )}
-              {team.current?.filter(member => member.department === 'HCB' && !member.gapyear && !member.staff).length > 0 && (
+              {team.current?.filter(member => member.department === 'HCB' && !member.staff).length > 0 && (
                 <>
                   <Text
                     variant="headline"
@@ -328,11 +299,11 @@ email="zach"
                     as="h4"
                     sx={{ fontSize: 3 }}
                   >
-                    Teen Contractors and Part-Time:
+                    Contributors:
                   </Text>
                   <Grid columns={[1, null, 2, 3]} gap={3}>
                     {team.current
-                      ?.filter(member => member.department === 'HCB' && !member.gapyear && !member.staff)
+                      ?.filter(member => member.department === 'HCB' && !member.staff)
                       .map(member => (
                         <Bio
                           img={member.avatar}
