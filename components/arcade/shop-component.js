@@ -77,7 +77,7 @@ export default function ShopComponent({
       >
         {availableItems
           .sort((a, b) => a['Cost Hours'] - b['Cost Hours'])
-          .filter(item => (item['Stock'] > 0 || item['Stock'] == null))
+          .filter(item => (item['Stock'] > 0 || item['Stock'] === null))
           .map((item) => (
             <Prizes
               img={item['Image URL']}
@@ -101,7 +101,7 @@ export default function ShopComponent({
           ))}
           {availableItems
           .sort((a, b) => a['Cost Hours'] - b['Cost Hours'])
-          .filter(item => (item['Stock'] == 0))
+          .filter(item => (item['Stock'] === 0))
           .map((item) => (
             <Prizes
               img={item['Image URL']}

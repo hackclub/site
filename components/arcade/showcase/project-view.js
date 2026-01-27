@@ -66,6 +66,7 @@ const ProjectView = ({
   useEffect(() => {
     setDarkColor(darkenColor(color, 0.8))
     setInvertedColor(invertColor(textColor))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [color])
 
   // function convertToRawUrl(githubUrl) {
@@ -133,8 +134,8 @@ const ProjectView = ({
         }}
       >
         <h1 className="slackey">{title}</h1>
-        <h2>{description != 'Description Not Found' ? description : <></>}</h2>
-        <h3>{user != 'User Not Found' ? <>By {user}</> : <></>}</h3>
+        <h2>{description !== 'Description Not Found' ? description : <></>}</h2>
+        <h3>{user !== 'User Not Found' ? <>By {user}</> : <></>}</h3>
 
         <div
           className={styles.buttonGroup}
@@ -218,13 +219,13 @@ const ProjectView = ({
             display: 'grid',
             flexWrap: 'wrap',
             gridTemplateColumns:
-              screenshot != '' && video != ''
+              screenshot !== '' && video !== ''
                 ? ['1fr', '1fr 1fr', '1fr 1fr']
                 : '1fr',
             gap: '10px'
           }}
         >
-          {image != '' && (
+          {image !== '' && (
             <div
               sx={{
                 display: 'flex',
@@ -254,7 +255,7 @@ const ProjectView = ({
 
         <p
           className={styles.description}
-          sx={{ textAlign: screenshot.length != 1 ? 'center' : 'left' }}
+          sx={{ textAlign: screenshot.length !== 1 ? 'center' : 'left' }}
         >
           <ReadmeRenderer markdown={markdown} />
         </p>

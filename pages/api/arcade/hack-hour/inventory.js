@@ -38,7 +38,7 @@ export default async function handler(req, res) {
       formURL:  record.fields['Order Form URL'],
       description: record.fields['Description'],
       flavorText: record?.fields['Flavor text']?.map(recordID => {
-        const flavorRecord = data.flavor.find(f => f.id == recordID)
+        const flavorRecord = data.flavor.find(f => f.id === recordID)
         const result = {
           message: flavorRecord.fields["Message"],
           character: flavorRecord.fields["Character"],
