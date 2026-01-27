@@ -1035,13 +1035,13 @@
     "name": "Rowan",
     "staff": true,
     "department": "HQ",
-    "role": "Engineering & Logistics",
+    "role": "Engineering & Security",
     "acknowledged": false,
-    "bio": "Echo (also known as Rowan) is a programmer from the United States. Commonly seen hunched over a laptop, Rowan loves to build things that sometimes work. In their free time, they enjoy playing Counter Strike, listening to music, and breaking things, especially code. They are currently working on various projects at Hack Club, including Hackatime, Summer of Making, and more.",
+    "bio": "Rowan (who goes by Echo online) is a full stack programmer from the United States. They helped run Summer of Making and now work on engineering and security for Hack Club HQ. In their free time, they enjoy politics, playing video games, and listening to music.",
     "slackId": "U080A3QP42C",
-    "email": "3kh0@3kh0.net",
-    "website": "https://3kh0.net/",
-    "avatar": "https://extra.3kh0.net/img/art/xmr_hoodie_small.png"
+    "email": "echo",
+    "website": "https://3kh0.net",
+    "avatar": "https://cdn.3kh0.net/profile.png"
   },
   {
     "name": "Ella Xu",
