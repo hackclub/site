@@ -90,12 +90,24 @@ const Footer = ({
           <Heading as="h2" variant="subheadline" mb={3}>
             Hack&nbsp;Club
           </Heading>
-          <Link as={NextLink} href="/philosophy">Philosophy</Link>
-          <Link as={NextLink} href="/team">Our Team & Board</Link>
-          <Link as={NextLink} href="/jobs">Jobs</Link>
-          <Link as={NextLink} href="/brand">Brand Guide</Link>
-          <Link as={NextLink} href="/press">Press Inquiries</Link>
-          <Link as={NextLink} href="/philanthropy">Donate</Link>
+          <NextLink href="/philosophy" passHref>
+            <Link>Philosophy</Link>
+          </NextLink>
+          <NextLink href="/team" passHref>
+            <Link>Our Team & Board</Link>
+          </NextLink>
+          <NextLink href="/jobs" passHref>
+            <Link>Jobs</Link>
+          </NextLink>
+          <NextLink href="/brand" passHref>
+            <Link>Brand Guide</Link>
+          </NextLink>
+          <NextLink href="/press" passHref>
+            <Link>Press Inquiries</Link>
+          </NextLink>
+          <NextLink href="/philanthropy" passHref>
+            <Link>Donate</Link>
+          </NextLink>
         </Box>
         <Box>
           <Heading as="h2" variant="subheadline" mb={3}>

@@ -117,17 +117,18 @@ const Page = () => (
               Chat in #minecraft on Slack
             </Heading>
             <Text as="p">Hundreds of players around the world.</Text>
-            <Button
-              as={NextLink}
-              href="/slack"
-              sx={{
-                mt: 2,
-                backgroundImage: t => t.util.gx('#759B40', '#4F6728')
-              }}
-            >
-              <Icon glyph="slack-fill" size={24} />
-              Join our Slack
-            </Button>
+            <NextLink href="/slack" passHref>
+              <Button
+                as="a"
+                sx={{
+                  mt: 2,
+                  backgroundImage: t => t.util.gx('#759B40', '#4F6728')
+                }}
+              >
+                <Icon glyph="slack-fill" size={24} />
+                Join our Slack
+              </Button>
+            </NextLink>
           </Card>
         </Grid>
       </FadeIn>

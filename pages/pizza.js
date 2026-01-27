@@ -14,17 +14,13 @@ import {
   import Footer from '../components/footer'
   import Nav from '../components/nav'
   import Tilt from '../components/tilt'
+  import Ticker from 'react-ticker'
   import { useState, useEffect } from 'react'
-  import dynamic from 'next/dynamic'
-
-  const Ticker = dynamic(() => import('react-ticker'), { ssr: false })
   
   const PizzaPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const [mounted, setMounted] = useState(false)
     useEffect(() => {
       setIsModalOpen(true)
-      setMounted(true)
     }, [])
 
     useEffect(() => {
@@ -543,109 +539,70 @@ import {
             </Heading>{' '}
           </Container>
   
-          {mounted ? (
-            <Ticker speed={3} sx={{ overflowX: 'hidden' }}>
-              {() => (
-                <Box as="div" sx={{ display: 'flex', py: [4, 5, 5] }}>
-                  {pizzasByClubs.map((pizzaByClub, idx) => (
-                    <Box
-                      key={idx}
-                      sx={{
-                        position: 'relative',
-                        borderRadius: '16px',
-                        padding: '8px 16px 16px 16px',
-                        width: ['300px', '500px'],
-                        marginLeft: '16px',
-                        marginRight: '16px',
-                        border: '1px solid var(--Muted, #8492A6)'
-                      }}
-                    >
-                      <Tilt
-                        sx={{ backgroundColor: '#fff' }}
-                        options={{ scale: 1.25, perspective: 2000, speed: 500 }}
-                      >
-                        <img
-                          alt="pizza drawn by club"
-                          src={pizzaByClub.sprite}
-                          style={{
-                            position: 'absolute',
-                            width: '48px',
-                            top: '-16px',
-                            left: '-16px',
-                            height: '48px',
-                            padding: '8px',
-                            imageRendering: 'pixelated',
-                            borderRadius: '8px',
-                            border: `1.75px solid ${getColor(idx)}`,
-                            backgroundColor: '#fff',
-                            zIndex: 2
-                          }}
-                        />
-                      </Tilt>
-                      <Text
-                        sx={{
-                          paddingLeft: '24px',
-                          fontSize: [18, 18, 22],
-                          fontWeight: 600,
-    
-                          background:
-                            'linear-gradient(95deg, #EC3750 0%, #FF8C37 100%)',
-                          WebkitBackgroundClip: 'text',
-                          WebkitTextFillColor: 'transparent',
-                          filter:
-                            'drop-shadow(0px 3.171428680419922px 16px rgba(0, 0, 0, 0.15))'
-                        }}
-                      >
-                        {pizzaByClub.author} ({pizzaByClub.age}) from{' '}
-                        {pizzaByClub.from}
-                      </Text>
-                      <br />
-                      <Text sx={{ paddingTop: '16px', fontSize: [16, 18] }}>
-                        {pizzaByClub.response}
-                      </Text>
-                    </Box>
-                  ))}
-                </Box>
-              )}
-            </Ticker>
-          ) : (
-            <Box as="div" sx={{ display: 'flex', py: [4, 5, 5], overflowX: 'auto' }}>
-              {pizzasByClubs.map((pizzaByClub, idx) => (
-                <Box
-                  key={idx}
-                  sx={{
-                    position: 'relative',
-                    borderRadius: '16px',
-                    padding: '8px 16px 16px 16px',
-                    width: ['300px', '500px'],
-                    marginLeft: '16px',
-                    marginRight: '16px',
-                    border: '1px solid var(--Muted, #8492A6)',
-                    flexShrink: 0
-                  }}
-                >
-                  <Text
+          <Ticker speed={3} sx={{ overflowX: 'hidden' }}>
+            {() => (
+              <Box as="div" sx={{ display: 'flex', py: [4, 5, 5] }}>
+                {pizzasByClubs.map((pizzaByClub, idx) => (
+                  <Box
+                    key={idx}
                     sx={{
-                      paddingLeft: '24px',
-                      fontSize: [18, 18, 22],
-                      fontWeight: 600,
-                      background:
-                        'linear-gradient(95deg, #EC3750 0%, #FF8C37 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent'
+                      position: 'relative',
+                      borderRadius: '16px',
+                      padding: '8px 16px 16px 16px',
+                      width: ['300px', '500px'],
+                      marginLeft: '16px',
+                      marginRight: '16px',
+                      border: '1px solid var(--Muted, #8492A6)'
                     }}
                   >
-                    {pizzaByClub.author} ({pizzaByClub.age}) from{' '}
-                    {pizzaByClub.from}
-                  </Text>
-                  <br />
-                  <Text sx={{ paddingTop: '16px', fontSize: [16, 18] }}>
-                    {pizzaByClub.response}
-                  </Text>
-                </Box>
-              ))}
-            </Box>
-          )}
+                    <Tilt
+                      sx={{ backgroundColor: '#fff' }}
+                      options={{ scale: 1.25, perspective: 2000, speed: 500 }}
+                    >
+                      <img
+                        alt="pizza drawn by club"
+                        src={pizzaByClub.sprite}
+                        style={{
+                          position: 'absolute',
+                          width: '48px',
+                          top: '-16px',
+                          left: '-16px',
+                          height: '48px',
+                          padding: '8px',
+                          imageRendering: 'pixelated',
+                          borderRadius: '8px',
+                          border: `1.75px solid ${getColor(idx)}`,
+                          backgroundColor: '#fff',
+                          zIndex: 2
+                        }}
+                      />
+                    </Tilt>
+                    <Text
+                      sx={{
+                        paddingLeft: '24px',
+                        fontSize: [18, 18, 22],
+                        fontWeight: 600,
+  
+                        background:
+                          'linear-gradient(95deg, #EC3750 0%, #FF8C37 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        filter:
+                          'drop-shadow(0px 3.171428680419922px 16px rgba(0, 0, 0, 0.15))'
+                      }}
+                    >
+                      {pizzaByClub.author} ({pizzaByClub.age}) from{' '}
+                      {pizzaByClub.from}
+                    </Text>
+                    <br />
+                    <Text sx={{ paddingTop: '16px', fontSize: [16, 18] }}>
+                      {pizzaByClub.response}
+                    </Text>
+                  </Box>
+                ))}
+              </Box>
+            )}
+          </Ticker>
         </Box>
   
         <Container sx={{ padding: '16px' }}>

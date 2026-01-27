@@ -209,10 +209,12 @@ const NotFoundPage = () => (
       >
         We&nbsp;couldn’t&nbsp;find&nbsp;that&nbsp;page.
       </Text>
-      <Button as={NextLink} href="/" variant="cta">
-        <Icon glyph="home" size={32} />
-        Go Home
-      </Button>
+      <NextLink href="/" passHref>
+        <Button as="a" variant="cta">
+          <Icon glyph="home" size={32} />
+          Go Home
+        </Button>
+      </NextLink>
     </Container>
     <Footer dark />
   </>

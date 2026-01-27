@@ -95,22 +95,23 @@ export default function Channels() {
         </Text>
         <SlackEvents />
       </Box>
-      <Card
-        as={NextLink}
-        href="/ship"
-        variant="interactive"
-        sx={{
-          gridColumn: ['span 2', 'span 5'],
-          bg: 'blue',
-          backgroundImage: t => t.util.gx('cyan', 'blue')
-        }}
-      >
-        <Icon glyph="external" size={24} />
-        <Heading as="h3" variant="headline">
-          #ship
-        </Heading>
-        <Text as="p">Launch your latest projects & get feedback</Text>
-      </Card>
+      <NextLink href="/ship" passHref>
+        <Card
+          as="a"
+          variant="interactive"
+          sx={{
+            gridColumn: ['span 2', 'span 5'],
+            bg: 'blue',
+            backgroundImage: t => t.util.gx('cyan', 'blue')
+          }}
+        >
+          <Icon glyph="external" size={24} />
+          <Heading as="h3" variant="headline">
+            #ship
+          </Heading>
+          <Text as="p">Launch your latest projects & get feedback</Text>
+        </Card>
+      </NextLink>
       <Card
         as="a"
         href="https://scrapbook.hackclub.com/"

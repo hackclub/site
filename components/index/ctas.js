@@ -1,11 +1,24 @@
 import { Box, Link, Text, Image, Card, Button } from 'theme-ui'
 import Icon from '../icon'
-import React from 'react'
+import CarouselCards from './carousel-cards'
+import { keyframes } from '@emotion/react'
+import React, { useEffect, useState } from 'react'
+import Ticker from 'react-ticker'
+import PageVisibility from 'react-page-visibility'
+import { Fade } from 'react-reveal'
 /** @jsxImportSource theme-ui */
 
 export default function CTAS({ cards }) {
+  const [pageIsVisible, setPageIsVisible] = useState(true)
+
+  const handleVisibilityChange = isVisible => {
+    setPageIsVisible(isVisible)
+  }
+
   return (
-    <Box
+    <PageVisibility onChange={handleVisibilityChange}>
+      {pageIsVisible && (
+        <Box
           as="div"
           sx={{
             //1 row flexbox of cards
@@ -145,5 +158,7 @@ export default function CTAS({ cards }) {
           })}
           
         </Box>
+      )}
+    </PageVisibility>
   )
 }

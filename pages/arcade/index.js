@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Nav from '../../components/nav'
@@ -10,11 +10,9 @@ import path from 'path'
 import { startCase } from 'lodash'
 import Projects from '../../components/arcade/projects'
 import { Howl } from 'howler'
+import Ticker from 'react-ticker'
+import PageVisibility from 'react-page-visibility'
 import ArcadeFooter from '../../components/arcade/footer'
-import dynamic from 'next/dynamic'
-
-const Ticker = dynamic(() => import('react-ticker'), { ssr: false })
-const PageVisibility = dynamic(() => import('react-page-visibility'), { ssr: false })
 import Balancer from 'react-wrap-balancer'
 import { Fade } from 'react-reveal'
 import Join from '../../components/arcade/join'
@@ -920,14 +918,9 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
   }
 
   const [pageIsVisible, setPageIsVisible] = useState(true)
-  const [mounted, setMounted] = useState(false)
   const handleVisibilityChange = isVisible => {
     setPageIsVisible(isVisible)
   }
-  
-  useEffect(() => {
-    setMounted(true)
-  }, [])
   return (
     <>
       <Meta
@@ -1323,37 +1316,35 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             </Text>
           </Text>
         </Box>
-        {mounted && (
-          <PageVisibility onChange={handleVisibilityChange}>
-            {pageIsVisible && (
-              <Box
-                sx={{
-                  transform: 'rotate(-7deg) scale(1.1)',
-                  zIndex: 10,
-                  position: 'relative',
-                  marginBottom: ['-900px', '-820px', '-850px', '-1020px'],
-                  marginTop: ['120px', '120px', '120px', '150px'],
-                  width: ['110vw','105vw']
-                }}
-              >
-                <Ticker speed={5}>
-                  {() => (
-                    <Box as="div" sx={{ display: 'flex', height: 'fit-content' }}>
-                      {carousel.map((item, i) => (
-                        <Item
-                          img={item.imageURL}
-                          cost={item.hours}
-                          key={i}
-                          name={item.name}
-                        />
-                      ))}
-                    </Box>
-                  )}
-                </Ticker>
-              </Box>
-            )}
-          </PageVisibility>
-        )}
+        <PageVisibility onChange={handleVisibilityChange}>
+          {pageIsVisible && (
+            <Box
+              sx={{
+                transform: 'rotate(-7deg) scale(1.1)',
+                zIndex: 10,
+                position: 'relative',
+                marginBottom: ['-900px', '-820px', '-850px', '-1020px'],
+                marginTop: ['120px', '120px', '120px', '150px'],
+                width: ['110vw','105vw']
+              }}
+            >
+              <Ticker speed={5}>
+                {() => (
+                  <Box as="div" sx={{ display: 'flex', height: 'fit-content' }}>
+                    {carousel.map((item, i) => (
+                      <Item
+                        img={item.imageURL}
+                        cost={item.hours}
+                        key={i}
+                        name={item.name}
+                      />
+                    ))}
+                  </Box>
+                )}
+              </Ticker>
+            </Box>
+          )}
+        </PageVisibility>
         <img
           src="/arcade/blue_bottom.svg"
           alt="blue triangle"

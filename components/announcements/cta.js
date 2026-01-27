@@ -28,9 +28,11 @@ export default function SlackCTA() {
           </Text>
           <br />
           <br />
-          <Button as={NextLink} href="/" bg="cyan">
-            Learn more
-          </Button>
+          <NextLink href="/" passHref>
+            <Button bg="cyan" as="a">
+              Learn more
+            </Button>
+          </NextLink>
         </Box>
       </Grid>
     </Box>
