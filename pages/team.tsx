@@ -100,38 +100,38 @@ export default function Team({ team }) {
                 Board & Advisors
               </Text>
             <Grid columns={[1, null, 2]} gap={5} mb={4}>
+            <BoardBox
+              img="/team/zach.jpg"
+              name="Zach Latta"
+              teamRole="Founder"
+              text="Zach dropped out of high school after his freshman year to work in the technology industry and had over 5 million people using his software by the time he turned 17. He founded Hack Club to build the program he wish he had in high school and has been awarded the Thiel Fellowship and Forbes 30 Under 30 for his work."
+              email="zach"
+            />
             <BoardBox 
-img="/team/zach.jpg"
-name="Zach Latta"
-teamRole="Founder"
-text="Zach dropped out of high school after his freshman year to work in the technology industry and had over 5 million people using his software by the time he turned 17. He founded Hack Club to build the program he wish he had in high school and has been awarded the Thiel Fellowship and Forbes 30 Under 30 for his work."
-email="zach"
-/>
-<BoardBox 
-  img="/team/christina.jpg"
-  name="Christina Asquith"
-  teamRole="Co-Founder and COO"
-  text="With more than a decade of experience in starting and leading organizations, Christina has built global teams and raised millions of dollars. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq. She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
-  email="christina"
-/>
-              </Grid>
+              img="/team/christina.jpg"
+              name="Christina Asquith"
+              teamRole="Co-Founder and COO"
+              text="With more than a decade of experience in starting and leading organizations, Christina has built global teams and raised millions of dollars. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq. She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
+              email="christina"
+            />
+            </Grid>
             <Grid columns={[1, null, 3]} gap={4} mb={4}>
             <BoardBox 
-                img="https://upload.wikimedia.org/wikipedia/commons/7/75/Tom_Preston-Werner_%282024%29.jpg"
+                img="https://i.ibb.co/gMVMqJzt/2026-01-27-0io-Kleki.jpg"
                 name="Tom Preston-Werner"
                 teamRole={<>Board Member</>}
                 subrole="Co-Founder, GitHub"
                 href="https://github.com/mojombo"
               />
               <BoardBox 
-                img="https://philanthropy.hackclub.com/_next/image?url=/quinn.png&w=1200&q=75"
+                img="https://i.ibb.co/qMCYrJn8/sqs.jpg"
                 name="Quinn Slack"
                 teamRole={<>Board Member</>}
                 subrole="Co-Founder and CEO, AMP"
                 href="https://github.com/sqs"
               />
               <BoardBox 
-                img="https://media.licdn.com/dms/image/C5603AQFum8zxW-IEEA/profile-displayphoto-shrink_800_800/0/1517058384850?e=2147483647&v=beta&t=-oM8no3Zc7xUzCDBsHxajD_joBkQi8Ge5iPaeF5p0gM"
+                img="https://i.ibb.co/0pGTSmks/2026-01-27-0il-Kleki.png"
                 name="John Abele"
                 teamRole={<>Board Advisor</>}
                 href="https://en.wikipedia.org/wiki/John_Abele"
@@ -412,25 +412,22 @@ email="zach"
               </Grid>
             </Box>
             <br />
-                  <div style={{ fontWeight: 'bold' }}>
-        <Link href="/acknowledged/">
-        <Text
-          variant="title"
-                color="orange"
-                sx={{ lineHeight: '1em', fontSize: [4, 5, 6], textAlign: 'center' }}
-                as="h2"
-                pt={5}
-        >
-          Acknowledgements
-        </Text>
-        </Link>
-      </div>
+            <div style={{ fontWeight: 'bold' }}>
+              <Link href="/acknowledged/">
+                <Text
+                  variant="title"
+                  color="orange"
+                  textDecoration="underline"
+                  sx={{ lineHeight: '1em', fontSize: [4, 5, 6], textAlign: 'center' }}
+                  as="h2"
+                >
+                  Acknowledgements
+                </Text>
+              </Link>
+            </div>
           </Container>
-          
         </Box>
-        
       </Box>
-      
       <Footer light key="footer" />
     </>
   )
