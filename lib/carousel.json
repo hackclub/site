@@ -115,5 +115,14 @@
     "description": "Build projects, earn cookies, and exchange them for iPads, MacBooks, and more!",
     "img": "/hc-cdn/0256e44f53eb79e4_logo-b28e0e8b.avif",
     "link": "https://flavortown.hackclub.com/?ref=site-carousel"
-  }
+  },
+  {
+    "background": "#30AE1F",
+    "titleColor": "#FFFFFF",
+    "descriptionColor": "#FFFFFF",
+    "title": "HackCraft",
+    "description": "Ship a mod - Get Minecraft",
+    "img": "https://emoji.slack-edge.com/T09V59WQY1E/minecraft/308decaa00e556b9.png",
+    "link": "https://hackcraft.hackclub.com/"
+	}
 ]
