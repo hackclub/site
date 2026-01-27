@@ -57,6 +57,7 @@ export default function Project({ title, description, color, img, itemId }) {
       </Box>
       <Image
         src={`/slack/${img}.png`}
+        alt={title}
         sx={{
           visibility: ['visible'],
           height: ['100%'],

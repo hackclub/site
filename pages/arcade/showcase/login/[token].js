@@ -27,26 +27,28 @@ const flavorText = [
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 const LoginPage = ({token}) => {
   const [ status, setStatus ] = useState('Loading...')
-  useEffect(async () => {
-    const minWaitTime = sleep(3 * 1000)
-    let data = {}
-    const getTokenPromise = new Promise(async resolve => {
-      const response = await fetch(`/api/arcade/showcase/login/${token}`, {method: 'POST'})
-      data = await response.json()
-      resolve()
-    })
-    const [ _wait, _data ] = await Promise.all([minWaitTime, getTokenPromise])
+  useEffect(() => {
+    const run = async () => {
+      const minWaitTime = sleep(3 * 1000)
+      let data = {}
+      const getTokenPromise = new Promise(async resolve => {
+        const response = await fetch(`/api/arcade/showcase/login/${token}`, {method: 'POST'})
+        data = await response.json()
+        resolve()
+      })
+      const [ _wait, _data ] = await Promise.all([minWaitTime, getTokenPromise])
 
-    if (data.error) {
-      setStatus(data.error)
-    } else {
-      setStatus("Redirecting!")
-      window.localStorage.setItem('arcade.authToken', data.authToken)
-      await sleep(250)
-      window.location.href = '/arcade/showcase/my'
+      if (data.error) {
+        setStatus(data.error)
+      } else {
+        setStatus("Redirecting!")
+        window.localStorage.setItem('arcade.authToken', data.authToken)
+        await sleep(250)
+        window.location.href = '/arcade/showcase/my'
+      }
     }
-
-  }, [])
+    run()
+  }, [token])
 
   return (
     <div>

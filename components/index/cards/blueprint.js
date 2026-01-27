@@ -18,7 +18,7 @@ export default function Blueprint({ stars, blueprintData }) {
           setProjects('100+ projects built')
         })
     }
-  }, [])
+  }, [blueprintData])
 
   return (
     <Box

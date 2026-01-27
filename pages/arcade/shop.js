@@ -51,13 +51,13 @@ export default function Shop({
   )
 
   useEffect(() => {
-    if (cat == 'all') {
+    if (cat === 'all') {
       setItems(availableItems)
     } else {
       let i = availableItems.filter(items => items['Category'].includes(cat))
       setItems(i)
     }
-  }, [cat])
+  }, [cat, availableItems])
 
   // Spotlight effect
   const spotlightRef = useRef()
@@ -132,6 +132,7 @@ export default function Shop({
         <Flag sx={{ display: 'block', zIndex: 4, ml: 5 }} />
         <img
           src="/arcade/o6.png"
+          alt="Decorative dino"
           sx={{
             width: ['30%', '30%', '30%', '40%'],
             maxWidth: '210px',
@@ -270,7 +271,7 @@ export default function Shop({
               🦢 Swag
             </Button>
           </Flex>
-          {cat == 'all' ? (
+          {cat === 'all' ? (
             <>
               <Text
                 sx={{

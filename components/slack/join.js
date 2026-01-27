@@ -51,6 +51,7 @@ export default function Join() {
       </Box>
       <Image
         src="https://cloud-j0p07nviw-hack-club-bot.vercel.app/0image.png"
+        alt="Hack Club Slack community"
         sx={{
           width: ['100%', '100%', '50%'],
           height: ['100%', '100%', '30rem'],
