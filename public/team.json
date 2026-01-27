@@ -753,15 +753,16 @@
   },
   {
     "name": "Alex Ren",
+    "staff": true,
     "department": "HQ",
-    "role": "Engineering",
+    "role": "Hardware Events",
     "acknowledged": false,
-    "bio": "",
+    "bio": "Alex is a long-time maker from Toronto who's been in and out of the hardware scene for over 10 years. They focus on building the hardware community they wish they had in high school.",
     "bioHackFoundation": "",
     "slackId": "U06PR6B8D37",
     "email": "alexren",
-    "website": "",
-    "avatar": "https://i.ibb.co/1GVjVn50/Alexren.jpg"
+    "website": "https://dari.zone",
+    "avatar": "https://raw.githubusercontent.com/qcoral/assets/refs/heads/main/pfp-irl.jpeg"
   },
   {
     "name": "Alex Van Doren",
