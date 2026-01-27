@@ -412,19 +412,23 @@ export default function Team({ team }) {
               </Grid>
             </Box>
             <br />
-            <div style={{ fontWeight: 'bold' }}>
+            <Box sx={{ fontWeight: 'bold', textAlign: 'center' }}>
               <Link href="/acknowledged/">
-                <Text
-                  variant="title"
-                  color="orange"
-                  textDecoration="underline"
-                  sx={{ lineHeight: '1em', fontSize: [4, 5, 6], textAlign: 'center' }}
-                  as="h2"
-                >
-                  Acknowledgements
-                </Text>
+                <Box sx={{ cursor: 'pointer' }}>
+                  <Text
+                    variant="title"
+                    color="orange"
+                    sx={{ lineHeight: '1em', fontSize: [4, 5, 6], textAlign: 'center', textDecoration: 'underline' }}
+                    as="h2"
+                  >
+                    Acknowledgements
+                  </Text>
+                  <Text sx={{ color: 'muted', fontSize: 2, mt: 2 }}>
+                    Thank you to everyone who helped shape Hack Club into what it is today...
+                  </Text>
+                </Box>
               </Link>
-            </div>
+            </Box>
           </Container>
         </Box>
       </Box>
