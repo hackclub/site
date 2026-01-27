@@ -1252,7 +1252,7 @@
     "name": "Jenin Henin",
     "department": "HQ",
     "role": "Club Operations",
-    "acknowledged": true,
+    "acknowledged": false,
     "bio": "Jenin is a 14-year-old Hack Clubber from Canada who got involved with Hack Club in July 2025. He hopes to help Hack Clubbers achieve new things!",
     "bioHackFoundation": "",
     "slackId": "U0926UASBJ7",
@@ -1661,6 +1661,17 @@
     "avatar": "https://github.com/EerierGosling/Personal-Website/blob/main/public/hc-team-pfp.jpg?raw=true"
   },
   {
+    "name": "Neon",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Hi I'm Neon, a 17 year old coder for Hack Club who works on the General YSWS's and other eng tasks!",
+    "slackId": "U07L45W79E1",
+    "website": "https://saahild.com",
+    "email": "neon",
+    "avatar": "https://cachet.dunkirk.sh/users/U07L45W79E1/r"
+  },
+  {
     "name": "Tina Soriano",
     "department": "HQ",
     "role": "Exec. Assistant",
@@ -2030,7 +2041,7 @@
     "slackId": "",
     "email": "louisa",
     "website": "",
-    "avatar": "https://athena.hackclub.com/_next/image?url=https%3A%2F%2Fhc-cdn.hel1.your-objectstorage.com%2Fs%2Fv3%2F0c0306bad2c52f721b120474ade9de27f4857cd7_lou.png&w=256&q=75"
+    "avatar": "https://cachet.dunkirk.sh/users/U06EMBJH71S/r"
   },
   {
     "name": "Parneel Bhakhri",
