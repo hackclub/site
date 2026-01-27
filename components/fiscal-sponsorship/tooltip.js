@@ -8,7 +8,7 @@ const addClassNameToChildren = (children, className) =>
   )
 
 const tooltip = direction =>
-  function Tooltip({ children, text, id }) {
+  (function Tooltip({ children, text, id }) {
     const escapedText = text.replace(/'/g, "\\'")
     const directionalStyles = {
       e: `
@@ -89,7 +89,7 @@ const tooltip = direction =>
         {children}
       </>
     )
-  }
+  })
 
 const Tooltip = tooltip()
 Tooltip.N = tooltip('n')

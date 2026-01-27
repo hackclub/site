@@ -24,7 +24,7 @@ export default function HCBCTA() {
           </Text>
           <br />
           <br />
-          <NextLink href="/fiscal-sponsorship" passHref>
+          <NextLink href="/fiscal-sponsorship" passHref legacyBehavior>
             <Button bg="cyan" as="a">
               Learn more
             </Button>
@@ -32,7 +32,7 @@ export default function HCBCTA() {
 
           &nbsp;&nbsp;&nbsp;
 
-          <NextLink href="https://nonprofit.new" passHref>
+          <NextLink href="https://nonprofit.new" passHref legacyBehavior>
             <Button bg="orange" as="a">
               Apply now
             </Button>
@@ -40,5 +40,5 @@ export default function HCBCTA() {
         </Box>
       </Grid>
     </Box>
-  )
+  );
 }

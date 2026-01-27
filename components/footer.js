@@ -90,22 +90,22 @@ const Footer = ({
           <Heading as="h2" variant="subheadline" mb={3}>
             Hack&nbsp;Club
           </Heading>
-          <NextLink href="/philosophy" passHref>
+          <NextLink href="/philosophy" passHref legacyBehavior>
             <Link>Philosophy</Link>
           </NextLink>
-          <NextLink href="/team" passHref>
+          <NextLink href="/team" passHref legacyBehavior>
             <Link>Our Team & Board</Link>
           </NextLink>
-          <NextLink href="/jobs" passHref>
+          <NextLink href="/jobs" passHref legacyBehavior>
             <Link>Jobs</Link>
           </NextLink>
-          <NextLink href="/brand" passHref>
+          <NextLink href="/brand" passHref legacyBehavior>
             <Link>Brand Guide</Link>
           </NextLink>
-          <NextLink href="/press" passHref>
+          <NextLink href="/press" passHref legacyBehavior>
             <Link>Press Inquiries</Link>
           </NextLink>
-          <NextLink href="/philanthropy" passHref>
+          <NextLink href="/philanthropy" passHref legacyBehavior>
             <Link>Donate</Link>
           </NextLink>
         </Box>

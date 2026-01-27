@@ -17,7 +17,7 @@ const JobListing = ({
   positionLocation,
   positionType
 }) => (
-  <Link href={positionLink} passHref>
+  <Link href={positionLink} passHref legacyBehavior>
     <Card
       variant="sunken"
       as="a"

@@ -330,7 +330,7 @@ const Page = () => (
           >
             Hack Clubs attend and run{' '}
             <NextLink href="/hackathons" passHref>
-              <a>hackathons</a>
+              hackathons
             </NextLink>{' '}
             like <a href="https://daydream.hackclub.com/">Daydream</a> &{' '}
             <a href="https://scrapyard.hackclub.com/">Scrapyard</a>,
@@ -379,7 +379,7 @@ const Page = () => (
           <Highlight>every&nbsp;Hack&nbsp;Club is student-led</Highlight> &
           members make self-directed projects.
         </Text>
-        <NextLink href="/philosophy" passHref>
+        <NextLink href="/philosophy" passHref legacyBehavior>
           <Button
             as="a"
             variant="ctaLg"

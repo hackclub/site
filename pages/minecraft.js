@@ -117,7 +117,7 @@ const Page = () => (
               Chat in #minecraft on Slack
             </Heading>
             <Text as="p">Hundreds of players around the world.</Text>
-            <NextLink href="/slack" passHref>
+            <NextLink href="/slack" passHref legacyBehavior>
               <Button
                 as="a"
                 sx={{
