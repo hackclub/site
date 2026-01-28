@@ -37,12 +37,9 @@ export default function Sinerider({ stars }) {
       />
       <Grid columns={[1, 1, 2]} sx={{ position: 'relative', zIndex: 2 }}>
         <Box></Box>
-        <Box sx={{ mt: ['-40px', '-40px', '-150px'] }}>
+        <Box sx={{ mt: ['-20px', '0px', '20px'] }}>
           <Text as="p" variant="subtitle">
-            SineRider is a game about love and graphing, powered by teenage
-            hackers of all kinds: artists, musicians, programmers, storytellers…
-            so if that’s you, come join us! We can always use help keeping
-            everything up to date and running smoothly.
+            A game about love and graphing, powered by teenage hackers of all kinds: artists, musicians, programmers, storytellers… Join us!
           </Text>
           <Flex sx={{ flexDirection: 'column', mt: [3, 3, 4] }}>
             <Buttons
