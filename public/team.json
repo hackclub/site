@@ -689,6 +689,18 @@
     "avatar": "https://cachet.dunkirk.sh/users/U06QK6AG3RD/r"
   },
   {
+    "name": "Lux Loff",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": true,
+    "bio": "As a high school student, Lux joined the Hack Club Slack after finding the SSH jobs board. In her 20s, she joined the You Ship, We Ship team at Hack Club HQ, where she launched six events of varying shapes and sizes. In her spare time, you'll still find her producing music (as \"sporeball\") or designing her own rhythm game (called Khel), among other \"weird things\".",
+    "bioHackFoundation": "",
+    "slackId": "U01G0Q9K998",
+    "email": "lux",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U01G0Q9K998/r"
+  },
+  {
     "name": "Thomas Stubblefield",
     "staff": true,
     "department": "HQ",
