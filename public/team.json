@@ -210,7 +210,7 @@
     "name": "Albert C",
     "department": "HCB",
     "role": "Engineering",
-    "acknowledged": true,
+    "acknowledged": false,
     "bio": "",
     "bioHackFoundation": "",
     "slackId": "U03CFAP9ABC",
