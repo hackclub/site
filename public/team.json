@@ -756,6 +756,7 @@
     "department": "HQ",
     "role": "Engineering",
     "acknowledged": false,
+    "staff": true,
     "bio": "",
     "bioHackFoundation": "",
     "slackId": "U04KEK4TS72",
