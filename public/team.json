@@ -446,7 +446,7 @@
     "slackId": "U07AZFQLPQ8",
     "email": "",
     "website": "https://kittycat.hackclub.app/",
-    "avatar": "https://i.ibb.co/6VDNHFt/Lilia.jpg"
+    "avatar": "https://i.ibb.co/ZpH8C1pn/785000-D7-213-E-4-D52-9358-939285-EA793-F-1-105-c-2-1.jpg"
   },
   {
     "name": "Matthew Soh",
@@ -506,6 +506,18 @@
     "email": "ruien",
     "website": "",
     "avatar": "https://i.ibb.co/zHsTGTwh/ruien.jpg"
+  },
+    {
+    "name": "Lux Loff",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": true,
+    "bio": "As a high school student, Lux joined the Hack Club Slack after finding the SSH jobs board. In her 20s, she joined the You Ship, We Ship team at Hack Club HQ, where she launched six events of varying shapes and sizes. In her spare time, you'll still find her producing music (as \"sporeball\") or designing her own rhythm game (called Khel), among other \"weird things\".",
+    "bioHackFoundation": "",
+    "slackId": "U01G0Q9K998",
+    "email": "lux",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U01G0Q9K998/r"
   },
   {
     "name": "Sam Poder",
@@ -620,7 +632,7 @@
   },
   {
     "name": "Leo Wilkin",
-    "staff": true,
+    "staff": false,
     "department": "Moderation",
     "role": "Fire Department",
     "acknowledged": false,
@@ -633,9 +645,22 @@
   },
     {
     "name": "Leo Wilkin",
-    "staff": true,
+    "staff": false,
     "department": "Community",
     "role": "Event Operations Lead",
+    "acknowledged": false,
+    "bio": "Leo has a heart for equitable access to the digital world, especially when it comes to ensuring safety for children online. Formerly at HCB, he's now leveraging his passion and experience in Operations, helping hackathons share the magic of code to students worldwide.",
+    "bioHackFoundation": "",
+    "slackId": "U07BLJ1MBEE",
+    "email": "leo",
+    "website": "",
+    "avatar": "https://i.ibb.co/fYtqhhrN/Leo.png"
+  },
+      {
+    "name": "Leo Wilkin",
+    "staff": false,
+    "department": "HQ",
+    "role": "Director of Operations at Events",
     "acknowledged": false,
     "bio": "Leo has a heart for equitable access to the digital world, especially when it comes to ensuring safety for children online. Formerly at HCB, he's now leveraging his passion and experience in Operations, helping hackathons share the magic of code to students worldwide.",
     "bioHackFoundation": "",
@@ -1033,7 +1058,7 @@
   },
   {
     "name": "Rowan",
-    "staff": true,
+    "staff": false,
     "department": "HQ",
     "role": "Engineering & Logistics",
     "acknowledged": false,
@@ -2116,5 +2141,27 @@
     "email": "arpan",
     "website": "https://arpanpandey.dev",
     "avatar": "https://media.licdn.com/dms/image/v2/D5603AQHgJ1rUos6FFA/profile-displayphoto-shrink_800_800/B56Zd.1nF2H8Ac-/0/1750179673148?e=1759363200&v=beta&t=Ta3W1GF6ZNYl7U-D6YSCAzNUJl4SHwERjslWbDsvEdQ"
+  },
+  {
+    "name": "Alex Park",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Alex P, from Texas, is a Hack Clubber who welcomes people into the Slack and helps them settle in. Last summer he also helped to create the infrastructure for Hack Club's flagship hackathon - The Boreal Express.",
+    "slackId": "U01581HFAGZ",
+    "email": "alexp",
+    "website": "https://parkalex.dev",
+    "avatar": "https://cachet.dunkirk.sh/users/U01581HFAGZ/r"
+  },
+    {
+    "name": "Alex Park",
+    "department": "HQ",
+    "role": "Operations and Events",
+    "acknowledged": false,
+    "bio": "Alex P, from Texas, is a Hack Clubber who welcomes people into the Slack and helps them settle in. Last summer he also helped to create the infrastructure for Hack Club's flagship hackathon - The Boreal Express.",
+    "slackId": "U01581HFAGZ",
+    "email": "alexp",
+    "website": "https://parkalex.dev",
+    "avatar": "https://cachet.dunkirk.sh/users/U01581HFAGZ/r"
   }
   ]
