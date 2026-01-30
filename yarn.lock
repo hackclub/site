@@ -7677,10 +7677,10 @@ react-fast-compare@^3.2.2:
   resolved "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.2.tgz"
   integrity sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==
 
-react-horizontal-scrolling-menu@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.npmjs.org/react-horizontal-scrolling-menu/-/react-horizontal-scrolling-menu-6.1.0.tgz"
-  integrity sha512-qJrGbx1+a3xUiTb/00Sx78NAMrrjak/5c3B/1SPC9KkrO8kwmxB45u5oH41UBaFxzOcq0U/CC4PcFD36BERzXQ==
+react-horizontal-scrolling-menu@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/react-horizontal-scrolling-menu/-/react-horizontal-scrolling-menu-8.2.0.tgz#dc12766ccb39a33cbd337a7e4872d7bcaf0e151b"
+  integrity sha512-WQEMkauUFLRWjhpHpiPGo1mfnLCvmeO840U+JZDB8Vn7eykQG6nklz0PxfBP91gneFBw6Ab11xuXcv17TU+Uig==
   dependencies:
     smooth-scroll-into-view-if-needed "^2.0.2"
 
