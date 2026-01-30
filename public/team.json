@@ -445,7 +445,7 @@
     "slackId": "U07AZFQLPQ8",
     "email": "",
     "website": "https://kittycat.hackclub.app/",
-    "avatar": "https://i.ibb.co/6VDNHFt/Lilia.jpg"
+    "avatar": "https://i.ibb.co/ZpH8C1pn/785000-D7-213-E-4-D52-9358-939285-EA793-F-1-105-c-2-1.jpg"
   },
   {
     "name": "Matthew Soh",
@@ -619,7 +619,6 @@
   },
   {
     "name": "Leo Wilkin",
-    "staff": true,
     "department": "Moderation",
     "role": "Moderation & Conduct",
     "acknowledged": false,
@@ -632,7 +631,6 @@
   },
   {
     "name": "Leo Wilkin",
-    "staff": true,
     "department": "HQ",
     "role": "Event Operations Lead",
     "acknowledged": false,
@@ -1046,7 +1044,6 @@
   },
   {
     "name": "Rowan",
-    "staff": true,
     "department": "HQ",
     "role": "Engineering & Security",
     "acknowledged": false,
