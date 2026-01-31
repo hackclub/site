@@ -1093,8 +1093,8 @@
   {
     "name": "Ethan Canterbury",
     "department": "HQ",
-    "role": "Club Engineering Lead and Operations",
-    "acknowledged": true,
+    "role": "Club Engineering and Operations",
+    "acknowledged": false,
     "bio": "Ethan is a Hack Clubber from New Jersey who LOVES python and... cats... He's on the club operations team and does engineering as well as help with many other projects! He has a vast experiance in Python, Web dev & sysadmin.",
     "bioHackFoundation": "",
     "slackId": "U08BH57AZKP",
