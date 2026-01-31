@@ -26,7 +26,7 @@
     "department": "Events",
     "role": "Virtual Events Lead",
     "acknowledged": false,
-    "bio": "Eesha is a 17 year old Hack Clubber from the USA who enjoys robotics, physics, and programming websites. She also likes doing nail art designs, especially using Sally Hansen black nail polish, since black is her favorite color. When working, she likes to listen to music, especially by Paramore or NF, or watch TV, especially Young Sheldon. She has been involved in Hack Club since March 2024, where she manages virtual events and welcomes people into the Slack.",
+    "bio": "Eesha is a 17 year old Hack Clubber from the USA who enjoys robotics, physics, and programming websites. She also likes doing nail art and learning about art history. When working, she likes to listen to Paramore or NF. She has been involved in Hack Club since March 2024, where she manages virtual events.",
     "slackId": "U06QST7V0J2",
     "email": "eesha",
     "website": "https://eesha-kothari.com",
@@ -972,17 +972,6 @@
     "avatar": "https://cachet.dunkirk.sh/users/U054VC2KM9P/r"
   },
   {
-    "name": "Darlene Wu",
-    "department": "Welcoming",
-    "role": "Welcomer",
-    "acknowledged": false,
-    "bio": "Darlene is a 16 year old Hack Clubber from Indonesia who runs virtual events for the Hack Club community. She also helps welcome members into the Slack",
-    "slackId": "U07SX29CECA",
-    "email": "",
-    "website": "",
-    "avatar": "https://i.ibb.co/1GtwNqN7/darlene.jpg"
-  },
-  {
     "name": "Kat",
     "department": "Welcoming",
     "role": "Welcomer",
@@ -1133,17 +1122,6 @@
     "email": "alexp",
     "website": "https://parkalex.dev",
     "avatar": "https://cachet.dunkirk.sh/users/U01581HFAGZ/r"
-  },
-  {
-    "name": "Eesha",
-    "department": "Welcoming",
-    "role": "Welcomer",
-    "acknowledged": false,
-    "bio": "Eesha is a 17 year old Hack Clubber from the USA who enjoys robotics, physics, and programming websites. She also likes doing nail art designs, especially using Sally Hansen black nail polish, since black is her favorite color. When working, she likes to listen to music, especially by Paramore or NF, or watch TV, especially Young Sheldon. She has been involved in Hack Club since March 2024, where she manages virtual events and welcomes people into the Slack.",
-    "slackId": "U06QST7V0J2",
-    "email": "eesha",
-    "website": "https://eesha-kothari.com",
-    "avatar": "https://i.ibb.co/hpgc4Yt/eesha.jpg"
   },
   {
     "name": "Kyra Ezikeuzor",
