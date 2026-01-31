@@ -6,7 +6,7 @@ import Footer from '../components/footer'
 import Bio from '../components/bio'
 import BoardBox from '../components/boardbio'
 import ForceTheme from '../components/force-theme'
-import { fetchTeam } from './api/team'
+import { fetchAcknowledged } from './api/team'
 
 
 export default function Acknowleged({ team }) {
@@ -102,8 +102,8 @@ export default function Acknowleged({ team }) {
 
 export const getServerSideProps = async () => {
   try {
-    const team = await fetchTeam()
-    return { props: { team } }
+    const acknowledged = await fetchAcknowledged()
+    return { props: { team: { acknowledged } } }
   } catch (e) {
     return { props: { team: {} } }
   }
