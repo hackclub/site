@@ -1,13 +1,13 @@
 import teamMembers from '../../public/team.json'
+import acknowledgedMembers from '../../public/acknowledged.json'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-interface TeamMember {
+export interface TeamMember {
   name: string
   department: string
   role: string | string[]
-  acknowledged: boolean
+  acknowledged?: boolean
   bio: string
-  bioHackFoundation: string
   slackId: string
   overrideAvatar: string
   email: string
@@ -19,18 +19,11 @@ interface TeamMember {
 }
 
 export async function fetchTeam() {
-  const current: TeamMember[] = []
-  const acknowledged: TeamMember[] = []
+  return teamMembers as TeamMember[]
+}
 
-  for (const member of teamMembers as TeamMember[]) {
-    if (member.acknowledged) {
-      acknowledged.push(member)
-    } else {
-      current.push(member)
-    }
-  }
-
-  return { current, acknowledged }
+export async function fetchAcknowledged() {
+  return acknowledgedMembers as TeamMember[]
 }
 
 export default async function handler(
