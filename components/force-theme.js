@@ -5,7 +5,7 @@ const ForceTheme = ({ theme }) => {
   const [colorMode, setColorMode] = useColorMode()
   useEffect(() => {
     setColorMode(theme)
-  }, [])
+  }, [setColorMode, theme])
   return null
 }
 

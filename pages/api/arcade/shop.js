@@ -21,7 +21,7 @@ export const shopParts = async () => {
     if (stock && fields["Count of Orders Fulfilled"]) {
       stock -= fields["Count of Orders Fulfilled"]
     }
-      return { id: record.id, ...record.fields, "Stock": (stock == null)? null : (stock >= 0 ? stock : 0) }
+      return { id: record.id, ...record.fields, "Stock": (stock === null)? null : (stock >= 0 ? stock : 0) }
   })
 
 

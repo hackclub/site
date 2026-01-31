@@ -35,6 +35,15 @@
     "tag": "Game Jam"
   },
   {
+    "background": "white",
+    "titleColor": "black",
+    "descriptionColor": "black",
+    "title": "flavorless",
+    "description": "design the most functionally unstyled website you can imagine! javascript allowed, css forbidden.",
+    "img": "https://raw.githubusercontent.com/hackclub/flavorless/refs/heads/main/logo.png",
+    "link": "https://flavorless.hackclub.com/?utm_source=site-carousel"
+  },
+  {
     "background": "#C76B0F",
     "titleColor": "#F6D193",
     "descriptionColor": "#F6D193",

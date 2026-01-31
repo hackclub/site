@@ -62,21 +62,21 @@ const Prizes = ({
           position: 'relative',
           transform: `rotate(${pRotate}deg)`,
           transitionDuration: '0.5s',
-          opacity: stock == 0 ? '0.5' : 1,
+          opacity: stock === 0 ? '0.5' : 1,
           '&:hover': {
-            transform: stock == 0 ? null : 'scale(1.1)',
-            cursor: stock == 0 ? 'default' : 'pointer'
+            transform: stock === 0 ? null : 'scale(1.1)',
+            cursor: stock === 0 ? 'default' : 'pointer'
           }
         }}
         onClick={e => {
           const div = e.currentTarget
           const quantity = div.querySelector('[id*="dropdown-"]')
           const buy = div.querySelector('#buy')
-          if (quantity === e.target || buy == e.target) {
+          if (quantity === e.target || buy === e.target) {
             console.log('TRUE')
             return
           } else {
-            stock != 0
+            stock !== 0
               ? document.getElementById(`${parsedFullName}-info`).showModal()
               : null
           }
@@ -98,7 +98,7 @@ const Prizes = ({
               alt={text}
             />
           </Flex>
-          {stock <= 100 && stock != null && (
+          {stock <= 100 && stock !== null && (
             <Text
               sx={{
                 background: '#CC6CE7',
@@ -113,7 +113,7 @@ const Prizes = ({
               variant="headline"
               className="gaegu"
             >
-              {stock == 0 ? <>Sold out</> : <>Only {stock} left! </>}
+              {stock === 0 ? <>Sold out</> : <>Only {stock} left! </>}
             </Text>
           )}
           <Text
@@ -161,7 +161,7 @@ const Prizes = ({
                 (
                   hoursBalance
                     ? hoursBalance / cost >= 2
-                      ? stock != 0
+                      ? stock !== 0
                       : null
                     : null
                 ) ? (
@@ -182,7 +182,7 @@ const Prizes = ({
                 (
                   hoursBalance
                     ? hoursBalance / cost >= 1
-                      ? stock != 0
+                      ? stock !== 0
                       : null
                     : null
                 ) ? (
@@ -289,7 +289,7 @@ const Prizes = ({
               variant="headline"
               className="gaegu"
             >
-              {cost} {cost == 1 ? 'ticket' : 'tickets'}
+              {cost} {cost === 1 ? 'ticket' : 'tickets'}
             </Text>
             <Flex
               sx={{
@@ -378,7 +378,7 @@ const Prizes = ({
                       (
                         hoursBalance
                           ? hoursBalance / cost >= 2
-                            ? stock != 0
+                            ? stock !== 0
                             : null
                           : null
                       ) ? (
@@ -398,7 +398,7 @@ const Prizes = ({
                       (
                         hoursBalance
                           ? hoursBalance / cost >= 1
-                            ? stock != 0
+                            ? stock !== 0
                             : null
                           : null
                       ) ? (

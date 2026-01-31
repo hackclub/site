@@ -78,7 +78,7 @@ const Showcase = ({ projectID }) => {
         console.error(e)
         setStatus('error')
       })
-  }, [])
+  }, [projectID])
 
   return (
     <>
@@ -121,6 +121,7 @@ const Showcase = ({ projectID }) => {
         >
           <img
             src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
+            alt="Arcade logo"
             sx={{
               width: '30%',
               maxWidth: '200px',
