@@ -763,5 +763,71 @@
     "email": "thomas",
     "website": "",
     "avatar": "https://i.ibb.co/dJkVwt7m/2026-01-27-0od-Kleki.jpg"
+  },
+    {
+    "name": "Arnav",
+    "department": "Events",
+    "role": "Virtual Event Organizer",
+    "acknowledged": true,
+    "bio": "",
+    "slackId": "U078XLAFNMQ",
+    "email": "",
+    "website": "",
+    "avatar": ""
+  },
+  {
+    "name": "Michelle Wang",
+    "department": "Events",
+    "role": "Virtual Event Organizer",
+    "acknowledged": true,
+    "bio": "",
+    "slackId": "U06D7NTBDCY",
+    "email": "",
+    "website": "",
+    "avatar": ""
+  },
+  {
+    "name": "Eny",
+    "department": "Events",
+    "role": "Virtual Event Organizer",
+    "acknowledged": true,
+    "bio": "",
+    "slackId": "U078VGCHXSP",
+    "email": "",
+    "website": "",
+    "avatar": ""
+  },
+  {
+    "name": "Marios Mitsios",
+    "department": "Events",
+    "role": "Virtual Event Organizer",
+    "acknowledged": true,
+    "bio": "",
+    "slackId": "U04FMKCVASJ",
+    "email": "",
+    "website": "",
+    "avatar": ""
+  },
+  {
+    "name": "Mudacumura Brunoblaise",
+    "department": "Events",
+    "role": "Virtual Event Organizer",
+    "acknowledged": true,
+    "bio": "",
+    "slackId": "U03T4CQ01RR",
+    "email": "",
+    "website": "",
+    "avatar": ""
+  },
+  {
+    "name": "Rana",
+    "department": "Events",
+    "role": "Virtual Event Organizer",
+    "acknowledged": true,
+    "bio": "",
+    "slackId": "U06TBP41C3E",
+    "email": "",
+    "website": "",
+    "avatar": ""
   }
 ]
