@@ -52,7 +52,7 @@ const NewProjectForm = ({ authToken }) => {
             success: 'Pulling repo data'
           }}
           sx={{
-            background: status == 'error' ? '#DE4E2B' : '#09AFB4',
+            background: status === 'error' ? '#DE4E2B' : '#09AFB4',
             borderRadius: '10px'
           }}
         />

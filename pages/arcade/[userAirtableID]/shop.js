@@ -49,12 +49,13 @@ export default function Shop({
   )
 
   useEffect(() => {
-    if (cat == 'all') {
+    if (cat === 'all') {
       setItems(availableItems)
     } else {
       let i = availableItems.filter(items => items['Category'].includes(cat))
       setItems(i)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cat])
 
   const spotlightRef = useRef()
@@ -232,7 +233,7 @@ export default function Shop({
               🦢 Swag
             </Button>
           </Flex>
-          {cat == 'all' ? (
+          {cat === 'all' ? (
             <>
               <Text
                 sx={{
@@ -314,6 +315,7 @@ export default function Shop({
         </Box>
         <img
           src="/arcade/o6.png"
+          alt="Decorative illustration"
           sx={{
             width: ['30%', '30%', '30%', '40%'],
             maxWidth: '210px',

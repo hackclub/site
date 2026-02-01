@@ -1,9 +1,21 @@
-[{
+[
+     {
+        "title": "Flavortown",
+        "logo": "/hc-cdn/78c8f69432a9421d_flavortown-logo.png",
+        "background": "#7B4942",
+        "stickerImage": "/hc-cdn/0256e44f53eb79e4_logo-b28e0e8b.avif",
+        "description": "Cook tasty personal projects, win free prizes!",
+        "descriptionColor": "white",
+        "buttonText": "JOIN NOW",
+        "buttonColor": "#AD7858",
+        "link": "https://flavortown.hackclub.com/?ref=site-0"
+    },
+    {
         "title": "Blueprint",
-        "logo": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/c06427309a3db7299065c0a41f1e8cc70531f0a9_blueprint.png",
+        "logo": "/hc-cdn/c06427309a3db7299065c0a41f1e8cc70531f0a9_blueprint.png",
         "background": "#0e305b",
         "gridBackground": true,
-        "stickerImage": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/8292f6b4eba5e1fc29b51e9bc08eea5521e9ff46_IMG_3099__1_.png",
+        "stickerImage": "/hc-cdn/8292f6b4eba5e1fc29b51e9bc08eea5521e9ff46_IMG_3099__1_.png",
         "description": "Design a Hardware project and get up to $400 to make it real!",
         "descriptionColor": "white",
         "buttonText": "JOIN NOW",
@@ -11,24 +23,14 @@
         "link": "https://blueprint.hackclub.com/?utm_source=cta"
     },
     {
-        "title": "Moonshot",
-        "logo": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/bb539d76681c26f45247d69cdab86d9d863a1a95_image_105.png",
-        "background": "#4d5c85",
-        "description": "4-day hackathon in Orlando, Florida w/ a FREE visit to NASA and Universal Studios!",
+        "title": "Campfire Flagship",
+        "logo": "/hc-cdn/542f4bf6aa9cd5cc_logo-w-info-v2.png",
+        "background": "#000015",
+        "stickerImage": "/hc-cdn/a02495e0d090461b_smore-smaller.png",
+        "description": "Code with your favorite YouTubers at a Game Jam this February!",
         "descriptionColor": "white",
-        "buttonText": "JOIN",
-        "buttonColor": "rgb(50, 70, 110)",
-        "link": "https://moonshot.hackclub.com/?t=web"
-    },
-    {
-        "title": "Midnight",
-        "logo": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b2f4135894a031a645b0079c66c8a54069c472ed_image.png",
-        "background": "#453B61",
-        "stickerImage": "https://hackclub.slack.com/archives/C016DEDUL87/p1763613803058339?thread_ts=1763613799.456279&cid=C016DEDUL87",
-        "description": "Spend 50 hours building projects, earn a trip to Vienna for a murder mystery hackathon.",
-        "descriptionColor": "white",
-        "buttonText": "RSVP",
-        "buttonColor": "#F24B4B",
-        "link": "https://midnight.hackclub.com"
+        "buttonText": "JOIN NOW",
+        "buttonColor": "#2b2b59",
+        "link": "https://flagship.hackclub.com/?utm_source=site_cta"
     }
 ]
