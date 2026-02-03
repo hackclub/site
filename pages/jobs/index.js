@@ -9,6 +9,7 @@ import Icon from '../../components/icon'
 import Image from 'next/image'
 import zephyrPic from '../../public/jobs/zephyr-group-pic.jpg'
 import { compact } from 'lodash'
+import { decodeHtmlEntities } from '../../lib/helpers'
 
 const JobListing = ({
   positionName,
@@ -156,7 +157,7 @@ const Page = ({ jobs }) => (
             jobs.items.map(job => (
               <JobListing
                 key={job.id}
-                positionName={job.title}
+                positionName={decodeHtmlEntities(job.title)}
                 positionDesc={job.job_category_name}
                 positionLink={job.job_post_url}
                 positionLocation={job.display_location}
