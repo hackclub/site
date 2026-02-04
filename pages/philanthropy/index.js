@@ -634,7 +634,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://projects.propublica.org/nonprofits/organizations/812908499/202533219349309698/full"
+                  href="https://cdn.hackclub.com/019c2675-58ae-75b8-81b8-532ebc7d0517/HackFound990_2024.pdf"
                   target="_blank"
                   mb={4}
                   sx={{
@@ -664,7 +664,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cloud-q56a8ttty-hack-club-bot.vercel.app/0hack_foundation_2022_form_990.pdf"
+                  href="https://apps.irs.gov/pub/epostcard/cor/812908499_202212_990_2024011022205181.pdf"
                   target="_blank"
                   mb={4}
                   sx={{
@@ -680,7 +680,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cloud-f23epej2p-hack-club-bot.vercel.app/0hack_foundation_2021_990_-_public__1_.pdf"
+                  href="https://apps.irs.gov/pub/epostcard/cor/812908499_202112_990_2023051021199297.pdf"
                   target="_blank"
                   mb={4}
                   sx={{
@@ -696,7 +696,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cloud-d2t8vvprl-hack-club-bot.vercel.app/0form990package.pdf"
+                  href="https://cdn.hackclub.com/019c2686-9017-701c-8530-98dfd69a2f12/HackFound990_2020.pdf"
                   target="_blank"
                   mb={4}
                   sx={{
