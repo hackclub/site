@@ -44,6 +44,7 @@ import CampfireFlagship from '../components/index/cards/campfire-flagship'
 import Milkyway from '../components/index/cards/milkyway'
 import Flavortown from '../components/index/cards/flavortown'
 import Flavorless from '../components/index/cards/flavorless'
+import Scraps from '../components/index/cards/scraps'
 import Aces from '../components/index/cards/aces'
 import CTAS from '../components/index/ctas'
 /** @jsxImportSource theme-ui */
@@ -860,6 +861,7 @@ function Page({
               stars={stars.onboard.stargazerCount}
             />
             <CampfireFlagship />
+            <Scraps />
             <Milkyway />
             <Aces />
             <Flavorless />

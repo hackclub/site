@@ -38,6 +38,15 @@
     "background": "white",
     "titleColor": "black",
     "descriptionColor": "black",
+    "title": "scraps",
+    "description": "ship any project (silly, nonsensical, or fun) and win random items from HQ, including rare stickers!",
+    "img": "https://raw.githubusercontent.com/hackclub/scraps/refs/heads/main/frontend/static/icon.png",
+    "link": "https://scraps.hackclub.com/?utm_source=site-carousel"
+  },
+  {
+    "background": "white",
+    "titleColor": "black",
+    "descriptionColor": "black",
     "title": "flavorless",
     "description": "design the most functionally unstyled website you can imagine! javascript allowed, css forbidden.",
     "img": "https://raw.githubusercontent.com/hackclub/flavorless/refs/heads/main/logo.png",
