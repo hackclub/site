@@ -28,7 +28,7 @@ export default function Scraps() {
           height: '100%',
           width: 'auto',
           objectFit: 'contain',
-          display: ['none', 'none', 'block', 'block'],
+          display: ['none', 'none', 'none', 'block'],
           zIndex: 1
         }}
       />
@@ -37,7 +37,11 @@ export default function Scraps() {
           position: 'relative',
           zIndex: 2,
           paddingInline: '50px',
-          maxWidth: ['100%', '100%', '50%']
+          maxWidth: ['100%', '100%', '100%', '50%'],
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-around',
+          height: '100%'
         }}
       >
         <Text
@@ -63,34 +67,22 @@ export default function Scraps() {
             fontSize: ['16px', '18px'],
             fontWeight: 'normal',
             lineHeight: 1.5,
-            mb: 1,
-            display: 'block',
-            textAlign: 'left'
-          }}
-        >
-          <strong>ys:</strong> any project (silly, nonsensical, or fun)
-        </Text>
-        <Text
-          variant="subtitle"
-          sx={{
-            fontFamily: 'system-ui, -apple-system, sans-serif',
-            color: 'black',
-            fontSize: ['16px', '18px'],
-            fontWeight: 'normal',
-            lineHeight: 1.5,
             mb: 3,
             display: 'block',
             textAlign: 'left'
           }}
         >
-          <strong>ws:</strong> a chance to win something amazing (including rare
-          stickers)
+          Build any project, track your hours, and earn a virtual currency
+          called scraps. Roll for prizes like hardware, stickers, and rare
+          collectibles from Hack Club HQ - all for free!
         </Text>
-        <a
+        <Box
+          as="a"
           href="https://scraps.hackclub.com/?utm_source=site-card"
-          style={{
+          sx={{
             display: 'inline-flex',
             alignItems: 'center',
+            justifyContent: 'center',
             gap: '8px',
             background: 'black',
             color: 'white',
@@ -100,7 +92,17 @@ export default function Scraps() {
             fontWeight: 'bold',
             cursor: 'pointer',
             fontSize: '16px',
-            textDecoration: 'none'
+            textDecoration: 'none',
+            width: 'fit-content',
+            alignSelf: 'flex-start',
+            transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+            '&:hover': {
+              transform: 'translateY(-2px) scale(1.02)',
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
+            },
+            '&:active': {
+              transform: 'translateY(0) scale(1)'
+            }
           }}
         >
           <svg
@@ -114,12 +116,11 @@ export default function Scraps() {
             strokeLinecap="round"
             strokeLinejoin="round"
           >
-            <path d="M12 12V4a1 1 0 0 1 1-1h6.297a1 1 0 0 1 .651 1.759l-4.696 4.025" />
-            <path d="m12 21-7.414-7.414A2 2 0 0 1 4 12.172V6.415a1.002 1.002 0 0 1 1.707-.707L20 20.009" />
-            <path d="m12.214 3.381 8.414 14.966a1 1 0 0 1-.167 1.199l-1.168 1.163a1 1 0 0 1-.706.291H6.351a1 1 0 0 1-.625-.219L3.25 18.8a1 1 0 0 1 .631-1.781l4.165.027" />
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
           </svg>
           start scrapping
-        </a>
+        </Box>
       </Box>
     </CardModel>
   )
