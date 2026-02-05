@@ -39,7 +39,7 @@
     "titleColor": "black",
     "descriptionColor": "black",
     "title": "scraps",
-    "description": "ship any project (silly, nonsensical, or fun) and win random items from HQ, including rare stickers!",
+    "description": "Build projects, track your hours, earn scraps, and roll for prizes like hardware, stickers, and rare collectibles!",
     "img": "https://raw.githubusercontent.com/hackclub/scraps/refs/heads/main/frontend/static/icon.png",
     "link": "https://scraps.hackclub.com/?utm_source=site-carousel"
   },
