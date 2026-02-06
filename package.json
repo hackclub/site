@@ -38,7 +38,7 @@
     "animated-value": "^0.2.4",
     "animejs": "^3.2.2",
     "axios": "^1.13.3",
-    "camelcase": "^8.0.0",
+    "camelcase": "^9.0.0",
     "cookies-next": "^4.3.0",
     "country-list": "^2.3.0",
     "country-list-js": "^3.1.8",
