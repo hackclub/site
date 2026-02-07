@@ -742,5 +742,71 @@
     "email": "arav",
     "website": "https://radioblahaj.com",
     "avatar": "https://cloud-3c7rt7s1k-hack-club-bot.vercel.app/0image_512x512__1_.png"
+  },
+    {
+    "name": "Arnav",
+    "department": "Events",
+    "role": "Virtual Event Organizer",
+    "acknowledged": true,
+    "bio": "",
+    "slackId": "U078XLAFNMQ",
+    "email": "",
+    "website": "",
+    "avatar": ""
+  },
+  {
+    "name": "Michelle Wang",
+    "department": "Events",
+    "role": "Virtual Event Organizer",
+    "acknowledged": true,
+    "bio": "",
+    "slackId": "U06D7NTBDCY",
+    "email": "",
+    "website": "",
+    "avatar": ""
+  },
+  {
+    "name": "Eny",
+    "department": "Events",
+    "role": "Virtual Event Organizer",
+    "acknowledged": true,
+    "bio": "",
+    "slackId": "U078VGCHXSP",
+    "email": "",
+    "website": "",
+    "avatar": ""
+  },
+  {
+    "name": "Marios Mitsios",
+    "department": "Events",
+    "role": "Virtual Event Organizer",
+    "acknowledged": true,
+    "bio": "",
+    "slackId": "U04FMKCVASJ",
+    "email": "",
+    "website": "",
+    "avatar": ""
+  },
+  {
+    "name": "Mudacumura Brunoblaise",
+    "department": "Events",
+    "role": "Virtual Event Organizer",
+    "acknowledged": true,
+    "bio": "",
+    "slackId": "U03T4CQ01RR",
+    "email": "",
+    "website": "",
+    "avatar": ""
+  },
+  {
+    "name": "Rana",
+    "department": "Events",
+    "role": "Virtual Event Organizer",
+    "acknowledged": true,
+    "bio": "",
+    "slackId": "U06TBP41C3E",
+    "email": "",
+    "website": "",
+    "avatar": ""
   }
 ]
