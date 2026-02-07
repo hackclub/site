@@ -23,7 +23,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
           zIndex: !popup ? 1003 : 5,
           maxHeight: '90vh',
           overflowY: 'hidden',
-          overscrollBehavior: 'contain',
+          overscrollBehavior: 'auto',
           gridColumn: !spanTwo ? null : [null, null, '1 / span 2'],
           position: 'relative'
         }}
