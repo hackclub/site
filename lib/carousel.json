@@ -44,6 +44,15 @@
     "link": "https://scraps.hackclub.com/?utm_source=site-carousel"
   },
   {
+    "background": "#ffd966",
+    "titleColor": "black",
+    "descriptionColor": "black",
+    "title": "Hack Club: The Game",
+    "description": "Build projects, then compete in a scavenger hunt adventure game across Manhattan",
+    "img": "https://raw.githubusercontent.com/hackclub/the-game/main/public/images/HCTG-Train-Liberty.png",
+    "link": "https://game.hackclub.com/"
+  },
+  {
     "background": "white",
     "titleColor": "black",
     "descriptionColor": "black",
