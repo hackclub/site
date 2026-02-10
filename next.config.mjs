@@ -45,6 +45,11 @@ const nextConfig = {
         destination: '/fiscal-sponsorship/:path*',
         permanent: false
       },
+      {
+        source: '/fiscal-sponsorship/apply/',
+        destination: "https://hcb.hackclub.com/apply/",
+        permanent: false
+      },
       { source: '/grant/', destination: '/hackathons/grant', permanent: false },
       { source: '/privacy/', destination: '/privacy-and-terms/', permanent: true },
       {
