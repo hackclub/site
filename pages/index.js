@@ -45,7 +45,7 @@ import Milkyway from '../components/index/cards/milkyway'
 import Flavortown from '../components/index/cards/flavortown'
 import Flavorless from '../components/index/cards/flavorless'
 import Scraps from '../components/index/cards/scraps'
-import hctg from '../components/index/cards/hctg'
+import HackClubTheGame from '../components/index/cards/hctg'
 import Aces from '../components/index/cards/aces'
 import CTAS from '../components/index/ctas'
 /** @jsxImportSource theme-ui */

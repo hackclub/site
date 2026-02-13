@@ -20,7 +20,7 @@ export default function HackClubTheGame() {
     >
       <Image
         alt="sleepy orph"
-        src="https://raw.githubusercontent.com/hackclub/the-game/main/public/images/Sleepy-Orpheus.png"
+        src="https://raw.githubusercontent.com/CKacha/HCTG-Photos/main/Sleepy-Orpheus.png"
         sx={{
           position: 'absolute',
           top: 0,
