@@ -93,7 +93,7 @@
     "rehype-raw": "^7.0.0",
     "rehype-sanitize": "^6.0.0",
     "remark": "^15.0.1",
-    "remark-gfm": "^3.0.1",
+    "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
     "styled-components": "^6.1.15",
     "swr": "^2.3.2",
