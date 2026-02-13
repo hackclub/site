@@ -416,6 +416,18 @@
     "avatar": "https://ca.slack-edge.com/E09V59WQY1E-UDK5M9Y13-be619c5a7099-512"
   },
   {
+    "name": "Dhamari Trice-Hanson",
+    "department": "HQ",
+    "role": "Gap Year Engineer",
+    "acknowledged": false,
+    "bio": "Dhamari is passionate about running programs surrounding music and entertainment. Coming from Detroit, he got his start in coding through Google's Code Next Detroit Lab, training 5-7 hours a week to get to where he is today.",
+    "bioHackFoundation": "",
+    "slackId": "U08RWM5U4L9",
+    "email": "dhamari",
+    "website": "",
+    "avatar": "https://avatars.githubusercontent.com/u/39872667?v=4"
+  },
+  {
     "name": "Deven Jadhav",
     "staff": true,
     "department": "HQ",
