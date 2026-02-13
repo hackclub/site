@@ -742,5 +742,15 @@
     "email": "arav",
     "website": "https://radioblahaj.com",
     "avatar": "https://cloud-3c7rt7s1k-hack-club-bot.vercel.app/0image_512x512__1_.png"
+  },
+    {
+    "name": "Ethan Canterbury",
+    "department": "HQ",
+    "role": "Club Engineering and Operations",
+    "acknowledged": true,
+    "bio": "Ethan is a Hack Clubber from New Jersey who LOVES python and... cats... He's on the club operations team and does engineering as well as help with many other projects! He has a vast experiance in Python, Web dev & sysadmin.",
+    "slackId": "U08BH57AZKP",
+    "email": "ethan",
+    "avatar": "https://cachet.dunkirk.sh/users/U08BH57AZKP/r"
   }
 ]
