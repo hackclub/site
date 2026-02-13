@@ -7698,10 +7698,10 @@ react-konami-code@^2.3.0:
   dependencies:
     prop-types "^15.8.1"
 
-react-lite-youtube-embed@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/react-lite-youtube-embed/-/react-lite-youtube-embed-2.4.0.tgz#1f56a12be1061d50431444d52d836bd09a1283a2"
-  integrity sha512-Xo6cM1zPlROvvM97JkqQIoXstlQDaC4+DawmM7BB7Hh1cXrkBHEGq1iJlQxBTUWAUklmpcC7ph7qg7CztXtABQ==
+react-lite-youtube-embed@3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/react-lite-youtube-embed/-/react-lite-youtube-embed-3.3.3.tgz#a953e66d347c183b978d39257d93d6f4c46c377e"
+  integrity sha512-RGrRpVu4cUKnIlS0/mZoWdS4rwdL0xAWpinbnzW+RsVrzh28URzTLl5zdOazlDbm6C0UM4ssnChbgcmEflr35Q==
 
 react-markdown@^8.0.7:
   version "8.0.7"
