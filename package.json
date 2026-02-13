@@ -40,7 +40,7 @@
     "axios": "^1.13.5",
     "camelcase": "^9.0.0",
     "cookies-next": "^4.3.0",
-    "country-list": "^2.3.0",
+    "country-list": "^2.4.1",
     "country-list-js": "^3.1.8",
     "cursor-effects": "^1.0.17",
     "date-fns": "^4.1.0",
