@@ -3333,10 +3333,10 @@ country-list-js@^3.1.8:
   dependencies:
     micro "^9.3.3"
 
-country-list@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.npmjs.org/country-list/-/country-list-2.3.0.tgz"
-  integrity sha512-qZk66RlmQm7fQjMYWku1AyjlKPogjPEorAZJG88owPExoPV8EsyCcuFLvO2afTXHEhi9liVOoyd+5A6ZS5QwaA==
+country-list@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/country-list/-/country-list-2.4.1.tgz#468b60a91004533133352a629de07a3a9d459899"
+  integrity sha512-KhVV/UfUV3dSNpsWIqHTQxLpYDKPKz1UwkRjadt+YbX2PRhyCEihEoS5XgB7J7AMXpkicvl+tRHvkNI5wbji/g==
 
 create-ecdh@^4.0.0:
   version "4.0.4"
