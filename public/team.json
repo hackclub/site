@@ -1154,6 +1154,62 @@
     "slackId": "U07V1ND4H0Q",
     "email": "",
     "website": "https://pbhak.dev/",
+    "avatar": "https://cachet.dunkirk.sh/users/U07V1ND4H0Q/r"
+  },
+  {
+    "name": "Kat",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Kat is a Hack Clubber who welcomes people into the Slack and helps them settle in.",
+    "slackId": "U06SQJ508LF",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U06SQJ508LF/r"
+  },
+  {
+    "name": "Maadhav",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Maadhav is a Hack Clubber from India who welcomes people into the Slack and helps them settle in.",
+    "slackId": "U08L7HLBT6V",
+    "email": "",
+    "website": "https://maadhavbhatt.github.io",
+    "avatar": "https://cachet.dunkirk.sh/users/U08L7HLBT6V/r"
+  },
+  {
+    "name": "Aishaani",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Aishaani is a Hack Clubber who welcomes people into the Slack and helps them settle in.",
+    "slackId": "U097UCZE2BB",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U097UCZE2BB/r"
+  },
+  {
+    "name": "Joel Gallagher",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Joel, who goes by PianoMan0 online, is a Hack Clubber who welcomes people into the Slack and helps them settle in.",
+    "slackId": "U07V1ND4H0Q",
+    "email": "",
+    "website": "https://pianoman0.com/",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0beef222fac6d4440cd07b2546dc04e547c08293_pianoman0_profile_pic.jpeg"
+  },
+  {
+    "name": "Ruby",
+    "department": "Welcoming",
+    "role": "Past Welcomer",
+    "acknowledged": true,
+    "bio": "Ruby is a Hack Clubber from Canada who welcomes people into the Slack and helps them settle in. She also worked on organising Scrapyard, a global hackathon and is an ultimate vibes engineer, as she likes to say. In her free time, she loves creating amazing artwork too!",
+    "slackId": "U0779CJQLM8",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U0779CJQLM8/r"
     "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U07V1ND4H0Q-694b3547e557-512"
   },
   {
