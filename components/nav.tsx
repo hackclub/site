@@ -33,8 +33,8 @@ const fixed = props =>
     border-bottom: 1px solid rgba(48, 48, 48, 0.125);
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
       background-color: ${props.transparent
-      ? 'transparent'
-      : rgbaBgColor(props, 0.75)};
+        ? 'transparent'
+        : rgbaBgColor(props, 0.75)};
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       backdrop-filter: saturate(180%) blur(20px);
       /* {bg}; to support dark mode later */
@@ -42,7 +42,8 @@ const fixed = props =>
   `
 
 const Root = styled(Box, {
-  shouldForwardProp: prop => !['bgColor', 'scrolled', 'toggled'].includes(prop)
+  shouldForwardProp: prop =>
+    !['bgColor', 'scrolled', 'toggled', 'fixed', 'dark'].includes(prop)
 })`
   position: fixed;
   top: 0;
@@ -53,6 +54,8 @@ const Root = styled(Box, {
     display: none;
   }
 `
+
+const RootAny = Root as any
 
 export const Content = styled(Container)`
   display: flex;
@@ -168,7 +171,22 @@ const ToggleContainer = styled(Flex)`
   }
 `
 
-function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
+type HeaderProps = {
+  unfixed?: boolean
+  color?: string
+  fixed?: boolean
+  dark?: boolean
+  bgColor?: string | number[]
+}
+
+export default function Header({
+  unfixed = false,
+  color = 'white',
+  bgColor,
+  dark = false,
+  fixed = false,
+  ...props
+}: HeaderProps) {
   const [scrolled, setScrolled] = useState(false)
   const [toggled, setToggled] = useState(false)
   const [mobile, setMobile] = useState(false)
@@ -213,7 +231,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
       : color
 
   return (
-    <Root
+    <RootAny
       {...props}
       fixed={fixed}
       scrolled={scrolled}
@@ -243,12 +261,10 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
         dark={dark}
       />
       {toggled && <ScrollLock />}
-    </Root>
+    </RootAny>
   )
 }
 
 Header.defaultProps = {
   color: 'white'
 }
-
-export default Header

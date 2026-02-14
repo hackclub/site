@@ -20,7 +20,9 @@ import Nav from "../components/nav";
 import Footer from "../components/footer";
 import { startCase } from "lodash";
 
-export const Logo = ({ name }) => (
+const AButton = Button as any;
+
+export const Logo = ({ name }: { name: string }) => (
   <Card variant="sunken" sx={{ p: [3, 3] }}>
     <Image
       src={`https://assets.hackclub.com/${name}.svg`}
@@ -51,19 +53,18 @@ export const Logo = ({ name }) => (
         },
       }}
     >
-      <Button as="a" href={`https://assets.hackclub.com/${name}.svg`}>
+      <AButton as="a" href={`https://assets.hackclub.com/${name}.svg`}>
         SVG
-      </Button>
-      <Button as="a" href={`https://assets.hackclub.com/${name}.png`}>
+      </AButton>
+      <AButton as="a" href={`https://assets.hackclub.com/${name}.png`}>
         PNG
-      </Button>
-      <Button as="a" href={`https://assets.hackclub.com/${name}.pdf`}>
+      </AButton>
+      <AButton as="a" href={`https://assets.hackclub.com/${name}.pdf`}>
         PDF
-      </Button>
+      </AButton>
     </Grid>
     <Input
       as="textarea"
-      rows={2}
       value={`https://assets.hackclub.com/${name}.svg`}
       sx={{ mt: 2, py: 1 }}
       disabled
@@ -173,7 +174,7 @@ const Page = ({ css }) => (
           <Logo name={key} key={key} />
         ))}
       </Grid>
-      <Button
+      <AButton
         as="a"
         href="https://assets.hackclub.com/2020_branding.zip"
         variant="outline"
@@ -181,7 +182,7 @@ const Page = ({ css }) => (
         mb={[4, 5]}
       >
         Download all →
-      </Button>
+      </AButton>
 
       <Heading id="bank" variant="headline">
         HCB Logos
@@ -190,7 +191,7 @@ const Page = ({ css }) => (
         <Logo name="hcb-light" />
         <Logo name="hcb-dark" />
       </Grid>
-      <Button
+      <AButton
         as="a"
         href="https://hcb.hackclub.com/branding"
         variant="outline"
@@ -198,7 +199,7 @@ const Page = ({ css }) => (
         mb={[4, 5]}
       >
         See all HCB logos →
-      </Button>
+      </AButton>
 
       <Heading id="banners" variant="headline">
         HTML banners
@@ -236,7 +237,7 @@ const Page = ({ css }) => (
           />
         </tbody>
       </Box>
-      <Button
+      <AButton
         as="a"
         href="https://hackclub.com/banner"
         variant="outline"
@@ -244,7 +245,7 @@ const Page = ({ css }) => (
         mb={[4, 5]}
       >
         React component →
-      </Button>
+      </AButton>
       <Heading variant="headline">Colors</Heading>
       <Grid columns={[2, 4]} gap={3} mb={[4, 5]}>
         {[
@@ -289,31 +290,31 @@ const Page = ({ css }) => (
           "photo",
           "emoji",
         ].map((k) => (
-          <Icon glyph={k} key={k} size={64} />
+          <Icon glyph={k as any} key={k} size={64} />
         ))}
       </Flex>
-      <Button
+      <AButton
         as="a"
         href="https://icons.hackclub.com"
         sx={{ mt: 3, mb: [4, 5] }}
         variant="outline"
       >
         Explore Hack Club Icons →
-      </Button>
+      </AButton>
       <Heading variant="headline">UI components</Heading>
       <Text as="p" variant="subtitle" sx={{ mb: 3 }}>
         Want to make a Hack Club themed site? Use our pre-made CSS and UI
         components to hackify your site.
       </Text>
-      <Button
+      <AButton
         as="a"
         href="https://theme.hackclub.com/"
         sx={{ mr: 3, mb: 3 }}
         variant="outline"
       >
         Explore Hack Club Theme →
-      </Button>
-      <Button
+      </AButton>
+      <AButton
         as="a"
         href="https://github.com/hackclub/theme-starter"
         mb={3}
@@ -321,15 +322,15 @@ const Page = ({ css }) => (
         variant="outline"
       >
         Theme Starter on GitHub →
-      </Button>
-      <Button
+      </AButton>
+      <AButton
         as="a"
         href="https://github.com/hackclub/css"
         sx={{ mb: 3 }}
         variant="outline"
       >
         CSS Theme on GitHub →
-      </Button>
+      </AButton>
     </Container>
     <Footer />
   </>

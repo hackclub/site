@@ -17,7 +17,6 @@ export default function Acknowleged({ team }) {
     <>
       <Box as="main" key="main" pb={5}>
         <ForceTheme theme="light" />
-        {/* @ts-expect-error -- TODO: fix this */}
         <Nav />
         <Meta
           as={Head}

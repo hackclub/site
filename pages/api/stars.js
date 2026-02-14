@@ -1,54 +1,59 @@
 import { graphql } from '@octokit/graphql'
 
 export async function fetchStars() {
+  let organization = {
+    sprig: '?',
+    sinerider: '?',
+    sprigHardware: '?',
+    hackclub: '?',
+    hackathons: '?',
+    blot: '?',
+    onboard: '?'
+  }
   if (!process.env.GITHUB_TOKEN) {
     console.warn(
       'Note - GITHUB_TOKEN not defined, stars will not be fetched from github'
     )
-    return {
-      sprig: '?',
-      sinerider: '?',
-      sprigHardware: '?',
-      hackclub: '?',
-      hackathons: '?',
-      blot: '?',
-      onboard: '?'
-    }
+    return organization
   }
-  const { organization } = await graphql(
-    `
-      {
-        organization(login: "hackclub") {
-          blot: repository(name: "blot") {
-            stargazerCount
-          }
-          sinerider: repository(name: "sinerider") {
-            stargazerCount
-          }
-          sprig: repository(name: "sprig") {
-            stargazerCount
-          }
-          hackclub: repository(name: "hackclub") {
-            stargazerCount
-          }
-          hackathons: repository(name: "hackathons") {
-            stargazerCount
-          }
-          sprigHardware: repository(name: "sprig-hardware") {
-            stargazerCount
-          }
-          onboard: repository(name: "onboard") {
-            stargazerCount
+  try {
+    organization = await graphql(
+      `
+        {
+          organization(login: "hackclub") {
+            blot: repository(name: "blot") {
+              stargazerCount
+            }
+            sinerider: repository(name: "sinerider") {
+              stargazerCount
+            }
+            sprig: repository(name: "sprig") {
+              stargazerCount
+            }
+            hackclub: repository(name: "hackclub") {
+              stargazerCount
+            }
+            hackathons: repository(name: "hackathons") {
+              stargazerCount
+            }
+            sprigHardware: repository(name: "sprig-hardware") {
+              stargazerCount
+            }
+            onboard: repository(name: "onboard") {
+              stargazerCount
+            }
           }
         }
+      `,
+      {
+        headers: {
+          authorization: `token ${process.env.GITHUB_TOKEN}`
+        }
       }
-    `,
-    {
-      headers: {
-        authorization: `token ${process.env.GITHUB_TOKEN}`
-      }
-    }
-  )
+    )
+  } catch (error) {
+    console.error('Error fetching stars:', error)
+  }
   return organization
 }
 

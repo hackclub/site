@@ -1,5 +1,4 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-// import { InitializeColorMode } from 'theme-ui'
 
 const org = {
   '@context': 'http://schema.org',
@@ -24,7 +23,7 @@ const org = {
   ]
 }
 
-class MyDocument extends Document {
+export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx)
     return { ...initialProps }
@@ -41,7 +40,6 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
-          {/* <InitializeColorMode /> */}
           <Main />
           <NextScript />
         </body>
@@ -49,5 +47,3 @@ class MyDocument extends Document {
     )
   }
 }
-
-export default MyDocument
