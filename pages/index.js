@@ -43,7 +43,6 @@ import Blueprint from '../components/index/cards/blueprint'
 import CampfireFlagship from '../components/index/cards/campfire-flagship'
 import Milkyway from '../components/index/cards/milkyway'
 import Flavortown from '../components/index/cards/flavortown'
-import Flavorless from '../components/index/cards/flavorless'
 import Scraps from '../components/index/cards/scraps'
 import HackClubTheGame from '../components/index/cards/hctg'
 import Aces from '../components/index/cards/aces'
@@ -866,7 +865,6 @@ function Page({
             <HackClubTheGame />
             <Milkyway />
             <Aces />
-            <Flavorless />
 
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
