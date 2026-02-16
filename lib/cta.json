@@ -30,7 +30,7 @@
         "description": "Learn to code and fly to an all girls slumber party hackathon!",
         "descriptionColor": "white",
         "buttonText": "JOIN NOW",
-        "buttonColor": "#B5AAE7",
+        "buttonColor": "##B5AAE7",
         "link": "https://sleepover.hackclub.com/?utm_source=site_cta"
     }
 ]
