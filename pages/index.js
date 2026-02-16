@@ -59,12 +59,20 @@ const ANNOUNCEMENTS = [
     imgSrc: '/hc-cdn/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png'
   },
   {
-    id: 'campfire-flagship',
-    expiresAt: new Date('2026-02-20'),
-    copy: 'Code with your favorite YouTubers at a Game Jam!',
-    caption: 'Spend up to 60 hours building games, earn a ticket to attend. Join us in LA with YouTubers like Michael Reeves this February!',
-    href: 'https://flagship.hackclub.com?utm_source=site_announcement',
-    imgSrc: '/hc-cdn/533c527e1ab6a77f_smore.png'
+    id: 'sleepover',
+    expiresAt: new Date('2026-04-26'),
+    copy: 'Learn to code and fly to a Sleepover hackathon!',
+    caption: 'Spend 30 hours learning to code, earn prizes like plushies and iPads, and fly out to an all girls hackathon this April in Chicago!',
+    href: 'https://sleepover.hackclub.com/?utm_source=site-announcement',
+    imgSrc: '/hc-cdn/bunny-shocked-cropped.png'
+  },
+    {
+    id: 'stasis',
+    expiresAt: new Date('2026-05-26'),
+    copy: 'Build hardware projects and fly out to a hardware hackathon in Austin, TX ',
+    caption: 'Learn to design and build three hardware projects and fly out to Stasis, a hardware hackathon in Austin, TX this May!',
+    href: 'https://stasis.hackclub.com/?utm_source=site-announcement',
+    imgSrc: '/hc-cdn/stasis-s-logo.png'
   },
   {
     id: 'flavortown',
