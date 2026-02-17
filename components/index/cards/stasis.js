@@ -1,6 +1,5 @@
 import CardModel from './card-model'
 import { Box, Flex, Image, Text } from 'theme-ui'
-import Balancer from 'react-wrap-balancer'
 
 /** @jsxImportSource theme-ui */
 
