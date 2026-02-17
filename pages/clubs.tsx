@@ -1,4 +1,14 @@
-import { Badge, Box, Button, Card, Container, Grid, Heading, Link, Text } from 'theme-ui'
+import {
+  Badge,
+  Box,
+  Button,
+  Card,
+  Container,
+  Grid,
+  Heading,
+  Link,
+  Text
+} from 'theme-ui'
 import styled from '@emotion/styled'
 import Head from 'next/head'
 import NextLink from 'next/link'
@@ -13,6 +23,8 @@ import Footer from '../components/footer'
 import AssembleImgFile from '../public/home/assemble.jpg'
 import Slack from '../components/slack'
 import Stage from '../components/stage'
+import { AButton } from '../components/AButton'
+import type { ReactNode } from 'react'
 
 let Highlight = styled(Text)`
   color: inherit;
@@ -26,7 +38,25 @@ let Highlight = styled(Text)`
 `
 Highlight = Highlight.withComponent('mark')
 
-const Feature = ({ icon, color, name, desc, children, sx, ...props }) => (
+const CardAsAny = Card as any
+
+const Feature = ({
+  icon = 'star',
+  color = 'blue',
+  name = '',
+  desc,
+  children = null,
+  sx = {},
+  ...props
+}: {
+  icon?: string
+  color?: string
+  name?: string
+  desc?: ReactNode
+  children?: ReactNode
+  sx?: any
+  [key: string]: any
+} = {}) => (
   <Box
     sx={{
       display: 'grid',
@@ -88,9 +118,8 @@ const Page = () => (
     />
     <Head>
       <meta
-        property="og:logo"
+        property="og:image"
         content="https://assets.hackclub.com/icon-rounded.png"
-        size="512x512"
       />
     </Head>
     <ForceTheme theme="light" />
@@ -164,10 +193,10 @@ const Page = () => (
             mb: [3, 4]
           }}
         >
-          Hack Club is a nonprofit network of high school computer science&nbsp;clubs and
-          makers around the world. 
+          Hack Club is a nonprofit network of high school computer
+          science&nbsp;clubs and makers around the world.
         </Text>
-        <Button
+        <AButton
           as="a"
           variant="ctaLg"
           href="https://apply.hackclub.com"
@@ -175,8 +204,8 @@ const Page = () => (
           rel="noopener"
         >
           Apply now
-        </Button>
-        <Button
+        </AButton>
+        <AButton
           as="a"
           variant="ctaLg"
           href="/slack"
@@ -187,7 +216,7 @@ const Page = () => (
           }}
         >
           Join the Slack
-        </Button>
+        </AButton>
       </FadeIn>
       <Box
         sx={{
@@ -197,24 +226,27 @@ const Page = () => (
           mt: [2, 2, 1]
         }}
       >
-        <Badge
-          as="a"
+        <a
           href="https://www.youtube.com/watch?v=PnK4gzO6S3Q"
-          variant="pill"
-          sx={{
-            zIndex: '1',
-            bg: '#000',
-            color: 'white',
-            opacity: 0.5,
-            textDecoration: 'none',
-            fontWeight: 'normal',
-            ':hover': { opacity: 1 },
-            transition: '0.3s ease'
-          }}
           title="📸 Photo by Kunal Botla, Hack Clubber in MA!"
         >
-          Hackers at Assemble in SF
-        </Badge>
+          <Badge
+            variant="pill"
+            sx={{
+              zIndex: '1',
+              bg: '#000',
+              color: 'white',
+              opacity: 0.5,
+              textDecoration: 'none',
+              fontWeight: 'normal',
+              ':hover': { opacity: 1 },
+              transition: '0.3s ease'
+            }}
+            title="📸 Photo by Kunal Botla, Hack Clubber in MA!"
+          >
+            Hackers at Assemble in SF
+          </Badge>
+        </a>
       </Box>
     </Box>
     <Box as="section" sx={{ py: [4, 5], color: 'black' }}>
@@ -333,10 +365,12 @@ const Page = () => (
               <a>hackathons</a>
             </NextLink>{' '}
             like <a href="https://daydream.hackclub.com/">Daydream</a> &{' '}
-            <a href="https://scrapyard.hackclub.com/">Scrapyard</a>,
-            take part in year long programs like{' '}
-            <NextLink href="https://blueprint.hackclub.com/">Blueprint</NextLink>, and compete in events
-            like the{' '}
+            <a href="https://scrapyard.hackclub.com/">Scrapyard</a>, take part
+            in year long programs like{' '}
+            <NextLink href="https://blueprint.hackclub.com/">
+              Blueprint
+            </NextLink>
+            , and compete in events like the{' '}
             <a href="http://www.congressionalappchallenge.us">
               Congressional App Challenge
             </a>
@@ -487,8 +521,9 @@ const Page = () => (
             name="Marketing"
             desc={
               <>
-                Get <Link href="/stickers">amazing stickers</Link> and posters for marketing
-                your club shipped directly to you & your club members.
+                Get <Link href="/stickers">amazing stickers</Link> and posters
+                for marketing your club shipped directly to you & your club
+                members.
               </>
             }
             color="purple"
@@ -501,8 +536,8 @@ const Page = () => (
             desc={
               <>
                 Use our 501(c)(3) status and a restricted fund with{' '}
-                <Link href="/fiscal-sponsorship">HCB</Link> to fundraise, accept donations, and
-                buy things!
+                <Link href="/fiscal-sponsorship">HCB</Link> to fundraise, accept
+                donations, and buy things!
               </>
             }
           />
@@ -510,8 +545,9 @@ const Page = () => (
             name="Weekly events"
             desc={
               <>
-                From <Link href="https://events.hackclub.com/">Lock-in calls</Link> to{' '}
-                <Link href="/amas">AMAs</Link>
+                From{' '}
+                <Link href="https://events.hackclub.com/">Lock-in calls</Link>{' '}
+                to <Link href="/amas">AMAs</Link>
                 {' to '}
                 <a href="https://twitter.com/hackclub/status/1300494921997193217?s=21">
                   weirder events
@@ -530,9 +566,10 @@ const Page = () => (
             desc={
               <>
                 We're always building new tools for leaders, such as the{' '}
-                <a href="https://leaders.hackclub.com"> Leaders Portal</a>! A place to manage your club! We've also got
-                free subscriptions to Brilliant Premium, Code Crafters, and more for running a
-                great computer science club.
+                <a href="https://leaders.hackclub.com"> Leaders Portal</a>! A
+                place to manage your club! We've also got free subscriptions to
+                Brilliant Premium, Code Crafters, and more for running a great
+                computer science club.
               </>
             }
           />
@@ -541,7 +578,7 @@ const Page = () => (
             color="blue"
             name="Free Zoom Pro"
             desc="24/7 access to Zoom Pro enabled meeting rooms for your club (that means no time limit)."
-          /> 
+          />
         </Grid>
         <Feature
           icon="welcome"
@@ -549,11 +586,11 @@ const Page = () => (
           name="Existing clubs welcome"
           desc={
             <>
-              When established Computer Science clubs join, they get all the Hack&nbsp;Club
-              benefits: Zoom&nbsp;Pro, stickers, our Slack community,{' '}
-              <a href="https://workshops.hackclub.com/">workshops</a>, the
-              works. They’re welcome to use the “Hack&nbsp;Club” name or keep
-              their existing one.
+              When established Computer Science clubs join, they get all the
+              Hack&nbsp;Club benefits: Zoom&nbsp;Pro, stickers, our Slack
+              community, <a href="https://workshops.hackclub.com/">workshops</a>
+              , the works. They’re welcome to use the “Hack&nbsp;Club” name or
+              keep their existing one.
             </>
           }
           as="aside"
@@ -619,7 +656,7 @@ const Page = () => (
             svg: { fill: 'currentColor' }
           }}
         >
-          <Card
+          <CardAsAny
             as="a"
             href="https://apply.hackclub.com/"
             variant="interactive"
@@ -636,7 +673,7 @@ const Page = () => (
               name="1. Application"
               desc="Start by telling us about your club & who’s leading it."
             />
-          </Card>
+          </CardAsAny>
           <Card
             sx={{
               background:
@@ -667,16 +704,11 @@ const Page = () => (
             />
           </Card>
         </Grid>
-        <Button
-          as="a"
-          href="https://apply.hackclub.com"
-          target="_blank"
-          rel="noopener"
-          variant="ctaLg"
-        >
-          Apply to Hack Club
-        </Button>
-        
+        <a href="https://apply.hackclub.com/" target="_blank" rel="noopener">
+          <Button rel="noopener" variant="ctaLg">
+            Apply to Hack Club
+          </Button>
+        </a>
       </Container>
     </Box>
     <Footer

@@ -19,8 +19,7 @@ import ForceTheme from "../components/force-theme";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 import { startCase } from "lodash";
-
-const AButton = Button as any;
+import { AButton } from "../components/AButton";
 
 export const Logo = ({ name }: { name: string }) => (
   <Card variant="sunken" sx={{ p: [3, 3] }}>
