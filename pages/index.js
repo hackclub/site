@@ -41,6 +41,8 @@ import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Blueprint from '../components/index/cards/blueprint'
 import CampfireFlagship from '../components/index/cards/campfire-flagship'
+import Sleepover from '../components/index/cards/sleepover'
+import Stasis from '../components/index/cards/stasis'
 import Milkyway from '../components/index/cards/milkyway'
 import Flavortown from '../components/index/cards/flavortown'
 import Scraps from '../components/index/cards/scraps'
@@ -868,7 +870,8 @@ function Page({
               blueprintData={blueprintData}
               stars={stars.onboard.stargazerCount}
             />
-            <CampfireFlagship />
+            <Sleepover />
+            <Stasis />
             <Scraps />
             <HackClubTheGame />
             <Milkyway />
