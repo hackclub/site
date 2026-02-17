@@ -29,7 +29,7 @@ const ElonPage = () => (
         pt: [5, 6],
         pb: [4, 5],
         bg: 'rgb(104, 41, 205)',
-        backgroundImage: theme => theme.util.gx('yellow', 'green')
+        backgroundImage: (t: any) => t.util.gx('yellow', 'green')
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>

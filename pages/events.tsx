@@ -4,22 +4,18 @@ import {
   Container,
   Heading,
   Card,
-  Text,
   Grid,
   Flex,
   Image as Img,
-  Link,
-  Divider
+  Link
 } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
-import Icon from '../components/icon'
 import Image from 'next/image'
 import OuternetPic from '../public/outernet/hack.jpg'
-import { compact } from 'lodash'
 import theme from '@hackclub/theme'
 
 const events = [
@@ -123,16 +119,13 @@ const Event = ({
     </Flex>
     <Box>{description}</Box>
     {video ? (
-      <Box
-        as="iframe"
+      <iframe
         src={video}
-        frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
+        allowFullScreen
         width="100%"
         height="250px"
-        border="none"
-        sx={{ borderRadius: '8px', mt: 2 }}
+        style={{ borderRadius: '8px', marginTop: 8, border: 'none' }}
       />
     ) : (
       <a href={link}>
@@ -175,7 +168,7 @@ const Event = ({
   </Card>
 )
 
-const Page = ({ jobs }) => (
+const Page = () => (
   <>
     <Meta
       as={Head}
@@ -246,16 +239,19 @@ const Page = ({ jobs }) => (
             Every summer and now every winter, Hack Club does something special
             to bring the community together. Let's take a trip down memory lane.
           </Heading>
-          <Button
-            as="a"
-            variant="ctaLg"
+          <Link
             href="https://hackclub.com/slack"
             target="_blank"
             rel="noopener"
-            sx={{ mt: 3, background: theme.util.gx('purple', 'blue') }}
+            sx={{ textDecoration: 'none' }}
           >
-            Get ready for the next one!
-          </Button>
+            <Button
+              variant="ctaLg"
+              sx={{ mt: 3, background: theme.util.gx('purple', 'blue') }}
+            >
+              Get ready for the next one!
+            </Button>
+          </Link>
         </Container>
       </Box>
       <Container sx={{ py: [3, 4], px: [2, 2, 0] }}>
@@ -264,11 +260,23 @@ const Page = ({ jobs }) => (
             maxWidth: '64rem',
             mx: 'auto'
           }}
-          align="left"
           columns={['1fr', '1fr 1fr']}
         >
           {events.map((event, i) => (
-            <Event key={`event-${i}`} {...event} />
+            <Event
+              key={`event-${i}`}
+              name={event.name}
+              logo={event.logo}
+              location={event.location}
+              season={event.season}
+              description={event.description}
+              year={event.year}
+              video={event.video ?? null}
+              repo={event.repo ?? null}
+              ghTag={event.ghTag ?? null}
+              image={event.image ?? null}
+              link={event.link ?? null}
+            />
           ))}
         </Grid>
         <Card
