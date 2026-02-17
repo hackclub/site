@@ -1,7 +1,6 @@
 import {
   Box,
   Textarea,
-  Link,
   Grid,
   Image,
   Container,
@@ -14,10 +13,7 @@ import {
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import ForceTheme from '../components/force-theme'
-import Footer from '../components/footer'
 import Nav from '../components/nav'
-import Tilt from '../components/tilt'
-import Ticker from 'react-ticker'
 import { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -120,7 +116,7 @@ const StevePage = () => {
           imageRendering: 'pixelated'
         }}
       >
-        <Nav sx={{ backgroundColor: '#0F214F' }} />
+        <Nav />
 
         <Heading
           sx={{
@@ -296,7 +292,6 @@ const StevePage = () => {
               padding: 24,
               backgroundColor: '#91979C'
             }}
-            columns={'3fr 1fr'}
           >
             <Box style={{ padding: '16px', backgroundColor: '#000' }}>
               <Image
@@ -418,7 +413,6 @@ const StevePage = () => {
                       borderRadius: 0,
                       border: '4px solid #495057'
                     }}
-                    multiline={true} // Set the multiline property to true
                   />
                 </Box>
                 <Box sx={{ display: 'flex' }}>
@@ -432,19 +426,11 @@ const StevePage = () => {
                     </Text>
                     <DatePicker
                       selected={startDate}
-                      style={{
-                        width: '100%', // Set the width to 100%
-                        boxSizing: 'border-box' // Include padding and border in the total width
-                      }}
                       onChange={handleStartDateChange}
                       selectsStart
                       startDate={startDate}
                       endDate={endDate}
                       excludeDates={disabledDates}
-                      sx={{
-                        width: '100%', // Set the width to 100%
-                        boxSizing: 'border-box' // Include padding and border in the total width
-                      }}
                     />
                   </Box>
                   <Box
