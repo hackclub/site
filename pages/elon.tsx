@@ -9,7 +9,7 @@ import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
-import ElonCopy from '../components/announcements/elon.mdx'
+import Elon from "../components/announcements/elon.mdx"
 import SlackCTA from '../components/announcements/cta'
 import AnnouncementHolder from '../components/announcements/holder'
 
@@ -60,7 +60,7 @@ const ElonPage = () => (
         />
         <DatePill tag="May 15, 2020" />
       </PillHolder>
-      <ElonCopy />
+      <Elon />
     </AnnouncementHolder>
     <SlackCTA />
     <Footer />
