@@ -138,7 +138,6 @@ const Page = () => (
       <BGImg
         src={AssembleImgFile}
         alt="Hack Clubbers assemble at Figma HQ for the first IRL hackathon in SF since 2020: Assemble. 📸 Photo by Kunal Botla, Hack Clubber in MA!"
-        priority
       />
 
       <SlideDown duration={768}>

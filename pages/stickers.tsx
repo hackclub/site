@@ -39,7 +39,7 @@ const StickersPage = ({ stickers = [] }) => [
         height={1821}
         alt="Students exchanging stickers"
         src="/stickers/hero.jpg"
-        gradient
+        gradient="true"
       />
       <Card
         sx={{
@@ -102,9 +102,9 @@ const StickersPage = ({ stickers = [] }) => [
         <Heading
           as="h1"
           variant="ultratitle"
-          sx={theme => ({
+          sx={(t: any) => ({
             color: 'primary',
-            ...theme.util.gxText(color, 'red'),
+            ...t.util.gxText(color, 'red'),
             mt: [3, 4]
           })}
         >

@@ -5,18 +5,13 @@ import {
   Box,
   Container,
   Heading,
-  Button,
   Text,
   Image,
-  Input,
-  Label,
   Link,
   Flex
 } from 'theme-ui'
 import Snowfall from 'react-snowfall'
 import WinterFooter from '../components/winter/footer'
-import FadeIn from '../components/fade-in'
-import { useState } from 'react'
 import ForceTheme from '../components/force-theme'
 import RealTimeline from '../components/winter/timeline'
 import InfoGrid from '../components/winter/info'
@@ -47,7 +42,7 @@ export function Winter() {
           description="Join the Hack Club community for a winter of hardware hacking, and get a $250 grant to build your project."
           image="/winter/og-image.png"
         />
-        <Nav light />
+        <Nav />
         <Snowfall />
         <ForceTheme theme="light" />
         {/* filter out rsvps that are "invalid" */}
