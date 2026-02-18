@@ -47,7 +47,7 @@ const MobilePage = () => (
         pt: [5, 6],
         pb: [4, 5],
         bg: 'rgb(104, 41, 205)',
-        backgroundImage: theme => theme.util.gx('purple', 'orange')
+        backgroundImage: (t: any) => t.util.gx('purple', 'orange')
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
@@ -88,6 +88,7 @@ const MobilePage = () => (
         <AuthorPill
           firstName="Mohamad"
           tag="Mohamad Mortada"
+          // this image is 404
           image="https://github.com/thedev132.png"
         />
         <DatePill tag="Dec 2, 2025" />

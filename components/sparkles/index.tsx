@@ -22,13 +22,20 @@ const generateSparkle = color => {
   return sparkle
 }
 
+type SparklesProps = {
+  colors?: string[]
+  children: React.ReactNode
+  sx?: any
+  props?: any
+}
+
 const Sparkles = ({
   colors = ['orange', 'yellow', 'green'],
   children,
   sx,
   props,
   ...delegated
-}) => {
+}: SparklesProps) => {
   const allColors = colors.map(n => theme.colors[n])
   const getColor = () => sample(allColors)
   const [sparkles, setSparkles] = useState(() => {

@@ -1,6 +1,20 @@
 import { Flex, Text } from 'theme-ui'
 import { isEmpty } from 'lodash'
 
+type StatProps = {
+  value: string | number
+  label?: string
+  unit?: string
+  color?: string
+  of?: string | number
+  center?: boolean
+  reversed?: boolean
+  half?: boolean
+  lg?: boolean
+  sm?: boolean
+  sx?: any
+}
+
 const Stat = ({
   value,
   label,
@@ -13,7 +27,7 @@ const Stat = ({
   lg = false,
   sm = false,
   ...props
-}) => (
+}: StatProps) => (
   <Flex
     {...props}
     sx={{

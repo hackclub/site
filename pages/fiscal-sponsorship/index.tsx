@@ -26,7 +26,6 @@ import OrganizationSpotlight from '../../components/fiscal-sponsorship/organizat
 import { setCookie, getCookie } from 'cookies-next'
 import { useEffect, useState } from 'react'
 import { unfold } from '../../components/announcement'
-import Announcement from '../../components/announcement'
 import OpenSource from '../../components/fiscal-sponsorship/open-source'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import Sparkles from '../../components/sparkles'
@@ -123,9 +122,11 @@ function MobileAppAlert() {
         <span style={{ fontSize: 20 }}>
           <strong style={{ fontSize: 23 }}>HCB Mobile is here!</strong>
           <br />
-          Manage your HCB organizations on the go. Issue cards, view transactions, and more!
+          Manage your HCB organizations on the go. Issue cards, view
+          transactions, and more!
           <br />
-          Get <strong>limited edition</strong> stickers by downloading the app and signing in.
+          Get <strong>limited edition</strong> stickers by downloading the app
+          and signing in.
         </span>
 
         <Box
@@ -133,12 +134,11 @@ function MobileAppAlert() {
             gap: 2,
             display: 'flex',
             width: ['100%', 'auto'],
-            alignItems: ['stretch', 'center'],
             flexShrink: 0,
             ml: [undefined, 'auto'],
             flexDirection: ['column', 'row'],
             flexWrap: 'wrap',
-            alignItems: 'center',
+            alignItems: 'center'
           }}
         >
           <a
@@ -345,7 +345,7 @@ export default function Page() {
                 variant="lg"
                 sx={{
                   bg: 'blue',
-                  backgroundImage: theme => theme.util.gx('cyan', 'blue'),
+                  backgroundImage: (t: any) => t.util.gx('cyan', 'blue'),
                   lineHeight: 0.9
                 }}
               >
@@ -359,72 +359,219 @@ export default function Page() {
       <MobileAppAlert />
       <Box as="section" sx={{ py: [4, 5], alignItems: 'center' }}>
         <Container sx={{ alignItems: 'center' }}>
-          <Grid gap={[4, 5]} columns={[null, null, 2]} sx={{ alignItems: 'center' }}>
+          <Grid
+            gap={[4, 5]}
+            columns={[null, null, 2]}
+            sx={{ alignItems: 'center' }}
+          >
             <Box>
-              <Heading as="h2" variant="title" sx={{ mb: 3, maxWidth: 'copyUltra' }}>
+              <Heading
+                as="h2"
+                variant="title"
+                sx={{ mb: 3, maxWidth: 'copyUltra' }}
+              >
                 HCB in your <Sparkles sx={{ color: 'red' }}>pocket</Sparkles>
               </Heading>
               <Text as="p" variant="lead" sx={{ mb: 3 }}>
-                The official mobile app lets you manage your
-                organization&apos;s finances, issue cards, and more!
+                The official mobile app lets you manage your organization&apos;s
+                finances, issue cards, and more!
               </Text>
               <Grid columns={[1, 2]} gap={3}>
-                <Card variant="sunken" sx={{ p: '1.5rem !important', bg: 'snow', borderRadius: 'default' }}>
-                  <Text as="strong" color="slate" sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1, justifyContent: 'space-between' }}>
-                    <span style={{ maxWidth: 'calc(100% - 36px)' }}>See your organization's spending</span><Icon glyph="view" size={36} sx={{ color: 'red', flexShrink: 0 }} />
+                <Card
+                  variant="sunken"
+                  sx={{
+                    p: '1.5rem !important',
+                    bg: 'snow',
+                    borderRadius: 'default'
+                  }}
+                >
+                  <Text
+                    as="strong"
+                    color="slate"
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 2,
+                      mb: 1,
+                      justifyContent: 'space-between'
+                    }}
+                  >
+                    <span style={{ maxWidth: 'calc(100% - 36px)' }}>
+                      See your organization's spending
+                    </span>
+                    <Icon
+                      glyph="view"
+                      size={36}
+                      sx={{ color: 'red', flexShrink: 0 }}
+                    />
                   </Text>
                   <Text>
-                    Stay up to date on your organization's balance and transactions.
+                    Stay up to date on your organization's balance and
+                    transactions.
                   </Text>
                 </Card>
-                <Card variant="sunken" sx={{ p: '1.5rem !important', bg: 'snow', borderRadius: 'default' }}>
-                  <Text as="strong" color="slate" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2, mb: 1 }}>
-                    <span style={{ maxWidth: 'calc(100% - 32px)' }}>Accept Tap to Pay donations</span><Icon glyph="bolt-circle" size={32} sx={{ color: 'red', flexShrink: 0 }} />
+                <Card
+                  variant="sunken"
+                  sx={{
+                    p: '1.5rem !important',
+                    bg: 'snow',
+                    borderRadius: 'default'
+                  }}
+                >
+                  <Text
+                    as="strong"
+                    color="slate"
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      gap: 2,
+                      mb: 1
+                    }}
+                  >
+                    <span style={{ maxWidth: 'calc(100% - 32px)' }}>
+                      Accept Tap to Pay donations
+                    </span>
+                    <Icon
+                      glyph="bolt-circle"
+                      size={32}
+                      sx={{ color: 'red', flexShrink: 0 }}
+                    />
                   </Text>
                   <Text>
-                    No extra hardware required! Tap any card against your phone. Great for in-person fundraisers.
+                    No extra hardware required! Tap any card against your phone.
+                    Great for in-person fundraisers.
                   </Text>
                 </Card>
-                <Card variant="sunken" sx={{ p: '1.5rem !important', bg: 'snow', borderRadius: 'default' }}>
-                  <Text as="strong" color="slate" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2, mb: 1 }}>
-                    <span style={{ maxWidth: 'calc(100% - 32px)' }}>Issue, manage, and<br />add cards</span><Icon glyph="card" size={32} sx={{ color: 'red', flexShrink: 0 }} />
+                <Card
+                  variant="sunken"
+                  sx={{
+                    p: '1.5rem !important',
+                    bg: 'snow',
+                    borderRadius: 'default'
+                  }}
+                >
+                  <Text
+                    as="strong"
+                    color="slate"
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      gap: 2,
+                      mb: 1
+                    }}
+                  >
+                    <span style={{ maxWidth: 'calc(100% - 32px)' }}>
+                      Issue, manage, and
+                      <br />
+                      add cards
+                    </span>
+                    <Icon
+                      glyph="card"
+                      size={32}
+                      sx={{ color: 'red', flexShrink: 0 }}
+                    />
                   </Text>
                   <Text>
-                    You can directly add cards to Apple&nbsp;Wallet and Google&nbsp;Wallet. No more forgetting your card!
+                    You can directly add cards to Apple&nbsp;Wallet and
+                    Google&nbsp;Wallet. No more forgetting your card!
                   </Text>
                 </Card>
-                <Card variant="sunken" sx={{ p: '1.5rem !important', bg: 'snow', borderRadius: 'default' }}>
-                  <Text as="strong" color="slate" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2, mb: 1 }}>
-                    <span style={{ maxWidth: 'calc(100% - 32px)' }}>Upload receipts the easy way</span><Icon glyph="docs" size={32} sx={{ color: 'red', flexShrink: 0 }} />
+                <Card
+                  variant="sunken"
+                  sx={{
+                    p: '1.5rem !important',
+                    bg: 'snow',
+                    borderRadius: 'default'
+                  }}
+                >
+                  <Text
+                    as="strong"
+                    color="slate"
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      gap: 2,
+                      mb: 1
+                    }}
+                  >
+                    <span style={{ maxWidth: 'calc(100% - 32px)' }}>
+                      Upload receipts the easy way
+                    </span>
+                    <Icon
+                      glyph="docs"
+                      size={32}
+                      sx={{ color: 'red', flexShrink: 0 }}
+                    />
                   </Text>
                   <Text>Quickly snap a photo or upload a file!</Text>
                 </Card>
               </Grid>
-              <Button
-                as="a"
-                sx={{ flexShrink: 0, gap: 1, paddingLeft: 25, paddingRight: '5px', marginTop: '20px' }}
-                href="/hcb/mobile"
-                target="_blank"
-              >
-                Read our story
-                <Icon glyph="view-forward" />
-              </Button>
+              <a href="/hcb/mobile" target="_blank">
+                <Button
+                  as="a"
+                  sx={{
+                    flexShrink: 0,
+                    gap: 1,
+                    paddingLeft: 25,
+                    paddingRight: '5px',
+                    marginTop: '20px'
+                  }}
+                >
+                  Read our story
+                  <Icon glyph="view-forward" />
+                </Button>
+              </a>
             </Box>
-            <Card sx={{ backgroundImage: 'linear-gradient(to right, #fcc8bf, #ffce33)', px: [5, 5], py: '0 !important', height: 'fit-content', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative' }}>
-              <Text as="span" sx={{ position: 'absolute', bottom: 12, left: 12, bg: 'white', color: 'slate', fontSize: 14, fontWeight: 'bold', px: 3, py: 2, borderRadius: 30, boxShadow: 'small' }}>
+            <Card
+              sx={{
+                backgroundImage: 'linear-gradient(to right, #fcc8bf, #ffce33)',
+                px: [5, 5],
+                py: '0 !important',
+                height: 'fit-content',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-end',
+                position: 'relative'
+              }}
+            >
+              <Text
+                as="span"
+                sx={{
+                  position: 'absolute',
+                  bottom: 12,
+                  left: 12,
+                  bg: 'white',
+                  color: 'slate',
+                  fontSize: 14,
+                  fontWeight: 'bold',
+                  px: 3,
+                  py: 2,
+                  borderRadius: 30,
+                  boxShadow: 'small'
+                }}
+              >
                 {mobileInstalls.toLocaleString()} installs
               </Text>
-              <Box as="img" src="mobile-mockup.png" sx={{ display: 'block', width: '100%', height: 'auto' }} />
+              <img
+                src="mobile-mockup.png"
+                alt="Mobile app mockup"
+                style={{ display: 'block', width: '100%', height: 'auto', borderRadius: 'inherit' }}
+              />
             </Card>
           </Grid>
         </Container>
       </Box>
       <Box id="organizations" as="section" sx={{ py: [4, 5], bg: 'snow' }}>
         <Container sx={{}}>
-          <Heading as="h2" variant="title" sx={{ mt: 0, mb: 3, maxWidth: 'copyUltra' }}>
-            <Balancer>
-              Powering nonprofits at every scale
-            </Balancer>
+          <Heading
+            as="h2"
+            variant="title"
+            sx={{ mt: 0, mb: 3, maxWidth: 'copyUltra' }}
+          >
+            <Balancer>Powering nonprofits at every scale</Balancer>
           </Heading>
           <Flex sx={{ flexWrap: 'wrap', rowGap: 3, columnGap: [4, 5], mb: 4 }}>
             <Stat value="$80M+" label="processed transactions" reversed />
@@ -452,9 +599,9 @@ export default function Page() {
                 variant="lg"
                 sx={{
                   bg: 'blue',
-                  backgroundImage: theme => theme.util.gx('muted', 'slate'),
+                  backgroundImage: (t: any) => t.util.gx('muted', 'slate'),
                   lineHeight: 0.9,
-                  wordWrap: 'none'
+                  whiteSpace: 'nowrap'
                 }}
               >
                 See more organizations →
@@ -466,7 +613,11 @@ export default function Page() {
         </Container>
       </Box>
       <Features />
-      <Box id="fees" as="section" sx={{ position: 'relative', py: 5, bg: 'snow' }}>
+      <Box
+        id="fees"
+        as="section"
+        sx={{ position: 'relative', py: 5, bg: 'snow' }}
+      >
         <Container>
           <Grid columns={[null, null, 2]} gap={[4, 5]}>
             <div>
@@ -505,10 +656,10 @@ export default function Page() {
                     'linear-gradient(to right, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
                 },
                 '@supports (-webkit-background-clip: text) and (background: linear-gradient(to right in oklch, white, black)':
-                {
-                  backgroundImage:
-                    'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
-                }
+                  {
+                    backgroundImage:
+                      'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
+                  }
               }}
               style={{ margin: 0 }}
             >
@@ -653,8 +804,8 @@ export default function Page() {
                 <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
               </svg>
               <span>
-                As part of our commitment to the environment, funding for HCB&apos;s
-                operations&nbsp;and staff will never come from the{' '}
+                As part of our commitment to the environment, funding for
+                HCB&apos;s operations&nbsp;and staff will never come from the{' '}
                 <UILink
                   href="https://www.ffisolutions.com/the-carbon-underground-200-500/"
                   color="blue"

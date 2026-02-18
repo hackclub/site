@@ -162,25 +162,24 @@ export default function First({ stats }) {
                 alignItems: 'center'
               }}
             >
-              <Button variant="ctaLg" as="a" href="#demo">
-                Open an account
-              </Button>
+              <a href="#demo">
+                <Button variant="ctaLg">Open an account</Button>
+              </a>
 
-              <Button
-                sx={{
-                  backgroundImage: theme.util.gx('cyan', 'blue'),
-                  ml: 2,
-                  display: ['none', null, 'inline-block'] // hide on mobile because viewing pdfs on mobile is a pain anyways
-                }}
-                variant="ctaLg"
-                as="a"
-                href="/fiscal-sponsorship/first/Hack_Club_Bank_for_FIRST_Teams.pdf"
-                // @exu3: to edit this PDF, use this Figma file https://www.figma.com/file/LgadOH1lHUBOejA3vaNGgm/Hack-Club-Bank-for-FIRST-Teams-One-Pager?node-id=0%3A1&t=ZtkN2a3aw2IojFvi-1
-                // message me on Slack if you need edit access
-                target="_blank"
-              >
-                Download this page
-              </Button>
+              <a href="/fiscal-sponsorship/first/Hack_Club_Bank_for_FIRST_Teams.pdf" target="_blank">
+                <Button
+                  sx={{
+                    backgroundImage: theme.util.gx('cyan', 'blue'),
+                    ml: 2,
+                    display: ['none', null, 'inline-block'] // hide on mobile because viewing pdfs on mobile is a pain anyways
+                  }}
+                  variant="ctaLg"
+                  // @exu3: to edit this PDF, use this Figma file https://www.figma.com/file/LgadOH1lHUBOejA3vaNGgm/Hack-Club-Bank-for-FIRST-Teams-One-Pager?node-id=0%3A1&t=ZtkN2a3aw2IojFvi-1
+                  // message me on Slack if you need edit access
+                >
+                  Download this page
+                </Button>
+              </a>
             </Box>
           </Container>
         </Box>
