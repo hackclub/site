@@ -22,7 +22,7 @@ const SlackPage = () => {
 
   return (
     <>
-      <style css>
+      <style>
         {/*this hides the horizontal scrollbar in the projects gallery*/}
         {` 
         .react-horizontal-scrolling-menu--scroll-container {
@@ -42,11 +42,8 @@ const SlackPage = () => {
         image="https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/02020-07-25_d2dd4egb1th5k71w4uj0abbfkvvtnc01.jpeg"
       />
       <ForceTheme theme="light" />
-      <Nav slack={true} />
-      {/* <Box sx={{ position: 'fixed', mt: 5, maxWidth: '1024px', backgroundColor: 'red', zIndex: 100 }}>
-        <Text>Hack Club Slack</Text>
-      </Box>*/}
-      <Header nameInputRef={nameInputRef} />
+      <Nav />
+      <Header />
       <Container sx={{ pt: [4, 5], pb: 4 }}>
         <Heading
           as="h2"

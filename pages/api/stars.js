@@ -1,23 +1,25 @@
 import { graphql } from '@octokit/graphql'
 
 export async function fetchStars() {
-  let organization = {
-    sprig: '?',
-    sinerider: '?',
-    sprigHardware: '?',
-    hackclub: '?',
-    hackathons: '?',
-    blot: '?',
-    onboard: '?'
+  const emptyStats = {
+    sprig: { stargazerCount: 0 },
+    sinerider: { stargazerCount: 0 },
+    sprigHardware: { stargazerCount: 0 },
+    hackclub: { stargazerCount: 0 },
+    hackathons: { stargazerCount: 0 },
+    blot: { stargazerCount: 0 },
+    onboard: { stargazerCount: 0 }
   }
+
   if (!process.env.GITHUB_TOKEN) {
     console.warn(
       'Note - GITHUB_TOKEN not defined, stars will not be fetched from github'
     )
-    return organization
+    return emptyStats
   }
+
   try {
-    organization = await graphql(
+    const { organization } = await graphql(
       `
         {
           organization(login: "hackclub") {
@@ -51,10 +53,11 @@ export async function fetchStars() {
         }
       }
     )
+    return organization
   } catch (error) {
     console.error('Error fetching stars:', error)
+    return emptyStats
   }
-  return organization
 }
 
 export default async function Stars(req, res) {

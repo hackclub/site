@@ -19,7 +19,6 @@ import FadeIn from '../components/fade-in'
 import { keyframes } from '@emotion/react'
 import { useState } from 'react'
 
-const year = 2025
 const announcementMessage =
   'https://hackclub.slack.com/docs/T0266FRGM/F0671A687SA'
 const signupsOpen = true
@@ -85,8 +84,6 @@ const Page = () => (
       <Container px={3} py={[3, 4]}>
         <Heading
           sx={{ py: [3, 5], fontSize: [4, 5], color: 'white', opacity: 0.8 }}
-          bold
-          caps
         >
           <FadeIn delay={300} duration={600}>
             It's 2025,
@@ -117,9 +114,7 @@ const Page = () => (
             Hack Club Secret Santa
           </Heading>
           <Lead
-            fontSize={[3, null, 4]}
             color="snow"
-            maxWidth={48}
             my={3}
             mx="auto"
           >
@@ -148,7 +143,7 @@ export default Page
 function Base({ children, action, target, method }) {
   return (
     <Box
-      as="form"
+      as="div"
       sx={{
         display: 'grid',
         width: ['full', 512],
@@ -158,11 +153,10 @@ function Base({ children, action, target, method }) {
         p: 4,
         mt: 4
       }}
-      action={action}
-      target={target}
-      method={method}
     >
-      {children}
+      <form action={action} target={target} method={method} style={{ display: 'contents' }}>
+        {children}
+      </form>
     </Box>
   )
 }
@@ -191,12 +185,19 @@ function Field({ placeholder, label, name, type, value, onChange }) {
   )
 }
 
+type valuesType = {
+  name?: string
+  likes?: string
+  dislikes?: string
+}
+
 function Signup() {
-  const [values, setValues] = useState({})
+  const [values, setValues] = useState<valuesType>({})
   return (
     <Base
       method="get"
       action="https://forms.hackclub.com/santa"
+      target="_self"
     >
       <Heading sx={{ color: 'black', textAlign: 'left', mb: 2 }}>
         Register!
@@ -212,9 +213,10 @@ function Signup() {
         label="Your Name"
         name="name"
         placeholder="Fiona Hackworth"
+        type="text"
         value={values.name}
-        onChange={e => setValues({ ...values, name: e.target.value })}
-      />
+        onChange={e => setValues({ ...values, name: e.target.value })} 
+        />
 
       <Field
         label="Likes"

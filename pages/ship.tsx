@@ -1,15 +1,11 @@
 import {
-  Avatar,
   Badge,
   Box,
   Button,
   Container,
-  Card,
   Grid,
   Heading,
-  Image,
   Text,
-  Flex
 } from 'theme-ui'
 import NextLink from 'next/link'
 import Head from 'next/head'
@@ -20,8 +16,7 @@ import Why from '../components/ship/why.mdx'
 import Icon from '../components/icon'
 import Posts from '../components/posts'
 import Footer from '../components/footer'
-import { timeSince } from '../lib/dates'
-import { orderBy, filter, take, map, uniq, reverse } from 'lodash'
+import { orderBy, filter, take } from 'lodash'
 import { keyframes } from '@emotion/react'
 import { thousands } from '../lib/members'
 
