@@ -29,7 +29,7 @@ export default function Hackathons({ data }) {
 
           <Overview />
 
-          <ScrollingHackathons eventData={data} title={true} />
+          <ScrollingHackathons eventData={data} title={true} mode="default" />
 
           <KeepExploring />
           <Slack />
@@ -44,7 +44,7 @@ export default function Hackathons({ data }) {
   )
 }
 export async function getStaticProps() {
-  let data
+  let data: any
   try {
     const res = await fetch(
       'https://hackathons.hackclub.com/api/events/upcoming'

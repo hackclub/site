@@ -5,11 +5,9 @@ import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import MSparkles from '../../components/sparkles/money'
-import Announcement from '../../components/announcement'
 import NextLink from 'next/link'
 import { Link, Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
-import Apply from '../../components/hackathons/grant/apply'
 
 import Zoom from 'react-reveal/Zoom'
 /** @jsxImportSource theme-ui */
@@ -19,6 +17,16 @@ const styles = `
     scroll-behavior: smooth;
   }
 `
+
+import type { glyphs } from '@hackclub/icons'
+
+type RequirementProps = {
+  title: React.ReactNode
+  checkmark: keyof typeof glyphs
+  background: string
+  size: number
+  children: React.ReactNode
+}
 
 const Requirement = ({ title, children, checkmark, background, size }) => {
   return (
@@ -106,11 +114,9 @@ const HackathonGrant = () => {
               <Flex
                 sx={{ justifyContent: 'center', alignItems: 'center', mb: 2 }}
               >
-                <NextLink href="https://hackclub.com" passHref>
+                <NextLink href="https://hackclub.com" passHref target="_blank">
                   <Box
                     as="a"
-                    width={64}
-                    height={64}
                     sx={{
                       width: 72,
                       height: 72,
@@ -122,14 +128,18 @@ const HackathonGrant = () => {
                       mr: 3,
                       borderRadius: 8
                     }}
-                    target="_blank"
                   ></Box>
                 </NextLink>
               </Flex>
-              A <MSparkles>$500</MSparkles> grant for your{' '}
-              <a sx={{ whiteSpace: 'nowrap' }}>in-person</a> hackathon.
+              A{' '}
+              <MSparkles sx={{}} path="" viewBox="" props={{}}>
+                $500
+              </MSparkles>{' '}
+              grant for your in-person hackathon.
               <br />
-              <Text style={{ fontSize: '2.5rem', fontWeight: 'normal' }}>This program ended December 31st, 2024.</Text>
+              <Text style={{ fontSize: '2.5rem', fontWeight: 'normal' }}>
+                This program ended December 31st, 2024.
+              </Text>
               <br />
             </Heading>
             <Box
@@ -143,8 +153,7 @@ const HackathonGrant = () => {
               <Link href="/fiscal-sponsorship" target="_blank">
                 HCB
               </Link>{' '}
-              fees) to <a sx={{ whiteSpace: 'nowrap' }}>in-person</a>{' '}
-              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons.
+              fees) to in-person high school hackathons.
             </Box>
             <Box
               sx={{
@@ -154,21 +163,21 @@ const HackathonGrant = () => {
               }}
             >
               Want to attend a hackathon?
-              <Button
-              variant="ctaLg"
-              as="a"
-              href="https://hackathons.hackclub.com"
-              sx={{
-                ml: [0, 3],
-                mt: 2,
-                backgroundImage: t => t.util.gx('green', 'blue')
-              }}
-            >
-              <Text>
-                Find hackathons{' '}
-                <Text sx={{ display: ['none', 'inline'] }}>near you</Text>
-              </Text>
-            </Button>
+              <Link href="https://hackathons.hackclub.com" target="_blank">
+                <Button
+                  variant="ctaLg"
+                  sx={{
+                    ml: [0, 3],
+                    mt: 2,
+                    backgroundImage: (t: any) => t.util.gx('green', 'blue')
+                  }}
+                >
+                  <Text>
+                    Find hackathons{' '}
+                    <Text sx={{ display: ['none', 'inline'] }}>near you</Text>
+                  </Text>
+                </Button>
+              </Link>
             </Box>
           </Box>
         </Box>
@@ -200,7 +209,7 @@ const HackathonGrant = () => {
               title="Running August 2022 to December 2024"
               checkmark="clock-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:clock.svg"
-              size="36"
+              size={36}
             >
               We want to bring back high schooler-led events around the world,
               so we're only offering this grant for high school hackathons that
@@ -218,15 +227,10 @@ const HackathonGrant = () => {
               </Text>
             </Requirement>
             <Requirement
-              title={
-                <>
-                  By <a sx={{ whiteSpace: 'nowrap' }}>high schoolers</a>, for{' '}
-                  <a sx={{ whiteSpace: 'nowrap' }}>high schoolers</a>
-                </>
-              }
+              title={<>By high schoolers, for high schoolers</>}
               checkmark="profile-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:profile.svg"
-              size="36"
+              size={36}
             >
               To create a uniquely tailored high school hackathon, your
               hackathon should be organized by high school students*. All
@@ -247,7 +251,7 @@ const HackathonGrant = () => {
               title="Fully in-person"
               checkmark="flag-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:flag.svg"
-              size="36"
+              size={36}
             >
               Hacking is a social activity, and we're supporting hackathons that
               bring hackers together IRL. We believe that fully IRL (not hybrid)
@@ -269,6 +273,7 @@ const HackathonGrant = () => {
               title="Venue secured"
               checkmark="pin-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:pin.svg"
+              size={36}
             >
               You will need to provide a scan of an email, contract, or an{' '}
               <Link
@@ -296,7 +301,7 @@ const HackathonGrant = () => {
               title="Handmade website"
               checkmark="web"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:web.svg"
-              size="36"
+              size={36}
             >
               We believe the best hackathons embody the hacker spirit by
               building their own website. Complex or simple, beautiful or janky–
@@ -338,7 +343,7 @@ const HackathonGrant = () => {
               title="Open sourced finances"
               checkmark="bank-circle"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:bank-account.svg"
-              size="28"
+              size={28}
             >
               You'll receive your grant through HCB, our financial platform for
               hackathons, and spend it in the open with{' '}
@@ -382,58 +387,61 @@ const HackathonGrant = () => {
             {'.'}
           </Text>
           <Box as="div" sx={{ mt: 3 }}></Box>
-          <Heading
-            sx={{ textAlign: 'center', mb: 3, fontSize: 5 }}
-            id="apply"
-          >
+          <Heading sx={{ textAlign: 'center', mb: 3, fontSize: 5 }} id="apply">
             This program ended on December 31st, 2024.
           </Heading>
         </Container>
       </Box>
       <Zoom>
-        <Card
-          as="a"
-          variant="interactive"
-          href="mailto:hcb@hackclub.com"
-          sx={{
-            mx: 'auto',
-            maxWidth: '52rem',
-            width: '90%',
-            textAlign: 'left',
-            textDecoration: 'none',
-            lineHeight: 'caption',
-            display: 'flex',
-            alignItems: 'center',
-            fontSize: [1, 2, 2],
-            mb: [3, 4],
-            p: '16px !important',
-            svg: { flexShrink: 'none' }
-          }}
-        >
-          <Icon
-            glyph="emoji"
-            color="#ec3750"
+        <a href="mailto:hcb@hackclub.com" style={{ textDecoration: 'none' }}>
+            <Card
+            variant="interactive"
             sx={{
+              mx: 'auto',
+              maxWidth: '52rem',
+              width: '90%',
+              textAlign: 'left',
+              textDecoration: 'none',
+              lineHeight: 'caption',
+              display: 'flex',
+              alignItems: 'center',
+              fontSize: [1, 2, 2],
+              mb: [3, 4],
+              p: '16px !important',
+              svg: { flexShrink: 'none' }
+            }}
+            >
+            <Icon
+              glyph="emoji"
+              color="#ec3750"
+              // @ts-expect-error: allow sx prop because anything else messes up the size
+              sx={{
               mr: [2, 3],
               ml: 2,
               display: ['none', 'block'],
               width: 56,
               height: 'auto'
-            }}
-          />
-          <Text
-            as="p"
-            sx={{
+              } as any}
+            />
+            <Text
+              as="p"
+              sx={{
               flex: '1 1 auto',
               strong: { display: ['inline', 'block'], pl: 3 }
-            }}
-          >
-            <strong>Questions?</strong>
-            <Text as="span" variant="caption" color="secondary" sx={{ pl: 3 }}>
+              }}
+            >
+              <strong>Questions?</strong>
+              <Text
+              as="span"
+              variant="caption"
+              color="secondary"
+              sx={{ pl: 3 }}
+              >
               Reach out to <Link>hcb@hackclub.com</Link>
+              </Text>
             </Text>
-          </Text>
-        </Card>
+            </Card>
+        </a>
       </Zoom>
       <Footer dark key="footer" />
     </>

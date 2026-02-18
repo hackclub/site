@@ -1,12 +1,20 @@
 import { Box, Button, Container, Heading, Text } from 'theme-ui'
-import theme from '@hackclub/theme'
 import Meta from '@hackclub/meta'
 import Icon from '@hackclub/icons'
 import Head from 'next/head'
 import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 
-const DeprecatedPage = ({ page: { name, desc, icon, link } = {} }) => (
+type DeprecatedPageProps = {
+  page: {
+    name: string
+    desc: string
+    icon: string
+    link: string
+  }
+}
+
+const DeprecatedPage = ({ page: { name, desc, icon, link } }: DeprecatedPageProps) => (
   <>
     <Nav dark />
     <Meta
@@ -28,16 +36,18 @@ const DeprecatedPage = ({ page: { name, desc, icon, link } = {} }) => (
       }}
     >
       <Container variant="narrow" as="article">
-        <Icon size={128} glyph={icon} />
+        <Icon size={128} glyph={icon as any} />
         <Heading as="h1" variant="title" sx={{ color: 'snow', my: [2, 3] }}>
           We no longer offer {name}.
         </Heading>
         <Heading as="h2" variant="subtitle" sx={{ mb: 4 }}>
           {desc}
         </Heading>
-        <Button as="a" href={link}>
-          Check it out »
-        </Button>
+        <a href={link} target="_blank" rel="noopener noreferrer">
+          <Button as="span">
+            Check it out »
+          </Button>
+        </a>
       </Container>
     </Box>
     <Footer dark />
