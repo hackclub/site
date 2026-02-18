@@ -541,15 +541,15 @@
     "avatar": "https://raw.githubusercontent.com/qcoral/assets/refs/heads/main/pfp-irl.jpeg"
   },
   {
-    "name": "Alex Van Doren",
+    "name": "Nathan Alspaugh",
     "department": "HQ",
     "role": "Engineering",
     "acknowledged": false,
-    "bio": "Alex spends most of his time making boats go fast, but when he's not doing that, he designs software modelling his favourite physics problems. He's currently gap-yearing at Hack Club and is working on the YSWS team.",
-    "slackId": "U0823F39GV8",
-    "email": "",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U0823F39GV8/r",
+    "bio": "Nathan is an 18 year old Hack Clubber from Texas. He's currently gap-yearing for Hack Club and launching cool programs. He's an avid Kerbal Space Program player, a future aerospace engineer, and enjoys tinkering with (and sometimes breaking) hardware.",
+    "slackId": "U05EZRFKRV4",
+    "email": "nathan@hackclub.com",
+    "website": "https://notaroomba.dev",
+    "avatar": "https://i.ibb.co/yF8tbz9G/1728316229074.jpg",
     "gapyear": true
   },
   {
@@ -562,6 +562,18 @@
     "email": "dev",
     "website": "",
     "avatar": "https://i.ibb.co/QvzYRZm4/Dhamari.png"
+  },
+  {
+    "name": "Alex Van Doren",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Alex spends most of his time making boats go fast, but when he's not doing that, he designs software modelling his favourite physics problems. He's currently gap-yearing at Hack Club and is working on the YSWS team.",
+    "slackId": "U0823F39GV8",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U0823F39GV8/r",
+    "gapyear": true
   },
   {
     "name": "Angad Behl",
