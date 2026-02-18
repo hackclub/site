@@ -2,16 +2,16 @@ import { BaseStyles, Box, Container, Heading, Text } from 'theme-ui'
 import Head from 'next/head'
 import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
-import JobDescription from '../../components/jobs/hcb-ops-associate/jd.mdx'
+import JobDescription from '../../components/jobs/vp-donor-engagement/jd.mdx'
 import ForceTheme from '../../components/force-theme'
 
 const Page = () => (
   <>
     <Meta
       as={Head}
-      title="HCB Operations Associate"
-      description="Hack Club is a hiring a HCB Operations Associate as the 8th full-time member of our team in Burlington, Vermont."
-      image="https://workshop-cards.hackclub.com/fiscal-sponsorship%20Ops%20Associate%20%40%20Hack%20Club.png?fontSize=175px&brand=HQ"
+      title="VP of Donor Engagement"
+      description="Hack Club is a hiring a VP of Donor Engagement to join our team in Shelburne, Vermont."
+      image="https://workshop-cards.hackclub.com/VP%2C%20Donor%20Engagment%20%40%20Hack%20Club.png?fontSize=160px&brand=HQ"
     />
     <ForceTheme theme="light" />
     <Nav />
@@ -20,15 +20,15 @@ const Page = () => (
       sx={{
         pt: [5, 6],
         pb: [4, 5],
-        backgroundImage: theme => theme.util.gx('yellow', 'red')
+        backgroundImage: (t: any) => t.util.gx('pink', 'yellow')
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
         <Heading as="h1" variant="title" mb={30}>
-          HCB Operations Associate
+          Vice President, Donor Engagement @&nbsp;Hack&nbsp;Club
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
-          New job open as of May 21st, 2021.
+          New job open as of Feburary 16th, 2022.
         </Text>
       </Container>
     </Box>

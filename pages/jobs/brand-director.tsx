@@ -2,16 +2,16 @@ import { BaseStyles, Box, Container, Heading, Text } from 'theme-ui'
 import Head from 'next/head'
 import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
-import JobDescription from '../../components/jobs/executive-assistant/jd.mdx'
+import JobDescription from '../../components/jobs/brand-director/jd.mdx'
 import ForceTheme from '../../components/force-theme'
 
 const Page = () => (
   <>
     <Meta
       as={Head}
-      title="Executive Assistant"
-      description="Hack Club is a hiring an Executive Assistant to join our team in Shelburne, Vermont."
-      image="https://workshop-cards.hackclub.com/Executive%20Assistant%20%40%20Hack%20Club.png?fontSize=180px&brand=HQ"
+      title="Brand Director"
+      description="Hack Club is a hiring a Brand Director as the 7th full-time member of our team in Burlington, Vermont."
+      image="https://workshop-cards.hackclub.com/Brand%20Director%20%40%20Hack%20Club.png?fontSize=175px&brand=HQ"
     />
     <ForceTheme theme="light" />
     <Nav />
@@ -20,15 +20,15 @@ const Page = () => (
       sx={{
         pt: [5, 6],
         pb: [4, 5],
-        backgroundImage: theme => theme.util.gx('blue', 'green')
+        backgroundImage: (t: any) => t.util.gx('blue', 'purple')
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
         <Heading as="h1" variant="title" mb={30}>
-          Executive Assistant @&nbsp;Hack&nbsp;Club
+          Hack Club Brand Director
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
-          New job open as of January 24th, 2022.
+          Tell the story of Hack Club. New job open as of February 8th, 2021.
         </Text>
       </Container>
     </Box>

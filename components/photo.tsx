@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { Card, Text } from 'theme-ui'
 import Image, { StaticImageData } from 'next/image'
 import theme from '../lib/theme'
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 const Caption = styled(Text)`
   display: block;
@@ -21,7 +21,7 @@ type PhotoProps = {
   src: string | StaticImageData
   width?: number
   height?: number
-  alt?: string
+  alt?: string | ReactNode
   showAlt?: boolean
   dark?: boolean
   loading?: 'eager' | 'lazy'

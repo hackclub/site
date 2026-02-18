@@ -22,7 +22,7 @@ const Page = () => (
       sx={{
         pt: [5, 6],
         pb: [4, 5],
-        backgroundImage: theme => theme.util.gx('#516395', '#614385')
+        backgroundImage: (t: any) => t.util.gx('#516395', '#614385')
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>

@@ -1,7 +1,7 @@
 import { Box, Container, Heading, Card, Text, Grid } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
-import ForceTheme from '/components/force-theme'
+import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import Link from 'next/link'
@@ -22,7 +22,7 @@ const JobListing = ({
     <Card
       variant="sunken"
       as="a"
-      target="_blank"
+      {...({ target: '_blank', rel: 'noopener noreferrer' } as any)} //ts is stupid
       sx={{
         width: '100%',
         textDecoration: 'none',
@@ -148,9 +148,9 @@ const Page = ({ jobs }) => (
         <Grid
           sx={{
             maxWidth: '64rem',
-            mx: 'auto'
+            mx: 'auto',
+            textAlign: 'left'
           }}
-          align="left"
           columns={['1fr', '1fr 1fr']}
         >
           {jobs.items.length > 0 ? (
