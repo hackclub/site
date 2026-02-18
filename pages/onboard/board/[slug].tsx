@@ -10,8 +10,23 @@ import { getAllOnboardProjects } from '../../api/onboard/p'
 import Icon from '@hackclub/icons'
 import Tilt from '../../../components/tilt'
 
-const BoardPage = ({ project }) => {
-  const spotlightRef = useRef()
+type ProjectType = {
+  name: string
+  imageTop: string
+  readmeData: {
+    frontmatter: {
+      github_handle: string
+    }
+    description: string
+  }
+}
+
+type BoardPageProps = {
+  project: ProjectType
+}
+
+const BoardPage = ({ project }: BoardPageProps) => {
+  const spotlightRef = useRef(null)
   useEffect(() => {
     const handler = event => {
       spotlightRef.current.style.background = `radial-gradient(
@@ -48,7 +63,6 @@ const BoardPage = ({ project }) => {
 					scroll-behavior: smooth;
 				}
 			`}</style>
-      <Head></Head>
       <Nav />
       <Box
         as="header"
@@ -101,15 +115,15 @@ const BoardPage = ({ project }) => {
               by {project?.readmeData?.frontmatter?.github_handle}
             </Text>
             <Flex sx={{ mt: 16, gap: 10, flexDirection: ['column', 'row'] }}>
-              <Button
-                as="a"
-                href="/onboard/gallery"
-                sx={{
-                  background: t => t.util.gx('#60cc38', '#113b11')
-                }}
-              >
-                See more in the gallery
-              </Button>
+              <Link href="/onboard/gallery">
+                <Button
+                  sx={{
+                    background: (t: any) => t.util.gx('#60cc38', '#113b11')
+                  }}
+                >
+                  See more in the gallery
+                </Button>
+              </Link>
             </Flex>
           </Flex>
         </Flex>
@@ -207,7 +221,7 @@ const BoardPage = ({ project }) => {
 }
 
 export async function getStaticPaths(_context) {
-  const projects = (await getAllOnboardProjects()).slice(0, 5)
+  let projects = (await getAllOnboardProjects()).slice(0, 5)
   const paths = projects.map(project => {
     return {
       params: {
@@ -221,9 +235,14 @@ export async function getStaticPaths(_context) {
   }
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps(context: any) {
   const name = context.params.slug
   const project = await getOnboardProject(name)
+  if (!project) {
+    return {
+      notFound: true
+    }
+  }
   return {
     props: {
       project
