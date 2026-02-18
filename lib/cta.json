@@ -23,14 +23,14 @@
         "link": "https://blueprint.hackclub.com/?utm_source=cta"
     },
     {
-        "title": "Sleepover",
-        "logo": "/hc-cdn/sleepover-logo.png",
-        "background": "#BCD3FC",
-        "stickerImage": "/hc-cdn/we-try-again.png",
-        "description": "Learn to code and fly to an all girls slumber party hackathon!",
+        "title": "Campfire Flagship",
+        "logo": "/hc-cdn/542f4bf6aa9cd5cc_logo-w-info-v2.png",
+        "background": "#000015",
+        "stickerImage": "/hc-cdn/a02495e0d090461b_smore-smaller.png",
+        "description": "Code with your favorite YouTubers at a Game Jam this February!",
         "descriptionColor": "white",
         "buttonText": "JOIN NOW",
-        "buttonColor": "#B5AAE7",
-        "link": "https://sleepover.hackclub.com/?utm_source=site_cta"
+        "buttonColor": "#2b2b59",
+        "link": "https://flagship.hackclub.com/?utm_source=site_cta"
     }
 ]

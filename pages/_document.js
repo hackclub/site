@@ -35,15 +35,6 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta name="format-detection" content="telephone=no" />
-          <style dangerouslySetInnerHTML={{ __html: `
-            @font-face {
-              font-family: 'MADE Tommy Soft';
-              src: url('/MADE Tommy Soft Medium PERSONAL USE.otf') format('opentype');
-              font-weight: 500;
-              font-style: normal;
-              font-display: swap;
-            }
-          `}} />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }}
