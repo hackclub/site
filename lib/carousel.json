@@ -43,6 +43,24 @@
     "img": "https://raw.githubusercontent.com/hackclub/scraps/refs/heads/main/frontend/static/icon.png",
     "link": "https://scraps.hackclub.com/?utm_source=site-carousel"
   },
+   {
+    "background": "linear-gradient(to bottom right, rgba(176, 209, 253, 0.7), rgba(222, 215, 247, 0.7))",
+    "titleColor": "#5B4A8A",
+    "descriptionColor": "#3D6098",
+    "title": "Sleepover",
+    "description": "Learn to code, earn prizes like plushies and iPads, and fly out to an all girls slumber party in Chicago!",
+    "img": "/hc-cdn/we-try-again.png",
+    "link": "https://sleepover.hackclub.com/?utm_source=site-carousel"
+  },
+     {
+    "background": "#D6CEBD",
+    "titleColor": "#D95D39",
+    "descriptionColor": "#443C38",
+    "title": "Stasis",
+    "description": "Get your hardware projects funded and fly to the coolest hardware hackathon in Austin, Texas this May.",
+    "img": "/hc-cdn/stasis-s-logo.png",
+    "link": "https://stasis.hackclub.com/?utm_source=site-carousel"
+  },
   {
     "background": "#ffd966",
     "titleColor": "black",
