@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Nav from '../../components/nav'
 import Image from 'next/image'
-import Icon from '@hackclub/icons'
 import { Box, Text } from 'theme-ui'
-import Link from 'next/link'
 
 //Desktop Mode
 function DesktopMode({ billboardBottom }) {
   return (
     <>
       {/* First Section */}
-      <Section bg="/sharkbank/firstSectionBG.png" minHeight="1100px">
+      <Section bg="/sharkbank/firstSectionBG.png"  minHeight="1100px">
         <Image
           src="/sharkbank/bgBuildingsFirstSection.png"
           layout="fill"
@@ -227,7 +225,6 @@ function DesktopMode({ billboardBottom }) {
                   position: 'absolute',
                   bottom: '-326px',
                   left: '180px',
-                  zIndex: 2,
                   rotate: '-5deg',
                   borderRadius: '50px',
                   border: 'none',
@@ -238,7 +235,7 @@ function DesktopMode({ billboardBottom }) {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  zIndex: '200',
+                  zIndex: 200,
                   background: 'transparent',
                 }}
               >
@@ -505,7 +502,6 @@ function TabletMode() {
                   position: 'absolute',
                   bottom: '-326px',
                   left: '180px',
-                  zIndex: 2,
                   rotate: '-5deg',
                   borderRadius: '50px',
                   cursor: 'pointer',
@@ -515,7 +511,7 @@ function TabletMode() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  zIndex: '200',
+                  zIndex: 200,
                   background: 'transparent',
                   border: 'none'
                 }}
@@ -787,7 +783,6 @@ function MobileMode() {
                   position: 'absolute',
                   bottom: '-55px',
                   left: '135px',
-                  zIndex: 2,
                   rotate: '-5deg',
                   borderRadius: '50px',
                   cursor: 'pointer',
@@ -797,7 +792,7 @@ function MobileMode() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  zIndex: '200',
+                  zIndex: 200,
                   background: 'transparent',
                   border: 'none'
                 }}
@@ -848,7 +843,14 @@ function MobileMode() {
 }
 
 // Section Component
-function Section({ bg, minHeight, minWidth, children }) {
+type SectionProps = {
+  bg: string
+  minHeight: string
+  minWidth?: string
+  children: React.ReactNode
+}
+
+function Section({ bg, minHeight, minWidth, children }: SectionProps) {
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <Box
