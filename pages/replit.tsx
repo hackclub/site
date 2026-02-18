@@ -1,51 +1,14 @@
-import { Box, Link, Image, Button, Heading, Text, Card, Flex } from 'theme-ui'
+import { Box, Link, Image, Button, Heading, Text } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Footer from '../components/footer'
 import Nav from '../components/nav'
 import ForceTheme from '../components/force-theme'
 import ReplitForm from '../components/replit/form'
-import Progress from '../components/replit/progress'
 import TokenInstructions from '../components/replit/token-instructions'
-import { useEffect, useState } from 'react'
 import ScaleUp from '../components/replit/scale-up'
 
 const ReplitPage = () => {
-  // const [progress, setProgress] = useState(null)
-  // const [stats, setStats] = useState(null)
-  // const [oldStats, setOldStats] = useState(null)
-
-  // const fetchStats = async () => {
-  //   const statResponse = await fetch('/api/replit/stats')
-  //   if (!statResponse.ok) throw new Error('Failed to fetch stats')
-  //   const newStats = await statResponse.json()
-  //   setOldStats(stats)
-  //   setStats(newStats)
-  // }
-
-  // useEffect(async () => {
-  //   await fetchStats()
-
-  //   const interval = setInterval(async () => {
-  //     const token = localStorage.getItem('token')
-  //     if (!token) return
-
-  //     try {
-  //       const response = await fetch(`/api/replit/progress?token=${token}`)
-  //       if (!response.ok) throw new Error('Failed to fetch progress')
-  //       const data = await response.json()
-  //       console.info(data)
-  //       setProgress(data)
-
-  //       await fetchStats()
-  //     } catch (err) {
-  //       console.error("Couldn't get progress:", err)
-  //     }
-  //   }, 5_000)
-
-  //   return () => clearInterval(interval)
-  // }, [])
-
   const steps = [
     'Enter your email',
     'Enter your replit token',
@@ -163,16 +126,6 @@ const ReplitPage = () => {
               alignItems: 'center',
               position: 'relative'
             }}
-            /*
-            onMouseOver={() => {
-              document.getElementById('og-replit').style.opacity = '0'
-              document.getElementById('fire-replit').style.opacity = '1'
-            }}
-            onMouseOut={() => {
-              document.getElementById('og-replit').style.opacity = '1'
-              document.getElementById('fire-replit').style.opacity = '0'
-              }}
-              */
           >
             Replit <style>{`.replit-fire {transition: opacity 0.1s;`}</style>
             <Image
@@ -182,20 +135,6 @@ const ReplitPage = () => {
               id="og-replit"
               className="replit-fire"
             />
-            {/*
-            <Image
-              src="/replit/replit-fire-nooutline.png"
-              alt="replit"
-              sx={{
-                height: '1.35em',
-                translate: '-0.095em -0.195em',
-                position: 'absolute',
-                right: 0,
-                opacity: 0
-              }}
-              id="fire-replit"
-              className="replit-fire"
-            />*/}
           </Text>{' '}
           repls
         </Heading>
@@ -349,7 +288,6 @@ const ReplitPage = () => {
             pointerEvents: 'none'
           }}
         >
-          {/* <Progress progress={progress} /> */}
           <ReplitForm cssDark={cssDark} />
         </Box>
 

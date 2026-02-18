@@ -59,15 +59,11 @@ const Page = () => (
       >
         <Press />
       </Box>
-      <Button
-        as="a"
-        href="https://drive.google.com/drive/folders/1t57tU00j6OZbDCpWsyRYsaQGShQqK9Zh?usp=sharing"
-        variant="outline"
-        mt={4}
-        mb={4}
-      >
-        View all →
-      </Button>
+      <a href="https://assets.hackclub.com/press.zip">
+        <Button variant="outline" mt={4} mb={4}>
+          View all →
+        </Button>
+      </a>
       <Heading variant="headline">Logos</Heading>
       <Grid columns={[null, 2, 3]} gap={3} sx={{ input: { display: 'none' } }}>
         {[
@@ -83,14 +79,11 @@ const Page = () => (
           <Logo name={key} key={key} />
         ))}
       </Grid>
-      <Button
-        as="a"
-        href="https://assets.hackclub.com/2020_branding.zip"
-        variant="outline"
-        my={4}
-      >
-        Download all →
-      </Button>
+      <a href="https://assets.hackclub.com/logos.zip">
+        <Button variant="outline" my={4}>
+          Download all →
+        </Button>
+      </a>
     </Container>
     <Footer />
   </>

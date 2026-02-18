@@ -1,14 +1,7 @@
 import {
-  Avatar,
-  Badge,
-  BaseStyles,
   Box,
-  Button,
   Container,
-  Flex,
-  Grid,
   Heading,
-  Text
 } from 'theme-ui'
 import {
   PillHolder,
@@ -58,7 +51,7 @@ const RelonPage = () => (
         pt: [5, 6],
         pb: [4, 5],
         bg: 'rgb(104, 41, 205)',
-        backgroundImage: theme => theme.util.gx('purple', 'orange')
+        backgroundImage: (t: any) => t.util.gx('purple', 'orange')
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>

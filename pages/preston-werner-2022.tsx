@@ -1,13 +1,7 @@
 import {
-  Avatar,
   Box,
-  Button,
   Container,
-  Flex,
-  Grid,
   Heading,
-  Link,
-  Text
 } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
@@ -40,7 +34,7 @@ const Page = () => (
         pt: [5, 6],
         pb: [4, 5],
         bg: 'rgb(104, 41, 205)',
-        backgroundImage: theme => theme.util.gx('blue', 'green')
+        backgroundImage: (t: any) => t.util.gx('blue', 'green')
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
