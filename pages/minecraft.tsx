@@ -122,7 +122,7 @@ const Page = () => (
                 as="a"
                 sx={{
                   mt: 2,
-                  backgroundImage: t => t.util.gx('#759B40', '#4F6728')
+                  backgroundImage: (t: any) => t.util.gx('#759B40', '#4F6728')
                 }}
               >
                 <Icon glyph="slack-fill" size={24} />
