@@ -77,18 +77,6 @@
     "avatar": "https://i.ibb.co/DPKBJt0C/aishaani.png"
   },
   {
-    "name": "Amber",
-    "department": "Events",
-    "role": "Virtual Events Infra",
-    "acknowledged": false,
-    "gapyear": true,
-    "bio": "Amber is a 17 year old student from Leicester (UK) who loves programming Slack apps and random scripts. She also has a deep passion for music and you'll rarely find her without headphones on. Since joining Hack Club, she's reviewed thousands of hours for Arcade, supported thousands of hackers in Arcade and around Slack, helped moderate the community, built tools for the community and welcomed new members all whilst drowning in coursework. Currently she's helping with moderation and events and also leads the Welcome team and, helping new members get settled in and feel at home whilst working on other Hack Club projects on the side.",
-    "slackId": "U054VC2KM9P",
-    "email": "amber",
-    "website": "https://transcental.dev",
-    "avatar": "https://cachet.dunkirk.sh/users/U054VC2KM9P/r"
-  },
-  {
     "name": "Charlotte",
     "department": "Events",
     "role": "Virtual Event Organizer",
@@ -576,18 +564,6 @@
     "avatar": "https://i.ibb.co/QvzYRZm4/Dhamari.png"
   },
   {
-    "name": "Amber",
-    "department": "HQ",
-    "role": "Engineering + Community",
-    "acknowledged": false,
-    "gapyear": true,
-    "bio": "Amber is a 17 year old student from Leicester (UK) who loves programming Slack apps and random scripts. She also has a deep passion for music and you'll rarely find her without headphones on. Since joining Hack Club, she's reviewed thousands of hours for Arcade, supported thousands of hackers in Arcade and around Slack, helped moderate the community, built tools for the community and welcomed new members all whilst drowning in coursework. Currently she's helping with moderation and events and also leads the Welcome team and, helping new members get settled in and feel at home whilst working on other Hack Club projects on the side.",
-    "slackId": "U054VC2KM9P",
-    "email": "amber",
-    "website": "https://transcental.dev",
-    "avatar": "https://cachet.dunkirk.sh/users/U054VC2KM9P/r"
-  },
-  {
     "name": "Angad Behl",
     "department": "HQ",
     "role": "Engineering and Community",
@@ -802,18 +778,6 @@
     "email": "josias",
     "website": "",
     "avatar": "https://i.ibb.co/F459SPMZ/josias.png"
-  },
-  {
-    "name": "Kartikey Singh Chauhan",
-    "department": "HQ",
-    "role": "Engineering & Community",
-    "acknowledged": false,
-    "gapyear": true,
-    "bio": "Kartikey is a 17 year old Hack Clubber from Lucknow, India.",
-    "slackId": "U05F4B48GBF",
-    "email": "kartikey",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U05F4B48GBF/r"
   },
   {
     "name": "Lynn Beato",
@@ -1045,18 +1009,6 @@
     "email": "",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U082PAFDDS5/r"
-  },
-  {
-    "name": "Kartikey Singh Chauhan",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
-    "acknowledged": false,
-    "gapyear": true,
-    "bio": "Kartikey is a 17 year old Hack Clubber from Lucknow, India.",
-    "slackId": "U05F4B48GBF",
-    "email": "kartikey",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U05F4B48GBF/r"
   },
   {
     "name": "Jeremy",
