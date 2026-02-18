@@ -8,6 +8,20 @@ export const unfold = keyframes({
   to: { transform: 'scaleY(100%)' }
 })
 
+type AnnouncementProps = {
+  caption?: string
+  copy: string
+  iconLeft?: string
+  iconRight?: string
+  imgSrc?: string
+  imgAlt?: string
+  color?: string
+  textColor?: string
+  sx?: any
+  width?: number | string
+  href?: string
+}
+
 const Announcement = ({
   caption,
   copy,
@@ -20,7 +34,7 @@ const Announcement = ({
   sx = {},
   width,
   ...props
-}) => (
+}: AnnouncementProps) => (
   <Card
     as={props.href ? 'a' : 'div'}
     variant="interactive"
