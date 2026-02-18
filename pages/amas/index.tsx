@@ -62,8 +62,7 @@ const Page = ({ upcoming, past }) => (
         <Button
           variant="lg"
           as="a"
-          href="/slack"
-          target="_blank"
+          {...({ href: 'https://hackclub.com/slack', target: '_blank' } as any)}
           sx={{ mt: [3, 4], mx: [1, 2], color: 'black', bg: 'white' }}
         >
           Join Slack
@@ -71,8 +70,10 @@ const Page = ({ upcoming, past }) => (
         <Button
           variant="outlineLg"
           as="a"
-          href="https://www.youtube.com/watch?v=O1J1pwGPQXY"
-          target="_blank"
+          {...({
+            href: 'https://www.youtube.com/watch?v=O1J1pwGPQXY',
+            target: '_blank'
+          } as any)}
           sx={{ mt: [3, 4], mx: [1, 2], color: 'white', bg: 'rgba(0,0,0,0.5)' }}
         >
           Watch our highlights
@@ -103,7 +104,9 @@ const Page = ({ upcoming, past }) => (
               .map(event => (
                 <Card
                   as="a"
-                  href={`https://events.hackclub.com/${event.slug}`}
+                  {...({
+                    href: `https://events.hackclub.com/${event.slug}`
+                  } as any)}
                   variant="interactive"
                   m={[2, 3]}
                   sx={{
@@ -159,7 +162,7 @@ const Page = ({ upcoming, past }) => (
           .map(event => (
             <Card
               as={event.youtube ? 'a' : 'section'}
-              href={event.youtube}
+              {...({ href: event.youtube } as any)}
               variant="interactive"
               sx={{
                 display: 'flex',

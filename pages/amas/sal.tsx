@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import tt from 'tinytime'
 import { thousands } from '../../lib/members'
 
-export default function Geohot() {
+export default function Sal() {
   let minutes = 1
   let milliseconds = minutes * 60000
 
@@ -16,7 +16,7 @@ export default function Geohot() {
   }
 
   const calculateTimeLeft = () => {
-    const difference = +new Date(`2022-11-11T23:00:00.000Z`) - +new Date()
+    const difference = +new Date(`2022-10-28T23:00:00.000Z`) - +new Date()
 
     let timeLeft = {}
 
@@ -85,15 +85,15 @@ export default function Geohot() {
 
     timer.push(
       <Box
-        sx={theme => ({
+        sx={(t: any) => ({
           color: 'primary',
-          ...theme.util.gxText('#00FF15', '#00FF15'),
+          ...t.util.gxText('#ffffff', '#ffffff'),
           position: 'relative',
-          width: ['16vw', '15vw', '15vw'],
-          height: ['15vh', '20vh', '35vh'],
+          width: '100%',
+          height: ['125%', '125%', '150%'],
           borderRadius: '5px',
           border: ['none', '1.5px solid'],
-          borderColor: theme.util.gxText('#00FF15', '#00FF15'),
+          borderColor: t.util.gxText('#14BF96', '#14BF96'),
           fontSize: [4, 5, 7],
           fontWeight: 'bold',
           display: 'flex',
@@ -104,17 +104,17 @@ export default function Geohot() {
       >
         <Box>
           <Text
-            sx={theme => ({
+            sx={(t: any) => ({
               color: 'primary',
-              ...theme.util.gxText('#00FF15', '#00FF15')
+              ...t.util.gxText('#14BF96', '#14BF96')
             })}
           >
             {timeLeft[e]}{' '}
           </Text>
           <Text
-            sx={theme => ({
+            sx={(t: any) => ({
               color: 'primary',
-              ...theme.util.gxText('#00FF15', '#00FF15'),
+              ...t.util.gxText('#14BF96', '#14BF96'),
               position: 'relative',
               fontSize: [1, 3, 4],
               fontWeight: 'bold',
@@ -133,27 +133,32 @@ export default function Geohot() {
     <>
       <Meta
         as={Head}
-        title="George Hotz | AMA"
-        description="We’re excited to welcome George Hotz (Founder of comma.ai) to speak to teenagers at Hack Club!"
-        image="/ama/geohotEmbed.jpeg"
+        title="Sal Khan | AMA"
+        description="We’re excited to welcome Sal Khan (founder of Khan Academy) to speak to teenagers at Hack Club!"
+        image="https://cloud-4vmtnc0af-hack-club-bot.vercel.app/0sal_ama__7_.png"
       />
       <Head>
-        <meta name="theme-color" content="#00FF15" />
+        <meta name="theme-color" content="#14BF96" />
       </Head>
 
       <Box
         sx={{
           minHeight: '100vh',
           width: '100vw',
-          bg: '#0f0f0f',
+          backgroundImage:
+            'url(https://cloud-72izs50b1-hack-club-bot.vercel.app/0sal_ama__4_.png)',
           position: 'relative',
           zIndex: '0',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          display: 'flex',
+          alignItems: ['flex-start', 'flex-start', 'center']
         }}
       >
         <Link href="https://hackclub.com" target="_blank" color="inherit">
           <Image
-            src={`/ama/logo-green.svg`}
+            src={
+              'https://cloud-2pnucywiu-hack-club-bot.vercel.app/0group__8_.png'
+            }
             width={150}
             height={75}
             sx={{
@@ -161,33 +166,33 @@ export default function Geohot() {
               top: '0',
               left: ['10vw', '5vw']
             }}
-            alt="Hackclub flag green"
+            alt="Green Hack Club Flag"
           />
         </Link>
         <Box>
           <Box sx={{ position: 'absolute', top: '10px', right: '5%' }}>
             <Text
-              sx={theme => ({
+              sx={(t: any) => ({
                 color: 'primary',
-                ...theme.util.gxText('#00FF15', '#00FF15'),
+                ...t.util.gxText('#14BF96', '#14BF96'),
                 mt: [3, 4],
                 px: '10px',
                 py: '5px',
                 borderRadius: '5px',
-                border: '1px solid',
+                border: '1px solid #14BF96',
                 fontSize: [1, 2],
                 display: 'block',
                 fontWeight: 'bold'
               })}
             >
               {tt('{MM} {Do} {h}:{mm} {a}').render(
-                new Date(`2022-11-11T23:00:00.000Z`)
+                new Date(`2022-10-28T23:00:00.000Z`)
               )}
             </Text>
             <Text
-              sx={theme => ({
+              sx={(t: any) => ({
                 color: 'primary',
-                ...theme.util.gxText('#00FF15', '#00FF15'),
+                ...t.util.gxText('#14BF96', '#14BF96'),
                 display: 'block'
               })}
             >
@@ -207,18 +212,18 @@ export default function Geohot() {
           }}
         >
           <Image
-            src={`/ama/geohotName.svg`}
+            src={`https://cloud-cvi8ihfcw-hack-club-bot.vercel.app/0vector__4_.svg`}
             width={700}
             height={500}
             sx={{ display: ['none', 'block'], pb: '50px' }}
-            alt="George Hotz"
+            alt="Sal Khan"
           />
           <Image
-            src={`/ama/geohotNameMobile.svg`}
+            src={`https://cloud-cvi8ihfcw-hack-club-bot.vercel.app/0vector__4_.svg`}
             width={250}
             height={200}
             sx={{ display: ['block', 'none'], pt: '20px', pb: '10px' }}
-            alt="George Hotz"
+            alt="Sal Khan"
           />
 
           {timer.length ? (
@@ -227,7 +232,8 @@ export default function Geohot() {
               gap={[1, 2, 4]}
               columns={[
                 '1fr 1fr 1fr 1fr',
-                '1fr 1fr 1fr 1fr',
+                '1fr 1fr 1fr',
+                '1fr 1fr 1fr',
                 '1fr 1fr 1fr 1fr 1fr'
               ]}
               sx={{
@@ -239,7 +245,7 @@ export default function Geohot() {
           ) : (
             <Box
               sx={{
-                border: ['none', '#00FF15 1.6px solid'],
+                border: ['none', '#FFFFFF 1.6px solid'],
                 my: ['30px', 0],
                 px: ['0px', '40px', '40px'],
                 py: ['0px', '40px', '40px'],
@@ -248,143 +254,82 @@ export default function Geohot() {
               }}
             >
               <Text
-                sx={theme => ({
+                sx={(t: any) => ({
                   color: 'primary',
-                  ...theme.util.gxText('#00FF15', '#00FF15'),
+                  ...t.util.gxText('#ffffff', '#ffffff'),
                   fontSize: [3, 4, 5],
                   fontWeight: 'bold'
                 })}
               >
-                The AMA has ended. Thank you to George Hotz and everyone for
-                joining us!
+                The livestream has ended. Thank you to everyone for joining us!
               </Text>
               <Box>
-                <Button
-                  as="a"
-                  href="https://hack.af/geohot-livestream"
-                  sx={{
-                    background: '#00FF15',
-                    margin: ['10px', '15px'],
-                    marginLeft: '0',
-                    color: '#222222',
-                    display: 'inline-block'
-                  }}
-                >
-                  Watch Recording
-                </Button>
+                <Link href="https://hack.af/sal-livestream">
+                  <Button
+                    sx={{
+                      background: '#14BF96',
+                      margin: ['10px', '15px'],
+                      marginLeft: '0',
+                      color: '#222222',
+                      display: 'inline-block'
+                    }}
+                  >
+                    Watch recording
+                  </Button>
+                </Link>
               </Box>
             </Box>
           )}
-          {timer.length ? (
-            <Box
-              sx={{
-                color: '#f9fafc',
-                width: ['25vw', '50vw', '50vw'],
-                pt: ['10px', '50px'],
-                zIndex: '2',
-                fontSize: ['12px', 1, 2],
-                '@media screen and (min-width: 768px) and (max-width: 1200px)':
-                  {
-                    fontSize: '15px'
-                  }
-              }}
-            >
-              <Text>
-                <strong>Teenager? New here? Welcome!</strong>{' '}
-                <Link
-                  href="https://hackclub.com"
-                  target="_blank"
-                  color="inherit"
-                >
-                  Hack Club
-                </Link>{' '}
-                is a global community of high school makers & student-led coding
-                clubs. We’ve got a 24/7 Slack chatroom of {thousands}k+
-                teenagers learning to code & building amazing projects, & you’ll
-                fit right in.
-              </Text>
-            </Box>
-          ) : (
-            <Box
-              sx={{
-                color: '#f9fafc',
-                width: ['80vw', '50vw'],
-                pt: ['10px', '50px'],
-                zIndex: '2',
-                fontSize: ['15px', 1, 2],
-                '@media screen and (min-width: 768px) and (max-width: 1200px)':
-                  {
-                    fontSize: '15px'
-                  }
-              }}
-            >
-              <Text>
-                <strong>Teenager? New here? Welcome!</strong>{' '}
-                <Link
-                  href="https://hackclub.com"
-                  target="_blank"
-                  color="inherit"
-                >
-                  Hack Club
-                </Link>{' '}
-                is a global community of high school makers & student-led coding
-                clubs. We’ve got a 24/7 Slack chatroom of {thousands}k+
-                teenagers learning to code & building amazing projects, & you’ll
-                fit right in.
-              </Text>
-            </Box>
-          )}
+          <Box
+            sx={{
+              color: '#ffffff',
+              width: ['70vw', '60vw', '60vw'],
+              py: ['20px', '100px', '120px'],
+              zIndex: '2',
+              fontSize: ['12px', 1, 2],
+              '@media screen and (min-width: 768px) and (max-width: 1200px)': {
+                fontSize: '15px'
+              }
+            }}
+          >
+            <Text>
+              <strong>Teenager? New here? Welcome!</strong>{' '}
+              <Link href="https://hackclub.com" target="_blank" color="inherit">
+                Hack Club
+              </Link>{' '}
+              is a global community of high school makers & student-led coding
+              clubs. We’ve got a 24/7 Slack chatroom of {thousands}k+ teenagers
+              learning to code & building amazing projects, & you’ll fit right
+              in.
+            </Text>
+          </Box>
         </Box>
         <Box
           sx={{
             position: 'absolute',
             bottom: '0',
             right: '0',
-            marginRight: ['-100px', '-50px', '-50px'],
-            width: ['100vw', '70vw', '40vw'],
-            zIndex: '-30'
+            width: ['100vw', '80vw', '70vw', '60vw']
           }}
         >
           {timer.length ? (
             <>
               <Image
-                src={`/ama/geohot.png`}
-                layout="responsive"
-                sx={{ display: ['none', 'block'] }}
-                alt="Image of George Hotz"
-              />
-              <Image
-                src={`/ama/geohot.png`}
-                // layout="fill"
-                width={400}
-                height={400}
-                sx={{ display: ['block', 'none'] }}
-                alt="Image of George Hotz"
+                src={`https://cloud-oik8els6y-hack-club-bot.vercel.app/0frame_54__1_.png`}
+                alt="Image of Sal Khan"
+                sx={{ position: 'absolute', bottom: 0 }}
               />
             </>
           ) : (
             <>
               <Image
-                src={`/ama/geohot.png`}
-                layout="responsive"
+                src={`https://cloud-oik8els6y-hack-club-bot.vercel.app/0frame_54__1_.png`}
                 sx={{ display: ['none', 'block'] }}
-                alt="Image of George Hotz"
+                alt="Image of Sal Khan"
               />
             </>
           )}
         </Box>
-        <Image
-          src={`/ama/geohotBg.svg`}
-          alt="Grid pattern"
-          width={1500}
-          height={750}
-          sx={{
-            position: 'absolute',
-            bottom: '5vw',
-            left: ['10vw', '20vw'],
-            zIndex: '-2000'
-          }}
-        />
       </Box>
     </>
   )

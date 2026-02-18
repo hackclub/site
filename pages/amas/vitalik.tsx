@@ -77,15 +77,15 @@ export default function Vitalik() {
 
     timer.push(
       <Box
-        sx={theme => ({
+        sx={(t: any) => ({
           color: 'primary',
-          ...theme.util.gxText('#CDAEFB', '#82A9F9'),
+          ...t.util.gxText('#CDAEFB', '#82A9F9'),
           position: 'relative',
           width: ['16vw', '15vw', '15vw'],
           height: ['15vh', '20vh', '35vh'],
           borderRadius: '5px',
           border: ['none', '1.5px solid'],
-          borderColor: theme.util.gxText('#CDAEFB', '#82A9F9'),
+          borderColor: t.util.gxText('#CDAEFB', '#82A9F9'),
           fontSize: [4, 5, 7],
           fontWeight: 'bold',
           display: 'flex',
@@ -96,17 +96,17 @@ export default function Vitalik() {
       >
         <Box>
           <Text
-            sx={theme => ({
+            sx={(t: any) => ({
               color: 'primary',
-              ...theme.util.gxText('#CDAEFB', '#82A9F9')
+              ...t.util.gxText('#CDAEFB', '#82A9F9')
             })}
           >
             {timeLeft[e]}{' '}
           </Text>
           <Text
-            sx={theme => ({
+            sx={(t: any) => ({
               color: 'primary',
-              ...theme.util.gxText('#CDAEFB', '#82A9F9'),
+              ...t.util.gxText('#CDAEFB', '#82A9F9'),
               position: 'relative',
               fontSize: [1, 3, 4],
               fontWeight: 'bold',
@@ -160,9 +160,9 @@ export default function Vitalik() {
         <Box>
           <Box sx={{ position: 'absolute', top: '10px', right: '5%' }}>
             <Text
-              sx={theme => ({
+              sx={(t: any) => ({
                 color: 'primary',
-                ...theme.util.gxText('#CDAEFB', '#82A9F9'),
+                ...t.util.gxText('#CDAEFB', '#82A9F9'),
                 mt: [3, 4],
                 px: '10px',
                 py: '5px',
@@ -178,9 +178,9 @@ export default function Vitalik() {
               )}
             </Text>
             <Text
-              sx={theme => ({
+              sx={(t: any) => ({
                 color: 'primary',
-                ...theme.util.gxText('#CDAEFB', '#82A9F9'),
+                ...t.util.gxText('#CDAEFB', '#82A9F9'),
                 display: 'block'
               })}
             >
@@ -241,9 +241,9 @@ export default function Vitalik() {
               }}
             >
               <Text
-                sx={theme => ({
+                sx={(t: any) => ({
                   color: 'primary',
-                  ...theme.util.gxText('#CDAEFB', '#82A9F9'),
+                  ...t.util.gxText('#CDAEFB', '#82A9F9'),
                   fontSize: [3, 4, 5],
                   fontWeight: 'bold'
                 })}
@@ -252,19 +252,19 @@ export default function Vitalik() {
                 us!
               </Text>
               <Box>
-                <Button
-                  as="a"
-                  href="https://hack.af/vitalik-livestream"
-                  sx={{
-                    background: '#CDAEFB',
-                    margin: ['10px', '15px'],
-                    marginLeft: '0',
-                    color: '#222222',
-                    display: 'inline-block'
-                  }}
-                >
-                  Watch Recording
-                </Button>
+                <Link href="https://hack.af/vitalik-livestream">
+                  <Button
+                    sx={{
+                      background: '#CDAEFB',
+                      margin: ['10px', '15px'],
+                      marginLeft: '0',
+                      color: '#222222',
+                      display: 'inline-block'
+                    }}
+                  >
+                    Watch Recording
+                  </Button>
+                </Link>
               </Box>
             </Box>
           )}
@@ -341,13 +341,11 @@ export default function Vitalik() {
             <>
               <Image
                 src={`/ama/vitalikImage.svg`}
-                layout="responsive"
                 sx={{ display: ['none', 'block'] }}
                 alt="Image of Vitalik Buterin"
               />
               <Image
                 src={`/ama/vitalikImageMobile.svg`}
-                // layout="fill"
                 width={400}
                 height={400}
                 sx={{ display: ['block', 'none'] }}
@@ -358,7 +356,6 @@ export default function Vitalik() {
             <>
               <Image
                 src={`/ama/vitalikImage.svg`}
-                layout="responsive"
                 sx={{ display: ['none', 'block'] }}
                 alt="Image of Vitalik Buterin"
               />
