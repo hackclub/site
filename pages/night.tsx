@@ -1,9 +1,6 @@
 import {
   Box,
-  Button,
-  Card,
   Container,
-  Grid,
   Heading,
   Image,
   Link,
@@ -14,8 +11,6 @@ import Head from 'next/head'
 import NextLink from 'next/link'
 import Nav from '../components/nav'
 import SlideDown from '../components/slide-down'
-import FadeIn from '../components/fade-in'
-import Icon from '../components/icon'
 import Footer from '../components/footer'
 import { keyframes } from '@emotion/react'
 
