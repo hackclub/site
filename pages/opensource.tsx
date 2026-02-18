@@ -21,8 +21,7 @@ export const BankProject = ({ name, url }) => (
   <Card
     variant="sunken"
     as="a"
-    target="_blank"
-    href={url}
+    {...({ target: '_blank', href: url } as any)}
     sx={{
       p: [2, 2],
       display: 'flex',
@@ -84,9 +83,11 @@ const Page = ({ repos, transparentAccounts }) => (
         <Button
           variant="outline"
           as="a"
-          target="_blank"
-          mt={3}
-          href="https://contribute.hackclub.com"
+          {...({
+            target: '_blank',
+            mt: 3,
+            href: 'https://contribute.hackclub.com'
+          } as any)}
         >
           Contribute to Our Projects
         </Button>
@@ -198,8 +199,10 @@ const Page = ({ repos, transparentAccounts }) => (
               textDecoration: 'none'
             }}
             as="a"
-            href={`https://github.com/hackclub/${repo.name}`}
-            target="_blank"
+            {...({
+              href: `https://github.com/hackclub/${repo.name}`,
+              target: '_blank'
+            } as any)}
           >
             <Text
               sx={{
@@ -240,11 +243,17 @@ export default Page
 
 export async function getStaticProps() {
   const octokit = new Octokit({
-    auth: process.env.GITHUB
+    auth: process.env.GITHUB || process.env.GITHUB_TOKEN
   })
-  const repos = await octokit.paginate('GET /orgs/{org}/repos', {
-    org: 'hackclub'
-  })
+  let repos = []
+  try {
+    repos = await octokit.paginate('GET /orgs/{org}/repos', {
+      org: 'hackclub'
+    })
+  } catch (e) {
+    console.error(e)
+    return { props: { repos: [], transparentAccounts: [] }, revalidate: 30 }
+  }
 
   const transparentAccounts = (
     await fetch('https://hcb.hackclub.com/api/v3/organizations').then(res =>

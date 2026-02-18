@@ -71,7 +71,7 @@ const Ultraline = styled(Heading)`
   }
 `
 
-Ultraline.defaultProps = { sx: { fontSize: [48, 54, 72, 96] } }
+;(Ultraline as any).defaultProps = { sx: { fontSize: [48, 54, 72, 96] } }
 
 const Row = styled(Container)`
   px: 3;
@@ -89,7 +89,7 @@ const Row = styled(Container)`
   }
 `
 
-Row.defaultProps = { sx: { px: 3, py: [3, 4], color: 'black' } }
+;(Row as any).defaultProps = { sx: { px: 3, py: [3, 4], color: 'black' } }
 
 const Super = styled(Text)`
   background-color: rgb(228, 115, 45);
@@ -114,10 +114,13 @@ export default function Philosophy() {
       <Box>
         <Header>
           <Container
-            width={1}
-            sx={{ maxWidth: '56rem!important', py: '72px', px: 3 }}
-            px={3}
-            align="left"
+            sx={{
+              width: '100%',
+              textAlign: 'left',
+              maxWidth: '56rem!important',
+              py: '72px',
+              px: 3
+            }}
           >
             <Ultraline>We're</Ultraline>
             <Ultraline>at our best</Ultraline>
@@ -125,20 +128,18 @@ export default function Philosophy() {
             <Ultraline>making.</Ultraline>
             <Seal pt={[3, 4]}>
               <Heading
-                fontSize={[1, 2]}
                 sx={{
                   fontWeight: '400',
                   marginBlockStart: '0em',
                   fontSize: ['16px', '18px'],
                   textTransform: 'uppercase'
                 }}
-                caps
               >
                 The Hack Club
               </Heading>
               <Heading
-                fontSize={[3, 4]}
                 sx={{
+                  fontSize: [2,3],
                   fontWeight: '800',
                   marginBlockStart: '0em',
                   textTransform: 'uppercase'
@@ -190,9 +191,9 @@ export default function Philosophy() {
               The goal of Hack Club is to help you become a hacker.
             </strong>{' '}
             We want a space at every school where people are making interesting
-            things with code, every week. Most schools don’t provide that, so we’re
-            creating it in every school to make building things accessible to
-            everyone.
+            things with code, every week. Most schools don’t provide that, so
+            we’re creating it in every school to make building things accessible
+            to everyone.
           </Box>
         </Row>
         <Row>
@@ -241,7 +242,7 @@ export default function Philosophy() {
         </Row>
         <Box
           sx={{
-            backgroundImage: t => t.util.gx('orange', 'red'),
+            backgroundImage: t => (t as any).util.gx('orange', 'red'),
             margin: 'auto',
             width: '600px',
             maxWidth: '90%',
@@ -265,7 +266,7 @@ export default function Philosophy() {
               mx: 'auto'
             }}
             as="a"
-            href="https://apply.hackclub.com"
+            {...({ href: 'https://apply.hackclub.com' } as any)}
           >
             Start a club
           </Button>
