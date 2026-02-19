@@ -17,7 +17,7 @@ export default function Sleepover() {
           height: ['280px', '320px', '358.2px'],
           overflow: 'hidden',
           textAlign: 'center',
-          background: 'url(/hc-cdn/sleepover-background-card.png)',
+          background: 'url(https://cdn.hackclub.com/019c76b9-22f2-710f-8627-5ff4190f5778/I34Drg.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderRadius: 'extra',
@@ -93,7 +93,7 @@ export default function Sleepover() {
           }}
         >
           <Image
-            src="/hc-cdn/sleepover-logo.png"
+            src="https://cdn.hackclub.com/019c76b7-644a-7ef7-b855-63253c99d2f8/UpZIvQ.png"
             alt="Sleepover"
             sx={{
               height: ['90px', '90px', '180px'],
@@ -110,7 +110,7 @@ export default function Sleepover() {
             sx={{ display: ['none', 'block', 'block'] }}
           >
             <Image
-              src="/hc-cdn/join%20now.png"
+              src="https://cdn.hackclub.com/019c76c5-62ea-7f3e-856b-82d4d7925054/join.png"
               alt="Join Now"
               sx={{
                 height: ['25px', '45px', '60px'],
@@ -141,7 +141,7 @@ export default function Sleepover() {
           }}
         >
           <Image
-            src="/hc-cdn/join%20now.png"
+            src="https://cdn.hackclub.com/019c76c5-62ea-7f3e-856b-82d4d7925054/join.png"
             alt="Join Now"
             sx={{
               height: '40px',

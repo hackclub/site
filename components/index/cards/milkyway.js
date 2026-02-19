@@ -24,7 +24,7 @@ export default function Milkyway() {
         }}
       >
         <Image
-          src="https://cdn.hackclub.com/019c76a4-752a-798c-b3e5-7d8dac0315a8/2026_02_19_0if_Kleki%20(1).png"
+          src="https://cdn.hackclub.com/019c76b9-55db-76b7-9280-0042b30499fd/9D-fgQ.png"
           alt="Overglade ticket"
           sx={{ width: '100%', height: 'auto', display: 'block' }}
         />
@@ -40,7 +40,7 @@ export default function Milkyway() {
           height: '358.2px',
           overflow: 'hidden',
           textAlign: 'center',
-          backgroundImage: "url(https://cdn.hackclub.com/019c76a3-ce46-70d2-a49c-119318d10650/2026_02_19_0id_Kleki.jpg)",
+          backgroundImage: "url(https://cdn.hackclub.com/019c76ba-4bf9-7fa7-ad67-86c4e0396b12/3ubjSQ.png)",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderRadius: 'extra'
@@ -64,7 +64,7 @@ export default function Milkyway() {
         aria-hidden={false}
       >
         <Image
-          src="https://cdn.hackclub.com/019c76a5-2031-76ef-a40d-ef5168d22c22/2026_02_19_0ig_Kleki%20(1).png"
+          src="https://cdn.hackclub.com/019c76b5-995c-7b53-b2dc-04158ab5f7e7/edRHsw.png"
           alt="Milkyway badge"
           sx={{
             width: '100%',

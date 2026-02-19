@@ -62,7 +62,7 @@ export default function Team({ team }) {
           px={[2, 4]}
           sx={{
             backgroundImage:
-              'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(/hc-cdn/cf3488823b5ae7c41ed968224485ea06423a6862_IMG_9920.jpg)',
+              'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cdn.hackclub.com/019c76b9-a4c2-7dd4-b6bb-e497530e43cf/GfkVjA.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: '25% 15%'
           }}
