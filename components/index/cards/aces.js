@@ -92,12 +92,12 @@ export default function Aces() {
           >
             <Image
               alt="Aces Card"
-              src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/fd4556d7b7bf0f54ae51bfa72df0e4a2194e0cd1_favicon.png"
+              src="https://cdn.hackclub.com/019c76ba-0c87-77de-887d-ba3f9b531644/AbKh1w.png"
               sx={{
                 position: 'absolute',
-                top: [null, null, '-100px', '-20px'],
-                right: [null, null, '0px', '10px'],
-                width: [null, null, '350px', '175px'],
+                top: [null, null, '-60px', '-80px'],
+                right: [null, null, '10px', '0px'],
+                width: [null, null, '200px', '250px'],
                 objectFit: 'cover',
                 animation: 'sway 4s ease-in-out infinite',
                 maxWidth: 'none',

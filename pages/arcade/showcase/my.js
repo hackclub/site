@@ -192,6 +192,7 @@ const My = () => {
     if (now > deadline) {
       setSubmissionClose(true)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   // const launchDate = new Date(2025, 7, 25, 8, 0, 0, 0)
 
@@ -252,9 +253,12 @@ const My = () => {
     }
   }
 
-  useEffect(async () => {
-    loadProjects()
-    loadCohort()
+  useEffect(() => {
+    const fetchData = async () => {
+      loadProjects()
+      loadCohort()
+    }
+    fetchData()
   }, [])
 
   return (
@@ -289,6 +293,7 @@ const My = () => {
         <div sx={{ zIndex: 5, position: 'relative' }}>
           <img
             src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
+            alt="Arcade"
             sx={{
               width: '30%',
               maxWidth: '200px',
@@ -309,7 +314,7 @@ const My = () => {
               }}
             >
               <Text className="gaegu" sx={{ color: '#FF5C00' }}>
-                {status == 'success' ? `Welcome, ${name}` : ''}
+                {status === 'success' ? `Welcome, ${name}` : ''}
               </Text>
 
               <div>
@@ -342,11 +347,11 @@ const My = () => {
             </Heading>
           </SlideDown>
 
-          {status == 'loading' && <Loading />}
+          {status === 'loading' && <Loading />}
 
-          {status == 'error' && <ErrorMessage />}
+          {status === 'error' && <ErrorMessage />}
 
-          {status == 'success' && (
+          {status === 'success' && (
             <ProjectGallery
               projects={projects}
               loadProjects={loadProjects}

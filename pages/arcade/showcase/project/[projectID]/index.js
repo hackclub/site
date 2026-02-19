@@ -39,33 +39,37 @@ const ProjectShowPage = ({ projectID }) => {
   const [status, setStatus] = useState('loading')
   const [errorMsg, setError] = useState(null)
 
-  useEffect(async () => {
-    const token = window.localStorage.getItem('arcade.authToken')
-    const response = await fetch(`/api/arcade/showcase/projects/${projectID}`, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token}`
+  useEffect(() => {
+    const fetchProject = async () => {
+      const token = window.localStorage.getItem('arcade.authToken')
+      const response = await fetch(`/api/arcade/showcase/projects/${projectID}`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }).catch(e => {
+        console.error(e)
+        setStatus('error')
+        setError(e)
+      })
+      const data = await response.json()
+      if (data.error) {
+        setStatus('error')
+        return
+      } else {
+        setProject(data.project)
+        setStatus('success')
       }
-    }).catch(e => {
-      console.error(e)
-      setStatus('error')
-      setError(e)
-    })
-    const data = await response.json()
-    if (data.error) {
-      setStatus('error')
-      return
-    } else {
-      setProject(data.project)
-      setStatus('success')
     }
-  }, [])
+    fetchProject()
+  }, [projectID])
 
   return (
     <div>
       <div sx={{ zIndex: 5, position: 'relative' }}>
         <img
           src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
+          alt="Arcade logo"
           sx={{
             width: '30%',
             maxWidth: '200px',
@@ -76,11 +80,11 @@ const ProjectShowPage = ({ projectID }) => {
           }}
         />
         <div className={styles.min}>
-          {status == 'loading' && <Loading />}
+          {status === 'loading' && <Loading />}
 
-          {status == 'error' && <ErrorMessage />}
+          {status === 'error' && <ErrorMessage />}
 
-          {status == 'success' && (
+          {status === 'success' && (
             <ProjectView
               key={project.id}
               id={project.id}

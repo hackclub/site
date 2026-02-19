@@ -18,7 +18,7 @@ export default function Blueprint({ stars, blueprintData }) {
           setProjects('100+ projects built')
         })
     }
-  }, [])
+  }, [blueprintData])
 
   return (
     <Box
@@ -53,7 +53,7 @@ export default function Blueprint({ stars, blueprintData }) {
         }}
       >
         <img
-          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a1ac108c50a27a1a7f6ba78122a19b427a84231f_IMG_3101__1_.png"
+          src="https://cdn.hackclub.com/019c76ba-04ab-7b48-964c-c16abbc307fb/IA1DMA.png"
           alt="Blueprint Logo"
           style={{
             width: '220px',
@@ -69,7 +69,7 @@ export default function Blueprint({ stars, blueprintData }) {
         }}
       >
         <img
-          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c06427309a3db7299065c0a41f1e8cc70531f0a9_blueprint.png"
+          src="https://cdn.hackclub.com/019c76b8-710b-7c83-84b9-55a328796e8d/DuC1JQ.png"
           alt="Blueprint"
           style={{
             maxWidth: '300px',

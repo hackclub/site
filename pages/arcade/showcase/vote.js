@@ -1,9 +1,8 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, useCallback } from 'react'
 import { Button, Text, Box, Close, Flex } from 'theme-ui'
 import ProjectView from '../../../components/arcade/showcase/project-view'
 import SmallView from '../../../components/arcade/showcase/small-view-card'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
-import JSConfetti from 'js-confetti'
 
 /** @jsxImportSource theme-ui */
 
@@ -284,12 +283,12 @@ const Vote = () => {
     }
   }
 
-  useEffect(async () => {
+  useEffect(() => {
     loadProjects()
   }, [])
 
   /* get individual project details */
-  const getProjectDetails = async () => {
+  const getProjectDetails = useCallback(async () => {
     const token = window.localStorage.getItem('arcade.authToken')
     setStatus('loading')
 
@@ -319,11 +318,11 @@ const Vote = () => {
       console.error(e)
       setStatus('error')
     }
-  }
+  }, [openProjectId])
 
   useEffect(() => {
     getProjectDetails()
-  }, [openProjectId])
+  }, [getProjectDetails])
 
   const dialogRef = useRef(null)
 
@@ -439,7 +438,7 @@ const Vote = () => {
         isCursorInsideBoundingBox(mousePosition, box)
       ) {
         insideVotingBox = true
-        if (activeDroppableId != box.id) {
+        if (activeDroppableId !== box.id) {
           setActiveDroppable(true)
           setActiveDroppableId(box.id)
         }
@@ -462,7 +461,7 @@ const Vote = () => {
 
     console.log(destination)
 
-    if (destination.droppableId == 'projects') {
+    if (destination.droppableId === 'projects') {
       console.log('projects')
       return
     }
@@ -608,7 +607,7 @@ const Vote = () => {
 
   /* VOTE SUBMISSION BELOW */
   useEffect(() => {
-    if (Object.keys(votes).length == 5) {
+    if (Object.keys(votes).length === 5) {
       setIsButtonActive(true)
     } else {
       setIsButtonActive(false)
@@ -715,7 +714,9 @@ const Vote = () => {
   let jsConfetti = useRef()
 
   useEffect(() => {
-    jsConfetti.current = new JSConfetti()
+    import('js-confetti').then(({ default: JSConfetti }) => {
+      jsConfetti.current = new JSConfetti()
+    })
   }, [])
 
   useEffect(() => {
@@ -723,7 +724,7 @@ const Vote = () => {
       //skips first render
       submitVote(overall, technical, creative)
     }
-  }, [endPage])
+  }, [endPage, creative, overall, technical])
 
   //MOBILE w/ ChatGPT help
   const [selectedProjects, setSelectedProjects] = useState(Array(5).fill(''))
@@ -762,8 +763,8 @@ const Vote = () => {
     setSelectedProjects(Array(5).fill(''))
   }
 
-  return startVote == true ? (
-    endPage == true ? (
+  return startVote === true ? (
+    endPage === true ? (
       <div
         sx={{
           display: 'flex',
@@ -780,6 +781,7 @@ const Vote = () => {
       >
         <img
           src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
+          alt="Arcade logo"
           sx={{
             width: '30%',
             maxWidth: '200px',
@@ -793,9 +795,9 @@ const Vote = () => {
           className="gaegu"
           sx={{ textAlign: 'center', maxWidth: '800px' }}
         >
-          {submitStatus == 'loading'
+          {submitStatus === 'loading'
             ? 'Loading...'
-            : submitStatus == 'success'
+            : submitStatus === 'success'
               ? 'Thanks for voting!'
               : 'Ran into an error sending your votes'}
         </Text>
@@ -805,7 +807,7 @@ const Vote = () => {
           className="gaegu"
           sx={{ textAlign: 'center', maxWidth: '800px', mt: 0 }}
         >
-          {submitStatus == 'loading' ? 'It takes a while' : ''}
+          {submitStatus === 'loading' ? 'It takes a while' : ''}
         </Text>
         <Button
           as="a"
@@ -1017,7 +1019,7 @@ const Vote = () => {
                                   transition: 'transform 0.2s ease',
                                   transform:
                                     activeDroppableId === voteId
-                                      ? activeDroppable == true
+                                      ? activeDroppable === true
                                         ? 'scale(1.05)'
                                         : 'scale(1)'
                                       : 'scale(1)'
@@ -1152,11 +1154,11 @@ const Vote = () => {
               }}
               className="gaegu"
             >
-              {status == 'loading' && <Loading />}
+              {status === 'loading' && <Loading />}
 
-              {status == 'error' && <ErrorMessage />}
+              {status === 'error' && <ErrorMessage />}
 
-              {status == 'success' && (
+              {status === 'success' && (
                 <ProjectView
                   preview="preview"
                   key={openProject.id}
@@ -1197,7 +1199,7 @@ const Vote = () => {
         </div>
       )
     )
-  ) : startViewProject == true ? (
+  ) : startViewProject === true ? (
     <div>
       <div
         className="gaegu"
@@ -1299,6 +1301,7 @@ const Vote = () => {
     >
       <img
         src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
+        alt="Arcade logo"
         sx={{
           width: '30%',
           maxWidth: '200px',
@@ -1311,8 +1314,8 @@ const Vote = () => {
         sx={{ width: '90vw', margin: 'auto', maxWidth: '800px' }}
         className="gaegu"
       >
-        {loadStatus == 'success' ? (
-          voted == true ? (
+        {loadStatus === 'success' ? (
+          voted === true ? (
             <div
               sx={{
                 display: 'flex',
@@ -1396,7 +1399,7 @@ const Vote = () => {
               {loadStatus}
             </Text>
             <Text variant="caption" as="h4">
-              {loadStatus == 'loading'
+              {loadStatus === 'loading'
                 ? "Please give it some time. If it's taken too long, ask for help in #arcade-help"
                 : 'Try logging in again with /showcase in Slack. If it persists, please ask for help in #arcade-help.'}
             </Text>

@@ -37,12 +37,15 @@ function Gallery({ posts = [], tags = [] }) {
   const [filterPosts, setFilterPosts] = useState([]);
   const [filterParts, setFilterParts] = useState([]);
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     setAllPosts(posts);
     setFilterParts([]);
 
   }, []);
+  /* eslint-enable react-hooks/exhaustive-deps */
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     setFilterPosts(
       allPosts.filter(post =>
@@ -50,6 +53,7 @@ function Gallery({ posts = [], tags = [] }) {
       )
     );
   }, [filterParts]);
+  /* eslint-enable react-hooks/exhaustive-deps */
 
   
   const addFilter = (partID) => {

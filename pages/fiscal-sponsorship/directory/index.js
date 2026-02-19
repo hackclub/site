@@ -99,7 +99,7 @@ export const categories = [
     color: 'blue',
     description:
       'Everywhere from San Jose to Boston to New York, HCB powers teams of all sizes.',
-    match: org => org.category == 'robotics_team',
+    match: org => org.category === 'robotics_team',
     icon: 'sam'
   },
   {
@@ -107,7 +107,7 @@ export const categories = [
     id: 'hackathons',
     color: 'purple',
     description: `Hackers are using HCB to run hackathons that'll blow your mind away.`,
-    match: org => org.category == 'hackathon',
+    match: org => org.category === 'hackathon',
     icon: 'event-code'
   }
 ]
@@ -204,10 +204,10 @@ const FilterPanel = ({ filter, mobile, clearOffset }) => {
                 color: 'inherit',
                 fontSize: 3,
                 color:
-                  category == availableCategory.id ||
+                  category === availableCategory.id ||
                   (availableCategory.index &&
-                    category == null &&
-                    region == null)
+                    category === null &&
+                    region === null)
                     ? 'primary'
                     : 'null',
                 ':hover': {
@@ -311,7 +311,7 @@ const FilterPanel = ({ filter, mobile, clearOffset }) => {
                 color: 'inherit',
                 fontSize: 3,
                 color:
-                  region == kebabCase(availableRegion.label)
+                  region === kebabCase(availableRegion.label)
                     ? 'primary'
                     : 'null',
                 ':hover': {
@@ -599,7 +599,7 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
         sx={{
           textAlign: 'center',
           mb: 4,
-          display: searchValue == '' ? 'flex' : 'none',
+          display: searchValue === '' ? 'flex' : 'none',
           alignItems: 'center',
           justifyContent: 'center',
           gap: '16px'
@@ -809,7 +809,7 @@ export async function fetchRawOrganizations() {
     page++
     total = [...total, ...json]
   }
-  return [...total.filter((a) => a.logo != null), ...total.filter((a) => a.logo == null)]
+  return [...total.filter((a) => a.logo !== null), ...total.filter((a) => a.logo === null)]
 }
 
 export const getStaticProps = async () => {
