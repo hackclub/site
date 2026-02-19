@@ -110,7 +110,7 @@ export default function Sleepover() {
             sx={{ display: ['none', 'block', 'block'] }}
           >
             <Image
-              src="/hc-cdn/join%20now.png"
+              src="https://cdn.hackclub.com/019c76c5-62ea-7f3e-856b-82d4d7925054/join.png"
               alt="Join Now"
               sx={{
                 height: ['25px', '45px', '60px'],
@@ -141,7 +141,7 @@ export default function Sleepover() {
           }}
         >
           <Image
-            src="/hc-cdn/join%20now.png"
+            src="https://cdn.hackclub.com/019c76c5-62ea-7f3e-856b-82d4d7925054/join.png"
             alt="Join Now"
             sx={{
               height: '40px',
