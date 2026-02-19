@@ -37,7 +37,7 @@ const MobilePage = () => (
       as={Head}
       title="HCB Mobile is here!"
       description="Manage your HCB organizations on the go. Issue cards, view transactions, and more!"
-      image="/hc-cdn/9fc32ee8cbc1a6a1ce93609b9822d6bae394dc7a_opengraph.png"
+      image="https://cdn.hackclub.com/019c76ba-15be-7e16-b6a7-adca9ccae9c0/Ueb-LA.png"
     />
     <ForceTheme theme="light" />
     <Nav />

@@ -24,7 +24,7 @@ export default function Stasis() {
         sx={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'url(/hc-cdn/stasis-banner.png)',
+          backgroundImage: 'url(https://cdn.hackclub.com/019c76b7-83c0-7e49-990c-e4fd28161cfb/I_mzLg.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -44,7 +44,7 @@ export default function Stasis() {
         }}
       >
         <Image
-          src="/hc-cdn/stasis-logo.png"
+          src="https://cdn.hackclub.com/019c76ba-5c45-79d9-89d6-dc4730abc0d7/yKT39g.png"
           alt="Stasis"
           sx={{
             height: ['60px', '80px', '100px'],
@@ -53,7 +53,7 @@ export default function Stasis() {
           }}
         />
         <Image
-          src="/hc-cdn/stasis-info.png"
+          src="https://cdn.hackclub.com/019c76b7-a9e4-7e85-bea4-86edde5d4c64/QH3hVA.png"
           alt="Stasis Info"
           sx={{
             height: ['12px', '15px', '20px'],
@@ -87,7 +87,7 @@ export default function Stasis() {
           sx={{ mt: 2 }}
         >
           <Image
-            src="/hc-cdn/rsvp.png"
+            src="https://cdn.hackclub.com/019c76ba-506c-74fb-9830-7776540af717/ItRegg.png"
             alt="RSVP"
             sx={{
               height: ['45px', '50px', '60px'],

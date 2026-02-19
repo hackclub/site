@@ -1,9 +1,9 @@
 [
      {
         "title": "Flavortown",
-        "logo": "/hc-cdn/78c8f69432a9421d_flavortown-logo.png",
+        "logo": "https://cdn.hackclub.com/019c76b8-4f54-7de9-ae34-90b2190c2440/TeQ27w.png",
         "background": "#7B4942",
-        "stickerImage": "/hc-cdn/0256e44f53eb79e4_logo-b28e0e8b.avif",
+        "stickerImage": "https://cdn.hackclub.com/019c76b5-b513-7f5a-8718-bea38d4abb80/DM6Ztg.avif",
         "description": "Cook tasty personal projects, win free prizes!",
         "descriptionColor": "white",
         "buttonText": "JOIN NOW",
@@ -12,10 +12,10 @@
     },
     {
         "title": "Blueprint",
-        "logo": "/hc-cdn/c06427309a3db7299065c0a41f1e8cc70531f0a9_blueprint.png",
+        "logo": "https://cdn.hackclub.com/019c76b8-710b-7c83-84b9-55a328796e8d/DuC1JQ.png",
         "background": "#0e305b",
         "gridBackground": true,
-        "stickerImage": "/hc-cdn/8292f6b4eba5e1fc29b51e9bc08eea5521e9ff46_IMG_3099__1_.png",
+        "stickerImage": "https://cdn.hackclub.com/019c76b6-4c8e-7544-85c2-748e58505ddd/D7rFfQ.png",
         "description": "Design a Hardware project and get up to $400 to make it real!",
         "descriptionColor": "white",
         "buttonText": "JOIN NOW",
@@ -24,9 +24,9 @@
     },
 {
         "title": "Sleepover",
-        "logo": "/hc-cdn/sleepover-logo.png",
+        "logo": "https://cdn.hackclub.com/019c76b7-644a-7ef7-b855-63253c99d2f8/UpZIvQ.png",
         "background": "#B5AAE7",
-        "stickerImage": "/hc-cdn/we-try-again.png",
+        "stickerImage": "https://cdn.hackclub.com/019c76b5-f328-725e-9d6d-4f5368685ab5/tNACWw.png",
         "description": "Learn to code and fly to an all girls slumber party hackathon!",
         "descriptionColor": "white",
         "buttonText": "JOIN NOW",

@@ -19,9 +19,9 @@ export default function CampfireFlagship() {
           overflow: 'hidden',
           textAlign: 'center',
           backgroundImage: [
-            "url(/hc-cdn/145056833a228762_bg-tall.png)",
-            "url(/hc-cdn/145056833a228762_bg-tall.png)",
-            "url(/hc-cdn/e909b5fc4f714382_bg-wide.png)"
+            "url(https://cdn.hackclub.com/019c76b8-079a-7ebd-a757-3347bce342a5/9Ns3Qw.png)",
+            "url(https://cdn.hackclub.com/019c76b8-079a-7ebd-a757-3347bce342a5/9Ns3Qw.png)",
+            "url(https://cdn.hackclub.com/019c76b8-466d-772b-aaa8-b2d63d7fc812/fn_keg.png)"
           ],
           backgroundSize: 'cover',
           backgroundPosition: 'center',
