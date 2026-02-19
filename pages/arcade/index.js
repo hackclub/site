@@ -257,10 +257,10 @@ const Powerups = ({
         variant="headline"
         className="gaegu"
       >
-        {cost} {cost == 1 ? 'ticket' : 'tickets'}
+        {cost} {cost === 1 ? 'ticket' : 'tickets'}
       </Text>
       {extraTags?.map((tag, i) => {
-        if (tag == 'Limited Supply') {
+        if (tag === 'Limited Supply') {
           return (
             <Text
               key={tag}
@@ -383,7 +383,7 @@ const Powerups = ({
           variant="headline"
           className="gaegu"
         >
-          {cost} {cost == 1 ? 'ticket' : 'tickets'}
+          {cost} {cost === 1 ? 'ticket' : 'tickets'}
         </Text>
       </dialog>
     </Flex>
@@ -407,7 +407,7 @@ const Intro = ({ title, num, text, img, third, ...props }) => {
         className="gaegu"
         sx={{
           display: 'block',
-          width: third == 'true' ? ['100%', '100%', '100%', '70%'] : '100%'
+          width: third === 'true' ? ['100%', '100%', '100%', '70%'] : '100%'
         }}
       >
         {title}
@@ -953,7 +953,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           paddingBottom: '20vh'
         }}
       >
-        {slack == 'slack' ? (
+        {slack === 'slack' ? (
           <Announcement
             copy="You were redirected as we're running a special summer event!"
             caption="To join our Slack, join ARCADE."
@@ -1105,6 +1105,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           >
             <img
               src="/arcade/prizes.png"
+              alt="Arcade prizes"
               sx={{
                 zIndex: 10,
                 width: ['80%', '70%', '65%', '80%'],
@@ -1188,6 +1189,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               />
               <img
                 src="/arcade/a1.png"
+                alt=""
                 sx={{
                   width: '100px',
                   position: 'absolute',
@@ -1571,6 +1573,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             />
             <img
               src="/arcade/r5.png"
+              alt=""
               sx={{
                 width: ['35%', '35%', '35%', '50%'],
                 maxWidth: '210px',
@@ -1605,6 +1608,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
       >
         <img
           src="/arcade/o5.png"
+          alt=""
           sx={{
             width: ['45%', '45%', '45%', '60%'],
             maxWidth: '310px',
@@ -1617,6 +1621,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
         />
         <img
           src="/arcade/o6.png"
+          alt=""
           sx={{
             width: ['30%', '30%', '30%', '40%'],
             maxWidth: '210px',

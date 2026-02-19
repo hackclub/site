@@ -1,6 +1,8 @@
 import { Box, Image, Link, Text } from 'theme-ui'
 import Icon from '@hackclub/icons'
 
+const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
+
 export default function Join() {
   return (
     <Box
@@ -32,7 +34,7 @@ export default function Join() {
             Discover the Hack Club Slack
           </Text>
           <Link
-            href="#"
+            href={useWaitlist ? '#' : 'https://auth.hackclub.com/slack'}
             sx={{
               mb: 3,
               cursor: 'pointer',
@@ -49,6 +51,7 @@ export default function Join() {
       </Box>
       <Image
         src="https://cloud-j0p07nviw-hack-club-bot.vercel.app/0image.png"
+        alt="Hack Club Slack community"
         sx={{
           width: ['100%', '100%', '50%'],
           height: ['100%', '100%', '30rem'],

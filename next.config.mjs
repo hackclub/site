@@ -16,7 +16,7 @@ const nextConfig = {
       'assets.hackclub.com',
       'v5.airtableusercontent.com',
       'hcb.hackclub.com',
-      "hc-cdn.hel1.your-objectstorage.com"
+      'cdn.hackclub.com'
     ],
     remotePatterns: [
       {
@@ -45,7 +45,13 @@ const nextConfig = {
         destination: '/fiscal-sponsorship/:path*',
         permanent: false
       },
+      {
+        source: '/fiscal-sponsorship/apply/',
+        destination: "https://hcb.hackclub.com/apply/",
+        permanent: false
+      },
       { source: '/grant/', destination: '/hackathons/grant', permanent: false },
+      { source: '/privacy/', destination: '/privacy-and-terms/', permanent: true },
       {
         source: '/sprig/',
         destination: 'https://sprig.hackclub.com',
@@ -228,6 +234,10 @@ const nextConfig = {
   async rewrites() {
     return [
       {
+        source: '/fiscal-sponsorship/mobile-app/',
+        destination: '/fiscal-sponsorship/mobile/'
+      },
+      {
         source: '/clubs/leaders-letters',
         destination: 'https://leaders-letters.vercel.app/'
       },
@@ -282,6 +292,14 @@ const nextConfig = {
       {
         source: '/conduct/',
         destination: 'https://workshops.hackclub.com/conduct/'
+      },
+      {
+        source: '/privacy-and-terms/',
+        destination: 'https://workshops.hackclub.com/privacy-and-terms/'
+      },
+      {
+        source: '/safeguarding-policy/',
+        destination: 'https://workshops.hackclub.com/safeguarding-policy/'
       },
       {
         source: '/workshop-bounty/',

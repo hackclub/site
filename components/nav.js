@@ -33,8 +33,8 @@ const fixed = props =>
     border-bottom: 1px solid rgba(48, 48, 48, 0.125);
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
       background-color: ${props.transparent
-        ? 'transparent'
-        : rgbaBgColor(props, 0.75)};
+      ? 'transparent'
+      : rgbaBgColor(props, 0.75)};
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       backdrop-filter: saturate(180%) blur(20px);
       /* {bg}; to support dark mode later */
@@ -111,6 +111,7 @@ const layout = props =>
         a {
           font-size: 18px;
           &:hover {
+            text-decoration: underline;
             color: ${theme.colors[hoverColor(props.color)]};
           }
         }
@@ -142,11 +143,12 @@ const Navigation = props => (
     <NextLink href="/hackathons" passHref>
       <Link>Hackathons</Link>
     </NextLink>
-    <Link href="/slack">Community</Link>
-    <Link href="https://scrapbook.hackclub.com/">Scrapbook</Link>
+    <Link href="https://slack.hackclub.com">Join</Link>
     <NextLink href="https://toolbox.hackclub.com/" passHref>
       <Link>Toolbox</Link>
     </NextLink>
+    <Link href="https://flavortown.hackclub.com/?ref=site-nav">Flavortown</Link>
+    <Link href="https://blueprint.hackclub.com/?ref=site-nav">Blueprint</Link>
     <NextLink href="/philanthropy" passHref>
       <Link>Donors</Link>
     </NextLink>

@@ -1,9 +1,9 @@
 import Icon from '@hackclub/icons'
 import { useState } from 'react'
-import { Avatar, Box, Card, Flex, Text } from 'theme-ui'
+import { Box, Card, Flex, Text } from 'theme-ui'
 
 export default function Bio({ popup = true, spanTwo = false, ...props }) {
-  const { img, name, teamRole, pronouns, text, subrole, email, href, video } =
+  const { name, teamRole, pronouns, text, subrole, email, href, video, img } =
     props
   const [expand, setExpand] = useState(false)
   return (
@@ -23,7 +23,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
           zIndex: !popup ? 1003 : 5,
           maxHeight: '90vh',
           overflowY: 'hidden',
-          overscrollBehavior: 'contain',
+          overscrollBehavior: 'auto',
           gridColumn: !spanTwo ? null : [null, null, '1 / span 2'],
           position: 'relative'
         }}
@@ -36,23 +36,21 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
           }
         }}
       >
-        <Avatar
-          size={64}
-          width={64}
-          height={64}
-          mr={3}
-          src={img}
-          alt={name}
-          sx={{
-            overflow: 'hidden',
-            objectFit: 'cover',
-            transition: 'transform 0.125s ease-in-out',
-            '&:hover': { transform: 'rotate(-8deg) scale(1.25)' },
-            flexShrink: 0,
-            width: '64px',
-            height: '64px'
-          }}
-        />
+        {img && (
+          <Box
+            as="img"
+            src={img}
+            alt={name}
+            sx={{
+              width: 96,
+              height: 96,
+              minWidth: 96,
+              borderRadius: '50%',
+              objectFit: 'cover',
+              mr: 3
+            }}
+          />
+        )}
         <Box>
           <Text sx={{ fontSize: [3, 3, 3] }} variant="headline" color="black">
             {name}

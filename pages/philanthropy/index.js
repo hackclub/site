@@ -628,13 +628,28 @@ const Philanthropy = ({ posts = [] }) => {
             <Flex sx={{ justifyContent: 'space-between' }} mt={[3, 4]}>
               <Box>
                 <Text as="h2">View Hack Club's IRS Form 990s</Text>
-                <Text as="p">2024 Form will be shared when ready.</Text>
+                <Text as="p">2025 Form will be shared when ready.</Text>
               </Box>
               <Box>
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://projects.propublica.org/nonprofits/organizations/812908499/202423209349312247/full"
+                  href="https://cdn.hackclub.com/019c4366-66a7-7b57-8103-5d7731c114d3/812908499_2024_202533219349309698_990.pdf"
+                  target="_blank"
+                  mb={4}
+                  sx={{
+                    fontSize: '1em !important',
+                    width: 'fit-content',
+                    float: 'right',
+                    mt: 2
+                  }}
+                >
+                  2024
+                </Button>
+                <Button
+                  as="a"
+                  variant="outline"
+                  href="https://cdn.hackclub.com/019c4366-d33c-7b59-a778-f1a932036d43/812908499_2023_202423209349312247_990.pdf"
                   target="_blank"
                   mb={4}
                   sx={{
@@ -649,7 +664,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cloud-q56a8ttty-hack-club-bot.vercel.app/0hack_foundation_2022_form_990.pdf"
+                  href="https://cdn.hackclub.com/019c4367-399e-76b5-8198-66ab98fb6ea9/812908499_2022_202333199349306488_990.pdf"
                   target="_blank"
                   mb={4}
                   sx={{
@@ -665,7 +680,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cloud-f23epej2p-hack-club-bot.vercel.app/0hack_foundation_2021_990_-_public__1_.pdf"
+                  href="https://cdn.hackclub.com/019c4367-84af-7e6c-a8bc-cb7dabd69f9f/812908499_2021_202243189349308489_990.pdf"
                   target="_blank"
                   mb={4}
                   sx={{
@@ -681,7 +696,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cloud-d2t8vvprl-hack-club-bot.vercel.app/0form990package.pdf"
+                  href="https://cdn.hackclub.com/019c4367-d7be-73b2-bf65-933c982b3d07/812908499_2020_202103239349300740_990.pdf"
                   target="_blank"
                   mb={4}
                   sx={{
@@ -712,7 +727,7 @@ const Philanthropy = ({ posts = [] }) => {
               <Button
                   as="a"
                   variant="outline"
-                  href="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9182271af3e9fd99e2333e07e1ab5de3d4db3730_final-2024-annual-report.pdf"
+                  href="https://cdn.hackclub.com/019c4369-c21c-7436-9669-4ab80d4774a4/2024%20Annual%20Report.pdf"
                   target="_blank"
                   mb={4}
                   sx={{
@@ -727,7 +742,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cloud-qfyq0eotn-hack-club-bot.vercel.app/02023_annual_report.pdf"
+                  href="https://cdn.hackclub.com/019c4368-9ea2-76fb-96fc-d7859dffa59e/2023%20Annual%20Report.pdf"
                   target="_blank"
                   mb={4}
                   sx={{
@@ -743,7 +758,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cloud-8zfcx3ub5-hack-club-bot.vercel.app/0hack_club_annual_report_2022.pdf"
+                  href="https://cdn.hackclub.com/019c436a-61fa-7c33-bd8d-d65b89446bff/2022%20Annual%20Report.pdf"
                   target="_blank"
                   mb={4}
                   sx={{

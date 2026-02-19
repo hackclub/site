@@ -172,6 +172,7 @@ const Page = ({ upcoming, past }) => (
               <Image
                 width={128}
                 height={128}
+                unoptimized={true}
                 src={event.amaAvatar}
                 alt={event.title}
               />
