@@ -404,18 +404,6 @@
     "avatar": "https://ca.slack-edge.com/E09V59WQY1E-UDK5M9Y13-be619c5a7099-512"
   },
   {
-    "name": "Dhamari Trice-Hanson",
-    "department": "HQ",
-    "role": "Engineering",
-    "acknowledged": false,
-    "bio": "Dhamari is passionate about running programs surrounding music and entertainment. Coming from Detroit, he got his start in coding through Google's Code Next Detroit Lab, training 5-7 hours a week to get to where he is today.",
-    "bioHackFoundation": "",
-    "slackId": "U08RWM5U4L9",
-    "email": "dhamari",
-    "website": "",
-    "avatar": "https://avatars.githubusercontent.com/u/39872667?v=4"
-  },
-  {
     "name": "Deven Jadhav",
     "staff": true,
     "department": "HQ",
@@ -565,17 +553,6 @@
     "gapyear": true
   },
   {
-    "name": "Dhamari Trice-Hanson",
-    "department": "HQ",
-    "gapyear": true,
-    "role": "Engineering",
-    "acknowledged": false,
-    "slackId": "U08RWM5U4L9",
-    "email": "dev",
-    "website": "",
-    "avatar": "https://i.ibb.co/QvzYRZm4/Dhamari.png"
-  },
-  {
     "name": "Alex Van Doren",
     "department": "HQ",
     "role": "Engineering",
@@ -678,6 +655,19 @@
     "website": "",
     "avatar": "https://i.ibb.co/vxNKbCpx/2026-01-27-0or-Kleki.jpg",
     "gapyear": true
+  },
+    {
+    "name": "Dhamari Trice-Hanson",
+    "department": "HQ",
+    "gapyear": true,
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Dhamari is passionate about running programs surrounding music and entertainment. Coming from Detroit, he got his start in coding through Google's Code Next Detroit Lab, training 5-7 hours a week to get to where he is today.",
+    "bioHackFoundation": "",
+    "slackId": "U08RWM5U4L9",
+    "email": "dhamari",
+    "website": "",
+    "avatar": "https://i.ibb.co/QvzYRZm4/Dhamari.png"
   },
   {
     "name": "Estella Gu",
