@@ -16,7 +16,7 @@ const nextConfig = {
       'assets.hackclub.com',
       'v5.airtableusercontent.com',
       'hcb.hackclub.com',
-      "cdn.hackclub.com"
+      'cdn.hackclub.com'
     ],
     remotePatterns: [
       {
