@@ -96,7 +96,7 @@
     "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
     "styled-components": "^6.1.15",
-    "swr": "^2.3.2",
+    "swr": "^2.4.0",
     "theme-ui": "^0.14.7",
     "tinytime": "^0.2.6",
     "turndown": "^7.2.0",
