@@ -44,10 +44,14 @@ const Header = styled(Box)`
   background: url('/pattern.svg');
 `
 
+const AMarquee = Marquee as any
+
 const PhotoRow = ({ photos }) => (
   <Box sx={{ height: '160px', overflow: 'hidden' }}>
     <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>
-      <Marquee velocity={12}>
+      <AMarquee
+        velocity={12}
+      >
         {photos.map((photo, index) => (
           <Image
             placeholder="blur"
@@ -60,10 +64,12 @@ const PhotoRow = ({ photos }) => (
             key={'image-' + index}
           />
         ))}
-      </Marquee>
+      </AMarquee>
     </Box>
     <Box sx={{ display: ['none', 'none', 'none', 'none', 'block'] }}>
-      <Marquee velocity={12}>
+      <AMarquee
+        velocity={12}
+      >
         {photos.map((photo, index) => (
           <Image
             placeholder="blur"
@@ -76,7 +82,7 @@ const PhotoRow = ({ photos }) => (
             alt="Hack Club students"
           />
         ))}
-      </Marquee>
+      </AMarquee>
     </Box>
   </Box>
 )
@@ -119,7 +125,6 @@ const Stat = ({ num, words, background }) => {
       sx={{
         padding: '20px !important',
         my: 2,
-        textAlign: 'center',
         backgroundColor: 'elevated',
         backgroundImage: `url('${background}')`,
         backgroundSize: '25px 25px',
@@ -142,7 +147,7 @@ const Stat = ({ num, words, background }) => {
 const Graph = () => {
   return (
     <>
-      <Box sx={{ my: 'auto' }}>
+      <Box sx={{ mx: 'auto', my: '5%', overflow: 'visible' }}>
         <Heading as="h2" sx={{ textAlign: 'center' }}>
           Teenagers in Slack per year
         </Heading>
@@ -150,21 +155,10 @@ const Graph = () => {
           width="90%"
           height="100%"
           minHeight="350px"
-          sx={{ mx: 'auto', my: '5%', overflow: 'visible' }}
         >
           <BarChart
             data={data}
-            animationBegin={1000}
-            sx={{
-              svg: {
-                overflow: 'visible'
-              }
-            }}
           >
-            {/* <Tooltip
-              cursor={false}
-              contentStyle={{ border: 'none', borderRadius: 5, opacity: 0.9 }}
-            /> */}
             <Bar type="monotone" dataKey="Teenagers" fill="#1f2d3d" />
             <YAxis />
             <XAxis dataKey="year"></XAxis>
@@ -205,7 +199,13 @@ const Quote = ({ children }) => {
     </Text>
   )
 }
-const Pill = ({ logo, name }) => {
+
+type PropPilled = {
+  logo?: string
+  name: string
+}
+
+const Pill = ({ logo, name }: PropPilled) => {
   return (
     <Slide>
       <Box
@@ -387,9 +387,9 @@ const Philanthropy = ({ posts = [] }) => {
                 maxWidth: '64rem',
                 mx: 'auto',
                 zIndex: 1,
-                position: 'relative'
+                position: 'relative',
+                textAlign: 'center'
               }}
-              align="center"
               py={2}
               px={[1, 3]}
             >
@@ -417,7 +417,7 @@ const Philanthropy = ({ posts = [] }) => {
                   my={3}
                   sx={{ width: ['100%', 'auto'] }}
                   as="a"
-                  href="https://hcb.hackclub.com/donations/start/hq?utm_source=site&utm_medium=internal&utm_campaign=philanthropy_page&utm_content=hero_button"
+                  {...({href: "https://hcb.hackclub.com/donations/start/hq?utm_source=site&utm_medium=internal&utm_campaign=philanthropy_page&utm_content=hero_button"} as any)}
                 >
                   Donate
                   <Text sx={{ display: ['none', 'inline-block'], ml: 2 }}>
@@ -426,7 +426,6 @@ const Philanthropy = ({ posts = [] }) => {
                 </Button>
                 <Text
                   sx={{ mt: 1, display: 'block', opacity: 0.8 }}
-                  fontSize={2}
                   color="white"
                 >
                   Your contribution is tax-deductible.
@@ -584,7 +583,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Text as="p">Co-founder, COO, and Board Member</Text>
                 <Text
                   as="a"
-                  href="mailto:christina@hackclub.com"
+                  {...({href: "mailto:christina@hackclub.com"} as any)}
                   sx={{
                     ':link': {
                       color: 'inherit',
@@ -605,7 +604,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Box mt={[2, 3]}>
                   <Text
                     as="a"
-                    href="https://hcb.hackclub.com/donations/start/hq?utm_source=site&utm_medium=internal&utm_campaign=philanthropy_page&utm_content=body_link"
+                    {...({href: "https://hcb.hackclub.com/donations/start/hq?utm_source=site&utm_medium=internal&utm_campaign=philanthropy_page&utm_content=body_link"} as any)}
                     target="_blank"
                     sx={{
                       color: '#ec3750',
@@ -634,7 +633,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cdn.hackclub.com/019c4366-66a7-7b57-8103-5d7731c114d3/812908499_2024_202533219349309698_990.pdf"
+                  {...({href: "https://cdn.hackclub.com/019c4366-66a7-7b57-8103-5d7731c114d3/812908499_2024_202533219349309698_990.pdf"} as any)}
                   target="_blank"
                   mb={4}
                   sx={{
@@ -649,7 +648,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cdn.hackclub.com/019c4366-d33c-7b59-a778-f1a932036d43/812908499_2023_202423209349312247_990.pdf"
+                  {...({href: "https://cdn.hackclub.com/019c4366-d33c-7b59-a778-f1a932036d43/812908499_2023_202423209349312247_990.pdf"} as any)}
                   target="_blank"
                   mb={4}
                   sx={{
@@ -664,7 +663,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cdn.hackclub.com/019c4367-399e-76b5-8198-66ab98fb6ea9/812908499_2022_202333199349306488_990.pdf"
+                  {...({href: "https://cdn.hackclub.com/019c4367-399e-76b5-8198-66ab98fb6ea9/812908499_2022_202333199349306488_990.pdf"} as any)}
                   target="_blank"
                   mb={4}
                   sx={{
@@ -680,7 +679,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cdn.hackclub.com/019c4367-84af-7e6c-a8bc-cb7dabd69f9f/812908499_2021_202243189349308489_990.pdf"
+                  {...({href: "https://cdn.hackclub.com/019c4367-84af-7e6c-a8bc-cb7dabd69f9f/812908499_2021_202243189349308489_990.pdf"} as any)}
                   target="_blank"
                   mb={4}
                   sx={{
@@ -696,7 +695,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cdn.hackclub.com/019c4367-d7be-73b2-bf65-933c982b3d07/812908499_2020_202103239349300740_990.pdf"
+                  {...({href: "https://cdn.hackclub.com/019c4367-d7be-73b2-bf65-933c982b3d07/812908499_2020_202103239349300740_990.pdf"} as any)}
                   target="_blank"
                   mb={4}
                   sx={{
@@ -724,10 +723,10 @@ const Philanthropy = ({ posts = [] }) => {
                 <Text as="p">Reports from 2022-2024</Text>
               </Box>
               <Box>
-              <Button
+                <Button
                   as="a"
                   variant="outline"
-                  href="https://cdn.hackclub.com/019c4369-c21c-7436-9669-4ab80d4774a4/2024%20Annual%20Report.pdf"
+                  {...({href: "https://cdn.hackclub.com/019c4369-c21c-7436-9669-4ab80d4774a4/2024%20Annual%20Report.pdf"} as any)}
                   target="_blank"
                   mb={4}
                   sx={{
@@ -742,7 +741,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cdn.hackclub.com/019c4368-9ea2-76fb-96fc-d7859dffa59e/2023%20Annual%20Report.pdf"
+                  {...({href: "https://cdn.hackclub.com/019c4368-9ea2-76fb-96fc-d7859dffa59e/2023%20Annual%20Report.pdf"} as any)}
                   target="_blank"
                   mb={4}
                   sx={{
@@ -758,7 +757,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cdn.hackclub.com/019c436a-61fa-7c33-bd8d-d65b89446bff/2022%20Annual%20Report.pdf"
+                  {...({href: "https://cdn.hackclub.com/019c436a-61fa-7c33-bd8d-d65b89446bff/2022%20Annual%20Report.pdf"} as any)}
                   target="_blank"
                   mb={4}
                   sx={{
@@ -774,7 +773,8 @@ const Philanthropy = ({ posts = [] }) => {
               </Box>
             </Flex>
             <span>
-            Explore Hack Club's annual reports from 2022 onward, showcasing each year's impact and key milestones.
+              Explore Hack Club's annual reports from 2022 onward, showcasing
+              each year's impact and key milestones.
             </span>
           </Fade>
           {/* <Fade delay={300}>
@@ -979,7 +979,6 @@ const Philanthropy = ({ posts = [] }) => {
                         as="p"
                         sx={{
                           lineHeight: '1em',
-                          fontSize: '1.1em !important',
                           fontSize: '1.1em !important'
                         }}
                       >
@@ -1331,7 +1330,7 @@ const Philanthropy = ({ posts = [] }) => {
             <Fade delay={300}>
               <Text
                 as="a"
-                href="/philanthropy/supporters"
+                {...({href: "/philanthropy/supporters"} as any)}
                 target="_blank"
                 sx={{
                   color: 'slate',
@@ -1368,7 +1367,6 @@ const Philanthropy = ({ posts = [] }) => {
                   a dozen students are coding.
                 </Heading>
                 <Heading
-                  fontSize={[4, 5]}
                   sx={{ fontWeight: '700', fontSize: ['18px', '20px', '22px'] }}
                 >
                   Thanks to our donor-funded laptop program, Hack Club sent him
@@ -1376,16 +1374,15 @@ const Philanthropy = ({ posts = [] }) => {
                   Edward built robots that won Canada’s Humanitarian Activist
                   Award.
                 </Heading>
-                <Flex align="center" mt={[3, 4]}>
+                <Flex sx={{ alignItems: 'center' }} mt={[3, 4]}>
                   <Avatar
                     src="/philanthropy/obrey.png"
                     sx={{ height: '48px', width: '48px' }}
                     mr={3}
-                    st
                   />
-                  <Box align="left" fontSize={3}>
+                  <Box sx={{ textAlign: 'left' }}>
                     <Heading>Obrey Muchena</Heading>
-                    <Text fontSize={2} color="green.1">
+                    <Text color="green.1">
                       19, Zambia
                     </Text>
                   </Box>
@@ -1400,7 +1397,6 @@ const Philanthropy = ({ posts = [] }) => {
                   extensions.
                 </Heading>
                 <Heading
-                  fontSize={[4, 5]}
                   sx={{ fontWeight: '700', fontSize: ['18px', '20px', '22px'] }}
                 >
                   The Hack Club community "inspired me to step outside my
@@ -1409,16 +1405,15 @@ const Philanthropy = ({ posts = [] }) => {
                   even organizing Leland Hacks, the first in-person hackathon in
                   my city after the pandemic.”
                 </Heading>
-                <Flex align="center" mt={[3, 4]}>
+                <Flex sx={{ alignItems: 'center' }} mt={[3, 4]}>
                   <Avatar
                     src="/philanthropy/maggie.png"
                     sx={{ height: '48px', width: '48px' }}
                     mr={3}
-                    st
                   />
-                  <Box align="left" fontSize={3}>
+                  <Box sx={{ textAlign: 'left' }}>
                     <Heading>Maggie Liu</Heading>
-                    <Text fontSize={2} color="green.1">
+                    <Text color="green.1">
                       17, California
                     </Text>
                   </Box>
@@ -1577,7 +1572,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Text as="p">Co-founder, COO, and Board Member</Text>
                 <Text
                   as="a"
-                  href="mailto:christina@hackclub.com"
+                  {...({href:"mailto:christina@hackclub.com"} as any)}
                   sx={{
                     ':link': {
                       color: 'inherit',
@@ -1593,7 +1588,7 @@ const Philanthropy = ({ posts = [] }) => {
           <Fade>
             <Button
               as="a"
-              href="/philanthropy/hackclub_philanthropy.pdf"
+              {...({href:"/philanthropy/hackclub_philanthropy.pdf"} as any)}
               download="HackClub"
               mb={4}
               sx={{ fontSize: '1em !important' }}

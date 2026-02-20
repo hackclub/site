@@ -33,34 +33,16 @@ const Sheet = styled(Card)`
   width: 100%;
   color: white;
 `
-Sheet.defaultProps = {
-  sx: {
-    bg: 'rgba(255, 255, 255, 0.875)',
-    p: [3, 4],
-    color: 'black',
-    width: 1,
-    mb: 4
-  }
-}
 
 const Row = styled(Box)`
   text-align: left;
   @media screen and (min-width: 48em) {
     display: grid;
     grid-gap: 18px;
-    grid-template-columns: ${({ reverse }) =>
-      reverse ? '3fr 2fr' : '2fr 3fr'};
+    grid-template-columns: 2fr 3fr;
   }
 `
 
-Sheet.defaultProps = {
-  sx: {
-    maxWidth: '52rem',
-    fontSize: 3,
-    p: [4, 5],
-    color: 'white'
-  }
-}
 const subhline = { fontSize: [3, 4], style: { lineHeight: '1.375' } }
 
 const contentContainer = {
@@ -110,7 +92,7 @@ const DonorCard = ({ name, link = false }) => (
 const DonorListing = ({ name, url }) => {
   if (url) {
     return (
-      <A target="_blank" href={url} color="black" underline>
+      <A target="_blank" href={url} color="black">
         <DonorCard name={name} link />
       </A>
     )
@@ -152,13 +134,13 @@ export default function Donate({ sprig }) {
               maxWidth: '64rem',
               mx: 'auto',
               zIndex: 1,
-              position: 'relative'
+              position: 'relative',
+              textAlign: 'center'
             }}
-            align="center"
             py={2}
             px={[1, 3]}
           >
-            <Container sx={{ maxWidth: '48rem' }}>
+            <Container sx={{ maxWidth: '48rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <Heading
                 sx={{
                   fontSize: ['42px', '54px', '72px'],
@@ -172,7 +154,8 @@ export default function Donate({ sprig }) {
                 sx={{
                   fontSize: ['22px', '23px', '28px'],
                   maxWidth: '40rem',
-                  color: 'white'
+                  color: 'white',
+                  textAlign: 'center',
                 }}
               >
                 Contribute today to empower the next generation. Help start a
@@ -183,7 +166,7 @@ export default function Donate({ sprig }) {
                 my={3}
                 sx={{ width: ['100%', 'auto'] }}
                 as="a"
-                href="https://hcb.hackclub.com/donations/start/hq"
+                {...({href: "https://hcb.hackclub.com/donations/start/hq"} as any)}
               >
                 Donate
                 <Text sx={{ display: ['none', 'inline-block'], ml: 2 }}>
@@ -192,7 +175,6 @@ export default function Donate({ sprig }) {
               </Button>
               <Text
                 sx={{ mt: 1, display: 'block', opacity: 0.8 }}
-                fontSize={2}
                 color="white"
               >
                 Your contribution is tax-deductible.
@@ -203,8 +185,8 @@ export default function Donate({ sprig }) {
           </Box>
         </Box>
       </Header>
-      <Flex justify="center" bg="snow" color="black">
-        <Container width={1} py={[4, 5]} sx={{ textAlign: ['left', 'center'] }}>
+      <Flex bg="snow" color="black">
+        <Container py={[4, 5]} sx={{ textAlign: ['left', 'center'] }}>
           <Heading
             px={3}
             mt={[3, 4]}
@@ -225,7 +207,7 @@ export default function Donate({ sprig }) {
           </Heading>
         </Container>
       </Flex>
-      <Container {...contentContainer}>
+      <Container {...({...contentContainer} as any)}>
         <Row my={5} {...content}>
           <Heading {...subhline} mb={4} sx={{ fontSize: [4, 5] }}>
             These fabulous companies donate their products to us.
@@ -234,8 +216,7 @@ export default function Donate({ sprig }) {
         </Row>
         <Button
           as="a"
-          href="/philanthropy"
-          target="_blank"
+          {...({href: "/philanthropy", target: "_blank"} as any)}
           mb={4}
           sx={{
             fontSize: '1em !important',
