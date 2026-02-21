@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from 'theme-ui'
+import { Box, Heading, Text, ThemeUIStyleObject } from 'theme-ui'
 import Icon from './icon'
 
 type StageProps = {
@@ -7,6 +7,7 @@ type StageProps = {
   name: string
   desc: string
   children?: React.ReactNode
+  sx?: ThemeUIStyleObject
 }
 
 export default function Stage({

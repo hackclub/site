@@ -1,23 +1,32 @@
-import { Badge, Flex, Link, Image, Text, Box } from 'theme-ui'
+import { Badge, Image, Text } from 'theme-ui'
 import RelativeTime from 'react-relative-time'
+
+type GitHubProps = {
+  type: 'commit' | 'issue' | 'pull_request'
+  img: string
+  user: string
+  time: string
+  message: string
+  opacity?: number
+  url?: string
+}
 
 export default function GitHub({
   type,
   img,
   user,
-  text,
   time,
   message,
   opacity,
   url,
   ...props
-}) {
+}: GitHubProps) {
   return (
     <Badge
       variant="pill"
       bg="snow"
       as="a"
-      href={url || 'https://github.com/hackclub'}
+      {...({href: url || 'https://github.com/hackclub'} as any)}
       target="_blank"
       rel="noopener"
       sx={{
@@ -27,7 +36,6 @@ export default function GitHub({
         zIndex: 4,
         px: '4px !important',
         py: '2px !important',
-        width: '100%',
         display: 'flex',
         alignItems: 'center',
         gap: 2,
@@ -47,7 +55,6 @@ export default function GitHub({
         sx={{
           mr: 2,
           textOverflow: 'ellipsis',
-          display: 'inline-block',
           overflow: 'hidden',
           whiteSpace: 'nowrap',
           flexShrink: 0,

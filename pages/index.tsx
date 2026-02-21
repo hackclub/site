@@ -38,9 +38,7 @@ import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
-import Onboard from '../components/index/cards/onboard'
 import Blueprint from '../components/index/cards/blueprint'
-import CampfireFlagship from '../components/index/cards/campfire-flagship'
 import Milkyway from '../components/index/cards/milkyway'
 import Flavortown from '../components/index/cards/flavortown'
 import Scraps from '../components/index/cards/scraps'
@@ -99,36 +97,36 @@ function getActiveAnnouncements() {
   return ANNOUNCEMENTS.filter(a => a.expiresAt > now)
 }
 
+declare global {
+  interface Window {
+    kc: string
+    paper: string
+  }
+}
+
 function Page({
   hackathonsData,
   bankData,
   slackData,
   gitHubData,
-  gitHubDataLength,
   consoleCount,
   stars,
-  // githubData2,
-  dataPieces,
   game,
-  gameTitle,
   events,
   carouselCards,
   blueprintData,
-  context,
   ctaCards
 }) {
   let [gameImage, setGameImage] = useState('')
   let [gameImage1, setGameImage1] = useState('')
   let [reveal, setReveal] = useState(false)
   const [hover, setHover] = useState(true)
-  let [github, setGithub] = useState(0)
   let [slackKey, setSlackKey] = useState(0)
-  let [key, setKey] = useState(0)
   const [announcement, setAnnouncement] = useState(null)
 
   const { asPath } = useRouter()
 
-  let jsConfetti = useRef()
+  let jsConfetti = useRef(null)
 
   useEffect(() => {
     jsConfetti.current = new JSConfetti()
@@ -199,7 +197,7 @@ function Page({
   }, [count, images.length])
 
   // Spotlight effect
-  const spotlightRef = useRef()
+  const spotlightRef = useRef(null)
   useEffect(() => {
     const handler = event => {
       var rect = document.getElementById('spotlight').getBoundingClientRect()
@@ -226,9 +224,8 @@ function Page({
       />
       <Head>
         <meta
-          property="og:logo"
+          property="og:image"
           content="https://assets.hackclub.com/icon-rounded.png"
-          size="512x512"
         />
       </Head>
       <ForceTheme theme="light" />
@@ -267,7 +264,6 @@ function Page({
           <BGImg
             src={OuternetImgFile}
             alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
-            priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
           {announcement && (
@@ -348,7 +344,7 @@ function Page({
                   </Text>
                   teen hackers
                 </Text>
-                <br sx={{ display: ['inline', 'none', 'none'] }} /> from around
+                <Box as="br" sx={{ display: ['inline', 'none', 'none'] }} /> from around
                 the world who code together
               </Text>
               <Box
@@ -433,7 +429,7 @@ function Page({
                 <Button
                   variant="ctaLg"
                   as="a"
-                  href="/slack"
+                  {...({href: "/slack"} as any)}
                   mt={[3, 0, 0]}
                   mr={3}
                   sx={{ transformOrigin: 'center left' }}
@@ -471,14 +467,13 @@ function Page({
                   py: 2,
                   width: 'fit-content',
                   textTransform: 'none',
-                  fontWeight: '400',
                   fontSize: [1, '16px', '18px'],
                   backdropFilter: 'blur(2px)',
                   fontWeight: 'normal',
                   zIndex: 999
                 }}
                 as="a"
-                href="#spotlight"
+                {...({href: "#spotlight"} as any)}
               >
                 <Icon
                   glyph={'rep'}
@@ -500,7 +495,7 @@ function Page({
           >
             <Badge
               as="a"
-              href="https://outernet.hackclub.com/"
+              {...({href: "https://outernet.hackclub.com/"} as any)}
               target="_blank"
               rel="noopener"
               variant="pill"
@@ -544,7 +539,7 @@ function Page({
                   mx: 0,
                   whiteSpace: ['wrap', 'nowrap', 'nowrap'],
                   color: 'white',
-                  background: theme => theme.util.gx('red', 'orange'),
+                  background: (t: any)=> t.util.gx('red', 'orange'),
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent'
                 }}
@@ -730,9 +725,9 @@ function Page({
                     1
                   </Text>
                   <Text as="p" variant="subtitle">
-                    <strong sx={{ mb: 1 }}>
+                    <Text as="strong" sx={{ mb: 1 }}>
                       Connect with other teenage coders
-                    </strong>
+                    </Text>
                     Have a coding question? Looking for project feedback? You'll
                     find hundreds of fabulous people to talk to in our global{' '}
                     <Link href="/slack" target="_blank" rel="noopener">
@@ -764,9 +759,9 @@ function Page({
                       mt: 0
                     }}
                   >
-                    <strong sx={{ mb: 1 }}>
+                    <Text as="strong" sx={{ mb: 1 }}>
                       Build open source learning tools
-                    </strong>
+                    </Text>
                     We build large open source projects together (
                     <Link href="https://github.com/hackclub" target="_blank">
                       3k+&nbsp;PRs a year
@@ -792,7 +787,9 @@ function Page({
                     3
                   </Text>
                   <Text as="p" variant="subtitle">
-                    <strong sx={{ mb: 1 }}>Gather IRL with other makers</strong>
+                    <Text as="strong" sx={{ mb: 1 }}>
+                      Gather IRL with other makers
+                    </Text>
                     Meet other Hack&nbsp;Clubbers in your community to build
                     together at one of the 1000+{' '}
                     <Link href="/clubs" target="_blank" rel="noopener">
@@ -995,22 +992,20 @@ function Page({
                 )}
               </Flex>
               <Sprig
-                delay={100}
                 stars={stars.sprig.stargazerCount}
                 game={game}
                 gameImage={gameImage}
                 gameImage1={gameImage1}
               />
-              <Haxidraw stars={stars.blot.stargazerCount} delay={100} />
-              <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
+              <Haxidraw stars={stars.blot.stargazerCount} />
+              <Sinerider stars={stars.sinerider.stargazerCount} />
               <Box as="section" id="sprig">
                 <SprigConsole
-                  delay={300}
                   stars={stars.sprig.stargazerCount}
                   consoleCount={consoleCount}
                 />
               </Box>
-              <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
+              <Workshops stars={stars.hackclub.stargazerCount} />
             </Box>
           </Box>
           <Box
@@ -1021,9 +1016,6 @@ function Page({
               backgroundSize: '40px 40px',
               backgroundRepeat: 'repeat',
               backgroundPosition: '10% 10%'
-              // '&:hover': {
-              //   backgroundImage: `url('https://icons.hackclub.com/api/icons/0x000000/glyph:rep.svg')`
-              // }
             }}
           >
             <Box
@@ -1086,7 +1078,6 @@ function Page({
               </Box>
               <Clubs />
               <Hackathons
-                delay={400}
                 data={hackathonsData}
                 stars={stars.hackathons.stargazerCount}
               />
@@ -1129,7 +1120,7 @@ function Page({
                     borderRadius: 'default',
                     ml: 0,
                     whiteSpace: ['wrap', 'nowrap'],
-                    background: theme => theme.util.gx('red', 'orange'),
+                    background: (t: any) => t.util.gx('red', 'orange'),
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent'
                   }}
@@ -1159,7 +1150,7 @@ function Page({
             >
               <Card
                 as="a"
-                href="/slack"
+                {...({href: "/slack"} as any)}
                 target="_blank"
                 rel="noopener"
                 variant="interactive"
@@ -1230,7 +1221,7 @@ function Page({
                   }
                 }}
                 as="a"
-                href="https://github.com/hackclub"
+                {...({href: "https://github.com/hackclub"} as any)}
                 variant="interactive"
                 target="_blank"
                 rel="noopener"
@@ -1284,7 +1275,7 @@ function Page({
                   }
                 }}
                 as="a"
-                href="/clubs"
+                {...({href: "/clubs"} as any)}
                 variant="interactive"
                 target="_blank"
                 rel="noopener"
@@ -1346,9 +1337,9 @@ function Page({
                     height="315"
                     src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
                     title="YouTube video player"
-                    frameborder="0"
+                    frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
+                    allowFullScreen
                   ></iframe>
                 </Box>
               </Box>
@@ -1366,9 +1357,9 @@ function Page({
                   height="315"
                   src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
                   title="YouTube video player"
-                  frameborder="0"
+                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
               </Box>
               <Box
@@ -1385,9 +1376,9 @@ function Page({
                   height="315"
                   src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
                   title="YouTube video player"
-                  frameborder="0"
+                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
               </Box>
             </>
@@ -1487,7 +1478,10 @@ export async function getStaticProps() {
   } catch (error) {
     hackathonsData = [] // or some default value if an error occurs
   }
-  hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start))
+  hackathonsData.sort(
+    (a: { start: string }, b: { start: string }) =>
+      new Date(a.start).getTime() - new Date(b.start).getTime()
+  )
 
   let events = []
   try {

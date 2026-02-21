@@ -10,7 +10,14 @@ import Footer from '../../components/footer'
 import Icon from '../../components/icon'
 import Tilt from '../../components/tilt'
 
-function Bullet({ glow = true, icon, href, children }) {
+type BulletProps = {
+  glow?: boolean
+  icon: string
+  href?: string
+  children: React.ReactNode
+}
+
+function Bullet({ glow = true, icon, href, children }: BulletProps) {
   let effectColours = [
     '#ec3750',
     '#ff8c37',
@@ -73,7 +80,7 @@ function Bullet({ glow = true, icon, href, children }) {
       <Flex
         as="a"
         {...(href && { href })}
-        target="_blank"
+        {...({ target: '_blank' } as any)}
         sx={{
           display: 'flex',
           alignItems: 'center',
@@ -148,8 +155,8 @@ function Section({ id, children }) {
 }
 
 export default function FiscalSponsorship() {
-  const gridRef = useRef()
-  const glowRef = useRef()
+  const gridRef = useRef(null)
+  const glowRef = useRef(null)
 
   const scrollPos = useRef(0)
   const mousePos = useRef([0, 0])
