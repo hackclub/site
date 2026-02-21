@@ -32,5 +32,18 @@
         "buttonText": "JOIN NOW",
         "buttonColor": "#9DC9F7",
         "link": "https://sleepover.hackclub.com/?utm_source=site_cta"
+    },
+    {
+        "title": "Jackpot",
+        "logo": "https://cdn.hackclub.com/019c7b80-e644-720b-a0ba-d1e18e45352a/title__3_.png",
+        "background": "#5F1212",
+        "logoScale": 1,
+        "stickerImage": "https://cdn.hackclub.com/019c7b7a-1faf-7420-9657-6e7e4323258d/alice_face.png",
+        "stickerImageScale": 0.7,
+        "description": "Code for 65 hours and you’re invited to Las Vegas! <br> (Or enjoy prizes that YOU choose!)",
+        "descriptionColor": "white",
+        "buttonText": "JOIN NOW",
+        "buttonColor": "#FAD10B",
+        "link": "https://jackpot.hackclub.com"
     }
 ]

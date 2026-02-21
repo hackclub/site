@@ -40,6 +40,7 @@ export default function CTAS({ cards }) {
               backgroundSize,
               gridBackground,
               stickerImage,
+              stickerImageScale,
 
               description,
               descriptionColor,
@@ -86,7 +87,14 @@ export default function CTAS({ cards }) {
                       position: 'absolute',
                       bottom: '-20px',
                       right: '-20px',
-                      width: ['120px', '140px', '160px'],
+                      width:
+                        stickerImageScale != null
+                          ? [
+                              `${120 * stickerImageScale}px`,
+                              `${140 * stickerImageScale}px`,
+                              `${160 * stickerImageScale}px`
+                            ]
+                          : ['120px', '140px', '160px'],
                       height: 'auto',
                       zIndex: 10,
                       transform: 'rotate(15deg)',
