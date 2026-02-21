@@ -240,7 +240,7 @@ function DesktopMode({ billboardBottom }) {
                 }}
               >
                 <img
-                  src="/hc-cdn/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
+                  src="https://cdn.hackclub.com/019c76b6-34e5-74ca-9f18-07767e5a17c8/CdM8iQ.png"
                   alt="Button background"
                   style={{
                     width: '100%',
@@ -517,7 +517,7 @@ function TabletMode() {
                 }}
               >
                 <img
-                  src="/hc-cdn/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
+                  src="https://cdn.hackclub.com/019c76b6-34e5-74ca-9f18-07767e5a17c8/CdM8iQ.png"
                   alt="Button background"
                   style={{
                     width: '100%',
@@ -798,7 +798,7 @@ function MobileMode() {
                 }}
               >
                 <img
-                  src="/hc-cdn/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
+                  src="https://cdn.hackclub.com/019c76b6-34e5-74ca-9f18-07767e5a17c8/CdM8iQ.png"
                   alt="Button background"
                   style={{
                     width: '100%',

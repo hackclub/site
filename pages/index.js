@@ -43,9 +43,11 @@ import Blueprint from '../components/index/cards/blueprint'
 import CampfireFlagship from '../components/index/cards/campfire-flagship'
 import Milkyway from '../components/index/cards/milkyway'
 import Flavortown from '../components/index/cards/flavortown'
-import Flavorless from '../components/index/cards/flavorless'
 import Scraps from '../components/index/cards/scraps'
+import HackClubTheGame from '../components/index/cards/hctg'
 import Aces from '../components/index/cards/aces'
+import Sleepover from '../components/index/cards/sleepover'
+import Stasis from '../components/index/cards/stasis'
 import CTAS from '../components/index/ctas'
 /** @jsxImportSource theme-ui */
 
@@ -56,7 +58,7 @@ const ANNOUNCEMENTS = [
     copy: 'Get up to $400 to make a hardware project!',
     caption: 'Design a project and get a grant to make it real with Blueprint, Hack Club\'s largest hardware program',
     href: 'https://blueprint.hackclub.com/?utm_source=site-announcement',
-    imgSrc: '/hc-cdn/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png'
+    imgSrc: 'https://cdn.hackclub.com/019c76b8-9716-7a35-bf79-929ad4d6d873/Y86cSA.png'
   },
   {
     id: 'campfire-flagship',
@@ -64,7 +66,23 @@ const ANNOUNCEMENTS = [
     copy: 'Code with your favorite YouTubers at a Game Jam!',
     caption: 'Spend up to 60 hours building games, earn a ticket to attend. Join us in LA with YouTubers like Michael Reeves this February!',
     href: 'https://flagship.hackclub.com?utm_source=site_announcement',
-    imgSrc: '/hc-cdn/533c527e1ab6a77f_smore.png'
+    imgSrc: 'https://cdn.hackclub.com/019c76b6-18f6-7d5f-8c22-3cbedc1b5d6e/gQNlOw.png'
+  },
+  {
+    id: 'sleepover',
+    expiresAt: new Date('2026-04-26'),
+    copy: 'Learn to code and fly to a Sleepover hackathon!',
+    caption: 'Spend 30 hours learning to code, earn prizes like plushies and iPads, and fly out to an all girls hackathon this April in Chicago!',
+    href: 'https://sleepover.hackclub.com/?utm_source=site-announcement',
+    imgSrc: 'https://cdn.hackclub.com/019c76b8-c704-724a-9bcb-f0f2acf7c839/2gOaRg.png'
+  },
+  {
+    id: 'stasis',
+    expiresAt: new Date('2026-05-26'),
+    copy: 'Build hardware projects and fly out to a hardware hackathon in Austin, TX ',
+    caption: 'Learn to design and build three hardware projects and fly out to Stasis, a hardware hackathon in Austin, TX this May!',
+    href: 'https://stasis.hackclub.com/?utm_source=site-announcement',
+    imgSrc: 'https://cdn.hackclub.com/019c76ba-6439-7c9e-ac28-813ad404e0b5/i8kaDQ.png'
   },
   {
     id: 'flavortown',
@@ -72,7 +90,7 @@ const ANNOUNCEMENTS = [
     copy: 'Build projects, earn cookies, get free tech!',
     caption: 'Make a website, game, or hardware project and exchange cookies for iPads, MacBooks, and more',
     href: 'https://flavortown.hackclub.com/?ref=site-announcement',
-    imgSrc: '/hc-cdn/0256e44f53eb79e4_logo-b28e0e8b.avif'
+    imgSrc: 'https://cdn.hackclub.com/019c76b5-b513-7f5a-8718-bea38d4abb80/DM6Ztg.avif'
   }
 ]
 
@@ -860,11 +878,12 @@ function Page({
               blueprintData={blueprintData}
               stars={stars.onboard.stargazerCount}
             />
-            <CampfireFlagship />
+            <Sleepover />
+            <Stasis />
             <Scraps />
+            <HackClubTheGame />
             <Milkyway />
             <Aces />
-            <Flavorless />
 
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>

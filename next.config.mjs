@@ -16,6 +16,7 @@ const nextConfig = {
       'assets.hackclub.com',
       'v5.airtableusercontent.com',
       'hcb.hackclub.com',
+      'cdn.hackclub.com',
       "hc-cdn.hel1.your-objectstorage.com",
       "cdn.prod.website-files.com"
     ],

@@ -77,18 +77,6 @@
     "avatar": "https://i.ibb.co/DPKBJt0C/aishaani.png"
   },
   {
-    "name": "Amber",
-    "department": "Events",
-    "role": "Virtual Events Infra",
-    "acknowledged": false,
-    "gapyear": true,
-    "bio": "Amber is a 17 year old student from Leicester (UK) who loves programming Slack apps and random scripts. She also has a deep passion for music and you'll rarely find her without headphones on. Since joining Hack Club, she's reviewed thousands of hours for Arcade, supported thousands of hackers in Arcade and around Slack, helped moderate the community, built tools for the community and welcomed new members all whilst drowning in coursework. Currently she's helping with moderation and events and also leads the Welcome team and, helping new members get settled in and feel at home whilst working on other Hack Club projects on the side.",
-    "slackId": "U054VC2KM9P",
-    "email": "amber",
-    "website": "https://transcental.dev",
-    "avatar": "https://cachet.dunkirk.sh/users/U054VC2KM9P/r"
-  },
-  {
     "name": "Charlotte",
     "department": "Events",
     "role": "Virtual Event Organizer",
@@ -119,7 +107,7 @@
     "slackId": "U040N4ESCEL",
     "email": "lucas",
     "website": "https://devlucas.page",
-    "avatar": "/hc-cdn/a0da86cdb050733a_img_7387.jpg"
+    "avatar": "https://cdn.hackclub.com/019c76b7-bf18-7905-bfb6-50126c71e3ff/3WGdxg.jpg"
   },
   {
     "name": "Victorio",
@@ -493,18 +481,6 @@
     "avatar": "https://cachet.dunkirk.sh/users/U06QK6AG3RD/r"
   },
   {
-    "name": "Thomas Stubblefield",
-    "staff": true,
-    "department": "HQ",
-    "role": "Capability Changing Events Lead",
-    "acknowledged": false,
-    "bio": "Thomas is a Hack Clubber from South Carolina who led a Hack Club at his high school and is now building software to make the experience of being a part of and leading a club better. He currently leads the clubs program. He loves to build side projects, make tea, and hike. Thomas lives his life by three sayings: time will tell, in life we are always learning, and bum bum bummm (a friendly melody he hums daily).",
-    "slackId": "U041FQB8VK2",
-    "email": "thomas",
-    "website": "",
-    "avatar": "https://i.ibb.co/dJkVwt7m/2026-01-27-0od-Kleki.jpg"
-  },
-  {
     "name": "Rachel Albert",
     "staff": true,
     "department": "HQ",
@@ -553,6 +529,18 @@
     "avatar": "https://raw.githubusercontent.com/qcoral/assets/refs/heads/main/pfp-irl.jpeg"
   },
   {
+    "name": "Nathan Alspaugh",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Nathan is an 18 year old Hack Clubber from Texas. He's currently gap-yearing for Hack Club and launching cool programs. He's an avid Kerbal Space Program player, a future aerospace engineer, and enjoys tinkering with (and sometimes breaking) hardware.",
+    "slackId": "U05EZRFKRV4",
+    "email": "nathan@hackclub.com",
+    "website": "https://notaroomba.dev",
+    "avatar": "https://i.ibb.co/yF8tbz9G/1728316229074.jpg",
+    "gapyear": true
+  },
+  {
     "name": "Alex Van Doren",
     "department": "HQ",
     "role": "Engineering",
@@ -563,29 +551,6 @@
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U0823F39GV8/r",
     "gapyear": true
-  },
-  {
-    "name": "Dhamari Trice-Hanson",
-    "department": "HQ",
-    "gapyear": true,
-    "role": "Engineering",
-    "acknowledged": false,
-    "slackId": "U08RWM5U4L9",
-    "email": "dev",
-    "website": "",
-    "avatar": "https://i.ibb.co/QvzYRZm4/Dhamari.png"
-  },
-  {
-    "name": "Amber",
-    "department": "HQ",
-    "role": "Engineering + Community",
-    "acknowledged": false,
-    "gapyear": true,
-    "bio": "Amber is a 17 year old student from Leicester (UK) who loves programming Slack apps and random scripts. She also has a deep passion for music and you'll rarely find her without headphones on. Since joining Hack Club, she's reviewed thousands of hours for Arcade, supported thousands of hackers in Arcade and around Slack, helped moderate the community, built tools for the community and welcomed new members all whilst drowning in coursework. Currently she's helping with moderation and events and also leads the Welcome team and, helping new members get settled in and feel at home whilst working on other Hack Club projects on the side.",
-    "slackId": "U054VC2KM9P",
-    "email": "amber",
-    "website": "https://transcental.dev",
-    "avatar": "https://cachet.dunkirk.sh/users/U054VC2KM9P/r"
   },
   {
     "name": "Angad Behl",
@@ -678,6 +643,19 @@
     "website": "",
     "avatar": "https://i.ibb.co/vxNKbCpx/2026-01-27-0or-Kleki.jpg",
     "gapyear": true
+  },
+    {
+    "name": "Dhamari Trice-Hanson",
+    "department": "HQ",
+    "gapyear": true,
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Dhamari is passionate about running programs surrounding music and entertainment. Coming from Detroit, he got his start in coding through Google's Code Next Detroit Lab, training 5-7 hours a week to get to where he is today.",
+    "bioHackFoundation": "",
+    "slackId": "U08RWM5U4L9",
+    "email": "dhamari",
+    "website": "",
+    "avatar": "https://i.ibb.co/QvzYRZm4/Dhamari.png"
   },
   {
     "name": "Estella Gu",
@@ -802,18 +780,6 @@
     "email": "josias",
     "website": "",
     "avatar": "https://i.ibb.co/F459SPMZ/josias.png"
-  },
-  {
-    "name": "Kartikey Singh Chauhan",
-    "department": "HQ",
-    "role": "Engineering & Community",
-    "acknowledged": false,
-    "gapyear": true,
-    "bio": "Kartikey is a 17 year old Hack Clubber from Lucknow, India.",
-    "slackId": "U05F4B48GBF",
-    "email": "kartikey",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U05F4B48GBF/r"
   },
   {
     "name": "Lynn Beato",
@@ -1045,18 +1011,6 @@
     "email": "",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U082PAFDDS5/r"
-  },
-  {
-    "name": "Kartikey Singh Chauhan",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
-    "acknowledged": false,
-    "gapyear": true,
-    "bio": "Kartikey is a 17 year old Hack Clubber from Lucknow, India.",
-    "slackId": "U05F4B48GBF",
-    "email": "kartikey",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U05F4B48GBF/r"
   },
   {
     "name": "Jeremy",

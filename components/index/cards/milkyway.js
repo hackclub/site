@@ -1,7 +1,6 @@
 import CardModel from './card-model'
 import { Box, Text, Image } from 'theme-ui'
 import Buttons from './button'
-import Balancer from 'react-wrap-balancer'
 
 /** @jsxImportSource theme-ui */
 
@@ -25,7 +24,7 @@ export default function Milkyway() {
         }}
       >
         <Image
-          src="/hc-cdn/777b6ad2be99eedaa758bc5d786d357968a209d3_overglade_ticket.png"
+          src="https://cdn.hackclub.com/019c76b9-55db-76b7-9280-0042b30499fd/9D-fgQ.png"
           alt="Overglade ticket"
           sx={{ width: '100%', height: 'auto', display: 'block' }}
         />
@@ -41,7 +40,7 @@ export default function Milkyway() {
           height: '358.2px',
           overflow: 'hidden',
           textAlign: 'center',
-          backgroundImage: "url(/hc-cdn/5367f6d369ba4096754fa44f532565db9d352a68_image.png)",
+          backgroundImage: "url(https://cdn.hackclub.com/019c76ba-4bf9-7fa7-ad67-86c4e0396b12/3ubjSQ.png)",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderRadius: 'extra'
@@ -65,7 +64,7 @@ export default function Milkyway() {
         aria-hidden={false}
       >
         <Image
-          src="/hc-cdn/498fb748a77a87981b37fe71774f622357279bfd_just_text__1_.png"
+          src="https://cdn.hackclub.com/019c76b5-995c-7b53-b2dc-04158ab5f7e7/edRHsw.png"
           alt="Milkyway badge"
           sx={{
             width: '100%',

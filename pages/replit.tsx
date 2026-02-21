@@ -207,7 +207,7 @@ const ReplitPage = () => {
         </Text>
 
         <Image
-          src="/hc-cdn/19a2da199dc4ea5b55eee1f69ce814ca4a7c3b01_screenshot_2025-04-22_at_1.38.22_pm.png"
+          src="https://cdn.hackclub.com/019c76b5-fd27-75f2-8dcf-747ac81f9d45/D2mv3w.png"
           alt="download repl as zip instructions"
           sx={{
             width: '50%',
