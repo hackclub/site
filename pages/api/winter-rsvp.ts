@@ -1,3 +1,4 @@
+import type { NextApiRequest, NextApiResponse } from 'next'
 import AirtablePlus from 'airtable-plus'
 
 const airtable = new AirtablePlus({
@@ -6,7 +7,7 @@ const airtable = new AirtablePlus({
   tableName: 'rsvp'
 })
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const rsvp = await airtable.create({
       Name: req.body.Name,
@@ -25,7 +26,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json'
       }
     })
-      .then(res => res.status(200).json({ success: true }))
+      .then(() => res.status(200).json({ success: true }))
       .catch(error => {
         console.error(error)
         res.json({ status: 'Something went wrong', error })

@@ -1,3 +1,5 @@
+import { NextApiRequest, NextApiResponse } from 'next'
+
 export async function fetchBlueprint() {
   try {
     const response = await fetch('https://blueprint.hackclub.com/api/site')
@@ -13,6 +15,9 @@ export async function fetchBlueprint() {
   }
 }
 
-export default async function Blueprint(req, res) {
+export default async function Blueprint(
+  _req: NextApiRequest,
+  res: NextApiResponse
+) {
   res.status(200).json(await fetchBlueprint())
 }

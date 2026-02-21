@@ -1,3 +1,4 @@
+import { NextApiRequest, NextApiResponse } from 'next/dist/shared/lib/utils'
 import { normalizeGitHubCommitUrl } from '../../lib/helpers'
 
 const isRelevantEventType = type =>
@@ -56,7 +57,7 @@ export async function fetchGitHub() {
   }
 }
 
-export default async function github(req, res) {
-  const git = await fetchGitHub(req, res)
+export default async function github(_req: NextApiRequest, res: NextApiResponse) {
+  const git = await fetchGitHub()
   res.json(git)
 }

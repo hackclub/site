@@ -1,18 +1,20 @@
+import { NextApiRequest, NextApiResponse } from "next"
+
+function check(val: any) {
+  return val === 'Pending' || val === 'Approved'
+}
+
 export async function getConsoles() {
   try {
     const response = await fetch(
       'https://airbridge.hackclub.com/v0.1/Sprig%20Waitlist/Requests'
     )
-    
+
     if (!response.ok) {
       return 100
     }
 
     const data = await response.json()
-
-    function check(val) {
-      return val === 'Pending' || val === 'Approved'
-    }
 
     const consoleCount = Array.isArray(data)
       ? data.filter(console => check(console.fields.Status)).length
@@ -25,7 +27,7 @@ export async function getConsoles() {
   }
 }
 
-export default async function SprigConsoles(req, res) {
+export default async function SprigConsoles(_req: NextApiRequest, res: NextApiResponse) {
   let consoleCount = 100
   try {
     consoleCount = await getConsoles()

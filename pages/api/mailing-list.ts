@@ -1,4 +1,6 @@
-export default async function submit(req, res) {
+import { NextApiRequest, NextApiResponse } from "next"
+
+export default async function submit(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const data = req.body
 

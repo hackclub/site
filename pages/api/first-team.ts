@@ -1,10 +1,11 @@
 import axios from 'axios'
+import { NextApiRequest, NextApiResponse } from 'next'
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const { data } = await axios(
       `https://thebluealliance.com/api/v3/team/frc${encodeURIComponent(
-        req.query.teamNumber
+        Array.isArray(req.query.teamNumber) ? req.query.teamNumber[0] : req.query.teamNumber
       )}`,
       {
         headers: {

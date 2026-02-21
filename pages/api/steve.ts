@@ -1,11 +1,13 @@
-const steveApiHandler = async (req, res) => {
+import type { NextApiRequest, NextApiResponse } from 'next'
+
+const steveApiHandler = async (_req: NextApiRequest, res: NextApiResponse) => {
   const calendarId =
     'c_e7c63a427761b0f300ede97f432ba4af24033daad26be86da0551b40b7968f00@group.calendar.google.com'
 
   //This API key is for google calendar and has only read access to Steve
   const apiKey = 'AIzaSyD_8dEnTDle3WmaoOTvEW6L1GW540FU_wg' 
 
-  let allBusyDays = new Set()
+  let allBusyDays = new Set<string>()
 
   try {
     const currentDateTime = new Date()
@@ -61,7 +63,7 @@ const steveApiHandler = async (req, res) => {
       }
     }
 
-    return res.status(200).json([...allBusyDays])
+    return res.status(200).json(Array.from(allBusyDays))
   } catch (error) {
     return res.status(500).json({ error: 'Failed to fetch busy times.' })
   }

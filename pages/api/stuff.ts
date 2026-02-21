@@ -1,6 +1,6 @@
-import FormData from 'form-data'
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-export default async function stuff(req, res) {
+export default async function stuff(_req: NextApiRequest, res: NextApiResponse) {
   const formData = new FormData()
 
   formData.append(
@@ -21,5 +21,9 @@ export default async function stuff(req, res) {
     }
   ).then(r => r.json())
 
-  res.json(data.stats.sort((a, b) => a.ds - b.ds).reverse()[0])
+  res.json(
+    data.stats
+      .sort((a: { ds: number }, b: { ds: number }) => a.ds - b.ds)
+      .reverse()[0]
+  )
 }

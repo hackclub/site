@@ -1,4 +1,5 @@
 import AirtablePlus from 'airtable-plus'
+import { NextApiRequest, NextApiResponse } from 'next/dist/shared/lib/utils'
 
 const sgMail = require('@sendgrid/mail')
 
@@ -27,7 +28,7 @@ async function postData(url = '', data = {}, headers = {}) {
   return response.text()
 }
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   switch (req.method) {
     case 'OPTIONS':
       return res.status(200).send('YIPPE YAY. YOU HAVE CLEARANCE TO PROCEED.')
@@ -66,7 +67,10 @@ export default async function handler(req, res) {
 
   const secrets = (process.env.NAUGHTY || '').split(',')
 
-  if (secrets.includes(req.headers['x-forwarded-for'])) {
+  const forwardedFor = Array.isArray(req.headers['x-forwarded-for'])
+    ? req.headers['x-forwarded-for'][0]
+    : req.headers['x-forwarded-for'];
+  if (secrets.includes(forwardedFor)) {
     return res.json({
       status: 'success',
       message: 'You’ve been invited to Slack!'

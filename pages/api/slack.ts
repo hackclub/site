@@ -1,4 +1,5 @@
 import FormData from 'form-data'
+import { NextApiRequest, NextApiResponse } from 'next'
 
 export async function Slack() {
   if (!process.env.SLACK_API_TOKEN)
@@ -29,6 +30,6 @@ export async function Slack() {
   }
 }
 
-export default async function Slacky(req, res) {
+export default async function Slacky(_req: NextApiRequest, res: NextApiResponse) {
   res.status(200).json(await Slack())
 }

@@ -1,4 +1,5 @@
 import AirtablePlus from 'airtable-plus'
+import { NextApiRequest, NextApiResponse } from 'next'
 
 const peopleTable = new AirtablePlus({
   apiKey: process.env.AIRTABLE_WRITE_API_KEY,
@@ -11,7 +12,7 @@ const addressesTable = new AirtablePlus({
   tableName: 'Addresses'
 })
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const data = req.body
 

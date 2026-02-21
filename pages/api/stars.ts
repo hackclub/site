@@ -1,4 +1,17 @@
 import { graphql } from '@octokit/graphql'
+import { NextApiRequest, NextApiResponse } from 'next/dist/shared/lib/utils';
+
+interface GitHubStarsResponse {
+  organization: {
+    blot: { stargazerCount: number };
+    sinerider: { stargazerCount: number };
+    sprig: { stargazerCount: number };
+    hackclub: { stargazerCount: number };
+    hackathons: { stargazerCount: number };
+    sprigHardware: { stargazerCount: number };
+    onboard: { stargazerCount: number };
+  }
+}
 
 export async function fetchStars() {
   const emptyStats = {
@@ -19,7 +32,7 @@ export async function fetchStars() {
   }
 
   try {
-    const { organization } = await graphql(
+    const { organization } = await graphql<GitHubStarsResponse>(
       `
         {
           organization(login: "hackclub") {
@@ -60,6 +73,6 @@ export async function fetchStars() {
   }
 }
 
-export default async function Stars(req, res) {
+export default async function Stars(_req: NextApiRequest, res: NextApiResponse) {
   res.status(200).json(await fetchStars())
 }

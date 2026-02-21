@@ -1,3 +1,5 @@
+import { NextApiRequest, NextApiResponse } from "next"
+
 export async function getGames() {
   try {
 
@@ -12,7 +14,7 @@ export async function getGames() {
   }
 }
 
-export default async function Games(req, res) {
+export default async function Games(_req: NextApiRequest, res: NextApiResponse) {
   const games = await getGames()
   res.json(games)
 }

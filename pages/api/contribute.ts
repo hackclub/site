@@ -1,14 +1,19 @@
 import { graphql } from '@octokit/graphql'
 import { createAppAuth } from '@octokit/auth-app'
+import { NextApiRequest, NextApiResponse } from 'next'
+
+interface OrgQueryResponse {
+  organization: Record<string, any>
+}
 
 const auth = createAppAuth({
-  appId: process.env.GITHUB_APP_ID,
-  privateKey: process.env.GITHUB_PRIVATE_KEY,
-  installationId: process.env.GITHUB_INSTALLATION_ID
+  appId: process.env.GITHUB_APP_ID as string,
+  privateKey: process.env.GITHUB_PRIVATE_KEY as string,
+  installationId: process.env.GITHUB_INSTALLATION_ID as string
 })
 
-export default async function handler(req, res) {
-  const { organization } = await graphql(
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const { organization } = await graphql<OrgQueryResponse>(
     !req.query.admin
       ? `
     query orgQuery($login: String!) {
