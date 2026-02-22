@@ -1,5 +1,5 @@
 import { Card, Badge as ThemeBadge, Box, Heading, Text, Image } from 'theme-ui'
-import { Organization } from '../../../pages/fiscal-sponsorship/climate'
+import { Organization } from '../../../lib/organization'
 import Tilt from '../../tilt'
 import Icon from '@hackclub/icons'
 import Tooltip from '../tooltip'
@@ -42,16 +42,10 @@ export const Badge = ({ badge }) =>
     </ThemeBadge>
   )
 
-const TagRow = ({ category, type, badgeNames }) => {
-  return (
-    <>
-      {badgeNames
-        .map(name => badges[name])
-        .map((Badge, i) => (
-          <Badge key={i} />
-        ))}
-    </>
-  )
+type OrganizationCardProps = {
+  organization: Organization
+  openModal: (organization: Organization) => void
+  badges: any[]
 }
 
 /**
@@ -65,9 +59,8 @@ const TagRow = ({ category, type, badgeNames }) => {
 export const OrganizationCard = ({
   openModal,
   badges,
-  organization,
-  showTags = false
-}) => (
+  organization
+}: OrganizationCardProps) => (
   <Tilt>
     <Card
       onClick={() => openModal(organization)}
@@ -112,7 +105,7 @@ export const OrganizationCard = ({
       >
         {badges.map((badge, i) => (
           <Tooltip.W key={i} text={badge.label} id={badge.id}>
-            <span class={`tooltipped-${badge.id}`}>
+            <span className={`tooltipped-${badge.id}`}>
               <Badge badge={badge} />
             </span>
           </Tooltip.W>

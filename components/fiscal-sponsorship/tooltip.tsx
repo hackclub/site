@@ -1,12 +1,5 @@
 import React from 'react'
 
-const addClassNameToChildren = (children, className) =>
-  React.Children.map(children, child =>
-    React.cloneElement(child, {
-      className: `${child.props.className || ''} ${className}`
-    })
-  )
-
 const tooltip = direction =>
   function Tooltip({ children, text, id }) {
     const escapedText = text.replace(/'/g, "\\'")
@@ -91,11 +84,18 @@ const tooltip = direction =>
     )
   }
 
-const Tooltip = tooltip()
-Tooltip.N = tooltip('n')
-Tooltip.S = tooltip('s')
-Tooltip.E = tooltip('e')
-Tooltip.W = tooltip('w')
+type TooltipComponent = React.FC<{ children: any; text: any; id: any }> & {
+  N: React.FC<{ children: any; text: any; id: any }>;
+  S: React.FC<{ children: any; text: any; id: any }>;
+  E: React.FC<{ children: any; text: any; id: any }>;
+  W: React.FC<{ children: any; text: any; id: any }>;
+};
+
+const Tooltip = tooltip('e') as TooltipComponent;
+Tooltip.N = tooltip('n');
+Tooltip.S = tooltip('s');
+Tooltip.E = tooltip('e');
+Tooltip.W = tooltip('w');
 
 export { Tooltip }
 export default Tooltip

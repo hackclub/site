@@ -5,7 +5,8 @@ import {
   Flex,
   Grid,
   Heading,
-  Input
+  Input,
+  Image
 } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
@@ -25,6 +26,7 @@ import NextLink from 'next/link'
 import { kebabCase, intersection } from 'lodash'
 import theme from '@hackclub/theme'
 import Tooltip from '../../../components/fiscal-sponsorship/tooltip'
+import { Organization } from '../../../lib/organization'
 
 const styles = `
   html {
@@ -40,11 +42,11 @@ export const badges = [
     color: 'purple',
     icon: 'explore',
     match: org => org.isTransparent
-  },
+  }
 ]
 
-badges.__proto__.forOrg = function (org) {
-  return this.filter(badge => badge.match?.(org))
+export function getBadgesForOrg(org: Organization): typeof badges {
+  return badges.filter(badge => badge.match?.(org))
 }
 
 export const tags = [
@@ -52,18 +54,18 @@ export const tags = [
     label: 'Climate',
     id: 'Climate',
     color: '#1eb36d',
-    match: org => true
+    match: (org: Organization) => true
   },
   {
     label: 'Nonprofit',
     id: 'Nonprofit',
     color: 'blue',
-    match: org => true
+    match: (org: Organization) => true
   }
 ]
 
-tags.__proto__.forOrg = function (org) {
-  return this.filter(tag => tag.match?.(org))
+export function getTagsForOrg(org: Organization): typeof tags {
+  return tags.filter(tag => tag.match?.(org))
 }
 
 export const regions = [
@@ -168,7 +170,6 @@ const FilterPanel = ({ filter, mobile }) => {
             borderColor: 'sunken',
             borderRadius: '4px',
             background: mobile ? 'snow' : 'none',
-            textDecoration: 'none',
             color: 'secondary',
             textDecoration: 'none',
             transition: 'color 0.2s',
@@ -192,7 +193,6 @@ const FilterPanel = ({ filter, mobile }) => {
           <Heading
             as="h4"
             sx={{
-              color: 'inherit',
               fontSize: 3,
               color:
                 currentSelections.length !== baseData.length
@@ -289,7 +289,12 @@ const FilterPanel = ({ filter, mobile }) => {
   )
 }
 
-const RegionPanel = ({ currentRegion, mobile }) => {
+type RegionPanelProps = {
+  currentRegion: (typeof regions)[number] | null
+  mobile?: boolean
+}
+
+const RegionPanel = ({ currentRegion, mobile }: RegionPanelProps) => {
   const [hiddenOnMobile, setHiddenOnMobile] = useState(mobile)
   return (
     <>
@@ -341,7 +346,6 @@ const RegionPanel = ({ currentRegion, mobile }) => {
               borderColor: 'sunken',
               borderRadius: '4px',
               background: mobile ? 'snow' : 'none',
-              textDecoration: 'none',
               color: 'secondary',
               textDecoration: 'none',
               transition: 'color 0.2s',
@@ -365,7 +369,6 @@ const RegionPanel = ({ currentRegion, mobile }) => {
             <Heading
               as="h4"
               sx={{
-                color: 'inherit',
                 fontSize: 3,
                 color: !currentRegion ? 'red' : 'black',
                 ':hover': {
@@ -434,7 +437,7 @@ const RegionPanel = ({ currentRegion, mobile }) => {
                     borderRadius: 6
                   }}
                 >
-                  <Icon glyph={item.icon} size={24} />
+                  <Icon glyph={item.icon as keyof typeof import('@hackclub/icons').glyphs} size={24} />
                 </Flex>
               )}
               <Heading as="h4" sx={{ color: 'inherit', fontSize: 3 }}>
@@ -448,13 +451,19 @@ const RegionPanel = ({ currentRegion, mobile }) => {
   )
 }
 
-const Filtering = ({ mobile, region, ...props }) => {
+type FilteringProps = {
+  mobile?: boolean
+  region: (typeof regions)[number] | null
+  [key: string]: any
+}
+
+const Filtering = ({ mobile, region, ...props }: FilteringProps) => {
   return (
     <>
       {Object.values(props).map((filter, i) => (
         <FilterPanel key={`filter-${i}`} filter={filter} mobile={mobile} />
       ))}
-      <RegionPanel currentRegion={region} />
+      <RegionPanel currentRegion={region} mobile={mobile} />
     </>
   )
 }
@@ -593,7 +602,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   }}
                 >
                   {modalOrganization.branding.logo && (
-                    <img
+                    <Image
                       alt={`${modalOrganization.name}'s logo`}
                       src={modalOrganization.branding.logo}
                       sx={{
@@ -634,7 +643,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   flexWrap: 'wrap'
                 }}
               >
-                {tags.forOrg(modalOrganization).map((tag, i) => (
+                {getTagsForOrg(modalOrganization).map((tag, i) => (
                   <ThemeBadge
                     key={i}
                     as="span"
@@ -653,12 +662,12 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   </ThemeBadge>
                 ))}
 
-                {badges.forOrg(modalOrganization).map((badge, i) => {
+                {getBadgesForOrg(modalOrganization).map((badge, i) => {
                   return (
                     <Tooltip.N key={i} text={badge.tooltip} id={badge.id}>
-                      <span class={`tooltipped-${badge.id}`}>
+                      <Box as="span" className={`tooltipped-${badge.id}`}>
                         <Badge badge={badge} />
-                      </span>
+                      </Box>
                     </Tooltip.N>
                   )
                 })}
@@ -730,7 +739,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                     {modalOrganization.links.website && (
                       <Flex
                         as="a"
-                        target="_blank"
+                        {...({ target: '_blank' } as any)}
                         href={modalOrganization.links.website}
                         sx={{
                           flexDirection: 'row',
@@ -754,7 +763,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                     {modalOrganization.links.financials && (
                       <Flex
                         as="a"
-                        target="_blank"
+                        {...({ target: '_blank' } as any)}
                         href={modalOrganization.links.financials}
                         sx={{
                           flexDirection: 'row',
@@ -839,10 +848,10 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                 <Button
                   as="a"
                   variant="lg"
-                  href={modalOrganization.links.donations}
+                  {...({ href: modalOrganization.links.donations } as any)}
                   target="_blank"
                   sx={{
-                    backgroundImage: t => t.util.gx('green', 'blue'),
+                    backgroundImage: (t: any) => t.util.gx('green', 'blue'),
                     width: ['100%', 'auto', 'auto']
                   }}
                 >
@@ -870,7 +879,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
         </Box>
       )}
       <Box as="main" key="main">
-        {!modalOrganization && <Nav light />}
+        {!modalOrganization && <Nav />}
         <ForceTheme theme="light" />
         <Box
           sx={{
@@ -951,12 +960,15 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                 </MSparkles>
               </Flex>
               Climate-focused nonprofits on{' '}
-              <span sx={{ whiteSpace: 'nowrap' }}>HCB</span>
+              <Box as="span" sx={{ whiteSpace: 'nowrap' }}>
+                HCB
+              </Box>
               {region ? (
                 <>
                   {' '}
                   in
-                  <span
+                  <Box
+                    as="span"
                     sx={{
                       display: ['none', 'inline'],
                       whiteSpace: 'nowrap',
@@ -969,18 +981,19 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                       ml: 2
                     }}
                   >
-                    <img
+                    <Image
                       src={region.image}
                       alt=""
                       sx={{ mr: 3, height: [30, 42, 42, 64] }}
                     />
                     {region.label}
-                  </span>
-                  <span
+                  </Box>
+                  <Box
+                    as="span"
                     sx={{ display: ['inline', 'none'], whiteSpace: 'nowrap' }}
                   >
                     {' ' + region.label}
-                  </span>
+                  </Box>
                 </>
               ) : (
                 ''
@@ -1002,10 +1015,10 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
             <Button
               variant="ctaLg"
               as="a"
-              href="#listings"
+              {...({ href: '#listings' } as any)}
               sx={{
                 mt: [0, 2],
-                backgroundImage: t => t.util.gx('green', 'blue'),
+                backgroundImage: (t: any) => t.util.gx('green', 'blue'),
                 height: '56px'
               }}
             >
@@ -1107,9 +1120,9 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
               {organizations
                 .map(org => new Organization(org))
                 .filter(organization => {
-                  const organizationBadgeIds = badges
-                    .forOrg(organization)
-                    .map(badge => badge.id)
+                  const organizationBadgeIds = getBadgesForOrg(
+                    organization
+                  ).map(badge => badge.id)
 
                   return (
                     currentBadges.length === badges.length ||
@@ -1122,8 +1135,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                     organization={organization}
                     key={organization.id}
                     openModal={openModal}
-                    badges={badges.forOrg(organization)}
-                    showTags={true}
+                    badges={getBadgesForOrg(organization)}
                   />
                 ))}
             </Grid>
@@ -1133,165 +1145,6 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
       <Footer />
     </div>
   )
-}
-
-/**
- * Represents an organization.
- */
-export class Organization {
-  /**
-   * Creates an instance of Organization.
-   * @param {object} rawOrganization - The raw organization data.
-   */
-  constructor(rawOrganization) {
-    /**
-     * The raw organization data.
-     * @type {object}
-     */
-    this.raw = rawOrganization
-  }
-
-  /**
-   * Gets the ID of the organization.
-   * @type {string}
-   */
-  get id() {
-    return this.raw.id
-  }
-
-  /**
-   * Gets the name of the organization.
-   * @type {string}
-   */
-  get name() {
-    return this.raw.name
-  }
-
-  /**
-   * Gets the slug of the organization.
-   * @type {string}
-   */
-  get slug() {
-    return this.raw.slug
-  }
-
-  /**
-   * Checks if the organization is transparent.
-   * @type {boolean}
-   */
-  get isTransparent() {
-    return this.raw.transparent
-  }
-
-  /**
-   * Checks if the organization is in demo mode.
-   * @type {boolean}
-   */
-  get isDemo() {
-    return this.raw.demo_mode
-  }
-
-  /**
-   * Gets the number of users in the organization.
-   * @type {number}
-   */
-  get users() {
-    return this.raw.users.length
-  }
-
-  /**
-   * Checks if the organization accepts donations.
-   * @type {boolean}
-   */
-  get acceptsDonations() {
-    return this.raw.donation_link !== null
-  }
-
-  /**
-   * Gets the branding information of the organization.
-   * @type {object}
-   * @property {string} logo - The logo of the organization.
-   * @property {string} donationHeader - The donation header of the organization.
-   * @property {string} backgroundImage - The background image of the organization.
-   * @property {string} publicMessage - The public message of the organization.
-   */
-  get branding() {
-    return {
-      logo: this.raw.logo,
-      donationHeader: this.raw.donation_header,
-      backgroundImage: this.raw.background_image,
-      description: this.raw.description
-    }
-  }
-
-  /**
-   * Gets the tags of the organization.
-   * @type {object}
-   * @property {string} type - The type of the organization.
-   * @property {string} category - The category of the organization.
-   * @property {string[]} badges - The badges of the organization.
-   */
-  get tags() {
-    return {
-      type: this.raw.category,
-      category: 'Coding',
-      badges: []
-    }
-  }
-
-  /**
-   * Gets the creation date of the organization.
-   * @type {Date}
-   */
-  get createdAt() {
-    return new Date(this.raw.created_at)
-  }
-
-  /**
-   * Gets the links associated with the organization.
-   * @type {object}
-   * @property {string} website - The website link of the organization.
-   * @property {string} donations - The donation link of the organization (if it accepts donations).
-   * @property {string} financials - The financials link of the organization (if it is transparent).
-   */
-  get links() {
-    const links = {
-      website: this.raw.website
-    }
-
-    if (this.acceptsDonations) links.donations = this.raw.donation_link
-    if (this.isTransparent)
-      links.financials = `https://hcb.hackclub.com/${this.slug}`
-
-    return links
-  }
-
-  /**
-   * Gets the location of the organization.
-   * @type {object}
-   * @property {string} country - The country of the organization.
-   * @property {string} continent - The continent of the organization.
-   * @property {string} countryCode - The country code of the organization.
-   */
-  get location() {
-    return {
-      country: this.raw.location.country,
-      continent: this.raw.location.continent,
-      countryCode: this.raw.location.country_code
-    }
-  }
-
-  /**
-   * Updates the organization data by making an API call.
-   * @returns {Organization} The updated Organization instance.
-   */
-  async update() {
-    const response = await fetch(this.raw.href)
-    const json = await response.json()
-    this.raw = json
-
-    return this
-  }
 }
 
 export async function fetchRawClimateOrganizations() {
