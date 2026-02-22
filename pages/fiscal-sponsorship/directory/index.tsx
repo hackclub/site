@@ -1,32 +1,25 @@
-import {
-  Badge as ThemeBadge,
-  Box,
-  Container,
-  Flex,
-  Grid,
-  Heading,
-  Input
-} from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { Box, Container, Flex, Grid, Heading, Input } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import ForceTheme from '../../../components/force-theme'
 import Nav from '../../../components/nav'
 import Footer from '../../../components/footer'
 import MSparkles from '../../../components/sparkles/money'
-import { Text, Button, Card } from 'theme-ui'
+import { Text, Button } from 'theme-ui'
 import Icon from '@hackclub/icons'
-import OrganizationCard, {
-  Badge
-} from '../../../components/fiscal-sponsorship/directory/card'
 import fuzzysort from 'fuzzysort'
 import { useEffect, useState } from 'react'
-/** @jsxImportSource theme-ui */
 import { kebabCase, intersection, find } from 'lodash'
 import theme from '@hackclub/theme'
-import Tooltip from '../../../components/fiscal-sponsorship/tooltip'
-const GeoPattern = require('geopattern')
+import GeoPattern from 'geopattern'
 import { useRouter } from 'next/router'
-import { OrganizationModal, badges } from "../../../components/directoryModal.js"
+import {
+  OrganizationModal,
+  badges,
+  getBadgesForOrg
+} from '../../../components/directoryModal'
+import OrganizationCard from '../../../components/fiscal-sponsorship/directory/card'
 
 const styles = `
   html {
@@ -34,7 +27,18 @@ const styles = `
   }
 `
 
-export const regions = [
+type Region = {
+  label: string
+  color: string
+  iconColor: string
+  icon: string
+  image: string
+  ogImage: string
+  continents?: string[]
+  miniLabel?: string
+}
+
+export const regions: Region[] = [
   {
     label: 'North America',
     color: 'secondary',
@@ -81,7 +85,6 @@ export const regions = [
   }
 ]
 
-
 export const categories = [
   {
     label: 'Nonprofits',
@@ -90,7 +93,7 @@ export const categories = [
     color: 'purple',
     description: null,
     match: org => true,
-    icon: 'list',
+    icon: 'list' as const,
     index: true
   },
   {
@@ -100,7 +103,7 @@ export const categories = [
     description:
       'Everywhere from San Jose to Boston to New York, HCB powers teams of all sizes.',
     match: org => org.category === 'robotics_team',
-    icon: 'sam'
+    icon: 'sam' as const
   },
   {
     label: 'Hackathons',
@@ -108,7 +111,7 @@ export const categories = [
     color: 'purple',
     description: `Hackers are using HCB to run hackathons that'll blow your mind away.`,
     match: org => org.category === 'hackathon',
-    icon: 'event-code'
+    icon: 'event-code' as const
   }
 ]
 
@@ -170,7 +173,6 @@ const FilterPanel = ({ filter, mobile, clearOffset }) => {
               borderColor: 'sunken',
               borderRadius: '4px',
               background: mobile ? 'snow' : 'none',
-              textDecoration: 'none',
               color: 'secondary',
               textDecoration: 'none',
               transition: 'color 0.2s',
@@ -184,8 +186,8 @@ const FilterPanel = ({ filter, mobile, clearOffset }) => {
                 availableCategory.index
                   ? `/fiscal-sponsorship/directory/`
                   : `/fiscal-sponsorship/directory/${availableCategory.id}/${region || ''}`
-              );
-              clearOffset();
+              )
+              clearOffset()
             }}
           >
             <Flex
@@ -201,7 +203,6 @@ const FilterPanel = ({ filter, mobile, clearOffset }) => {
             <Heading
               as="h4"
               sx={{
-                color: 'inherit',
                 fontSize: 3,
                 color:
                   category === availableCategory.id ||
@@ -271,7 +272,6 @@ const FilterPanel = ({ filter, mobile, clearOffset }) => {
               borderColor: 'sunken',
               borderRadius: '4px',
               background: mobile ? 'snow' : 'none',
-              textDecoration: 'none',
               color: 'secondary',
               textDecoration: 'none',
               transition: 'color 0.2s',
@@ -283,8 +283,8 @@ const FilterPanel = ({ filter, mobile, clearOffset }) => {
             onClick={() => {
               router.push(
                 `/fiscal-sponsorship/directory/${category || 'organizations'}/${kebabCase(availableRegion.label)}`
-              );
-              clearOffset();
+              )
+              clearOffset()
             }}
           >
             <Flex
@@ -308,7 +308,6 @@ const FilterPanel = ({ filter, mobile, clearOffset }) => {
             <Heading
               as="h4"
               sx={{
-                color: 'inherit',
                 fontSize: 3,
                 color:
                   region === kebabCase(availableRegion.label)
@@ -328,11 +327,23 @@ const FilterPanel = ({ filter, mobile, clearOffset }) => {
   )
 }
 
-const Filtering = ({ mobile, region, clearOffset, ...props }) => {
+type FilteringProps = {
+  mobile?: boolean
+  region?: string
+  clearOffset?: () => void
+  badges: [React.Dispatch<React.SetStateAction<string[]>>, string[], string, any[], boolean?]
+}
+
+const Filtering = ({ mobile, region, clearOffset, ...props }: FilteringProps) => {
   return (
     <>
       {Object.values(props).map((filter, i) => (
-        <FilterPanel key={`filter-${i}`} filter={filter} mobile={mobile} clearOffset={clearOffset} />
+        <FilterPanel
+          key={`filter-${i}`}
+          filter={filter}
+          mobile={mobile}
+          clearOffset={clearOffset}
+        />
       ))}
     </>
   )
@@ -389,10 +400,13 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
       />
       <style>{styles}</style>
       {modalOrganization && (
-        <OrganizationModal organization={modalOrganization} onClose={closeModal} />
+        <OrganizationModal
+          organization={modalOrganization}
+          onClose={closeModal}
+        />
       )}
       <Box as="main" key="main">
-        {!modalOrganization && <Nav light />}
+        {!modalOrganization && <Nav />}
         <ForceTheme theme="light" />
         <Box
           sx={{
@@ -453,18 +467,18 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
                 mx: 'auto'
               }}
             >
-              {(
+              {
                 <>
                   Teenagers are making an impact with HCB's fiscal sponsorship
                   and financial tools. <br /> Explore the nonprofits running on
                   HCB.
                 </>
-              )}
+              }
             </Box>
             <Button
               variant="ctaLg"
               as="a"
-              href="/fiscal-sponsorship"
+              {...({ href: '/fiscal-sponsorship' } as any)}
               target="_blank"
               sx={{
                 mt: [0, 2],
@@ -571,8 +585,7 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
               {organizations
                 .map(org => new Organization(org))
                 .filter(organization => {
-                  const organizationBadgeIds = badges
-                    .forOrg(organization)
+                  const organizationBadgeIds = getBadgesForOrg(organization)
                     .map(badge => badge.id)
 
                   return (
@@ -587,7 +600,7 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
                     organization={organization}
                     key={organization.id}
                     openModal={openModal}
-                    badges={badges.forOrg(organization)}
+                    badges={getBadgesForOrg(organization)}
                     showTags={true}
                   />
                 ))}
@@ -639,11 +652,14 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
  * Represents an organization.
  */
 export class Organization {
+
+  public raw: any;
+
   /**
    * Creates an instance of Organization.
    * @param {object} rawOrganization - The raw organization data.
    */
-  constructor(rawOrganization) {
+  constructor(rawOrganization: any) {
     /**
      * The raw organization data.
      * @type {object}
@@ -757,7 +773,7 @@ export class Organization {
    * @property {string} financials - The financials link of the organization (if it is transparent).
    */
   get links() {
-    const links = {
+    const links: { website: string; donations?: string; financials?: string } = {
       website: this.raw.website
     }
 
@@ -809,7 +825,10 @@ export async function fetchRawOrganizations() {
     page++
     total = [...total, ...json]
   }
-  return [...total.filter((a) => a.logo !== null), ...total.filter((a) => a.logo === null)]
+  return [
+    ...total.filter(a => a.logo !== null),
+    ...total.filter(a => a.logo === null)
+  ]
 }
 
 export const getStaticProps = async () => {
