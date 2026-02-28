@@ -1,0 +1,320 @@
+import { Box, Link, Image, Button, Heading, Text } from 'theme-ui'
+import Head from 'next/head'
+import Meta from '@hackclub/meta'
+import Footer from '../components/footer'
+import Nav from '../components/nav'
+import ForceTheme from '../components/force-theme'
+import ReplitForm from '../components/replit/form'
+import TokenInstructions from '../components/replit/token-instructions'
+import ScaleUp from '../components/replit/scale-up'
+
+const ReplitPage = () => {
+  const steps = [
+    'Enter your email',
+    'Enter your replit token',
+    'Get free stickers'
+  ]
+
+  const cssDark = 'hsl(23, 94%, 32%)'
+
+  return (
+    <>
+      <Meta
+        as={Head}
+        title="Export your repls"
+        description="Replit free has shut down. Export with Hack Club to GitHub Education's new free codespaces offering"
+      />
+      <style>{`html { scroll-behavior: smooth; } body { background-color: hsl(23, 94%, 96%); }`}</style>
+      <ForceTheme theme="light" />
+      <Nav />
+      <Box
+        as="header"
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          paddingTop: ['4rem', null, '6rem'],
+          paddingBottom: '1rem',
+          textAlign: 'center',
+          backgroundColor: cssDark,
+          color: 'white',
+          overflow: 'hidden'
+        }}
+      >
+        <Heading as="h1" sx={{ position: 'relative', marginBottom: '1rem' }}>
+          Replit Lifeboat:{' '}
+          <Text
+            as="span"
+            sx={{ display: 'inline-flex', flexDirection: 'column' }}
+          >
+            Save Our Ships
+            <Image
+              src="/replit/sos-morse.svg"
+              alt="SOS in morse code"
+              sx={{ opacity: 0.5 }}
+            />
+          </Text>
+          <Text
+            sx={{
+              position: 'absolute',
+              left: '-2.5rem',
+              bottom: '-1rem',
+              rotate: '-30deg',
+              fontSize: '3rem'
+            }}
+          >
+            🛟
+          </Text>
+          <Text
+            sx={{
+              position: 'absolute',
+              left: '2rem',
+              top: '-3rem',
+              rotate: '15deg',
+              fontSize: '2.5rem'
+            }}
+          >
+            🛳️
+          </Text>
+          <Text
+            sx={{
+              position: 'absolute',
+              right: '-2rem',
+              top: '-2.5rem',
+              rotate: '30deg',
+              fontSize: '3rem'
+            }}
+          >
+            🚤
+          </Text>
+          <Text
+            sx={{
+              position: 'absolute',
+              right: '-5rem',
+              bottom: '-1.5rem',
+              rotate: '20deg',
+              fontSize: '3rem'
+            }}
+          >
+            🌊
+          </Text>
+          <Text
+            sx={{
+              position: 'absolute',
+              right: '12rem',
+              bottom: '-2.5rem',
+              rotate: '-15deg',
+              fontSize: '3rem',
+              zIndex: 10
+            }}
+          >
+            ⛵
+          </Text>
+        </Heading>
+
+        <Heading
+          as="h2"
+          sx={{
+            fontSize: '4em'
+          }}
+        >
+          Export your{' '}
+          <Text
+            as="span"
+            sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              position: 'relative'
+            }}
+          >
+            Replit <style>{`.replit-fire {transition: opacity 0.1s;`}</style>
+            <Image
+              src="/replit/replit.svg"
+              alt="replit"
+              sx={{ height: '1em' }}
+              id="og-replit"
+              className="replit-fire"
+            />
+          </Text>{' '}
+          repls
+        </Heading>
+
+        <Text
+          sx={{
+            maxWidth: '100ch',
+            fontSize: '1.2em',
+            marginY: '1em',
+            marginTop: '1em',
+            textWrap: 'pretty'
+          }}
+        >
+          Replit cut down its free plan - many students can't afford to keep
+          using it.
+          <br />
+          We quickly built this project exporter. It's the only way to download
+          your repls with <i>edit history intact</i> (as a git repo).
+          <br />
+          Written in Rust &{' '}
+          <Link
+            className="gh-link"
+            href="https://github.com/hackclub/replit-lifeboat"
+            sx={{
+              color: 'inherit'
+            }}
+          >
+            open source
+          </Link>
+          .{' '}
+          <Text>
+            <ScaleUp number={1091841} from={0} /> files &{' '}
+            <ScaleUp number={82699} from={0} /> repls exported.
+          </Text>
+        </Text>
+      </Box>
+
+      <Box
+        as="main"
+        sx={{
+          maxWidth: '100ch',
+          marginX: 'auto',
+          paddingX: '1rem'
+        }}
+      >
+        <Text
+          sx={{
+            maxWidth: '100ch',
+            fontSize: '1.2em',
+            marginY: '1em',
+            textWrap: 'balance',
+            textAlign: 'center',
+            mx: 'auto',
+            marginBottom: '1em',
+            display: 'block'
+          }}
+        >
+          <Text as="span" sx={{ fontWeight: 'bold' }}>
+            This does not work anymore.
+          </Text>
+          <br />
+          After 9 months of operation, Replit has changed how their GraphQL
+          endpoint works (presumably specifically to kill this project).
+          <br />
+          The time spent fixing it would not be worth it;{' '}
+          <Text as="span" sx={{ fontWeight: 'bold' }}>
+            though you can still download individual Repls as ZIP archives.
+          </Text>{' '}
+          They won't have edit history though.
+        </Text>
+
+        <Image
+          src="https://cdn.hackclub.com/019c76b5-fd27-75f2-8dcf-747ac81f9d45/D2mv3w.png"
+          alt="download repl as zip instructions"
+          sx={{
+            width: '50%',
+            marginX: 'auto',
+            display: 'block',
+            borderRadius: 12
+          }}
+        />
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginTop: '2rem',
+            position: 'relative',
+            paddingX: [null, null, '6rem'],
+            opacity: 0.5
+          }}
+        >
+          {steps.map((step, idx) => (
+            <Box
+              key={idx}
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                fontWeight: '600',
+                paddingX: '.25em'
+              }}
+            >
+              <Box
+                sx={{
+                  width: '1.5em',
+                  height: '1.5em',
+                  backgroundColor: cssDark,
+                  color: 'white',
+                  borderRadius: '999px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <Text>{idx + 1}</Text>
+              </Box>
+              <Text sx={{ textAlign: 'center' }}>{step}</Text>
+            </Box>
+          ))}
+
+          <Image
+            src="/replit/arrow1.svg"
+            alt=""
+            sx={{
+              position: 'absolute',
+              width: `${7 * 0.9384843737}em`,
+              bottom: '-1.5em',
+              left: '32.5%',
+              translate: '-50% 0'
+            }}
+          />
+          <Image
+            src="/replit/arrow2.svg"
+            alt=""
+            sx={{
+              position: 'absolute',
+              width: '7em',
+              bottom: '-2em',
+              left: '67%',
+              translate: '-50% 0'
+            }}
+          />
+        </Box>
+
+        <Box
+          sx={{
+            marginTop: '3rem',
+            maxWidth: '30rem',
+            marginX: 'auto',
+            opacity: 0.5,
+            pointerEvents: 'none'
+          }}
+        >
+          <ReplitForm cssDark={cssDark} />
+        </Box>
+
+        <Box sx={{ paddingTop: '5rem' }} id="instructions">
+          <Heading as="h2" sx={{ marginBottom: '0.5em', textAlign: 'center' }}>
+            How to get your Replit <code>connect.sid</code> token
+          </Heading>
+
+          <TokenInstructions />
+
+          <Link href="#">
+            <Button
+              sx={{
+                width: '100%',
+                backgroundColor: cssDark,
+                marginTop: '2rem'
+              }}
+            >
+              Back to top
+            </Button>
+          </Link>
+        </Box>
+      </Box>
+
+      <Footer dark sx={{ marginTop: '3rem' }} />
+    </>
+  )
+}
+
+export default ReplitPage
