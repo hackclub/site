@@ -29,7 +29,7 @@ export default function Features() {
               Get 24 hour support on weekdays.
               Pay team members with built-in payroll.
               Embed a custom donation form on your website.
-              We file all your taxes automatically, including form 990. " */}
+              We file all your taxes automatically, including Form 990. " */}
           <Module
             icon="card"
             name="Issue physical & virtual debit cards"
@@ -53,7 +53,7 @@ export default function Features() {
           <Module
             icon="docs"
             name="We file all your taxes"
-            body="automatically, including form 990."
+            body="automatically, including Form 990."
           />
           <Module
             icon="admin"
