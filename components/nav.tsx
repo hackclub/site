@@ -150,8 +150,6 @@ const Navigation = props => (
     <NextLink href="https://toolbox.hackclub.com/" passHref>
       <Link>Toolbox</Link>
     </NextLink>
-    <Link href="https://flavortown.hackclub.com/?ref=site-nav">Flavortown</Link>
-    <Link href="https://blueprint.hackclub.com/?ref=site-nav">Blueprint</Link>
     <NextLink href="/philanthropy" passHref>
       <Link>Donors</Link>
     </NextLink>
