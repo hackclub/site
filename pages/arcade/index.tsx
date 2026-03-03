@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
@@ -15,11 +16,9 @@ import PageVisibility from 'react-page-visibility'
 import ArcadeFooter from '../../components/arcade/footer'
 import Balancer from 'react-wrap-balancer'
 import { Fade } from 'react-reveal'
-import Join from '../../components/arcade/join'
 import Announcement from '../../components/announcement'
 import Link from 'next/link'
 import { shopParts } from '../api/arcade/shop'
-/** @jsxImportSource theme-ui */
 
 const styled = `
 @import url(https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap);
@@ -294,7 +293,7 @@ const Powerups = ({
           }
         }}
         onClick={() => {
-          document.getElementById(`${text}-info`).showModal()
+          ;(document.getElementById(`${text}-info`) as HTMLDialogElement).showModal()
         }}
       >
         📦
@@ -324,7 +323,7 @@ const Powerups = ({
             zIndex: 2
           }}
           onClick={() => {
-            document.getElementById(`${text}-info`).close()
+            ;(document.getElementById(`${text}-info`) as HTMLDialogElement).close()
           }}
         />
         <Flex
@@ -836,28 +835,27 @@ async function generateProjectIdea() {
   }
 
   yap_sounds.thinking[getRandomInt(yap_sounds.thinking.length)].play()
-  document.querySelector('#generate-project-idea').style.marginTop = '0px'
-  document.querySelector('#console').style.marginTop = '-50px'
-  document.querySelector('#console2').style.opacity = '0'
-  document.querySelector('#project-idea').style.opacity = '1'
+  ;(document.querySelector('#generate-project-idea') as HTMLElement).style.marginTop = '0px'
+  ;(document.querySelector('#console') as HTMLElement).style.marginTop = '-50px'
+  ;(document.querySelector('#console2') as HTMLElement).style.opacity = '0'
+  ;(document.querySelector('#project-idea') as HTMLElement).style.opacity = '1'
   document.querySelector('#generate-project-idea').classList.add('disabled')
   document.querySelector('#project-idea').innerHTML =
     '<em>' + thinkingWords() + '...' + '</em>'
-  document.querySelector('#generate-project-idea').src =
+  ;(document.querySelector('#generate-project-idea') as HTMLImageElement).src =
     'https://cloud-g5g5sistf-hack-club-bot.vercel.app/1untitled_artwork_8_1.png'
   let text = ''
   const res = await fetch('/api/arcade/openai/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
-    },
-    body: JSON.stringify()
+    }
   })
 
   const json = await res.json()
   text = json.recommendation
   document.querySelector('#project-idea').innerHTML = ''
-  document.querySelector('#generate-project-idea').src =
+  ;(document.querySelector('#generate-project-idea') as HTMLImageElement).src =
     'https://cloud-81d1s66l7-hack-club-bot.vercel.app/0untitled_artwork_9_1.png'
   document.querySelector('#generate-project-idea').classList.remove('disabled')
   // document.querySelector('#generate-project-idea').classList.add('talking')
@@ -885,14 +883,10 @@ function thinkingWords() {
 
 const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
   const [showComponent, setShowComponent] = useState(false)
-  const [showNum, setNum] = useState(false)
+  const [showNum, setNum] = useState(0)
   const [showForm, setForm] = useState(false)
   const [formSent, setFormSent] = useState(false)
   const [isRevealed, setIsRevealed] = useState(false)
-
-  const handleButtonClick = () => {
-    setIsRevealed(!isRevealed)
-  }
 
   const router = useRouter()
   const { query } = router
@@ -979,7 +973,6 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
         <Grid
           sx={{
             gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
-            width: '100%',
             pb: ['0vh', '0vh', '0vh', '20vh'],
             width: '90vw',
             maxWidth: '1200px',
@@ -1066,13 +1059,6 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               </Text> */}
             </Fade>
             <Fade delay={650}>
-              <Join
-                fold
-                showForm={showForm}
-                setForm={setForm}
-                formSent={formSent}
-                setFormSent={setFormSent}
-              />
               {showForm ? (
                 <></>
               ) : (
@@ -1406,13 +1392,6 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           </Text>{' '}
           and code with other high schoolers!
         </Text>
-        {/* </Balancer> */}
-        <Join
-          showForm={showForm}
-          setForm={setForm}
-          formSent={formSent}
-          setFormSent={setFormSent}
-        />
       </Flex>
       <Projects />
       <Box
@@ -1875,14 +1854,6 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               <br />
               Build real projects. <br /> Share it with friends.
             </Text>
-            {/* </Balancer> */}
-            <Join
-              showForm={showForm}
-              setForm={setForm}
-              formSent={formSent}
-              setFormSent={setFormSent}
-              last
-            />
           </Flex>
           <img
             src="/arcade/r6.png"
