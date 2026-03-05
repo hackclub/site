@@ -16,7 +16,9 @@ const nextConfig = {
       'assets.hackclub.com',
       'v5.airtableusercontent.com',
       'hcb.hackclub.com',
-      'cdn.hackclub.com'
+      'cdn.hackclub.com',
+      'hc-cdn.hel1.your-objectstorage.com',
+      'cdn.prod.website-files.com'
     ],
     remotePatterns: [
       {
@@ -47,11 +49,15 @@ const nextConfig = {
       },
       {
         source: '/fiscal-sponsorship/apply/',
-        destination: "https://hcb.hackclub.com/apply/",
+        destination: 'https://hcb.hackclub.com/apply/',
         permanent: false
       },
       { source: '/grant/', destination: '/hackathons/grant', permanent: false },
-      { source: '/privacy/', destination: '/privacy-and-terms/', permanent: true },
+      {
+        source: '/privacy/',
+        destination: '/privacy-and-terms/',
+        permanent: true
+      },
       {
         source: '/sprig/',
         destination: 'https://sprig.hackclub.com',
@@ -207,7 +213,6 @@ const nextConfig = {
         source: '/github',
         destination: 'https://github.com/hackclub',
         permanent: true
-
       },
       {
         source: '/nest',
@@ -354,9 +359,9 @@ const nextConfig = {
         destination: '/bin/selector/index.html'
       },
       {
-        source: '/arcade/power-hour',
-        destination: '/arcade/power-hour/index.html'
-      },
+        source: '/arcade/:path+',
+        destination: '/arcade'
+      }
     ]
   },
   async headers() {
