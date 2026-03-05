@@ -2,6 +2,8 @@ import React from 'react'
 import Head from 'next/head'
 
 import Analytics from '../components/analytics.js'
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 
 import Meta from '@hackclub/meta'
 import '@hackclub/theme/fonts/reg-bold.css'
@@ -21,6 +23,8 @@ const App = ({ Component, pageProps }) => (
       <Component {...pageProps} />
     </BalancerProvider>
     <Analytics />
+    <VercelAnalytics />
+    <SpeedInsights />
   </ThemeProvider>
 )
 
