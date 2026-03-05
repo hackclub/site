@@ -57,7 +57,7 @@ const WorkshopCard = ({
   </Card>
 )
 
-export default function Workshops({ data, stars }) {
+export default function Workshops({ stars }) {
   return (
     <CardModel
       color="white"

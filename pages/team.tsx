@@ -49,7 +49,6 @@ export default function Team({ team }) {
     <>
       <Box as="main" key="main">
         <ForceTheme theme="light" />
-        {/* @ts-expect-error -- TODO: fix this */}
         <Nav />
         <Meta
           as={Head}

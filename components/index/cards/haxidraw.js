@@ -39,7 +39,7 @@ export default function Haxidraw({ stars }) {
             <Buttons
               id="51"
               icon="align-left"
-              link="https://blot.hackclub.dev"
+              link="https://blot.hackclub.com"
               primary="rgba(255, 255, 255, 0.9)"
               sx={{ color: 'black' }}
             >
@@ -48,7 +48,7 @@ export default function Haxidraw({ stars }) {
             <Buttons
               id="52"
               icon="code"
-              link="https://blot.hackclub.dev/editor"
+              link="https://blot.hackclub.com/editor"
               primary="rgba(255, 255, 255, 0.9)"
               sx={{ color: 'black' }}
             >
