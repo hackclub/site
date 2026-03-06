@@ -472,8 +472,7 @@ function Page({
                   fontWeight: 'normal',
                   zIndex: 999
                 }}
-                as="a"
-                {...({href: "#spotlight"} as any)}
+                onClick={() => document.getElementById('spotlight')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <Icon
                   glyph={'rep'}
