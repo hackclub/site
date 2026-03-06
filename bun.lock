@@ -86,6 +86,8 @@
       },
       "devDependencies": {
         "@types/node": "^25.3.0",
+        "@types/react": "^19.2.14",
+        "@types/react-dom": "^19.2.3",
         "eslint": "8.57.0",
         "eslint-config-next": "14.1.0",
         "prettier": "^3.8.1",
@@ -586,6 +588,10 @@
 
     "@types/prop-types": ["@types/prop-types@https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.15.tgz", {}],
 
+    "@types/react": ["@types/react@19.2.14", "", { "dependencies": { "csstype": "^3.2.2" } }, "sha512-ilcTH/UniCkMdtexkoCN0bI7pMcJDvmQFPvuPvmEaYA/NSfFTAgdUSLAoVjaRJm7+6PvcM+q1zYOwS4wTYMF9w=="],
+
+    "@types/react-dom": ["@types/react-dom@19.2.3", "", { "peerDependencies": { "@types/react": "^19.2.0" } }, "sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ=="],
+
     "@types/styled-system": ["@types/styled-system@https://registry.npmjs.org/@types/styled-system/-/styled-system-5.1.25.tgz", { "dependencies": { "csstype": "^3.2.2" } }],
 
     "@types/stylis": ["@types/stylis@https://registry.npmjs.org/@types/stylis/-/stylis-4.2.7.tgz", {}],
@@ -888,7 +894,7 @@
 
     "cssnano-simple": ["cssnano-simple@https://registry.npmjs.org/cssnano-simple/-/cssnano-simple-2.0.0.tgz", { "dependencies": { "cssnano-preset-simple": "^2.0.0" } }],
 
-    "csstype": ["csstype@https://registry.npmjs.org/csstype/-/csstype-3.2.3.tgz", {}],
+    "csstype": ["csstype@3.2.3", "", {}, "sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ=="],
 
     "d3-array": ["d3-array@https://registry.npmjs.org/d3-array/-/d3-array-3.2.4.tgz", { "dependencies": { "internmap": "1 - 2" } }],
 
@@ -2170,6 +2176,8 @@
 
     "@emotion/cache/stylis": ["stylis@https://registry.npmjs.org/stylis/-/stylis-4.2.0.tgz", {}],
 
+    "@emotion/serialize/csstype": ["csstype@https://registry.npmjs.org/csstype/-/csstype-3.2.3.tgz", {}],
+
     "@hackclub/markdown/next": ["next@https://registry.npmjs.org/next/-/next-10.2.3.tgz", { "dependencies": { "@babel/runtime": "7.12.5", "@hapi/accept": "5.0.2", "@next/env": "10.2.3", "@next/polyfill-module": "10.2.3", "@next/react-dev-overlay": "10.2.3", "@next/react-refresh-utils": "10.2.3", "@opentelemetry/api": "0.14.0", "assert": "2.0.0", "ast-types": "0.13.2", "browserify-zlib": "0.2.0", "browserslist": "4.16.6", "buffer": "5.6.0", "caniuse-lite": "^1.0.30001228", "chalk": "2.4.2", "chokidar": "3.5.1", "constants-browserify": "1.0.0", "crypto-browserify": "3.12.0", "cssnano-simple": "2.0.0", "domain-browser": "4.19.0", "encoding": "0.1.13", "etag": "1.8.1", "find-cache-dir": "3.3.1", "get-orientation": "1.1.2", "https-browserify": "1.0.0", "jest-worker": "27.0.0-next.5", "native-url": "0.3.4", "node-fetch": "2.6.1", "node-html-parser": "1.4.9", "node-libs-browser": "^2.2.1", "os-browserify": "0.3.0", "p-limit": "3.1.0", "path-browserify": "1.0.1", "pnp-webpack-plugin": "1.6.4", "postcss": "8.2.13", "process": "0.11.10", "prop-types": "15.7.2", "querystring-es3": "0.2.1", "raw-body": "2.4.1", "react-is": "16.13.1", "react-refresh": "0.8.3", "stream-browserify": "3.0.0", "stream-http": "3.1.1", "string_decoder": "1.3.0", "styled-jsx": "3.3.2", "timers-browserify": "2.0.12", "tty-browserify": "0.0.1", "use-subscription": "1.5.1", "util": "0.12.3", "vm-browserify": "1.1.2", "watchpack": "2.1.1" } }],
 
     "@hackclub/markdown/rehype-raw": ["rehype-raw@https://registry.npmjs.org/rehype-raw/-/rehype-raw-5.1.0.tgz", { "dependencies": { "hast-util-raw": "^6.1.0" } }],
@@ -2228,6 +2236,8 @@
 
     "@swc/helpers/tslib": ["tslib@2.8.1", "", {}, "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="],
 
+    "@theme-ui/css/csstype": ["csstype@https://registry.npmjs.org/csstype/-/csstype-3.2.3.tgz", {}],
+
     "@tracespace/core/@tracespace/parser": ["@tracespace/parser@https://registry.npmjs.org/@tracespace/parser/-/parser-5.0.0-alpha.0.tgz", { "dependencies": { "@types/moo": "^0.5.5", "@types/unist": "^2.0.6" } }],
 
     "@tracespace/core/@tracespace/xml-id": ["@tracespace/xml-id@https://registry.npmjs.org/@tracespace/xml-id/-/xml-id-5.0.0-alpha.0.tgz", {}],
@@ -2239,6 +2249,8 @@
     "@tracespace/renderer/@tracespace/xml-id": ["@tracespace/xml-id@https://registry.npmjs.org/@tracespace/xml-id/-/xml-id-5.0.0-alpha.0.tgz", {}],
 
     "@types/node-fetch/@types/node": ["@types/node@https://registry.npmjs.org/@types/node/-/node-18.19.130.tgz", { "dependencies": { "undici-types": "~5.26.4" } }],
+
+    "@types/styled-system/csstype": ["csstype@https://registry.npmjs.org/csstype/-/csstype-3.2.3.tgz", {}],
 
     "@typescript-eslint/typescript-estree/minimatch": ["minimatch@https://registry.npmjs.org/minimatch/-/minimatch-9.0.3.tgz", { "dependencies": { "brace-expansion": "^2.0.1" } }],
 
@@ -2271,6 +2283,8 @@
     "decode-named-character-reference/character-entities": ["character-entities@https://registry.npmjs.org/character-entities/-/character-entities-2.0.2.tgz", {}],
 
     "diffie-hellman/bn.js": ["bn.js@https://registry.npmjs.org/bn.js/-/bn.js-4.12.0.tgz", {}],
+
+    "dom-helpers/csstype": ["csstype@https://registry.npmjs.org/csstype/-/csstype-3.2.3.tgz", {}],
 
     "elliptic/bn.js": ["bn.js@https://registry.npmjs.org/bn.js/-/bn.js-4.12.0.tgz", {}],
 
@@ -2567,6 +2581,8 @@
     "string-width-cjs/emoji-regex": ["emoji-regex@https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz", {}],
 
     "string_decoder/safe-buffer": ["safe-buffer@https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz", {}],
+
+    "styled-components/csstype": ["csstype@https://registry.npmjs.org/csstype/-/csstype-3.2.3.tgz", {}],
 
     "styled-components/postcss": ["postcss@https://registry.npmjs.org/postcss/-/postcss-8.4.49.tgz", { "dependencies": { "nanoid": "^3.3.7", "picocolors": "^1.1.1", "source-map-js": "^1.2.1" } }],
 
