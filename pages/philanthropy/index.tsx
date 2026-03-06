@@ -873,7 +873,7 @@ const Philanthropy = ({ posts = [] }) => {
                   src="/philanthropy/belle.png"
                   width="20"
                   height="20"
-                  sx={{ borderRadius: '100%' }}
+                  style={{ borderRadius: '100%' }}
                   alt="belle"
                 />
                 Belle, 17, Malaysia
