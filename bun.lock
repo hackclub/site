@@ -54,7 +54,6 @@
         "react-datepicker": "^9.1.0",
         "react-dom": "^17.0.2",
         "react-horizontal-scrolling-menu": "^8.2.0",
-        "react-konami-code": "^2.3.0",
         "react-lite-youtube-embed": "2.4.0",
         "react-markdown": "^8.0.7",
         "react-marquee-slider": "^1.1.5",
@@ -1714,8 +1713,6 @@
     "react-horizontal-scrolling-menu": ["react-horizontal-scrolling-menu@https://registry.npmjs.org/react-horizontal-scrolling-menu/-/react-horizontal-scrolling-menu-8.2.0.tgz", { "dependencies": { "smooth-scroll-into-view-if-needed": "^2.0.2" } }],
 
     "react-is": ["react-is@https://registry.npmjs.org/react-is/-/react-is-18.3.1.tgz", {}],
-
-    "react-konami-code": ["react-konami-code@https://registry.npmjs.org/react-konami-code/-/react-konami-code-2.3.0.tgz", { "dependencies": { "prop-types": "^15.8.1" } }],
 
     "react-lite-youtube-embed": ["react-lite-youtube-embed@https://registry.npmjs.org/react-lite-youtube-embed/-/react-lite-youtube-embed-2.4.0.tgz", {}],
 
