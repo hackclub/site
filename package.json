@@ -51,7 +51,7 @@
     "fuzzysort": "^2.0.4",
     "geopattern": "^1.2.3",
     "globby": "^11.1.0",
-    "graphql": "^16.10.0",
+    "graphql": "^16.13.1",
     "howler": "^2.2.4",
     "js-confetti": "^0.13.1",
     "jszip": "^3.10.1",
