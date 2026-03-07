@@ -1,11 +1,12 @@
+
 import React from "react";
 import styled from "@emotion/styled";
-import { Box, Container, Image, Grid, Heading, Link, Text } from "theme-ui";
+import { Box, Container, Grid, Heading, Link, Text } from "theme-ui";
 import NextLink from "next/link";
 import theme from "@hackclub/theme";
 import Icon from "./icon";
 
-const Base = styled(Box, { shouldForwardProp: (prop) => prop !== "dark" })`
+const Base = styled(Box, { shouldForwardProp: (prop) => prop !== "dark" })<{ dark?: boolean }>`
   background: ${(props) =>
     props.dark
       ? `${theme.colors.darker} radial-gradient(${theme.colors.black} 1px, transparent 1px)`

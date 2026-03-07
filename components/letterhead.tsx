@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { Avatar, Badge, Box, Container, Flex, Heading } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
@@ -16,7 +17,6 @@ const Authored = ({ name, avatar, url, date, ...props }) => (
       'a, span, time': {
         mt: 0,
         mb: 2,
-        bg: 'white',
         color: 'muted',
         border: '1px solid',
         borderColor: 'background',

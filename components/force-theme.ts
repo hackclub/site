@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useColorMode } from 'theme-ui'
 
 const ForceTheme = ({ theme }) => {
-  const [colorMode, setColorMode] = useColorMode()
+  const [_colorMode, setColorMode] = useColorMode()
   useEffect(() => {
     setColorMode(theme)
   }, [setColorMode, theme])
