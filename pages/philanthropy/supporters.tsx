@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import styled from '@emotion/styled'
 import {
   Box,
@@ -8,13 +8,9 @@ import {
   Flex,
   Heading,
   Card,
-  Grid,
   Link as A,
   Text,
-  Avatar
 } from 'theme-ui'
-import Photo from '../../components/photo'
-import Image from 'next/image'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import ForceTheme from '../../components/force-theme'
