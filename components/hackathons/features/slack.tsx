@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { Button, Box, Container, Heading, Text, Link } from 'theme-ui'
 import usePrefersMotion from '../../../lib/use-prefers-motion'
 import useHasMounted from '../../../lib/use-has-mounted'
@@ -6,7 +7,6 @@ import NextLink from 'next/link'
 const Content = () => (
   <Container
     sx={{
-      textAlign: 'center',
       zIndex: 999,
       py: 6,
       color: 'white',
@@ -80,7 +80,7 @@ const Cover = () => (
       top: 0,
       left: 0,
       right: 0,
-      backgroundImage: t => t.util.gx('cyan', 'purple'),
+      backgroundImage: (t: any) => t.util.gx('cyan', 'purple'),
       opacity: 0.825,
       zIndex: 1
     }}

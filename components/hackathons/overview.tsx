@@ -1,5 +1,4 @@
-import { Box, Heading, Container, Text, Grid, Flex } from 'theme-ui'
-import Photo from '../photo'
+import { Box, Heading, Container, Text, Grid } from 'theme-ui'
 
 export default function Overview() {
   return (
@@ -44,18 +43,18 @@ export default function Overview() {
               height="300px"
               src="https://www.youtube.com/embed/PnK4gzO6S3Q"
               title="YouTube video player"
-              frameborder="0"
+              style={{ border: 0 }}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
             <iframe
               width="100%"
               height="300px"
               src="https://www.youtube.com/embed/KLx4NZZPzMc"
               title="YouTube video player"
-              frameborder="0"
+              style={{ border: 0 }}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </Grid>
         </Container>

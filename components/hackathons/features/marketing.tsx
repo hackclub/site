@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { Button, Box, Container, Heading, Text } from 'theme-ui'
 import usePrefersMotion from '../../../lib/use-prefers-motion'
 import useHasMounted from '../../../lib/use-has-mounted'
@@ -6,7 +7,6 @@ import Link from 'next/link'
 const Content = () => (
   <Container
     sx={{
-      textAlign: 'center',
       zIndex: 999,
       py: 6,
       color: 'white',
@@ -32,7 +32,7 @@ const Content = () => (
         as="a"
         variant="ctaLg"
         sx={{
-          backgroundImage: theme => theme.util.gx('yellow', 'red')
+          backgroundImage: (theme: any) => theme.util.gx('yellow', 'red')
         }}
       >
         Add your hackathon →
@@ -49,7 +49,7 @@ const Cover = () => (
       top: 0,
       left: 0,
       right: 0,
-      backgroundImage: t => t.util.gx('slate', 'black'),
+      backgroundImage: (t: any) => t.util.gx('slate', 'black'),
       opacity: 0.7,
       zIndex: 1
     }}

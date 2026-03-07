@@ -7,7 +7,7 @@ export default function KeepExploring() {
     <>
       <Box
         sx={{
-          backgroundImage: t => t.util.gx('orange', 'red'),
+          backgroundImage: (t: any) => t.util.gx('orange', 'red'),
           margin: 'auto',
           maxWidth: '90%',
           my: 4,

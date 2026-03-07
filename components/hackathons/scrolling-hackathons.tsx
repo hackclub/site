@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import Ticker from 'react-ticker'
 import {
   Box,
@@ -78,8 +79,8 @@ export default function ScrollingHackathons({
           <Ticker mode={mode || 'string'} {...props}>
             {() => (
               <Box as="div" sx={{ display: 'flex', py: 3 }}>
-                {eventData.map(({ ...props }) => (
-                  <EventCard key={eventData.id} {...props} />
+                {eventData.map((event: any) => (
+                  <EventCard key={event.website} {...event} />
                 ))}
               </Box>
             )}
@@ -118,6 +119,22 @@ function Dot() {
   )
 }
 
+type EventCardProps = {
+  name: string
+  website: string
+  start: string
+  end: string
+  city?: string
+  state?: string
+  country?: string
+  countryCode?: string
+  banner: string
+  logo?: string
+  virtual?: boolean
+  hybrid?: boolean
+  footer?: React.ReactNode
+}
+
 function EventCard({
   name,
   website,
@@ -132,7 +149,7 @@ function EventCard({
   virtual,
   hybrid,
   footer
-}) {
+}: EventCardProps) {
   return (
     <Tilt>
       <Card

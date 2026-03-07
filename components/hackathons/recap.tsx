@@ -1,4 +1,5 @@
-import { Card, Box, Heading, Grid, Text, Container } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { Card, Box, Heading, Grid, Text } from 'theme-ui'
 import Stage from '../stage'
 
 export default function Recap() {

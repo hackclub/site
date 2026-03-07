@@ -2,7 +2,6 @@ import { Box, Button, Heading, Text, Card } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import ScrollHint from '../scroll-hint'
 import Image from 'next/image'
-import hero from '../../public/hackathons/assemble.JPG'
 import Icon from '../icon'
 
 export default function Landing() {
@@ -40,11 +39,11 @@ export default function Landing() {
               >
                 <Button
                   as="a"
-                  target="_blank"
+                  {...({ target: '_blank' } as any)}
                   variant="cta"
                   href="https://hackathons.hackclub.com"
                   sx={{
-                    backgroundImage: t => t.util.gx('yellow', 'pink'),
+                    backgroundImage: (t: any) => t.util.gx('yellow', 'pink'),
                     position: 'absolute',
                     right: [0, -3],
                     top: -3,
@@ -116,8 +115,6 @@ function Slide({ children }) {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'end',
-        width: '100vw',
-        backgroundSize: 'cover',
         backgroundColor: '#000000',
         boxShadow: 'inset 0 0 4rem 1rem rgba(0, 0, 0, 0.5)',
         backgroundPosition: 'center',
@@ -128,7 +125,7 @@ function Slide({ children }) {
       }}
     >
       <Image
-        src={hero}
+        src="/hackathons/assemble.JPG" // public/hackathons/assemble.JPG
         layout="fill"
         objectFit="cover"
         alt="Dark room with a stage and students sitting below"
