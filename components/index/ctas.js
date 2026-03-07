@@ -47,6 +47,7 @@ export default function CTAS({ cards }) {
 
               title,
               logo,
+              logoScale,
 
               buttonText,
               buttonColor,
@@ -135,6 +136,8 @@ export default function CTAS({ cards }) {
                     sx={{
                       zIndex: 2,
                       height: ['42px', '50px', '58px'],
+                      objectFit: 'contain',
+                      transform: logoScale ? `scale(${logoScale})` : undefined,
                     }}
                   />
                   <Text
