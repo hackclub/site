@@ -1,14 +1,7 @@
 import {
   Avatar,
   Badge,
-  BaseStyles,
-  Box,
-  Button,
-  Container,
   Flex,
-  Grid,
-  Heading,
-  Text
 } from 'theme-ui'
 
 export function PillHolder({ children }) {
@@ -21,7 +14,6 @@ export function PillHolder({ children }) {
         div: {
           mt: 0,
           mb: 2,
-          bg: 'white',
           color: 'muted',
           border: '1px solid',
           borderColor: 'border',
