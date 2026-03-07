@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import { Box, Container, Heading, Text } from 'theme-ui'

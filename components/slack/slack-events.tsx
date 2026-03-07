@@ -1,5 +1,5 @@
 import { sample, take } from 'lodash'
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Slide } from 'react-reveal'
 import useWebSocket from 'react-use-websocket'
 import { Box, Text } from 'theme-ui'
@@ -35,41 +35,38 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
     STATIC_OPTIONS
   )
 
+  const resolveEvent = useCallback(async () => {
+    const msg = lastJsonMessage as any
+    if (!msg || msg.type !== 'message' || !msg.channel) {
+      return false
+    }
+
+    const { name } = await fetch(
+      `/api/channels/resolve/?id=${msg.channel}`
+    )
+      .then(r => r.json())
+      .catch(err => console.error(err))
+
+    if (whitelistedChannels.has(name)) {
+      //this check should happen before the web req, to save on net resources
+      setEvents(prev => [
+        {
+          type: msg.type,
+          channel: `#${name}`,
+          color: sample(colors)
+        },
+        ...prev
+      ])
+    }
+  }, [lastJsonMessage])
+
   useEffect(() => {
     try {
-      async function resolveEvent() {
-        if (
-          !lastJsonMessage ||
-          !lastJsonMessage.type === 'message' ||
-          !lastJsonMessage.channel
-        ) {
-          return false
-        }
-
-        const { name } = await fetch(
-          `/api/channels/resolve/?id=${lastJsonMessage.channel}`
-        )
-          .then(r => r.json())
-          .catch(err => console.error(err))
-
-        if (whitelistedChannels.has(name)) {
-          //this check should happen before the web req, to save on net resources
-          setEvents(prev => [
-            {
-              type: lastJsonMessage.type,
-              channel: `#${name}`,
-              color: sample(colors)
-            },
-            ...prev
-          ])
-        }
-      }
-
       resolveEvent()
     } catch (err) {
       true
     }
-  }, [lastJsonMessage])
+  }, [resolveEvent])
 
   useEffect(() => {
     return () => {

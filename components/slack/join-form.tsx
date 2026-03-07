@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { getCookie, hasCookie } from 'cookies-next'
 import {
   Box,
@@ -18,9 +19,10 @@ import { withRouter } from 'next/router'
 const JoinForm = ({ sx = {}, router }) => {
   const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
 
-  const { status, formProps, useField } = useForm('/api/join/', null, {
+  const { status, formProps, useField, data } = useForm('/api/join/', null, {
     clearOnSubmit: 60000,
     method: 'POST',
+    bearer: undefined,
     initData: hasCookie('continent')
       ? {
         continent: getCookie('continent'),
@@ -30,9 +32,9 @@ const JoinForm = ({ sx = {}, router }) => {
       : { reason: router.query.reason, event: router.query.event }
   })
 
-  const eventReferrer = useField('event').value
+  const eventReferrer = (data as any).event
 
-  const isAdult = useField('year').value === 'tertiary'
+  const isAdult = (data as any).year === 'tertiary'
   
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
@@ -83,7 +85,7 @@ const JoinForm = ({ sx = {}, router }) => {
             <Select
               {...useField('year')}
               required
-              sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
+              sx={{ color: (data as any).continent === '' ? 'muted' : '' }}
             >
               <option value="" selected disabled hidden>
                 Select a level...
@@ -153,31 +155,4 @@ const JoinForm = ({ sx = {}, router }) => {
   )
 }
 
-function AdultChecker() {
-  return (
-    <Label>
-      Birthday
-      <Select
-        required
-        onChange={handleYearChange}
-        sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
-      >
-        <option value="" selected disabled hidden>
-          Year
-        </option>
-        <option value="middle" disabled hidden>
-          Hi, I'm hidden!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        </option>
-        {years
-          .map(year => (
-            <option key={year} value={year}>
-              {year}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </option>
-          ))
-          .reverse()}
-      </Select>
-    </Label>
-  )
-}
-
-export default withRouter(JoinForm)
+export default withRouter(JoinForm as any)

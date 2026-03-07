@@ -30,7 +30,7 @@ function Arrow({ direction, disabled, onClick }) {
   )
 }
 
-export function LeftArrow() {
+function LeftArrow() {
   const { scrollPrev } =
     useContext(VisibilityContext)
 
@@ -42,7 +42,7 @@ export function LeftArrow() {
   )
 }
 
-export function RightArrow() {
+function RightArrow() {
   const { scrollNext } =
     useContext(VisibilityContext)
 

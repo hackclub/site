@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { Box, Card, Grid, Heading, Text } from 'theme-ui'
 import SlideUp from '../slide-up'
 import JoinForm from './join-form'

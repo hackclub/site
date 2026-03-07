@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { Badge, Box, Card, Flex, Grid, Heading, Image, Text } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import NextLink from 'next/link'
@@ -19,15 +20,6 @@ export default function Channels() {
       gap={3}
       sx={{
         py: [3, 4],
-        h3: { my: 0 },
-        '> div': {
-          px: [2, 3],
-          py: 4,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          gridColumn: ['span 1', 'span 3']
-        },
         a: {
           position: 'relative',
           ':hover,:focus': {

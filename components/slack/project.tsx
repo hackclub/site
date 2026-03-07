@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { Box, Grid, Image, Text } from 'theme-ui'
 
 export default function Project({ title, description, color, img, itemId }) {
