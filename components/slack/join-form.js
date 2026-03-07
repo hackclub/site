@@ -153,31 +153,4 @@ const JoinForm = ({ sx = {}, router }) => {
   )
 }
 
-function AdultChecker() {
-  return (
-    <Label>
-      Birthday
-      <Select
-        required
-        onChange={handleYearChange}
-        sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
-      >
-        <option value="" selected disabled hidden>
-          Year
-        </option>
-        <option value="middle" disabled hidden>
-          Hi, I'm hidden!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-        </option>
-        {years
-          .map(year => (
-            <option key={year} value={year}>
-              {year}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </option>
-          ))
-          .reverse()}
-      </Select>
-    </Label>
-  )
-}
-
 export default withRouter(JoinForm)
