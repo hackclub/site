@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import Icon from '@hackclub/icons'
 import { useState } from 'react'
 import { Avatar, Box, Card, Flex, Text } from 'theme-ui'
