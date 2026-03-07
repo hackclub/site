@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import {
@@ -8,12 +9,9 @@ import {
   Heading,
   Card,
   Grid,
-  Link as A,
   Text,
-  Avatar,
-  Image
+  Avatar
 } from 'theme-ui'
-import Photo from '../../components/photo'
 import NextImage from 'next/image'
 import Marquee from 'react-marquee-slider'
 import Photo1 from '../../public/winter/1.jpeg'
@@ -36,48 +34,11 @@ import Photo18 from '../../public/winter/18.jpeg'
 import Photo19 from '../../public/winter/19.jpeg'
 import Photo20 from '../../public/winter/20.jpeg'
 import Photo21 from '../../public/winter/21.jpeg'
-import Photo22 from '../../public/winter/22.jpeg'
-import Photo23 from '../../public/winter/23.jpeg'
-import Photo24 from '../../public/winter/24.jpeg'
-import Photo25 from '../../public/winter/25.jpeg'
-import Photo26 from '../../public/winter/26.jpeg'
-import Photo27 from '../../public/winter/27.jpeg'
-import Photo28 from '../../public/winter/28.jpeg'
-import Photo29 from '../../public/winter/29.jpeg'
-import Photo30 from '../../public/winter/30.jpeg'
-import Photo31 from '../../public/winter/31.png'
-
-/** @jsxImportSource theme-ui */
 
 const Header = styled(Box)`
   background: url('/pattern.svg');
 `
 
-const Sheet = styled(Card)`
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  width: 100%;
-  color: white;
-`
-Sheet.defaultProps = {
-  sx: {
-    bg: 'rgba(255, 255, 255, 0.875)',
-    p: [3, 4],
-    color: 'black',
-    width: 1,
-    mb: 4
-  }
-}
-
-Sheet.defaultProps = {
-  sx: {
-    maxWidth: '52rem',
-    fontSize: 3,
-    p: [4, 5],
-    color: 'white'
-  }
-}
 const PhotoRow = ({ photos }) => (
   <Box sx={{ height: '225px', overflow: 'hidden' }}>
     <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>
@@ -182,16 +143,16 @@ export default function Projects() {
   let list = [
     'Drawing robot',
     '3D printer',
-    "DIY Electric Skateboard",
+    'DIY Electric Skateboard',
     'Pixel art display',
-    "Smart Garden",
+    'Smart Garden',
     'CNC machine',
-    "Interactive LED Art",
-    "VR Escape Room",
-    "Image Recognition App",
+    'Interactive LED Art',
+    'VR Escape Room',
+    'Image Recognition App',
     'DIY Camera',
-    "Multiplayer AR Game",
-    "Drone Swarm Choreography"
+    'Multiplayer AR Game',
+    'Drone Swarm Choreography'
   ]
 
   if (count === list.length - 1) {
@@ -205,9 +166,14 @@ export default function Projects() {
       <Header sx={{ position: 'relative' }}>
         <Box
           sx={{
-            background: ['#D0BF97 url(/arcade/white_bg.svg) no-repeat center center', '#D0BF97 url(/arcade/white_bg.svg) no-repeat center center', 'rgba(0,0,0, 0.8)', 'rgba(0,0,0, 0.8)'],
-           backgroundSize: 'cover', 
-           zIndex: 1,
+            background: [
+              '#D0BF97 url(/arcade/white_bg.svg) no-repeat center center',
+              '#D0BF97 url(/arcade/white_bg.svg) no-repeat center center',
+              'rgba(0,0,0, 0.8)',
+              'rgba(0,0,0, 0.8)'
+            ],
+            backgroundSize: 'cover',
+            zIndex: 1,
             position: 'relative',
             color: 'white!important',
             height: ['auto', 'auto', '900px', '900px']
@@ -260,7 +226,11 @@ export default function Projects() {
                   </Box>
                 </Text>
               </Heading>
-              <Grid columns={[1, 1, 3, 3]} mt={4} mx={['5vw', '5vw', 'auto', 'auto']} >
+              <Grid
+                columns={[1, 1, 3, 3]}
+                mt={4}
+                mx={['5vw', '5vw', 'auto', 'auto']}
+              >
                 <Cards
                   avatar="https://scrapbook.hackclub.com/_next/image?url=https%3A%2F%2Favatars.slack-edge.com%2F2024-05-06%2F7077145829972_8597fe575e09a698859c_192.png&w=48&q=75"
                   username="elijah"

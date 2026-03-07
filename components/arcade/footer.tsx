@@ -12,7 +12,8 @@ const Description = () => (
     <Text as="p" variant="caption" mb={3} sx={{ width: ['85%', '75%', '60%'] }}>
       Hack Club is a registered 501(c)3 nonprofit organization that supports a
       network of 20k+ technical high schoolers. We believe you learn best by
-      building so we're creating community and providing grants so you can make. In the past few years, we've{' '}
+      building so we're creating community and providing grants so you can make.
+      In the past few years, we've{' '}
       <Link href="https://summer.hackclub.com" target="_blank">
         given away 100k+ in hardware grants
       </Link>
