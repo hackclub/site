@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { GalleryPage } from '../../../components/onboard/gallery-paginated'
 import { getAllOnboardProjects } from '../../api/onboard/p'
 import { getOnboardProject } from '../../api/onboard/p/[project]'

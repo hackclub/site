@@ -30,8 +30,8 @@ const YoutubeVideo = ({
     <iframe
       src={src.toString()}
       title={title}
-      {...{ width, height }}
-
+      width={width}
+      height={height}
       allow={allowlist}
       allowFullScreen
     ></iframe>
