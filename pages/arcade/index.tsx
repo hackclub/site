@@ -10,7 +10,7 @@ import fs from 'fs'
 import path from 'path'
 import { startCase } from 'lodash'
 import Projects from '../../components/arcade/projects'
-import { Howl } from 'howler'
+
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 import ArcadeFooter from '../../components/arcade/footer'
@@ -732,99 +732,6 @@ const FAQ = ({ question, answer }) => {
     </Box>
   )
 }
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max)
-}
-
-let yap_sounds = {
-  // ty caleb!
-  thinking: [
-    new Howl({ src: '/bin/yapping/thonk1.wav' }),
-    new Howl({ src: '/bin/yapping/thonk2.wav' }),
-    new Howl({ src: '/bin/yapping/thonk3.wav' })
-  ],
-  talking: {
-    // these sounds and most of the yapping code are adapted from https://github.com/equalo-official/animalese-generator
-    a: new Howl({ src: '/bin/yapping/a.wav', volume: 0.16 }),
-    b: new Howl({ src: '/bin/yapping/b.wav', volume: 0.16 }),
-    c: new Howl({ src: '/bin/yapping/c.wav', volume: 0.16 }),
-    d: new Howl({ src: '/bin/yapping/d.wav', volume: 0.16 }),
-    e: new Howl({ src: '/bin/yapping/e.wav', volume: 0.16 }),
-    f: new Howl({ src: '/bin/yapping/f.wav', volume: 0.16 }),
-    g: new Howl({ src: '/bin/yapping/g.wav', volume: 0.16 }),
-    h: new Howl({ src: '/bin/yapping/h.wav', volume: 0.16 }),
-    i: new Howl({ src: '/bin/yapping/i.wav', volume: 0.16 }),
-    j: new Howl({ src: '/bin/yapping/j.wav', volume: 0.16 }),
-    k: new Howl({ src: '/bin/yapping/k.wav', volume: 0.16 }),
-    l: new Howl({ src: '/bin/yapping/l.wav', volume: 0.16 }),
-    m: new Howl({ src: '/bin/yapping/m.wav', volume: 0.16 }),
-    n: new Howl({ src: '/bin/yapping/n.wav', volume: 0.16 }),
-    o: new Howl({ src: '/bin/yapping/o.wav', volume: 0.16 }),
-    p: new Howl({ src: '/bin/yapping/p.wav', volume: 0.16 }),
-    q: new Howl({ src: '/bin/yapping/q.wav', volume: 0.16 }),
-    r: new Howl({ src: '/bin/yapping/r.wav', volume: 0.16 }),
-    s: new Howl({ src: '/bin/yapping/s.wav', volume: 0.16 }),
-    t: new Howl({ src: '/bin/yapping/t.wav', volume: 0.16 }),
-    u: new Howl({ src: '/bin/yapping/u.wav', volume: 0.16 }),
-    v: new Howl({ src: '/bin/yapping/v.wav', volume: 0.16 }),
-    w: new Howl({ src: '/bin/yapping/w.wav', volume: 0.16 }),
-    x: new Howl({ src: '/bin/yapping/x.wav', volume: 0.16 }),
-    y: new Howl({ src: '/bin/yapping/y.wav', volume: 0.16 }),
-    z: new Howl({ src: '/bin/yapping/z.wav', volume: 0.16 }),
-    th: new Howl({ src: '/bin/yapping/th.wav', volume: 0.16 }),
-    sh: new Howl({ src: '/bin/yapping/sh.wav', volume: 0.16 }),
-    _: new Howl({ src: '/bin/yapping/_.wav', volume: 0.16 })
-  }
-}
-
-async function yap(text, letterCallback) {
-  text = text.toLowerCase()
-  const yap_queue = []
-  for (let i = 0; i < text.length; i++) {
-    const char = text[i]
-    try {
-      if (char === 's' && text[i + 1] === 'h') {
-        // test for 'sh' sound
-        yap_queue.push(yap_sounds.talking['sh'])
-        continue
-      } else if (char === 't' && text[i + 1] === 'h') {
-        // test for 'th' sound
-        yap_queue.push(yap_sounds.talking['th'])
-        continue
-      } else if (char === 'h' && (text[i - 1] === 's' || text[i - 1] === 't')) {
-        // test if previous letter was 's' or 't' and current letter is 'h'
-        yap_queue.push(yap_sounds.talking['_'])
-        continue
-      } else if (char === ',' || char === '?' || char === '.') {
-        yap_queue.push(yap_sounds.talking['_'])
-        continue
-      } else if (char === text[i - 1]) {
-        // skip repeat letters
-        yap_queue.push(yap_sounds.talking['_'])
-        continue
-      }
-    } catch (e) {
-      // who cares. pick up a foot ball
-    }
-    if (!char.match(/[a-zA-Z.]/)) {
-      yap_queue.push(yap_sounds.talking['_'])
-      continue // skip characters that are not letters or periods
-    }
-    yap_queue.push(yap_sounds.talking[char])
-  }
-
-  function next_yap() {
-    letterCallback(yap_queue.length)
-    if (yap_queue.length === 0) return
-    let noise = yap_queue.shift()
-    noise.rate(2 * (Math.random() * 0.5 + 3.5))
-    noise.once('end', next_yap)
-    noise.play()
-  }
-
-  next_yap()
-}
-
 async function generateProjectIdea() {
   if (
     document
@@ -834,51 +741,12 @@ async function generateProjectIdea() {
     return
   }
 
-  yap_sounds.thinking[getRandomInt(yap_sounds.thinking.length)].play()
   ;(document.querySelector('#generate-project-idea') as HTMLElement).style.marginTop = '0px'
   ;(document.querySelector('#console') as HTMLElement).style.marginTop = '-50px'
   ;(document.querySelector('#console2') as HTMLElement).style.opacity = '0'
   ;(document.querySelector('#project-idea') as HTMLElement).style.opacity = '1'
-  document.querySelector('#generate-project-idea').classList.add('disabled')
   document.querySelector('#project-idea').innerHTML =
-    '<em>' + thinkingWords() + '...' + '</em>'
-  ;(document.querySelector('#generate-project-idea') as HTMLImageElement).src =
-    'https://cloud-g5g5sistf-hack-club-bot.vercel.app/1untitled_artwork_8_1.png'
-  let text = ''
-  const res = await fetch('/api/arcade/openai/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-
-  const json = await res.json()
-  text = json.recommendation
-  document.querySelector('#project-idea').innerHTML = ''
-  ;(document.querySelector('#generate-project-idea') as HTMLImageElement).src =
-    'https://cloud-81d1s66l7-hack-club-bot.vercel.app/0untitled_artwork_9_1.png'
-  document.querySelector('#generate-project-idea').classList.remove('disabled')
-  // document.querySelector('#generate-project-idea').classList.add('talking')
-  yap(text, i => {
-    document.querySelector('#project-idea').innerHTML = text.slice(
-      0,
-      Math.max(text.length - i + 1, 0)
-    )
-  })
-}
-
-function thinkingWords() {
-  const arr = [
-    'thinking',
-    'single neuron activated',
-    '2 braincells rubbing together',
-    'ponderosourus',
-    'contemplatosaurus',
-    'dinosaur brain activated',
-    'thinking about trash',
-    'rummaging through my thoughts'
-  ]
-  return arr[Math.floor(Math.random() * arr.length)]
+    'Arcade has ended! Thanks for playing.'
 }
 
 const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
