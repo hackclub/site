@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { useEffect, useRef } from 'react'
 import usePrefersReducedMotion from '../../lib/use-prefers-reduced-motion'
 import { Box, Grid } from 'theme-ui'
@@ -134,7 +135,7 @@ const recapPixels = [
 const Recap = () => {
   const prefersReducedMotion = usePrefersReducedMotion()
   // Fancy lights animation
-  const lightsScrollTrigger = useRef()
+  const lightsScrollTrigger = useRef(null)
   const lightsAnimated = useRef(false)
   useEffect(() => {
     let canceled = false

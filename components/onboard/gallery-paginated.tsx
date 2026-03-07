@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { useEffect, useRef } from 'react'
 import PaginationButtons from './pagination-buttons'
 import Meta from '@hackclub/meta'
@@ -10,7 +11,7 @@ import { Slide } from 'react-reveal'
 const perPage = 10
 
 export const GalleryPage = ({ currentPage, itemCount, currentProjects }) => {
-  const spotlightRef = useRef()
+  const spotlightRef = useRef(null)
   useEffect(() => {
     const handler = event => {
       spotlightRef.current.style.background = `radial-gradient(

@@ -28,12 +28,12 @@ const YoutubeVideo = ({
 
   return (
     <iframe
-      src={src}
+      src={src.toString()}
       title={title}
       {...{ width, height }}
-      frameborder="0"
+
       allow={allowlist}
-      allowfullscreen
+      allowFullScreen
     ></iframe>
   )
 }

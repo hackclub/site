@@ -1,7 +1,6 @@
 import { Box, Text, Grid, Badge, Flex, Avatar, Heading } from 'theme-ui'
 import tt from 'tinytime'
 import Link from 'next/link'
-import { keyframes } from '@emotion/react'
 
 const past = dt => new Date(dt) < new Date()
 const now = (start, end) =>
@@ -79,34 +78,6 @@ const Event = ({ id, slug, title, desc, leader, avatar, start, end, cal }) => (
     </Box>
   </Link>
 )
-
-const flashing = keyframes({
-  from: { opacity: 0 },
-  '50%': { opacity: 1 },
-  to: { opacity: 0 }
-})
-
-function Dot() {
-  return (
-    <Text
-      sx={{
-        bg: 'green',
-        color: 'white',
-        borderRadius: 'circle',
-        display: 'inline-block',
-        lineHeight: 0,
-        width: '.5em',
-        height: '.5em',
-        marginRight: '.4em',
-        marginBottom: '.12em',
-        animationName: `${flashing}`,
-        animationDuration: '3s',
-        animationTimingFunction: 'ease-in-out',
-        animationIterationCount: 'infinite'
-      }}
-    />
-  )
-}
 
 export default function Events({ events }) {
   return (

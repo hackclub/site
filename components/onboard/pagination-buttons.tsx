@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { Box, Button, Text } from 'theme-ui'
 
 const PaginationButtons = ({ currentPage, itemCount, perPage }) => {

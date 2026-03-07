@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { Heading, Card } from 'theme-ui'
 
 const Item = ({ project }) => {

@@ -1,12 +1,7 @@
-import { Box, Link, Text, Image, Card, Button } from 'theme-ui'
-import Icon from '../icon'
-import CarouselCards from './carousel-cards'
-import { keyframes } from '@emotion/react'
-import React, { useEffect, useState } from 'react'
-import Ticker from 'react-ticker'
-import PageVisibility from 'react-page-visibility'
-import { Fade } from 'react-reveal'
 /** @jsxImportSource theme-ui */
+import { Box, Text, Image, Card, Button } from 'theme-ui'
+import React, { useState } from 'react'
+import PageVisibility from 'react-page-visibility'
 
 export default function CTAS({ cards }) {
   const [pageIsVisible, setPageIsVisible] = useState(true)
@@ -88,7 +83,7 @@ export default function CTAS({ cards }) {
                       bottom: '-20px',
                       right: '-20px',
                       width:
-                        stickerImageScale != null
+                        stickerImageScale !== null
                           ? [
                               `${120 * stickerImageScale}px`,
                               `${140 * stickerImageScale}px`,
