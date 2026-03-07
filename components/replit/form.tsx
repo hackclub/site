@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { useState, useRef, useEffect } from 'react'
 import { Box, Button, Card, Link, Input, Text, Flex, Image } from 'theme-ui'
 import Icon from '@hackclub/icons'
@@ -7,14 +8,18 @@ import '@fillout/react/style.css'
 
 import theme from '../../lib/theme'
 
-const ReplitForm = ({ cssDark }) => {
+type ReplitFormProps = {
+  cssDark: string
+}
+
+export default function ReplitForm({ cssDark }: ReplitFormProps) {
   const [currentStep, setCurrentStep] = useState(1)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [buttonText, setButtonText] = useState('Submit')
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState<{ email?: string; token?: string }>({})
   const [stickerPositions, setStickerPositions] = useState([])
-  let jsConfetti = useRef()
-  let draggedSticker = useRef()
+  let jsConfetti = useRef(null)
+  let draggedSticker = useRef(null)
 
   useEffect(() => {
     stickers.forEach((_, idx) => {
@@ -28,16 +33,17 @@ const ReplitForm = ({ cssDark }) => {
     jsConfetti.current = new JSConfetti()
 
     document.onmousedown = e => {
-      if (e.target.classList.contains('sticker')) {
-        const rect = e.target.getBoundingClientRect()
+      const target = e.target as HTMLElement
+      if (target.classList.contains('sticker')) {
+        const rect = target.getBoundingClientRect()
         const stickerCentreX = rect.left + rect.width / 2
         const stickerCentreY = rect.top + rect.height / 2
 
-        e.target.dataset.offsetX = e.clientX - stickerCentreX
-        e.target.dataset.offsetY = e.clientY - stickerCentreY
+        target.dataset.offsetX = String(e.clientX - stickerCentreX)
+        target.dataset.offsetY = String(e.clientY - stickerCentreY)
 
-        document.body.appendChild(e.target)
-        draggedSticker.current = e.target
+        document.body.appendChild(target)
+        draggedSticker.current = target
         draggedSticker.current.style.left = `${e.pageX - draggedSticker.current.dataset.offsetX}px`
         draggedSticker.current.style.top = `${e.pageY - draggedSticker.current.dataset.offsetY}px`
         setTimeout(() => draggedSticker.current.classList.add('dragged'), 0)
@@ -349,5 +355,3 @@ const ReplitForm = ({ cssDark }) => {
     </Card>
   )
 }
-
-export default ReplitForm
