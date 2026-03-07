@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 import { Box, Heading, Button, Text, Container, Grid, Flex } from 'theme-ui'
 import Icon from '../icon'
 import Photo from '../photo'

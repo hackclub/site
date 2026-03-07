@@ -1,11 +1,9 @@
+/** @jsxImportSource theme-ui */
 import { useEffect, useState } from 'react'
 import { Button, Image } from 'theme-ui'
 
 export default function SignIn() {
-  const [user, setUser] =
-    /** @type {ReturnType<typeof useState<{name?: string, avatar?: string} | null>>} */ (
-      useState(null)
-    )
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
     ;(async () => {

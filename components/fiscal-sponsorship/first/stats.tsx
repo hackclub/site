@@ -106,7 +106,7 @@ const Stats = ({ stats }) => {
   )
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const res = await fetch(`https://hcb.hackclub.com/stats`)
   try {
     const stats = await res.json()

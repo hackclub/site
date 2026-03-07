@@ -81,13 +81,15 @@ function Organization({
   website,
   teamNum,
   teamLocation,
+  budget: _budget,
+  budgetLabel: _budgetLabel,
   url,
   imgSrc,
   quote,
   hackerName,
   hackerAvatarUrl,
   hackerRole,
-  transparency
+  transparency = undefined
 }) {
   return (
     <Slide bottom>
@@ -160,7 +162,6 @@ function Organization({
             <br />
             <Text
               sx={{
-                fontSize: 2,
                 color: 'snow',
                 textIndent: '-.375em',
                 lineHeight: 'caption',

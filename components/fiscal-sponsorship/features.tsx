@@ -115,7 +115,7 @@ function Module({ icon, name, body }) {
   )
 }
 
-function Laptop({ href, title, sx }) {
+function Laptop({ href, title }) {
   return (
     <Link href={href} title={title} sx={{ textAlign: 'center' }}>
       <Image

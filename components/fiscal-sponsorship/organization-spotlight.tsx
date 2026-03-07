@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import Tilt from '../tilt'
 import { Card, Heading, Text } from 'theme-ui'
 import Image from 'next/image'

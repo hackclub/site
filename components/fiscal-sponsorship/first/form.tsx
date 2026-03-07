@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { Box, Input, Label, Button, Select, Text, Grid } from 'theme-ui'
 import { useEffect, useRef, useState } from 'react'
 import theme from '@hackclub/theme'
@@ -15,7 +16,16 @@ const spinAnimation = keyframes({
   to: { transform: 'rotate(360deg)' }
 })
 
-function Base({ children, action, target, method, onSubmit, id }) {
+type BaseProps = {
+  children: React.ReactNode
+  action?: string
+  target?: string
+  method?: string
+  onSubmit?: (e: React.SyntheticEvent<HTMLFormElement>) => void
+  id?: string
+}
+
+function Base({ children, action, target, method, onSubmit, id }: BaseProps) {
   return (
     <Box
       as="form"
@@ -116,7 +126,7 @@ export default function Signup() {
     }
   }, [teamType, teamNumber])
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     await fetch('/api/fiscal-sponsorship/demo', {
@@ -154,7 +164,7 @@ export default function Signup() {
               name="teamType"
               defaultValue="Select"
               sx={{ bg: 'dark', w: '500px !important' }}
-              onChange={e => setTeamType(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setTeamType(e.target.value)}
             >
               <option value="Select" disabled>
                 Select

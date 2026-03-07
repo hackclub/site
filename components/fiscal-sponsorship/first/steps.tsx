@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { Box, Flex, Container, Text, Badge, Link } from 'theme-ui'
 import { Slide } from 'react-reveal'
 import Icon from '../../icon'

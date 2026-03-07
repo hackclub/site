@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { Box, Heading, Link, Text, Container, Card, Image } from 'theme-ui'
 import Icon from '../../icon'
 import Masonry from 'react-masonry-css'
@@ -321,7 +322,14 @@ export default function Features() {
   )
 }
 
-function Module({ icon, name, body, iconColor }) {
+type ModuleProps = {
+  icon: string
+  name: string
+  body: string
+  iconColor?: string
+}
+
+function Module({ icon, name, body, iconColor }: ModuleProps) {
   return (
     <Fade bottom>
       <Card
