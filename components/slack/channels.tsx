@@ -1,4 +1,3 @@
-/** @jsxImportSource theme-ui */
 import { Badge, Box, Card, Flex, Grid, Heading, Image, Text } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import NextLink from 'next/link'
@@ -20,6 +19,14 @@ export default function Channels() {
       gap={3}
       sx={{
         py: [3, 4],
+        '> div': {
+          px: [2, 3],
+          py: 4,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          gridColumn: ['span 1', 'span 3']
+        },
         a: {
           position: 'relative',
           ':hover,:focus': {
@@ -37,6 +44,7 @@ export default function Channels() {
           transition: 'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
         },
         h3: {
+          my: 0,
           variant: 'text.headline',
           color: 'white',
           lineHeight: 'title',
@@ -94,7 +102,7 @@ export default function Channels() {
           sx={{
             gridColumn: ['span 2', 'span 5'],
             bg: 'blue',
-            backgroundImage: t => t.util.gx('cyan', 'blue')
+            backgroundImage: (t: any) => t.util.gx('cyan', 'blue')
           }}
         >
           <Icon glyph="external" size={24} />
@@ -106,12 +114,12 @@ export default function Channels() {
       </NextLink>
       <Card
         as="a"
-        href="https://scrapbook.hackclub.com/"
+        {...({ href: 'https://scrapbook.hackclub.com/' } as any)}
         variant="interactive"
         sx={{
           gridColumn: ['span 2', 'span 5'],
           bg: 'dark',
-          backgroundImage: t => t.util.gx('yellow', 'orange')
+          backgroundImage: (t: any) => t.util.gx('yellow', 'orange')
         }}
       >
         <Icon glyph="external" size={24} />
@@ -125,7 +133,7 @@ export default function Channels() {
         sx={{
           gridColumn: ['span 2 !important', 'span 2 !important'],
           gridRow: ['span 1 !important', 'span 3 !important'],
-          writingMode: ['lr-tb', 'tb-rl']
+          writingMode: ['horizontal-tb', 'vertical-rl']
         }}
       >
         <Heading as="h3">#counttoamillion</Heading>
@@ -142,7 +150,7 @@ export default function Channels() {
         </Text>
       </Card>
       <Card backgroundColor="green">
-        <h3 sx={{ color: 'black' }}>#gamedev</h3>
+        <Heading as="h3" sx={{ color: 'black' }}>#gamedev</Heading>
       </Card>
       <Card
         sx={{

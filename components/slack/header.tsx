@@ -1,5 +1,6 @@
-/** @jsxImportSource theme-ui */
-import { Box, Card, Grid, Heading, Text } from 'theme-ui'
+import { Box, Card, Grid, Heading, Link, Text, type BoxProps } from 'theme-ui'
+
+const VideoBox = Box as React.ComponentType<BoxProps & React.VideoHTMLAttributes<HTMLVideoElement>>
 import SlideUp from '../slide-up'
 import JoinForm from './join-form'
 import usePrefersMotion from '../../lib/use-prefers-motion'
@@ -33,6 +34,7 @@ const Content = () => (
     <SlideUp sx={{ zIndex: 5, display: 'flex', alignItems: 'center' }}>
       {useWaitlist ? (
         <JoinForm
+        // @ts-ignore
           sx={{
             variant: 'cards.translucent',
             position: 'relative',
@@ -52,12 +54,11 @@ const Content = () => (
           <Text as="p" sx={{ fontSize: [2, 3], mb: 3 }}>
             Join thousands of teen hackers chatting, coding, and building together!
           </Text>
-          <Text
-            as="a"
+          <Link
             href="https://auth.hackclub.com/slack"
             sx={{
               bg: 'red',
-              backgroundImage: t => t.util.gx('orange', 'red'),
+              backgroundImage: (t: any) => t.util.gx('orange', 'red'),
               color: 'white',
               fontSize: [2, 3],
               px: 4,
@@ -90,7 +91,7 @@ const Content = () => (
             }}
           >
             Join the Slack →
-          </Text>
+          </Link>
         </Card>
       )}
     </SlideUp>
@@ -105,7 +106,7 @@ const Cover = () => (
       top: 0,
       left: 0,
       right: 0,
-      backgroundImage: t => t.util.gx('cyan', 'purple'),
+      backgroundImage: (t: any) => t.util.gx('cyan', 'purple'),
       opacity: 0.625,
       zIndex: 1
     }}
@@ -141,14 +142,13 @@ const Slack = () => {
         id="slack"
         sx={{ overflow: 'hidden', position: 'relative' }}
       >
-        <Box
+        <VideoBox
           as="video"
           autoPlay
           muted
           loop
           playsInline
           poster="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png"
-          duration={2000}
           sx={{
             position: 'absolute',
             bottom: 0,
@@ -173,9 +173,9 @@ const Slack = () => {
             src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.mov?v=1590781491717"
             type="video/quicktime"
           />
-        </Box>
+        </VideoBox>
         <Cover />
-        <Content nameInputRef />
+        <Content />
       </Box>
     )
   } else {

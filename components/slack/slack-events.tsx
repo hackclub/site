@@ -18,7 +18,13 @@ const whitelistedChannels = new Set(
     .filter(i => i.length > 0)
 )
 
-const SlackEvents = ({ sx, color, textColor, ...props }) => {
+type SlackEventsProps = {
+  sx?: any
+  color?: string
+  textColor?: string
+}
+
+const SlackEvents = ({ sx, color, textColor, ...props }: SlackEventsProps) => {
   const didUnmount = useRef(false)
   const [events, setEvents] = useState([])
 

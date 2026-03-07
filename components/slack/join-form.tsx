@@ -1,4 +1,4 @@
-/** @jsxImportSource theme-ui */
+
 import { getCookie, hasCookie } from 'cookies-next'
 import {
   Box,
@@ -37,7 +37,7 @@ const JoinForm = ({ sx = {}, router }) => {
   const isAdult = (data as any).year === 'tertiary'
   
   return (
-    <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
+    <Card sx={{ maxWidth: 'narrow', mx: 'auto', '& label': { mb: 3 }, ...sx }}>
       <form {...formProps}>
         {eventReferrer && (
           <Box
@@ -123,6 +123,7 @@ const JoinForm = ({ sx = {}, router }) => {
           <Submit
             status={status}
             mt={'0px!important'}
+            sx={{}}
             labels={{
               default: useWaitlist ? 'Join Waitlist' : 'Join Now',
               error: 'Something went wrong',
