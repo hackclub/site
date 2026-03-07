@@ -16,7 +16,14 @@ const stripColons = str => {
   return str
 }
 
-export const EmojiImg = ({ name, ...props }) => (
+export const EmojiImg = ({
+  name,
+  ...props
+}: {
+  name: string
+  src: string
+  [key: string]: any
+}) => (
   <Image
     alt={name + ' emoji'}
     loading="lazy"
@@ -27,9 +34,13 @@ export const EmojiImg = ({ name, ...props }) => (
   />
 )
 
-const CustomEmoji = memo(function CustomEmoji({ name }) {
+type CustomEmojiProps = {
+  name: string
+}
+
+const CustomEmoji = memo(function CustomEmoji({ name }: CustomEmojiProps) {
   const emoji = stripColons(name)
-  let [image, setImage] = useState()
+  let [image, setImage] = useState<string>(null)
 
   useEffect(() => {
     fetch('https://scrapbook.hackclub.com/api/emoji')

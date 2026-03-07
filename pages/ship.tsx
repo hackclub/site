@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import {
   Badge,
   Box,

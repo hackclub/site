@@ -1,9 +1,9 @@
+/** @jsxImportSource theme-ui */
 import { Button, Box, Card, Text, Grid, Avatar, Flex } from 'theme-ui'
 import { formatDate } from '../../lib/dates'
-import { Fragment, memo } from 'react'
+import { Fragment } from 'react'
 import { last, filter } from 'lodash'
 import Masonry from 'react-masonry-css'
-import Image from 'next/image'
 import Mention from './mention'
 import Emoji from './emoji'
 
@@ -53,8 +53,6 @@ export const formatText = text =>
   })
 
 const Post = ({
-  id = new Date().toISOString(),
-  profile = false,
   user = {
     username: 'abc',
     avatar: '',
@@ -131,37 +129,38 @@ const Post = ({
   </Card>
 )
 
-const Posts = ({ data = [] }) => (
-  <Box as="section" sx={{ position: 'relative' }}>
-    <Masonry
-      breakpointCols={{
-        10000: 4,
-        1024: 3,
-        640: 2,
-        480: 1,
-        default: 1
-      }}
-      className="masonry-posts"
-      columnClassName="masonry-posts-column"
-    >
-      {data.map(post => (
-        <Post key={post.id} {...post} />
-      ))}
-    </Masonry>
-    <Box
-      sx={{
-        paddingBottom: '30px',
-        textAlign: 'center'
-      }}
-    >
-      <Text as="p" variant="headline" sx={{ color: 'white', mb: 3 }}>
-        These are just a few posts…
-      </Text>
-      <Button as="a" variant="cta" href="https://scrapbook.hackclub.com/">
-        Keep exploring →
-      </Button>
-    </Box>
-    <style>{`
+export default function Posts({ data = [] }) {
+  return (
+    <Box as="section" sx={{ position: 'relative' }}>
+      <Masonry
+        breakpointCols={{
+          10000: 4,
+          1024: 3,
+          640: 2,
+          480: 1,
+          default: 1
+        }}
+        className="masonry-posts"
+        columnClassName="masonry-posts-column"
+      >
+        {data.map(post => (
+          <Post key={post.id} {...post} />
+        ))}
+      </Masonry>
+      <Box
+        sx={{
+          paddingBottom: '30px',
+          textAlign: 'center'
+        }}
+      >
+        <Text as="p" variant="headline" sx={{ color: 'white', mb: 3 }}>
+          These are just a few posts…
+        </Text>
+        <Button as="a" variant="cta" href="https://scrapbook.hackclub.com/">
+          Keep exploring →
+        </Button>
+      </Box>
+      <style>{`
       .masonry-posts {
         display: flex;
         width: 100%;
@@ -212,7 +211,6 @@ const Posts = ({ data = [] }) => (
       }
 
     `}</style>
-  </Box>
-)
-
-export default Posts
+    </Box>
+  )
+}
