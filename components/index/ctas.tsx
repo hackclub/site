@@ -83,7 +83,7 @@ export default function CTAS({ cards }) {
                       bottom: '-20px',
                       right: '-20px',
                       width:
-                        stickerImageScale !== null
+                        stickerImageScale !== null && stickerImageScale !== undefined
                           ? [
                               `${120 * stickerImageScale}px`,
                               `${140 * stickerImageScale}px`,
