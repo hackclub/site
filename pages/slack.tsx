@@ -1,7 +1,6 @@
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import { Box, Container, Heading, Text } from 'theme-ui'
-import { useRef } from 'react'
 import { ScrollMenu } from 'react-horizontal-scrolling-menu'
 import 'react-horizontal-scrolling-menu/dist/styles.css'
 
@@ -18,8 +17,6 @@ import Quote from '../components/slack/quote'
 import Arrows from '../components/slack/arrows'
 
 const SlackPage = () => {
-  const nameInputRef = useRef(null)
-
   return (
     <>
       <style>
