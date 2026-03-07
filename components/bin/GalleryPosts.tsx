@@ -1,8 +1,7 @@
-import React from 'react'
+/** @jsxImportSource theme-ui */
+
 import styles from '../../public/bin/style/gallery.module.css'
 import PartTag from './PartTag';
-import { useEffect, useRef, useState } from 'react';
-
 
 const BinPost = ({title = "Bin Post", desc = "Bin Project", slack = '', link = '', id, date, parts}) => {
   link = link.trim();
@@ -15,7 +14,6 @@ const BinPost = ({title = "Bin Post", desc = "Bin Project", slack = '', link = '
 
   function handleClick() {
     if (typeof window !== 'undefined'){
-      const currentHost = window.location.host;
   
       window.open(link, '_blank');
     }
@@ -27,13 +25,13 @@ const BinPost = ({title = "Bin Post", desc = "Bin Project", slack = '', link = '
     const oneDay = 24 * 60 * 60 * 1000; // Number of milliseconds in one day
     
     // Check if the input date is within the last 24 hours
-    if (now - inputDate < oneDay) {
+    if (now.getTime() - inputDate.getTime() < oneDay) {
       const hours = inputDate.getHours().toString().padStart(2, '0');
       const minutes = inputDate.getMinutes().toString().padStart(2, '0');
       return `Today at ${hours}:${minutes}`;
     } else {
       // Format the date to "Month day, year"
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      const options = { year: 'numeric', month: 'long', day: 'numeric' } as const;
       return inputDate.toLocaleDateString(undefined, options);
     }
   }
