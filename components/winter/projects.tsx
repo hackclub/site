@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+/** @jsxImportSource theme-ui */
+import { useState } from 'react'
 import styled from '@emotion/styled'
 import {
   Box,
@@ -13,7 +14,6 @@ import {
   Avatar,
   Image
 } from 'theme-ui'
-import Photo from '../../components/photo'
 import NextImage from 'next/image'
 import Marquee from 'react-marquee-slider'
 import Photo1 from '../../public/winter/1.jpeg'
@@ -36,16 +36,6 @@ import Photo18 from '../../public/winter/18.jpeg'
 import Photo19 from '../../public/winter/19.jpeg'
 import Photo20 from '../../public/winter/20.jpeg'
 import Photo21 from '../../public/winter/21.jpeg'
-import Photo22 from '../../public/winter/22.jpeg'
-import Photo23 from '../../public/winter/23.jpeg'
-import Photo24 from '../../public/winter/24.jpeg'
-import Photo25 from '../../public/winter/25.jpeg'
-import Photo26 from '../../public/winter/26.jpeg'
-import Photo27 from '../../public/winter/27.jpeg'
-import Photo28 from '../../public/winter/28.jpeg'
-import Photo29 from '../../public/winter/29.jpeg'
-import Photo30 from '../../public/winter/30.jpeg'
-import Photo31 from '../../public/winter/31.png'
 
 /** @jsxImportSource theme-ui */
 
@@ -59,25 +49,11 @@ const Sheet = styled(Card)`
   border-radius: 8px;
   width: 100%;
   color: white;
+  max-width: 52rem;
+  font-size: 20px;
+  padding: 32px;
+  color: white;
 `
-Sheet.defaultProps = {
-  sx: {
-    bg: 'rgba(255, 255, 255, 0.875)',
-    p: [3, 4],
-    color: 'black',
-    width: 1,
-    mb: 4
-  }
-}
-
-Sheet.defaultProps = {
-  sx: {
-    maxWidth: '52rem',
-    fontSize: 3,
-    p: [4, 5],
-    color: 'white'
-  }
-}
 const PhotoRow = ({ photos }) => (
   <Box sx={{ height: '200px', overflow: 'hidden' }}>
     <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>

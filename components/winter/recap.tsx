@@ -1,4 +1,5 @@
-import { Box, Button, Container, Heading, Grid, Card, Text } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { Button, Container, Heading, Grid, Card, Text } from 'theme-ui'
 import theme from '@hackclub/theme'
 import { Slide, Zoom } from 'react-reveal'
 import BreakdownBox from './breakdown-box'

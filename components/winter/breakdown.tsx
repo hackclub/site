@@ -1,13 +1,5 @@
-import {
-  Box,
-  Flex,
-  Container,
-  Heading,
-  Grid,
-  Text,
-  Badge,
-  Link
-} from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { Box, Container, Heading, Grid } from 'theme-ui'
 import { Fade, Slide } from 'react-reveal'
 import BreakdownBox from './breakdown-box'
 

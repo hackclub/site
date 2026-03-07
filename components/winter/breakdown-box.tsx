@@ -1,12 +1,9 @@
+/** @jsxImportSource theme-ui */
 import {
   Box,
   Card,
-  Flex,
-  Container,
   Heading,
   Text,
-  Badge,
-  Link
 } from 'theme-ui'
 import { Zoom } from 'react-reveal'
 import Icon from '@hackclub/icons'

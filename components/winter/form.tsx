@@ -1,9 +1,9 @@
-import { Box, Input, Label, Button, Select, Text, Grid } from 'theme-ui'
-import { useEffect, useRef, useState } from 'react'
+/** @jsxImportSource theme-ui */
+import { Box, Input, Label, Button, Text } from 'theme-ui'
+import { useState } from 'react'
 import theme from '@hackclub/theme'
 import Icon from '../icon'
 import { keyframes } from '@emotion/react'
-import debounce from 'lodash/debounce'
 
 const hideAnimation = keyframes({
   from: { display: 'flex' },
