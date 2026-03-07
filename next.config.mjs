@@ -49,7 +49,7 @@ const nextConfig = {
       },
       {
         source: '/fiscal-sponsorship/apply/',
-        destination: 'https://hcb.hackclub.com/apply/',
+        destination: 'https://hcb.hackclub.com/applications/new',
         permanent: false
       },
       { source: '/grant/', destination: '/hackathons/grant', permanent: false },
@@ -155,18 +155,6 @@ const nextConfig = {
         source: '/updates/',
         destination:
           'https://www.youtube.com/playlist?list=PLbNbddgD-XxEC5-_KQTye6nFPBLtI_mds',
-        permanent: false
-      },
-      {
-        source: '/admin/',
-        destination:
-          'https://5c8804a629a378000833619c--hackclub.netlify.com/admin/',
-        permanent: false
-      },
-      {
-        source: '/checkup/',
-        destination:
-          'https://5c8804a629a378000833619c--hackclub.netlify.com/checkup/',
         permanent: false
       },
       {
@@ -411,11 +399,9 @@ const nextConfig = {
 
 import million from 'million/compiler'
 import withMDX from '@next/mdx'
-import withTM from 'next-transpile-modules'
 
 const withMDXConfig = withMDX({ extension: /\.mdx?$/ })
-const withAnimeJS = withTM(['animejs'])
 
-export default million.next(withAnimeJS(withMDXConfig(nextConfig)), {
+export default million.next(withMDXConfig(nextConfig), {
   auto: true
 })
