@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react'
 
-const TeenagerLedContext = createContext()
+const TeenagerLedContext = createContext(null)
 const useTeenagerLedContext = () => useContext(TeenagerLedContext)
 
 const TeenagerLedProvider = ({ children }) => {

@@ -15,10 +15,10 @@ async function sendApplication() {
   try {
     return fetch('/api/fiscal-sponsorship/apply', {
       method: 'POST',
-      cors: 'no-cors',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
-    })
+    } as RequestInit)
   } catch (error) {
     console.error(error)
   }
@@ -47,7 +47,7 @@ export function onSubmit({
 
   formData.forEach((value, key) => {
     // Save form data
-    sessionStorage.setItem('bank-signup-' + key, value)
+    sessionStorage.setItem('bank-signup-' + key, value.toString())
 
     // Check if there are empty required fields.
     if (

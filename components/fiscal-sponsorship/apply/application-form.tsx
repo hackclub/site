@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { useRouter } from 'next/router'
 import { useEffect, useRef, useState } from 'react'
 import { Alert, Button, Text } from 'theme-ui'
@@ -10,7 +11,7 @@ import MultiStepForm from './multi-step-form'
 
 export default function ApplicationForm() {
   const router = useRouter()
-  const formContainer = useRef()
+  const formContainer = useRef(null)
   const roboticsPriorityCheckbox = useRef(null)
   const [formError, setFormError] = useState(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -93,6 +94,7 @@ export default function ApplicationForm() {
           event,
           router,
           form: formContainer,
+          formError,
           setFormError,
           setIsSubmitting,
           requiredFields

@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { Flex, Label, Text } from 'theme-ui'
@@ -17,18 +18,18 @@ export default function Field({
     Note: the custom checkbox component does this in its own useEffect hook. */
   useEffect(() => {
     const value =
-      router.query[name] || sessionStorage.getItem('bank-signup-' + name)
+      (Array.isArray(router.query[name]) ? router.query[name][0] : router.query[name]) || sessionStorage.getItem('bank-signup-' + name)
     if (!value) return
 
-    let input = document.getElementById(name)
+    let input = document.getElementById(name) as HTMLInputElement | null
     if (input) {
       input.value = value
       return
     }
 
     // Maybe it's radio buttons
-    input = document.querySelector(`input[name='${name}']`)
-    if (input) input.checked = true
+    const radio = document.querySelector(`input[name='${name}']`) as HTMLInputElement | null
+    if (radio) radio.checked = true
   }, [router.query, name])
 
   return (

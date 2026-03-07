@@ -1,7 +1,6 @@
-import { Box, Link, Heading, Grid } from 'theme-ui'
+import { Box, Link, Heading } from 'theme-ui'
 import Icon from '../../icon'
 import { useMultiStepContext } from './multi-step-context'
-import { useEffect } from 'react'
 
 export default function HCBInfo() {
   const { step } = useMultiStepContext()

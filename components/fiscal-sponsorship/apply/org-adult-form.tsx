@@ -1,10 +1,9 @@
-import { Input, Textarea } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { Input } from 'theme-ui'
 import Field from './field'
-import useOrganizationI18n from '../organizationI18n'
 import { useTeenagerLedContext } from './teenager-led-context'
 
 export default function OrganizationAdultForm({ requiredFields }) {
-  const org = useOrganizationI18n()
   const { teenagerLed } = useTeenagerLedContext()
 
   return (

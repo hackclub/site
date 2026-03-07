@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { useEffect, useState } from 'react'
 import Icon from '../../icon'
 import { useRouter } from 'next/router'

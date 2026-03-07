@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react'
+/** @jsxImportSource theme-ui */
+import { useState } from 'react'
 import { Input, Link, Select, Text, Textarea } from 'theme-ui'
-import Checkbox from './checkbox'
 import Field from './field'
+
 // This is using country-list instead of country-list-js as it has a smaller bundle size
 import useOrganizationI18n from '../organizationI18n'
 import OrganizationAdultForm from './org-adult-form'

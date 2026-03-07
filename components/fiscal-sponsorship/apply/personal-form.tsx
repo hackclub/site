@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { Input, Flex, Label, Radio, Grid, Select, Box, Text } from 'theme-ui'
 import Field from './field'
 import Checkbox from './checkbox'

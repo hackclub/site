@@ -1,5 +1,6 @@
+/** @jsxImportSource theme-ui */
 import { useEffect } from 'react'
-import { Flex, Input, Label, Radio, Select } from 'theme-ui'
+import { Flex, Label, Radio } from 'theme-ui'
 import Field from './field'
 import { useTeenagerLedContext } from './teenager-led-context'
 
@@ -26,7 +27,7 @@ export default function TeenagerOrAdultForm({ requiredFields }) {
     // NOTE: This depends on Field's useEffect hook to run first.
     const eventTeenagerLedElm = document.querySelector(
       'input[name="eventTeenagerLed"]:checked'
-    )
+    ) as HTMLInputElement | null
     if (eventTeenagerLedElm) setTeenagerLed(eventTeenagerLedElm.value)
   })
 

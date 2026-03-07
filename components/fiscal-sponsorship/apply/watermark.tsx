@@ -1,12 +1,13 @@
-import React, { useRef, useEffect } from 'react'
+/** @jsxImportSource theme-ui */
+import { useRef, useEffect } from 'react'
 import { Box } from 'theme-ui'
 
 export default function Watermark() {
   /* This is going to come back to haunt me one day.
     It's an abomination but it works ... for now */
 
-  const shineRef = useRef()
-  const svgRef = useRef()
+  const shineRef = useRef(null)
+  const svgRef = useRef(null)
 
   // Mouse move event
   const handleMouseMove = ({ clientX, clientY }) => {

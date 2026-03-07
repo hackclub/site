@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react'
 
-const MultiStepContext = createContext()
+const MultiStepContext = createContext(null)
 const useMultiStepContext = () => useContext(MultiStepContext)
 
 const MultiStepProvider = ({ children }) => {
