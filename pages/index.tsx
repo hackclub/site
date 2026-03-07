@@ -28,7 +28,6 @@ import HCB from '../components/index/cards/hcb'
 import Hackathons from '../components/index/cards/hackathons'
 import OuternetImgFile from '../public/home/outernet-110.jpg'
 import Announcement from '../components/announcement'
-import Konami from 'react-konami-code'
 import JSConfetti from 'js-confetti'
 import Secret from '../components/secret'
 import MailingList from '../components/index/cards/mailing-list'
@@ -144,6 +143,27 @@ function Page({
     }
   }, [])
 
+  // easter egg detector, one-shot
+  const [konamiActivated, setKonamiActivated] = useState(false)
+  useEffect(() => {
+    const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a']
+    let konamiPosition = 0
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!konamiActivated && e.key === konamiSequence[konamiPosition]) {
+        konamiPosition++
+        if (konamiPosition === konamiSequence.length) {
+          easterEgg()
+          setKonamiActivated(true)
+          konamiPosition = 0
+        }
+      } else if (!konamiActivated) {
+        konamiPosition = 0
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [konamiActivated])
+
   const easterEgg = () => {
     alert('Hey, you typed the Konami Code!')
 
@@ -247,9 +267,13 @@ function Page({
             setReveal(false)
           }}
         />
-        <Konami action={easterEgg}>
-          {"Hey, I'm an Easter Egg! Look at me!"}
-        </Konami>
+        {konamiActivated && (
+          <Text
+            as="p"
+          >
+            Hey, I'm an Easter Egg! Look at me!
+          </Text>
+        )}
         <Box
           as="header"
           sx={{

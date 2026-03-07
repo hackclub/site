@@ -1,11 +1,11 @@
 # AGENT.md - Hack Club Site Development Guide
 
 ## Commands
-- **Dev**: `yarn dev` (start development server)
-- **Build**: `yarn build` (production build)
-- **Lint**: `yarn lint` (Next.js ESLint)
-- **Format**: `yarn format` (Prettier formatting)
-- **Start**: `yarn start` (production server)
+- **Dev**: `bun run dev` (start development server)
+- **Build**: `bun run build` (production build)
+- **Lint**: `bun run lint` (Next.js ESLint)
+- **Format**: `bun run format` (Prettier formatting)
+- **Start**: `bun run start` (production server)
 - **Test**: No test framework configured
 
 ## Code Style

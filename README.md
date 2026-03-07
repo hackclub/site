@@ -13,13 +13,13 @@ Hack Club's new website. This codebase is what runs on [hackclub.com](https://ha
 2. Install dependencies:
 
     ```bash
-    yarn
+    bun install
     ```
 
 3. Start running the website on your computer:
 
     ```bash
-    yarn dev
+    bun run dev
     ```
 
 4. Open up your web browser and go to [localhost:3000](http://localhost:3000)
