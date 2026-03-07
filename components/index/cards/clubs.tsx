@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
+/** @jsxImportSource theme-ui */
 import Buttons from './button'
 import CardModel from './card-model'
 import { Box, Grid, Flex, Image, Text } from 'theme-ui'
-
-/** @jsxImportSource theme-ui */
 
 const Cover = () => (
   <Box

@@ -1,16 +1,15 @@
+/** @jsxImportSource theme-ui */
 import CardModel from './card-model'
 import { Box, Image, Text } from 'theme-ui'
 
-/** @jsxImportSource theme-ui */
-
-export default function Scraps() {
+export default function HackClubTheGame() {
   return (
     <CardModel
       color="black"
       sx={{
-        background: 'white',
+        background: '#ffd966',
         borderRadius: '16px',
-        border: '4px solid black',
+        border: '2px solid black',
         boxShadow: 'none',
         position: 'relative',
         overflow: 'hidden'
@@ -19,8 +18,8 @@ export default function Scraps() {
       visible={true}
     >
       <Image
-        alt="scraps dino"
-        src="https://scraps.hackclub.com/hero.png"
+        alt="sleepy orph"
+        src="https://raw.githubusercontent.com/CKacha/HCTG-Photos/main/Sleepy-Orpheus.png"
         sx={{
           position: 'absolute',
           top: 0,
@@ -56,7 +55,7 @@ export default function Scraps() {
             textDecoration: 'none'
           }}
         >
-          scraps
+          Hack Club: The Game
         </Text>
 
         <Text
@@ -72,13 +71,13 @@ export default function Scraps() {
             textAlign: 'left'
           }}
         >
-          Build any project, track your hours, and earn a virtual currency
-          called scraps. Roll for prizes like hardware, stickers, and rare
-          collectibles from Hack Club HQ - all for free!
+          Build any type of project you want! Submit them, and eventually
+          you'll be able to compete in a scavenger hunt adventure game
+          across Manhattan!
         </Text>
         <Box
-          as="a"
-          href="https://scraps.hackclub.com/?utm_source=site-card"
+          as="a"    
+          href="https://game.hackclub.com/"
           sx={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -119,7 +118,7 @@ export default function Scraps() {
             <path d="M5 12h14" />
             <path d="m12 5 7 7-7 7" />
           </svg>
-          start scrapping
+          Start Preparing!
         </Box>
       </Box>
     </CardModel>

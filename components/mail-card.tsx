@@ -1,6 +1,6 @@
 import { Box, Card, Link, Text } from 'theme-ui'
 
-export default function MailCard({ body, date, link }) {
+export default function MailCard({ body, date, link, issue }) {
   body = body.length > 130 ? body.substring(0, 130) + '...' : body
   return (
     <Card

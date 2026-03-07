@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react'
-import { Box, Flex, Grid, Text } from 'theme-ui'
-import CardModel from './card-model'
-import Buttons from './button'
-
 /** @jsxImportSource theme-ui */
+import { useEffect, useState } from 'react'
+import { Box, Flex, Text } from 'theme-ui'
+import Buttons from './button'
 
 export default function Blueprint({ stars, blueprintData }) {
   const [projects, setProjects] = useState(blueprintData || '100+ projects built')

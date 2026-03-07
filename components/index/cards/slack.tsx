@@ -1,10 +1,9 @@
+/** @jsxImportSource theme-ui */
 import CardModel from './card-model'
 import { Box, Flex, Grid, Heading, Image, Link, Text } from 'theme-ui'
 import Buttons from './button'
 import Event from '../events'
-import Dot from '../../dot'
 import Comma from '../../comma'
-/** @jsxImportSource theme-ui */
 
 const Cover = () => (
   <Box
@@ -42,7 +41,7 @@ const Stats = ({ data, subheading, nonMobile = false }) => (
     </Text>
   </Box>
 )
-export default function Slack({ data, slackKey, events }) {
+export default function Slack({ data, events }) {
   return (
     <CardModel
       color="white"

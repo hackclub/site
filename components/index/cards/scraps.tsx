@@ -1,16 +1,15 @@
-import CardModel from './card-model'
-import { Box, Image, Text } from 'theme-ui'
-
 /** @jsxImportSource theme-ui */
+import CardModel from './card-model'
+import { Box, Image, Link, Text } from 'theme-ui'
 
-export default function HackClubTheGame() {
+export default function Scraps() {
   return (
     <CardModel
       color="black"
       sx={{
-        background: '#ffd966',
+        background: 'white',
         borderRadius: '16px',
-        border: '2px solid black',
+        border: '4px solid black',
         boxShadow: 'none',
         position: 'relative',
         overflow: 'hidden'
@@ -19,8 +18,8 @@ export default function HackClubTheGame() {
       visible={true}
     >
       <Image
-        alt="sleepy orph"
-        src="https://raw.githubusercontent.com/CKacha/HCTG-Photos/main/Sleepy-Orpheus.png"
+        alt="scraps dino"
+        src="https://scraps.hackclub.com/hero.png"
         sx={{
           position: 'absolute',
           top: 0,
@@ -56,7 +55,7 @@ export default function HackClubTheGame() {
             textDecoration: 'none'
           }}
         >
-          Hack Club: The Game
+          scraps
         </Text>
 
         <Text
@@ -72,13 +71,12 @@ export default function HackClubTheGame() {
             textAlign: 'left'
           }}
         >
-          Build any type of project you want! Submit them, and eventually
-          you'll be able to compete in a scavenger hunt adventure game
-          across Manhattan!
+          Build any project, track your hours, and earn a virtual currency
+          called scraps. Roll for prizes like hardware, stickers, and rare
+          collectibles from Hack Club HQ - all for free!
         </Text>
-        <Box
-          as="a"    
-          href="https://game.hackclub.com/"
+        <Link
+          href="https://scraps.hackclub.com/?utm_source=site-card"
           sx={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -119,8 +117,8 @@ export default function HackClubTheGame() {
             <path d="M5 12h14" />
             <path d="m12 5 7 7-7 7" />
           </svg>
-          Start Preparing!
-        </Box>
+          start scrapping
+        </Link>
       </Box>
     </CardModel>
   )

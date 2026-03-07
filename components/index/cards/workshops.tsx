@@ -1,9 +1,7 @@
+/** @jsxImportSource theme-ui */
 import CardModel from './card-model'
 import { Box, Card, Flex, Grid, Heading, Image, Text } from 'theme-ui'
-import { useState } from 'react'
 import Buttons from './button'
-
-/** @jsxImportSource theme-ui */
 
 const WorkshopCard = ({
   slug,
@@ -27,10 +25,6 @@ const WorkshopCard = ({
       lineHeight: 0,
       display: 'flex',
       flexDirection: 'column',
-      height: '80%',
-      '& span': {
-        lineHeight: 1.25
-      },
       maxWidth: '250px',
       height: '250px'
     }}

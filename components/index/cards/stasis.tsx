@@ -1,7 +1,6 @@
+/** @jsxImportSource theme-ui */
 import { Box, Flex, Image, Text } from 'theme-ui'
 import CardModel from './card-model'
-
-/** @jsxImportSource theme-ui */
 
 export default function Stasis() {
   return (

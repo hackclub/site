@@ -1,22 +1,16 @@
+/** @jsxImportSource theme-ui */
 import CardModel from './card-model'
 import { Box, Flex, Grid, Image, Text } from 'theme-ui'
 import Buttons from './button'
-
-/** @jsxImportSource theme-ui */
 
 export default function Sinerider({ stars }) {
   return (
     <CardModel
       github_link="https://github.com/hackclub/sinerider/"
-      // link="https://sprig.hackclub.com"
       stars={stars}
       color="white"
       sx={{
         backgroundSize: 'cover',
-        // backgroundImage:
-        //   'url(https://cloud-pwqxgzqdg-hack-club-bot.vercel.app/0initial-bg__1_.png)',
-        // backgroundPosition: 'center -60px',
-        // backgroundRepeat: 'no-repeat',
         backgroundColor: '#271932'
       }}
       position={[null, 'bottom', 'bottom']}

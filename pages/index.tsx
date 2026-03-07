@@ -47,7 +47,6 @@ import Aces from '../components/index/cards/aces'
 import Sleepover from '../components/index/cards/sleepover'
 import Stasis from '../components/index/cards/stasis'
 import CTAS from '../components/index/ctas'
-/** @jsxImportSource theme-ui */
 
 const ANNOUNCEMENTS = [
   {
