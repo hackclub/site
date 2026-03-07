@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { Box, Flex, Grid, Heading, Text } from 'theme-ui'
 import Head from 'next/head'
 import Link from 'next/link'

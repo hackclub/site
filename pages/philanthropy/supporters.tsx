@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
 import {
