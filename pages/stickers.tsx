@@ -5,11 +5,9 @@ import Nav from '../components/nav'
 import BGImg from '../components/background-image'
 import Footer from '../components/footer'
 import ForceTheme from '../components/force-theme'
-import StickerForm from '../components/stickers/request-form'
 
 import fs from 'fs'
 import path from 'path'
-import { startCase } from 'lodash'
 
 const color = '#EC37AD'
 
@@ -17,7 +15,7 @@ function customStartCase(st) {
   return st
     .replace(/\.(svg|png)$/, '')
     .replace(/[_-]+/g, ' ')
-    .replace(/\b\w/g, char => char.toUpperCase());
+    .replace(/\b\w/g, char => char.toUpperCase())
 }
 
 const StickersPage = ({ stickers = [] }) => [
