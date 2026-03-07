@@ -20,7 +20,6 @@ Highlight = Highlight.withComponent('mark')
 const Content = () => (
   <Container
     sx={{
-      textAlign: 'center',
       zIndex: 999,
       py: 6,
       color: 'white',
@@ -67,7 +66,7 @@ const Cover = () => (
       top: 0,
       left: 0,
       right: 0,
-      backgroundImage: t => t.util.gx('cyan', 'purple'),
+      backgroundImage: (t: any) => t.util.gx('cyan', 'purple'),
       opacity: 0.825,
       zIndex: 1
     }}
@@ -105,12 +104,7 @@ const Slack = () => {
       >
         <Box
           as="video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png"
-          duration={2000}
+          {...{ autoPlay: true, muted: true, loop: true, playsInline: true, poster: "https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png", duration: 2000 } as object}
           sx={{
             position: 'absolute',
             bottom: 0,

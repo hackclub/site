@@ -1,7 +1,15 @@
 import Link from 'next/link'
 import { memo } from 'react'
 
-const StaticMention = memo(function StaticMention({ avatar, username, link }) {
+const StaticMention = memo(function StaticMention({
+  avatar,
+  username,
+  link
+}: {
+  avatar?: string
+  username: string
+  link: string
+}) {
   return (
     <Link href={link}>
       <a

@@ -37,8 +37,7 @@ const Particle = React.memo(function Particle() {
         },
         particles: {
           color: {
-            value: '#CDAEFB',
-            opacity: 0.2
+            value: '#CDAEFB'
           },
           links: {
             color: '#82A9F9',
