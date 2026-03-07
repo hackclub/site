@@ -1,4 +1,4 @@
-import React from 'react'
+/** @jsxImportSource theme-ui */
 import styled from '@emotion/styled'
 import { Box, Image, Link } from 'theme-ui'
 
