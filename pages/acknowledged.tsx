@@ -1,18 +1,15 @@
-import { Box, Container, Flex, Grid, Text } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { Box, Container, Grid, Text } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Bio from '../components/bio'
-import BoardBox from '../components/boardbio'
 import ForceTheme from '../components/force-theme'
 import { fetchAcknowledged } from './api/team'
 
 
 export default function Acknowleged({ team }) {
-  // Spacing between major team section boxes
-  const BOX_SPACING = 5
-
   return (
     <>
       <Box as="main" key="main" pb={5}>

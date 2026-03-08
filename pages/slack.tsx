@@ -1,6 +1,7 @@
+/** @jsxImportSource theme-ui */
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import { Box, Container, Heading, Text } from 'theme-ui'
+import { Box, Container, Heading, Text } from 'theme-ui'      
 import { ScrollMenu } from 'react-horizontal-scrolling-menu'
 import 'react-horizontal-scrolling-menu/dist/styles.css'
 

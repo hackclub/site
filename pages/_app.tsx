@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 
-import Analytics from '../components/analytics.js'
+import Analytics from '../components/analytics'
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 
