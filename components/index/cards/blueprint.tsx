@@ -4,7 +4,9 @@ import { Box, Flex, Text } from 'theme-ui'
 import Buttons from './button'
 
 export default function Blueprint({ stars, blueprintData }) {
-  const [projects, setProjects] = useState(blueprintData || '100+ projects built')
+  const [projects, setProjects] = useState(
+    blueprintData || '100+ projects built'
+  )
 
   useEffect(() => {
     if (!blueprintData) {
@@ -22,7 +24,8 @@ export default function Blueprint({ stars, blueprintData }) {
     <Box
       sx={{
         backgroundColor: '#0e305b',
-        backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
+        backgroundImage:
+          'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
         backgroundSize: '50px 50px',
         backgroundPosition: '0 0, 0 0',
         borderRadius: '12px',
@@ -37,8 +40,8 @@ export default function Blueprint({ stars, blueprintData }) {
         sx={{
           position: 'absolute',
           right: ['20px', '40px', '60px'],
-          top: ['-10px', '10px', '30px'],
-          zIndex: 2,
+          top: ['10px', '20px', '30px'],
+          zIndex: 1,
           animation: 'sway 3s ease-in-out infinite',
           '@keyframes sway': {
             '0%, 100%': {
@@ -54,7 +57,7 @@ export default function Blueprint({ stars, blueprintData }) {
           src="https://cdn.hackclub.com/019c76ba-04ab-7b48-964c-c16abbc307fb/IA1DMA.png"
           alt="Blueprint Logo"
           style={{
-            width: '220px',
+            width: '160px',
             height: 'auto',
             filter: 'drop-shadow(0 0 10px rgba(219, 228, 238, 0.4))'
           }}
@@ -64,7 +67,7 @@ export default function Blueprint({ stars, blueprintData }) {
         sx={{
           mt: ['38px', 0, 0],
           position: 'relative',
-          zIndex: 3,
+          zIndex: 3
         }}
       >
         <img
@@ -78,7 +81,7 @@ export default function Blueprint({ stars, blueprintData }) {
           }}
         />
       </Box>
-      <Box>
+      <Box sx={{ position: 'relative', zIndex: 3 }}>
         <Flex
           sx={{
             alignItems: 'baseline',
@@ -148,11 +151,22 @@ export default function Blueprint({ stars, blueprintData }) {
             {projects}
           </Text>
         </Flex>
-        <Text as="p" variant="subtitle" sx={{ color: 'white', mb: 4, maxWidth: '600px' }}>
+        <Text
+          as="p"
+          variant="subtitle"
+          sx={{ color: 'white', mb: 4, maxWidth: '600px' }}
+        >
           Design a Hardware project and get up to $400 to make it real!
         </Text>
 
-        <Flex sx={{ flexDirection: ['column', 'row'], gap: 3, alignItems: ['stretch', 'center'], flexWrap: 'wrap' }}>
+        <Flex
+          sx={{
+            flexDirection: ['column', 'row'],
+            gap: 3,
+            alignItems: ['stretch', 'center'],
+            flexWrap: 'wrap'
+          }}
+        >
           <Buttons
             id="59"
             icon="enter"
@@ -162,10 +176,18 @@ export default function Blueprint({ stars, blueprintData }) {
           >
             Sign Up
           </Buttons>
-          <Buttons icon="docs" link="https://blueprint.hackclub.com/guides/?utm_source=site" id="60">
+          <Buttons
+            icon="docs"
+            link="https://blueprint.hackclub.com/guides/?utm_source=site"
+            id="60"
+          >
             Learn how to build hardware
           </Buttons>
-          <Buttons icon="friend" link="https://blueprint.hackclub.com/explore/?utm_source=site" id="61">
+          <Buttons
+            icon="friend"
+            link="https://blueprint.hackclub.com/explore/?utm_source=site"
+            id="61"
+          >
             See what other hackers have built
           </Buttons>
         </Flex>
