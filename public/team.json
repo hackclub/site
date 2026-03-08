@@ -121,6 +121,50 @@
     "avatar": "https://profile.vic.wf/vm/picture.png"
   },
   {
+    "name": "Julia Do",
+    "department": "Events",
+    "role": "Virtual Event Organizer",
+    "acknowledged": false,
+    "bio": "Julia is a 17-year-old Hack Clubber who loves mangoes, karaoke, and creating projects that tell stories. When she's not working, you can probably find her on Slack!",
+    "slackId": "U0943NG73PA",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U0943NG73PA/r"
+  },
+  {
+    "name": "Benjamin Graetz",
+    "department": "Events",
+    "role": "Virtual Event Organizer",
+    "acknowledged": false,
+    "bio": "Benjamin Graetz is a 14 year old from Adelaide, Australia. He joined Hack Club during High Seas (via GitHub Education Newspapers) but he has also successfully ran Daydream Adelaide and Campfire Adelaide plus he runs his own Hack Club. He also loves things to do with ICT like management stuff and computers.",
+    "slackId": "U0828CN2BL4",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U0828CN2BL4/r"
+  },
+  {
+    "name": "Tanishq Goyal",
+    "department": "Events",
+    "role": "Virtual Event Organizer",
+    "acknowledged": false,
+    "bio": "Tanishq Goyal is a 15-year-old hacker! He joined Hack Club during Highway, when he fell in love with engineering. He has organized a few AMAs and was a part of the Highway and Blueprint team. He loves to fence, hike, snowboard, and bike. He also loves chess and would love to take you up in a game when you meet!",
+    "slackId": "U08R4Q9H8EB",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U08R4Q9H8EB/r"
+  },
+  {
+    "name": "Joel Gallagher",
+    "department": "Events",
+    "role": "Virtual Event Organizer",
+    "acknowledged": false,
+    "bio": "Joel, who goes by PianoMan0 online, is a member of the community team at Hack Club.",
+    "slackId": "U0829HRSQ76",
+    "email": "",
+    "website": "pianoman0.com",
+    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U0829HRSQ76-d5355bd1e025-512"
+  },
+  {
     "name": "Gary Tou",
     "staff": true,
     "department": "HCB",
