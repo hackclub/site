@@ -64,6 +64,7 @@ export default function Blueprint({ stars, blueprintData }) {
         sx={{
           mt: ['38px', 0, 0],
           position: 'relative'
+          zIndex: 3,
         }}
       >
         <img
