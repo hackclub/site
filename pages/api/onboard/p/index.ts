@@ -2,7 +2,9 @@
 
 export const getAllOnboardProjects = async () => {
   const url = 'https://api.github.com/repos/hackclub/onboard/contents/projects'
-  const fetchOptions = {}
+  const fetchOptions = {
+    headers: {}
+  }
   if (process.env.GITHUB_TOKEN) {
     // this field is optional because we do heavy caching in production, but nice to have for local development
     fetchOptions.headers = {
@@ -10,9 +12,10 @@ export const getAllOnboardProjects = async () => {
     }
   }
 
-  let res;
-  try { res = await fetch(url, fetchOptions).then(r => r.json()) }
-  catch (e) {
+  let res
+  try {
+    res = await fetch(url, fetchOptions).then(r => r.json())
+  } catch (e) {
     console.error('Failed to fetch projects from GitHub', e)
     return []
   }
@@ -21,7 +24,7 @@ export const getAllOnboardProjects = async () => {
     console.error('GitHub API rate limit exceeded')
     return []
   }
-  if(!res || !Array.isArray(res)) return []
+  if (!res || !Array.isArray(res)) return []
 
   const projects = []
 
@@ -43,11 +46,10 @@ export const getAllOnboardProjects = async () => {
       githubURL: p.html_url,
       readmeURL: `https://raw.githubusercontent.com/hackclub/OnBoard/main/projects/${p.name}/README.md`,
       schematicURL: `https://raw.githubusercontent.com/hackclub/OnBoard/main/projects/${p.name}/schematic.pdf`,
-      gerberURL: `https://raw.githubusercontent.com/hackclub/OnBoard/main/projects/${p.name}/gerber.zip`
+      gerberURL: `https://raw.githubusercontent.com/hackclub/OnBoard/main/projects/${p.name}/gerber.zip`,
+      imageTop: `/api/onboard/svg/${encodeURIComponent(`https://raw.githubusercontent.com/hackclub/OnBoard/main/projects/${p.name}/gerber.zip`)}/top`,
+      imageBottom: `/api/onboard/svg/${encodeURIComponent(`https://raw.githubusercontent.com/hackclub/OnBoard/main/projects/${p.name}/gerber.zip`)}/bottom`
     }
-
-    projectData.imageTop = `/api/onboard/svg/${encodeURIComponent(projectData.gerberURL)}/top`
-    projectData.imageBottom = `/api/onboard/svg/${encodeURIComponent(projectData.gerberURL)}/bottom`
 
     projects.push(projectData)
   })
