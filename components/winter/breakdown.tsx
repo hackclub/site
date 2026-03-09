@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { Box, Container, Heading, Grid } from 'theme-ui'
-import { Fade, Slide } from 'react-reveal'
+import { Fade, Slide } from '../react-reveal-compat'
 import BreakdownBox from './breakdown-box'
 
 function Breakdown() {

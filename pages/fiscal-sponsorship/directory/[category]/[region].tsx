@@ -36,7 +36,8 @@ export const getStaticPaths = () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-  let { region, category } = params
+  let { region } = params
+  const { category } = params
   region = find(regionsWithIds, ['id', region.replace('organizations-in-', '')])
 
   const { fetchAllOrganizations } = await import(
@@ -48,7 +49,7 @@ export const getStaticProps = async ({ params }) => {
     ...total.filter(a => a.logo === null)
   ]
 
-  let orgs = allOrgs.filter(
+  const orgs = allOrgs.filter(
     org =>
       (region.continents
         ? region.continents.includes(org.location.continent)

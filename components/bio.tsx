@@ -129,7 +129,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
                     width="100%"
                     src={video}
                     title="YouTube video player"
-                    frameborder="0"
+                    frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen
                   />

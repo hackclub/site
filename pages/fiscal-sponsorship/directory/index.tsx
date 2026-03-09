@@ -121,7 +121,7 @@ const FilterPanel = ({ filter, mobile, clearOffset }) => {
   const [categoriesHiddenOnMobile, setCategoriesHiddenOnMobile] =
     useState(mobile)
   const router = useRouter()
-  let { category, region } = router.query
+  const { category, region } = router.query
   return (
     <>
       <Heading

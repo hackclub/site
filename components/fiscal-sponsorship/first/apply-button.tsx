@@ -6,12 +6,9 @@ export default function ApplyButton() {
   return (
     <Link
       href="/fiscal-sponsorship/apply?robotics-priority=true"
-      passHref
-      legacyBehavior
     >
       <Button
         variant="ctaLg"
-        as="a"
         sx={{
           width: '100%',
           height: '4.2rem'

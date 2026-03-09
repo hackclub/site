@@ -21,15 +21,28 @@ type PhotoProps = {
   src: string | StaticImageData
   width?: number
   height?: number
-  alt?: string | ReactNode
+  alt?: string
+  caption?: ReactNode
   showAlt?: boolean
   dark?: boolean
   loading?: 'eager' | 'lazy'
+  unoptimized?: boolean
   sx?: any
 }
 
 const Photo = React.forwardRef<HTMLDivElement, PhotoProps>(function Photo(
-  { src, width, height, alt, showAlt, dark, loading, ...props }: PhotoProps,
+  {
+    src,
+    width,
+    height,
+    alt,
+    caption,
+    showAlt,
+    dark,
+    unoptimized = false,
+    loading,
+    ...props
+  }: PhotoProps,
   ref
 ) {
   const showCaption = showAlt && alt
@@ -45,7 +58,7 @@ const Photo = React.forwardRef<HTMLDivElement, PhotoProps>(function Photo(
         position: 'relative',
         maxWidth: '100%',
         lineHeight: 0,
-        height: 'fit-content',
+        height: '100%',
         ...props.sx,
         img: { objectFit: 'cover', objectPosition: 'center' }
       }}
@@ -55,15 +68,20 @@ const Photo = React.forwardRef<HTMLDivElement, PhotoProps>(function Photo(
         alt={alt}
         width={width}
         height={height}
-        layout="responsive"
         loading={loading || 'lazy'}
+        unoptimized={unoptimized}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover'
+        }}
       />
       {showCaption && (
         <Caption
           as="figcaption"
           variant={dark ? 'cards.translucentDark' : 'cards.translucent'}
         >
-          {alt}
+          {caption ?? alt}
         </Caption>
       )}
     </Card>

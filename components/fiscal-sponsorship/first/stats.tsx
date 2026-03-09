@@ -46,7 +46,7 @@ const Stats = ({ stats }) => {
   const [balance, setBalance] = useState(0) // A formatted balance string, split by decimal
 
   useEffect(() => {
-    let observer = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       e => {
         if (e[0].isIntersecting) {
           console.info('intersecting')

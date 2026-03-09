@@ -3,7 +3,7 @@
 import { Checkbox, Input, Label, Text, Box } from 'theme-ui'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
-import { Slide } from 'react-reveal'
+import { Slide } from '../react-reveal-compat'
 
 export default function RsvpForm() {
   const { status, formProps, useField } = useForm('/api/bin/rsvp', null, {

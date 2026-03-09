@@ -15,7 +15,7 @@ function customStartCase(st) {
   return st
     .replace(/\.(svg|png)$/, '')
     .replace(/[_-]+/g, ' ')
-    .replace(/\b\w/g, char => char.toUpperCase())
+    .replace(/\b\w/g, char => char.toUpperCase());
 }
 
 const StickersPage = ({ stickers = [] }) => [
@@ -33,8 +33,6 @@ const StickersPage = ({ stickers = [] }) => [
       sx={{ position: 'relative', overflow: 'hidden', py: [6, 7], px: 4 }}
     >
       <BGImg
-        width={2732}
-        height={1821}
         alt="Students exchanging stickers"
         src="/stickers/hero.jpg"
         gradient="true"

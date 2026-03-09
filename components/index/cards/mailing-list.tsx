@@ -39,7 +39,7 @@ const MailingList = () => {
     e.preventDefault()
     setSubmitting(true)
 
-    let res = await fetch('/api/mailing-list', {
+    const res = await fetch('/api/mailing-list', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -235,8 +235,6 @@ const MailingList = () => {
         </Flex>
       </Card>
       <BGImg
-        width={2544}
-        height={2048}
         gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
         src={background}
         placeholder="blur"

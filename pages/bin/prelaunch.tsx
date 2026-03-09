@@ -17,7 +17,6 @@ import { useEffect, useState, useRef } from 'react'
 import Footer from '../../components/footer'
 import { keyframes } from '@emotion/react'
 import RsvpForm from '../../components/bin/rsvp-form'
-import { Fade } from 'react-reveal'
 import ForceTheme from '../../components/force-theme'
 import JSConfetti from 'js-confetti'
 import Sparkles from '../../components/sparkles'
@@ -89,6 +88,11 @@ const slideIn = keyframes({
 const slideOut = keyframes({
   '100%': { transform: 'translateX(-100%)', opacity: 0 },
   '0%': { transform: 'translateX(0);', opacity: 1 }
+})
+
+const fadeUp = keyframes({
+  '0%': { transform: 'translateY(30px)', opacity: 0 },
+  '100%': { transform: 'translateY(0)', opacity: 1 }
 })
 
 function crunch() {
@@ -249,7 +253,7 @@ export default function Bin() {
               </Text>
             </Box>
             <Box as="section" sx={{ textAlign: 'center' }}>
-              <Fade up delay={100}>
+              <Box sx={{ animation: `${fadeUp} 0.5s ease 100ms both` }}>
                 <Card sx={{ p: 3, mt: 4, mx: 'auto', maxWidth: '50ch' }}>
                   <Text
                     as="p"
@@ -268,7 +272,7 @@ export default function Bin() {
                   </Text>
                   <RsvpForm />
                 </Card>
-              </Fade>
+              </Box>
             </Box>
           </Container>
         </Box>
@@ -425,9 +429,7 @@ export default function Bin() {
           <Text as="h3">Turn some trash into your treasure.</Text>
           <br></br>
           <a href="#rsvp">
-            <Button variant="ctaLg">
-              RSVP
-            </Button>
+            <Button variant="ctaLg">RSVP</Button>
           </a>
           <br></br>
           <br></br>

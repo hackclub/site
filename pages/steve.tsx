@@ -61,10 +61,10 @@ const StevePage = () => {
   }
 
   const isSelectingDisabledRange = (start, end) => {
-    let currDate = new Date(start)
+    const currDate = new Date(start)
     currDate.setHours(0, 0, 0, 0) // Normalize the time component
 
-    let normalizedEnd = new Date(end)
+    const normalizedEnd = new Date(end)
     normalizedEnd.setHours(0, 0, 0, 0)
 
     while (currDate <= normalizedEnd) {

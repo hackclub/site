@@ -71,7 +71,6 @@ const Ultraline = styled(Heading)`
   }
 `
 
-;(Ultraline as any).defaultProps = { sx: { fontSize: [48, 54, 72, 96] } }
 
 const Row = styled(Container)`
   px: 3;
@@ -89,7 +88,6 @@ const Row = styled(Container)`
   }
 `
 
-;(Row as any).defaultProps = { sx: { px: 3, py: [3, 4], color: 'black' } }
 
 const Super = styled(Text)`
   background-color: rgb(228, 115, 45);
@@ -122,10 +120,10 @@ export default function Philosophy() {
               px: 3
             }}
           >
-            <Ultraline>We're</Ultraline>
-            <Ultraline>at our best</Ultraline>
-            <Ultraline>when we're</Ultraline>
-            <Ultraline>making.</Ultraline>
+            <Ultraline sx={{ fontSize: [48, 54, 72, 96] }}>We're</Ultraline>
+            <Ultraline sx={{ fontSize: [48, 54, 72, 96] }}>at our best</Ultraline>
+            <Ultraline sx={{ fontSize: [48, 54, 72, 96] }}>when we're</Ultraline>
+            <Ultraline sx={{ fontSize: [48, 54, 72, 96] }}>making.</Ultraline>
             <Seal pt={[3, 4]}>
               <Heading
                 sx={{
@@ -164,7 +162,7 @@ export default function Philosophy() {
             for creating.
           </Box>
         </Row>
-        <Row>
+        <Row sx={{ px: 3, py: [3, 4], color: 'black' }}>
           <Heading
             as="h2"
             sx={{ fontSize: [36, 48] }}
@@ -178,7 +176,7 @@ export default function Philosophy() {
             app. Building things has never been so globally democratized.
           </Box>
         </Row>
-        <Row>
+        <Row sx={{ px: 3, py: [3, 4], color: 'black' }}>
           <Heading
             as="h2"
             sx={{ fontSize: [36, 48] }}
@@ -196,7 +194,7 @@ export default function Philosophy() {
             to everyone.
           </Box>
         </Row>
-        <Row>
+        <Row sx={{ px: 3, py: [3, 4], color: 'black' }}>
           <Heading as="h2" sx={{ fontSize: [36, 48] }} color="rgb(45, 66, 228)">
             Start building.
           </Heading>
@@ -208,7 +206,7 @@ export default function Philosophy() {
             every meeting.
           </Box>
         </Row>
-        <Row>
+        <Row sx={{ px: 3, py: [3, 4], color: 'black' }}>
           <Heading
             as="h2"
             sx={{ fontSize: [36, 48] }}
@@ -225,7 +223,7 @@ export default function Philosophy() {
             along the way, but we’re here to help.
           </Box>
         </Row>
-        <Row>
+        <Row sx={{ px: 3, py: [3, 4], color: 'black' }}>
           <Heading
             as="h2"
             sx={{ fontSize: [36, 48] }}
@@ -270,8 +268,8 @@ export default function Philosophy() {
           >
             Start a club
           </Button>
-          <NextLink href="/slack" passHref>
-            <Button sx={{ bg: 'white', color: 'red' }} as="a">
+          <NextLink href="/slack">
+            <Button sx={{ bg: 'white', color: 'red' }}>
               Join our Slack
             </Button>
           </NextLink>

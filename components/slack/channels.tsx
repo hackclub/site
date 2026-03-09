@@ -1,6 +1,5 @@
 import { Badge, Box, Card, Flex, Grid, Heading, Image, Text } from 'theme-ui'
 import Icon from '@hackclub/icons'
-import NextLink from 'next/link'
 import useSWR from 'swr'
 import fetcher from '../../lib/fetcher'
 import SlackEvents from './slack-events'
@@ -95,23 +94,22 @@ export default function Channels() {
         </Text>
         <SlackEvents />
       </Box>
-      <NextLink href="/ship" passHref>
-        <Card
-          as="a"
-          variant="interactive"
-          sx={{
-            gridColumn: ['span 2', 'span 5'],
-            bg: 'blue',
-            backgroundImage: (t: any) => t.util.gx('cyan', 'blue')
-          }}
-        >
-          <Icon glyph="external" size={24} />
-          <Heading as="h3" variant="headline">
-            #ship
-          </Heading>
-          <Text as="p">Launch your latest projects & get feedback</Text>
-        </Card>
-      </NextLink>
+      <Card
+        as="a"
+        {...({ href: '/ship' } as any)}
+        variant="interactive"
+        sx={{
+          gridColumn: ['span 2', 'span 5'],
+          bg: 'blue',
+          backgroundImage: (t: any) => t.util.gx('cyan', 'blue')
+        }}
+      >
+        <Icon glyph="external" size={24} />
+        <Heading as="h3" variant="headline">
+          #ship
+        </Heading>
+        <Text as="p">Launch your latest projects & get feedback</Text>
+      </Card>
       <Card
         as="a"
         {...({ href: 'https://scrapbook.hackclub.com/' } as any)}

@@ -16,8 +16,8 @@ const PartTag = ({ partID, search = false, addFilter, removeFilter }) => {
     }
   }
 
-  let backgroundColor = ''
-  let text = ''
+  let backgroundColor: string
+  let text: string
   switch (partID) {
     case 'recltWikgPdLvpJfe':
       backgroundColor = '#0000FF' // Vibrant blue
@@ -130,10 +130,6 @@ const PartTag = ({ partID, search = false, addFilter, removeFilter }) => {
     case 'recWKEXSaByRvl68t':
       backgroundColor = '#4682B4' // Vibrant light steel blue
       text = '4 Digit Display'
-      break
-    case 'recltWikgPdLvpJfe':
-      backgroundColor = '#65f09f'
-      text = 'Stepper Motor'
       break
     default:
       backgroundColor = 'gray' // Default gray

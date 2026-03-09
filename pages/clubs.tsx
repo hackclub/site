@@ -360,8 +360,8 @@ const Page = () => (
             sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
           >
             Hack Clubs attend and run{' '}
-            <NextLink href="/hackathons" passHref>
-              <a>hackathons</a>
+            <NextLink href="/hackathons">
+              hackathons
             </NextLink>{' '}
             like <a href="https://daydream.hackclub.com/">Daydream</a> &{' '}
             <a href="https://scrapyard.hackclub.com/">Scrapyard</a>, take part
@@ -393,8 +393,6 @@ const Page = () => (
       <BGImg
         gradient="linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.625))"
         src="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2F2020-05-16_screenshot.jpeg?v=1589633885855"
-        width={2048}
-        height={1170}
         alt="Hack Clubbers gather at the Elon Musk AMA in 2020"
       />
       <Container>
@@ -412,9 +410,8 @@ const Page = () => (
           <Highlight>every&nbsp;Hack&nbsp;Club is student-led</Highlight> &
           members make self-directed projects.
         </Text>
-        <NextLink href="/philosophy" passHref>
+        <NextLink href="/philosophy">
           <Button
-            as="a"
             variant="ctaLg"
             sx={{
               background: 'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)'
@@ -703,7 +700,7 @@ const Page = () => (
             />
           </Card>
         </Grid>
-        <a href="https://apply.hackclub.com/" target="_blank" rel="noopener">
+        <a href="https://apply.hackclub.com/" target="_blank" rel="noopener noreferrer">
           <Button rel="noopener" variant="ctaLg">
             Apply to Hack Club
           </Button>

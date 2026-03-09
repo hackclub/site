@@ -1,5 +1,5 @@
 import { Box } from 'theme-ui'
-import Image, { StaticImageData } from 'next/image'
+import Image, { StaticImageData } from "next/image"
 
 /*
  * Use this component inside a container with CSS:
@@ -12,8 +12,6 @@ type BGImgProps = {
   gradient?: string | boolean
   alt?: string
   src: string | StaticImageData
-  width?: number | string
-  height?: number | string
   placeholder?: 'blur' | 'empty'
 }
 
@@ -43,12 +41,14 @@ export default function BGImg({
           right: 0,
           bottom: 0
         },
-        '> span': { height: '100% !important', width: '100% !important' },
         img: { objectFit: 'cover', objectPosition: 'center center' },
         '~ *': { position: 'relative' }
       }}
     >
-      <Image layout="responsive" alt={alt} {...props} />
+      <Image
+        fill
+        alt={alt}
+        {...props} />
     </Box>
-  )
+  );
 }

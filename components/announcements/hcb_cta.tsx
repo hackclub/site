@@ -24,16 +24,16 @@ export default function HCBCTA() {
           </Text>
           <br />
           <br />
-          <NextLink href="/fiscal-sponsorship" passHref>
-            <Button bg="cyan" as="a">
+          <NextLink href="/fiscal-sponsorship">
+            <Button bg="cyan">
               Learn more
             </Button>
           </NextLink>
 
           &nbsp;&nbsp;&nbsp;
 
-          <NextLink href="https://nonprofit.new" passHref>
-            <Button bg="orange" as="a">
+          <NextLink href="https://nonprofit.new">
+            <Button bg="orange">
               Apply now
             </Button>
           </NextLink>

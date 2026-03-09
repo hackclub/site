@@ -17,7 +17,7 @@ import SlackCTA from '../../components/announcements/cta'
 import AnnouncementHolder from '../../components/announcements/holder'
 import Balancer from 'react-wrap-balancer'
 
-const StyledLink = styled.a`
+const StyledLink = styled(NextLink)`
   text-decoration: underline;
   color: ${theme.colors.white};
 `
@@ -25,9 +25,7 @@ const StyledLink = styled.a`
 const Link = props => {
   const { href } = props
   return (
-    <NextLink href={href} passHref>
-      <StyledLink>{props.children}</StyledLink>
-    </NextLink>
+    <StyledLink href={href}>{props.children}</StyledLink>
   )
 }
 

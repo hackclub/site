@@ -8,19 +8,19 @@ function DesktopMode({ billboardBottom }) {
   return (
     <>
       {/* First Section */}
-      <Section bg="/sharkbank/firstSectionBG.png"  minHeight="1100px">
+      <Section bg="/sharkbank/firstSectionBG.png" minHeight="1100px">
         <Image
           src="/sharkbank/bgBuildingsFirstSection.png"
-          layout="fill"
-          objectFit="cover"
           alt="Buildings"
           priority
+          fill
+          sizes="100vw"
           style={{
             zIndex: '20',
             backgroundPosition: 'center',
             backgroundSize: 'cover',
-            position: 'relative',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            objectFit: 'cover'
           }}
         />
 
@@ -33,7 +33,8 @@ function DesktopMode({ billboardBottom }) {
             bottom: `${billboardBottom}px`,
             width: '100%',
             display: 'flex',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            zIndex: 25
           }}
         >
           <div style={{ position: 'relative' }}>
@@ -42,8 +43,12 @@ function DesktopMode({ billboardBottom }) {
               alt="Billboard"
               width={950}
               height={850}
-              objectFit="contain"
               priority
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+                objectFit: 'contain'
+              }}
             />
             <div
               style={{
@@ -75,16 +80,20 @@ function DesktopMode({ billboardBottom }) {
                   color: 'white'
                 }}
               >
-                The Sharks (aka HCB) are ready to invest in YOUR nonprofit. Proposals are officially open to try and earn a spot 
-                pitching your nonprofit mission to our panel of judges. Win up to $1000 in funds to propel your mission forward.
+                The Sharks (aka HCB) are ready to invest in YOUR nonprofit.
+                Proposals are officially open to try and earn a spot pitching
+                your nonprofit mission to our panel of judges. Win up to $1000
+                in funds to propel your mission forward.
               </Text>
             </div>
           </div>
         </Box>
       </Section>
-
       {/* Second Section */}
-      <Section bg="/sharkbank/desktop-row-2-column-1-closed.png" minHeight="1100px">
+      <Section
+        bg="/sharkbank/desktop-row-2-column-1-closed.png"
+        minHeight="1100px"
+      >
         {/* Banners */}
         <Box
           as="div"
@@ -99,10 +108,14 @@ function DesktopMode({ billboardBottom }) {
           <Image
             src="/sharkbank/desktop-red-closed.png"
             alt="Banner-1"
-            width="275px"
-            height="800px"
-            objectFit="contain"
+            width={275}
+            height={800}
             priority
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+              objectFit: 'contain'
+            }}
           />
         </Box>
         <Box
@@ -119,14 +132,17 @@ function DesktopMode({ billboardBottom }) {
           <Image
             src="/sharkbank/desktop-blue-closed.png"
             alt="Banner-2"
-            width="275px"
-            height="800px"
-            objectFit="contain"
+            width={275}
+            height={800}
             priority
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+              objectFit: 'contain'
+            }}
           />
         </Box>
       </Section>
-
       {/* Third Section */}
       <Section bg="/sharkbank/thirdSectionBG.png" minHeight="1100px">
         {/* Text  */}
@@ -156,11 +172,24 @@ function DesktopMode({ billboardBottom }) {
               color: 'white'
             }}
           >
-            <span style={{ display: 'block', transform: 'scaleX(1.0)', transformOrigin: 'top center' }}>
-              HCB is hosting its first ever competition, SharkBank!  Win up to $1000 in funding to propel your mission out to sea!
+            <span
+              style={{
+                display: 'block',
+                transform: 'scaleX(1.0)',
+                transformOrigin: 'top center'
+              }}
+            >
+              HCB is hosting its first ever competition, SharkBank! Win up to
+              $1000 in funding to propel your mission out to sea!
             </span>
-            <span style={{ display: 'block', transform: 'scaleX(1.1)', transformOrigin: 'top center' }}>
-              Get ready for an exciting opportunity to pitch your organization’s 
+            <span
+              style={{
+                display: 'block',
+                transform: 'scaleX(1.1)',
+                transformOrigin: 'top center'
+              }}
+            >
+              Get ready for an exciting opportunity to pitch your organization’s
               mission to a panel of HCB teen judges.
             </span>
           </Text>
@@ -195,10 +224,10 @@ function DesktopMode({ billboardBottom }) {
               <Image
                 src="/sharkbank/shark1.PNG"
                 alt="Shark"
-                width="275px"
-                height="800px"
-                objectFit="contain"
+                width={275}
+                height={800}
                 priority
+                style={{ objectFit: 'contain' }}
               />
             </div>
             <div
@@ -213,10 +242,10 @@ function DesktopMode({ billboardBottom }) {
               <Image
                 src="/sharkbank/sign-closed.png"
                 alt="Sign"
-                width="275px"
-                height="800px"
-                objectFit="contain"
+                width={275}
+                height={800}
                 priority
+                style={{ objectFit: 'contain' }}
               />
               <button
                 style={{
@@ -236,7 +265,7 @@ function DesktopMode({ billboardBottom }) {
                   alignItems: 'center',
                   justifyContent: 'center',
                   zIndex: 200,
-                  background: 'transparent',
+                  background: 'transparent'
                 }}
               >
                 <img
@@ -250,7 +279,7 @@ function DesktopMode({ billboardBottom }) {
                     top: '0',
                     left: '0',
                     zIndex: '-1', // Place the image behind the text
-                    borderRadius: '50px', // Apply the same border-radius as the button
+                    borderRadius: '50px' // Apply the same border-radius as the button
                   }}
                 />
                 Applications closed!
@@ -272,10 +301,10 @@ function DesktopMode({ billboardBottom }) {
           <Image
             src="/sharkbank/shark2.PNG"
             alt="Shark"
-            width="275px"
-            height="800px"
-            objectFit="contain"
+            width={275}
+            height={800}
             priority
+            style={{ objectFit: 'contain' }}
           />
         </Box>
       </Section>
@@ -316,9 +345,13 @@ function TabletMode() {
               alt="Billboard"
               width={1200}
               height={2600}
-              style={{ transform: 'scale(1.9)' }}
-              objectFit="contain"
               priority
+              style={{
+                transform: 'scale(1.9)',
+                maxWidth: '100%',
+                height: 'auto',
+                objectFit: 'contain'
+              }}
             />
             <div
               style={{
@@ -354,14 +387,15 @@ function TabletMode() {
                   color: 'white'
                 }}
               >
-                The Sharks (aka HCB) are ready to invest in YOUR nonprofit. Proposals are officially open to try and earn a spot 
-                pitching your nonprofit mission to our panel of judges. Win up to $1000 in funds to propel your mission forward.
+                The Sharks (aka HCB) are ready to invest in YOUR nonprofit.
+                Proposals are officially open to try and earn a spot pitching
+                your nonprofit mission to our panel of judges. Win up to $1000
+                in funds to propel your mission forward.
               </Text>
             </div>
           </div>
         </Box>
       </Section>
-
       <Section bg="/sharkbank/row-2-column-1-tab.png" minHeight="1561px">
         <Box
           as="div"
@@ -377,10 +411,14 @@ function TabletMode() {
           <Image
             src="/sharkbank/mobile-red-closed.png"
             alt="Banner-1"
-            width="275px"
-            height="800px"
-            objectFit="contain"
+            width={275}
+            height={800}
             priority
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+              objectFit: 'contain'
+            }}
           />
         </Box>
         <Box
@@ -397,14 +435,17 @@ function TabletMode() {
           <Image
             src="/sharkbank/mobile-blue-closed.png"
             alt="Banner-1"
-            width="275px"
-            height="800px"
-            objectFit="contain"
+            width={275}
+            height={800}
             priority
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+              objectFit: 'contain'
+            }}
           />
         </Box>
       </Section>
-
       <Section bg="/sharkbank/row-3-column-1-tab.png" minHeight="1560px">
         {/* Text  */}
         <Box
@@ -433,11 +474,24 @@ function TabletMode() {
               color: 'white'
             }}
           >
-            <span style={{ display: 'block', transform: 'scaleX(1.0)', transformOrigin: 'top center' }}>
-              HCB is hosting its first ever competition, SharkBank!  Win up to $1000 in funding to propel your mission out to sea!
+            <span
+              style={{
+                display: 'block',
+                transform: 'scaleX(1.0)',
+                transformOrigin: 'top center'
+              }}
+            >
+              HCB is hosting its first ever competition, SharkBank! Win up to
+              $1000 in funding to propel your mission out to sea!
             </span>
-            <span style={{ display: 'block', transform: 'scaleX(1.1)', transformOrigin: 'top center' }}>
-              Get ready for an exciting opportunity to pitch your organization’s 
+            <span
+              style={{
+                display: 'block',
+                transform: 'scaleX(1.1)',
+                transformOrigin: 'top center'
+              }}
+            >
+              Get ready for an exciting opportunity to pitch your organization’s
               mission to a panel of HCB teen judges.
             </span>
           </Text>
@@ -472,10 +526,10 @@ function TabletMode() {
               <Image
                 src="/sharkbank/shark1.PNG"
                 alt="Shark"
-                width="275px"
-                height="800px"
-                objectFit="contain"
+                width={275}
+                height={800}
                 priority
+                style={{ objectFit: 'contain' }}
               />
             </div>
             <div
@@ -490,10 +544,10 @@ function TabletMode() {
               <Image
                 src="/sharkbank/sign-closed.PNG"
                 alt="Sign"
-                width="275px"
-                height="800px"
-                objectFit="contain"
+                width={275}
+                height={800}
                 priority
+                style={{ objectFit: 'contain' }}
               />
               <button
                 style={{
@@ -527,7 +581,7 @@ function TabletMode() {
                     top: '0',
                     left: '0',
                     zIndex: '-1', // Place the image behind the text
-                    borderRadius: '50px', // Apply the same border-radius as the button
+                    borderRadius: '50px' // Apply the same border-radius as the button
                   }}
                 />
                 Applications closed!
@@ -549,10 +603,10 @@ function TabletMode() {
           <Image
             src="/sharkbank/shark2.PNG"
             alt="Shark"
-            width="275px"
-            height="800px"
-            objectFit="contain"
+            width={275}
+            height={800}
             priority
+            style={{ objectFit: 'contain' }}
           />
         </Box>
       </Section>
@@ -596,9 +650,13 @@ function MobileMode() {
               alt="Billboard"
               width={1200}
               height={2600}
-              style={{ transform: 'scale(1.8)' }}
-              objectFit="contain"
               priority
+              style={{
+                transform: 'scale(1.8)',
+                maxWidth: '100%',
+                height: 'auto',
+                objectFit: 'contain'
+              }}
             />
             <div
               style={{
@@ -634,8 +692,10 @@ function MobileMode() {
                   color: 'white'
                 }}
               >
-                The Sharks (aka HCB) are ready to invest in YOUR nonprofit. Proposals are officially open to try and earn a spot 
-                pitching your nonprofit mission to our panel of judges. Win up to $1000 in funds to propel your mission forward.
+                The Sharks (aka HCB) are ready to invest in YOUR nonprofit.
+                Proposals are officially open to try and earn a spot pitching
+                your nonprofit mission to our panel of judges. Win up to $1000
+                in funds to propel your mission forward.
               </Text>
             </div>
           </div>
@@ -658,8 +718,12 @@ function MobileMode() {
             alt="Banner-1"
             width={imgWidth}
             height={imgHeight}
-            objectFit="contain"
             priority
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+              objectFit: 'contain'
+            }}
           />
         </Box>
         <Box
@@ -678,8 +742,12 @@ function MobileMode() {
             alt="Banner-2"
             width={imgWidth}
             height={imgHeight}
-            objectFit="contain"
             priority
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+              objectFit: 'contain'
+            }}
           />
         </Box>
       </Section>
@@ -711,11 +779,24 @@ function MobileMode() {
               color: 'white'
             }}
           >
-            <span style={{ display: 'block', transform: 'scaleX(0.9)', transformOrigin: 'top center' }}>
-              HCB is hosting its first ever competition, SharkBank!  Win up to $1000 in funding to propel your mission out to sea!
+            <span
+              style={{
+                display: 'block',
+                transform: 'scaleX(0.9)',
+                transformOrigin: 'top center'
+              }}
+            >
+              HCB is hosting its first ever competition, SharkBank! Win up to
+              $1000 in funding to propel your mission out to sea!
             </span>
-            <span style={{ display: 'block', transform: 'scaleX(1.0)', transformOrigin: 'top center' }}>
-              Get ready for an exciting opportunity to pitch your organization’s 
+            <span
+              style={{
+                display: 'block',
+                transform: 'scaleX(1.0)',
+                transformOrigin: 'top center'
+              }}
+            >
+              Get ready for an exciting opportunity to pitch your organization’s
               mission to a panel of HCB teen judges.
             </span>
           </Text>
@@ -728,7 +809,7 @@ function MobileMode() {
             bottom: '100px',
             right: '-70px',
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'center'
           }}
         >
           <div
@@ -753,10 +834,10 @@ function MobileMode() {
               <Image
                 src="/sharkbank/shark1.PNG"
                 alt="Shark"
-                width="175px"
-                height="500px"
-                objectFit="contain"
+                width={175}
+                height={500}
                 priority
+                style={{ objectFit: 'contain' }}
               />
             </div>
             <div
@@ -771,10 +852,10 @@ function MobileMode() {
               <Image
                 src="/sharkbank/sign-closed.png"
                 alt="Sign"
-                width="220px"
-                height="400px"
-                objectFit="contain"
+                width={220}
+                height={400}
                 priority
+                style={{ objectFit: 'contain' }}
               />
               <button
                 style={{
@@ -808,7 +889,7 @@ function MobileMode() {
                     top: '6px',
                     left: '0',
                     zIndex: '-1', // Place the image behind the text
-                    borderRadius: '50px', // Apply the same border-radius as the button
+                    borderRadius: '50px' // Apply the same border-radius as the button
                   }}
                 />
                 Applications closed!
@@ -831,10 +912,12 @@ function MobileMode() {
           <Image
             src="/sharkbank/shark2.PNG"
             alt="Shark"
-            width="275px"
-            height="800px"
-            objectFit="contain"
+            width={275}
+            height={800}
             priority
+            style={{
+              objectFit: 'contain'
+            }}
           />
         </Box>
       </Section>
@@ -874,10 +957,13 @@ function Section({ bg, minHeight, minWidth, children }: SectionProps) {
       >
         <Image
           src={bg}
-          layout="fill"
-          objectFit="cover"
           alt="Section background"
           priority
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: 'cover'
+          }}
         />
         {children}
       </Box>

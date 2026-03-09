@@ -5,7 +5,7 @@ import Head from 'next/head'
 import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
 import { Box, Text, Flex, Grid, Card, Close, Divider, Heading } from 'theme-ui'
-import Image from 'next/image'
+import Image from "next/image"
 import fs from 'fs'
 import path from 'path'
 import { startCase } from 'lodash'
@@ -15,7 +15,7 @@ import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 import ArcadeFooter from '../../components/arcade/footer'
 import Balancer from 'react-wrap-balancer'
-import { Fade } from 'react-reveal'
+import { Fade } from '../../components/react-reveal-compat'
 import Announcement from '../../components/announcement'
 import Link from 'next/link'
 import { shopParts } from '../api/arcade/shop'
@@ -456,7 +456,7 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
   return (
     <Card
       variant="interactive"
-      as="a"
+      as={link ? 'a' : 'div'}
       href={link}
       sx={{
         background: '#FAEFD6',
@@ -481,7 +481,7 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
         {title}
       </Text>
       <Text
-        as="p"
+        as="div"
         sx={{
           fontSize: [1, 2, 2],
           display: 'block'
@@ -625,7 +625,10 @@ const Sticker = ({ st }) => {
             width={128}
             height={128}
             alt={st.split('.')[0]}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
           <Text
             as="span"
             variant="caption"
@@ -655,7 +658,7 @@ const Sticker = ({ st }) => {
         />
       </Box>
     </Box>
-  )
+  );
 }
 
 const Item = ({ name, img, cost }) => {
@@ -942,7 +945,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                   The Arcade closed September 1st, but you can still join the <a
                       href="https://hackclub.com/slack"
                       target="_blank"
-                      sx={{ color: 'inherit' }}
+                      sx={{ color: 'inherit' }} rel="noreferrer"
                     >
                       Hack Club Slack
                     </a>!
@@ -1104,7 +1107,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                     <a
                       href="https://hackclub.com/slack"
                       target="_blank"
-                      sx={{ color: 'inherit' }}
+                      sx={{ color: 'inherit' }} rel="noreferrer"
                     >
                       Hack Club Slack
                     </a>{' '}

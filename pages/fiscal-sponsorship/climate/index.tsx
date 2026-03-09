@@ -354,7 +354,6 @@ const RegionPanel = ({ currentRegion, mobile }: RegionPanelProps) => {
               },
               width: 'fit-content'
             }}
-            as="a"
           >
             <Flex
               sx={{

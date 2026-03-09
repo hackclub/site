@@ -221,7 +221,7 @@ const BoardPage = ({ project }: BoardPageProps) => {
 }
 
 export async function getStaticPaths(_context) {
-  let projects = (await getAllOnboardProjects()).slice(0, 5)
+  const projects = (await getAllOnboardProjects()).slice(0, 5)
   const paths = projects.map(project => {
     return {
       params: {

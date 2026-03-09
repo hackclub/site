@@ -1,5 +1,5 @@
 import { memo, useState, useEffect } from 'react'
-import Image from 'next/image'
+import Image from "next/image"
 
 const stripColons = str => {
   const colonIndex = str.indexOf(':')
@@ -31,7 +31,10 @@ export const EmojiImg = ({
     width={20}
     height={20}
     {...props}
-  />
+    style={{
+      maxWidth: "100%",
+      height: "auto"
+    }} />
 )
 
 type CustomEmojiProps = {
@@ -40,7 +43,7 @@ type CustomEmojiProps = {
 
 const CustomEmoji = memo(function CustomEmoji({ name }: CustomEmojiProps) {
   const emoji = stripColons(name)
-  let [image, setImage] = useState<string>(null)
+  const [image, setImage] = useState<string>(null)
 
   useEffect(() => {
     fetch('https://scrapbook.hackclub.com/api/emoji')

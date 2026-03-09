@@ -20,7 +20,7 @@ import Breakdown from '../components/winter/breakdown'
 import Projects from '../components/winter/projects'
 import Landing from '../components/winter/landing'
 import Recap from '../components/winter/recap'
-import { Zoom } from 'react-reveal'
+import { Zoom } from '../components/react-reveal-compat'
 import useSWR from 'swr'
 import fetcher from '../lib/fetcher'
 

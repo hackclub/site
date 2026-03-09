@@ -151,8 +151,7 @@ export default function CTAS({ cards }) {
                       color: 'white',
                       mt: 'auto'
                     }}
-                    as="a"
-                    href={link}
+                    as="div"
                     target="_blank"
                     rel="noreferrer"
                   >

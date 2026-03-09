@@ -18,8 +18,8 @@ export default function ReplitForm({ cssDark }: ReplitFormProps) {
   const [buttonText, setButtonText] = useState('Submit')
   const [formData, setFormData] = useState<{ email?: string; token?: string }>({})
   const [stickerPositions, setStickerPositions] = useState([])
-  let jsConfetti = useRef(null)
-  let draggedSticker = useRef(null)
+  const jsConfetti = useRef(null)
+  const draggedSticker = useRef(null)
 
   useEffect(() => {
     stickers.forEach((_, idx) => {

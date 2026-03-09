@@ -12,7 +12,7 @@ import {
 } from 'theme-ui'
 import Icon from '../icon'
 import Tilt from '../tilt'
-import { Zoom } from 'react-reveal'
+import { Zoom } from '../react-reveal-compat'
 
 export default function InfoGrid() {
   return (

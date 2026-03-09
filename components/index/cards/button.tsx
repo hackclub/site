@@ -29,7 +29,7 @@ export default function Buttons({
   sx,
   ...props
 }: ButtonsProps) {
-  let fontWeight = primary ? '700' : '400'
+  const fontWeight = primary ? '700' : '400'
 
   return (
     <Box

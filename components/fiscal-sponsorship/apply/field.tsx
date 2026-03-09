@@ -21,7 +21,7 @@ export default function Field({
       (Array.isArray(router.query[name]) ? router.query[name][0] : router.query[name]) || sessionStorage.getItem('bank-signup-' + name)
     if (!value) return
 
-    let input = document.getElementById(name) as HTMLInputElement | null
+    const input = document.getElementById(name) as HTMLInputElement | null
     if (input) {
       input.value = value
       return

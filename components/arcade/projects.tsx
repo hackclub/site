@@ -12,8 +12,8 @@ import {
   Text,
   Avatar
 } from 'theme-ui'
-import NextImage from 'next/image'
-import Marquee from 'react-marquee-slider'
+import NextImage from "next/image"
+import Marquee from '../marquee'
 import Photo1 from '../../public/winter/1.jpeg'
 import Photo2 from '../../public/winter/2.png'
 import Photo3 from '../../public/winter/3.jpeg'
@@ -42,34 +42,40 @@ const Header = styled(Box)`
 const PhotoRow = ({ photos }) => (
   <Box sx={{ height: '225px', overflow: 'hidden' }}>
     <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>
-      <Marquee velocity={12}>
+      <Marquee velocity={12} onInit={() => {}} onFinish={() => {}}>
         {photos.map((photo, index) => (
           <NextImage
             placeholder="blur"
             src={photo}
-            objectFit="cover"
             className="next-image"
             height="225px"
             width="300px"
             alt="Hack Club students"
             key={'image-' + index}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "cover"
+            }} />
         ))}
       </Marquee>
     </Box>
     <Box sx={{ display: ['none', 'none', 'none', 'none', 'block'] }}>
-      <Marquee velocity={12}>
+      <Marquee velocity={12} onInit={() => {}} onFinish={() => {}}>
         {photos.map((photo, index) => (
           <NextImage
             placeholder="blur"
             src={photo}
-            objectFit="cover"
             className="next-image"
             height="200px"
             width="600px"
             key={'image-' + index}
             alt="Hack Club students"
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "cover"
+            }} />
         ))}
       </Marquee>
     </Box>
@@ -140,7 +146,7 @@ const Cards = ({ avatar, username, description, image }) => {
 export default function Projects() {
   const [count, setCount] = useState(0)
 
-  let list = [
+  const list = [
     'Drawing robot',
     '3D printer',
     'DIY Electric Skateboard',
@@ -159,7 +165,7 @@ export default function Projects() {
     setCount(0)
   }
 
-  let project_idea = list[count]
+  const project_idea = list[count]
 
   return (
     <Box>

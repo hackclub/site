@@ -343,9 +343,8 @@ export default function Page() {
               alignItems: ['start', 'center']
             }}
           >
-            <Link href="/fiscal-sponsorship/apply" passHref legacyBehavior>
+            <Link href="/fiscal-sponsorship/apply">
               <Button
-                as="a"
                 variant="lg"
                 sx={{
                   bg: 'blue',
@@ -515,7 +514,6 @@ export default function Page() {
               </Grid>
               <a href="/hcb/mobile" target="_blank">
                 <Button
-                  as="a"
                   sx={{
                     flexShrink: 0,
                     gap: 1,
@@ -597,9 +595,8 @@ export default function Page() {
               alignItems: 'center'
             }}
           >
-            <Link href="/fiscal-sponsorship/directory" passHref legacyBehavior>
+            <Link href="/fiscal-sponsorship/directory">
               <Button
-                as="a"
                 variant="lg"
                 sx={{
                   bg: 'blue',
@@ -773,9 +770,7 @@ export default function Page() {
             </Heading>
             <p>
               As{' '}
-              <Link href="/" passHref legacyBehavior>
-                <UILink>Hack Club</UILink>
-              </Link>{' '}
+              <UILink as={Link} href="/">Hack Club</UILink>{' '}
               grew, we needed a way to empower our members. We currently have
               over 60,000 high schoolers involved in Hack Club with over 400
               clubs around the world.
@@ -857,9 +852,8 @@ export default function Page() {
             gap: 3
           }}
         >
-          <Link href="/fiscal-sponsorship/apply" passHref legacyBehavior>
+          <Link href="/fiscal-sponsorship/apply">
             <Button
-              as="a"
               variant="lg"
               sx={{
                 bg: 'white',
