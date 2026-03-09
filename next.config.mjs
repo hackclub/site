@@ -83,11 +83,6 @@ const nextConfig = {
       },
       { source: '/slack_invite/', destination: '/slack/', permanent: true },
       {
-        source: '/jobs/bank-tech-lead/',
-        destination: '/jobs/lead-hacker/',
-        permanent: true
-      },
-      {
         source: '/first/',
         destination: '/bank/first/',
         permanent: false
@@ -166,21 +161,6 @@ const nextConfig = {
         source: '/workshops/([a-z_]+)/',
         destination: 'https://workshops.hackclub.com/$1/',
         permanent: true
-      },
-      {
-        source: '/jobs/creative-director/',
-        destination: '/jobs/brand-director/',
-        permanent: false
-      },
-      {
-        source: '/jobs/bank-ops-assistant/',
-        destination: '/jobs/bank-ops-associate/',
-        permanent: false
-      },
-      {
-        source: '/jobs/vp-DonorEngagement/',
-        destination: '/jobs/vp-donor-engagement/',
-        permanent: false
       },
       {
         source: '/daysofservice/',
