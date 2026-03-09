@@ -113,7 +113,9 @@ export default function Signup() {
         } else {
           setEventName('')
         }
-      } catch (e) { }
+      } catch (e) {
+        setTeamNameLoading(false)
+      }
     }, 200)
   )
 

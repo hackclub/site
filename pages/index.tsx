@@ -116,16 +116,16 @@ function Page({
   blueprintData,
   ctaCards
 }) {
-  let [gameImage, setGameImage] = useState('')
-  let [gameImage1, setGameImage1] = useState('')
-  let [reveal, setReveal] = useState(false)
+  const [gameImage, setGameImage] = useState('')
+  const [gameImage1, setGameImage1] = useState('')
+  const [reveal, setReveal] = useState(false)
   const [hover, setHover] = useState(true)
-  let [slackKey, setSlackKey] = useState(0)
+  const [slackKey, setSlackKey] = useState(0)
   const [announcement, setAnnouncement] = useState(null)
 
   const { asPath } = useRouter()
 
-  let jsConfetti = useRef(null)
+  const jsConfetti = useRef(null)
 
   useEffect(() => {
     jsConfetti.current = new JSConfetti()
@@ -191,7 +191,7 @@ function Page({
 
   const [count, setCount] = useState(0)
 
-  let images = [
+  const images = [
     { alt: 'Map of Hack Clubs around the world', src: '/home/map.png' },
     {
       alt: 'Hack Clubbers at SpaceX HQ in LA',
@@ -220,9 +220,9 @@ function Page({
   const spotlightRef = useRef(null)
   useEffect(() => {
     const handler = event => {
-      var rect = document.getElementById('spotlight').getBoundingClientRect()
-      var x = event.clientX - rect.left //x position within the element.
-      var y = event.clientY - rect.top //y position within the element.
+      const rect = document.getElementById('spotlight').getBoundingClientRect()
+      const x = event.clientX - rect.left //x position within the element.
+      const y = event.clientY - rect.top //y position within the element.
 
       spotlightRef.current.style.background = `radial-gradient(
 				circle at ${x}px ${y}px,
@@ -1439,11 +1439,11 @@ export async function getStaticProps() {
   const ctaCards = require('../lib/cta.json')
 
   // HCB: get total raised
-  let bankData = []
-  let initialBankData = await fetch('https://hcb.hackclub.com/stats')
+  const bankData = []
+  const initialBankData = await fetch('https://hcb.hackclub.com/stats')
   try {
     const bd = await initialBankData.json()
-    let raised = bd.raised / 100
+    const raised = bd.raised / 100
 
     bankData.push(
       `💰 ${raised.toLocaleString('en-US', {
@@ -1457,7 +1457,7 @@ export async function getStaticProps() {
 
   // Slack: get total raised
   const { Slack: Slacky } = require('./api/slack')
-  let slackData = await Slacky()
+  const slackData = await Slacky()
 
   // GitHub: get latest github activity (currently this is erroring and
   // preventing the site from deploying
@@ -1465,19 +1465,17 @@ export async function getStaticProps() {
   const { fetchGitHub } = require('./api/github')
   // let gitHubData = await fetchGitHub()
 
-  let gitHubData = null
+  const gitHubData = null
 
   // GitHub: get latest GitHub stars
   const { fetchStars } = require('./api/stars')
-  let stars = await fetchStars()
+  const stars = await fetchStars()
 
   // Sprig: get newest games
   const { getGames } = require('./api/games')
-  let game = await getGames()
+  const game = await getGames()
 
-  let gameTitle = []
-
-  gameTitle = game.map(r => r.title)
+  const gameTitle = game.map(r => r.title)
 
   // Sprig: get console count
   const { getConsoles } = require('./api/sprig-console')
@@ -1506,7 +1504,7 @@ export async function getStaticProps() {
       new Date(a.start).getTime() - new Date(b.start).getTime()
   )
 
-  let events = []
+  const events = []
   try {
     await fetch('https://events.hackclub.com/api/events/upcoming/').then(res =>
       res.json()

@@ -29,9 +29,9 @@ export const getStaticPaths = () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-  let { category } = params
+  const { category } = params
 
-  let orgs = (await fetchRawOrganizations()).filter(org =>
+  const orgs = (await fetchRawOrganizations()).filter(org =>
     find(categories, ['id', category]).match(org)
   )
 

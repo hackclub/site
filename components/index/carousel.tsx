@@ -6,7 +6,7 @@ import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 
 export default function Carousel({ cards }) {
-  let [speed, setSpeed] = useState(5)
+  const [speed, setSpeed] = useState(5)
 
   const [pageIsVisible, setPageIsVisible] = useState(true)
 

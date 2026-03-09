@@ -18,7 +18,7 @@ type BulletProps = {
 }
 
 function Bullet({ glow = true, icon, href, children }: BulletProps) {
-  let effectColours = [
+  const effectColours = [
     '#ec3750',
     '#ff8c37',
     '#f1c40f',
@@ -29,11 +29,11 @@ function Bullet({ glow = true, icon, href, children }: BulletProps) {
   ]
 
   function keyframeGenerator(spread, blur, colours, opacity = 0.5) {
-    let hexOpacity = Math.max(Math.min(Math.round(opacity * 255), 255), 0)
+    const hexOpacity = Math.max(Math.min(Math.round(opacity * 255), 255), 0)
       .toString(16)
       .padStart(2, '0')
 
-    let final = {}
+    const final = {}
     for (let i = 0; i <= 100; i++) {
       let baseX = Math.sin((i * Math.PI) / 50) // 50 keyframes for each pi radians
       let baseY = -Math.cos((i * Math.PI) / 50)
@@ -46,10 +46,10 @@ function Bullet({ glow = true, icon, href, children }: BulletProps) {
       let boxShadow = ''
       for (let c = 0; c < colours.length; c++) {
         // Rotate by 2pi / colours.length * c radians
-        let x =
+        const x =
           baseX * Math.cos((2 * Math.PI * c) / colours.length) -
           baseY * Math.sin((2 * Math.PI * c) / colours.length)
-        let y =
+        const y =
           baseX * Math.sin((2 * Math.PI * c) / colours.length) +
           baseY * Math.cos((2 * Math.PI * c) / colours.length)
 

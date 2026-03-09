@@ -39,7 +39,7 @@ const MailingList = () => {
     e.preventDefault()
     setSubmitting(true)
 
-    let res = await fetch('/api/mailing-list', {
+    const res = await fetch('/api/mailing-list', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

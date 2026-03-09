@@ -7,7 +7,7 @@ const steveApiHandler = async (_req: NextApiRequest, res: NextApiResponse) => {
   //This API key is for google calendar and has only read access to Steve
   const apiKey = 'AIzaSyD_8dEnTDle3WmaoOTvEW6L1GW540FU_wg' 
 
-  let allBusyDays = new Set<string>()
+  const allBusyDays = new Set<string>()
 
   try {
     const currentDateTime = new Date()
@@ -45,7 +45,7 @@ const steveApiHandler = async (_req: NextApiRequest, res: NextApiResponse) => {
     const busyTimes = data.calendars[calendarId].busy
 
     // For each busy time range, extract all days that are busy:
-    for (let busy of busyTimes) {
+    for (const busy of busyTimes) {
       let startDate = new Date(busy.start)
       let endDate = new Date(busy.end)
 

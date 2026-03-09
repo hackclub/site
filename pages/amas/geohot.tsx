@@ -6,8 +6,8 @@ import tt from 'tinytime'
 import { thousands } from '../../lib/members'
 
 export default function Geohot() {
-  let minutes = 1
-  let milliseconds = minutes * 60000
+  const minutes = 1
+  const milliseconds = minutes * 60000
 
   if (typeof window !== 'undefined') {
     setTimeout(function () {
@@ -63,7 +63,7 @@ export default function Geohot() {
       }
     }
 
-    var name = ''
+    let name: string
 
     if (e === 'days') {
       if (timeLeft[e] === 1 || timeLeft[e] === 0) {

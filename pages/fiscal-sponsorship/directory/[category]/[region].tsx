@@ -36,10 +36,11 @@ export const getStaticPaths = () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-  let { region, category } = params
+  let { region } = params
+  const { category } = params
   region = find(regionsWithIds, ['id', region.replace('organizations-in-', '')])
 
-  let orgs = (await fetchRawOrganizations()).filter(
+  const orgs = (await fetchRawOrganizations()).filter(
     org =>
       (region.continents
         ? region.continents.includes(org.location.continent)

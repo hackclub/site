@@ -161,7 +161,7 @@ const Cards = ({ avatar, username, description, image }) => {
 export default function Projects() {
   const [count, setCount] = useState(0)
 
-  let list = [
+  const list = [
     'drawing robot',
     'drone',
     'CNC machine',
@@ -174,7 +174,7 @@ export default function Projects() {
     setCount(0)
   }
 
-  let project_idea = list[count]
+  const project_idea = list[count]
 
   return (
     <Box>

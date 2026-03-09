@@ -945,7 +945,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                   The Arcade closed September 1st, but you can still join the <a
                       href="https://hackclub.com/slack"
                       target="_blank"
-                      sx={{ color: 'inherit' }}
+                      sx={{ color: 'inherit' }} rel="noreferrer"
                     >
                       Hack Club Slack
                     </a>!
@@ -1107,7 +1107,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                     <a
                       href="https://hackclub.com/slack"
                       target="_blank"
-                      sx={{ color: 'inherit' }}
+                      sx={{ color: 'inherit' }} rel="noreferrer"
                     >
                       Hack Club Slack
                     </a>{' '}

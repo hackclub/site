@@ -48,7 +48,7 @@ const CardModel = ({
       my: [4, 4],
       p: '24px',
       backgroundSize: 'cover',
-      backgroundImage: `url(${background})` || '',
+      backgroundImage: background ? `url(${background})` : undefined,
       backgroundPosition: 'center bottom',
       backgroundRepeat: 'no-repeat',
       '& p': {

@@ -43,7 +43,7 @@ type CustomEmojiProps = {
 
 const CustomEmoji = memo(function CustomEmoji({ name }: CustomEmojiProps) {
   const emoji = stripColons(name)
-  let [image, setImage] = useState<string>(null)
+  const [image, setImage] = useState<string>(null)
 
   useEffect(() => {
     fetch('https://scrapbook.hackclub.com/api/emoji')

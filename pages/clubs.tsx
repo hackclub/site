@@ -701,7 +701,7 @@ const Page = () => (
             />
           </Card>
         </Grid>
-        <a href="https://apply.hackclub.com/" target="_blank" rel="noopener">
+        <a href="https://apply.hackclub.com/" target="_blank" rel="noopener noreferrer">
           <Button rel="noopener" variant="ctaLg">
             Apply to Hack Club
           </Button>

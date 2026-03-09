@@ -30,7 +30,7 @@ export const getStaticProps = async ({ params }) => {
   let { region } = params
   region = find(regionsWithIds, ['id', region.replace('organizations-in-', '')])
 
-  let orgs = (await fetchRawClimateOrganizations()).filter(
+  const orgs = (await fetchRawClimateOrganizations()).filter(
     org => org.location.continent === region.label
   )
 

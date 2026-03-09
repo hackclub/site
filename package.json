@@ -10,6 +10,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
+    "lint:errors": "eslint . --quiet",
+    "lint:fix": "eslint . --fix",
     "format": "prettier --write ."
   },
   "dependencies": {

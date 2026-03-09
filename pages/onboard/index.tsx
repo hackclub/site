@@ -494,7 +494,7 @@ const ShipPage = () => {
           >
             <a
               href="https://github.com/hackclub/OnBoard/tree/main/projects/E-Fidget%20Lite"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 115 }}>
@@ -541,7 +541,7 @@ const ShipPage = () => {
               </Flex>
             </a> */}
 
-            <a href="https://jams.hackclub.com/batch/usb-hub" target="_blank">
+            <a href="https://jams.hackclub.com/batch/usb-hub" target="_blank" rel="noreferrer">
               <Flex as="article">
                 <Text as="p" sx={{ pr: [100, 100, 100, 0] }}>
                   Hugo's <strong>USB-C hub</strong> for the best{' '}
@@ -568,7 +568,7 @@ const ShipPage = () => {
 
             <a
               href="https://jams.hackclub.com/batch/sparkletilt-pcb"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 140 }}>
@@ -594,7 +594,7 @@ const ShipPage = () => {
 
             <a
               href="https://github.com/hackclub/OnBoard/tree/main/projects/TOTKey"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 140 }}>

@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next"
 export async function getGames() {
   try {
 
-  let games = await fetch(
+  const games = await fetch(
     'https://sprig.hackclub.com/api/gallery?new'
   ).then(res => res.json())
 
