@@ -1164,9 +1164,11 @@ export async function fetchRawClimateOrganizations() {
 }
 
 export const getStaticProps = async () => {
+  const { fetchAllOrganizations } = await import('../../../lib/cached-hcb-orgs')
+  const total = await fetchAllOrganizations()
   return {
     props: {
-      rawOrganizations: await fetchRawClimateOrganizations()
+      rawOrganizations: total.filter(org => org.climate)
     },
     revalidate: 60 // seconds
   }

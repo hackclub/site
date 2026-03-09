@@ -30,9 +30,12 @@ export const getStaticProps = async ({ params }) => {
   let { region } = params
   region = find(regionsWithIds, ['id', region.replace('organizations-in-', '')])
 
-  const orgs = (await fetchRawClimateOrganizations()).filter(
-    org => org.location.continent === region.label
-  )
+  const { fetchAllOrganizations } = await import('../../../lib/cached-hcb-orgs')
+  const total = await fetchAllOrganizations()
+
+  let orgs = total
+    .filter(org => org.climate)
+    .filter(org => org.location.continent === region.label)
 
   return {
     props: {

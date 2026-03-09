@@ -247,9 +247,15 @@ export async function getStaticProps() {
   })
   let repos
   try {
-    repos = await octokit.paginate('GET /orgs/{org}/repos', {
+    const x = await octokit.paginate('GET /orgs/{org}/repos', {
       org: 'hackclub'
     })
+    repos = x.map(repo => ({
+      id: repo.id,
+      name: repo.name,
+      description: repo.description,
+      stargazers_count: repo.stargazers_count
+    }))
   } catch (e) {
     console.error(e)
     return { props: { repos: [], transparentAccounts: [] }, revalidate: 30 }
