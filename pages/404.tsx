@@ -183,6 +183,10 @@ const Spinning = styled(Image)`
   animation-duration: 10000ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  @media (prefers-reduced-motion) {
+    animation: none;
+  }
+
   aspect-ratio: 1;
 `
 

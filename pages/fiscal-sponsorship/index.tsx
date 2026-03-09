@@ -93,10 +93,13 @@ function MobileAppAlert() {
           alignItems: 'center',
           gap: 10,
           mt: [20, -50],
-          transform: 'scaleY(0)',
           '@media (prefers-reduced-motion: no-preference)': {
+            transform: 'scaleY(0)',
             animation: `${unfold} 0.5s ease-out forwards`,
             animationDelay: '0.5s'
+          },
+          '@media (prefers-reduced-motion: reduce)': {
+            transform: 'scaleY(100%)',
           },
           flexDirection: ['column', 'row']
         }}
