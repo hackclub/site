@@ -1,11 +1,20 @@
 // https://airtable.com/appKjALSnOoA0EmPk/tblYYhxN9TaPPMMRV/viwJFvTlmRNHj0Toh?blocks=hide
 import AirtablePlus from 'airtable-plus'
 
-const rsvpsTable = new AirtablePlus({
-  apiKey: process.env.AIRTABLE_WRITE_API_KEY,
-  baseID: 'appKjALSnOoA0EmPk',
-  tableName: 'RSVPs'
-})
+let rsvpsTable
+
+// only fetch if apiKey present
+if (process.env.AIRTABLE_WRITE_API_KEY) {
+  rsvpsTable = new AirtablePlus({
+    apiKey: process.env.AIRTABLE_WRITE_API_KEY,
+    baseID: 'appKjALSnOoA0EmPk',
+    tableName: 'RSVPs'
+  })
+} else {
+  console.warn(
+    'No AIRTABLE_WRITE_API_KEY environment variable found, the bin RSVP will not be fetched'
+  )
+}
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -24,6 +33,7 @@ export default async function handler(req, res) {
 
     res.status(200).json({ success: true })
   } else if (req.method === 'GET') {
+    if (!rsvpsTable) return res.status(200).json(0)
     const result = await rsvpsTable.read()
 
     res.status(200).json(result.length)

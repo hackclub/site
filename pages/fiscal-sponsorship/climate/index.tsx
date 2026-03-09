@@ -333,7 +333,7 @@ const RegionPanel = ({ currentRegion, mobile }: RegionPanelProps) => {
           display: hiddenOnMobile ? 'none' : 'flex'
         }}
       >
-        <NextLink scroll={false} href={'/fiscal-sponsorship/climate'}>
+        <NextLink scroll={false} href={'/fiscal-sponsorship/climate'} legacyBehavior>
           <Flex
             sx={{
               alignItems: 'center',

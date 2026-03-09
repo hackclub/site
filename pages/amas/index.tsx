@@ -187,7 +187,7 @@ const Page = ({ upcoming, past }) => (
                 <Heading as="h3" variant="subheadline" mb={1}>
                   {event.title.replace('AMA with ', '')}
                 </Heading>
-                <Text as="p" variant="caption" mb={2}>
+                <Text as="p" variant="caption" mb={2} suppressHydrationWarning> {/* hydration ignored cause different date formats */}
                   {dt(event.start)}
                 </Text>
                 {event.youtube && (

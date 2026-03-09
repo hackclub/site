@@ -114,7 +114,7 @@ const HackathonGrant = () => {
               <Flex
                 sx={{ justifyContent: 'center', alignItems: 'center', mb: 2 }}
               >
-                <NextLink href="https://hackclub.com" passHref target="_blank">
+                <NextLink href="https://hackclub.com" passHref target="_blank" legacyBehavior>
                   <Box
                     as="a"
                     sx={{
@@ -393,8 +393,9 @@ const HackathonGrant = () => {
         </Container>
       </Box>
       <Zoom>
-        <a href="mailto:hcb@hackclub.com" style={{ textDecoration: 'none' }}>
-            <Card
+        <Card
+            as="a"
+            {...({ href: 'mailto:hcb@hackclub.com', style: { textDecoration: 'none' } } as any)}
             variant="interactive"
             sx={{
               mx: 'auto',
@@ -437,11 +438,10 @@ const HackathonGrant = () => {
               color="secondary"
               sx={{ pl: 3 }}
               >
-              Reach out to <Link>hcb@hackclub.com</Link>
+              Reach out to hcb@hackclub.com
               </Text>
             </Text>
             </Card>
-        </a>
       </Zoom>
       <Footer dark key="footer" />
     </>

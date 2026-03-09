@@ -512,7 +512,6 @@ export default function Page() {
               </Grid>
               <a href="/hcb/mobile" target="_blank">
                 <Button
-                  as="a"
                   sx={{
                     flexShrink: 0,
                     gap: 1,

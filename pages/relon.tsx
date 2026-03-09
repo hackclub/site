@@ -29,7 +29,7 @@ const StyledLink = styled.a`
 const RelonLink = props => {
   const { href } = props
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={href} passHref legacyBehavior>
       <StyledLink>{props.children}</StyledLink>
     </NextLink>
   )

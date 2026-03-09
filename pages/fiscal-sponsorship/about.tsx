@@ -78,7 +78,7 @@ function Bullet({ glow = true, icon, href, children }: BulletProps) {
   return (
     <Tilt>
       <Flex
-        as="a"
+        as={href ? 'a' : 'div'}
         {...(href && { href })}
         {...({ target: '_blank' } as any)}
         sx={{
