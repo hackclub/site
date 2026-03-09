@@ -650,8 +650,18 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
 }
 
 export async function fetchRawOrganizations() {
-  const { fetchAllOrganizations } = await import('../../../lib/cached-hcb-orgs')
-  const total = await fetchAllOrganizations()
+  let lastLength = 100
+  let total = []
+  let page = 1
+  while (lastLength >= 100) {
+    const json = await fetch(
+      'https://hcb.hackclub.com/api/v3/directory/organizations?per_page=100&page=' +
+        page
+    ).then(res => res.json())
+    lastLength = json.length
+    page++
+    total = [...total, ...json]
+  }
   return [
     ...total.filter(a => a.logo !== null),
     ...total.filter(a => a.logo === null)
@@ -659,10 +669,14 @@ export async function fetchRawOrganizations() {
 }
 
 export const getStaticProps = async () => {
+  const { fetchAllOrganizations } = await import('../../../lib/cached-hcb-orgs')
+  const total = await fetchAllOrganizations()
+  const rawOrganizations = [
+    ...total.filter(a => a.logo !== null),
+    ...total.filter(a => a.logo === null)
+  ]
   return {
-    props: {
-      rawOrganizations: await fetchRawOrganizations()
-    },
+    props: { rawOrganizations },
     revalidate: 60 // seconds
   }
 }

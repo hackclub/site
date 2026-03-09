@@ -39,7 +39,16 @@ export const getStaticProps = async ({ params }) => {
   let { region, category } = params
   region = find(regionsWithIds, ['id', region.replace('organizations-in-', '')])
 
-  let orgs = (await fetchRawOrganizations()).filter(
+  const { fetchAllOrganizations } = await import(
+    '../../../../lib/cached-hcb-orgs'
+  )
+  const total = await fetchAllOrganizations()
+  const allOrgs = [
+    ...total.filter(a => a.logo !== null),
+    ...total.filter(a => a.logo === null)
+  ]
+
+  let orgs = allOrgs.filter(
     org =>
       (region.continents
         ? region.continents.includes(org.location.continent)

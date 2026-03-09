@@ -1148,15 +1148,27 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
 }
 
 export async function fetchRawClimateOrganizations() {
-  const { fetchAllOrganizations } = await import('../../../lib/cached-hcb-orgs')
-  const total = await fetchAllOrganizations()
+  let lastLength = 100
+  let total = []
+  let page = 1
+  while (lastLength >= 100) {
+    const json = await fetch(
+      'https://hcb.hackclub.com/api/v3/directory/organizations?per_page=100&page=' +
+        page
+    ).then(res => res.json())
+    lastLength = json.length
+    page++
+    total = [...total, ...json]
+  }
   return total.filter(org => org.climate)
 }
 
 export const getStaticProps = async () => {
+  const { fetchAllOrganizations } = await import('../../../lib/cached-hcb-orgs')
+  const total = await fetchAllOrganizations()
   return {
     props: {
-      rawOrganizations: await fetchRawClimateOrganizations()
+      rawOrganizations: total.filter(org => org.climate)
     },
     revalidate: 60 // seconds
   }
