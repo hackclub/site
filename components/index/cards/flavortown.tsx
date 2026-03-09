@@ -85,7 +85,10 @@ export default function Flavortown() {
                 right: '-40px',
                 width: '250px',
                 rotate: '-15deg',
-                animation: 'breathe infinite 3.5s ease'
+                animation: 'breathe infinite 3.5s ease',
+                '@media (prefers-reduced-motion)': {
+                  animation: 'none'
+                }
               }}
             />
             <Image
@@ -97,6 +100,9 @@ export default function Flavortown() {
                 right: '80px',
                 width: '170px',
                 animation: 'breathe infinite 4s 1s ease-in-out',
+                '@media (prefers-reduced-motion)': {
+                  animation: 'none'
+                },
                 rotate: '5deg'
               }}
             />
