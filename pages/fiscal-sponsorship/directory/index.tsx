@@ -650,18 +650,8 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
 }
 
 export async function fetchRawOrganizations() {
-  let lastLength = 100
-  let total = []
-  let page = 1
-  while (lastLength >= 100) {
-    const json = await fetch(
-      'https://hcb.hackclub.com/api/v3/directory/organizations?per_page=100&page=' +
-        page
-    ).then(res => res.json())
-    lastLength = json.length
-    page++
-    total = [...total, ...json]
-  }
+  const { fetchAllOrganizations } = await import('../../../lib/cached-hcb-orgs')
+  const total = await fetchAllOrganizations()
   return [
     ...total.filter(a => a.logo !== null),
     ...total.filter(a => a.logo === null)
