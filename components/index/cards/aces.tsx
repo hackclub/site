@@ -99,6 +99,9 @@ export default function Aces() {
                 width: [null, null, '200px', '250px'],
                 objectFit: 'cover',
                 animation: 'sway 4s ease-in-out infinite',
+                '@media (prefers-reduced-motion)': {
+                  animation: 'none'
+                },
                 maxWidth: 'none',
                 zIndex: 4
               }}

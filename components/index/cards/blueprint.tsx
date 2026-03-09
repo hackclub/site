@@ -50,6 +50,9 @@ export default function Blueprint({ stars, blueprintData }) {
             '50%': {
               transform: 'rotate(-8deg)'
             }
+          },
+          '@media (prefers-reduced-motion)': {
+            animation: 'none'
           }
         }}
       >
@@ -115,6 +118,9 @@ export default function Blueprint({ stars, blueprintData }) {
                 backgroundColor: '#a8f0ae',
                 alignItems: 'center',
                 animation: 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+                '@media (prefers-reduced-motion)': {
+                  animation: 'none' // pulse is handled by the box after this box
+                },
                 '@keyframes ping': {
                   '0%': {
                     transform: 'scale(1)',
@@ -133,7 +139,18 @@ export default function Blueprint({ stars, blueprintData }) {
                 width: '100%',
                 height: '100%',
                 borderRadius: '9999px',
-                backgroundColor: '#a8f0ae'
+                backgroundColor: '#a8f0ae',
+                '@media (prefers-reduced-motion)': {
+                  animation: 'pulse 5s infinite'
+                },
+                '@keyframes pulse': {
+                  '0%': {
+                    backgroundColor: '#a8f0ae'
+                  },
+                  '50%': {
+                    backgroundColor: '#86aa89'
+                  }
+                }
               }}
             />
           </Box>

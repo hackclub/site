@@ -37,6 +37,7 @@ import InnovationCircuit from '../../public/donate/0screenshot_2021-10-03_at_3.4
 import WindyCity from '../../public/donate/6screenshot_2021-10-03_at_3.29.29_pm.png'
 import ZephyrFun from '../../public/donate/0screenshot_2021-10-03_at_3.59.34_pm.png'
 import GoldenTrain from '../../public/home/golden-train.png'
+import usePrefersMotion from '../../lib/use-prefers-motion'
 
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts'
 
@@ -50,7 +51,7 @@ const PhotoRow = ({ photos }) => (
   <Box sx={{ height: '160px', overflow: 'hidden' }}>
     <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>
       <AMarquee
-        velocity={12}
+        velocity={usePrefersMotion() ? 12 : 0}
       >
         {photos.map((photo, index) => (
           <Image
@@ -68,7 +69,7 @@ const PhotoRow = ({ photos }) => (
     </Box>
     <Box sx={{ display: ['none', 'none', 'none', 'none', 'block'] }}>
       <AMarquee
-        velocity={12}
+        velocity={usePrefersMotion() ? 12 : 0}
       >
         {photos.map((photo, index) => (
           <Image
