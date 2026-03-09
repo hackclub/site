@@ -124,7 +124,6 @@ function Laptop({ href, title }) {
         unoptimized
         style={{
           width: '100%',
-          height: 'auto',
           maxWidth: "100%",
           height: "auto"
         }} />
