@@ -33,7 +33,7 @@ export const getStaticProps = async ({ params }) => {
   const { fetchAllOrganizations } = await import('../../../lib/cached-hcb-orgs')
   const total = await fetchAllOrganizations()
 
-  let orgs = total
+  const orgs = total
     .filter(org => org.climate)
     .filter(org => org.location.continent === region.label)
 

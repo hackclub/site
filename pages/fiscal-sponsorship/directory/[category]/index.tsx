@@ -29,7 +29,7 @@ export const getStaticPaths = () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-  let { category } = params
+  const { category } = params
   const { fetchAllOrganizations } = await import(
     '../../../../lib/cached-hcb-orgs'
   )
@@ -39,7 +39,7 @@ export const getStaticProps = async ({ params }) => {
     ...total.filter(a => a.logo === null)
   ]
 
-  let orgs = allOrgs.filter(org =>
+  const orgs = allOrgs.filter(org =>
     find(categories, ['id', category]).match(org)
   )
 

@@ -49,7 +49,7 @@ export const getStaticProps = async ({ params }) => {
     ...total.filter(a => a.logo === null)
   ]
 
-  let orgs = allOrgs.filter(
+  const orgs = allOrgs.filter(
     org =>
       (region.continents
         ? region.continents.includes(org.location.continent)
