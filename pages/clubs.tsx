@@ -360,7 +360,7 @@ const Page = () => (
             sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
           >
             Hack Clubs attend and run{' '}
-            <NextLink href="/hackathons" passHref>
+            <NextLink href="/hackathons" passHref legacyBehavior>
               <a>hackathons</a>
             </NextLink>{' '}
             like <a href="https://daydream.hackclub.com/">Daydream</a> &{' '}
@@ -410,7 +410,7 @@ const Page = () => (
           <Highlight>every&nbsp;Hack&nbsp;Club is student-led</Highlight> &
           members make self-directed projects.
         </Text>
-        <NextLink href="/philosophy" passHref>
+        <NextLink href="/philosophy" passHref legacyBehavior>
           <Button
             as="a"
             variant="ctaLg"

@@ -13,7 +13,6 @@ import {
 import { useState } from 'react'
 import { keyframes } from '@emotion/react'
 import Tilt from '../tilt'
-import NextLink from 'next/link'
 import PageVisibility from 'react-page-visibility'
 import { formatAddress } from '../../lib/helpers'
 
@@ -62,11 +61,9 @@ export default function ScrollingHackathons({
               sx={{ color: 'muted', mr: 2, textAlign: 'center' }}
             >
               from{' '}
-              <NextLink href="https://hackathons.hackclub.com" passHref>
-                <Link sx={{ color: 'currentcolor' }}>
-                  hackathons.hackclub.com
-                </Link>
-              </NextLink>
+              <Link href="https://hackathons.hackclub.com" sx={{ color: 'currentcolor' }}>
+                hackathons.hackclub.com
+              </Link>
               , last updated just now.
             </Text>
           </Box>

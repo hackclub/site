@@ -34,7 +34,7 @@ export default function KeepExploring() {
             sx={{ display: ['none', 'flex', 'flex'] }}
           />
         </Heading>
-        <Link href="/slack" passHref>
+        <Link href="/slack" passHref legacyBehavior>
           <Button
             sx={{
               bg: 'white',
@@ -49,7 +49,7 @@ export default function KeepExploring() {
           </Button>
         </Link>
 
-        <Link href="https://hackathons.hackclub.com" passHref>
+        <Link href="https://hackathons.hackclub.com" passHref legacyBehavior>
           <Button sx={{ bg: 'white', color: 'red', fontSize: [2, 3] }} as="a">
             Discover more hackathons
           </Button>
