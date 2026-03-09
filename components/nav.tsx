@@ -263,6 +263,3 @@ export default function Header({
   )
 }
 
-Header.defaultProps = {
-  color: 'white'
-}
