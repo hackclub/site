@@ -58,9 +58,8 @@ const Content = () => (
       own hackathon organizing experiences—from finding a venue to securing
       sponsorships to ordering food.
     </Text>
-    <NextLink href="/slack" passHref legacyBehavior>
+    <NextLink href="/slack">
       <Button
-        as="a"
         variant="ctaLg"
         sx={{
           background: 'linear-gradient(-132deg, #338eda 14%, #33d6a6 82%)'

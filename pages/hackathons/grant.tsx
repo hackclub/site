@@ -114,9 +114,8 @@ const HackathonGrant = () => {
               <Flex
                 sx={{ justifyContent: 'center', alignItems: 'center', mb: 2 }}
               >
-                <NextLink href="https://hackclub.com" passHref target="_blank" legacyBehavior>
+                <NextLink href="https://hackclub.com" target="_blank">
                   <Box
-                    as="a"
                     sx={{
                       width: 72,
                       height: 72,

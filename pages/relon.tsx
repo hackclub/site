@@ -21,7 +21,7 @@ import Amount from '../components/announcements/amount'
 import SlackCTA from '../components/announcements/cta'
 import AnnouncementHolder from '../components/announcements/holder'
 
-const StyledLink = styled.a`
+const StyledLink = styled(NextLink)`
   text-decoration: none;
   color: ${theme.colors.white};
 `
@@ -29,9 +29,7 @@ const StyledLink = styled.a`
 const RelonLink = props => {
   const { href } = props
   return (
-    <NextLink href={href} passHref legacyBehavior>
-      <StyledLink>{props.children}</StyledLink>
-    </NextLink>
+    <StyledLink href={href}>{props.children}</StyledLink>
   )
 }
 
