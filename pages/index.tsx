@@ -120,7 +120,6 @@ function Page({
   const [gameImage1, setGameImage1] = useState('')
   const [reveal, setReveal] = useState(false)
   const [hover, setHover] = useState(true)
-  const [slackKey, setSlackKey] = useState(0)
   const [announcement, setAnnouncement] = useState(null)
 
   const { asPath } = useRouter()
@@ -335,7 +334,7 @@ function Page({
                   width: '100%'
                 }}
               >
-                We are <Comma>{slackData.total_members_count}</Comma>{' '}
+                We are{' '}
                 <Text
                   sx={{
                     color: 'transparent',
@@ -349,12 +348,11 @@ function Page({
                       !reveal ? setReveal(true) : setReveal(false)
                     }}
                     sx={{
-                      // lineHeight: 0.875,
                       px: 2,
                       backgroundColor: 'red',
                       position: 'absolute',
                       borderRadius: 10,
-                      transform: 'rotate(-3deg) translateY(-5px)',
+                      transform: 'rotate(-2deg) translateY(-5px)',
                       color: 'white',
                       whiteSpace: 'nowrap',
                       textDecoration: 'none',
@@ -364,9 +362,9 @@ function Page({
                     }}
                     aria-hidden="true"
                   >
-                    teen hackers
+                    <Comma>{slackData.total_members_count}</Comma> teen hackers
                   </Text>
-                  teen hackers
+                  <Comma>{slackData.total_members_count}</Comma> teen hackers
                 </Text>
                 <Box as="br" sx={{ display: ['inline', 'none', 'none'] }} /> from around
                 the world who code together
@@ -905,7 +903,7 @@ function Page({
             <Milkyway />
             <Aces />
 
-            <Slack slackKey={slackKey} data={slackData} events={events} />
+            <Slack data={slackData} events={events} />
           </Box>
         </Box>
         <Box>
@@ -1455,9 +1453,10 @@ export async function getStaticProps() {
     bankData.push('error')
   }
 
-  // Slack: get total raised
-  const { Slack: Slacky } = require('./api/slack')
-  const slackData = await Slacky()
+  const slackData = await fetch('https://slack-data.hackclub.dev/full')
+    .then(r => r.json())
+    .then(d => d.stats?.sort((a, b) => b.ds.localeCompare(a.ds))[0] ?? {})
+    .catch(() => ({}))
 
   // GitHub: get latest github activity (currently this is erroring and
   // preventing the site from deploying
