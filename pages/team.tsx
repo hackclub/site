@@ -1,4 +1,5 @@
-import { Box, Container, Flex, Grid, Text } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { Box, Container, Grid, Text } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import Nav from '../components/nav'

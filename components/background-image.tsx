@@ -14,6 +14,7 @@ type BGImgProps = {
   src: string | StaticImageData
   width?: number | string
   height?: number | string
+  placeholder?: 'blur' | 'empty'
 }
 
 export default function BGImg({

@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import {
   Badge,
   Box,
@@ -9,7 +10,7 @@ import {
   Link,
   Text
 } from 'theme-ui'
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Meta from '@hackclub/meta'
@@ -46,7 +47,6 @@ import Aces from '../components/index/cards/aces'
 import Sleepover from '../components/index/cards/sleepover'
 import Stasis from '../components/index/cards/stasis'
 import CTAS from '../components/index/ctas'
-/** @jsxImportSource theme-ui */
 
 const ANNOUNCEMENTS = [
   {

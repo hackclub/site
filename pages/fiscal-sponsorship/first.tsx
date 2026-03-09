@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import { Box, Heading, Container, Text, Button, Badge } from 'theme-ui'
 
 import Meta from '@hackclub/meta'
@@ -14,7 +15,6 @@ import theme from '@hackclub/theme'
 import { Balancer } from 'react-wrap-balancer'
 import { setCookie } from 'cookies-next'
 import { useEffect } from 'react'
-import Announcement from '../../components/announcement'
 
 export default function First({ stats }) {
   useEffect(() => {

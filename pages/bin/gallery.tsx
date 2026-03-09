@@ -1,4 +1,5 @@
-import React from 'react'
+/** @jsxImportSource theme-ui */
+
 import BinPost from '../../components/bin/GalleryPosts'
 import styles from '../../public/bin/style/gallery.module.css'
 import Script from 'next/script'
