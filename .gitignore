@@ -13,3 +13,4 @@ bun.lockb
 .yarnrc.yml
 .env*.local
 tsconfig.tsbuildinfo
+next-env.d.ts

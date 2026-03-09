@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Card, Text } from 'theme-ui'
-import Image, { StaticImageData } from "next/image"
+import Image, { StaticImageData } from 'next/image'
 import theme from '../lib/theme'
 import React, { ReactNode } from 'react'
 
@@ -26,11 +26,23 @@ type PhotoProps = {
   showAlt?: boolean
   dark?: boolean
   loading?: 'eager' | 'lazy'
+  unoptimized?: boolean
   sx?: any
 }
 
 const Photo = React.forwardRef<HTMLDivElement, PhotoProps>(function Photo(
-  { src, width, height, alt, caption, showAlt, dark, loading, ...props }: PhotoProps,
+  {
+    src,
+    width,
+    height,
+    alt,
+    caption,
+    showAlt,
+    dark,
+    unoptimized = false,
+    loading,
+    ...props
+  }: PhotoProps,
   ref
 ) {
   const showCaption = showAlt && alt
@@ -46,7 +58,7 @@ const Photo = React.forwardRef<HTMLDivElement, PhotoProps>(function Photo(
         position: 'relative',
         maxWidth: '100%',
         lineHeight: 0,
-        height: 'fit-content',
+        height: '100%',
         ...props.sx,
         img: { objectFit: 'cover', objectPosition: 'center' }
       }}
@@ -57,10 +69,13 @@ const Photo = React.forwardRef<HTMLDivElement, PhotoProps>(function Photo(
         width={width}
         height={height}
         loading={loading || 'lazy'}
+        unoptimized={unoptimized}
         style={{
-          maxWidth: "100%",
-          height: "auto"
-        }} />
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover'
+        }}
+      />
       {showCaption && (
         <Caption
           as="figcaption"
@@ -70,7 +85,7 @@ const Photo = React.forwardRef<HTMLDivElement, PhotoProps>(function Photo(
         </Caption>
       )}
     </Card>
-  );
+  )
 })
 
 export default Photo
