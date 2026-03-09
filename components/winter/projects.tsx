@@ -15,7 +15,7 @@ import {
   Image
 } from 'theme-ui'
 import NextImage from "next/image"
-import Marquee from 'react-marquee-slider'
+import Marquee from '../marquee'
 import Photo1 from '../../public/winter/1.jpeg'
 import Photo2 from '../../public/winter/2.png'
 import Photo3 from '../../public/winter/3.jpeg'
@@ -57,7 +57,7 @@ const Sheet = styled(Card)`
 const PhotoRow = ({ photos }) => (
   <Box sx={{ height: '200px', overflow: 'hidden' }}>
     <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>
-      <Marquee velocity={12}>
+      <Marquee velocity={12} onInit={() => {}} onFinish={() => {}}>
         {photos.map((photo, index) => (
           <NextImage
             placeholder="blur"
@@ -76,7 +76,7 @@ const PhotoRow = ({ photos }) => (
       </Marquee>
     </Box>
     <Box sx={{ display: ['none', 'none', 'none', 'none', 'block'] }}>
-      <Marquee velocity={12}>
+      <Marquee velocity={12} onInit={() => {}} onFinish={() => {}}>
         {photos.map((photo, index) => (
           <NextImage
             placeholder="blur"

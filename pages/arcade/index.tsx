@@ -456,7 +456,7 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
   return (
     <Card
       variant="interactive"
-      as="a"
+      as={link ? 'a' : 'div'}
       href={link}
       sx={{
         background: '#FAEFD6',

@@ -20,7 +20,7 @@ import Footer from '../../components/footer'
 import ReactBeforeSliderComponent from 'react-before-after-slider-component'
 import 'react-before-after-slider-component/dist/build.css'
 import { Fade, Slide } from '../../components/react-reveal-compat'
-import Marquee from 'react-marquee-slider'
+import Marquee from '../../components/marquee'
 import ExecuteBig from '../../public/donate/codedaydc_hack.jpg'
 import HackCamp from '../../public/donate/sf.jpg'
 import HackerGames from '../../public/donate/0img_20210830_161125.jpg'
@@ -50,6 +50,8 @@ const PhotoRow = ({ photos }) => (
     <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>
       <AMarquee
         velocity={12}
+        onInit={() => {}}
+        onFinish={() => {}}
       >
         {photos.map((photo, index) => (
           <Image
@@ -71,6 +73,8 @@ const PhotoRow = ({ photos }) => (
     <Box sx={{ display: ['none', 'none', 'none', 'none', 'block'] }}>
       <AMarquee
         velocity={12}
+        onInit={() => {}}
+        onFinish={() => {}}
       >
         {photos.map((photo, index) => (
           <Image

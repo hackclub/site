@@ -48,11 +48,7 @@ export default function BGImg({
       <Image
         fill
         alt={alt}
-        {...props}
-        style={{
-          maxWidth: "100%",
-          height: "auto"
-        }} />
+        {...props} />
     </Box>
   );
 }
