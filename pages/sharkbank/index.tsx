@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Nav from '../../components/nav'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import { Box, Text } from 'theme-ui'
 
 //Desktop Mode

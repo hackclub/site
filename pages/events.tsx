@@ -14,7 +14,7 @@ import Meta from '@hackclub/meta'
 import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import OuternetPic from '../public/outernet/hack.jpg'
 import theme from '@hackclub/theme'
 

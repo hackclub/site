@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Card, Text } from 'theme-ui'
-import Image, { StaticImageData } from 'next/image'
+import Image, { StaticImageData } from "next/legacy/image"
 import theme from '../lib/theme'
 import React, { ReactNode } from 'react'
 
