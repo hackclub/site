@@ -43,8 +43,7 @@ const createProject = async (partsList = []) => {
   const ROW_HEIGHT = 215; // close enough for jazz, keypad is too big for this but ¯\_(ツ)_/¯
 
   const parts = [
-    { "type": "board-pi-pico-w", "id": "pico", "top": 0, "left": 0, "attrs": {},
-      "type": "board-pi-pico-w", "id": "pico", "top": 100, "left": 100 , "attrs": {}}
+    { "type": "board-pi-pico-w", "id": "pico", "top": 0, "left": 0, "attrs": {} }
   ]
   let x = 88 + PADDING; // for already included Pico
   let y = 0;
@@ -122,7 +121,7 @@ void loop() {
 
   const response = await fetch('https://wokwi.com/api/projects/save', {
     method: 'POST',
-    cors: 'no-cors',
+    mode: 'no-cors',
     headers: {
       'Content-Type': 'application/json',
       'Referer': 'https://wokwi.com/projects/new/pi-pico-w',
@@ -133,6 +132,7 @@ void loop() {
     console.log(e)
   })
 
+  if (!response) return null
   const data = await response.json()
   const { projectId } = data
 

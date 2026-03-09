@@ -18,12 +18,10 @@ export const gerberToSvg = async gerberURL => {
   const files = []
   const zip = new JSZip()
 
-  const zippedData = await new Promise((resolve, _reject) => {
+  const zippedData = await new Promise<JSZip>((resolve, _reject) => {
     zip.loadAsync(data.arrayBuffer).then(resolve, e => {
       console.error(e)
-      resolve({
-        files: {} // TODO: actually handle this error (bad or nonexistent gerber.zip)
-      })
+      resolve(new JSZip()) // TODO: actually handle this error (bad or nonexistent gerber.zip)
     })
   })
 
@@ -44,7 +42,7 @@ export const gerberToSvg = async gerberURL => {
       const extension = filename.split('.').pop().toLowerCase()
       if (allowedExtensions.includes(extension)) {
         const filePath = `/tmp/${filename}`
-        await new Promise((resolve, _reject) => {
+        await new Promise<void>((resolve, _reject) => {
           file.async('uint8array').then(function (fileData) {
             fs.writeFileSync(filePath, fileData)
             files.push(filePath)
