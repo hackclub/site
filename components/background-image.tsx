@@ -1,5 +1,5 @@
 import { Box } from 'theme-ui'
-import Image, { StaticImageData } from "next/legacy/image"
+import Image, { StaticImageData } from "next/image"
 
 /*
  * Use this component inside a container with CSS:
@@ -45,7 +45,14 @@ export default function BGImg({
         '~ *': { position: 'relative' }
       }}
     >
-      <Image fill alt={alt} {...props} />
+      <Image
+        fill
+        alt={alt}
+        {...props}
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
     </Box>
-  )
+  );
 }

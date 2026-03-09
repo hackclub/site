@@ -14,7 +14,7 @@ import Meta from '@hackclub/meta'
 import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
-import Image from "next/legacy/image"
+import Image from "next/image"
 import OuternetPic from '../public/outernet/hack.jpg'
 import theme from '@hackclub/theme'
 
@@ -209,9 +209,11 @@ const Page = () => (
           <Image
             src={OuternetPic}
             alt="Hack Clubbers coming together at Outernet"
-            layout="fill"
-            objectFit="cover"
-          />
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover"
+            }} />
         </Box>
         <Container>
           <Heading

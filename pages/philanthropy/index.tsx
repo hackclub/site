@@ -11,7 +11,7 @@ import {
   Text
 } from 'theme-ui'
 import styled from '@emotion/styled'
-import Image from "next/legacy/image"
+import Image from "next/image"
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import Nav from '../../components/nav'
@@ -55,13 +55,16 @@ const PhotoRow = ({ photos }) => (
           <Image
             placeholder="blur"
             src={photo}
-            objectFit="cover"
             className="next-image"
             height={200}
             width={300}
             alt="Hack Club students"
             key={'image-' + index}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "cover"
+            }} />
         ))}
       </AMarquee>
     </Box>
@@ -73,13 +76,16 @@ const PhotoRow = ({ photos }) => (
           <Image
             placeholder="blur"
             src={photo}
-            objectFit="cover"
             className="next-image"
             height={200}
             width={600}
             key={'image-' + index}
             alt="Hack Club students"
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "cover"
+            }} />
         ))}
       </AMarquee>
     </Box>
@@ -872,9 +878,13 @@ const Philanthropy = ({ posts = [] }) => {
                   src="/philanthropy/belle.png"
                   width="20"
                   height="20"
-                  style={{ borderRadius: '100%' }}
                   alt="belle"
-                />
+                  style={{
+                    borderRadius: '100%',
+                    maxWidth: "100%",
+                    height: "auto",
+                    objectFit: "cover"
+                  }} />
                 Belle, 17, Malaysia
               </Text>
             </Fade>
@@ -909,7 +919,11 @@ const Philanthropy = ({ posts = [] }) => {
                   width={530}
                   height={150}
                   alt="insider logo"
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto",
+                    objectFit: "cover"
+                  }} />
               </Link>
               <Link
                 href="https://www.wsj.com/articles/teen-hackers-try-to-convince-parents-they-are-up-to-good-11569922200"
@@ -921,7 +935,11 @@ const Philanthropy = ({ posts = [] }) => {
                   width={270}
                   height={100}
                   alt="wsj logo"
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto",
+                    objectFit: "cover"
+                  }} />
               </Link>
               <Link
                 href="https://www.forbes.com/sites/fastforward/2021/06/29/from-journalism-to-a-tech-nonprofit-this-coos-big-pivot-to-empower-the-next-generation-of-coders/"
@@ -933,7 +951,11 @@ const Philanthropy = ({ posts = [] }) => {
                   width={500}
                   height={100}
                   alt="forbes logo"
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto",
+                    objectFit: "cover"
+                  }} />
               </Link>
               <Link
                 href="https://www.philanthropy.com/article/nonprofits-need-to-embrace-transparency-even-if-the-supreme-court-rules-to-protect-donor-privacy"
@@ -945,7 +967,11 @@ const Philanthropy = ({ posts = [] }) => {
                   width={750}
                   height={250}
                   alt="cop logo"
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto",
+                    objectFit: "cover"
+                  }} />
               </Link>
             </Grid>
           </Fade>
@@ -1533,7 +1559,11 @@ const Philanthropy = ({ posts = [] }) => {
                     width={250}
                     height={100}
                     alt="christina"
-                  />
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                      objectFit: "cover"
+                    }} />
                   <Text as="p">Christina Asquith, Co-founder and COO</Text>
                 </Box>
               </Fade>
@@ -1544,7 +1574,11 @@ const Philanthropy = ({ posts = [] }) => {
                     width={150}
                     height={100}
                     alt="zach"
-                  />
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                      objectFit: "cover"
+                    }} />
                   <Text as="p">Zach Latta, Founder and Executive Director</Text>
                 </Box>
               </Fade>
@@ -1607,7 +1641,7 @@ const Philanthropy = ({ posts = [] }) => {
         <Footer />
       </Box>
     </>
-  )
+  );
 }
 
 export default Philanthropy

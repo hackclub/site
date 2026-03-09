@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Card, Text } from 'theme-ui'
-import Image, { StaticImageData } from "next/legacy/image"
+import Image, { StaticImageData } from "next/image"
 import theme from '../lib/theme'
 import React, { ReactNode } from 'react'
 
@@ -57,7 +57,10 @@ const Photo = React.forwardRef<HTMLDivElement, PhotoProps>(function Photo(
         width={width}
         height={height}
         loading={loading || 'lazy'}
-      />
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
       {showCaption && (
         <Caption
           as="figcaption"
@@ -67,7 +70,7 @@ const Photo = React.forwardRef<HTMLDivElement, PhotoProps>(function Photo(
         </Caption>
       )}
     </Card>
-  )
+  );
 })
 
 export default Photo

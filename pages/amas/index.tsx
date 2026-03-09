@@ -4,7 +4,7 @@ import Head from 'next/head'
 import ForceTheme from '../../components/force-theme'
 import BGImg from '../../components/background-image'
 import NextLink from 'next/link'
-import Image from "next/legacy/image"
+import Image from "next/image"
 import Nav from '../../components/nav'
 import SlideDown from '../../components/slide-down'
 import Footer from '../../components/footer'
@@ -121,7 +121,10 @@ const Page = ({ upcoming, past }) => (
                     height={128}
                     src={event.amaAvatar}
                     alt={event.title}
-                  />
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto"
+                    }} />
                   <Heading as="h3" variant="subheadline" my={2}>
                     {event.title.replace('AMA with ', '')}
                   </Heading>
@@ -176,7 +179,10 @@ const Page = ({ upcoming, past }) => (
                 unoptimized={true}
                 src={event.amaAvatar}
                 alt={event.title}
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
               <Box ml={3}>
                 <Heading as="h3" variant="subheadline" mb={1}>
                   {event.title.replace('AMA with ', '')}

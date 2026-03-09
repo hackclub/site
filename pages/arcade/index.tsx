@@ -5,7 +5,7 @@ import Head from 'next/head'
 import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
 import { Box, Text, Flex, Grid, Card, Close, Divider, Heading } from 'theme-ui'
-import Image from "next/legacy/image"
+import Image from "next/image"
 import fs from 'fs'
 import path from 'path'
 import { startCase } from 'lodash'
@@ -481,7 +481,7 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
         {title}
       </Text>
       <Text
-        as="p"
+        as="div"
         sx={{
           fontSize: [1, 2, 2],
           display: 'block'
@@ -625,7 +625,10 @@ const Sticker = ({ st }) => {
             width={128}
             height={128}
             alt={st.split('.')[0]}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
           <Text
             as="span"
             variant="caption"

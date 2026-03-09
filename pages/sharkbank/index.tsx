@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Nav from '../../components/nav'
-import Image from "next/legacy/image"
+import Image from "next/image"
 import { Box, Text } from 'theme-ui'
 
 //Desktop Mode
@@ -11,18 +11,18 @@ function DesktopMode({ billboardBottom }) {
       <Section bg="/sharkbank/firstSectionBG.png"  minHeight="1100px">
         <Image
           src="/sharkbank/bgBuildingsFirstSection.png"
-          layout="fill"
-          objectFit="cover"
           alt="Buildings"
           priority
+          fill
+          sizes="100vw"
           style={{
             zIndex: '20',
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             position: 'relative',
-            overflow: 'hidden'
-          }}
-        />
+            overflow: 'hidden',
+            objectFit: "cover"
+          }} />
 
         {/* Billboard */}
         <Box
@@ -42,9 +42,12 @@ function DesktopMode({ billboardBottom }) {
               alt="Billboard"
               width={950}
               height={850}
-              objectFit="contain"
               priority
-            />
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+                objectFit: "contain"
+              }} />
             <div
               style={{
                 position: 'absolute',
@@ -82,7 +85,6 @@ function DesktopMode({ billboardBottom }) {
           </div>
         </Box>
       </Section>
-
       {/* Second Section */}
       <Section bg="/sharkbank/desktop-row-2-column-1-closed.png" minHeight="1100px">
         {/* Banners */}
@@ -101,9 +103,12 @@ function DesktopMode({ billboardBottom }) {
             alt="Banner-1"
             width={275}
             height={800}
-            objectFit="contain"
             priority
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "contain"
+            }} />
         </Box>
         <Box
           as="div"
@@ -121,12 +126,14 @@ function DesktopMode({ billboardBottom }) {
             alt="Banner-2"
             width={275}
             height={800}
-            objectFit="contain"
             priority
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "contain"
+            }} />
         </Box>
       </Section>
-
       {/* Third Section */}
       <Section bg="/sharkbank/thirdSectionBG.png" minHeight="1100px">
         {/* Text  */}
@@ -197,9 +204,12 @@ function DesktopMode({ billboardBottom }) {
                 alt="Shark"
                 width={275}
                 height={800}
-                objectFit="contain"
                 priority
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  objectFit: "contain"
+                }} />
             </div>
             <div
               style={{
@@ -215,9 +225,12 @@ function DesktopMode({ billboardBottom }) {
                 alt="Sign"
                 width={275}
                 height={800}
-                objectFit="contain"
                 priority
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  objectFit: "contain"
+                }} />
               <button
                 style={{
                   height: '65px',
@@ -274,13 +287,16 @@ function DesktopMode({ billboardBottom }) {
             alt="Shark"
             width={275}
             height={800}
-            objectFit="contain"
             priority
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "contain"
+            }} />
         </Box>
       </Section>
     </>
-  )
+  );
 }
 
 // Tablet Mode
@@ -316,10 +332,13 @@ function TabletMode() {
               alt="Billboard"
               width={1200}
               height={2600}
-              style={{ transform: 'scale(1.9)' }}
-              objectFit="contain"
               priority
-            />
+              style={{
+                transform: 'scale(1.9)',
+                maxWidth: "100%",
+                height: "auto",
+                objectFit: "contain"
+              }} />
             <div
               style={{
                 position: 'absolute',
@@ -361,7 +380,6 @@ function TabletMode() {
           </div>
         </Box>
       </Section>
-
       <Section bg="/sharkbank/row-2-column-1-tab.png" minHeight="1561px">
         <Box
           as="div"
@@ -379,9 +397,12 @@ function TabletMode() {
             alt="Banner-1"
             width={275}
             height={800}
-            objectFit="contain"
             priority
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "contain"
+            }} />
         </Box>
         <Box
           as="div"
@@ -399,12 +420,14 @@ function TabletMode() {
             alt="Banner-1"
             width={275}
             height={800}
-            objectFit="contain"
             priority
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "contain"
+            }} />
         </Box>
       </Section>
-
       <Section bg="/sharkbank/row-3-column-1-tab.png" minHeight="1560px">
         {/* Text  */}
         <Box
@@ -474,9 +497,12 @@ function TabletMode() {
                 alt="Shark"
                 width={275}
                 height={800}
-                objectFit="contain"
                 priority
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  objectFit: "contain"
+                }} />
             </div>
             <div
               style={{
@@ -492,9 +518,12 @@ function TabletMode() {
                 alt="Sign"
                 width={275}
                 height={800}
-                objectFit="contain"
                 priority
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  objectFit: "contain"
+                }} />
               <button
                 style={{
                   height: '65px',
@@ -551,13 +580,16 @@ function TabletMode() {
             alt="Shark"
             width={275}
             height={800}
-            objectFit="contain"
             priority
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "contain"
+            }} />
         </Box>
       </Section>
     </>
-  )
+  );
 }
 
 function MobileMode() {
@@ -596,10 +628,13 @@ function MobileMode() {
               alt="Billboard"
               width={1200}
               height={2600}
-              style={{ transform: 'scale(1.8)' }}
-              objectFit="contain"
               priority
-            />
+              style={{
+                transform: 'scale(1.8)',
+                maxWidth: "100%",
+                height: "auto",
+                objectFit: "contain"
+              }} />
             <div
               style={{
                 position: 'absolute',
@@ -658,9 +693,12 @@ function MobileMode() {
             alt="Banner-1"
             width={imgWidth}
             height={imgHeight}
-            objectFit="contain"
             priority
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "contain"
+            }} />
         </Box>
         <Box
           as="div"
@@ -678,9 +716,12 @@ function MobileMode() {
             alt="Banner-2"
             width={imgWidth}
             height={imgHeight}
-            objectFit="contain"
             priority
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "contain"
+            }} />
         </Box>
       </Section>
       <Section bg="/sharkbank/row-3-column-1.png" minHeight="950px">
@@ -755,9 +796,12 @@ function MobileMode() {
                 alt="Shark"
                 width={175}
                 height={500}
-                objectFit="contain"
                 priority
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  objectFit: "contain"
+                }} />
             </div>
             <div
               style={{
@@ -773,9 +817,12 @@ function MobileMode() {
                 alt="Sign"
                 width={220}
                 height={400}
-                objectFit="contain"
                 priority
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  objectFit: "contain"
+                }} />
               <button
                 style={{
                   height: '65px',
@@ -833,13 +880,16 @@ function MobileMode() {
             alt="Shark"
             width={275}
             height={800}
-            objectFit="contain"
             priority
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "contain"
+            }} />
         </Box>
       </Section>
     </>
-  )
+  );
 }
 
 // Section Component
@@ -874,15 +924,17 @@ function Section({ bg, minHeight, minWidth, children }: SectionProps) {
       >
         <Image
           src={bg}
-          layout="fill"
-          objectFit="cover"
           alt="Section background"
           priority
-        />
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover"
+          }} />
         {children}
       </Box>
     </div>
-  )
+  );
 }
 
 // Main

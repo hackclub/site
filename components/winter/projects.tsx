@@ -14,7 +14,7 @@ import {
   Avatar,
   Image
 } from 'theme-ui'
-import NextImage from "next/legacy/image"
+import NextImage from "next/image"
 import Marquee from 'react-marquee-slider'
 import Photo1 from '../../public/winter/1.jpeg'
 import Photo2 from '../../public/winter/2.png'
@@ -62,13 +62,16 @@ const PhotoRow = ({ photos }) => (
           <NextImage
             placeholder="blur"
             src={photo}
-            objectFit="cover"
             className="next-image"
             height="200px"
             width="300px"
             alt="Hack Club students"
             key={'image-' + index}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "cover"
+            }} />
         ))}
       </Marquee>
     </Box>
@@ -78,13 +81,16 @@ const PhotoRow = ({ photos }) => (
           <NextImage
             placeholder="blur"
             src={photo}
-            objectFit="cover"
             className="next-image"
             height="200px"
             width="600px"
             key={'image-' + index}
             alt="Hack Club students"
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "cover"
+            }} />
         ))}
       </Marquee>
     </Box>
