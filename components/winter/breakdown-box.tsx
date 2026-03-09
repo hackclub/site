@@ -5,7 +5,7 @@ import {
   Heading,
   Text,
 } from 'theme-ui'
-import { Zoom } from 'react-reveal'
+import { Zoom } from '../react-reveal-compat'
 import Icon from '@hackclub/icons'
 
 function BreakdownBox({

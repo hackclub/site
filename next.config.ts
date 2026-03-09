@@ -1,34 +1,25 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import withMDX from '@next/mdx'
+import type { NextConfig } from 'next'
+
+const nextConfig: NextConfig = {
   reactStrictMode: true,
-  eslint: {
-    ignoreDuringBuilds: true
-  },
   trailingSlash: true,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   images: {
-    domains: [
-      'hackclub.com',
-      'dl.airtable.com',
-      'emoji.slack-edge.com',
-      'cdn.glitch.com',
-      'scrapbook.hackclub.com',
-      'assets.hackclub.com',
-      'v5.airtableusercontent.com',
-      'hcb.hackclub.com',
-      'cdn.hackclub.com',
-      'hc-cdn.hel1.your-objectstorage.com',
-      'cdn.prod.website-files.com'
-    ],
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'cloud-*-hack-club-bot.vercel.app'
-      }
+      { protocol: 'https', hostname: 'hackclub.com' },
+      { protocol: 'https', hostname: 'dl.airtable.com' },
+      { protocol: 'https', hostname: 'emoji.slack-edge.com' },
+      { protocol: 'https', hostname: 'cdn.glitch.com' },
+      { protocol: 'https', hostname: 'scrapbook.hackclub.com' },
+      { protocol: 'https', hostname: 'assets.hackclub.com' },
+      { protocol: 'https', hostname: 'v5.airtableusercontent.com' },
+      { protocol: 'https', hostname: 'hcb.hackclub.com' },
+      { protocol: 'https', hostname: 'cdn.hackclub.com' },
+      { protocol: 'https', hostname: 'hc-cdn.hel1.your-objectstorage.com' },
+      { protocol: 'https', hostname: 'cdn.prod.website-files.com' },
+      { protocol: 'https', hostname: 'cloud-*-hack-club-bot.vercel.app' }
     ]
-  },
-  webpack: (config, { isServer }) => {
-    return config
   },
   async redirects() {
     return [
@@ -397,11 +388,4 @@ const nextConfig = {
   }
 }
 
-import million from 'million/compiler'
-import withMDX from '@next/mdx'
-
-const withMDXConfig = withMDX({ extension: /\.mdx?$/ })
-
-export default million.next(withMDXConfig(nextConfig), {
-  auto: true
-})
+export default withMDX({ extension: /\.mdx?$/ })(nextConfig)

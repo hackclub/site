@@ -33,8 +33,6 @@ const Page = ({ upcoming, past }) => (
       <BGImg
         gradient="linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.625))"
         src={Sal}
-        width={2048}
-        height={1170}
         alt="Screenshot of Elon Musk AMA on Zoom"
       />
       <SlideDown

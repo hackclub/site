@@ -228,7 +228,8 @@ const Page = () => (
         <Grid mb={5} gap={3} columns={[null, 2, 3]}>
           <Photo
             src="/jobs/charlotte-vt.jpg"
-            alt={
+            alt="The Charlotte Bridge, independent journalism based in Vermont"
+            caption={
               <>
                 <Link
                   href="https://thecharlottebridge.org/"
@@ -246,7 +247,8 @@ const Page = () => (
           />
           <Photo
             src="/home/golden-train.png"
-            alt={
+            alt="The Hacker Zephyr, the world's longest (by land) hackathon on a train"
+            caption={
               <>
                 <Link
                   href="https://www.youtube.com/watch?v=2BID8_pGuqA"
@@ -264,7 +266,8 @@ const Page = () => (
           />
           <Photo
             src="/jobs/hack-penn.jpg"
-            alt={
+            alt="Hack Pennsylvania, the largest high school hackathon in Pennsylvania"
+            caption={
               <>
                 <Link
                   href="https://hackpenn.com/"

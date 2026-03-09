@@ -19,8 +19,7 @@ import ForceTheme from '../../components/force-theme'
 import Footer from '../../components/footer'
 import ReactBeforeSliderComponent from 'react-before-after-slider-component'
 import 'react-before-after-slider-component/dist/build.css'
-import Fade from 'react-reveal/Fade'
-import Slide from 'react-reveal/Slide'
+import { Fade, Slide } from '../../components/react-reveal-compat'
 import Marquee from 'react-marquee-slider'
 import ExecuteBig from '../../public/donate/codedaydc_hack.jpg'
 import HackCamp from '../../public/donate/sf.jpg'
@@ -58,8 +57,8 @@ const PhotoRow = ({ photos }) => (
             src={photo}
             objectFit="cover"
             className="next-image"
-            height="200px"
-            width="300px"
+            height={200}
+            width={300}
             alt="Hack Club students"
             key={'image-' + index}
           />
@@ -76,8 +75,8 @@ const PhotoRow = ({ photos }) => (
             src={photo}
             objectFit="cover"
             className="next-image"
-            height="200px"
-            width="600px"
+            height={200}
+            width={600}
             key={'image-' + index}
             alt="Hack Club students"
           />

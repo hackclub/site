@@ -9,7 +9,7 @@ import NextLink from 'next/link'
 import { Link, Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
 
-import Zoom from 'react-reveal/Zoom'
+import { Zoom } from '../../components/react-reveal-compat'
 /** @jsxImportSource theme-ui */
 
 const styles = `

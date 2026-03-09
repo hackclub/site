@@ -1,5 +1,5 @@
 import { Box, Button, Heading, Text, Card } from 'theme-ui'
-import Fade from 'react-reveal/Fade'
+import { Fade } from '../react-reveal-compat'
 import ScrollHint from '../scroll-hint'
 import Image from 'next/image'
 import Icon from '../icon'

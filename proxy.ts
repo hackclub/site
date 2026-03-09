@@ -5,8 +5,9 @@ export const config = {
   matcher: '/slack/:path*'
 }
 
-export function middleware(request: NextRequest) {
-  let continent = country.findByIso2(request.geo.country || 'AU').continent
+export function proxy(request: NextRequest) {
+  const countryCode = request.headers.get('x-vercel-ip-country') || 'AU'
+  let continent = country.findByIso2(countryCode).continent
   if (continent === 'Oceania') {
     continent = 'Australia'
   }

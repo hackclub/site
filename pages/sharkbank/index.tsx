@@ -99,8 +99,8 @@ function DesktopMode({ billboardBottom }) {
           <Image
             src="/sharkbank/desktop-red-closed.png"
             alt="Banner-1"
-            width="275px"
-            height="800px"
+            width={275}
+            height={800}
             objectFit="contain"
             priority
           />
@@ -119,8 +119,8 @@ function DesktopMode({ billboardBottom }) {
           <Image
             src="/sharkbank/desktop-blue-closed.png"
             alt="Banner-2"
-            width="275px"
-            height="800px"
+            width={275}
+            height={800}
             objectFit="contain"
             priority
           />
@@ -195,8 +195,8 @@ function DesktopMode({ billboardBottom }) {
               <Image
                 src="/sharkbank/shark1.PNG"
                 alt="Shark"
-                width="275px"
-                height="800px"
+                width={275}
+                height={800}
                 objectFit="contain"
                 priority
               />
@@ -213,8 +213,8 @@ function DesktopMode({ billboardBottom }) {
               <Image
                 src="/sharkbank/sign-closed.png"
                 alt="Sign"
-                width="275px"
-                height="800px"
+                width={275}
+                height={800}
                 objectFit="contain"
                 priority
               />
@@ -272,8 +272,8 @@ function DesktopMode({ billboardBottom }) {
           <Image
             src="/sharkbank/shark2.PNG"
             alt="Shark"
-            width="275px"
-            height="800px"
+            width={275}
+            height={800}
             objectFit="contain"
             priority
           />
@@ -377,8 +377,8 @@ function TabletMode() {
           <Image
             src="/sharkbank/mobile-red-closed.png"
             alt="Banner-1"
-            width="275px"
-            height="800px"
+            width={275}
+            height={800}
             objectFit="contain"
             priority
           />
@@ -397,8 +397,8 @@ function TabletMode() {
           <Image
             src="/sharkbank/mobile-blue-closed.png"
             alt="Banner-1"
-            width="275px"
-            height="800px"
+            width={275}
+            height={800}
             objectFit="contain"
             priority
           />
@@ -472,8 +472,8 @@ function TabletMode() {
               <Image
                 src="/sharkbank/shark1.PNG"
                 alt="Shark"
-                width="275px"
-                height="800px"
+                width={275}
+                height={800}
                 objectFit="contain"
                 priority
               />
@@ -490,8 +490,8 @@ function TabletMode() {
               <Image
                 src="/sharkbank/sign-closed.PNG"
                 alt="Sign"
-                width="275px"
-                height="800px"
+                width={275}
+                height={800}
                 objectFit="contain"
                 priority
               />
@@ -549,8 +549,8 @@ function TabletMode() {
           <Image
             src="/sharkbank/shark2.PNG"
             alt="Shark"
-            width="275px"
-            height="800px"
+            width={275}
+            height={800}
             objectFit="contain"
             priority
           />
@@ -753,8 +753,8 @@ function MobileMode() {
               <Image
                 src="/sharkbank/shark1.PNG"
                 alt="Shark"
-                width="175px"
-                height="500px"
+                width={175}
+                height={500}
                 objectFit="contain"
                 priority
               />
@@ -771,8 +771,8 @@ function MobileMode() {
               <Image
                 src="/sharkbank/sign-closed.png"
                 alt="Sign"
-                width="220px"
-                height="400px"
+                width={220}
+                height={400}
                 objectFit="contain"
                 priority
               />
@@ -831,8 +831,8 @@ function MobileMode() {
           <Image
             src="/sharkbank/shark2.PNG"
             alt="Shark"
-            width="275px"
-            height="800px"
+            width={275}
+            height={800}
             objectFit="contain"
             priority
           />

@@ -1,6 +1,6 @@
 import { sample, take } from 'lodash'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Slide } from 'react-reveal'
+import { Slide } from '../react-reveal-compat'
 import useWebSocket from 'react-use-websocket'
 import { Box, Text } from 'theme-ui'
 

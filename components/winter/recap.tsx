@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import { Button, Container, Heading, Grid, Card, Text } from 'theme-ui'
 import theme from '@hackclub/theme'
-import { Slide, Zoom } from 'react-reveal'
+import { Slide, Zoom } from '../react-reveal-compat'
 import BreakdownBox from './breakdown-box'
 import Signup from './form'
 

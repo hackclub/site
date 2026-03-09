@@ -247,7 +247,8 @@ const Page = () => (
       <Grid my={4} gap={3} columns={[null, 2, 3]}>
         <Photo
           src="/home/flagship_4.jpg"
-          alt={
+          alt="Hack Clubbers at Flagship"
+          caption={
             <>
               Hack Clubbers at{' '}
               <Link
@@ -265,7 +266,8 @@ const Page = () => (
         />
         <Photo
           src="/home/golden-train.png"
-          alt={
+          alt="The world's longest hackathon on land"
+          caption={
             <>
               The{' '}
               <Link
