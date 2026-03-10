@@ -278,7 +278,7 @@ function Page({
           sx={{
             bg: 'dark',
             pt: [4, 5],
-            pb: [2, 3],
+            pb: [2, 1],
             textAlign: 'left',
             position: 'relative',
             overflowX: 'hidden'
@@ -296,6 +296,7 @@ function Page({
               position: 'relative',
               mx: 'auto',
               py: [4, 4, 4],
+              pb: 1,
               textShadow: 'text'
             }}
           >
@@ -500,9 +501,13 @@ function Page({
           <Box
             sx={{
               display: 'flex',
-              justifyContent: ['flex-start', 'flex-start', 'flex-end'],
+              position: ['relative', 'relative', 'absolute'],
+              bottom: ['0px', '0px', '24px'],
+              right: ['0px', '0px', '4px'],
+              justifyContent: ['flex-end', 'flex-end', 'flex-end'],
               marginRight: 2,
-              mt: [4, 3, 1]
+              mt: [3, 2, 0],
+              mr: [2, 3, null]
             }}
           >
             <Badge
