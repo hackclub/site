@@ -915,14 +915,14 @@
   {
     "name": "Sebastian",
     "department": "HQ",
-    "role": "Engineering",
+    "role": "Quality and Integrity Manager, YSWS",
     "acknowledged": false,
-    "bio": "Sebastian (a.k.a. Leafd) is a 17-year-old developer from México who likes making large-scale Minecraft events, loves working with Kubernetes, likes creating and learning new things, and sometimes does music production.",
+    "bio": "Sebastian (a.k.a. Leafd) is a 18-year-old developer from México who likes making large-scale Minecraft events, loves working with Kubernetes, likes creating and learning new things, and sometimes does music production.",
     "slackId": "U07UBCSSQH3",
     "email": "sebastian",
-    "gapyear": true,
+    "staff": true,
     "website": "https://leafd.dev",
-    "avatar": "https://i.ibb.co/Txz9807V/2026-01-27-0os-Kleki.jpg"
+    "avatar": "https://cdn.lfdl.ink/f3B0SDagmGemG7kH.JPG"
   },
   {
     "name": "Sofia Egan",
