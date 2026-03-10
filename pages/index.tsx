@@ -277,7 +277,7 @@ function Page({
           as="header"
           sx={{
             bg: 'dark',
-            pt: [5, 6],
+            pt: [4, 5],
             pb: [2, 3],
             textAlign: 'left',
             position: 'relative',
@@ -442,7 +442,7 @@ function Page({
                 <Button
                   variant="ctaLg"
                   as="a"
-                  {...({href: "/slack"} as any)}
+                  {...({ href: "/slack" } as any)}
                   mt={[3, 0, 0]}
                   mr={3}
                   sx={{ transformOrigin: 'center left' }}
@@ -507,7 +507,7 @@ function Page({
           >
             <Badge
               as="a"
-              {...({href: "https://outernet.hackclub.com/"} as any)}
+              {...({ href: "https://outernet.hackclub.com/" } as any)}
               target="_blank"
               rel="noopener"
               variant="pill"
@@ -551,7 +551,7 @@ function Page({
                   mx: 0,
                   whiteSpace: ['wrap', 'nowrap', 'nowrap'],
                   color: 'white',
-                  background: (t: any)=> t.util.gx('red', 'orange'),
+                  background: (t: any) => t.util.gx('red', 'orange'),
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent'
                 }}
@@ -1162,7 +1162,7 @@ function Page({
             >
               <Card
                 as="a"
-                {...({href: "/slack"} as any)}
+                {...({ href: "/slack" } as any)}
                 target="_blank"
                 rel="noopener"
                 variant="interactive"
@@ -1233,7 +1233,7 @@ function Page({
                   }
                 }}
                 as="a"
-                {...({href: "https://github.com/hackclub"} as any)}
+                {...({ href: "https://github.com/hackclub" } as any)}
                 variant="interactive"
                 target="_blank"
                 rel="noopener"
@@ -1287,7 +1287,7 @@ function Page({
                   }
                 }}
                 as="a"
-                {...({href: "/clubs"} as any)}
+                {...({ href: "/clubs" } as any)}
                 variant="interactive"
                 target="_blank"
                 rel="noopener"
