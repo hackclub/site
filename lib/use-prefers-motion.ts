@@ -16,12 +16,12 @@ function usePrefersMotion() {
   const [prefersMotion, setPrefersMotion] = React.useState(getInitialState)
   React.useEffect(() => {
     const mediaQueryList = window.matchMedia(QUERY)
-    const listener = event => {
+    const listener = (event: MediaQueryListEvent) => {
       setPrefersMotion(!event.matches)
     }
-    mediaQueryList.addListener(listener)
+    mediaQueryList.addEventListener('change', listener)
     return () => {
-      mediaQueryList.removeListener(listener)
+      mediaQueryList.removeEventListener('change', listener)
     }
   }, [])
   return prefersMotion
