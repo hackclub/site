@@ -1,4 +1,4 @@
-import { Button, Box, Container, Heading, Flex, Grid, Text } from 'theme-ui'
+import { Button, Box, Container, Heading, Text } from 'theme-ui'
 import styled from '@emotion/styled'
 import usePrefersMotion from '../lib/use-prefers-motion'
 import useHasMounted from '../lib/use-has-mounted'

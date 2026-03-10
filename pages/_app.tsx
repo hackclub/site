@@ -1,4 +1,3 @@
-import React from 'react'
 import Head from 'next/head'
 
 import Analytics from '../components/analytics'
@@ -7,7 +6,7 @@ import { SpeedInsights } from '@vercel/speed-insights/react'
 
 import Meta from '@hackclub/meta'
 import '@hackclub/theme/fonts/reg-bold.css'
-import theme from '../lib/theme.js'
+import theme from '../lib/theme'
 import { ThemeProvider, Theme } from 'theme-ui'
 import { Provider as BalancerProvider } from 'react-wrap-balancer'
 

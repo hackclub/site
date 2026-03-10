@@ -80,7 +80,7 @@ const Post = ({
           @{user.username}
         </Text>
         <Text as="time" variant="caption" fontSize={0}>
-          {formatDate(postedAt)}
+          {formatDate({ format: 'mmmm d yyyy', date: postedAt })}
         </Text>
       </Box>
     </Flex>
