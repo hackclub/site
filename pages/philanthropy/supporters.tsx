@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { useEffect } from 'react'
 import styled from '@emotion/styled'
 import {
   Box,
@@ -98,13 +97,7 @@ const DonorListing = ({ name, url }) => {
   }
 }
 
-export default function Donate({ sprig }) {
-  useEffect(() => {
-    if (sprig) {
-      window.document.getElementById('sprig-donation').scrollIntoView()
-    }
-  }, [sprig])
-
+export default function Donate() {
   return (
     <Box>
       <Meta
@@ -229,10 +222,3 @@ export default function Donate({ sprig }) {
   )
 }
 
-export async function getServerSideProps(context) {
-  return {
-    props: {
-      sprig: Object.keys(context.query).includes('gl')
-    }
-  }
-}

@@ -96,7 +96,7 @@ export default function Acknowleged({ team }) {
   )
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   try {
     const acknowledged = await fetchAcknowledged()
     return { props: { team: { acknowledged } } }

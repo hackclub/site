@@ -437,7 +437,7 @@ export default function Team({ team }) {
   )
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   try {
     const current = await fetchTeam()
     return { props: { team: { current } } }
