@@ -47,6 +47,7 @@ import Aces from '../components/index/cards/aces'
 import Sleepover from '../components/index/cards/sleepover'
 import Stasis from '../components/index/cards/stasis'
 import CTAS from '../components/index/ctas'
+import { slackData as SlackDataLib } from '../lib/slackData'
 
 const ANNOUNCEMENTS = [
   {
@@ -1453,10 +1454,7 @@ export async function getStaticProps() {
     bankData.push('error')
   }
 
-  const slackData = await fetch('https://slack-data.hackclub.dev/full')
-    .then(r => r.json())
-    .then(d => d.stats?.sort((a, b) => b.ds.localeCompare(a.ds))[0] ?? {})
-    .catch(() => ({}))
+  const slackData = await SlackDataLib()
 
   // GitHub: get latest github activity (currently this is erroring and
   // preventing the site from deploying

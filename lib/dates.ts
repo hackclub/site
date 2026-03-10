@@ -17,9 +17,9 @@ export const timeSince = (
   const msPerMonth = msPerDay * 30 * 2
   const msPerYear = msPerDay * 365
 
-  const future = new Date(previous) - new Date(current)
-  const past = new Date(current) - new Date(previous)
-  const elapsed = [future, past].sort()[1]
+  const future = new Date(previous).getTime() - new Date(current).getTime()
+  const past = new Date(current).getTime() - new Date(previous).getTime()
+  const elapsed = [future, past].sort((a, b) => a - b)[1]
 
   let humanizedTime
   if (elapsed < msPerMinute) {
