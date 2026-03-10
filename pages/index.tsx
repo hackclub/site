@@ -289,15 +289,6 @@ function Page({
             alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
-          {announcement && (
-            <Announcement
-              width="90vw"
-              copy={announcement.copy}
-              caption={announcement.caption}
-              href={announcement.href}
-              imgSrc={announcement.imgSrc}
-            />
-          )}
           <Box
             sx={{
               width: '90vw',
