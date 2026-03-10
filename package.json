@@ -83,18 +83,14 @@
     "vanilla-tilt": "^1.8.1"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
     "@mdx-js/loader": "^3.1.1",
     "@types/node": "^25.4.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "eslint": "^10.0.3",
     "eslint-config-next": "^16.1.6",
-    "eslint-plugin-react": "^7.37.5",
-    "globals": "^17.4.0",
     "jiti": "^2.6.1",
     "prettier": "^3.8.1",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.0"
+    "typescript": "^5.9.3"
   }
 }
