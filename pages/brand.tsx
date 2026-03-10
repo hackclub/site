@@ -1,12 +1,11 @@
 import {
   Box,
-  Button,
   Card,
   Container,
   Flex,
   Grid,
   Heading,
-  Image,
+  Image as ThemeImage,
   Input,
   Link as A,
   Text,
@@ -20,10 +19,11 @@ import Nav from "../components/nav";
 import Footer from "../components/footer";
 import { startCase } from "lodash";
 import { AButton } from "../components/AButton";
+import Image from "next/image";
 
 export const Logo = ({ name }: { name: string }) => (
   <Card variant="sunken" sx={{ p: [3, 3] }}>
-    <Image
+    <ThemeImage
       src={`https://assets.hackclub.com/${name}.svg`}
       sx={{ width: "100%", height: 96, mb: 1 }}
       alt={startCase(name)}
@@ -74,7 +74,7 @@ export const Logo = ({ name }: { name: string }) => (
 const HTML = ({ file, html }) => (
   <tr>
     <td>
-      <img
+      <Image
         src={`https://assets.hackclub.com/${file}.svg`}
         alt={startCase(file)}
       />

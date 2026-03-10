@@ -1,4 +1,5 @@
 /** @jsxImportSource theme-ui */
+import Image from 'next/image'
 import styles from '../../public/bin/style/gallery.module.css'
 import PartTag from './PartTag'
 
@@ -68,7 +69,7 @@ const BinPost = ({
       </h1>
 
       <div className={styles.img_container}>
-        <img src={imgLink} alt="Project Image" />
+        <Image src={imgLink} alt="Project Image" />
       </div>
 
       <p className={styles.card_desc}>{desc}</p>

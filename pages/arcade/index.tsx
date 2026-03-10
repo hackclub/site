@@ -215,7 +215,7 @@ const Powerups = ({
           alignItems: 'center'
         }}
       >
-        <img src={img} sx={{ width: '100%', height: 'auto' }} alt={text} />
+        <Image src={img} sx={{ width: '100%', height: 'auto' }} alt={text} />
       </Flex>
       <Flex
         sx={{
@@ -334,7 +334,7 @@ const Powerups = ({
             gap: '10px'
           }}
         >
-          <img
+          <Image
             src={img}
             sx={{ maxWidth: '360px', maxHeight: '250px' }}
             alt={text}
@@ -437,7 +437,7 @@ const Intro = ({ title, num, text, img, third, ...props }) => {
       >
         {num}
       </Text>
-      <img
+      <Image
         src={img}
         alt="Dino drawing"
         sx={{
@@ -562,7 +562,7 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
                     ]
                   }}
                 ></Text>
-                <img
+                <Image
                   src="https://cloud-ocoecqzgs-hack-club-bot.vercel.app/0screenshot_2024-06-13_at_22.01.02.png"
                   className="hoverable"
                   alt="Need an idea?"
@@ -689,7 +689,7 @@ const Item = ({ name, img, cost }) => {
       >
         {cost}h
       </Text>
-      <img
+      <Image
         src={img}
         alt={name}
         sx={{
@@ -829,7 +829,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           <></>
         )}
 
-        <img
+        <Image
           src="/arcade/beige_bg.png"
           alt="beige swirly pattern"
           sx={{
@@ -858,7 +858,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           >
             <Fade delay={150}>
               <Box sx={{ textAlign: ['center', 'center', 'center', 'left'] }}>
-                <img
+                <Image
                   alt={'GitHub + Hack Club'}
                   sx={{
                     width: ['112px', '112px', '212px'],
@@ -960,7 +960,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               alignItems: 'center'
             }}
           >
-            <img
+            <Image
               src="/arcade/prizes.png"
               alt="Arcade prizes"
               sx={{
@@ -988,7 +988,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           zIndex: 2
         }}
       >
-        <img
+        <Image
           src="/arcade/blue_top.svg"
           alt="blue scribble pattern"
           sx={{
@@ -1044,7 +1044,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 num="1"
                 img="/arcade/o2.png"
               />
-              <img
+              <Image
                 src="/arcade/a1.png"
                 alt=""
                 sx={{
@@ -1055,7 +1055,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                   display: ['none', 'none', 'block', 'block']
                 }}
               />
-              <img
+              <Image
                 src="/arcade/a2.png"
                 alt="arrow"
                 sx={{
@@ -1125,7 +1125,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 img="/arcade/o7.png"
                 third="true"
               />
-              <img
+              <Image
                 src="/arcade/a3.png"
                 alt="arrow"
                 sx={{
@@ -1204,7 +1204,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             </Box>
           )}
         </PageVisibility>
-        <img
+        <Image
           src="/arcade/blue_bottom.svg"
           alt="blue triangle"
           sx={{
@@ -1421,7 +1421,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 minHeight: 'auto'
               }}
             />
-            <img
+            <Image
               src="/arcade/r5.png"
               alt=""
               sx={{
@@ -1435,7 +1435,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             />
           </Grid>
         </Box>
-        <img
+        <Image
           src="/arcade/yellow_bottom.svg"
           alt="jig jag yellow design"
           sx={{
@@ -1456,7 +1456,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           position: 'relative'
         }}
       >
-        <img
+        <Image
           src="/arcade/o5.png"
           alt=""
           sx={{
@@ -1469,7 +1469,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             display: ['none', 'none', 'none', 'block']
           }}
         />
-        <img
+        <Image
           src="/arcade/o6.png"
           alt=""
           sx={{
@@ -1614,7 +1614,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             pb: '100px'
           }}
         >
-          <img
+          <Image
             src="/arcade/blue_top.png"
             alt="blue scribble pattern"
             sx={{
@@ -1726,7 +1726,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               Build real projects. <br /> Share it with friends.
             </Text>
           </Flex>
-          <img
+          <Image
             src="/arcade/r6.png"
             alt="Dino!"
             sx={{

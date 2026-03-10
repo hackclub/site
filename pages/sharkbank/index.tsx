@@ -268,7 +268,7 @@ function DesktopMode({ billboardBottom }) {
                   background: 'transparent'
                 }}
               >
-                <img
+                <Image
                   src="https://cdn.hackclub.com/019c76b6-34e5-74ca-9f18-07767e5a17c8/CdM8iQ.png"
                   alt="Button background"
                   style={{
@@ -570,7 +570,7 @@ function TabletMode() {
                   border: 'none'
                 }}
               >
-                <img
+                <Image
                   src="https://cdn.hackclub.com/019c76b6-34e5-74ca-9f18-07767e5a17c8/CdM8iQ.png"
                   alt="Button background"
                   style={{
@@ -878,7 +878,7 @@ function MobileMode() {
                   border: 'none'
                 }}
               >
-                <img
+                <Image
                   src="https://cdn.hackclub.com/019c76b6-34e5-74ca-9f18-07767e5a17c8/CdM8iQ.png"
                   alt="Button background"
                   style={{

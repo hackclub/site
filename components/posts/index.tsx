@@ -6,6 +6,7 @@ import { last, filter } from 'lodash'
 import Masonry from 'react-masonry-css'
 import Mention from './mention'
 import Emoji from './emoji'
+import Image from 'next/image'
 
 const dataDetector =
   /(<.+?[|]?\S+>)|(@\S+)|(`{3}[\S\s]+`{3})|(`[^`]+`)|(_[^_]+_)|(\*[^*]+\*)|(:[^ .,;`\u2013~!@#$%^&*(){}=\\:"<>?|A-Z]+:)/
@@ -121,7 +122,7 @@ const Post = ({
               a.split('.')[a.split('.').length - 1]
             )
           ).map(img => (
-            <img key={img} alt={img} src={img} />
+            <Image key={img} alt={img} src={img} />
           ))}
         </Grid>
       </>

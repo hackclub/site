@@ -31,6 +31,7 @@ import OpenSource from '../../components/fiscal-sponsorship/open-source'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import Sparkles from '../../components/sparkles'
 import Icon from '../../components/icon'
+import Image from 'next/image'
 
 const organizations = [
   {
@@ -151,7 +152,7 @@ function MobileAppAlert() {
             rel="noreferrer"
             style={{ padding: 0, margin: 0, height: 40 }}
           >
-            <img
+            <Image
               src="apple-web-badge.svg"
               alt="Download on the App Store"
               style={{ height: 40 }}
@@ -163,7 +164,7 @@ function MobileAppAlert() {
             rel="noreferrer"
             style={{ padding: 0, margin: 0, height: 40 }}
           >
-            <img
+            <Image
               src="google-play-web-badge.png"
               alt="Get it on Google Play"
               style={{ height: 40 }}
@@ -557,7 +558,7 @@ export default function Page() {
               >
                 {mobileInstalls.toLocaleString()} installs
               </Text>
-              <img
+              <Image
                 src="mobile-mockup.png"
                 alt="Mobile app mockup"
                 style={{ display: 'block', width: '100%', height: 'auto', borderRadius: 'inherit' }}

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { memo } from 'react'
 
@@ -21,7 +22,7 @@ const StaticMention = memo(function StaticMention({
         }}
       >
         {avatar && (
-          <img
+          <Image
             src={avatar}
             alt={username}
             width={24}

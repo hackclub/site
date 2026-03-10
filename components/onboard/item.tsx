@@ -1,4 +1,5 @@
 /** @jsxImportSource theme-ui */
+import Image from 'next/image'
 import { Heading, Card } from 'theme-ui'
 
 const Item = ({ project }) => {
@@ -14,7 +15,7 @@ const Item = ({ project }) => {
         alignItems: 'center'
       }}
     >
-      <img src={imageTop} alt={name} />
+      <Image src={imageTop} alt={name} />
       <Heading
         as="h2"
         sx={{
