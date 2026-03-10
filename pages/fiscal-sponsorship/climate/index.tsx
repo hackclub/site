@@ -955,7 +955,9 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   <Image
                     src="/fiscal-sponsorship/climate/earth-on-hcb.png"
                     alt=""
-                    height={82}
+                    width={512}
+                    height={512}
+                    style={{ height: '82px', width: 'auto' }}
                   />
                 </MSparkles>
               </Flex>

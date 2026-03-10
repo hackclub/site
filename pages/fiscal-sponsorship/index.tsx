@@ -155,7 +155,8 @@ function MobileAppAlert() {
             <Image
               src="apple-web-badge.svg"
               alt="Download on the App Store"
-              style={{ height: 40 }}
+              width={120}
+              height={40}
             />
           </a>
           <a
@@ -165,9 +166,10 @@ function MobileAppAlert() {
             style={{ padding: 0, margin: 0, height: 40 }}
           >
             <Image
-              src="google-play-web-badge.png"
+              src="/fiscal-sponsorship/google-play-web-badge.png"
               alt="Get it on Google Play"
-              style={{ height: 40 }}
+              width={135}
+              height={40}
             />
           </a>
         </Box>
@@ -559,8 +561,10 @@ export default function Page() {
                 {mobileInstalls.toLocaleString()} installs
               </Text>
               <Image
-                src="mobile-mockup.png"
+                src="/fiscal-sponsorship/mobile-mockup.png"
                 alt="Mobile app mockup"
+                width={400}
+                height={800}
                 style={{ display: 'block', width: '100%', height: 'auto', borderRadius: 'inherit' }}
               />
             </Card>

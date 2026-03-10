@@ -15,7 +15,7 @@ const Item = ({ project }) => {
         alignItems: 'center'
       }}
     >
-      <Image src={imageTop} alt={name} />
+      <Image src={imageTop} alt={name} width={400} height={300} style={{ width: '100%', height: 'auto' }} />
       <Heading
         as="h2"
         sx={{

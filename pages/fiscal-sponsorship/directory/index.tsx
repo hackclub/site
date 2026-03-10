@@ -452,7 +452,9 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
                   <Image
                     src="/fiscal-sponsorship/hcb-icon-small.png"
                     alt=""
-                    height="82px"
+                    width={512}
+                    height={512}
+                    style={{ height: 'auto', width: '82px' }}
                   />
                 </MSparkles>
               </Flex>

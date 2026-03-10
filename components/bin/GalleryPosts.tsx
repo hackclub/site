@@ -69,7 +69,7 @@ const BinPost = ({
       </h1>
 
       <div className={styles.img_container}>
-        <Image src={imgLink} alt="Project Image" />
+        <Image src={imgLink} alt="Project Image" width={1200} height={628} />
       </div>
 
       <p className={styles.card_desc}>{desc}</p>

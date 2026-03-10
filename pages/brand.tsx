@@ -77,6 +77,8 @@ const HTML = ({ file, html }) => (
       <Image
         src={`https://assets.hackclub.com/${file}.svg`}
         alt={startCase(file)}
+        width={96}
+        height={96}
       />
     </td>
     <td>

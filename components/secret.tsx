@@ -123,8 +123,9 @@ export default function Secret({ reveal, ...props }) {
         >
           <Image
             src={img}
-            width="30%"
-            sx={{ margin: 'auto' }}
+            width={120}
+            height={120}
+            style={{ margin: 'auto' }}
             alt="a secret dino!"
           />
           <Text>print kc</Text>

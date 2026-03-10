@@ -566,6 +566,8 @@ const PizzaPage = () => {
                     <Image
                       alt="pizza drawn by club"
                       src={pizzaByClub.sprite}
+                      width={48}
+                      height={48}
                       style={{
                         position: 'absolute',
                         width: '48px',
@@ -654,6 +656,8 @@ const PizzaPage = () => {
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <Image
                   alt="1. "
+                  width={32}
+                  height={32}
                   style={{ height: '32px', width: '32px', marginRight: '12px' }}
                   src="https://cloud-2prihxd69-hack-club-bot.vercel.app/0group_12.png"
                 />
@@ -716,6 +720,8 @@ const PizzaPage = () => {
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <Image
                   alt="2. "
+                  width={32}
+                  height={32}
                   style={{ height: '32px', width: '32px', marginRight: '12px' }}
                   src="https://cdn.hack.pet/slackcdn/51120204d69dcbf3a5a38fe44bb511ef.png"
                 />
@@ -748,11 +754,14 @@ const PizzaPage = () => {
               </Text>
               <Image
                 alt="code jams"
+                width={800}
+                height={600}
                 style={{
                   width: '75%',
                   borderRadius: '16px',
                   marginTop: '12px',
                   marginBottom: '8px',
+                  height: 'auto',
                   border: '1px solid lightgray'
                 }}
                 src="https://cdn.hackclubber.dev/slackcdn/93cb3f60fbcafd1f890e9bb96d5bf5f4.png"
@@ -782,6 +791,8 @@ const PizzaPage = () => {
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <Image
                   alt="3."
+                  width={32}
+                  height={32}
                   style={{ height: '32px', width: '32px', marginRight: '12px' }}
                   src="https://cdn.hack.pet/slackcdn/3df92ac5cfc248adc1f46457aedab4d2.png"
                 />
@@ -817,10 +828,13 @@ const PizzaPage = () => {
               >
                 <Image
                   alt="HCB Card"
+                  width={800}
+                  height={600}
                   style={{
                     width: '75%',
                     borderRadius: '8px',
                     marginTop: '12px',
+                    height: 'auto',
                     marginBottom: '8px',
                     boxShadow: '0px 3.17143px 3.17143px 0px rgba(0, 0, 0, 0.25)'
                   }}
