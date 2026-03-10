@@ -100,7 +100,18 @@ function formatChunk(type, date) {
       return null
   }
 }
-export const formatDate = (format, date, divider = ' ') => {
+
+type FormatDate = {
+  format?: string
+  date: string
+  divider?: string
+}
+
+export const formatDate = ({
+  format,
+  date,
+  divider = ' '
+}: FormatDate) => {
   return format
     .split(divider)
     .map(chunk => formatChunk(chunk, new Date(date)))

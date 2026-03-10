@@ -167,7 +167,7 @@ export default function Hackathons({ data, stars }) {
                       color: 'sunken'
                     }}
                   >
-                    {formatDate('mmmm d', new Date(data.start))}
+                    {formatDate({ format: 'mmmm d', date: data.start })}
                   </Text>
                 </Flex>
               </Box>
