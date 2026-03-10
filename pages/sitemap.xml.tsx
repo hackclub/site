@@ -28,6 +28,15 @@ function getPages(dir: string, base = ''): string[] {
   return pages
 }
 
+function e(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+}
+
 function generateSitemap(pages: string[]): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -35,7 +44,7 @@ ${pages
   .sort()
   .map(
     page => `  <url>
-    <loc>${SITE_URL}${page}</loc>
+    <loc>${e(SITE_URL + page)}</loc>
   </url>`
   )
   .join('\n')}
