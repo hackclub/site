@@ -43,7 +43,6 @@ import Milkyway from '../components/index/cards/milkyway'
 import Flavortown from '../components/index/cards/flavortown'
 import Scraps from '../components/index/cards/scraps'
 import HackClubTheGame from '../components/index/cards/hctg'
-import Aces from '../components/index/cards/aces'
 import Sleepover from '../components/index/cards/sleepover'
 import Stasis from '../components/index/cards/stasis'
 import CTAS from '../components/index/ctas'
@@ -898,7 +897,6 @@ function Page({
             <Scraps />
             <HackClubTheGame />
             <Milkyway />
-            <Aces />
 
             <Slack data={slackData} events={events} />
           </Box>
