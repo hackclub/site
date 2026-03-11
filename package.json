@@ -19,7 +19,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@fillout/react": "^2.0.12",
-    "@hackclub/icons": "^0.0.15",
+    "@hackclub/icons": "^0.1.0",
     "@hackclub/markdown": "^0.0.43",
     "@hackclub/meta": "^1.2.0",
     "@hackclub/theme": "^1.0.0",
