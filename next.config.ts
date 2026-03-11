@@ -18,7 +18,14 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'cdn.hackclub.com' },
       { protocol: 'https', hostname: 'hc-cdn.hel1.your-objectstorage.com' },
       { protocol: 'https', hostname: 'cdn.prod.website-files.com' },
-      { protocol: 'https', hostname: 'cloud-*-hack-club-bot.vercel.app' }
+      { protocol: 'https', hostname: 'cloud-*-hack-club-bot.vercel.app' },
+      { protocol: 'https', hostname: 'cdn.hack.pet'},
+      { protocol: 'https', hostname: 'cdn.hackclubber.dev'},
+      { protocol: 'https', hostname: 'github.com' },
+      { protocol: 'https', hostname: 'avatars1.githubusercontent.com' },
+      { protocol: 'https', hostname: 'ca.slack-edge.com' },
+      { protocol: 'https', hostname: 'scrapbook-into-the-redwoods.s3.us-east-1.amazonaws.com' },
+      { protocol: 'https', hostname: 'cloud-5v0kfmsva.vercel.app' }
     ]
   },
   async redirects() {

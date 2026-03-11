@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { memo } from 'react'
 
@@ -11,20 +12,21 @@ const StaticMention = memo(function StaticMention({
   link: string
 }) {
   return (
-    <Link href={link}>
-      <a
-        className={`mention`}
-        style={{
-          display: 'inline-flex',
-          alignItems: 'baseline',
-          textDecoration: 'none'
-        }}
-      >
+    <Link
+      href={link}
+      className={`mention`}
+      style={{
+        display: 'inline-flex',
+        alignItems: 'baseline',
+        textDecoration: 'none'
+      }}
+    >
         {avatar && (
-          <img
+          <Image
             src={avatar}
             alt={username}
-            width={24}
+            width={32}
+            height={32}
             className="mention-avatar"
             style={{
               borderRadius: '50%',
@@ -34,7 +36,6 @@ const StaticMention = memo(function StaticMention({
           />
         )}
         @{username}
-      </a>
     </Link>
   )
 })

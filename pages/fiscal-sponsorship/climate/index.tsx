@@ -6,7 +6,7 @@ import {
   Grid,
   Heading,
   Input,
-  Image
+  Image as ThemeImage,
 } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
@@ -27,6 +27,7 @@ import { kebabCase, intersection } from 'lodash'
 import theme from '@hackclub/theme'
 import Tooltip from '../../../components/fiscal-sponsorship/tooltip'
 import { Organization } from '../../../lib/organization'
+import Image from 'next/image'
 
 const styles = `
   html {
@@ -601,7 +602,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   }}
                 >
                   {modalOrganization.branding.logo && (
-                    <Image
+                    <ThemeImage
                       alt={`${modalOrganization.name}'s logo`}
                       src={modalOrganization.branding.logo}
                       sx={{
@@ -951,10 +952,12 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
 	c7.3,5.5,15.9,9.2,24.9,10.7c8.8,1.3,23.2-1.1,33.9-7c2.9,14.2,4.4,28.9,4.4,44C475.4,285.2,469.7,313.1,459.4,338.5z`}
                   viewBox="0 0 512 512"
                 >
-                  <img
+                  <Image
                     src="/fiscal-sponsorship/climate/earth-on-hcb.png"
                     alt=""
-                    height="82px"
+                    width={512}
+                    height={512}
+                    style={{ height: '82px', width: 'auto' }}
                   />
                 </MSparkles>
               </Flex>
@@ -980,7 +983,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                       ml: 2
                     }}
                   >
-                    <Image
+                    <ThemeImage
                       src={region.image}
                       alt=""
                       sx={{ mr: 3, height: [30, 42, 42, 64] }}

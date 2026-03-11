@@ -11,6 +11,7 @@ import Watermark from '../../../components/fiscal-sponsorship/apply/watermark'
 import ContactBanner from '../../../components/fiscal-sponsorship/contact'
 import ApplicationForm from '../../../components/fiscal-sponsorship/apply/application-form'
 import { MultiStepProvider } from '../../../components/fiscal-sponsorship/apply/multi-step-context'
+import Image from 'next/image'
 
 export default function Apply() {
   const router = useRouter()
@@ -87,7 +88,7 @@ export default function Apply() {
                     verticalAlign: 'middle'
                   }}
                 >
-                  <img
+                  <Image
                     src="/fiscal-sponsorship/hcb-icon-small.png"
                     width={48}
                     height={48}

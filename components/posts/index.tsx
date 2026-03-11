@@ -6,6 +6,7 @@ import { last, filter } from 'lodash'
 import Masonry from 'react-masonry-css'
 import Mention from './mention'
 import Emoji from './emoji'
+import Image from 'next/image'
 
 const dataDetector =
   /(<.+?[|]?\S+>)|(@\S+)|(`{3}[\S\s]+`{3})|(`[^`]+`)|(_[^_]+_)|(\*[^*]+\*)|(:[^ .,;`\u2013~!@#$%^&*(){}=\\:"<>?|A-Z]+:)/
@@ -38,18 +39,18 @@ export const formatText = text =>
       )
     }
     if (chunk?.startsWith('```')) {
-      return <pre key={i}>{chunk.replace(/```/g, '')}</pre>;
+      return <pre key={i}>{chunk.replace(/```/g, '')}</pre>
     }
     if (chunk?.startsWith('`')) {
-      return <code key={i}>{chunk.replace(/`/g, '')}</code>;
+      return <code key={i}>{chunk.replace(/`/g, '')}</code>
     }
     if (chunk?.startsWith('*')) {
-      return <strong key={i}>{chunk.replace(/\*/g, '')}</strong>;
+      return <strong key={i}>{chunk.replace(/\*/g, '')}</strong>
     }
     if (chunk?.startsWith('_')) {
-      return <i key={i}>{chunk.replace(/_/g, '')}</i>;
+      return <i key={i}>{chunk.replace(/_/g, '')}</i>
     }
-    return <Fragment key={i}>{chunk?.replace(/&amp;/g, '&')}</Fragment>;
+    return <Fragment key={i}>{chunk?.replace(/&amp;/g, '&')}</Fragment>
   })
 
 const Post = ({
@@ -121,7 +122,14 @@ const Post = ({
               a.split('.')[a.split('.').length - 1]
             )
           ).map(img => (
-            <img key={img} alt={img} src={img} />
+            <Image
+              key={img}
+              alt={img}
+              src={img}
+              width={800}
+              height={600}
+              style={{ width: '100%', height: '100%' }}
+            />
           ))}
         </Grid>
       </>

@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { Box, Flex, Text } from 'theme-ui'
 import Buttons from './button'
+import Image from 'next/image'
 
 export default function Blueprint({ stars, blueprintData }) {
   const [projects, setProjects] = useState(
@@ -56,9 +57,11 @@ export default function Blueprint({ stars, blueprintData }) {
           }
         }}
       >
-        <img
+        <Image
           src="https://cdn.hackclub.com/019c76ba-04ab-7b48-964c-c16abbc307fb/IA1DMA.png"
           alt="Blueprint Logo"
+          width={160}
+          height={160}
           style={{
             width: '160px',
             height: 'auto',
@@ -73,9 +76,11 @@ export default function Blueprint({ stars, blueprintData }) {
           zIndex: 3
         }}
       >
-        <img
+        <Image
           src="https://cdn.hackclub.com/019c76b8-710b-7c83-84b9-55a328796e8d/DuC1JQ.png"
           alt="Blueprint"
+          width={300}
+          height={100}
           style={{
             maxWidth: '300px',
             width: '100%',

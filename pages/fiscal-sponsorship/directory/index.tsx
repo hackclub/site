@@ -12,7 +12,6 @@ import fuzzysort from 'fuzzysort'
 import { useEffect, useState } from 'react'
 import { kebabCase, intersection, find } from 'lodash'
 import theme from '@hackclub/theme'
-import GeoPattern from 'geopattern'
 import { useRouter } from 'next/router'
 import {
   OrganizationModal,
@@ -21,6 +20,7 @@ import {
 } from '../../../components/directoryModal'
 import OrganizationCard from '../../../components/fiscal-sponsorship/directory/card'
 import { Organization } from '../../../lib/organization'
+import Image from 'next/image'
 
 const styles = `
   html {
@@ -449,10 +449,12 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
                 sx={{ justifyContent: 'center', alignItems: 'center', mb: 2 }}
               >
                 <MSparkles colors={['green', 'teal', 'blue']}>
-                  <img
+                  <Image
                     src="/fiscal-sponsorship/hcb-icon-small.png"
                     alt=""
-                    height="82px"
+                    width={512}
+                    height={512}
+                    style={{ height: 'auto', width: '82px' }}
                   />
                 </MSparkles>
               </Flex>

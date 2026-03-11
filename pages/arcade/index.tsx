@@ -215,7 +215,7 @@ const Powerups = ({
           alignItems: 'center'
         }}
       >
-        <img src={img} sx={{ width: '100%', height: 'auto' }} alt={text} />
+        <Image src={img} width={360} height={250} style={{ width: '100%', height: 'auto', objectFit: 'contain' }} alt={text} />
       </Flex>
       <Flex
         sx={{
@@ -334,9 +334,11 @@ const Powerups = ({
             gap: '10px'
           }}
         >
-          <img
+          <Image
             src={img}
-            sx={{ maxWidth: '360px', maxHeight: '250px' }}
+            width={360}
+            height={250}
+            style={{ maxWidth: '360px', maxHeight: '250px', width: 'auto', height: 'auto', objectFit: 'contain' }}
             alt={text}
           />
           <Balancer>
@@ -437,16 +439,13 @@ const Intro = ({ title, num, text, img, third, ...props }) => {
       >
         {num}
       </Text>
-      <img
+      <Image
         src={img}
         alt="Dino drawing"
-        sx={{
-          width: ['35%', '35%', '35%', '50%'],
-          maxWidth: '210px',
-          position: 'absolute',
-          right: '-20px',
-          bottom: '0'
-        }}
+        width={210}
+        height={210}
+        style={{ height: 'auto', maxWidth: '210px', position: 'absolute', right: '-20px', bottom: '0' }}
+        sx={{ width: ['35%', '35%', '35%', '50%'] }}
       />
     </Box>
   )
@@ -562,15 +561,14 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
                     ]
                   }}
                 ></Text>
-                <img
+                <Image
                   src="https://cloud-ocoecqzgs-hack-club-bot.vercel.app/0screenshot_2024-06-13_at_22.01.02.png"
                   className="hoverable"
                   alt="Need an idea?"
+                  width={400}
+                  height={300}
+                  style={{ margin: '0 auto', display: 'inline', width: 'auto', height: '8em' }}
                   sx={{
-                    margin: '0 auto',
-                    display: 'inline',
-                    width: 'auto',
-                    height: '8em',
                     mb: ['-120px', '-20px', '-30px', '-30px'],
                     transform: [
                       'scale(0.7)',
@@ -689,14 +687,13 @@ const Item = ({ name, img, cost }) => {
       >
         {cost}h
       </Text>
-      <img
+      <Image
         src={img}
         alt={name}
+        width={300}
+        height={300}
+        style={{ maxHeight: '100%', width: 'auto', height: 'auto', margin: 'auto', maxWidth: '100%' }}
         sx={{
-          maxHeight: '100%',
-          width: 'auto',
-          margin: 'auto',
-          maxWidth: '100%',
           position: 'relative',
           zIndex: 1
         }}
@@ -829,17 +826,13 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           <></>
         )}
 
-        <img
+        <Image
           src="/arcade/beige_bg.png"
           alt="beige swirly pattern"
-          sx={{
-            position: 'absolute',
-            width: '110vw',
-            transform: 'rotate(-30deg)',
-            bottom: '-30vw',
-            right: '-35vw',
-            display: ['none', 'none', 'none', 'block']
-          }}
+          width={1200}
+          height={1200}
+          style={{ position: 'absolute', width: '110vw', height: 'auto', transform: 'rotate(-30deg)', bottom: '-30vw', right: '-35vw' }}
+          sx={{ display: ['none', 'none', 'none', 'block'] }}
         />
         <Grid
           sx={{
@@ -858,13 +851,12 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           >
             <Fade delay={150}>
               <Box sx={{ textAlign: ['center', 'center', 'center', 'left'] }}>
-                <img
+                <Image
                   alt={'GitHub + Hack Club'}
-                  sx={{
-                    width: ['112px', '112px', '212px'],
-                    marginBottom: '16px',
-                    margin: 'auto'
-                  }}
+                  width={212}
+                  height={70}
+                  style={{ height: 'auto', marginBottom: '16px', margin: 'auto' }}
+                  sx={{ width: ['112px', '112px', '212px'] }}
                   src="https://cloud-e3wj9s4pe-hack-club-bot.vercel.app/00combo__1_.png"
                 />
               </Box>
@@ -960,9 +952,12 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               alignItems: 'center'
             }}
           >
-            <img
+            <Image
               src="/arcade/prizes.png"
               alt="Arcade prizes"
+              width={800}
+              height={600}
+              style={{ height: 'auto' }}
               sx={{
                 zIndex: 10,
                 width: ['80%', '70%', '65%', '80%'],
@@ -988,14 +983,12 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           zIndex: 2
         }}
       >
-        <img
+        <Image
           src="/arcade/blue_top.svg"
           alt="blue scribble pattern"
-          sx={{
-            width: '100%',
-            position: 'absolute',
-            top: '-20vw'
-          }}
+          width={1200}
+          height={300}
+          style={{ width: '100%', height: 'auto', position: 'absolute', top: '-20vw' }}
         />
         <Box
           sx={{
@@ -1044,27 +1037,21 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 num="1"
                 img="/arcade/o2.png"
               />
-              <img
+              <Image
                 src="/arcade/a1.png"
                 alt=""
-                sx={{
-                  width: '100px',
-                  position: 'absolute',
-                  left: '-110px',
-                  bottom: '0',
-                  display: ['none', 'none', 'block', 'block']
-                }}
+                width={100}
+                height={100}
+                style={{ width: '100px', height: 'auto', position: 'absolute', left: '-110px', bottom: '0' }}
+                sx={{ display: ['none', 'none', 'block', 'block'] }}
               />
-              <img
+              <Image
                 src="/arcade/a2.png"
                 alt="arrow"
-                sx={{
-                  width: '90px',
-                  position: 'absolute',
-                  right: '-120px',
-                  bottom: '0',
-                  display: ['none', 'none', 'block', 'block']
-                }}
+                width={90}
+                height={90}
+                style={{ width: '90px', height: 'auto', position: 'absolute', right: '-120px', bottom: '0' }}
+                sx={{ display: ['none', 'none', 'block', 'block'] }}
               />
               {/* <Text
                 sx={{
@@ -1125,16 +1112,13 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 img="/arcade/o7.png"
                 third="true"
               />
-              <img
+              <Image
                 src="/arcade/a3.png"
                 alt="arrow"
-                sx={{
-                  width: '250px',
-                  position: 'absolute',
-                  left: '35vw',
-                  bottom: '-120px',
-                  display: ['none', 'none', 'block', 'block']
-                }}
+                width={250}
+                height={250}
+                style={{ width: '250px', height: 'auto', position: 'absolute', left: '35vw', bottom: '-120px' }}
+                sx={{ display: ['none', 'none', 'block', 'block'] }}
               />
             </Flex>
           </Flex>
@@ -1204,14 +1188,12 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             </Box>
           )}
         </PageVisibility>
-        <img
+        <Image
           src="/arcade/blue_bottom.svg"
           alt="blue triangle"
-          sx={{
-            width: '100%',
-            position: 'absolute',
-            bottom: '-16vw'
-          }}
+          width={1200}
+          height={300}
+          style={{ width: '100%', height: 'auto', position: 'absolute', bottom: '-16vw' }}
         />
       </Box>
 
@@ -1421,30 +1403,22 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 minHeight: 'auto'
               }}
             />
-            <img
+            <Image
               src="/arcade/r5.png"
               alt=""
-              sx={{
-                width: ['35%', '35%', '35%', '50%'],
-                maxWidth: '210px',
-                position: 'absolute',
-                right: '10px',
-                top: '0',
-                display: ['none', 'none', 'none', 'block']
-              }}
+              width={210}
+              height={210}
+              style={{ height: 'auto', maxWidth: '210px', position: 'absolute', right: '10px', top: '0' }}
+              sx={{ width: ['35%', '35%', '35%', '50%'], display: ['none', 'none', 'none', 'block'] }}
             />
           </Grid>
         </Box>
-        <img
+        <Image
           src="/arcade/yellow_bottom.svg"
           alt="jig jag yellow design"
-          sx={{
-            width: '100%',
-            position: 'absolute',
-            left: 0,
-            bottom: '-10vw',
-            zIndex: 3
-          }}
+          width={1200}
+          height={200}
+          style={{ width: '100%', height: 'auto', position: 'absolute', left: 0, bottom: '-10vw', zIndex: 3 }}
         />
       </Box>
       <Box
@@ -1456,31 +1430,21 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           position: 'relative'
         }}
       >
-        <img
+        <Image
           src="/arcade/o5.png"
           alt=""
-          sx={{
-            width: ['45%', '45%', '45%', '60%'],
-            maxWidth: '310px',
-            position: 'absolute',
-            right: '10px',
-            top: '40px',
-            zIndex: 0,
-            display: ['none', 'none', 'none', 'block']
-          }}
+          width={310}
+          height={310}
+          style={{ height: 'auto', maxWidth: '310px', position: 'absolute', right: '10px', top: '40px', zIndex: 0 }}
+          sx={{ width: ['45%', '45%', '45%', '60%'], display: ['none', 'none', 'none', 'block'] }}
         />
-        <img
+        <Image
           src="/arcade/o6.png"
           alt=""
-          sx={{
-            width: ['30%', '30%', '30%', '40%'],
-            maxWidth: '210px',
-            position: 'absolute',
-            left: '10px',
-            top: '70px',
-            zIndex: 0,
-            display: ['none', 'none', 'none', 'block']
-          }}
+          width={210}
+          height={210}
+          style={{ height: 'auto', maxWidth: '210px', position: 'absolute', left: '10px', top: '70px', zIndex: 0 }}
+          sx={{ width: ['30%', '30%', '30%', '40%'], display: ['none', 'none', 'none', 'block'] }}
         />
 
         <Box
@@ -1614,15 +1578,12 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             pb: '100px'
           }}
         >
-          <img
+          <Image
             src="/arcade/blue_top.png"
             alt="blue scribble pattern"
-            sx={{
-              width: '100%',
-              position: 'absolute',
-              top: '-8vw',
-              zIndex: 0
-            }}
+            width={1200}
+            height={300}
+            style={{ width: '100%', height: 'auto', position: 'absolute', top: '-8vw', zIndex: 0 }}
           />
           <Box
             sx={{
@@ -1726,16 +1687,13 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               Build real projects. <br /> Share it with friends.
             </Text>
           </Flex>
-          <img
+          <Image
             src="/arcade/r6.png"
             alt="Dino!"
-            sx={{
-              width: ['35%', '35%', '35%', '50%'],
-              maxWidth: '210px',
-              position: 'absolute',
-              right: '20px',
-              bottom: '0'
-            }}
+            width={210}
+            height={210}
+            style={{ height: 'auto', maxWidth: '210px', position: 'absolute', right: '20px', bottom: '0' }}
+            sx={{ width: ['35%', '35%', '35%', '50%'] }}
           />
         </Box>
       </Box>

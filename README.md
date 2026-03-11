@@ -25,7 +25,7 @@ Hack Club's new website. This codebase is what runs on [hackclub.com](https://ha
 4. Open up your web browser and go to [localhost:3000](http://localhost:3000)
 
 > [!NOTE]
-> There are a number of redirects and rewrites essential to the website's functionality, which you can see in [next.config.mjs](./next.config.mjs).
+> There are a number of redirects and rewrites essential to the website's functionality, which you can see in [next.config.ts](./next.config.ts).
 
 Powered by [Next.js] with [MDX], [Theme UI], & [Hack Club Theme].
 

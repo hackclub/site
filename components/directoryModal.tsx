@@ -24,6 +24,7 @@ import {
 } from 'theme-ui'
 import { Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
+import Image from 'next/image'
 
 type OrganizationModalProps = {
   organization: {
@@ -127,9 +128,11 @@ export function OrganizationModal({ organization, onClose }: OrganizationModalPr
               }}
             >
               {organization.branding.logo && (
-                <img
+                <Image
                   alt={`${organization.name}'s logo`}
                   src={organization.branding.logo}
+                  width={128}
+                  height={128}
                   sx={{
                     width: 'auto',
                     height: '96px',

@@ -2,7 +2,7 @@ import {
   Box,
   Link,
   Grid,
-  Image,
+  Image as ThemeImage,
   Container,
   Button,
   Heading,
@@ -16,6 +16,7 @@ import Nav from '../components/nav'
 import Tilt from '../components/tilt'
 import Ticker from 'react-ticker'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 const PizzaPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -235,7 +236,7 @@ const PizzaPage = () => {
             paddingRight: '16px'
           }}
         >
-          <Image
+          <ThemeImage
             alt={'GitHub + Hack Club'}
             sx={{ width: ['128px', '128px', '256px'], marginBottom: '16px' }}
             src="https://cloud-e3wj9s4pe-hack-club-bot.vercel.app/00combo__1_.png"
@@ -260,7 +261,7 @@ const PizzaPage = () => {
             <br />
             <span>
               <Text>After Every Project</Text>
-              <Image
+              <ThemeImage
                 alt={''}
                 sx={{
                   position: 'absolute',
@@ -313,17 +314,17 @@ const PizzaPage = () => {
         }}
       >
         {/* <Tilt>
-      <Image sx={{position: "absolute", marginTop: "-82px", marginLeft: "-82px"}} src="https://cloud-okty851hq-hack-club-bot.vercel.app/0mushroom.png"/>
+      <ThemeImage sx={{position: "absolute", marginTop: "-82px", marginLeft: "-82px"}} src="https://cloud-okty851hq-hack-club-bot.vercel.app/0mushroom.png"/>
       </Tilt>
       <Tilt>
-      <Image sx={{position: "absolute", marginTop: "-82px", right: 0, marginRight: "96px"}} src="https://cloud-fiv5rwxlo-hack-club-bot.vercel.app/0pineapple.png"/>
+      <ThemeImage sx={{position: "absolute", marginTop: "-82px", right: 0, marginRight: "96px"}} src="https://cloud-fiv5rwxlo-hack-club-bot.vercel.app/0pineapple.png"/>
       </Tilt>
       <Tilt>
-      <Image sx={{position: "absolute", bottom: 0, marginBottom: "-182px", marginLeft: "-82px"}} src="https://cloud-bsv5adze8-hack-club-bot.vercel.app/0tomato.png"/>
+      <ThemeImage sx={{position: "absolute", bottom: 0, marginBottom: "-182px", marginLeft: "-82px"}} src="https://cloud-bsv5adze8-hack-club-bot.vercel.app/0tomato.png"/>
       </Tilt> */}
         <Box sx={{ position: 'absolute', top: -48, left: -48 }}>
           <Tilt options={{ perspective: 75 }}>
-            <Image
+            <ThemeImage
               alt="mushroom"
               sx={{
                 imageRendering: 'pixelated',
@@ -335,7 +336,7 @@ const PizzaPage = () => {
         </Box>
         <Box sx={{ position: 'absolute', top: -48, right: -48 }}>
           <Tilt options={{ perspective: 75 }}>
-            <Image
+            <ThemeImage
               alt="pineapple"
               sx={{
                 imageRendering: 'pixelated',
@@ -347,7 +348,7 @@ const PizzaPage = () => {
         </Box>
         <Box sx={{ position: 'absolute', bottom: -48, left: -48 }}>
           <Tilt options={{ perspective: 75 }}>
-            <Image
+            <ThemeImage
               alt="tomato"
               sx={{
                 imageRendering: 'pixelated',
@@ -359,7 +360,7 @@ const PizzaPage = () => {
         </Box>
         <Box sx={{ position: 'absolute', bottom: -48, right: -48 }}>
           <Tilt options={{ perspective: 75 }}>
-            <Image
+            <ThemeImage
               alt="pizza"
               sx={{
                 imageRendering: 'pixelated',
@@ -401,7 +402,7 @@ const PizzaPage = () => {
             </Text>
           </Box>
           <Box>
-            <Image
+            <ThemeImage
               alt="teens collaborating on tech products"
               sx={{ borderRadius: '16px' }}
               src="https://cloud-r38lu87ej-hack-club-bot.vercel.app/00meta__1_.png"
@@ -562,9 +563,11 @@ const PizzaPage = () => {
                     sx={{ backgroundColor: '#fff' }}
                     options={{ scale: 1.25, perspective: 2000, speed: 500 }}
                   >
-                    <img
+                    <Image
                       alt="pizza drawn by club"
                       src={pizzaByClub.sprite}
+                      width={48}
+                      height={48}
                       style={{
                         position: 'absolute',
                         width: '48px',
@@ -651,8 +654,10 @@ const PizzaPage = () => {
               }}
             >
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <img
+                <Image
                   alt="1. "
+                  width={32}
+                  height={32}
                   style={{ height: '32px', width: '32px', marginRight: '12px' }}
                   src="https://cloud-2prihxd69-hack-club-bot.vercel.app/0group_12.png"
                 />
@@ -680,7 +685,7 @@ const PizzaPage = () => {
                 Every Hack Club starts with a teenager like you who wants to
                 bring an amazing community to their high school.
               </Text>
-              <Image
+              <ThemeImage
                 alt="teen club of coders"
                 sx={{
                   width: ['75%', '75%', '40%'],
@@ -713,8 +718,10 @@ const PizzaPage = () => {
               }}
             >
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <img
+                <Image
                   alt="2. "
+                  width={32}
+                  height={32}
                   style={{ height: '32px', width: '32px', marginRight: '12px' }}
                   src="https://cdn.hack.pet/slackcdn/51120204d69dcbf3a5a38fe44bb511ef.png"
                 />
@@ -745,13 +752,16 @@ const PizzaPage = () => {
                 or{' '}
                 <Link href="https://jams.hackclub.com">jams.hackclub.com</Link>!
               </Text>
-              <img
+              <Image
                 alt="code jams"
+                width={800}
+                height={600}
                 style={{
                   width: '75%',
                   borderRadius: '16px',
                   marginTop: '12px',
                   marginBottom: '8px',
+                  height: 'auto',
                   border: '1px solid lightgray'
                 }}
                 src="https://cdn.hackclubber.dev/slackcdn/93cb3f60fbcafd1f890e9bb96d5bf5f4.png"
@@ -779,8 +789,10 @@ const PizzaPage = () => {
               }}
             >
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <img
+                <Image
                   alt="3."
+                  width={32}
+                  height={32}
                   style={{ height: '32px', width: '32px', marginRight: '12px' }}
                   src="https://cdn.hack.pet/slackcdn/3df92ac5cfc248adc1f46457aedab4d2.png"
                 />
@@ -814,12 +826,15 @@ const PizzaPage = () => {
                   boxShadow: '0px 3.17143px 3.17143px 0px rgba(0, 0, 0, 0.25)'
                 }}
               >
-                <img
+                <Image
                   alt="HCB Card"
+                  width={800}
+                  height={600}
                   style={{
                     width: '75%',
                     borderRadius: '8px',
                     marginTop: '12px',
+                    height: 'auto',
                     marginBottom: '8px',
                     boxShadow: '0px 3.17143px 3.17143px 0px rgba(0, 0, 0, 0.25)'
                   }}
