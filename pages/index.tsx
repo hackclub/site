@@ -278,8 +278,8 @@ function Page({
           as="header"
           sx={{
             bg: 'dark',
-            pt: [5, 6],
-            pb: [2, 3],
+            pt: [4, 5],
+            pb: [2, 1],
             textAlign: 'left',
             position: 'relative',
             overflowX: 'hidden'
@@ -290,15 +290,6 @@ function Page({
             alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
-          {announcement && (
-            <Announcement
-              width="90vw"
-              copy={announcement.copy}
-              caption={announcement.caption}
-              href={announcement.href}
-              imgSrc={announcement.imgSrc}
-            />
-          )}
           <Box
             sx={{
               width: '90vw',
@@ -306,6 +297,7 @@ function Page({
               position: 'relative',
               mx: 'auto',
               py: [4, 4, 4],
+              pb: 1,
               textShadow: 'text'
             }}
           >
@@ -452,7 +444,7 @@ function Page({
                 <Button
                   variant="ctaLg"
                   as="a"
-                  {...({href: "/slack"} as any)}
+                  {...({ href: "/slack" } as any)}
                   mt={[3, 0, 0]}
                   mr={3}
                   sx={{ transformOrigin: 'center left' }}
@@ -510,14 +502,18 @@ function Page({
           <Box
             sx={{
               display: 'flex',
-              justifyContent: ['flex-start', 'flex-start', 'flex-end'],
+              position: ['relative', 'relative', 'absolute'],
+              bottom: ['0px', '0px', '24px'],
+              right: ['0px', '0px', '4px'],
+              justifyContent: ['flex-end', 'flex-end', 'flex-end'],
               marginRight: 2,
-              mt: [4, 3, 1]
+              mt: [3, 2, 0],
+              mr: [2, 3, null]
             }}
           >
             <Badge
               as="a"
-              {...({href: "https://outernet.hackclub.com/"} as any)}
+              {...({ href: "https://outernet.hackclub.com/" } as any)}
               target="_blank"
               rel="noopener"
               variant="pill"
@@ -561,7 +557,7 @@ function Page({
                   mx: 0,
                   whiteSpace: ['wrap', 'nowrap', 'nowrap'],
                   color: 'white',
-                  background: (t: any)=> t.util.gx('red', 'orange'),
+                  background: (t: any) => t.util.gx('red', 'orange'),
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent'
                 }}
@@ -1172,7 +1168,7 @@ function Page({
             >
               <Card
                 as="a"
-                {...({href: "/slack"} as any)}
+                {...({ href: "/slack" } as any)}
                 target="_blank"
                 rel="noopener"
                 variant="interactive"
@@ -1243,7 +1239,7 @@ function Page({
                   }
                 }}
                 as="a"
-                {...({href: "https://github.com/hackclub"} as any)}
+                {...({ href: "https://github.com/hackclub" } as any)}
                 variant="interactive"
                 target="_blank"
                 rel="noopener"
@@ -1297,7 +1293,7 @@ function Page({
                   }
                 }}
                 as="a"
-                {...({href: "/clubs"} as any)}
+                {...({ href: "/clubs" } as any)}
                 variant="interactive"
                 target="_blank"
                 rel="noopener"
