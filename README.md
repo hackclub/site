@@ -57,7 +57,7 @@ Your challenge: try and make the card as unique as possible, like a mini poster!
 
 <img width="600" alt="Screenshot of a carousel section" src="https://github.com/hackclub/site/assets/65808924/044660eb-fb3d-43b6-a270-64a3fe51f3ca">
 
-If there's a Hack Club or Hack Club community-led project (past or present) that Hack Clubbers can get involved in, please add it to [lib/carousel.json](lib/carousel.json) and add your card to the end of the json file. An example looks like this:
+If there's a Hack Club or Hack Club community-led project (past or present) that Hack Clubbers can get involved in, please add it to [public/carousel.json](public/carousel.json) and add your card to the end of the json file. An example looks like this:
 
 ```json
 {
