@@ -45,6 +45,7 @@ import Scraps from '../components/index/cards/scraps'
 import HackClubTheGame from '../components/index/cards/hctg'
 import Sleepover from '../components/index/cards/sleepover'
 import Stasis from '../components/index/cards/stasis'
+import Fallout from '../components/index/cards/fallout'
 import CTAS from '../components/index/ctas'
 import { slackData as SlackDataLib } from '../lib/slackData'
 
@@ -58,12 +59,12 @@ const ANNOUNCEMENTS = [
     imgSrc: 'https://cdn.hackclub.com/019c76b8-9716-7a35-bf79-929ad4d6d873/Y86cSA.png'
   },
   {
-    id: 'campfire-flagship',
-    expiresAt: new Date('2026-02-20'),
-    copy: 'Code with your favorite YouTubers at a Game Jam!',
-    caption: 'Spend up to 60 hours building games, earn a ticket to attend. Join us in LA with YouTubers like Michael Reeves this February!',
-    href: 'https://flagship.hackclub.com?utm_source=site_announcement',
-    imgSrc: 'https://cdn.hackclub.com/019c76b6-18f6-7d5f-8c22-3cbedc1b5d6e/gQNlOw.png'
+    id: 'fallout',
+    expiresAt: new Date('2026-07-01'),
+    copy: 'Build hardware projects and fly to a hackathon in Shenzhen, China!',
+    caption: 'Spend 60 hours building hardware projects, earn a trip to Shenzhen for a hardware hackathon this July!',
+    href: 'https://fallout.hackclub.com?utm_source=site-announcement',
+    imgSrc: 'https://cdn.hackclub.com/019cd51e-8a0d-704c-b3ed-7238d5ba4067/soup.png'
   },
   {
     id: 'sleepover',
@@ -894,6 +895,7 @@ function Page({
             />
             <Sleepover />
             <Stasis />
+            <Fallout />
             <Scraps />
             <HackClubTheGame />
             <Milkyway />
