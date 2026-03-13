@@ -1427,10 +1427,9 @@ function Page({
     </>
   )
 }
-const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export async function getStaticProps() {
-  const carouselCards = require('../lib/carousel.json')
+  const carouselCards = require('../public/carousel.json')
   const ctaCards = require('../lib/cta.json')
 
   // HCB: get total raised
