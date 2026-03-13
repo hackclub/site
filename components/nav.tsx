@@ -7,6 +7,7 @@ import Icon from './icon'
 import Flag from './flag'
 import ScrollLock from 'react-scrolllock'
 import NextLink from 'next/link'
+import { useSearchParams } from 'next/navigation'
 
 const rgbaBgColor = (props, opacity) =>
   `rgba(
@@ -178,6 +179,8 @@ export default function Header({
   const [scrolled, setScrolled] = useState(false)
   const [toggled, setToggled] = useState(false)
   const [mobile, setMobile] = useState(false)
+  const searchParams = useSearchParams(); 
+  const isKawaii = searchParams.get('uwu') != null;
 
   const onScroll = () => {
     const newState = window.scrollY >= 16
@@ -229,7 +232,10 @@ export default function Header({
       as="header"
     >
       <Content>
-        <Flag scrolled={scrolled || fixed} />
+        <Flag
+          scrolled={scrolled || fixed}
+          uwu={isKawaii}
+        />        
         <Navigation
           as="nav"
           aria-hidden={!!mobile}
