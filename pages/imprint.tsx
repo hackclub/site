@@ -43,51 +43,59 @@ const Imprint = () => (
         h2: { variant: 'text.headline' }
       }}
     >
-      <Box as={BaseStyles} sx={{ mx: 0, fontSize: 2, '> p': { maxWidth: 'copy' }, h3: { mt: 3 } }}>
-        <Heading variant="headline">Operator</Heading>
+      <Heading variant="headline">Operator</Heading>
+      <Box
+        as={BaseStyles}
+        sx={{
+          mx: 0,
+          fontSize: 2,
+          '> p': { maxWidth: 'copy' },
+          h2: { variant: 'text.headline', mt: 4 }
+        }}
+      >
         <Text as="p" sx={{ mt: 2 }}>
           The Hack Foundation ("Hack Club")
           <br />
           Non-profit corporation (501(c)(3)), incorporated in the United States
         </Text>
-
-        <Heading variant="headline" sx={{ mt: 4 }}>Registered Address</Heading>
-        <Text as="p" sx={{ mt: 2 }}>
-          8605 Santa Monica Blvd #86294
-          <br />
-          West Hollywood, CA 90069
-          <br />
-          United States
-        </Text>
-
-        <Heading variant="headline" sx={{ mt: 4 }}>Authorized Representative</Heading>
-        <Text as="p" sx={{ mt: 2 }}>
-          Zach Latta, Founder
-        </Text>
-
-        <Heading variant="headline" sx={{ mt: 4 }}>Contact</Heading>
-        <Text as="p" sx={{ mt: 2 }}>
-          Email: <Link href="mailto:team@hackclub.com">team@hackclub.com</Link>
-          <br />
-          Phone: <Link href="tel:1-855-625-HACK">+1-855-625-HACK</Link>
-        </Text>
-
-        <Heading variant="headline" sx={{ mt: 4 }}>VAT ID</Heading>
-        <Text as="p" sx={{ mt: 2 }}>
-          Not applicable (U.S. nonprofit organization)
-        </Text>
-
-        <Heading variant="headline" sx={{ mt: 4 }}>Legal Status</Heading>
-        <Text as="p" sx={{ mt: 2 }}>
-          Hack Club is a California nonprofit public benefit corporation, recognized as a 501(c)(3) organization under U.S. law.
-          EIN: 81-2908499
-        </Text>
-
-        <Heading variant="headline" sx={{ mt: 4 }}>Notes</Heading>
-        <Text as="p" sx={{ mt: 2 }}>
-          This imprint is provided to satisfy common EU/German transparency expectations (e.g., §5 DDG) and US best practices.
-        </Text>
       </Box>
+
+      <Heading variant="headline" sx={{ mt: 4 }}>Registered Address</Heading>
+      <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
+        8605 Santa Monica Blvd #86294
+        <br />
+        West Hollywood, CA 90069
+        <br />
+        United States
+      </Text>
+
+      <Heading variant="headline" sx={{ mt: 4 }}>Authorized Representative</Heading>
+      <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
+        Zach Latta, Founder
+      </Text>
+
+      <Heading variant="headline" sx={{ mt: 4 }}>Contact</Heading>
+      <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
+        Email: <Link href="mailto:team@hackclub.com">team@hackclub.com</Link>
+        <br />
+        Phone: <Link href="tel:+18556254225">+1-855-625-HACK</Link>
+      </Text>
+
+      <Heading variant="headline" sx={{ mt: 4 }}>VAT ID</Heading>
+      <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
+        Not applicable (U.S. nonprofit organization)
+      </Text>
+
+      <Heading variant="headline" sx={{ mt: 4 }}>Legal Status</Heading>
+      <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
+        Hack Club is a California nonprofit public benefit corporation, recognized as a 501(c)(3) organization under U.S. law.
+        EIN: 81-2908499
+      </Text>
+
+      <Heading variant="headline" sx={{ mt: 4 }}>Notes</Heading>
+      <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
+        This imprint is provided to satisfy common EU/German transparency expectations (e.g., §5 DDG) and US best practices.
+      </Text>
     </Container>
     <Footer />
   </>
