@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { Box, Text, Image, Card, Button } from 'theme-ui'
+import { Box, Text, Image, Card } from 'theme-ui'
 import React, { useState } from 'react'
 import PageVisibility from 'react-page-visibility'
 
@@ -20,13 +20,11 @@ export default function CTAS({ cards }) {
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
-
-            gap: [3, 4, 4],
-
+            gap: 2,
             justifyContent: ['center', 'center', 'flex-start'],
 
             mt: 1,
-            py: [3, 3, 3]
+            pt: 3
           }}>
           {cards.map((card, idx) => {
             const {
@@ -44,8 +42,6 @@ export default function CTAS({ cards }) {
               logo,
               logoScale,
 
-              buttonText,
-              buttonColor,
               link
             } = card;
 
@@ -81,8 +77,8 @@ export default function CTAS({ cards }) {
                     alt="Sticker"
                     sx={{
                       position: 'absolute',
-                      bottom: '-20px',
-                      right: '-20px',
+                      bottom: '-30px',
+                      right: '-30px',
                       width:
                         stickerImageScale !== null && stickerImageScale !== undefined
                           ? [
@@ -90,7 +86,7 @@ export default function CTAS({ cards }) {
                               `${140 * stickerImageScale}px`,
                               `${160 * stickerImageScale}px`
                             ]
-                          : ['120px', '140px', '160px'],
+                          : '120px',
                       height: 'auto',
                       zIndex: 10,
                       transform: 'rotate(15deg)',
@@ -109,7 +105,7 @@ export default function CTAS({ cards }) {
                     backgroundPosition: gridBackground ? '0 0, 0 0' : undefined,
                     position: 'relative',
                     color: 'white',
-                    width: ['100%', '100%', '300px'],
+                    width: ['100%', '100%', '240px'],
                     minWidth: ['100%', '100%', 'initial'],
                     padding: ['12px !important', '16px !important', '20px !important'],
                     paddingTop: [
@@ -130,7 +126,7 @@ export default function CTAS({ cards }) {
                     alt={title}
                     sx={{
                       zIndex: 2,
-                      height: ['42px', '50px', '58px'],
+                      height: '40px',
                       objectFit: 'contain',
                       transform: logoScale ? `scale(${logoScale})` : undefined,
                     }}
@@ -139,24 +135,12 @@ export default function CTAS({ cards }) {
                     as="p"
                     sx={{
                       color: descriptionColor, 
-                      fontSize: [1, '16px', '20px'],
-                      my: 2
+                      fontSize: [1, '16px', '18px'],
+                      my: 2,
                     }}
                   >
                     {description}
                   </Text>
-                  <Button
-                    sx={{
-                      backgroundColor: buttonColor,
-                      color: 'white',
-                      mt: 'auto'
-                    }}
-                    as="div"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {buttonText}
-                  </Button>
                 </Card>
               </Box>
             )
