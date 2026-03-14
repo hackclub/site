@@ -268,7 +268,7 @@ export default function Philosophy() {
           >
             Start a club
           </Button>
-          <NextLink href="/slack">
+          <NextLink href="https://slack.hackclub.com">
             <Button sx={{ bg: 'white', color: 'red' }}>
               Join our Slack
             </Button>

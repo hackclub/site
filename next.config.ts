@@ -79,7 +79,7 @@ const nextConfig: NextConfig = {
         destination: '/deprecated/challenge/',
         permanent: true
       },
-      { source: '/slack_invite/', destination: '/slack/', permanent: true },
+      { source: '/slack_invite/', destination: 'https://slack.hackclub.com', permanent: true },
       {
         source: '/first/',
         destination: '/bank/first/',
@@ -105,8 +105,8 @@ const nextConfig: NextConfig = {
         destination: '/winter/',
         permanent: false
       },
-      { source: '/workshops/slack/', destination: '/slack/', permanent: true },
-      { source: '/community/', destination: '/slack/', permanent: true },
+      { source: '/workshops/slack/', destination: 'https://slack.hackclub.com', permanent: true },
+      { source: '/community/', destination: 'https://slack.hackclub.com', permanent: true },
       { source: '/hack_camp/', destination: '/camp/', permanent: true },
       { source: '/branding/', destination: '/brand/', permanent: true },
       { source: '/ama/', destination: '/amas/', permanent: false },
@@ -198,6 +198,11 @@ const nextConfig: NextConfig = {
       {
         source: '/hardware',
         destination: 'https://blueprint.hackclub.com',
+        permanent: true
+      },
+      {
+        source: '/slack',
+        destination: 'https://slack.hackclub.com',
         permanent: true
       }
     ]

@@ -44,7 +44,7 @@ const Content = () => (
       (Discord-style online groupchat), you'll find a group of {formatted}+{' '}
       <Highlight>fabulous people</Highlight> to talk to, active at all hours.
     </Text>
-    <Link href="/slack">
+    <Link href="https://slack.hackclub.com">
       <Button
         variant="ctaLg"
         sx={{

@@ -218,7 +218,7 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
               // content="we're all hanging out in #sprig on Slack"
               id="9"
               icon="friend"
-              link="/slack"
+              link="https://slack.hackclub.com"
             >
               Connect with other game devs
             </Buttons>

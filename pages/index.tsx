@@ -28,7 +28,6 @@ import Workshops from '../components/index/cards/workshops'
 import HCB from '../components/index/cards/hcb'
 import Hackathons from '../components/index/cards/hackathons'
 import OuternetImgFile from '../public/home/outernet-110.jpg'
-import Announcement from '../components/announcement'
 import JSConfetti from 'js-confetti'
 import Secret from '../components/secret'
 import MailingList from '../components/index/cards/mailing-list'
@@ -462,7 +461,7 @@ function Page({
                   <Button
                     variant="ctaLg"
                     as="a"
-                    {...({ href: "/slack" } as any)}
+                    {...({ href: "https://slack.hackclub.com" } as any)}
                     my={[3, 3, 0]}
                     mr={3}
                     sx={{ transformOrigin: 'center left', whiteSpace: 'nowrap' }}
@@ -823,7 +822,7 @@ function Page({
                     </Text>
                     Have a coding question? Looking for project feedback? You'll
                     find hundreds of fabulous people to talk to in our global{' '}
-                    <Link href="/slack" target="_blank" rel="noopener">
+                    <Link href="https://slack.hackclub.com" target="_blank" rel="noopener">
                       Slack{' '}
                     </Link>
                     (like Discord), active at all hours.
@@ -1243,7 +1242,7 @@ function Page({
             >
               <Card
                 as="a"
-                {...({ href: "/slack" } as any)}
+                {...({ href: "https://slack.hackclub.com" } as any)}
                 target="_blank"
                 rel="noopener"
                 variant="interactive"

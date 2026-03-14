@@ -34,7 +34,7 @@ export default function KeepExploring() {
             sx={{ display: ['none', 'flex', 'flex'] }}
           />
         </Heading>
-        <Link href="/slack">
+        <Link href="https://slack.hackclub.com">
           <Button
             sx={{
               bg: 'white',

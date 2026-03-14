@@ -99,7 +99,7 @@ export default function Landing({ rsvpCount }) {
               RSVPs have closed and hundreds of projects will soon be built
               together in the{' '}
               <Link
-                href="/slack"
+                href="https://slack.hackclub.com"
                 target="_blank"
                 sx={{
                   color: 'blue',
