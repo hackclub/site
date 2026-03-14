@@ -467,7 +467,7 @@ function Page({
                     mr={3}
                     sx={{ transformOrigin: 'center left', whiteSpace: 'nowrap' }}
                   >
-                    Join Slack
+                    Join Hack Club
                   </Button>
                   <Text
                     variant="eyebrow"
