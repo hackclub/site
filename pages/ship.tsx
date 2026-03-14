@@ -152,20 +152,29 @@ const ShipPage = ({ posts = [] }) => (
 
 export default ShipPage
 
-export const getStaticProps = async () => {
-  const posts = await fetch('https://scrapbook.hackclub.com/api/r/ship')
-    .then(r => r.json())
-    .then(posts =>
-      filter(posts, p =>
-        ['jpg', 'jpeg', 'png'].includes(
-          p.attachments[0]?.split('.')[p.attachments[0]?.split('.').length - 1]
-        )
+export const getServerSideProps = async () => {
+  let posts = []
+  try {
+    const res = await fetch('https://scrapbook.hackclub.com/api/r/ship')
+    if (res.ok) {
+      const data = await res.json()
+      posts = take(
+        orderBy(
+          filter(data, p =>
+            ['jpg', 'jpeg', 'png'].includes(
+              p.attachments[0]?.split('.')[
+                p.attachments[0]?.split('.').length - 1
+              ]
+            )
+          ),
+          'postedAt',
+          'desc'
+        ),
+        24
       )
-    )
-    .then(posts => orderBy(posts, 'postedAt', 'desc'))
-    .then(posts => take(posts, 24))
-    .catch(error => {
-      console.log(error)
-    })
-  return { props: { posts }, revalidate: 2 }
+    }
+  } catch (error) {
+    console.log('Failed to fetch ships:', error)
+  }
+  return { props: { posts } }
 }
