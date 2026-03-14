@@ -75,7 +75,7 @@ export function Winter() {
                 Sprig
               </Link>
               . Or come hangout with us in #hardware-party on{' '}
-              <Link target="_blank" href="/slack" sx={{ color: 'inherit' }}>
+              <Link target="_blank" href="https://slack.hackclub.com" sx={{ color: 'inherit' }}>
                 Slack
               </Link>
               .

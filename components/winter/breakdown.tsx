@@ -62,7 +62,7 @@ function Breakdown() {
               text="Friends"
               description="Find support from our community of 20k+ teenagers in the Hack Club Slack."
               delay="300"
-              href="/slack"
+              href="https://slack.hackclub.com"
             />
             <BreakdownBox
               icon="event-code"

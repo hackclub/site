@@ -60,7 +60,7 @@ const Page = ({ upcoming, past }) => (
         <Button
           variant="lg"
           as="a"
-          {...({ href: 'https://hackclub.com/slack', target: '_blank' } as any)}
+          {...({ href: 'https://slack.hackclub.com', target: '_blank' } as any)}
           sx={{ mt: [3, 4], mx: [1, 2], color: 'black', bg: 'white' }}
         >
           Join Slack

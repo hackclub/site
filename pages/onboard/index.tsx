@@ -29,7 +29,7 @@ const traceSx = {
 
 const dimBg = '#151515'
 
-const slackLink = '/slack/?event=onboard'
+const slackLink = 'https://slack.hackclub.com'
 
 const stickerButtonText = 'Click 4 Stickers'
 const stickerButtonFont = 'Oleo Script'

@@ -87,7 +87,7 @@ https://hack.club/bin-example
 
 You can get help by chatting with other high schoolers on the Hack Club Slack in
 the #electronics channel:
-👉 https://hackclub.com/slack 👈
+👉 https://slack.hackclub.com 👈
 
 Once you're ready build your design IRL, click the "Share" button and submit
 your design:

@@ -96,7 +96,7 @@ const Page = () => (
         <Text as="p" variant="subtitle">
           Hack nights are hosted regularly by Hack Clubbers. Come join or start
           an impromptu Hack session on{' '}
-          <Link as={NextLink} href="/slack" sx={{ color, opacity: 0.75 }}>#hack-night</Link>
+          <Link as={NextLink} href="https://slack.hackclub.com" sx={{ color, opacity: 0.75 }}>#hack-night</Link>
           !
         </Text>
       </SlideDown>

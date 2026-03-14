@@ -207,7 +207,7 @@ const Page = () => (
         <AButton
           as="a"
           variant="ctaLg"
-          href="/slack"
+          href="https://slack.hackclub.com"
           sx={{
             backgroundImage: t => t.util.gx('green', 'blue'),
             ml: [0, 3],
@@ -463,7 +463,7 @@ const Page = () => (
             name="Chat with thousands of club leaders"
             desc={
               <>
-                In our <Link href="/slack">Slack community</Link>, you’ll be
+                In our <Link href="https://slack.hackclub.com">Slack community</Link>, you’ll be
                 invited to a space for Hack&nbsp;Club leaders to ask questions &
                 chat, share projects, & attend weekly live events.
               </>
@@ -478,7 +478,7 @@ const Page = () => (
                 We build tools, such as{' '}
                 <a href="https://sprig.hackclub.com">Sprig</a>, that your
                 members can use to make projects with in meetings! Build more of
-                them with us in our <Link href="/slack">Slack community</Link>.
+                them with us in our <Link href="https://slack.hackclub.com">Slack community</Link>.
               </>
             }
           ></Feature>
