@@ -89,7 +89,26 @@ const Imprint = () => (
       <Heading variant="headline" sx={{ mt: 4 }}>Legal Status</Heading>
       <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
         Hack Club is a California nonprofit public benefit corporation, recognized as a 501(c)(3) organization under U.S. law.
+        <br />
         EIN: 81-2908499
+      </Text>
+
+      <Heading variant="headline" sx={{ mt: 4 }}>Responsible for Content (§ 18 MStV)</Heading>
+      <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
+        Zach Latta, Founder
+        <br />
+        8605 Santa Monica Blvd #86294
+        <br />
+        West Hollywood, CA 90069
+        <br />
+        United States
+      </Text>
+
+      <Heading variant="headline" sx={{ mt: 4 }}>Dispute Resolution</Heading>
+      <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
+        Information on consumer dispute resolution entities in EU Member States is available at{' '}
+        <Link href="https://consumer-redress.ec.europa.eu/dispute-resolution-bodies">consumer-redress.ec.europa.eu</Link>.
+        As a U.S. nonprofit organization, Hack Club is not obligated or willing to participate in dispute resolution proceedings before a consumer arbitration board.
       </Text>
 
       <Heading variant="headline" sx={{ mt: 4 }}>Notes</Heading>
