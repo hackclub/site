@@ -1,0 +1,35 @@
+name: Perhaps You Should Upload To CDN Instead?
+
+on:
+    pull_request:
+        types: [opened, synchronize]
+        paths:
+            - "**/*.png"
+            - "**/*.jpg"
+            - "**/*.jpeg"
+            - "**/*.gif"
+            - "**/*.webp"
+            - "**/*.webm"
+            - "**/*.pdf"
+            - "**/*.mp4"
+            - "**/*.mov"
+            - "**/*.zip"
+            - "**/*.woff"
+            - "**/*.woff2"
+            - "**/*.svg"
+
+jobs:
+    warn:
+        runs-on: ubuntu-latest
+        permissions:
+            pull-requests: write
+        steps:
+            - uses: actions/github-script@v7
+              with:
+                  script: |
+                      await github.rest.issues.createComment({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        issue_number: context.issue.number,
+                        body: `## Heyo, maybe upload these to a CDN instead\n\nImages/Videos/Attachments can unnecessarily bloat the repository size. Consider uploading these files to [Hack Club CDN](https://cdn.hackclub.com/) instead, and using the CDN links instead.`
+                      })
