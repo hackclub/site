@@ -856,7 +856,7 @@ function Page({
                     </Text>
                     We build large open source projects together (
                     <Link href="https://github.com/hackclub" target="_blank">
-                      3k+&nbsp;PRs a year
+                      16k+&nbsp;PRs a year
                     </Link>
                     ) like this website, a game engine, daily streak system, and
                     more!
