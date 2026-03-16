@@ -11,6 +11,7 @@ jobs:
             pull-requests: write
         steps:
             - uses: actions/github-script@v8
+              continue-on-error: true
               with:
                   # this checks via the octokit, because just using pull_requests.paths would warn on every single commit, regardless of the files changed if the PR has at least 1 attachment in it
                   script: |
