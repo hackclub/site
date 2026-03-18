@@ -324,10 +324,11 @@ function Page({
               <Box sx={{ 
                 display: 'flex', 
                 flexDirection: ['column', 'column', 'column', 'row'], 
+                flexWrap: ['nowrap', 'nowrap', 'nowrap', 'wrap'],
                 gap: 2, 
                 alignItems:[null, null,null,'end']
                 }}>
-                <Box sx={{ flex: 1}}>
+                <Box sx={{ flex: 1, minWidth: [null, null, null, 'min(100%, 1000px)']}}>
                 <Text
                   as="p"
                   variant="title"
@@ -517,9 +518,9 @@ function Page({
                   sx={{
                     position:'relative',
                     background: 'white',
-                    width: ['100%', '100%', '100%', '28vw'],
-                    minWidth: [null, null,'330px', null],
-                    maxWidth: [null, null, null,'600px'],
+                    width: ['100%', '100%', '100%', '22vw'],
+                    minWidth: [null, null,'280px', null],
+                    maxWidth: [null, null, null,'480px'],
 
                     borderRadius:'extra',
                     aspectRatio:'16/9',

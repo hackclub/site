@@ -16,13 +16,12 @@ export default function CTAS({ cards }) {
         <Box
           as="div"
           sx={{
-            //1 row flexbox of cards
+            //1 row flexbox of cards - wrap when needed, no scroll
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
             gap: 2,
             justifyContent: ['center', 'center', 'flex-start'],
-
             mt: 1,
             pt: 3
           }}>
@@ -55,7 +54,9 @@ export default function CTAS({ cards }) {
                 sx={{
                   position: 'relative',
                   display: 'inline-block',
-                  width: ['100%', '100%', 'auto'],
+                  flex: ['0 0 100%', '0 0 100%', '0 0 240px'],
+                  width: ['100%', '100%', '240px'],
+                  minWidth: ['100%', '100%', '240px'],
                   boxShadow: '0 4px 8px rgba(0, 0, 0, 0.125)',
                   transition: 'transform .125s ease-in-out, box-shadow .125s ease-in-out',
                   textDecoration: 'none',
