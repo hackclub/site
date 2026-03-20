@@ -23,7 +23,7 @@
         "buttonColor": "#D95D39",
         "link": "https://stasis.hackclub.com/?utm_source=cta"
     },
-{
+    {
         "title": "Sleepover",
         "logo": "https://cdn.hackclub.com/019c76b7-644a-7ef7-b855-63253c99d2f8/UpZIvQ.png",
         "background": "#B5AAE7",
@@ -34,7 +34,17 @@
         "buttonColor": "#9DC9F7",
         "link": "https://sleepover.hackclub.com/?utm_source=site_cta"
     },
-{
+    {
+        "title": "Hack Club: The Game",
+        "logo": "https://cdn.hackclub.com/019d0899-f270-7530-b145-19d1e53f113f/hctg-text-logo.png",
+        "description": "Build projects, then join a scavenger hunt in Manhattan!",
+        "background": "#FECB0D",
+        "descriptionColor": "#000",
+        "buttonText": "JOIN NOW",
+        "buttonColor": "black",
+        "link": "https://game.hackclub.com/?utm_source=site_cta"
+    },
+    {
         "title": "Jackpot",
         "logo": "https://cdn.hackclub.com/019d01dc-d676-746d-9fd9-794df0b50399/logo_draft.png",
         "background": "#5F1212",

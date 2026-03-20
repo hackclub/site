@@ -1507,7 +1507,11 @@ function Page({
 
 export async function getStaticProps() {
   const carouselCards = require('../public/carousel.json')
-  const ctaCards = require('../lib/cta.json')
+  const allCtaCards = require('../lib/cta.json')
+  const ctaCards =
+    allCtaCards.length > 3
+      ? allCtaCards.sort(() => Math.random() - 0.5).slice(0, 3)
+      : allCtaCards
 
   // HCB: get total raised
   const bankData = []

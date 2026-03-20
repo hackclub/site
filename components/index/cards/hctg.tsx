@@ -9,10 +9,10 @@ export default function HackClubTheGame() {
       sx={{
         background: '#ffd966',
         borderRadius: '16px',
-        border: '2px solid black',
-        boxShadow: 'none',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        paddingTop: "4em !important",
+        paddingBottom: "4em !important"
       }}
       position={[null, 'bottom', 'bottom']}
       visible={true}
@@ -22,9 +22,9 @@ export default function HackClubTheGame() {
         src="https://raw.githubusercontent.com/CKacha/HCTG-Photos/main/Sleepy-Orpheus.png"
         sx={{
           position: 'absolute',
-          top: 0,
-          right: 0,
-          height: '100%',
+          top: "10%",
+          right: "2.5%",
+          height: '75%',
           width: 'auto',
           objectFit: 'contain',
           display: ['none', 'none', 'none', 'block'],
@@ -36,7 +36,7 @@ export default function HackClubTheGame() {
           position: 'relative',
           zIndex: 2,
           paddingInline: '50px',
-          maxWidth: ['100%', '100%', '100%', '50%'],
+          maxWidth: ['100%', '100%', '100%', '75%'],
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-around',
@@ -46,13 +46,15 @@ export default function HackClubTheGame() {
         <Text
           as="h1"
           sx={{
-            fontFamily: 'system-ui, -apple-system, sans-serif',
+            fontFamily: 'Helvetica, Arial, sans-serif',
             fontSize: ['48px', '64px'],
             fontWeight: 'bold',
-            mb: 2,
             display: 'block',
             textAlign: 'left',
-            textDecoration: 'none'
+            textDecoration: 'none',
+            color: '#000',
+            lineHeight: "1.2",
+            letterSpacing: "-6px"
           }}
         >
           Hack Club: The Game
@@ -61,14 +63,15 @@ export default function HackClubTheGame() {
         <Text
           variant="subtitle"
           sx={{
-            fontFamily: 'system-ui, -apple-system, sans-serif',
+            fontFamily: 'Helvetica, Arial, sans-serif',
             color: 'black',
-            fontSize: ['16px', '18px'],
+            fontSize: ['18px', '24px'],
             fontWeight: 'normal',
             lineHeight: 1.5,
             mb: 3,
             display: 'block',
-            textAlign: 'left'
+            textAlign: 'left',
+            letterSpacing: "-0.05em"
           }}
         >
           Build any type of project you want! Submit them, and eventually
@@ -83,10 +86,11 @@ export default function HackClubTheGame() {
             alignItems: 'center',
             justifyContent: 'center',
             gap: '8px',
-            background: 'black',
+            background: '#000',
+            fontFamily: "Helvetica",
+            letterSpacing: "-0.03em",
             color: 'white',
             border: 'none',
-            borderRadius: '9999px',
             padding: '12px 32px',
             fontWeight: 'bold',
             cursor: 'pointer',
@@ -94,10 +98,10 @@ export default function HackClubTheGame() {
             textDecoration: 'none',
             width: 'fit-content',
             alignSelf: 'flex-start',
-            transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+            transition: 'background 0.2s ease, color 0.2s ease',
             '&:hover': {
-              transform: 'translateY(-2px) scale(1.02)',
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
+              background: "#fff",
+              color: "#000"
             },
             '&:active': {
               transform: 'translateY(0) scale(1)'
@@ -118,7 +122,7 @@ export default function HackClubTheGame() {
             <path d="M5 12h14" />
             <path d="m12 5 7 7-7 7" />
           </svg>
-          Start Preparing!
+          Join the Game!
         </Box>
       </Box>
     </CardModel>

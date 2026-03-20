@@ -14,6 +14,20 @@
     font-weight: bold;
 }
 
+@font-face {
+  font-family: "Helvetica";
+  src: url("./helvetica.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("./helvetica-bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
 body {
     background-color: #EBECE0;
     background-image: url(../icons/new-background.svg);
