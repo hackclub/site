@@ -75,7 +75,7 @@
     "rehype-raw": "^7.0.0",
     "rehype-sanitize": "^6.0.0",
     "remark": "^15.0.1",
-    "remark-gfm": "^3.0.1",
+    "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
     "swr": "^2.4.1",
     "theme-ui": "^0.14.7",
