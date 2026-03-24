@@ -65,8 +65,7 @@ export default function Jackpot() {
             textAlign: 'left'
           }}
         >
-          Code for 65 hours and you’re invited to Las Vegas! (Or enjoy prizes that
-          YOU choose!)
+          Spend time coding and enjoy prizes that YOU choose!
         </Text>
         <Box
           as="a"
