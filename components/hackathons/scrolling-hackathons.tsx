@@ -61,7 +61,10 @@ export default function ScrollingHackathons({
               sx={{ color: 'muted', mr: 2, textAlign: 'center' }}
             >
               from{' '}
-              <Link href="https://hackathons.hackclub.com" sx={{ color: 'currentcolor' }}>
+              <Link
+                href="https://hackathons.hackclub.com"
+                sx={{ color: 'currentcolor' }}
+              >
                 hackathons.hackclub.com
               </Link>
               , last updated just now.

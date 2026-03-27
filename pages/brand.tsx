@@ -8,24 +8,24 @@ import {
   Image as ThemeImage,
   Input,
   Link as A,
-  Text,
-} from "theme-ui";
-import theme from "@hackclub/theme";
-import Meta from "@hackclub/meta";
-import Icon from "@hackclub/icons";
-import Head from "next/head";
-import ForceTheme from "../components/force-theme";
-import Nav from "../components/nav";
-import Footer from "../components/footer";
-import { startCase } from "lodash";
-import { AButton } from "../components/AButton";
-import Image from "next/image";
+  Text
+} from 'theme-ui'
+import theme from '@hackclub/theme'
+import Meta from '@hackclub/meta'
+import Icon from '@hackclub/icons'
+import Head from 'next/head'
+import ForceTheme from '../components/force-theme'
+import Nav from '../components/nav'
+import Footer from '../components/footer'
+import { startCase } from 'lodash'
+import { AButton } from '../components/AButton'
+import Image from 'next/image'
 
 export const Logo = ({ name }: { name: string }) => (
   <Card variant="sunken" sx={{ p: [3, 3] }}>
     <ThemeImage
       src={`https://assets.hackclub.com/${name}.svg`}
-      sx={{ width: "100%", height: 96, mb: 1 }}
+      sx={{ width: '100%', height: 96, mb: 1 }}
       alt={startCase(name)}
     />
     <Text
@@ -34,22 +34,22 @@ export const Logo = ({ name }: { name: string }) => (
       sx={{ fontSize: [2, 3], mt: 2, mb: 2 }}
     >
       {startCase(name)
-        .replace("Flag Orpheus", "Orpheus Flag –")
-        .replace("Bw", " (B/W)")
-        .replace("Hcb", "HCB")}
+        .replace('Flag Orpheus', 'Orpheus Flag –')
+        .replace('Bw', ' (B/W)')
+        .replace('Hcb', 'HCB')}
     </Text>
     <Grid
       columns="repeat(3, 1fr)"
       gap={3}
       sx={{
-        alignItems: "center",
+        alignItems: 'center',
         a: {
-          bg: "elevated",
-          color: "cyan",
-          boxShadow: "none",
+          bg: 'elevated',
+          color: 'cyan',
+          boxShadow: 'none',
           py: 1,
-          ":hover,:focus": { bg: "cyan", color: "white" },
-        },
+          ':hover,:focus': { bg: 'cyan', color: 'white' }
+        }
       }}
     >
       <AButton as="a" href={`https://assets.hackclub.com/${name}.svg`}>
@@ -69,7 +69,7 @@ export const Logo = ({ name }: { name: string }) => (
       disabled
     />
   </Card>
-);
+)
 
 const HTML = ({ file, html }) => (
   <tr>
@@ -87,17 +87,17 @@ const HTML = ({ file, html }) => (
       </Text>
     </td>
   </tr>
-);
+)
 
 const ColorSwatch = ({ bg }) => (
   <Card
     sx={{
       bg,
-      color: "white",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
+      color: 'white',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
     }}
   >
     <Text variant="subheadline" sx={{ my: 0 }}>
@@ -105,7 +105,7 @@ const ColorSwatch = ({ bg }) => (
     </Text>
     <Text>{theme.colors[bg]}</Text>
   </Card>
-);
+)
 
 const Page = ({ css }) => (
   <>
@@ -120,18 +120,18 @@ const Page = ({ css }) => (
     <Box
       as="header"
       sx={{
-        bg: "sheet",
-        color: "text",
+        bg: 'sheet',
+        color: 'text',
         pt: [5, null, null, null, 6],
         pb: [3, 4, 5, null, 6],
-        textAlign: "center",
+        textAlign: 'center'
       }}
     >
       <Container variant="copy">
-        <Heading as="h1" variant="title" sx={{ color: "primary", mt: [2, 4] }}>
+        <Heading as="h1" variant="title" sx={{ color: 'primary', mt: [2, 4] }}>
           Hack Club Brand
         </Heading>
-        <Heading as="h2" variant="subtitle" sx={{ mt: 3, color: "text" }}>
+        <Heading as="h2" variant="subtitle" sx={{ mt: 3, color: 'text' }}>
           Download HQ’s logos and preview our brand colors & font.
         </Heading>
         <p>
@@ -153,25 +153,25 @@ const Page = ({ css }) => (
     <Container
       sx={{
         py: [3, 4],
-        maxWidth: [null, "copyUltra"],
-        h2: { variant: "text.headline" },
+        maxWidth: [null, 'copyUltra'],
+        h2: { variant: 'text.headline' }
       }}
     >
       <Heading variant="headline">Logos</Heading>
       <Grid columns={[null, 2, 3]} gap={3}>
         {[
-          "flag-orpheus-top",
-          "flag-orpheus-left",
-          "flag-standalone",
-          "flag-orpheus-top-bw",
-          "flag-orpheus-left-bw",
-          "flag-standalone-bw",
-          "flag-standalone-wtransparent",
-          "icon-rounded",
-          "icon-square",
-          "icon-progress-rounded",
-          "icon-progress-square",
-        ].map((key) => (
+          'flag-orpheus-top',
+          'flag-orpheus-left',
+          'flag-standalone',
+          'flag-orpheus-top-bw',
+          'flag-orpheus-left-bw',
+          'flag-standalone-bw',
+          'flag-standalone-wtransparent',
+          'icon-rounded',
+          'icon-square',
+          'icon-progress-rounded',
+          'icon-progress-square'
+        ].map(key => (
           <Logo name={key} key={key} />
         ))}
       </Grid>
@@ -208,16 +208,16 @@ const Page = ({ css }) => (
       <Box
         as="table"
         sx={{
-          display: "block",
-          overflowX: "auto",
-          whiteSpace: "nowrap",
-          maxWidth: "100%",
-          "td:first-of-type": { pr: 3 },
+          display: 'block',
+          overflowX: 'auto',
+          whiteSpace: 'nowrap',
+          maxWidth: '100%',
+          'td:first-of-type': { pr: 3 },
           img: { maxWidth: 128 * 1.5 },
-          pre: { whiteSpace: "initial" },
+          pre: { whiteSpace: 'initial' }
         }}
       >
-        <Box as="thead" sx={{ display: "none" }}>
+        <Box as="thead" sx={{ display: 'none' }}>
           <tr>
             <th>Preview</th>
             <th>HTML code</th>
@@ -250,15 +250,15 @@ const Page = ({ css }) => (
       <Heading variant="headline">Colors</Heading>
       <Grid columns={[2, 4]} gap={3} mb={[4, 5]}>
         {[
-          "red",
-          "orange",
-          "yellow",
-          "green",
-          "cyan",
-          "blue",
-          "purple",
-          "muted",
-        ].map((key) => (
+          'red',
+          'orange',
+          'yellow',
+          'green',
+          'cyan',
+          'blue',
+          'purple',
+          'muted'
+        ].map(key => (
           <ColorSwatch key={key} bg={key} />
         ))}
       </Grid>
@@ -268,7 +268,7 @@ const Page = ({ css }) => (
         is our brand font.
       </Text>
       <Box as="details" mb={[4, 5]}>
-        <Text as="summary" sx={{ fontSize: 2, cursor: "default" }}>
+        <Text as="summary" sx={{ fontSize: 2, cursor: 'default' }}>
           Webfont CSS (for HQ sites only)
         </Text>
         <Text as="pre" variant="styles.pre">
@@ -277,20 +277,20 @@ const Page = ({ css }) => (
       </Box>
       <Heading variant="headline">Icons</Heading>
       <Text as="p" variant="subtitle" sx={{ mb: 3 }}>
-        We have a custom iconset, published as{" "}
+        We have a custom iconset, published as{' '}
         <A href="https://github.com/hackclub/icons">@hackclub/icons</A>.
       </Text>
-      <Flex sx={{ flexWrap: "wrap", svg: { fill: "muted", mr: 3, mb: 3 } }}>
+      <Flex sx={{ flexWrap: 'wrap', svg: { fill: 'muted', mr: 3, mb: 3 } }}>
         {[
-          "clubs",
-          "bank-circle",
-          "event-code",
-          "home",
-          "transactions",
-          "bolt",
-          "photo",
-          "emoji",
-        ].map((k) => (
+          'clubs',
+          'bank-circle',
+          'event-code',
+          'home',
+          'transactions',
+          'bolt',
+          'photo',
+          'emoji'
+        ].map(k => (
           <Icon glyph={k as any} key={k} size={64} />
         ))}
       </Flex>
@@ -335,15 +335,15 @@ const Page = ({ css }) => (
     </Container>
     <Footer />
   </>
-);
+)
 
-export default Page;
+export default Page
 
 export const getStaticProps = () => {
-  const fs = require("fs");
+  const fs = require('fs')
   const css = fs.readFileSync(
-    "./node_modules/@hackclub/theme/fonts/reg-ital-bold.css",
-    "utf8"
-  );
-  return { props: { css } };
-};
+    './node_modules/@hackclub/theme/fonts/reg-ital-bold.css',
+    'utf8'
+  )
+  return { props: { css } }
+}

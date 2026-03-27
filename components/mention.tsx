@@ -21,21 +21,21 @@ const StaticMention = memo(function StaticMention({
         textDecoration: 'none'
       }}
     >
-        {avatar && (
-          <Image
-            src={avatar}
-            alt={username}
-            width={32}
-            height={32}
-            className="mention-avatar"
-            style={{
-              borderRadius: '50%',
-              marginRight: '4px',
-              alignSelf: 'flex-end'
-            }}
-          />
-        )}
-        @{username}
+      {avatar && (
+        <Image
+          src={avatar}
+          alt={username}
+          width={32}
+          height={32}
+          className="mention-avatar"
+          style={{
+            borderRadius: '50%',
+            marginRight: '4px',
+            alignSelf: 'flex-end'
+          }}
+        />
+      )}
+      @{username}
     </Link>
   )
 })

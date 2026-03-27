@@ -1,5 +1,5 @@
 import { memo, useState, useEffect } from 'react'
-import Image from "next/image"
+import Image from 'next/image'
 
 const stripColons = str => {
   const colonIndex = str.indexOf(':')
@@ -32,9 +32,10 @@ export const EmojiImg = ({
     height={20}
     {...props}
     style={{
-      maxWidth: "100%",
-      height: "auto"
-    }} />
+      maxWidth: '100%',
+      height: 'auto'
+    }}
+  />
 )
 
 type CustomEmojiProps = {

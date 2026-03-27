@@ -23,7 +23,8 @@ export default function Stasis() {
         sx={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'url(https://cdn.hackclub.com/019c76b7-83c0-7e49-990c-e4fd28161cfb/I_mzLg.png)',
+          backgroundImage:
+            'url(https://cdn.hackclub.com/019c76b7-83c0-7e49-990c-e4fd28161cfb/I_mzLg.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -39,7 +40,7 @@ export default function Stasis() {
           position: 'absolute',
           inset: 0,
           zIndex: 1,
-          px: [3, 4],
+          px: [3, 4]
         }}
       >
         <Image
@@ -48,7 +49,7 @@ export default function Stasis() {
           sx={{
             height: ['60px', '80px', '100px'],
             objectFit: 'contain',
-            mb: 2,
+            mb: 2
           }}
         />
         <Image
@@ -59,7 +60,7 @@ export default function Stasis() {
             objectFit: 'contain',
             mb: 3,
             mt: 2,
-            ml: [2, 3, 5],
+            ml: [2, 3, 5]
           }}
         />
 
@@ -72,10 +73,12 @@ export default function Stasis() {
             maxWidth: '90%',
             lineHeight: 1.4,
             mb: 0,
-            textShadow: '1px 1px 2px rgba(255, 255, 255, 0.2)',
+            textShadow: '1px 1px 2px rgba(255, 255, 255, 0.2)'
           }}
         >
-          We're bringing 100+ hack clubbers from all over the world to Austin, TX for a 4-day hardware hackathon, and we're funding your next biggest hardware projects.
+          We're bringing 100+ hack clubbers from all over the world to Austin,
+          TX for a 4-day hardware hackathon, and we're funding your next biggest
+          hardware projects.
         </Text>
 
         <Box
@@ -94,8 +97,8 @@ export default function Stasis() {
               transition: 'transform 0.2s ease, filter 0.2s ease',
               '&:hover': {
                 transform: 'translateY(-4px)',
-                filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.2))',
-              },
+                filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.2))'
+              }
             }}
           />
         </Box>

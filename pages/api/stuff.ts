@@ -1,6 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-export default async function stuff(_req: NextApiRequest, res: NextApiResponse) {
+export default async function stuff(
+  _req: NextApiRequest,
+  res: NextApiResponse
+) {
   const formData = new FormData()
 
   formData.append(

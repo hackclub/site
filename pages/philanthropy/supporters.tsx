@@ -8,7 +8,7 @@ import {
   Heading,
   Card,
   Link as A,
-  Text,
+  Text
 } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
@@ -130,7 +130,14 @@ export default function Donate() {
             py={2}
             px={[1, 3]}
           >
-            <Container sx={{ maxWidth: '48rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Container
+              sx={{
+                maxWidth: '48rem',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
+              }}
+            >
               <Heading
                 sx={{
                   fontSize: ['42px', '54px', '72px'],
@@ -145,7 +152,7 @@ export default function Donate() {
                   fontSize: ['22px', '23px', '28px'],
                   maxWidth: '40rem',
                   color: 'white',
-                  textAlign: 'center',
+                  textAlign: 'center'
                 }}
               >
                 Contribute today to empower the next generation. Help start a
@@ -156,7 +163,9 @@ export default function Donate() {
                 my={3}
                 sx={{ width: ['100%', 'auto'] }}
                 as="a"
-                {...({href: "https://hcb.hackclub.com/donations/start/hq"} as any)}
+                {...({
+                  href: 'https://hcb.hackclub.com/donations/start/hq'
+                } as any)}
               >
                 Donate
                 <Text sx={{ display: ['none', 'inline-block'], ml: 2 }}>
@@ -197,7 +206,7 @@ export default function Donate() {
           </Heading>
         </Container>
       </Flex>
-      <Container {...({...contentContainer} as any)}>
+      <Container {...({ ...contentContainer } as any)}>
         <Row my={5} {...content}>
           <Heading {...subhline} mb={4} sx={{ fontSize: [4, 5] }}>
             These fabulous companies donate their products to us.
@@ -206,7 +215,7 @@ export default function Donate() {
         </Row>
         <Button
           as="a"
-          {...({href: "/philanthropy", target: "_blank"} as any)}
+          {...({ href: '/philanthropy', target: '_blank' } as any)}
           mb={4}
           sx={{
             fontSize: '1em !important',
@@ -221,4 +230,3 @@ export default function Donate() {
     </Box>
   )
 }
-

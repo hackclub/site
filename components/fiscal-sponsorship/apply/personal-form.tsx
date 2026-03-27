@@ -116,7 +116,7 @@ export default function PersonalInfoForm({ requiredFields }) {
         </Field>
       ) : (
         // When not teenage-led, default to "email" as preferred contact channel
-        (<input name="contactOption" type="hidden" value="Email" />)
+        <input name="contactOption" type="hidden" value="Email" />
       )}
       <Field
         name="userPhone"
@@ -254,5 +254,5 @@ export default function PersonalInfoForm({ requiredFields }) {
         />
       </Field>
     </>
-  );
+  )
 }

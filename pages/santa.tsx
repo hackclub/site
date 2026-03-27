@@ -113,11 +113,7 @@ const Page = () => (
           >
             Hack Club Secret Santa
           </Heading>
-          <Lead
-            color="snow"
-            my={3}
-            mx="auto"
-          >
+          <Lead color="snow" my={3} mx="auto">
             Christmas is here and it's time for some fun! The holiday season is
             among us and the elves have assembled, which means its time for
             gift-giving to begin! The magical elf will assign you a partner,
@@ -154,7 +150,12 @@ function Base({ children, action, target, method }) {
         mt: 4
       }}
     >
-      <form action={action} target={target} method={method} style={{ display: 'contents' }}>
+      <form
+        action={action}
+        target={target}
+        method={method}
+        style={{ display: 'contents' }}
+      >
         {children}
       </form>
     </Box>
@@ -194,11 +195,7 @@ type valuesType = {
 function Signup() {
   const [values, setValues] = useState<valuesType>({})
   return (
-    <Base
-      method="get"
-      action="https://forms.hackclub.com/santa"
-      target="_self"
-    >
+    <Base method="get" action="https://forms.hackclub.com/santa" target="_self">
       <Heading sx={{ color: 'black', textAlign: 'left', mb: 2 }}>
         Register!
       </Heading>
@@ -215,8 +212,8 @@ function Signup() {
         placeholder="Fiona Hackworth"
         type="text"
         value={values.name}
-        onChange={e => setValues({ ...values, name: e.target.value })} 
-        />
+        onChange={e => setValues({ ...values, name: e.target.value })}
+      />
 
       <Field
         label="Likes"

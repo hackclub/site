@@ -1,20 +1,22 @@
-import { NextApiRequest, NextApiResponse } from "next"
+import { NextApiRequest, NextApiResponse } from 'next'
 
 export async function getGames() {
   try {
+    const games = await fetch(
+      'https://sprig.hackclub.com/api/gallery?new'
+    ).then(res => res.json())
 
-  const games = await fetch(
-    'https://sprig.hackclub.com/api/gallery?new'
-  ).then(res => res.json())
-
-  return games
-  } catch(e) {
+    return games
+  } catch (e) {
     console.error(e)
     return []
   }
 }
 
-export default async function Games(_req: NextApiRequest, res: NextApiResponse) {
+export default async function Games(
+  _req: NextApiRequest,
+  res: NextApiResponse
+) {
   const games = await getGames()
   res.json(games)
 }

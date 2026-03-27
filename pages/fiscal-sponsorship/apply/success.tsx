@@ -26,7 +26,7 @@ export default function ApplicationSuccess() {
   }, [])
 
   const router = useRouter()
-  const eta = router.query["eta"] || "soon" // default value
+  const eta = router.query['eta'] || 'soon' // default value
 
   return (
     <Container
@@ -61,7 +61,10 @@ export default function ApplicationSuccess() {
         {Date.now() < 1767340800000 ? (
           <Text as="p">
             <Balancer>
-              <em>During the holiday season, it might take a little longer for us to review your application. We appreciate your understanding!</em>
+              <em>
+                During the holiday season, it might take a little longer for us
+                to review your application. We appreciate your understanding!
+              </em>
             </Balancer>
           </Text>
         ) : null}

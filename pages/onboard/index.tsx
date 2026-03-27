@@ -175,7 +175,8 @@ const ShipPage = () => {
       <Box
         sx={{
           backgroundColor: '#0e305b',
-          backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
+          backgroundImage:
+            'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
           backgroundSize: '50px 50px',
           backgroundPosition: '0 0, 0 0',
           color: 'white',
@@ -494,7 +495,8 @@ const ShipPage = () => {
           >
             <a
               href="https://github.com/hackclub/OnBoard/tree/main/projects/E-Fidget%20Lite"
-              target="_blank" rel="noreferrer"
+              target="_blank"
+              rel="noreferrer"
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 115 }}>
@@ -541,7 +543,11 @@ const ShipPage = () => {
               </Flex>
             </a> */}
 
-            <a href="https://jams.hackclub.com/batch/usb-hub" target="_blank" rel="noreferrer">
+            <a
+              href="https://jams.hackclub.com/batch/usb-hub"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Flex as="article">
                 <Text as="p" sx={{ pr: [100, 100, 100, 0] }}>
                   Hugo's <strong>USB-C hub</strong> for the best{' '}
@@ -568,7 +574,8 @@ const ShipPage = () => {
 
             <a
               href="https://jams.hackclub.com/batch/sparkletilt-pcb"
-              target="_blank" rel="noreferrer"
+              target="_blank"
+              rel="noreferrer"
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 140 }}>
@@ -594,7 +601,8 @@ const ShipPage = () => {
 
             <a
               href="https://github.com/hackclub/OnBoard/tree/main/projects/TOTKey"
-              target="_blank" rel="noreferrer"
+              target="_blank"
+              rel="noreferrer"
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 140 }}>

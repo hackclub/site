@@ -18,7 +18,9 @@ export default function Field({
     Note: the custom checkbox component does this in its own useEffect hook. */
   useEffect(() => {
     const value =
-      (Array.isArray(router.query[name]) ? router.query[name][0] : router.query[name]) || sessionStorage.getItem('bank-signup-' + name)
+      (Array.isArray(router.query[name])
+        ? router.query[name][0]
+        : router.query[name]) || sessionStorage.getItem('bank-signup-' + name)
     if (!value) return
 
     const input = document.getElementById(name) as HTMLInputElement | null
@@ -28,7 +30,9 @@ export default function Field({
     }
 
     // Maybe it's radio buttons
-    const radio = document.querySelector(`input[name='${name}']`) as HTMLInputElement | null
+    const radio = document.querySelector(
+      `input[name='${name}']`
+    ) as HTMLInputElement | null
     if (radio) radio.checked = true
   }, [router.query, name])
 

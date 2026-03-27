@@ -1,5 +1,5 @@
 import { keyframes } from '@emotion/react'
-import Image from "next/image"
+import Image from 'next/image'
 import { Box, Card, Text } from 'theme-ui'
 import Icon from './icon'
 
@@ -75,9 +75,10 @@ const Announcement = ({
           width={32}
           height={32}
           style={{
-            maxWidth: "100%",
-            height: "auto"
-          }} />
+            maxWidth: '100%',
+            height: 'auto'
+          }}
+        />
       </Box>
     )}
     <Text

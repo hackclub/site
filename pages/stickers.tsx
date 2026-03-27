@@ -15,7 +15,7 @@ function customStartCase(st) {
   return st
     .replace(/\.(svg|png)$/, '')
     .replace(/[_-]+/g, ' ')
-    .replace(/\b\w/g, char => char.toUpperCase());
+    .replace(/\b\w/g, char => char.toUpperCase())
 }
 
 const StickersPage = ({ stickers = [] }) => [

@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import Tilt from '../tilt'
 import { Card, Heading, Text } from 'theme-ui'
-import Image from "next/image"
+import Image from 'next/image'
 import { Balancer } from 'react-wrap-balancer'
 
 export default function OrganizationSpotlight({ organization }) {
@@ -44,9 +44,10 @@ export default function OrganizationSpotlight({ organization }) {
           height={64}
           style={{
             borderRadius: '16px',
-            maxWidth: "100%",
-            height: "auto"
-          }} />
+            maxWidth: '100%',
+            height: 'auto'
+          }}
+        />
         <div>
           <Heading
             as="h3"
@@ -75,5 +76,5 @@ export default function OrganizationSpotlight({ organization }) {
         </Text>
       </Card>
     </Tilt>
-  );
+  )
 }

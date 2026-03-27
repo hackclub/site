@@ -34,30 +34,32 @@ const getUrl = (type, payload, repo) => {
 
 export async function fetchGitHub() {
   try {
+    const initialGitHubData = await fetch(
+      'https://api.github.com/orgs/hackclub/events'
+    ).then(r => r.json())
 
-  const initialGitHubData = await fetch(
-    'https://api.github.com/orgs/hackclub/events'
-  ).then(r => r.json())
+    const gitHubData = initialGitHubData
+      .filter(({ type }) => isRelevantEventType(type))
+      .map(({ type, actor, payload, repo, created_at }) => ({
+        type,
+        user: actor.login,
+        userImage: actor.avatar_url,
+        url: getUrl(type, payload, repo),
+        message: getMessage(type, payload, repo),
+        time: created_at
+      }))
 
-  const gitHubData = initialGitHubData
-    .filter(({ type }) => isRelevantEventType(type))
-    .map(({ type, actor, payload, repo, created_at }) => ({
-      type,
-      user: actor.login,
-      userImage: actor.avatar_url,
-      url: getUrl(type, payload, repo),
-      message: getMessage(type, payload, repo),
-      time: created_at
-    }))
-
-  return gitHubData
+    return gitHubData
   } catch (error) {
     console.error(error)
     return []
   }
 }
 
-export default async function github(_req: NextApiRequest, res: NextApiResponse) {
+export default async function github(
+  _req: NextApiRequest,
+  res: NextApiResponse
+) {
   const git = await fetchGitHub()
   res.json(git)
 }

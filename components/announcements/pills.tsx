@@ -1,8 +1,4 @@
-import {
-  Avatar,
-  Badge,
-  Flex,
-} from 'theme-ui'
+import { Avatar, Badge, Flex } from 'theme-ui'
 
 export function PillHolder({ children }) {
   return (

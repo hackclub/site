@@ -13,7 +13,9 @@ export default function OrganizationInfoForm({
   roboticsPriorityEnabled = false
 }) {
   const org = useOrganizationI18n()
-  const nameLabel = roboticsPriorityEnabled ? 'Team name and number' : `${org} name`
+  const nameLabel = roboticsPriorityEnabled
+    ? 'Team name and number'
+    : `${org} name`
   const descriptionLabel = roboticsPriorityEnabled
     ? 'Tell us about your robotics team'
     : `Tell us about your ${org.toLowerCase()}`
@@ -65,11 +67,7 @@ export default function OrganizationInfoForm({
 
   return (
     <>
-      <Field
-        name="eventName"
-        label={nameLabel}
-        requiredFields={requiredFields}
-      >
+      <Field name="eventName" label={nameLabel} requiredFields={requiredFields}>
         <Input
           name="eventName"
           id="eventName"
@@ -131,12 +129,13 @@ export default function OrganizationInfoForm({
 
           {teenagerLed === 'true' && (
             /* don't show Boba Drops to adult-led orgs lol*/
-            (<Text variant="caption">A website is not required to apply for HCB. However, most
-                            successful projects that raise money have a custom-build website.
-                            If you've never built a website before, checkout{' '}
+            <Text variant="caption">
+              A website is not required to apply for HCB. However, most
+              successful projects that raise money have a custom-build website.
+              If you've never built a website before, checkout{' '}
               <Link href="https://boba.hackclub.com/">Boba Drops</Link>, a Hack
-                            Club workshop on how to build a website.
-                          </Text>)
+              Club workshop on how to build a website.
+            </Text>
           )}
         </>
       )}
@@ -165,7 +164,7 @@ export default function OrganizationInfoForm({
         </>
       ) : (
         // Adults always get the text area
-        (politicalActivityTextarea(false))
+        politicalActivityTextarea(false)
       )}
       <Text variant="caption">
         This includes but is not limited to protests, public demonstrations,
@@ -188,5 +187,5 @@ export default function OrganizationInfoForm({
       </Field> */}
       <OrganizationAdultForm requiredFields={requiredFields} />
     </>
-  );
+  )
 }

@@ -1,7 +1,7 @@
-import AirtablePlus from "airtable-plus"
-import camelcase from "camelcase"
+import AirtablePlus from 'airtable-plus'
+import camelcase from 'camelcase'
 
-const camelizeObject = (obj) => {
+const camelizeObject = obj => {
   Object.keys(obj).forEach(key => {
     obj[camelcase(key)] = obj[key]
     if (key !== camelcase(key)) {

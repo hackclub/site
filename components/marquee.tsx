@@ -32,7 +32,12 @@ type Props = {
   onFinish?: () => void
 }
 
-export default function Marquee({ velocity = 30, children, onInit, onFinish }: Props) {
+export default function Marquee({
+  velocity = 30,
+  children,
+  onInit,
+  onFinish
+}: Props) {
   const trackRef = useRef<HTMLDivElement>(null)
   const [duration, setDuration] = useState(20)
 

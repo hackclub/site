@@ -16,7 +16,9 @@ export default function ReplitForm({ cssDark }: ReplitFormProps) {
   const [currentStep, setCurrentStep] = useState(1)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [buttonText, setButtonText] = useState('Submit')
-  const [formData, setFormData] = useState<{ email?: string; token?: string }>({})
+  const [formData, setFormData] = useState<{ email?: string; token?: string }>(
+    {}
+  )
   const [stickerPositions, setStickerPositions] = useState([])
   const jsConfetti = useRef(null)
   const draggedSticker = useRef(null)
@@ -63,7 +65,7 @@ export default function ReplitForm({ cssDark }: ReplitFormProps) {
         draggedSticker.current = null
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleInputChange = e => {

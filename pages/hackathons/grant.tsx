@@ -393,54 +393,54 @@ const HackathonGrant = () => {
       </Box>
       <Zoom>
         <Card
-            as="a"
-            {...({ href: 'mailto:hcb@hackclub.com', style: { textDecoration: 'none' } } as any)}
-            variant="interactive"
+          as="a"
+          {...({
+            href: 'mailto:hcb@hackclub.com',
+            style: { textDecoration: 'none' }
+          } as any)}
+          variant="interactive"
+          sx={{
+            mx: 'auto',
+            maxWidth: '52rem',
+            width: '90%',
+            textAlign: 'left',
+            textDecoration: 'none',
+            lineHeight: 'caption',
+            display: 'flex',
+            alignItems: 'center',
+            fontSize: [1, 2, 2],
+            mb: [3, 4],
+            p: '16px !important',
+            svg: { flexShrink: 'none' }
+          }}
+        >
+          <Icon
+            glyph="emoji"
+            color="#ec3750"
+            // @ts-expect-error: allow sx prop because anything else messes up the size
+            sx={
+              {
+                mr: [2, 3],
+                ml: 2,
+                display: ['none', 'block'],
+                width: 56,
+                height: 'auto'
+              } as any
+            }
+          />
+          <Text
+            as="p"
             sx={{
-              mx: 'auto',
-              maxWidth: '52rem',
-              width: '90%',
-              textAlign: 'left',
-              textDecoration: 'none',
-              lineHeight: 'caption',
-              display: 'flex',
-              alignItems: 'center',
-              fontSize: [1, 2, 2],
-              mb: [3, 4],
-              p: '16px !important',
-              svg: { flexShrink: 'none' }
-            }}
-            >
-            <Icon
-              glyph="emoji"
-              color="#ec3750"
-              // @ts-expect-error: allow sx prop because anything else messes up the size
-              sx={{
-              mr: [2, 3],
-              ml: 2,
-              display: ['none', 'block'],
-              width: 56,
-              height: 'auto'
-              } as any}
-            />
-            <Text
-              as="p"
-              sx={{
               flex: '1 1 auto',
               strong: { display: ['inline', 'block'], pl: 3 }
-              }}
-            >
-              <strong>Questions?</strong>
-              <Text
-              as="span"
-              variant="caption"
-              color="secondary"
-              sx={{ pl: 3 }}
-              >
+            }}
+          >
+            <strong>Questions?</strong>
+            <Text as="span" variant="caption" color="secondary" sx={{ pl: 3 }}>
               Reach out to hcb@hackclub.com
-              </Text>
             </Text>
-            </Card>
+          </Text>
+        </Card>
       </Zoom>
       <Footer dark key="footer" />
     </>

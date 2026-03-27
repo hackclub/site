@@ -71,7 +71,6 @@ const Ultraline = styled(Heading)`
   }
 `
 
-
 const Row = styled(Container)`
   px: 3;
   py: [4, 5];
@@ -87,7 +86,6 @@ const Row = styled(Container)`
     grid-template-columns: 2fr 3fr;
   }
 `
-
 
 const Super = styled(Text)`
   background-color: rgb(228, 115, 45);
@@ -121,8 +119,12 @@ export default function Philosophy() {
             }}
           >
             <Ultraline sx={{ fontSize: [48, 54, 72, 96] }}>We're</Ultraline>
-            <Ultraline sx={{ fontSize: [48, 54, 72, 96] }}>at our best</Ultraline>
-            <Ultraline sx={{ fontSize: [48, 54, 72, 96] }}>when we're</Ultraline>
+            <Ultraline sx={{ fontSize: [48, 54, 72, 96] }}>
+              at our best
+            </Ultraline>
+            <Ultraline sx={{ fontSize: [48, 54, 72, 96] }}>
+              when we're
+            </Ultraline>
             <Ultraline sx={{ fontSize: [48, 54, 72, 96] }}>making.</Ultraline>
             <Seal pt={[3, 4]}>
               <Heading
@@ -137,7 +139,7 @@ export default function Philosophy() {
               </Heading>
               <Heading
                 sx={{
-                  fontSize: [2,3],
+                  fontSize: [2, 3],
                   fontWeight: '800',
                   marginBlockStart: '0em',
                   textTransform: 'uppercase'
@@ -269,9 +271,7 @@ export default function Philosophy() {
             Start a club
           </Button>
           <NextLink href="https://slack.hackclub.com">
-            <Button sx={{ bg: 'white', color: 'red' }}>
-              Join our Slack
-            </Button>
+            <Button sx={{ bg: 'white', color: 'red' }}>Join our Slack</Button>
           </NextLink>
         </Box>
       </Box>

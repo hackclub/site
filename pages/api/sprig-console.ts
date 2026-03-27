@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next"
+import { NextApiRequest, NextApiResponse } from 'next'
 
 function check(val: any) {
   return val === 'Pending' || val === 'Approved'
@@ -27,7 +27,10 @@ export async function getConsoles() {
   }
 }
 
-export default async function SprigConsoles(_req: NextApiRequest, res: NextApiResponse) {
+export default async function SprigConsoles(
+  _req: NextApiRequest,
+  res: NextApiResponse
+) {
   let consoleCount = 100
   try {
     consoleCount = await getConsoles()

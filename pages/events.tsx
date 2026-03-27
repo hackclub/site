@@ -14,7 +14,7 @@ import Meta from '@hackclub/meta'
 import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
-import Image from "next/image"
+import Image from 'next/image'
 import OuternetPic from '../public/outernet/hack.jpg'
 import theme from '@hackclub/theme'
 
@@ -212,8 +212,9 @@ const Page = () => (
             fill
             sizes="100vw"
             style={{
-              objectFit: "cover"
-            }} />
+              objectFit: 'cover'
+            }}
+          />
         </Box>
         <Container>
           <Heading

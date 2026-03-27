@@ -3,8 +3,7 @@ import GeoPattern from 'geopattern'
  * Represents an organization.
  */
 export class Organization {
-
-  public raw: any;
+  public raw: any
 
   /**
    * Creates an instance of Organization.
@@ -124,9 +123,10 @@ export class Organization {
    * @property {string} financials - The financials link of the organization (if it is transparent).
    */
   get links() {
-    const links: { website: string; donations?: string; financials?: string } = {
-      website: this.raw.website
-    }
+    const links: { website: string; donations?: string; financials?: string } =
+      {
+        website: this.raw.website
+      }
 
     if (this.acceptsDonations) links.donations = this.raw.donation_link
     if (this.isTransparent)

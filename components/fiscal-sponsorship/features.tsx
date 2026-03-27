@@ -1,7 +1,7 @@
 import { Box, Heading, Link, Text, Container, Grid } from 'theme-ui'
 import Icon from '../icon'
 import { Balancer } from 'react-wrap-balancer'
-import Image from "next/image"
+import Image from 'next/image'
 import imgLaptop from '../../public/fiscal-sponsorship/laptop.png'
 
 export default function Features() {
@@ -15,7 +15,8 @@ export default function Features() {
         </Heading>
         <Text as="p" variant="lead" sx={{ color: 'slate', maxWidth: '55ch' }}>
           Since day one, we’ve built beautiful, self-serve software to empower
-          you to raise and spend money without administrative hassle. We’re also open&nbsp;source!
+          you to raise and spend money without administrative hassle. We’re also
+          open&nbsp;source!
         </Text>
         <Grid columns={[null, 2, 3]} sx={{ mt: 4, rowGap: 3, columnGap: 4 }}>
           <Module
@@ -77,7 +78,11 @@ export default function Features() {
           href="https://hcb.hackclub.com/reboot"
           title="See Reboot’s finances in public"
         />
-        <Link href="https://github.com/hackclub/hcb" title="Open Source" sx={{ textAlign: 'center' }}>
+        <Link
+          href="https://github.com/hackclub/hcb"
+          title="Open Source"
+          sx={{ textAlign: 'center' }}
+        >
           <Text variant="caption" as="p" sx={{ color: 'primary', mt: 2 }}>
             See our open source on GitHub
           </Text>
@@ -124,12 +129,13 @@ function Laptop({ href, title }) {
         unoptimized
         style={{
           width: '100%',
-          maxWidth: "100%",
-          height: "auto"
-        }} />
+          maxWidth: '100%',
+          height: 'auto'
+        }}
+      />
       <Text variant="caption" as="p" sx={{ color: 'primary', mt: 2 }}>
         See <i>Reboot</i>’s finances in Transparency Mode
       </Text>
     </Link>
-  );
+  )
 }

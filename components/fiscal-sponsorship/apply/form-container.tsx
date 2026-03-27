@@ -2,7 +2,10 @@ import { forwardRef } from 'react'
 import { Box, Container } from 'theme-ui'
 import { TeenagerLedProvider } from './teenager-led-context'
 
-const formContainer = forwardRef<HTMLElement, React.PropsWithChildren<React.HTMLAttributes<HTMLElement>>>(({ children, ...props }, ref) => {
+const formContainer = forwardRef<
+  HTMLElement,
+  React.PropsWithChildren<React.HTMLAttributes<HTMLElement>>
+>(({ children, ...props }, ref) => {
   return (
     <Box
       ref={ref}

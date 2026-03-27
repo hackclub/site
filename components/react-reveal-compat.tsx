@@ -3,18 +3,50 @@ import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
 
 const kFade = keyframes({ from: { opacity: 0 }, to: { opacity: 1 } })
-const kFadeLeft = keyframes({ from: { opacity: 0, transform: 'translateX(-30px)' }, to: { opacity: 1, transform: 'translateX(0)' } })
-const kFadeRight = keyframes({ from: { opacity: 0, transform: 'translateX(30px)' }, to: { opacity: 1, transform: 'translateX(0)' } })
-const kFadeUp = keyframes({ from: { opacity: 0, transform: 'translateY(30px)' }, to: { opacity: 1, transform: 'translateY(0)' } })
-const kFadeDown = keyframes({ from: { opacity: 0, transform: 'translateY(-30px)' }, to: { opacity: 1, transform: 'translateY(0)' } })
-const kSlideLeft = keyframes({ from: { opacity: 0, transform: 'translateX(-80px)' }, to: { opacity: 1, transform: 'translateX(0)' } })
-const kSlideRight = keyframes({ from: { opacity: 0, transform: 'translateX(80px)' }, to: { opacity: 1, transform: 'translateX(0)' } })
-const kSlideUp = keyframes({ from: { opacity: 0, transform: 'translateY(60px)' }, to: { opacity: 1, transform: 'translateY(0)' } })
-const kSlideDown = keyframes({ from: { opacity: 0, transform: 'translateY(-60px)' }, to: { opacity: 1, transform: 'translateY(0)' } })
-const kZoom = keyframes({ from: { opacity: 0, transform: 'scale(0.85)' }, to: { opacity: 1, transform: 'scale(1)' } })
+const kFadeLeft = keyframes({
+  from: { opacity: 0, transform: 'translateX(-30px)' },
+  to: { opacity: 1, transform: 'translateX(0)' }
+})
+const kFadeRight = keyframes({
+  from: { opacity: 0, transform: 'translateX(30px)' },
+  to: { opacity: 1, transform: 'translateX(0)' }
+})
+const kFadeUp = keyframes({
+  from: { opacity: 0, transform: 'translateY(30px)' },
+  to: { opacity: 1, transform: 'translateY(0)' }
+})
+const kFadeDown = keyframes({
+  from: { opacity: 0, transform: 'translateY(-30px)' },
+  to: { opacity: 1, transform: 'translateY(0)' }
+})
+const kSlideLeft = keyframes({
+  from: { opacity: 0, transform: 'translateX(-80px)' },
+  to: { opacity: 1, transform: 'translateX(0)' }
+})
+const kSlideRight = keyframes({
+  from: { opacity: 0, transform: 'translateX(80px)' },
+  to: { opacity: 1, transform: 'translateX(0)' }
+})
+const kSlideUp = keyframes({
+  from: { opacity: 0, transform: 'translateY(60px)' },
+  to: { opacity: 1, transform: 'translateY(0)' }
+})
+const kSlideDown = keyframes({
+  from: { opacity: 0, transform: 'translateY(-60px)' },
+  to: { opacity: 1, transform: 'translateY(0)' }
+})
+const kZoom = keyframes({
+  from: { opacity: 0, transform: 'scale(0.85)' },
+  to: { opacity: 1, transform: 'scale(1)' }
+})
 
-const Wrapper = styled.div<{ $anim: ReturnType<typeof keyframes>; $delay: number; $duration: number }>`
-  animation: ${p => p.$anim} ${p => p.$duration}ms ease-out ${p => p.$delay}ms both;
+const Wrapper = styled.div<{
+  $anim: ReturnType<typeof keyframes>
+  $delay: number
+  $duration: number
+}>`
+  animation: ${p => p.$anim} ${p => p.$duration}ms ease-out ${p => p.$delay}ms
+    both;
   @media (prefers-reduced-motion: reduce) {
     animation: none;
   }
@@ -39,7 +71,7 @@ function RevealWrap({
   children,
   anim,
   delay,
-  duration,
+  duration
 }: {
   children: React.ReactNode
   anim: ReturnType<typeof keyframes>
@@ -61,9 +93,17 @@ export function Fade({
   down,
   delay = 0,
   duration = 500,
-  cascade,
+  cascade
 }: RevealProps) {
-  const anim = left ? kFadeLeft : right ? kFadeRight : up ? kFadeUp : down ? kFadeDown : kFade
+  const anim = left
+    ? kFadeLeft
+    : right
+      ? kFadeRight
+      : up
+        ? kFadeUp
+        : down
+          ? kFadeDown
+          : kFade
   const d = Number(delay)
   const dur = Number(duration)
   if (cascade) {
@@ -91,9 +131,15 @@ export function Slide({
   top,
   up,
   delay = 0,
-  duration = 500,
+  duration = 500
 }: RevealProps) {
-  const anim = left ? kSlideLeft : right ? kSlideRight : top ? kSlideDown : kSlideUp
+  const anim = left
+    ? kSlideLeft
+    : right
+      ? kSlideRight
+      : top
+        ? kSlideDown
+        : kSlideUp
   return (
     <RevealWrap anim={anim} delay={Number(delay)} duration={Number(duration)}>
       {children}

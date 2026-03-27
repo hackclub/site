@@ -4,9 +4,7 @@ import Link from 'next/link'
 
 export default function ApplyButton() {
   return (
-    <Link
-      href="/fiscal-sponsorship/apply?robotics-priority=true"
-    >
+    <Link href="/fiscal-sponsorship/apply?robotics-priority=true">
       <Button
         variant="ctaLg"
         sx={{

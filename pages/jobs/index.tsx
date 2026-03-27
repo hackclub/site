@@ -6,7 +6,7 @@ import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import Icon from '../../components/icon'
-import Image from "next/image"
+import Image from 'next/image'
 import zephyrPic from '../../public/jobs/zephyr-group-pic.jpg'
 import { compact } from 'lodash'
 import { decodeHtmlEntities } from '../../lib/helpers'
@@ -19,50 +19,50 @@ const JobListing = ({
   positionType
 }) => (
   <Card
-      variant="sunken"
-      as="a"
-      href={positionLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      sx={{
-        width: '100%',
-        textDecoration: 'none',
-        'span > svg': {
-          opacity: '0',
-          transition: '0.3s ease-in-out'
-        },
-        '&:hover span > svg': {
-          opacity: '1'
-        }
-      }}
+    variant="sunken"
+    as="a"
+    href={positionLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    sx={{
+      width: '100%',
+      textDecoration: 'none',
+      'span > svg': {
+        opacity: '0',
+        transition: '0.3s ease-in-out'
+      },
+      '&:hover span > svg': {
+        opacity: '1'
+      }
+    }}
+  >
+    <Box
+      as="span"
+      sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}
     >
-      <Box
-        as="span"
-        sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}
-      >
-        <Heading
-          variant="headline"
-          sx={{
-            color: 'black',
-            m: 0
-          }}
-        >
-          {positionName}
-        </Heading>
-        <Icon glyph="external" size={24} color="black" />
-      </Box>
-
-      <Text
-        variant="caption"
+      <Heading
+        variant="headline"
         sx={{
-          mt: 1,
-          display: 'block',
-          textAlign: 'left'
+          color: 'black',
+          m: 0
         }}
       >
-        {compact([positionDesc, positionLocation, positionType]).join(' • ')}
-      </Text>
-    </Card>
+        {positionName}
+      </Heading>
+      <Icon glyph="external" size={24} color="black" />
+    </Box>
+
+    <Text
+      variant="caption"
+      sx={{
+        mt: 1,
+        display: 'block',
+        textAlign: 'left'
+      }}
+    >
+      {compact([positionDesc, positionLocation, positionType]).join(' • ')}
+    </Text>
+  </Card>
 )
 
 const Page = ({ jobs }) => (
@@ -108,8 +108,9 @@ const Page = ({ jobs }) => (
             fill
             sizes="100vw"
             style={{
-              objectFit: "cover"
-            }} />
+              objectFit: 'cover'
+            }}
+          />
         </Box>
         <Container>
           <Heading

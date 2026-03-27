@@ -4,7 +4,8 @@ import { useState } from 'react'
 import { Avatar, Box, Card, Flex, Text } from 'theme-ui'
 
 export default function BoardBox({ popup = true, ...props }) {
-  const { img, name, teamRole, pronouns, text, subrole, email, href, video } = props
+  const { img, name, teamRole, pronouns, text, subrole, email, href, video } =
+    props
   const [expand, setExpand] = useState(false)
 
   return (
@@ -39,7 +40,12 @@ export default function BoardBox({ popup = true, ...props }) {
           <>
             <Text
               variant="headline"
-              sx={{ fontSize: subrole ? 3 : 4, textAlign: 'center', mb: subrole ? 0 : 1, mt: subrole ? -3: -2 }}
+              sx={{
+                fontSize: subrole ? 3 : 4,
+                textAlign: 'center',
+                mb: subrole ? 0 : 1,
+                mt: subrole ? -3 : -2
+              }}
               color="black"
             >
               {name}
@@ -47,7 +53,11 @@ export default function BoardBox({ popup = true, ...props }) {
             <Text
               color="#24B5A5"
               variant="subheadline"
-              sx={{ fontSize: subrole ? 1 : 3, textAlign: 'center', mb: subrole ? 0 : 2 }}
+              sx={{
+                fontSize: subrole ? 1 : 3,
+                textAlign: 'center',
+                mb: subrole ? 0 : 2
+              }}
             >
               {teamRole}
             </Text>
@@ -73,7 +83,7 @@ export default function BoardBox({ popup = true, ...props }) {
                 height: '120px',
                 borderRadius: '50%',
                 objectFit: 'cover',
-                mb: subrole ? -3: -2
+                mb: subrole ? -3 : -2
               }}
             />
           </>
@@ -97,7 +107,11 @@ export default function BoardBox({ popup = true, ...props }) {
               }}
             />
             <Box>
-              <Text sx={{ fontSize: [3, 3, 3] }} variant="headline" color="black">
+              <Text
+                sx={{ fontSize: [3, 3, 3] }}
+                variant="headline"
+                color="black"
+              >
                 {name}
               </Text>
               <Flex>

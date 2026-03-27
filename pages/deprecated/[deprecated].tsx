@@ -14,7 +14,9 @@ type DeprecatedPageProps = {
   }
 }
 
-const DeprecatedPage = ({ page: { name, desc, icon, link } }: DeprecatedPageProps) => (
+const DeprecatedPage = ({
+  page: { name, desc, icon, link }
+}: DeprecatedPageProps) => (
   <>
     <Nav dark />
     <Meta
@@ -44,9 +46,7 @@ const DeprecatedPage = ({ page: { name, desc, icon, link } }: DeprecatedPageProp
           {desc}
         </Heading>
         <a href={link} target="_blank" rel="noopener noreferrer">
-          <Button as="span">
-            Check it out »
-          </Button>
+          <Button as="span">Check it out »</Button>
         </a>
       </Container>
     </Box>

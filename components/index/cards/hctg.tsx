@@ -11,8 +11,8 @@ export default function HackClubTheGame() {
         borderRadius: '16px',
         position: 'relative',
         overflow: 'hidden',
-        paddingTop: "4em !important",
-        paddingBottom: "4em !important"
+        paddingTop: '4em !important',
+        paddingBottom: '4em !important'
       }}
       position={[null, 'bottom', 'bottom']}
       visible={true}
@@ -22,8 +22,8 @@ export default function HackClubTheGame() {
         src="https://raw.githubusercontent.com/CKacha/HCTG-Photos/main/Sleepy-Orpheus.png"
         sx={{
           position: 'absolute',
-          top: "10%",
-          right: "2.5%",
+          top: '10%',
+          right: '2.5%',
           height: '75%',
           width: 'auto',
           objectFit: 'contain',
@@ -53,8 +53,8 @@ export default function HackClubTheGame() {
             textAlign: 'left',
             textDecoration: 'none',
             color: '#000',
-            lineHeight: "1.2",
-            letterSpacing: "-6px"
+            lineHeight: '1.2',
+            letterSpacing: '-6px'
           }}
         >
           Hack Club: The Game
@@ -71,15 +71,15 @@ export default function HackClubTheGame() {
             mb: 3,
             display: 'block',
             textAlign: 'left',
-            letterSpacing: "-0.05em"
+            letterSpacing: '-0.05em'
           }}
         >
-          Build any type of project you want! Submit them, and eventually
-          you'll be able to compete in a scavenger hunt adventure game
-          across Manhattan!
+          Build any type of project you want! Submit them, and eventually you'll
+          be able to compete in a scavenger hunt adventure game across
+          Manhattan!
         </Text>
         <Box
-          as="a"    
+          as="a"
           href="https://game.hackclub.com/"
           sx={{
             display: 'inline-flex',
@@ -87,8 +87,8 @@ export default function HackClubTheGame() {
             justifyContent: 'center',
             gap: '8px',
             background: '#000',
-            fontFamily: "Helvetica",
-            letterSpacing: "-0.03em",
+            fontFamily: 'Helvetica',
+            letterSpacing: '-0.03em',
             color: 'white',
             border: 'none',
             padding: '12px 32px',
@@ -100,8 +100,8 @@ export default function HackClubTheGame() {
             alignSelf: 'flex-start',
             transition: 'background 0.2s ease, color 0.2s ease',
             '&:hover': {
-              background: "#fff",
-              color: "#000"
+              background: '#fff',
+              color: '#000'
             },
             '&:active': {
               transform: 'translateY(0) scale(1)'

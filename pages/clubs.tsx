@@ -360,10 +360,8 @@ const Page = () => (
             sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
           >
             Hack Clubs attend and run{' '}
-            <NextLink href="/hackathons">
-              hackathons
-            </NextLink>{' '}
-            like <a href="https://daydream.hackclub.com/">Daydream</a> &{' '}
+            <NextLink href="/hackathons">hackathons</NextLink> like{' '}
+            <a href="https://daydream.hackclub.com/">Daydream</a> &{' '}
             <a href="https://scrapyard.hackclub.com/">Scrapyard</a>, take part
             in year long programs like{' '}
             <NextLink href="https://blueprint.hackclub.com/">
@@ -463,9 +461,10 @@ const Page = () => (
             name="Chat with thousands of club leaders"
             desc={
               <>
-                In our <Link href="https://slack.hackclub.com">Slack community</Link>, you’ll be
-                invited to a space for Hack&nbsp;Club leaders to ask questions &
-                chat, share projects, & attend weekly live events.
+                In our{' '}
+                <Link href="https://slack.hackclub.com">Slack community</Link>,
+                you’ll be invited to a space for Hack&nbsp;Club leaders to ask
+                questions & chat, share projects, & attend weekly live events.
               </>
             }
           />
@@ -478,7 +477,8 @@ const Page = () => (
                 We build tools, such as{' '}
                 <a href="https://sprig.hackclub.com">Sprig</a>, that your
                 members can use to make projects with in meetings! Build more of
-                them with us in our <Link href="https://slack.hackclub.com">Slack community</Link>.
+                them with us in our{' '}
+                <Link href="https://slack.hackclub.com">Slack community</Link>.
               </>
             }
           ></Feature>
@@ -700,7 +700,11 @@ const Page = () => (
             />
           </Card>
         </Grid>
-        <a href="https://apply.hackclub.com/" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://apply.hackclub.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Button rel="noopener" variant="ctaLg">
             Apply to Hack Club
           </Button>

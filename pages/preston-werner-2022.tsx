@@ -1,8 +1,4 @@
-import {
-  Box,
-  Container,
-  Heading,
-} from 'theme-ui'
+import { Box, Container, Heading } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'

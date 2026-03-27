@@ -1,7 +1,7 @@
 import React from 'react'
 
 const tooltip = direction =>
-  (function Tooltip({ children, text, id }) {
+  function Tooltip({ children, text, id }) {
     const escapedText = text.replace(/'/g, "\\'")
     const directionalStyles = {
       e: `
@@ -82,20 +82,20 @@ const tooltip = direction =>
         {children}
       </>
     )
-  })
+  }
 
 type TooltipComponent = React.FC<{ children: any; text: any; id: any }> & {
-  N: React.FC<{ children: any; text: any; id: any }>;
-  S: React.FC<{ children: any; text: any; id: any }>;
-  E: React.FC<{ children: any; text: any; id: any }>;
-  W: React.FC<{ children: any; text: any; id: any }>;
-};
+  N: React.FC<{ children: any; text: any; id: any }>
+  S: React.FC<{ children: any; text: any; id: any }>
+  E: React.FC<{ children: any; text: any; id: any }>
+  W: React.FC<{ children: any; text: any; id: any }>
+}
 
-const Tooltip = tooltip('e') as TooltipComponent;
-Tooltip.N = tooltip('n');
-Tooltip.S = tooltip('s');
-Tooltip.E = tooltip('e');
-Tooltip.W = tooltip('w');
+const Tooltip = tooltip('e') as TooltipComponent
+Tooltip.N = tooltip('n')
+Tooltip.S = tooltip('s')
+Tooltip.E = tooltip('e')
+Tooltip.W = tooltip('w')
 
 export { Tooltip }
 export default Tooltip

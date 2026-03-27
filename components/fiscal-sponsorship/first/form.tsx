@@ -166,7 +166,9 @@ export default function Signup() {
               name="teamType"
               defaultValue="Select"
               sx={{ bg: 'dark', w: '500px !important' }}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setTeamType(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                setTeamType(e.target.value)
+              }
             >
               <option value="Select" disabled>
                 Select

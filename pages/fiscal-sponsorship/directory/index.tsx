@@ -332,10 +332,21 @@ type FilteringProps = {
   mobile?: boolean
   region?: string
   clearOffset?: () => void
-  badges: [React.Dispatch<React.SetStateAction<string[]>>, string[], string, any[], boolean?]
+  badges: [
+    React.Dispatch<React.SetStateAction<string[]>>,
+    string[],
+    string,
+    any[],
+    boolean?
+  ]
 }
 
-const Filtering = ({ mobile, region, clearOffset, ...props }: FilteringProps) => {
+const Filtering = ({
+  mobile,
+  region,
+  clearOffset,
+  ...props
+}: FilteringProps) => {
   return (
     <>
       {Object.values(props).map((filter, i) => (
@@ -588,8 +599,9 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
               {organizations
                 .map(org => new Organization(org))
                 .filter(organization => {
-                  const organizationBadgeIds = getBadgesForOrg(organization)
-                    .map(badge => badge.id)
+                  const organizationBadgeIds = getBadgesForOrg(
+                    organization
+                  ).map(badge => badge.id)
 
                   return (
                     currentBadges.length === badges.length ||

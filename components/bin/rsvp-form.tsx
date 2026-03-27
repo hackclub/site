@@ -38,7 +38,9 @@ export default function RsvpForm() {
         </Label>
         <Box
           sx={{
-            display: (useField('stickers', 'checkbox') as any).checked ? 'block' : 'none'
+            display: (useField('stickers', 'checkbox') as any).checked
+              ? 'block'
+              : 'none'
           }}
         >
           <Slide left delay={20}>

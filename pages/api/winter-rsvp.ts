@@ -7,7 +7,10 @@ const airtable = new AirtablePlus({
   tableName: 'rsvp'
 })
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === 'POST') {
     const rsvp = await airtable.create({
       Name: req.body.Name,
