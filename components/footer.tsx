@@ -7,7 +7,7 @@ import theme from "@hackclub/theme";
 import Icon from "./icon";
 import { getGitSha, getGitShaShort } from "../lib/git-info";
 
-const Base = styled(Box, { shouldForwardProp: (prop) => prop !== "dark" })<{ dark?: boolean }>`
+const Base = styled(Box, { shouldForwardProp: (prop) => prop !== "dark" }) <{ dark?: boolean }>`
   background: ${(props) =>
     props.dark
       ? `${theme.colors.darker} radial-gradient(${theme.colors.black} 1px, transparent 1px)`
@@ -113,12 +113,12 @@ const Footer = ({
         </Box>
         <Box sx={{ gridColumn: ["span 2", "span 1"] }}>
           <Box sx={{ display: "flex", alignItems: "end", flexDirection: "row" }}>
-          <Logo aria-label="Hack Club logo" width={128} height={45} />
-          <br />
-        <Text as="span" color="muted" sx={{ marginBottom: '-.5em'}}>
-          <Link sx={{ fontSize: 'inherit' }} href={`https://github.com/hackclub/site/commit/${getGitSha()}`} target="_blank" rel="noopener noreferrer"><code style={{ fontFamily: 'monospace', fontSize: '13px' }}>{getGitShaShort()}</code></Link>
-        </Text>
-        </Box>
+            <Logo aria-label="Hack Club logo" width={128} height={45} />
+            <br />
+            <Text as="span" color="muted" sx={{ marginBottom: '-.5em' }}>
+              <Link sx={{ fontSize: 'inherit' }} href={`https://github.com/hackclub/site/commit/${getGitSha()}`} target="_blank" rel="noopener noreferrer"><code style={{ fontFamily: 'monospace', fontSize: '13px' }}>{getGitShaShort()}</code></Link>
+            </Text>
+          </Box>
           <Grid
             columns={[8, 4]}
             gap={2}
