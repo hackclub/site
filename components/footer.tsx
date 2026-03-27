@@ -5,7 +5,7 @@ import { Box, Container, Grid, Heading, Link, Text } from "theme-ui";
 import NextLink from "next/link";
 import theme from "@hackclub/theme";
 import Icon from "./icon";
-import { getGitShaShort } from "../lib/git-info";
+import { getGitSha, getGitShaShort } from "../lib/git-info";
 
 const Base = styled(Box, { shouldForwardProp: (prop) => prop !== "dark" })<{ dark?: boolean }>`
   background: ${(props) =>
@@ -116,7 +116,7 @@ const Footer = ({
           <Logo aria-label="Hack Club logo" width={128} height={45} />
           <br />
         <Text as="span" color="muted" sx={{ marginBottom: '-.5em'}}>
-          <Link sx={{ fontSize: 'inherit' }} href={`https://github.com/hackclub/site/commit/${getGitShaShort()}`} target="_blank" rel="noopener noreferrer"><code style={{ fontFamily: 'monospace', fontSize: '13px' }}>{getGitShaShort()}</code></Link>
+          <Link sx={{ fontSize: 'inherit' }} href={`https://github.com/hackclub/site/commit/${getGitSha()}`} target="_blank" rel="noopener noreferrer"><code style={{ fontFamily: 'monospace', fontSize: '13px' }}>{getGitShaShort()}</code></Link>
         </Text>
         </Box>
           <Grid

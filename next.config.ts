@@ -1,21 +1,10 @@
 import withMDX from '@next/mdx'
 import type { NextConfig } from 'next'
-import { execSync } from 'child_process'
-
-let gitSha = 'dev'
-try {
-  gitSha = execSync('git rev-parse HEAD').toString().trim()
-} catch (error) {
-  console.warn('couldnt get git SHA for some reason :(')
-}
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
-  env: {
-    NEXT_PUBLIC_GIT_SHA: gitSha
-  },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'hackclub.com' },

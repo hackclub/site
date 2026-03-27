@@ -1,5 +1,5 @@
 export const getGitSha = (): string => {
-  return process.env.NEXT_PUBLIC_GIT_SHA || 'dev'
+  return process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA || 'dev'
 }
 
 export const getGitShaShort = (): string => {
