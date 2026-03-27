@@ -131,17 +131,6 @@ export default function Signup() {
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    await fetch('/api/fiscal-sponsorship/demo', {
-      method: 'POST',
-      body: JSON.stringify({
-        eventName,
-        teamType,
-        teamNumber,
-        userEmail,
-        eventCategory: 'robotics team'
-      })
-    })
-
     setSubmitted(true)
 
     // clear form
@@ -155,8 +144,6 @@ export default function Signup() {
     <>
       <Base
         id="form"
-        method="POST"
-        action="/api/fiscal-sponsorship/demo"
         onSubmit={handleSubmit}
       >
         <Grid sx={{ gridTemplateColumns: '1fr 2fr', alignItems: 'center' }}>

@@ -346,7 +346,7 @@ export default function Page() {
               alignItems: ['start', 'center']
             }}
           >
-            <Link href="/fiscal-sponsorship/apply">
+            <Link href="https://hcb.hackclub.com/applications/new">
               <Button
                 variant="lg"
                 sx={{
@@ -857,7 +857,7 @@ export default function Page() {
             gap: 3
           }}
         >
-          <Link href="/fiscal-sponsorship/apply">
+          <Link href="https://hcb.hackclub.com/applications/new">
             <Button
               variant="lg"
               sx={{
