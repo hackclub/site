@@ -1,9 +1,7 @@
 /** @jsxImportSource theme-ui */
 import { Button, Container, Heading, Grid, Card, Text } from 'theme-ui'
-import theme from '@hackclub/theme'
 import { Slide, Zoom } from '../react-reveal-compat'
 import BreakdownBox from './breakdown-box'
-import Signup from './form'
 
 function Recap() {
   return (
@@ -21,7 +19,7 @@ function Recap() {
             }}
           >
             Make your ideas real this winter, with electronics and Hack Club
-            friends.{' '}
+            friends.
           </Heading>
         </Slide>
         <Grid gap={[2, 2, 3]} columns={[1, 1, 3, 3]} pb={4}>
@@ -59,49 +57,25 @@ function Recap() {
                   textShadow: '0px 0px 21px #ffffff'
                 }}
               >
-                Open a Demo Account
+                This event has ended
               </Text>
               <Text variant="caption">
-                While you wait for your hardware, explore and get familiar with
-                HCB with limited access to features until you get fully
-                activated.
+                Winter Hardware Wonderland is no longer accepting signups. Check
+                out the projects that were built on GitHub!
               </Text>
-              <Signup />
             </Card>
           </Zoom>
-          {/* <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'left'
-            }}
-          >
-            <Button
-              variant="outlineLg"
-              sx={{
-                color: 'white',
-                mt: 3
-              }}
-              as="a"
-              href="https://github.com/hackclub/wom"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Apply
-            </Button>
-          </Box> */}
         </Grid>
         <Button
           variant="ctaLg"
           as="a"
-          href="#rsvp"
-          style={{
+          href="https://github.com/hackclub/winter"
+          sx={{
             zIndex: '100',
-            textAlign: 'center',
-            backgroundImage: theme.util.gx('green', 'blue')
+            textAlign: 'center'
           }}
         >
-          RSVP
+          View Projects
         </Button>
       </Container>
     </>

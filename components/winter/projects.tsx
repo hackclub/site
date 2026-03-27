@@ -247,22 +247,22 @@ export default function Projects() {
               </Heading>
               <Grid columns={[1, 3, 3]} mt={4} mx={['5vw', 'auto', 'auto']}>
                 <Cards
-                  avatar="https://scrapbook.hackclub.com/_next/image?url=https://avatars.slack-edge.com/2022-12-04/4449277732855_bc5a70015c4b2146cdec_192.jpg&w=640&q=75"
+                  avatar="https://cachet.dunkirk.sh/users/USNPNJXNX/r"
                   username="sampoder"
                   description="today i presented.. the *CLIMATATOR*! it’s a 4D interactive media experience / climate change simulator that showcases the effects of climate change to a younger audience..."
-                  image="https://cloud-lwd22jmab-hack-club-bot.vercel.app/420210303_154846.jpg"
+                  image="https://cdn.hackclub.com/019d2f14-433c-7867-b58e-5444fc14d58d/420210303_154846%20(1).jpg"
                 />
                 <Cards
-                  avatar="https://scrapbook.hackclub.com/_next/image?url=https://avatars.slack-edge.com/2022-07-26/3865494839057_a471d7e9c871ca9121ea_192.png&w=640&q=75"
+                  avatar="https://cdn.hackclub.com/019d2f16-b0f2-773e-9ca6-bf44894a57ce/3865494839057_a471d7e9c871ca9121ea_192.jpg"
                   username="maggie"
                   description="working on something…"
-                  image="https://image.mux.com/50200NTyKdeFIayts00oUjauhMTTfQiOPgVn9Xm00mE1aS8/thumbnail.jpg?width=512&fit_mode=pad&time=0"
+                  image="https://cdn.hackclub.com/019d2f14-956e-7123-ab83-4bb493216b39/thumbnail%20(1).jpg"
                 />
                 <Cards
-                  avatar="https://www.gravatar.com/avatar/04484b2178b8fd17c5a529c54614e14c?d=identicon&r=pg"
+                  avatar="https://cdn.hackclub.com/019d2f15-3d56-750e-adeb-6a5cafff308a/04484b2178b8fd17c5a529c54614e14c%20(1).png"
                   username="cjmika110"
                   description="Tired of QWERTY keyboards? Is typing too intuitive for you? Karl the Keyboard is a portable, squishable, fun, easy- to-use binary keyboard! Instead of pressing keys, you move a joystick up and down to represent ones..."
-                  image="https://assemble-images.hackclub.com/a34cbf72-7023-424a-8239-abf4146529e8-Untitled%20drawing%20(1).png"
+                  image="https://cdn.hackclub.com/019d2f15-f781-7303-86e5-10e641bb9777/a34cbf72-7023-424a-8239-abf4146529e8-Untitled%20drawing%20(1).jpg"
                 />
               </Grid>
               <Button
