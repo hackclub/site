@@ -5,7 +5,6 @@ import Meta from '@hackclub/meta'
 import Footer from '../components/footer'
 import Nav from '../components/nav'
 import ForceTheme from '../components/force-theme'
-import ReplitForm from '../components/replit/form'
 import TokenInstructions from '../components/replit/token-instructions'
 import ScaleUp from '../components/replit/scale-up'
 
@@ -278,18 +277,6 @@ const ReplitPage = () => {
               translate: '-50% 0'
             }}
           />
-        </Box>
-
-        <Box
-          sx={{
-            marginTop: '3rem',
-            maxWidth: '30rem',
-            marginX: 'auto',
-            opacity: 0.5,
-            pointerEvents: 'none'
-          }}
-        >
-          <ReplitForm cssDark={cssDark} />
         </Box>
 
         <Box sx={{ paddingTop: '5rem' }} id="instructions">

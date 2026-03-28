@@ -13,19 +13,7 @@ import Projects from '../components/winter/projects'
 import Landing from '../components/winter/landing'
 import Recap from '../components/winter/recap'
 import { Zoom } from '../components/react-reveal-compat'
-import useSWR from 'swr'
-import fetcher from '../lib/fetcher'
-
 export function Winter() {
-  const { data: rsvps } = useSWR(
-    'https://airbridge.hackclub.com/v0.1/Winter%20Hardware%20Wonderland/rsvp',
-    fetcher,
-    { refreshInterval: 1000 }
-  )
-
-  const rsvpCount = rsvps
-    ? rsvps.filter(rsvp => rsvp.fields.Status === 'rsvp').length
-    : 1000 // arbitrary fallback number
   return (
     <>
       <Box as="main" sx={{ bg: 'blue' }}>
@@ -38,8 +26,7 @@ export function Winter() {
         <Nav />
         <Snowfall />
         <ForceTheme theme="light" />
-        {/* filter out rsvps that are "invalid" */}
-        <Landing rsvpCount={rsvpCount} />
+        <Landing />
         <Breakdown />
         <Projects />
         <InfoGrid />
@@ -54,24 +41,20 @@ export function Winter() {
                 maxWidth: '90%'
               }}
             >
-              You've RSVPed, what's next?
+              This event has ended
             </Heading>
             <Text as="p" sx={{ pb: 4, color: 'white', fontSize: [2, 3] }}>
-              Get a free hardware development kit by building a tile-based game
-              in{' '}
+              Winter Hardware Wonderland has wrapped up! Check out the amazing
+              projects that were built on{' '}
               <Link
-                href="https://github.com/hackclub/sprig#readme"
+                href="https://github.com/hackclub/winter"
                 target="_blank"
                 sx={{ color: 'inherit' }}
               >
-                Sprig
+                GitHub
               </Link>
-              . Or come hangout with us in #hardware-party on{' '}
-              <Link
-                target="_blank"
-                href="https://slack.hackclub.com"
-                sx={{ color: 'inherit' }}
-              >
+              , or come hang out with us on{' '}
+              <Link target="_blank" href="https://slack.hackclub.com" sx={{ color: 'inherit' }}>
                 Slack
               </Link>
               .
@@ -114,9 +97,7 @@ export function Winter() {
             <RealTimeline />
           </Flex>
         </Container>
-        <Box id="demo-account">
-          <Recap />
-        </Box>
+        <Recap />
         <WinterFooter />
       </Box>
     </>

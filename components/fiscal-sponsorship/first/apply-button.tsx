@@ -4,7 +4,9 @@ import Link from 'next/link'
 
 export default function ApplyButton() {
   return (
-    <Link href="/fiscal-sponsorship/apply?robotics-priority=true">
+    <Link
+      href="https://hcb.hackclub.com/applications/new"
+    >
       <Button
         variant="ctaLg"
         sx={{
