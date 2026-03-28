@@ -18,7 +18,6 @@
     "@apollo/client": "^4.1.6",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@fillout/react": "^3.0.0",
     "@hackclub/icons": "^0.2.1",
     "@hackclub/markdown": "^0.0.43",
     "@hackclub/meta": "^1.2.0",
