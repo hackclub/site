@@ -166,7 +166,10 @@ export default function First({ stats }) {
                 <Button variant="ctaLg">Open an account</Button>
               </a>
 
-              <a href="/fiscal-sponsorship/first/Hack_Club_Bank_for_FIRST_Teams.pdf" target="_blank">
+              <a
+                href="/fiscal-sponsorship/first/Hack_Club_Bank_for_FIRST_Teams.pdf"
+                target="_blank"
+              >
                 <Button
                   sx={{
                     backgroundImage: theme.util.gx('cyan', 'blue'),

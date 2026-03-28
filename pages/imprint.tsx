@@ -60,7 +60,9 @@ const Imprint = () => (
         </Text>
       </Box>
 
-      <Heading variant="headline" sx={{ mt: 4 }}>Registered Address</Heading>
+      <Heading variant="headline" sx={{ mt: 4 }}>
+        Registered Address
+      </Heading>
       <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
         8605 Santa Monica Blvd #86294
         <br />
@@ -69,31 +71,42 @@ const Imprint = () => (
         United States
       </Text>
 
-      <Heading variant="headline" sx={{ mt: 4 }}>Authorized Representative</Heading>
+      <Heading variant="headline" sx={{ mt: 4 }}>
+        Authorized Representative
+      </Heading>
       <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
         Zach Latta, Founder
       </Text>
 
-      <Heading variant="headline" sx={{ mt: 4 }}>Contact</Heading>
+      <Heading variant="headline" sx={{ mt: 4 }}>
+        Contact
+      </Heading>
       <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
         Email: <Link href="mailto:team@hackclub.com">team@hackclub.com</Link>
         <br />
         Phone: <Link href="tel:+18556254225">+1-855-625-HACK</Link>
       </Text>
 
-      <Heading variant="headline" sx={{ mt: 4 }}>VAT ID</Heading>
+      <Heading variant="headline" sx={{ mt: 4 }}>
+        VAT ID
+      </Heading>
       <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
         Not applicable (U.S. nonprofit organization)
       </Text>
 
-      <Heading variant="headline" sx={{ mt: 4 }}>Legal Status</Heading>
+      <Heading variant="headline" sx={{ mt: 4 }}>
+        Legal Status
+      </Heading>
       <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
-        Hack Club is a California nonprofit public benefit corporation, recognized as a 501(c)(3) organization under U.S. law.
+        Hack Club is a California nonprofit public benefit corporation,
+        recognized as a 501(c)(3) organization under U.S. law.
         <br />
         EIN: 81-2908499
       </Text>
 
-      <Heading variant="headline" sx={{ mt: 4 }}>Responsible for Content (§ 18 MStV)</Heading>
+      <Heading variant="headline" sx={{ mt: 4 }}>
+        Responsible for Content (§ 18 MStV)
+      </Heading>
       <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
         Zach Latta, Founder
         <br />
@@ -104,16 +117,26 @@ const Imprint = () => (
         United States
       </Text>
 
-      <Heading variant="headline" sx={{ mt: 4 }}>Dispute Resolution</Heading>
+      <Heading variant="headline" sx={{ mt: 4 }}>
+        Dispute Resolution
+      </Heading>
       <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
-        Information on consumer dispute resolution entities in EU Member States is available at{' '}
-        <Link href="https://consumer-redress.ec.europa.eu/dispute-resolution-bodies">consumer-redress.ec.europa.eu</Link>.
-        As a U.S. nonprofit organization, Hack Club is not obligated or willing to participate in dispute resolution proceedings before a consumer arbitration board.
+        Information on consumer dispute resolution entities in EU Member States
+        is available at{' '}
+        <Link href="https://consumer-redress.ec.europa.eu/dispute-resolution-bodies">
+          consumer-redress.ec.europa.eu
+        </Link>
+        . As a U.S. nonprofit organization, Hack Club is not obligated or
+        willing to participate in dispute resolution proceedings before a
+        consumer arbitration board.
       </Text>
 
-      <Heading variant="headline" sx={{ mt: 4 }}>Notes</Heading>
+      <Heading variant="headline" sx={{ mt: 4 }}>
+        Notes
+      </Heading>
       <Text as="p" sx={{ mt: 2, fontSize: 2 }}>
-        This imprint is provided to satisfy common EU/German transparency expectations (e.g., §5 DDG) and US best practices.
+        This imprint is provided to satisfy common EU/German transparency
+        expectations (e.g., §5 DDG) and US best practices.
       </Text>
     </Container>
     <Footer />

@@ -14,7 +14,8 @@ export default function Jackpot() {
         alignItems: 'center',
         height: ['280px', '320px', '358.2px'],
         backgroundColor: '#5F1212',
-        backgroundImage: 'url("https://cdn.hackclub.com/019d0244-1c96-79a6-925f-254d6da371c3/banner_1.png")',
+        backgroundImage:
+          'url("https://cdn.hackclub.com/019d0244-1c96-79a6-925f-254d6da371c3/banner_1.png")',
         backgroundSize: 'cover',
         backgroundPosition: '40% center'
       }}
@@ -39,56 +40,56 @@ export default function Jackpot() {
             justifyContent: 'flex-start'
           }}
         >
-        <Image
-          src="https://cdn.hackclub.com/019d01dc-d676-746d-9fd9-794df0b50399/logo_draft.png"
-          alt="Jackpot"
-          sx={{
-            maxWidth: ['235px', '255px', '275px'],
-            height: ['76px', '86px', '96px'],
-            marginTop: '0px',
-            width: 'auto',
-            objectFit: 'contain'
-          }}
-        />
-        <Text
-          variant="subtitle"
-          as="p"
-          sx={{
-            fontFamily: 'system-ui, -apple-system, sans-serif',
-            color: 'white',
-            fontSize: ['19px', '21px', '23px'],
-            fontWeight: 600,
-            lineHeight: 1.5,
-            mb: 2,
-            maxWidth: '400px',
-            display: 'block',
-            textAlign: 'left'
-          }}
-        >
-          Spend time coding and enjoy prizes that YOU choose!
-        </Text>
-        <Box
-          as="a"
-          href="https://jackpot.hackclub.com/?utm_source=site_card"
-          target="_blank"
-          rel="noopener noreferrer"
-          sx={{
-            display: 'inline-block',
-            width: 'fit-content'
-          }}
-        >
           <Image
-            src="https://cdn.hackclub.com/019d0234-3adc-7ef6-9b62-7a6a96fc42da/join_button.png"
-            alt="Join Now"
+            src="https://cdn.hackclub.com/019d01dc-d676-746d-9fd9-794df0b50399/logo_draft.png"
+            alt="Jackpot"
             sx={{
-              height: ['80px', '96px', '112px'],
+              maxWidth: ['235px', '255px', '275px'],
+              height: ['76px', '86px', '96px'],
+              marginTop: '0px',
               width: 'auto',
-              '&:hover': {
-                opacity: 0.9
-              }
+              objectFit: 'contain'
             }}
           />
-        </Box>
+          <Text
+            variant="subtitle"
+            as="p"
+            sx={{
+              fontFamily: 'system-ui, -apple-system, sans-serif',
+              color: 'white',
+              fontSize: ['19px', '21px', '23px'],
+              fontWeight: 600,
+              lineHeight: 1.5,
+              mb: 2,
+              maxWidth: '400px',
+              display: 'block',
+              textAlign: 'left'
+            }}
+          >
+            Spend time coding and enjoy prizes that YOU choose!
+          </Text>
+          <Box
+            as="a"
+            href="https://jackpot.hackclub.com/?utm_source=site_card"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              display: 'inline-block',
+              width: 'fit-content'
+            }}
+          >
+            <Image
+              src="https://cdn.hackclub.com/019d0234-3adc-7ef6-9b62-7a6a96fc42da/join_button.png"
+              alt="Join Now"
+              sx={{
+                height: ['80px', '96px', '112px'],
+                width: 'auto',
+                '&:hover': {
+                  opacity: 0.9
+                }
+              }}
+            />
+          </Box>
         </Box>
         <Flex sx={{ justifyContent: 'center', alignItems: 'center' }}>
           <Box
@@ -99,7 +100,7 @@ export default function Jackpot() {
               display: ['none', 'none', 'block', 'block'],
               '@keyframes breathe': {
                 '0%': { transform: 'scale(1)' },
-              '50%': { transform: 'scale(1.01) rotate(3deg)' },
+                '50%': { transform: 'scale(1.01) rotate(3deg)' },
                 '100%': { transform: 'scale(1)' }
               }
             }}

@@ -1,3 +1,3 @@
-import { Button } from "theme-ui";
+import { Button } from 'theme-ui'
 
-export const AButton = Button as any;
+export const AButton = Button as any

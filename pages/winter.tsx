@@ -2,15 +2,7 @@
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
-import {
-  Box,
-  Container,
-  Heading,
-  Text,
-  Image,
-  Link,
-  Flex
-} from 'theme-ui'
+import { Box, Container, Heading, Text, Image, Link, Flex } from 'theme-ui'
 import Snowfall from 'react-snowfall'
 import WinterFooter from '../components/winter/footer'
 import ForceTheme from '../components/force-theme'
@@ -62,7 +54,11 @@ export function Winter() {
                 GitHub
               </Link>
               , or come hang out with us on{' '}
-              <Link target="_blank" href="https://slack.hackclub.com" sx={{ color: 'inherit' }}>
+              <Link
+                target="_blank"
+                href="https://slack.hackclub.com"
+                sx={{ color: 'inherit' }}
+              >
                 Slack
               </Link>
               .

@@ -24,9 +24,7 @@ const StyledLink = styled(NextLink)`
 
 const Link = props => {
   const { href } = props
-  return (
-    <StyledLink href={href}>{props.children}</StyledLink>
-  )
+  return <StyledLink href={href}>{props.children}</StyledLink>
 }
 
 const RelonPage = () => (

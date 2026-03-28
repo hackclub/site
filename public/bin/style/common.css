@@ -1,43 +1,43 @@
 @font-face {
-    font-family: "Lexend";
-    src: url("./Lexend.ttf");
+  font-family: 'Lexend';
+  src: url('./Lexend.ttf');
 }
 
 @font-face {
-    font-family: "Phantom Sans";
-    src: url("./PhantomSans_Regular.woff");
+  font-family: 'Phantom Sans';
+  src: url('./PhantomSans_Regular.woff');
 }
 
 @font-face {
-    font-family: "Phantom Sans";
-    src: url("./PhantomSans_Bold.woff");
-    font-weight: bold;
+  font-family: 'Phantom Sans';
+  src: url('./PhantomSans_Bold.woff');
+  font-weight: bold;
 }
 
 @font-face {
-  font-family: "Helvetica";
-  src: url("./helvetica.woff") format("woff");
+  font-family: 'Helvetica';
+  src: url('./helvetica.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Helvetica";
-  src: url("./helvetica-bold.woff") format("woff");
+  font-family: 'Helvetica';
+  src: url('./helvetica-bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
 }
 
 body {
-    background-color: #EBECE0;
-    background-image: url(../icons/new-background.svg);
-    background-size: 50px;
-    background-repeat: repeat;
-    margin: 0;
+  background-color: #ebece0;
+  background-image: url(../icons/new-background.svg);
+  background-size: 50px;
+  background-repeat: repeat;
+  margin: 0;
 }
 
 * {
-    font-family: "Phantom Sans";
+  font-family: 'Phantom Sans';
 }
 
 h1,
@@ -45,10 +45,10 @@ h2,
 h3,
 h4,
 h5 {
-    margin: 0;
-    font-weight: bolder;
+  margin: 0;
+  font-weight: bolder;
 }
 
 p {
-    margin: 0;
+  margin: 0;
 }

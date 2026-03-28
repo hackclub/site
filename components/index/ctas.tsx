@@ -24,7 +24,8 @@ export default function CTAS({ cards }) {
             justifyContent: ['center', 'center', 'flex-start'],
             mt: 1,
             pt: 3
-          }}>
+          }}
+        >
           {cards.map((card, idx) => {
             const {
               background,
@@ -44,7 +45,7 @@ export default function CTAS({ cards }) {
               logoScale,
 
               link
-            } = card;
+            } = card
 
             return (
               <Box
@@ -60,12 +61,14 @@ export default function CTAS({ cards }) {
                   width: ['100%', '100%', '240px'],
                   minWidth: ['100%', '100%', '240px'],
                   boxShadow: '0 4px 8px rgba(0, 0, 0, 0.125)',
-                  transition: 'transform .125s ease-in-out, box-shadow .125s ease-in-out',
+                  transition:
+                    'transform .125s ease-in-out, box-shadow .125s ease-in-out',
                   textDecoration: 'none',
                   overflow: animatedStickers ? 'visible' : undefined,
                   '&:hover': { transform: 'scale(1.0625)' },
                   '.icon': {
-                    transition: 'transform 0.25s ease-in-out, opacity 0.43s ease-in-out'
+                    transition:
+                      'transform 0.25s ease-in-out, opacity 0.43s ease-in-out'
                   },
                   ':hover,:focus': {
                     '.icon': {
@@ -99,10 +102,18 @@ export default function CTAS({ cards }) {
                         alt=""
                         sx={{
                           position: 'absolute',
-                          ...(sticker.top !== undefined && { top: sticker.top }),
-                          ...(sticker.bottom !== undefined && { bottom: sticker.bottom }),
-                          ...(sticker.right !== undefined && { right: sticker.right }),
-                          ...(sticker.left !== undefined && { left: sticker.left }),
+                          ...(sticker.top !== undefined && {
+                            top: sticker.top
+                          }),
+                          ...(sticker.bottom !== undefined && {
+                            bottom: sticker.bottom
+                          }),
+                          ...(sticker.right !== undefined && {
+                            right: sticker.right
+                          }),
+                          ...(sticker.left !== undefined && {
+                            left: sticker.left
+                          }),
                           width: sticker.width || '120px',
                           height: 'auto',
                           transform: `rotate(${sticker.rotate || '15deg'})`,
@@ -124,7 +135,8 @@ export default function CTAS({ cards }) {
                       bottom: '-30px',
                       right: '-30px',
                       width:
-                        stickerImageScale !== null && stickerImageScale !== undefined
+                        stickerImageScale !== null &&
+                        stickerImageScale !== undefined
                           ? [
                               `${120 * stickerImageScale}px`,
                               `${140 * stickerImageScale}px`,
@@ -142,16 +154,22 @@ export default function CTAS({ cards }) {
                   // variant="interactive"
                   sx={{
                     background,
-                    backgroundImage: gridBackground 
+                    backgroundImage: gridBackground
                       ? 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)'
                       : backgroundImage,
-                    backgroundSize: gridBackground ? '50px 50px' : backgroundSize,
+                    backgroundSize: gridBackground
+                      ? '50px 50px'
+                      : backgroundSize,
                     backgroundPosition: gridBackground ? '0 0, 0 0' : undefined,
                     position: 'relative',
                     color: 'white',
                     width: ['100%', '100%', '240px'],
                     minWidth: ['100%', '100%', 'initial'],
-                    padding: ['12px !important', '16px !important', '20px !important'],
+                    padding: [
+                      '12px !important',
+                      '16px !important',
+                      '20px !important'
+                    ],
                     paddingTop: [
                       '14px !important',
                       '20px !important',
@@ -172,15 +190,15 @@ export default function CTAS({ cards }) {
                       zIndex: 2,
                       height: '40px',
                       objectFit: 'contain',
-                      transform: logoScale ? `scale(${logoScale})` : undefined,
+                      transform: logoScale ? `scale(${logoScale})` : undefined
                     }}
                   />
                   <Text
                     as="p"
                     sx={{
-                      color: descriptionColor, 
+                      color: descriptionColor,
                       fontSize: [1, '16px', '18px'],
-                      my: 2,
+                      my: 2
                     }}
                   >
                     {description}
@@ -201,7 +219,6 @@ export default function CTAS({ cards }) {
               </Box>
             )
           })}
-          
         </Box>
       )}
     </PageVisibility>

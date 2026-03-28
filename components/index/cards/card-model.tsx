@@ -19,7 +19,7 @@ const CardModel = ({
   delay,
   position,
   filter,
-  visible=false,
+  visible = false,
   ...props
 }: {
   [x: string]: any
@@ -40,7 +40,7 @@ const CardModel = ({
   visible?: boolean
 }) => (
   // <Zoom delay={delay}>
-  (<Card
+  <Card
     sx={{
       position: 'relative',
       width: '100%',
@@ -171,7 +171,7 @@ const CardModel = ({
     )}
     {children}
     <ReactTooltip />
-  </Card>)
+  </Card>
   // </Zoom>
 )
 

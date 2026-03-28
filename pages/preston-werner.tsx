@@ -1,10 +1,4 @@
-import {
-  Avatar,
-  Box,
-  Container,
-  Heading,
-  Text
-} from 'theme-ui'
+import { Avatar, Box, Container, Heading, Text } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
@@ -35,7 +29,7 @@ const Page = () => (
         pt: [5, 6],
         pb: [4, 5],
         bg: 'rgb(104, 41, 205)',
-        backgroundImage: (t: any)=> t.util.gx('yellow', 'red')
+        backgroundImage: (t: any) => t.util.gx('yellow', 'red')
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>

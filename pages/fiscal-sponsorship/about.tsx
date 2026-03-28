@@ -459,10 +459,7 @@ export default function FiscalSponsorship() {
             Looking for nonprofit status and not a religious or political
             organization? We’d love to meet you and chat about working together.
             Feel free to apply
-            <Link href="https://hcb.hackclub.com/applications/new">
-              {' '}
-              here{' '}
-            </Link>
+            <Link href="https://hcb.hackclub.com/applications/new"> here </Link>
             or
             <Link href="mailto:hcb@hackclub.com"> email our team </Link>if you
             have more questions about fiscal sponsorship!

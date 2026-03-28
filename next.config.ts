@@ -19,12 +19,15 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'hc-cdn.hel1.your-objectstorage.com' },
       { protocol: 'https', hostname: 'cdn.prod.website-files.com' },
       { protocol: 'https', hostname: 'cloud-*-hack-club-bot.vercel.app' },
-      { protocol: 'https', hostname: 'cdn.hack.pet'},
-      { protocol: 'https', hostname: 'cdn.hackclubber.dev'},
+      { protocol: 'https', hostname: 'cdn.hack.pet' },
+      { protocol: 'https', hostname: 'cdn.hackclubber.dev' },
       { protocol: 'https', hostname: 'github.com' },
       { protocol: 'https', hostname: 'avatars1.githubusercontent.com' },
       { protocol: 'https', hostname: 'ca.slack-edge.com' },
-      { protocol: 'https', hostname: 'scrapbook-into-the-redwoods.s3.us-east-1.amazonaws.com' },
+      {
+        protocol: 'https',
+        hostname: 'scrapbook-into-the-redwoods.s3.us-east-1.amazonaws.com'
+      },
       { protocol: 'https', hostname: 'cloud-5v0kfmsva.vercel.app' }
     ]
   },
@@ -79,7 +82,11 @@ const nextConfig: NextConfig = {
         destination: '/deprecated/challenge/',
         permanent: true
       },
-      { source: '/slack_invite/', destination: 'https://slack.hackclub.com', permanent: true },
+      {
+        source: '/slack_invite/',
+        destination: 'https://slack.hackclub.com',
+        permanent: true
+      },
       {
         source: '/first/',
         destination: '/bank/first/',
@@ -105,8 +112,16 @@ const nextConfig: NextConfig = {
         destination: '/winter/',
         permanent: false
       },
-      { source: '/workshops/slack/', destination: 'https://slack.hackclub.com', permanent: true },
-      { source: '/community/', destination: 'https://slack.hackclub.com', permanent: true },
+      {
+        source: '/workshops/slack/',
+        destination: 'https://slack.hackclub.com',
+        permanent: true
+      },
+      {
+        source: '/community/',
+        destination: 'https://slack.hackclub.com',
+        permanent: true
+      },
       { source: '/hack_camp/', destination: '/camp/', permanent: true },
       { source: '/branding/', destination: '/brand/', permanent: true },
       { source: '/ama/', destination: '/amas/', permanent: false },

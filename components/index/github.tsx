@@ -26,7 +26,7 @@ export default function GitHub({
       variant="pill"
       bg="snow"
       as="a"
-      {...({href: url || 'https://github.com/hackclub'} as any)}
+      {...({ href: url || 'https://github.com/hackclub' } as any)}
       target="_blank"
       rel="noopener"
       sx={{

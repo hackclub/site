@@ -5,7 +5,7 @@ import Head from 'next/head'
 import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
 import { Box, Text, Flex, Grid, Card, Close, Divider, Heading } from 'theme-ui'
-import Image from "next/image"
+import Image from 'next/image'
 import fs from 'fs'
 import path from 'path'
 import { startCase } from 'lodash'
@@ -215,7 +215,13 @@ const Powerups = ({
           alignItems: 'center'
         }}
       >
-        <Image src={img} width={360} height={250} style={{ width: '100%', height: 'auto', objectFit: 'contain' }} alt={text} />
+        <Image
+          src={img}
+          width={360}
+          height={250}
+          style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
+          alt={text}
+        />
       </Flex>
       <Flex
         sx={{
@@ -293,7 +299,9 @@ const Powerups = ({
           }
         }}
         onClick={() => {
-          ;(document.getElementById(`${text}-info`) as HTMLDialogElement).showModal()
+          ;(
+            document.getElementById(`${text}-info`) as HTMLDialogElement
+          ).showModal()
         }}
       >
         📦
@@ -323,7 +331,9 @@ const Powerups = ({
             zIndex: 2
           }}
           onClick={() => {
-            ;(document.getElementById(`${text}-info`) as HTMLDialogElement).close()
+            ;(
+              document.getElementById(`${text}-info`) as HTMLDialogElement
+            ).close()
           }}
         />
         <Flex
@@ -338,7 +348,13 @@ const Powerups = ({
             src={img}
             width={360}
             height={250}
-            style={{ maxWidth: '360px', maxHeight: '250px', width: 'auto', height: 'auto', objectFit: 'contain' }}
+            style={{
+              maxWidth: '360px',
+              maxHeight: '250px',
+              width: 'auto',
+              height: 'auto',
+              objectFit: 'contain'
+            }}
             alt={text}
           />
           <Balancer>
@@ -444,7 +460,13 @@ const Intro = ({ title, num, text, img, third, ...props }) => {
         alt="Dino drawing"
         width={210}
         height={210}
-        style={{ height: 'auto', maxWidth: '210px', position: 'absolute', right: '-20px', bottom: '0' }}
+        style={{
+          height: 'auto',
+          maxWidth: '210px',
+          position: 'absolute',
+          right: '-20px',
+          bottom: '0'
+        }}
         sx={{ width: ['35%', '35%', '35%', '50%'] }}
       />
     </Box>
@@ -567,7 +589,12 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
                   alt="Need an idea?"
                   width={400}
                   height={300}
-                  style={{ margin: '0 auto', display: 'inline', width: 'auto', height: '8em' }}
+                  style={{
+                    margin: '0 auto',
+                    display: 'inline',
+                    width: 'auto',
+                    height: '8em'
+                  }}
                   sx={{
                     mb: ['-120px', '-20px', '-30px', '-30px'],
                     transform: [
@@ -624,9 +651,10 @@ const Sticker = ({ st }) => {
             height={128}
             alt={st.split('.')[0]}
             style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
+              maxWidth: '100%',
+              height: 'auto'
+            }}
+          />
           <Text
             as="span"
             variant="caption"
@@ -656,7 +684,7 @@ const Sticker = ({ st }) => {
         />
       </Box>
     </Box>
-  );
+  )
 }
 
 const Item = ({ name, img, cost }) => {
@@ -692,7 +720,13 @@ const Item = ({ name, img, cost }) => {
         alt={name}
         width={300}
         height={300}
-        style={{ maxHeight: '100%', width: 'auto', height: 'auto', margin: 'auto', maxWidth: '100%' }}
+        style={{
+          maxHeight: '100%',
+          width: 'auto',
+          height: 'auto',
+          margin: 'auto',
+          maxWidth: '100%'
+        }}
         sx={{
           position: 'relative',
           zIndex: 1
@@ -741,7 +775,9 @@ async function generateProjectIdea() {
     return
   }
 
-  ;(document.querySelector('#generate-project-idea') as HTMLElement).style.marginTop = '0px'
+  ;(
+    document.querySelector('#generate-project-idea') as HTMLElement
+  ).style.marginTop = '0px'
   ;(document.querySelector('#console') as HTMLElement).style.marginTop = '-50px'
   ;(document.querySelector('#console2') as HTMLElement).style.opacity = '0'
   ;(document.querySelector('#project-idea') as HTMLElement).style.opacity = '1'
@@ -831,7 +867,14 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           alt="beige swirly pattern"
           width={1200}
           height={1200}
-          style={{ position: 'absolute', width: '110vw', height: 'auto', transform: 'rotate(-30deg)', bottom: '-30vw', right: '-35vw' }}
+          style={{
+            position: 'absolute',
+            width: '110vw',
+            height: 'auto',
+            transform: 'rotate(-30deg)',
+            bottom: '-30vw',
+            right: '-35vw'
+          }}
           sx={{ display: ['none', 'none', 'none', 'block'] }}
         />
         <Grid
@@ -855,7 +898,11 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                   alt={'GitHub + Hack Club'}
                   width={212}
                   height={70}
-                  style={{ height: 'auto', marginBottom: '16px', margin: 'auto' }}
+                  style={{
+                    height: 'auto',
+                    marginBottom: '16px',
+                    margin: 'auto'
+                  }}
                   sx={{ width: ['112px', '112px', '212px'] }}
                   src="https://cloud-e3wj9s4pe-hack-club-bot.vercel.app/00combo__1_.png"
                 />
@@ -934,13 +981,16 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                     display: 'block'
                   }}
                 >
-                  The Arcade closed September 1st, but you can still join the <a
-                      href="https://slack.hackclub.com"
-                      target="_blank"
-                      sx={{ color: 'inherit' }} rel="noreferrer"
-                    >
-                      Hack Club Slack
-                    </a>!
+                  The Arcade closed September 1st, but you can still join the{' '}
+                  <a
+                    href="https://slack.hackclub.com"
+                    target="_blank"
+                    sx={{ color: 'inherit' }}
+                    rel="noreferrer"
+                  >
+                    Hack Club Slack
+                  </a>
+                  !
                 </Text>
               )}
             </Fade>
@@ -988,7 +1038,12 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           alt="blue scribble pattern"
           width={1200}
           height={300}
-          style={{ width: '100%', height: 'auto', position: 'absolute', top: '-20vw' }}
+          style={{
+            width: '100%',
+            height: 'auto',
+            position: 'absolute',
+            top: '-20vw'
+          }}
         />
         <Box
           sx={{
@@ -1042,7 +1097,13 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 alt=""
                 width={100}
                 height={100}
-                style={{ width: '100px', height: 'auto', position: 'absolute', left: '-110px', bottom: '0' }}
+                style={{
+                  width: '100px',
+                  height: 'auto',
+                  position: 'absolute',
+                  left: '-110px',
+                  bottom: '0'
+                }}
                 sx={{ display: ['none', 'none', 'block', 'block'] }}
               />
               <Image
@@ -1050,7 +1111,13 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 alt="arrow"
                 width={90}
                 height={90}
-                style={{ width: '90px', height: 'auto', position: 'absolute', right: '-120px', bottom: '0' }}
+                style={{
+                  width: '90px',
+                  height: 'auto',
+                  position: 'absolute',
+                  right: '-120px',
+                  bottom: '0'
+                }}
                 sx={{ display: ['none', 'none', 'block', 'block'] }}
               />
               {/* <Text
@@ -1094,7 +1161,8 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                     <a
                       href="https://slack.hackclub.com"
                       target="_blank"
-                      sx={{ color: 'inherit' }} rel="noreferrer"
+                      sx={{ color: 'inherit' }}
+                      rel="noreferrer"
                     >
                       Hack Club Slack
                     </a>{' '}
@@ -1117,7 +1185,13 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 alt="arrow"
                 width={250}
                 height={250}
-                style={{ width: '250px', height: 'auto', position: 'absolute', left: '35vw', bottom: '-120px' }}
+                style={{
+                  width: '250px',
+                  height: 'auto',
+                  position: 'absolute',
+                  left: '35vw',
+                  bottom: '-120px'
+                }}
                 sx={{ display: ['none', 'none', 'block', 'block'] }}
               />
             </Flex>
@@ -1168,7 +1242,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 position: 'relative',
                 marginBottom: ['-900px', '-820px', '-850px', '-1020px'],
                 marginTop: ['120px', '120px', '120px', '150px'],
-                width: ['110vw','105vw']
+                width: ['110vw', '105vw']
               }}
             >
               <Ticker speed={5}>
@@ -1193,7 +1267,12 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           alt="blue triangle"
           width={1200}
           height={300}
-          style={{ width: '100%', height: 'auto', position: 'absolute', bottom: '-16vw' }}
+          style={{
+            width: '100%',
+            height: 'auto',
+            position: 'absolute',
+            bottom: '-16vw'
+          }}
         />
       </Box>
 
@@ -1408,8 +1487,17 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               alt=""
               width={210}
               height={210}
-              style={{ height: 'auto', maxWidth: '210px', position: 'absolute', right: '10px', top: '0' }}
-              sx={{ width: ['35%', '35%', '35%', '50%'], display: ['none', 'none', 'none', 'block'] }}
+              style={{
+                height: 'auto',
+                maxWidth: '210px',
+                position: 'absolute',
+                right: '10px',
+                top: '0'
+              }}
+              sx={{
+                width: ['35%', '35%', '35%', '50%'],
+                display: ['none', 'none', 'none', 'block']
+              }}
             />
           </Grid>
         </Box>
@@ -1418,7 +1506,14 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           alt="jig jag yellow design"
           width={1200}
           height={200}
-          style={{ width: '100%', height: 'auto', position: 'absolute', left: 0, bottom: '-10vw', zIndex: 3 }}
+          style={{
+            width: '100%',
+            height: 'auto',
+            position: 'absolute',
+            left: 0,
+            bottom: '-10vw',
+            zIndex: 3
+          }}
         />
       </Box>
       <Box
@@ -1435,16 +1530,36 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           alt=""
           width={310}
           height={310}
-          style={{ height: 'auto', maxWidth: '310px', position: 'absolute', right: '10px', top: '40px', zIndex: 0 }}
-          sx={{ width: ['45%', '45%', '45%', '60%'], display: ['none', 'none', 'none', 'block'] }}
+          style={{
+            height: 'auto',
+            maxWidth: '310px',
+            position: 'absolute',
+            right: '10px',
+            top: '40px',
+            zIndex: 0
+          }}
+          sx={{
+            width: ['45%', '45%', '45%', '60%'],
+            display: ['none', 'none', 'none', 'block']
+          }}
         />
         <Image
           src="/arcade/o6.png"
           alt=""
           width={210}
           height={210}
-          style={{ height: 'auto', maxWidth: '210px', position: 'absolute', left: '10px', top: '70px', zIndex: 0 }}
-          sx={{ width: ['30%', '30%', '30%', '40%'], display: ['none', 'none', 'none', 'block'] }}
+          style={{
+            height: 'auto',
+            maxWidth: '210px',
+            position: 'absolute',
+            left: '10px',
+            top: '70px',
+            zIndex: 0
+          }}
+          sx={{
+            width: ['30%', '30%', '30%', '40%'],
+            display: ['none', 'none', 'none', 'block']
+          }}
         />
 
         <Box
@@ -1583,7 +1698,13 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             alt="blue scribble pattern"
             width={1200}
             height={300}
-            style={{ width: '100%', height: 'auto', position: 'absolute', top: '-8vw', zIndex: 0 }}
+            style={{
+              width: '100%',
+              height: 'auto',
+              position: 'absolute',
+              top: '-8vw',
+              zIndex: 0
+            }}
           />
           <Box
             sx={{
@@ -1692,7 +1813,13 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             alt="Dino!"
             width={210}
             height={210}
-            style={{ height: 'auto', maxWidth: '210px', position: 'absolute', right: '20px', bottom: '0' }}
+            style={{
+              height: 'auto',
+              maxWidth: '210px',
+              position: 'absolute',
+              right: '20px',
+              bottom: '0'
+            }}
             sx={{ width: ['35%', '35%', '35%', '50%'] }}
           />
         </Box>

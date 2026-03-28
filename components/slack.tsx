@@ -103,7 +103,15 @@ const Slack = () => {
       >
         <Box
           as="video"
-          {...{ autoPlay: true, muted: true, loop: true, playsInline: true, poster: "https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png", duration: 2000 } as object}
+          {...({
+            autoPlay: true,
+            muted: true,
+            loop: true,
+            playsInline: true,
+            poster:
+              'https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png',
+            duration: 2000
+          } as object)}
           sx={{
             position: 'absolute',
             bottom: 0,

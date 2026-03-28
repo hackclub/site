@@ -1,13 +1,5 @@
 /** @jsxImportSource theme-ui */
-import {
-  Badge,
-  Box,
-  Button,
-  Container,
-  Grid,
-  Heading,
-  Text,
-} from 'theme-ui'
+import { Badge, Box, Button, Container, Grid, Heading, Text } from 'theme-ui'
 import NextLink from 'next/link'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'

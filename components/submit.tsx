@@ -21,7 +21,7 @@ const bg = {
   },
   disabled: {
     bg: 'gray',
-    backgroundImage: theme.util.gx('gray', 'gray'),
+    backgroundImage: theme.util.gx('gray', 'gray')
   }
 }
 
@@ -53,7 +53,11 @@ const Submit = ({
       mt: 3,
       fontSize: 2,
       width,
-      ...(disabled ? bg['disabled'] : (status === 'submitting' ? submitting : bg[status])),
+      ...(disabled
+        ? bg['disabled']
+        : status === 'submitting'
+          ? submitting
+          : bg[status]),
       ...sx
     }}
     disabled={status === 'submitting' || disabled}

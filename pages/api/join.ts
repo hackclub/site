@@ -28,7 +28,10 @@ async function postData(url = '', data = {}, headers = {}) {
   return response.text()
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   switch (req.method) {
     case 'OPTIONS':
       return res.status(200).send('YIPPE YAY. YOU HAVE CLEARANCE TO PROCEED.')
@@ -69,7 +72,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const forwardedFor = Array.isArray(req.headers['x-forwarded-for'])
     ? req.headers['x-forwarded-for'][0]
-    : req.headers['x-forwarded-for'];
+    : req.headers['x-forwarded-for']
   if (secrets.includes(forwardedFor)) {
     return res.json({
       status: 'success',

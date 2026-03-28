@@ -11,17 +11,11 @@ export const badges = [
   }
 ]
 
-export function getBadgesForOrg(
-  org: { [key: string]: any }
-): typeof badges {
-  return badges.filter((badge) => badge.match?.(org))
+export function getBadgesForOrg(org: { [key: string]: any }): typeof badges {
+  return badges.filter(badge => badge.match?.(org))
 }
 
-import {
-  Badge as ThemeBadge,
-  Box,
-  Flex,
-} from 'theme-ui'
+import { Badge as ThemeBadge, Box, Flex } from 'theme-ui'
 import { Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import Image from 'next/image'
@@ -48,7 +42,10 @@ type OrganizationModalProps = {
   }
   onClose: () => void
 }
-export function OrganizationModal({ organization, onClose }: OrganizationModalProps) {
+export function OrganizationModal({
+  organization,
+  onClose
+}: OrganizationModalProps) {
   return (
     <Box
       sx={{

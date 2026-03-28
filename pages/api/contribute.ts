@@ -12,7 +12,10 @@ const auth = createAppAuth({
   installationId: process.env.GITHUB_INSTALLATION_ID as string
 })
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const { organization } = await graphql<OrgQueryResponse>(
     !req.query.admin
       ? `

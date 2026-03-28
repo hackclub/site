@@ -60,8 +60,6 @@ const Base = styled(Link)<{ uwu?: boolean }>`
   ${scrolled};
 `
 
-const Flag = props => (
-  <Base href="/" title="Homepage" {...props} />
-)
+const Flag = props => <Base href="/" title="Homepage" {...props} />
 
 export default Flag

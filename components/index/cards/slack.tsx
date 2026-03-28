@@ -90,10 +90,10 @@ export default function Slack({ data, events }) {
             variant="subtitle"
             sx={{ fontSize: [1, '16px', '24px'] }}
           >
-            Coding doesn't have to be a solitary activity. At Hack&nbsp;Club,
-            we make remarkable things together, and in our Slack you'll find 
-            awesome people to hang out with too. Code together, find your programming 
-            community, dream up something wild, or just #lounge.
+            Coding doesn't have to be a solitary activity. At Hack&nbsp;Club, we
+            make remarkable things together, and in our Slack you'll find
+            awesome people to hang out with too. Code together, find your
+            programming community, dream up something wild, or just #lounge.
           </Text>
           <Text as="p" variant="subtitle">
             Occasionally we invite someone we really want to speak to (like Sal

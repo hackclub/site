@@ -6,7 +6,7 @@ import {
   Grid,
   Heading,
   Input,
-  Image as ThemeImage,
+  Image as ThemeImage
 } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
@@ -437,7 +437,12 @@ const RegionPanel = ({ currentRegion, mobile }: RegionPanelProps) => {
                     borderRadius: 6
                   }}
                 >
-                  <Icon glyph={item.icon as keyof typeof import('@hackclub/icons').glyphs} size={24} />
+                  <Icon
+                    glyph={
+                      item.icon as keyof typeof import('@hackclub/icons').glyphs
+                    }
+                    size={24}
+                  />
                 </Flex>
               )}
               <Heading as="h4" sx={{ color: 'inherit', fontSize: 3 }}>

@@ -697,15 +697,15 @@ const PizzaPage = () => {
               />
               <Box>
                 <Link href="/clubs">
-                <Button
-                  variant="outline"
-                  mt={[3, 0, 0]}
-                  sx={{
-                    fontSize: '18px'
-                  }}
-                >
-                  Start A Club
-                </Button>
+                  <Button
+                    variant="outline"
+                    mt={[3, 0, 0]}
+                    sx={{
+                      fontSize: '18px'
+                    }}
+                  >
+                    Start A Club
+                  </Button>
                 </Link>
               </Box>
             </Box>

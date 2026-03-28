@@ -20,22 +20,17 @@ export default function HCBCTA() {
             Looking to start a nonprofit?
           </Heading>
           <Text variant="subtitle" sx={{ lineHeight: 'caption', mb: 3 }}>
-            We're accepting applications! No startup fees, no minimum balance, and no long wait time.
+            We're accepting applications! No startup fees, no minimum balance,
+            and no long wait time.
           </Text>
           <br />
           <br />
           <NextLink href="/fiscal-sponsorship">
-            <Button bg="cyan">
-              Learn more
-            </Button>
+            <Button bg="cyan">Learn more</Button>
           </NextLink>
-
           &nbsp;&nbsp;&nbsp;
-
           <NextLink href="https://nonprofit.new">
-            <Button bg="orange">
-              Apply now
-            </Button>
+            <Button bg="orange">Apply now</Button>
           </NextLink>
         </Box>
       </Grid>

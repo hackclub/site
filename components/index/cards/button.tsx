@@ -34,7 +34,13 @@ export default function Buttons({
   return (
     <Box
       as="button"
-      sx={{ background: 'transparent', border: 'none', color: 'white', zIndex: zIndex ||0, ...sx }}
+      sx={{
+        background: 'transparent',
+        border: 'none',
+        color: 'white',
+        zIndex: zIndex || 0,
+        ...sx
+      }}
       py={1}
       tabIndex={-1}
     >
@@ -44,7 +50,10 @@ export default function Buttons({
         data-effect="solid"
         data-tip
         sx={{
-          background: (typeof primary === 'string' ? primary : undefined) || overrideColor || 'rgb(255, 255, 255, 0.3)',
+          background:
+            (typeof primary === 'string' ? primary : undefined) ||
+            overrideColor ||
+            'rgb(255, 255, 255, 0.3)',
           borderRadius: '100px',
           border: 'none',
           display: 'flex',
@@ -57,7 +66,7 @@ export default function Buttons({
           fontSize: primary ? ['18px', '20px', '22px'] : [1, '16px', '18px'],
           backdropFilter: 'blur(2px)',
           fontWeight: fontWeight,
-          zIndex: 999,
+          zIndex: 999
         }}
         as="a"
         href={link || '/'}

@@ -1,8 +1,4 @@
-import {
-  Box,
-  Container,
-  Heading,
-} from 'theme-ui'
+import { Box, Container, Heading } from 'theme-ui'
 import {
   PillHolder,
   AuthorPill,
@@ -28,9 +24,7 @@ const StyledLink = styled(NextLink)`
 
 const RelonLink = props => {
   const { href } = props
-  return (
-    <StyledLink href={href}>{props.children}</StyledLink>
-  )
+  return <StyledLink href={href}>{props.children}</StyledLink>
 }
 
 const RelonPage = () => (

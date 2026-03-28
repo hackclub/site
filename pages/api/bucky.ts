@@ -1,7 +1,10 @@
-import { NextApiRequest, NextApiResponse } from "next"
+import { NextApiRequest, NextApiResponse } from 'next'
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const result = await fetch("https://bucky.hackclub.com", {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  const result = await fetch('https://bucky.hackclub.com', {
     method: 'POST',
     body: req.body,
     headers: {

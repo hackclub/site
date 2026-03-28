@@ -9,7 +9,7 @@ import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
-import Elon from "../components/announcements/elon.mdx"
+import Elon from '../components/announcements/elon.mdx'
 import SlackCTA from '../components/announcements/cta'
 import AnnouncementHolder from '../components/announcements/holder'
 

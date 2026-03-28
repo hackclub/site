@@ -12,7 +12,7 @@ import {
   Text,
   Avatar
 } from 'theme-ui'
-import NextImage from "next/image"
+import NextImage from 'next/image'
 import Marquee from '../marquee'
 import Photo1 from '../../public/winter/1.jpeg'
 import Photo2 from '../../public/winter/2.png'
@@ -53,10 +53,11 @@ const PhotoRow = ({ photos }) => (
             alt="Hack Club students"
             key={'image-' + index}
             style={{
-              maxWidth: "100%",
-              height: "auto",
-              objectFit: "cover"
-            }} />
+              maxWidth: '100%',
+              height: 'auto',
+              objectFit: 'cover'
+            }}
+          />
         ))}
       </Marquee>
     </Box>
@@ -72,10 +73,11 @@ const PhotoRow = ({ photos }) => (
             key={'image-' + index}
             alt="Hack Club students"
             style={{
-              maxWidth: "100%",
-              height: "auto",
-              objectFit: "cover"
-            }} />
+              maxWidth: '100%',
+              height: 'auto',
+              objectFit: 'cover'
+            }}
+          />
         ))}
       </Marquee>
     </Box>

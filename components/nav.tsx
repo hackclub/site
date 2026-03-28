@@ -137,14 +137,22 @@ const NavBar = styled(Box, {
 
 const Navigation = props => (
   // REMINDER: This should be no more than 7 links :)
-  (<NavBar role="navigation" {...props}>
-    <Link as={NextLink} href="/clubs">Clubs</Link>
-    <Link as={NextLink} href="/fiscal-sponsorship">Fiscal&nbsp;Sponsorship</Link>
-    <Link as={NextLink} href="/hackathons">Hackathons</Link>
+  <NavBar role="navigation" {...props}>
+    <Link as={NextLink} href="/clubs">
+      Clubs
+    </Link>
+    <Link as={NextLink} href="/fiscal-sponsorship">
+      Fiscal&nbsp;Sponsorship
+    </Link>
+    <Link as={NextLink} href="/hackathons">
+      Hackathons
+    </Link>
     <Link href="https://slack.hackclub.com">Join</Link>
     <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
-    <Link as={NextLink} href="/philanthropy">Donors</Link>
-  </NavBar>)
+    <Link as={NextLink} href="/philanthropy">
+      Donors
+    </Link>
+  </NavBar>
 )
 
 const ToggleContainer = styled(Flex)`
@@ -179,8 +187,8 @@ export default function Header({
   const [scrolled, setScrolled] = useState(false)
   const [toggled, setToggled] = useState(false)
   const [mobile, setMobile] = useState(false)
-  const searchParams = useSearchParams(); 
-  const isKawaii = searchParams.get('uwu') != null;
+  const searchParams = useSearchParams()
+  const isKawaii = searchParams.get('uwu') != null
 
   const onScroll = () => {
     const newState = window.scrollY >= 16
@@ -232,10 +240,7 @@ export default function Header({
       as="header"
     >
       <Content>
-        <Flag
-          scrolled={scrolled || fixed}
-          uwu={isKawaii}
-        />        
+        <Flag scrolled={scrolled || fixed} uwu={isKawaii} />
         <Navigation
           as="nav"
           aria-hidden={!!mobile}
@@ -258,4 +263,3 @@ export default function Header({
     </RootAny>
   )
 }
-

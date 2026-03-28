@@ -1,10 +1,5 @@
 /** @jsxImportSource theme-ui */
-import {
-  Box,
-  Card,
-  Heading,
-  Text,
-} from 'theme-ui'
+import { Box, Card, Heading, Text } from 'theme-ui'
 import { Zoom } from '../react-reveal-compat'
 import Icon from '@hackclub/icons'
 

@@ -4,7 +4,7 @@ import Head from 'next/head'
 import ForceTheme from '../../components/force-theme'
 import BGImg from '../../components/background-image'
 import NextLink from 'next/link'
-import Image from "next/image"
+import Image from 'next/image'
 import Nav from '../../components/nav'
 import SlideDown from '../../components/slide-down'
 import Footer from '../../components/footer'
@@ -122,9 +122,10 @@ const Page = ({ upcoming, past }) => (
                     src={event.amaAvatar}
                     alt={event.title}
                     style={{
-                      maxWidth: "100%",
-                      height: "auto"
-                    }} />
+                      maxWidth: '100%',
+                      height: 'auto'
+                    }}
+                  />
                   <Heading as="h3" variant="subheadline" my={2}>
                     {event.title.replace('AMA with ', '')}
                   </Heading>
@@ -180,14 +181,17 @@ const Page = ({ upcoming, past }) => (
                 src={event.amaAvatar}
                 alt={event.title}
                 style={{
-                  maxWidth: "100%",
-                  height: "auto"
-                }} />
+                  maxWidth: '100%',
+                  height: 'auto'
+                }}
+              />
               <Box ml={3}>
                 <Heading as="h3" variant="subheadline" mb={1}>
                   {event.title.replace('AMA with ', '')}
                 </Heading>
-                <Text as="p" variant="caption" mb={2} suppressHydrationWarning> {/* hydration ignored cause different date formats */}
+                <Text as="p" variant="caption" mb={2} suppressHydrationWarning>
+                  {' '}
+                  {/* hydration ignored cause different date formats */}
                   {dt(event.start)}
                 </Text>
                 {event.youtube && (

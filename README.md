@@ -6,21 +6,21 @@ Hack Club's new website. This codebase is what runs on [hackclub.com](https://ha
 
 1. Download the code to your computer:
 
-    ```bash
-    git clone https://github.com/hackclub/site && cd site
-    ```
+   ```bash
+   git clone https://github.com/hackclub/site && cd site
+   ```
 
 2. Install dependencies:
 
-    ```bash
-    bun install
-    ```
+   ```bash
+   bun install
+   ```
 
 3. Start running the website on your computer:
 
-    ```bash
-    bun run dev
-    ```
+   ```bash
+   bun run dev
+   ```
 
 4. Open up your web browser and go to [localhost:3000](http://localhost:3000)
 
@@ -61,13 +61,13 @@ If there's a Hack Club or Hack Club community-led project (past or present) that
 
 ```json
 {
-    "background": "dark",
-    "titleColor": "white",
-    "descriptionColor": "white",
-    "title": "Hackers Wanted",
-    "description": "Our open love letter to hackers",
-    "img": "https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f4bb@2x.png",
-    "link": "/hackers-wanted"
+  "background": "dark",
+  "titleColor": "white",
+  "descriptionColor": "white",
+  "title": "Hackers Wanted",
+  "description": "Our open love letter to hackers",
+  "img": "https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f4bb@2x.png",
+  "link": "/hackers-wanted"
 }
 ```
 

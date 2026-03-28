@@ -1,9 +1,12 @@
-async function yap(text, {
-  letterCallback = () => {},
-  endCallback = () => {},
-  baseRate = 1.9,
-  rateVariance = 0.50,
-}) {
+async function yap(
+  text,
+  {
+    letterCallback = () => {},
+    endCallback = () => {},
+    baseRate = 1.9,
+    rateVariance = 0.5
+  }
+) {
   let volume = 0.2
   // if (muted) { endCallback(); return }
   const yap_sounds = {
@@ -39,33 +42,37 @@ async function yap(text, {
     _: new Howl({ src: '/bin/yapping/_.wav', volume })
   }
 
-  text = text.toLowerCase();
-  const yap_queue = [];
+  text = text.toLowerCase()
+  const yap_queue = []
   for (let i = 0; i < text.length; i++) {
-    const char = text[i];
+    const char = text[i]
     try {
-      if (char === 's' && text[i + 1] === 'h') { // test for 'sh' sound
-        yap_queue.push(yap_sounds['sh']);
-        continue;
-      } else if (char === 't' && text[i + 1] === 'h') { // test for 'th' sound
-        yap_queue.push(yap_sounds['th']);
-        continue;
-      } else if (char === 'h' && (text[i - 1] === 's' || text[i - 1] === 't')) { // test if previous letter was 's' or 't' and current letter is 'h'
-        yap_queue.push(yap_sounds['_']);
-        continue;
+      if (char === 's' && text[i + 1] === 'h') {
+        // test for 'sh' sound
+        yap_queue.push(yap_sounds['sh'])
+        continue
+      } else if (char === 't' && text[i + 1] === 'h') {
+        // test for 'th' sound
+        yap_queue.push(yap_sounds['th'])
+        continue
+      } else if (char === 'h' && (text[i - 1] === 's' || text[i - 1] === 't')) {
+        // test if previous letter was 's' or 't' and current letter is 'h'
+        yap_queue.push(yap_sounds['_'])
+        continue
       } else if (char === ',' || char === '?' || char === '.') {
-        yap_queue.push(yap_sounds['_']);
-        continue;
-      } else if (char === text[i - 1]) { // skip repeat letters
-        yap_queue.push(yap_sounds['_']);
-        continue;
+        yap_queue.push(yap_sounds['_'])
+        continue
+      } else if (char === text[i - 1]) {
+        // skip repeat letters
+        yap_queue.push(yap_sounds['_'])
+        continue
       }
     } catch (e) {
       // who cares. pick up a foot ball
     }
     if (!char.match(/[a-zA-Z.]/)) {
       yap_queue.push(yap_sounds['_'])
-      continue; // skip characters that are not letters or periods
+      continue // skip characters that are not letters or periods
     }
     yap_queue.push(yap_sounds[char])
   }
@@ -82,5 +89,5 @@ async function yap(text, {
     noise.play()
   }
 
-  next_yap();
+  next_yap()
 }

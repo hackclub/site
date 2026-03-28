@@ -19,7 +19,10 @@ export default function Overview() {
           </Heading>
           <Grid columns={[null, null, 2]} gap={[3, 4]}>
             <Text as="p" variant="subtitle">
-              <Box as="span" sx={{ display: 'block', color: 'blue', fontSize: 28, mb: 2 }}>
+              <Box
+                as="span"
+                sx={{ display: 'block', color: 'blue', fontSize: 28, mb: 2 }}
+              >
                 The best way to learn is by <b>building</b>.
               </Box>
               A hackathon is a space that helps give makers everything they need
@@ -28,7 +31,10 @@ export default function Overview() {
               their own, ready and excited to keep hacking once they get home.
             </Text>
             <Text as="p" variant="subtitle">
-              <Box as="span" sx={{ display: 'block', color: 'green', fontSize: 28, mb: 2 }}>
+              <Box
+                as="span"
+                sx={{ display: 'block', color: 'green', fontSize: 28, mb: 2 }}
+              >
                 We're at our best when we're <b>making</b>.
               </Box>
               Hack Club is a global community of thousands of high school

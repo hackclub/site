@@ -87,10 +87,12 @@ export default function Team({ team }) {
         </Box>
         <Box bg="#f9f9fa" py={4}>
           <Container>
-            <Box sx={{
+            <Box
+              sx={{
                 mb: BOX_SPACING
-              }}>
-            <Text
+              }}
+            >
+              <Text
                 variant="headline"
                 mt={2}
                 mb={3}
@@ -99,44 +101,44 @@ export default function Team({ team }) {
               >
                 Board & Advisors
               </Text>
-            <Grid columns={[1, null, 2]} gap={5} mb={4}>
-            <BoardBox
-              img="/team/zach.jpg"
-              name="Zach Latta"
-              teamRole="Founder"
-              text="Zach dropped out of high school after his freshman year to work in the technology industry and had over 5 million people using his software by the time he turned 17. He founded Hack Club to build the program he wish he had in high school and has been awarded the Thiel Fellowship and Forbes 30 Under 30 for his work."
-              email="zach"
-            />
-            <BoardBox 
-              img="/team/christina.jpg"
-              name="Christina Asquith"
-              teamRole="Co-Founder and COO"
-              text="With more than a decade of experience in starting and leading organizations, Christina has built global teams and raised millions of dollars. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq. She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
-              email="christina"
-            />
-            </Grid>
-            <Grid columns={[1, null, 3]} gap={4} mb={4}>
-            <BoardBox 
-                img="https://i.ibb.co/gMVMqJzt/2026-01-27-0io-Kleki.jpg"
-                name="Tom Preston-Werner"
-                teamRole={<>Board Member</>}
-                subrole="Co-Founder, GitHub"
-                href="https://github.com/mojombo"
-              />
-              <BoardBox 
-                img="https://i.ibb.co/qMCYrJn8/sqs.jpg"
-                name="Quinn Slack"
-                teamRole={<>Board Member</>}
-                subrole="Co-Founder and CEO, AMP"
-                href="https://github.com/sqs"
-              />
-              <BoardBox 
-                img="https://i.ibb.co/0pGTSmks/2026-01-27-0il-Kleki.png"
-                name="John Abele"
-                teamRole={<>Board Advisor</>}
-                href="https://en.wikipedia.org/wiki/John_Abele"
-                subrole="Founder, Boston Scientific"
-              />
+              <Grid columns={[1, null, 2]} gap={5} mb={4}>
+                <BoardBox
+                  img="/team/zach.jpg"
+                  name="Zach Latta"
+                  teamRole="Founder"
+                  text="Zach dropped out of high school after his freshman year to work in the technology industry and had over 5 million people using his software by the time he turned 17. He founded Hack Club to build the program he wish he had in high school and has been awarded the Thiel Fellowship and Forbes 30 Under 30 for his work."
+                  email="zach"
+                />
+                <BoardBox
+                  img="/team/christina.jpg"
+                  name="Christina Asquith"
+                  teamRole="Co-Founder and COO"
+                  text="With more than a decade of experience in starting and leading organizations, Christina has built global teams and raised millions of dollars. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq. She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
+                  email="christina"
+                />
+              </Grid>
+              <Grid columns={[1, null, 3]} gap={4} mb={4}>
+                <BoardBox
+                  img="https://i.ibb.co/gMVMqJzt/2026-01-27-0io-Kleki.jpg"
+                  name="Tom Preston-Werner"
+                  teamRole={<>Board Member</>}
+                  subrole="Co-Founder, GitHub"
+                  href="https://github.com/mojombo"
+                />
+                <BoardBox
+                  img="https://i.ibb.co/qMCYrJn8/sqs.jpg"
+                  name="Quinn Slack"
+                  teamRole={<>Board Member</>}
+                  subrole="Co-Founder and CEO, AMP"
+                  href="https://github.com/sqs"
+                />
+                <BoardBox
+                  img="https://i.ibb.co/0pGTSmks/2026-01-27-0il-Kleki.png"
+                  name="John Abele"
+                  teamRole={<>Board Advisor</>}
+                  href="https://en.wikipedia.org/wiki/John_Abele"
+                  subrole="Founder, Boston Scientific"
+                />
               </Grid>
             </Box>
             <Box
@@ -156,7 +158,9 @@ export default function Team({ team }) {
               >
                 Hacker Resources Team
               </Text>
-              {team.current?.filter(member => member.department === 'HQ' && member.staff).length > 0 && (
+              {team.current?.filter(
+                member => member.department === 'HQ' && member.staff
+              ).length > 0 && (
                 <>
                   <Text
                     variant="headline"
@@ -169,7 +173,9 @@ export default function Team({ team }) {
                   </Text>
                   <Grid columns={[1, null, 2, 3]} gap={3}>
                     {team.current
-                      ?.filter(member => member.department === 'HQ' && member.staff)
+                      ?.filter(
+                        member => member.department === 'HQ' && member.staff
+                      )
                       .map(member => (
                         <Bio
                           img={member.avatar}
@@ -185,7 +191,9 @@ export default function Team({ team }) {
                   </Grid>
                 </>
               )}
-              {team.current?.filter(member => member.department === 'HQ' && member.gapyear).length > 0 && (
+              {team.current?.filter(
+                member => member.department === 'HQ' && member.gapyear
+              ).length > 0 && (
                 <>
                   <Text
                     variant="headline"
@@ -198,7 +206,9 @@ export default function Team({ team }) {
                   </Text>
                   <Grid columns={[1, null, 2, 3]} gap={3}>
                     {team.current
-                      ?.filter(member => member.department === 'HQ' && member.gapyear)
+                      ?.filter(
+                        member => member.department === 'HQ' && member.gapyear
+                      )
                       .map(member => (
                         <Bio
                           img={member.avatar}
@@ -214,7 +224,10 @@ export default function Team({ team }) {
                   </Grid>
                 </>
               )}
-              {team.current?.filter(member => member.department === 'HQ' && !member.gapyear && !member.staff).length > 0 && (
+              {team.current?.filter(
+                member =>
+                  member.department === 'HQ' && !member.gapyear && !member.staff
+              ).length > 0 && (
                 <>
                   <Text
                     variant="headline"
@@ -227,7 +240,12 @@ export default function Team({ team }) {
                   </Text>
                   <Grid columns={[1, null, 2, 3]} gap={3}>
                     {team.current
-                      ?.filter(member => member.department === 'HQ' && !member.gapyear && !member.staff)
+                      ?.filter(
+                        member =>
+                          member.department === 'HQ' &&
+                          !member.gapyear &&
+                          !member.staff
+                      )
                       .map(member => (
                         <Bio
                           img={member.avatar}
@@ -261,7 +279,9 @@ export default function Team({ team }) {
               >
                 HCB Team
               </Text>
-              {team.current?.filter(member => member.department === 'HCB' && member.staff).length > 0 && (
+              {team.current?.filter(
+                member => member.department === 'HCB' && member.staff
+              ).length > 0 && (
                 <>
                   <Text
                     variant="headline"
@@ -274,7 +294,9 @@ export default function Team({ team }) {
                   </Text>
                   <Grid columns={[1, null, 2, 3]} gap={3}>
                     {team.current
-                      ?.filter(member => member.department === 'HCB' && member.staff)
+                      ?.filter(
+                        member => member.department === 'HCB' && member.staff
+                      )
                       .map(member => (
                         <Bio
                           img={member.avatar}
@@ -290,7 +312,9 @@ export default function Team({ team }) {
                   </Grid>
                 </>
               )}
-              {team.current?.filter(member => member.department === 'HCB' && !member.staff).length > 0 && (
+              {team.current?.filter(
+                member => member.department === 'HCB' && !member.staff
+              ).length > 0 && (
                 <>
                   <Text
                     variant="headline"
@@ -303,7 +327,9 @@ export default function Team({ team }) {
                   </Text>
                   <Grid columns={[1, null, 2, 3]} gap={3}>
                     {team.current
-                      ?.filter(member => member.department === 'HCB' && !member.staff)
+                      ?.filter(
+                        member => member.department === 'HCB' && !member.staff
+                      )
                       .map(member => (
                         <Bio
                           img={member.avatar}
@@ -418,13 +444,19 @@ export default function Team({ team }) {
                   <Text
                     variant="title"
                     color="orange"
-                    sx={{ lineHeight: '1em', fontSize: [4, 5, 6], textAlign: 'center', textDecoration: 'underline' }}
+                    sx={{
+                      lineHeight: '1em',
+                      fontSize: [4, 5, 6],
+                      textAlign: 'center',
+                      textDecoration: 'underline'
+                    }}
                     as="h2"
                   >
                     Acknowledgements
                   </Text>
                   <Text sx={{ color: 'muted', fontSize: 2, mt: 2 }}>
-                    Thank you to everyone who helped shape Hack Club into what it is today...
+                    Thank you to everyone who helped shape Hack Club into what
+                    it is today...
                   </Text>
                 </Box>
               </Link>

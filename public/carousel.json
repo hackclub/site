@@ -20,7 +20,7 @@
     "img": "https://cdn.hackclub.com/019c76b8-9716-7a35-bf79-929ad4d6d873/Y86cSA.png",
     "link": "https://blueprint.hackclub.com/?utm_source=site-carousel"
   },
-   {
+  {
     "background": "linear-gradient(to bottom right, rgba(176, 209, 253, 0.7), rgba(222, 215, 247, 0.7))",
     "titleColor": "#5B4A8A",
     "descriptionColor": "#3D6098",
@@ -130,13 +130,13 @@
     "link": "https://hackclub.app"
   },
   {
-   "background": "#ec3750",
-   "titleColor": "white",
-   "descriptionColor": "white",
-   "title": "YSWS Programs",
-   "description": "Build something amazing, and Hack Club will ship you something epic in return.",
-   "img":"https://cdn.hackclub.com/019c16fa-1702-70f9-8fac-bc4d2731756d/image.png",
-   "link": "https://ysws.hackclub.com"
+    "background": "#ec3750",
+    "titleColor": "white",
+    "descriptionColor": "white",
+    "title": "YSWS Programs",
+    "description": "Build something amazing, and Hack Club will ship you something epic in return.",
+    "img": "https://cdn.hackclub.com/019c16fa-1702-70f9-8fac-bc4d2731756d/image.png",
+    "link": "https://ysws.hackclub.com"
   },
   {
     "background": "#7B4942",
@@ -155,5 +155,5 @@
     "description": "Ship a mod - Get Minecraft",
     "img": "https://emoji.slack-edge.com/T09V59WQY1E/minecraft/308decaa00e556b9.png",
     "link": "https://hackcraft.hackclub.com/"
-	}
+  }
 ]

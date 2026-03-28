@@ -54,41 +54,51 @@ const ANNOUNCEMENTS = [
     id: 'blueprint',
     expiresAt: new Date('2026-01-31'),
     copy: 'Get up to $400 to make a hardware project!',
-    caption: 'Design a project and get a grant to make it real with Blueprint, Hack Club\'s largest hardware program',
+    caption:
+      "Design a project and get a grant to make it real with Blueprint, Hack Club's largest hardware program",
     href: 'https://blueprint.hackclub.com/?utm_source=site-announcement',
-    imgSrc: 'https://cdn.hackclub.com/019c76b8-9716-7a35-bf79-929ad4d6d873/Y86cSA.png'
+    imgSrc:
+      'https://cdn.hackclub.com/019c76b8-9716-7a35-bf79-929ad4d6d873/Y86cSA.png'
   },
   {
     id: 'fallout',
     expiresAt: new Date('2026-07-01'),
     copy: 'Build hardware projects and fly to a hackathon in Shenzhen, China!',
-    caption: 'Spend 60 hours building hardware projects, earn a trip to Shenzhen for a hardware hackathon this July!',
+    caption:
+      'Spend 60 hours building hardware projects, earn a trip to Shenzhen for a hardware hackathon this July!',
     href: 'https://fallout.hackclub.com?utm_source=site-announcement',
-    imgSrc: 'https://cdn.hackclub.com/019cd51e-8a0d-704c-b3ed-7238d5ba4067/soup.png'
+    imgSrc:
+      'https://cdn.hackclub.com/019cd51e-8a0d-704c-b3ed-7238d5ba4067/soup.png'
   },
   {
     id: 'sleepover',
     expiresAt: new Date('2026-04-26'),
     copy: 'Learn to code and fly to a Sleepover hackathon!',
-    caption: 'Spend 30 hours learning to code, earn prizes like plushies and iPads, and fly out to an all girls hackathon this April in Chicago!',
+    caption:
+      'Spend 30 hours learning to code, earn prizes like plushies and iPads, and fly out to an all girls hackathon this April in Chicago!',
     href: 'https://sleepover.hackclub.com/?utm_source=site-announcement',
-    imgSrc: 'https://cdn.hackclub.com/019c76b8-c704-724a-9bcb-f0f2acf7c839/2gOaRg.png'
+    imgSrc:
+      'https://cdn.hackclub.com/019c76b8-c704-724a-9bcb-f0f2acf7c839/2gOaRg.png'
   },
   {
     id: 'stasis',
     expiresAt: new Date('2026-05-26'),
     copy: 'Build hardware projects and fly out to a hardware hackathon in Austin, TX ',
-    caption: 'Learn to design and build three hardware projects and fly out to Stasis, a hardware hackathon in Austin, TX this May!',
+    caption:
+      'Learn to design and build three hardware projects and fly out to Stasis, a hardware hackathon in Austin, TX this May!',
     href: 'https://stasis.hackclub.com/?utm_source=site-announcement',
-    imgSrc: 'https://cdn.hackclub.com/019c76ba-6439-7c9e-ac28-813ad404e0b5/i8kaDQ.png'
+    imgSrc:
+      'https://cdn.hackclub.com/019c76ba-6439-7c9e-ac28-813ad404e0b5/i8kaDQ.png'
   },
   {
     id: 'flavortown',
     expiresAt: new Date('2026-12-31'),
     copy: 'Build projects, earn cookies, get free tech!',
-    caption: 'Make a website, game, or hardware project and exchange cookies for iPads, MacBooks, and more',
+    caption:
+      'Make a website, game, or hardware project and exchange cookies for iPads, MacBooks, and more',
     href: 'https://flavortown.hackclub.com/?ref=site-announcement',
-    imgSrc: 'https://cdn.hackclub.com/019c76b5-b513-7f5a-8718-bea38d4abb80/DM6Ztg.avif'
+    imgSrc:
+      'https://cdn.hackclub.com/019c76b5-b513-7f5a-8718-bea38d4abb80/DM6Ztg.avif'
   }
 ]
 
@@ -109,7 +119,7 @@ const redBadgeSx = {
   backgroundColor: 'red',
   borderRadius: 10,
   color: 'white',
-  whiteSpace: 'nowrap',
+  whiteSpace: 'nowrap'
 }
 function Page({
   hackathonsData,
@@ -153,7 +163,18 @@ function Page({
   // easter egg detector, one-shot
   const [konamiActivated, setKonamiActivated] = useState(false)
   useEffect(() => {
-    const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a']
+    const konamiSequence = [
+      'ArrowUp',
+      'ArrowUp',
+      'ArrowDown',
+      'ArrowDown',
+      'ArrowLeft',
+      'ArrowRight',
+      'ArrowLeft',
+      'ArrowRight',
+      'b',
+      'a'
+    ]
     let konamiPosition = 0
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!konamiActivated && e.key === konamiSequence[konamiPosition]) {
@@ -275,11 +296,7 @@ function Page({
           }}
         />
         {konamiActivated && (
-          <Text
-            as="p"
-          >
-            Hey, I'm an Easter Egg! Look at me!
-          </Text>
+          <Text as="p">Hey, I'm an Easter Egg! Look at me!</Text>
         )}
         <Box
           as="header"
@@ -322,14 +339,21 @@ function Page({
               Welcome to Hack&nbsp;Club
             </Text>
             <Heading>
-              <Box sx={{
-                display: 'flex',
-                flexDirection: ['column', 'column', 'column', 'row'],
-                flexWrap: ['nowrap', 'nowrap', 'nowrap', 'wrap'],
-                gap: 2,
-                alignItems: [null, null, null, 'end']
-              }}>
-                <Box sx={{ flex: 1, minWidth: [null, null, null, 'min(100%, 1000px)'] }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: ['column', 'column', 'column', 'row'],
+                  flexWrap: ['nowrap', 'nowrap', 'nowrap', 'wrap'],
+                  gap: 2,
+                  alignItems: [null, null, null, 'end']
+                }}
+              >
+                <Box
+                  sx={{
+                    flex: 1,
+                    minWidth: [null, null, null, 'min(100%, 1000px)']
+                  }}
+                >
                   <Text
                     as="p"
                     variant="title"
@@ -368,17 +392,24 @@ function Page({
                         }}
                         aria-hidden="true"
                       >
-                        <Comma>{slackData.total_members_count}</Comma> teen hackers
+                        <Comma>{slackData.total_members_count}</Comma> teen
+                        hackers
                       </Text>
-                      <Comma>{slackData.total_members_count}</Comma> teen hackers
+                      <Comma>{slackData.total_members_count}</Comma> teen
+                      hackers
                     </Text>
-
-                    <Text sx={{ ...redBadgeSx, display: ['inline-block', 'none', 'none'], transform: 'rotate(-2deg)', mx: 2 }}>
+                    <Text
+                      sx={{
+                        ...redBadgeSx,
+                        display: ['inline-block', 'none', 'none'],
+                        transform: 'rotate(-2deg)',
+                        mx: 2
+                      }}
+                    >
                       teen hackers
                     </Text>
-
-                    <Box as="br" sx={{ display: ['inline', 'none', 'none'] }} /> from around
-                    the world who code together
+                    <Box as="br" sx={{ display: ['inline', 'none', 'none'] }} />{' '}
+                    from around the world who code together
                   </Text>
                   <Box
                     sx={{
@@ -459,14 +490,23 @@ function Page({
                     `}</style>
                   </>
                 )} */}
-                    <Box sx={{ display: 'flex', pb: [1, 2, 3], flexWrap: ['wrap', 'wrap', 'wrap', 'nowrap'] }}>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        pb: [1, 2, 3],
+                        flexWrap: ['wrap', 'wrap', 'wrap', 'nowrap']
+                      }}
+                    >
                       <Button
                         variant="ctaLg"
                         as="a"
-                        {...({ href: "https://slack.hackclub.com" } as any)}
+                        {...({ href: 'https://slack.hackclub.com' } as any)}
                         my={[3, 3, 0]}
                         mr={3}
-                        sx={{ transformOrigin: 'center left', whiteSpace: 'nowrap' }}
+                        sx={{
+                          transformOrigin: 'center left',
+                          whiteSpace: 'nowrap'
+                        }}
                       >
                         Join Hack Club
                       </Button>
@@ -487,13 +527,14 @@ function Page({
                     </Box>
                   </Box>
                   <CTAS cards={ctaCards} />
-
                 </Box>
-                <Box sx={{
-                  position: 'relative',
-                  marginLeft: [0, 0, 0, 'auto'],
-                  width: ['100%', '100%', '100%', 'auto'],
-                }}>
+                <Box
+                  sx={{
+                    position: 'relative',
+                    marginLeft: [0, 0, 0, 'auto'],
+                    width: ['100%', '100%', '100%', 'auto']
+                  }}
+                >
                   <Text
                     as="a"
                     href="https://fallout.hackclub.com/?utm_source=cta"
@@ -511,8 +552,9 @@ function Page({
                       width: 'fit-content',
                       textTransform: 'none',
                       fontSize: [1, '16px', '18px'],
-                      fontWeight: 'normal',
-                    }}>
+                      fontWeight: 'normal'
+                    }}
+                  >
                     Join Fallout
                   </Text>
                   <Box
@@ -527,18 +569,21 @@ function Page({
                       aspectRatio: '16/9',
                       overflow: 'hidden',
                       boxShadow: '0 4px 8px rgba(0, 0, 0, 0.125)',
-                      transition: 'transform .125s ease-in-out, box-shadow .125s ease-in-out',
-                      '&:hover': { transform: 'scale(1.0625)' },
-                    }}>
+                      transition:
+                        'transform .125s ease-in-out, box-shadow .125s ease-in-out',
+                      '&:hover': { transform: 'scale(1.0625)' }
+                    }}
+                  >
                     <iframe
                       width="100%"
                       height="100%"
                       src="https://www.youtube.com/embed/SrP2ZeNHm6s?si=orljJtYrC7EGSNzi&controls=0&modestbranding=1&rel=0"
                       title="YouTube video player"
                       frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen>
-                    </iframe>
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    ></iframe>
                   </Box>
                 </Box>
               </Box>
@@ -562,7 +607,11 @@ function Page({
                   fontWeight: 'normal',
                   zIndex: 999
                 }}
-                onClick={() => document.getElementById('spotlight')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() =>
+                  document
+                    .getElementById('spotlight')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                }
               >
                 <Icon
                   glyph={'rep'}
@@ -589,7 +638,7 @@ function Page({
           >
             <Badge
               as="a"
-              {...({ href: "https://outernet.hackclub.com/" } as any)}
+              {...({ href: 'https://outernet.hackclub.com/' } as any)}
               target="_blank"
               rel="noopener"
               variant="pill"
@@ -824,7 +873,11 @@ function Page({
                     </Text>
                     Have a coding question? Looking for project feedback? You'll
                     find hundreds of fabulous people to talk to in our global{' '}
-                    <Link href="https://slack.hackclub.com" target="_blank" rel="noopener">
+                    <Link
+                      href="https://slack.hackclub.com"
+                      target="_blank"
+                      rel="noopener"
+                    >
                       Slack{' '}
                     </Link>
                     (like Discord), active at all hours.
@@ -1122,7 +1175,7 @@ function Page({
                 left: 0
               }}
             >
-              { }
+              {}
             </Box>
             <Box
               py={[4, 5, '82px']}
@@ -1245,7 +1298,7 @@ function Page({
             >
               <Card
                 as="a"
-                {...({ href: "https://slack.hackclub.com" } as any)}
+                {...({ href: 'https://slack.hackclub.com' } as any)}
                 target="_blank"
                 rel="noopener"
                 variant="interactive"
@@ -1316,7 +1369,7 @@ function Page({
                   }
                 }}
                 as="a"
-                {...({ href: "https://github.com/hackclub" } as any)}
+                {...({ href: 'https://github.com/hackclub' } as any)}
                 variant="interactive"
                 target="_blank"
                 rel="noopener"
@@ -1370,7 +1423,7 @@ function Page({
                   }
                 }}
                 as="a"
-                {...({ href: "/clubs" } as any)}
+                {...({ href: '/clubs' } as any)}
                 variant="interactive"
                 target="_blank"
                 rel="noopener"
@@ -1410,74 +1463,74 @@ function Page({
 
         {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
           'z' && (
-            <>
+          <>
+            <Box
+              sx={{
+                position: 'fixed',
+                top: 0,
+                width: '100%',
+                zIndex: 1000
+              }}
+            >
               <Box
                 sx={{
-                  position: 'fixed',
-                  top: 0,
-                  width: '100%',
-                  zIndex: 1000
-                }}
-              >
-                <Box
-                  sx={{
-                    position: 'relative',
-                    margin: 'auto',
-                    width: 'fit-content',
-                    lineHeight: 0
-                  }}
-                >
-                  <iframe
-                    width="560"
-                    height="315"
-                    src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
-                </Box>
-              </Box>
-              <Box
-                sx={{
-                  position: 'fixed',
-                  bottom: 0,
-                  right: 0,
-                  zIndex: 1000,
+                  position: 'relative',
+                  margin: 'auto',
+                  width: 'fit-content',
                   lineHeight: 0
                 }}
               >
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
+                  src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
                   title="YouTube video player"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 ></iframe>
               </Box>
-              <Box
-                sx={{
-                  position: 'fixed',
-                  bottom: 0,
-                  left: 0,
-                  zIndex: 1000,
-                  lineHeight: 0
-                }}
-              >
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              </Box>
-            </>
-          )}
+            </Box>
+            <Box
+              sx={{
+                position: 'fixed',
+                bottom: 0,
+                right: 0,
+                zIndex: 1000,
+                lineHeight: 0
+              }}
+            >
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </Box>
+            <Box
+              sx={{
+                position: 'fixed',
+                bottom: 0,
+                left: 0,
+                zIndex: 1000,
+                lineHeight: 0
+              }}
+            >
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </Box>
+          </>
+        )}
         <MailingList />
       </Box>
       <Footer

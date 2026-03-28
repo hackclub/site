@@ -100,7 +100,7 @@ function MobileAppAlert() {
             animationDelay: '0.5s'
           },
           '@media (prefers-reduced-motion: reduce)': {
-            transform: 'scaleY(100%)',
+            transform: 'scaleY(100%)'
           },
           flexDirection: ['column', 'row']
         }}
@@ -565,7 +565,12 @@ export default function Page() {
                 alt="Mobile app mockup"
                 width={400}
                 height={800}
-                style={{ display: 'block', width: '100%', height: 'auto', borderRadius: 'inherit' }}
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  height: 'auto',
+                  borderRadius: 'inherit'
+                }}
               />
             </Card>
           </Grid>
@@ -775,7 +780,9 @@ export default function Page() {
             </Heading>
             <p>
               As{' '}
-              <UILink as={Link} href="/">Hack Club</UILink>{' '}
+              <UILink as={Link} href="/">
+                Hack Club
+              </UILink>{' '}
               grew, we needed a way to empower our members. We currently have
               over 60,000 high schoolers involved in Hack Club with over 400
               clubs around the world.

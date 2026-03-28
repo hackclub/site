@@ -1,4 +1,4 @@
-import AirtablePlus from "airtable-plus"
+import AirtablePlus from 'airtable-plus'
 
 export const findOrCreateProject = async (partsList = []) => {
   const airtable = new AirtablePlus({
@@ -20,8 +20,8 @@ export const findOrCreateProject = async (partsList = []) => {
     const shareLink = await createProject(partsList)
     if (shareLink) {
       await airtable.create({
-        "Name": cacheName,
-        "Share Link": shareLink
+        Name: cacheName,
+        'Share Link': shareLink
       })
       return shareLink
     } else {
@@ -38,44 +38,47 @@ const createProject = async (partsList = []) => {
   })
 
   // adjust these to taste:
-  const PADDING = 30;
-  const MAX_WIDTH = 320; // big question mark on this one
-  const ROW_HEIGHT = 215; // close enough for jazz, keypad is too big for this but ¯\_(ツ)_/¯
+  const PADDING = 30
+  const MAX_WIDTH = 320 // big question mark on this one
+  const ROW_HEIGHT = 215 // close enough for jazz, keypad is too big for this but ¯\_(ツ)_/¯
 
   const parts = [
-    { "type": "board-pi-pico-w", "id": "pico", "top": 0, "left": 0, "attrs": {} }
+    { type: 'board-pi-pico-w', id: 'pico', top: 0, left: 0, attrs: {} }
   ]
-  let x = 88 + PADDING; // for already included Pico
-  let y = 0;
-  await Promise.all(partsList.map(async (part) => {
-    const airPart = await airtable.read({
-      filterByFormula: `{Wokwi Name}= "${part}"`,
-      maxRecords: 1
-    })
-    return airPart[0].fields['Wokwi Name'].split(',').forEach((name, i) => {
-      const width = airPart[0].fields['Wokwi X-Offset'];
-      const attrs = airPart[0].fields['attrs'];
-      if ((x + width + PADDING) > MAX_WIDTH) {
-        x = 0;
-        y += ROW_HEIGHT;
-      }
-      parts.push({
-        type: name,
-        id: name + '--' + i,
-        left: x,
-        top: y,
-        attrs: attrs
+  let x = 88 + PADDING // for already included Pico
+  let y = 0
+  await Promise.all(
+    partsList.map(async part => {
+      const airPart = await airtable.read({
+        filterByFormula: `{Wokwi Name}= "${part}"`,
+        maxRecords: 1
       })
-      x += width + PADDING;
+      return airPart[0].fields['Wokwi Name'].split(',').forEach((name, i) => {
+        const width = airPart[0].fields['Wokwi X-Offset']
+        const attrs = airPart[0].fields['attrs']
+        if (x + width + PADDING > MAX_WIDTH) {
+          x = 0
+          y += ROW_HEIGHT
+        }
+        parts.push({
+          type: name,
+          id: name + '--' + i,
+          left: x,
+          top: y,
+          attrs: attrs
+        })
+        x += width + PADDING
+      })
     })
-  }))
+  )
 
   const body = JSON.stringify({
-    name: "The Bin!",
+    name: 'The Bin!',
     unlisted: true,
-    files: [{
-      name: "help.md",
-      content: `# Welcome to The Bin! 🦝
+    files: [
+      {
+        name: 'help.md',
+        content: `# Welcome to The Bin! 🦝
 
 Now that you've thrown some parts into The Bin, it's time to turn that trash into treasure! 🗑️➡️💎
 
@@ -93,10 +96,10 @@ Once you're ready build your design IRL, click the "Share" button and submit
 your design:
 https://hack.club/bin-submit
     `
-    },
-    {
-      name: "sketch.ino",
-      content: `// Now turn this trash into treasure!
+      },
+      {
+        name: 'sketch.ino',
+        content: `// Now turn this trash into treasure!
 
 void setup() {
   // put your setup code here, to run once:
@@ -107,16 +110,26 @@ void loop() {
   // put your main code here, to run repeatedly:
   delay(1); // this speeds up the simulation
 }`
-    }, {
-      name: "diagram.json",
-      content: JSON.stringify({
-        "version": 1,
-        "author": "The Bin - Hack Club",
-        "editor": "wokwi",
-        "parts": parts,
-        "connections": [["pico:GP0", "$serialMonitor:RX", "", []], ["pico:GP1", "$serialMonitor:TX", "", []]], "dependencies": {}
-      }, null, 2)
-    }],
+      },
+      {
+        name: 'diagram.json',
+        content: JSON.stringify(
+          {
+            version: 1,
+            author: 'The Bin - Hack Club',
+            editor: 'wokwi',
+            parts: parts,
+            connections: [
+              ['pico:GP0', '$serialMonitor:RX', '', []],
+              ['pico:GP1', '$serialMonitor:TX', '', []]
+            ],
+            dependencies: {}
+          },
+          null,
+          2
+        )
+      }
+    ]
   })
 
   const response = await fetch('https://wokwi.com/api/projects/save', {
@@ -124,11 +137,11 @@ void loop() {
     mode: 'no-cors',
     headers: {
       'Content-Type': 'application/json',
-      'Referer': 'https://wokwi.com/projects/new/pi-pico-w',
+      Referer: 'https://wokwi.com/projects/new/pi-pico-w',
       'User-Agent': 'Hack Club - contact max@hackclub.com for any complaints!'
     },
     body
-  }).catch((e) => {
+  }).catch(e => {
     console.log(e)
   })
 

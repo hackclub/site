@@ -1,7 +1,7 @@
 import { Box, Button, Heading, Text, Card } from 'theme-ui'
 import { Fade } from '../react-reveal-compat'
 import ScrollHint from '../scroll-hint'
-import Image from "next/image"
+import Image from 'next/image'
 import Icon from '../icon'
 
 export default function Landing() {
@@ -133,11 +133,12 @@ function Slide({ children }) {
         fill
         sizes="100vw"
         style={{
-          objectFit: "cover"
-        }} />
+          objectFit: 'cover'
+        }}
+      />
       {children}
     </Box>
-  );
+  )
 }
 
 function BlueGradientFilter() {
