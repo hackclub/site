@@ -12,7 +12,8 @@
     "lint": "eslint .",
     "lint:errors": "eslint . --quiet",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@apollo/client": "^4.1.6",
