@@ -54,7 +54,11 @@ export function Winter() {
                 GitHub
               </Link>
               , or come hang out with us on{' '}
-              <Link target="_blank" href="https://slack.hackclub.com" sx={{ color: 'inherit' }}>
+              <Link
+                target="_blank"
+                href="https://slack.hackclub.com"
+                sx={{ color: 'inherit' }}
+              >
                 Slack
               </Link>
               .
