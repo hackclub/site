@@ -1051,8 +1051,8 @@ function Page({
               <Sprig
                 stars={stars.sprig.stargazerCount}
                 game={game}
-                gameImage=''
-                gameImage1=''
+                gameImage=""
+                gameImage1=""
               />
               <Haxidraw stars={stars.blot.stargazerCount} />
               <Sinerider stars={stars.sinerider.stargazerCount} />
