@@ -3,7 +3,6 @@ import {
   Card,
   Grid,
   Box,
-  Button,
   Container,
   Heading,
   Text,
@@ -36,17 +35,12 @@ export default function InfoGrid() {
               variant="translucent"
               sx={{ borderRadius: 'default', px: 4, py: [2, 3, 5] }}
             >
-              {/* <Icon glyph="sam" size={64} color="#5BC0DE" /> */}
               <Text variant="lead" as="p">
                 A deeper look at
               </Text>
               <Heading as="h2" variant="title">
                 Free hardware for your project
               </Heading>
-              <br />
-              <Button as="a" href="#rsvp" variant="ctaLg" sx={{ mt: 4 }}>
-                RSVP
-              </Button>
             </Card>
           </Box>
         </Zoom>
@@ -68,15 +62,9 @@ export default function InfoGrid() {
               }}
             >
               <Heading variant="headline">To qualify:</Heading>
-              {/* <BulletItem iconGlyph="checkmark" iconColor="#5BC0DE">
-              Up to $250 grant per person
-            </BulletItem> */}
               <BulletItem iconGlyph="checkmark" iconColor="#5BC0DE">
                 Be a high schooler (or younger)
               </BulletItem>
-              {/* <BulletItem iconGlyph="checkmark" iconColor="#5BC0DE">
-              Share a plan for what you want to build and how much you need (up to $250)
-            </BulletItem> */}
               <Text sx={{ color: 'muted' }}>
                 If you qualify, share your idea! We're giving out as many grants
                 as possible!
@@ -106,22 +94,6 @@ export default function InfoGrid() {
                 It could be your first ever electronics project or your tenth,
                 we want to support you in building whatever you want.
               </Text>
-              {/* <Text>
-              (& see what other Hack Clubbers, like{' '}
-              <UserMention user="bellesea" />, are building)
-              todo: link a random pr from the repo that is tagged with "accepted"
-            </Text> */}
-              {/* <Button
-              as="a"
-              href="https://github.com/hackclub/wom"
-              variant="outline"
-              sx={{
-                color: 'text',
-                mt: 3
-              }}
-            >
-              See projects &#10138;
-            </Button> */}
             </Card>
           </Zoom>
         </Box>
@@ -213,29 +185,5 @@ function BulletItem({ children, iconGlyph, iconColor, iconSize }) {
       />
       <Text sx={{ ml: 1 }}>{children}</Text>
     </Flex>
-  )
-}
-
-function UserMention({ user }) {
-  return (
-    <Box
-      as="span"
-      sx={{
-        whiteSpace: 'nowrap',
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}
-    >
-      <Text as="a" href={`https://github.com/${user}`}>
-        @{user}
-      </Text>
-      <Avatar
-        src={`https://github.com/${user}.png`}
-        height="24px"
-        width="24px"
-        sx={{ backgroundColor: 'white', ml: 2 }}
-      />
-    </Box>
   )
 }

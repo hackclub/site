@@ -16,13 +16,12 @@ export default function CTAS({ cards }) {
         <Box
           as="div"
           sx={{
-            //1 row flexbox of cards
+            //1 row flexbox of cards - wrap when needed, no scroll
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
             gap: 2,
             justifyContent: ['center', 'center', 'flex-start'],
-
             mt: 1,
             pt: 3
           }}>
@@ -34,6 +33,8 @@ export default function CTAS({ cards }) {
               gridBackground,
               stickerImage,
               stickerImageScale,
+              buttonImage,
+              animatedStickers,
 
               description,
               descriptionColor,
@@ -55,10 +56,13 @@ export default function CTAS({ cards }) {
                 sx={{
                   position: 'relative',
                   display: 'inline-block',
-                  width: ['100%', '100%', 'auto'],
+                  flex: ['0 0 100%', '0 0 100%', '0 0 240px'],
+                  width: ['100%', '100%', '240px'],
+                  minWidth: ['100%', '100%', '240px'],
                   boxShadow: '0 4px 8px rgba(0, 0, 0, 0.125)',
                   transition: 'transform .125s ease-in-out, box-shadow .125s ease-in-out',
                   textDecoration: 'none',
+                  overflow: animatedStickers ? 'visible' : undefined,
                   '&:hover': { transform: 'scale(1.0625)' },
                   '.icon': {
                     transition: 'transform 0.25s ease-in-out, opacity 0.43s ease-in-out'
@@ -71,7 +75,47 @@ export default function CTAS({ cards }) {
                   }
                 }}
               >
-                {stickerImage && (
+                {animatedStickers && (
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      bottom: 0,
+                      right: 0,
+                      width: '100%',
+                      height: '100%',
+                      pointerEvents: 'none',
+                      zIndex: 10,
+                      '@keyframes breathe': {
+                        '0%': { transform: 'scale(1)' },
+                        '50%': { transform: 'scale(1.15) rotate(10deg)' },
+                        '100%': { transform: 'scale(1)' }
+                      }
+                    }}
+                  >
+                    {animatedStickers.map((sticker, i) => (
+                      <Image
+                        key={i}
+                        src={sticker.src}
+                        alt=""
+                        sx={{
+                          position: 'absolute',
+                          ...(sticker.top !== undefined && { top: sticker.top }),
+                          ...(sticker.bottom !== undefined && { bottom: sticker.bottom }),
+                          ...(sticker.right !== undefined && { right: sticker.right }),
+                          ...(sticker.left !== undefined && { left: sticker.left }),
+                          width: sticker.width || '120px',
+                          height: 'auto',
+                          transform: `rotate(${sticker.rotate || '15deg'})`,
+                          animation: `breathe infinite ${3.5 + i * 0.5}s ${sticker.delay || '0s'} ease-in-out`,
+                          '@media (prefers-reduced-motion)': {
+                            animation: 'none'
+                          }
+                        }}
+                      />
+                    ))}
+                  </Box>
+                )}
+                {stickerImage && !animatedStickers && (
                   <Image
                     src={stickerImage}
                     alt="Sticker"
@@ -141,6 +185,18 @@ export default function CTAS({ cards }) {
                   >
                     {description}
                   </Text>
+                  {buttonImage && (
+                    <Image
+                      src={buttonImage}
+                      alt="Join"
+                      sx={{
+                        mt: 2,
+                        height: '36px',
+                        width: 'auto',
+                        objectFit: 'contain'
+                      }}
+                    />
+                  )}
                 </Card>
               </Box>
             )

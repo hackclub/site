@@ -44,6 +44,7 @@ import Scraps from '../components/index/cards/scraps'
 import HackClubTheGame from '../components/index/cards/hctg'
 import Sleepover from '../components/index/cards/sleepover'
 import Stasis from '../components/index/cards/stasis'
+import Jackpot from '../components/index/cards/jackpot'
 import Fallout from '../components/index/cards/fallout'
 import CTAS from '../components/index/ctas'
 import { slackData as SlackDataLib } from '../lib/slackData'
@@ -299,8 +300,8 @@ function Page({
           <Box
             sx={{
               width: '100%',
-              maxWidth: ['100%', '100%','1500px'],
-              px:[3, 4, 4],
+              maxWidth: ['100%', '100%', '1500px'],
+              px: [3, 4, 4],
               position: 'relative',
               mx: 'auto',
               py: [4, 4, 4],
@@ -312,7 +313,7 @@ function Page({
               variant="eyebrow"
               sx={{
                 color: 'sunken',
-                pb: [3,3,5],
+                pb: 2,
                 position: 'relative',
                 display: 'block'
               }}
@@ -321,72 +322,73 @@ function Page({
               Welcome to Hack&nbsp;Club
             </Text>
             <Heading>
-              <Box sx={{ 
-                display: 'flex', 
-                flexDirection: ['column', 'column', 'column', 'row'], 
-                gap: 2, 
-                alignItems:[null, null,null,'end']
-                }}>
-                <Box sx={{ flex: 1}}>
-                <Text
-                  as="p"
-                  variant="title"
-                  sx={{
-                    color: 'white',
-                    mb: [3, 4],
-                    zIndex: 1,
-                    textAlign: 'left',
-                    fontSize: ['42px', '52px', '58px'],
-                    lineHeight: 1.2,
-                    width: '100%'
-                  }}
-                >
-                  We are{' '}
+              <Box sx={{
+                display: 'flex',
+                flexDirection: ['column', 'column', 'column', 'row'],
+                flexWrap: ['nowrap', 'nowrap', 'nowrap', 'wrap'],
+                gap: 2,
+                alignItems: [null, null, null, 'end']
+              }}>
+                <Box sx={{ flex: 1, minWidth: [null, null, null, 'min(100%, 1000px)'] }}>
                   <Text
+                    as="p"
+                    variant="title"
                     sx={{
-                      color: 'transparent',
-                      ml: 2,
-                      mr: 3,
-                      whiteSpace: 'nowrap',
-                      display: ['none', 'inline','inline']
+                      color: 'white',
+                      mb: [3, 4],
+                      zIndex: 1,
+                      textAlign: 'left',
+                      fontSize: ['42px', '52px', '58px'],
+                      lineHeight: 1.2,
+                      width: '100%'
                     }}
                   >
+                    We are{' '}
                     <Text
-                      onClick={() => {
-                        !reveal ? setReveal(true) : setReveal(false)
-                      }}
                       sx={{
-                        ...redBadgeSx,
-                        position: 'absolute',
-                        transform: 'rotate(-2deg) translateY(-5px)',                      
-                        textDecoration: 'none',
-                        '&:hover': {
-                          cursor: 'pointer'
-                        }
+                        color: 'transparent',
+                        ml: 2,
+                        mr: 3,
+                        whiteSpace: 'nowrap',
+                        display: ['none', 'inline', 'inline']
                       }}
-                      aria-hidden="true"
                     >
+                      <Text
+                        onClick={() => {
+                          !reveal ? setReveal(true) : setReveal(false)
+                        }}
+                        sx={{
+                          ...redBadgeSx,
+                          position: 'absolute',
+                          transform: 'rotate(-2deg) translateY(-5px)',
+                          textDecoration: 'none',
+                          '&:hover': {
+                            cursor: 'pointer'
+                          }
+                        }}
+                        aria-hidden="true"
+                      >
+                        <Comma>{slackData.total_members_count}</Comma> teen hackers
+                      </Text>
                       <Comma>{slackData.total_members_count}</Comma> teen hackers
                     </Text>
-                    <Comma>{slackData.total_members_count}</Comma> teen hackers
-                  </Text>
 
-                  <Text sx={{ ...redBadgeSx, display: ['inline-block', 'none', 'none'],transform: 'rotate(-2deg)', mx: 2 }}>
-                    teen hackers
+                    <Text sx={{ ...redBadgeSx, display: ['inline-block', 'none', 'none'], transform: 'rotate(-2deg)', mx: 2 }}>
+                      teen hackers
+                    </Text>
+
+                    <Box as="br" sx={{ display: ['inline', 'none', 'none'] }} /> from around
+                    the world who code together
                   </Text>
-                
-                  <Box as="br" sx={{ display: ['inline', 'none', 'none'] }} /> from around
-                  the world who code together
-              </Text>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  rowGap: 3,
-                  marginBottom: 3
-                }}
-              >
-                {/* {ctaVariant === 'blueprint' ? (
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      rowGap: 3,
+                      marginBottom: 3
+                    }}
+                  >
+                    {/* {ctaVariant === 'blueprint' ? (
                   <Button
                     variant="ctaLg"
                     as="a"
@@ -457,88 +459,88 @@ function Page({
                     `}</style>
                   </>
                 )} */}
-                <Box sx={{ display: 'flex', flexWrap:['wrap', 'wrap', 'wrap', 'nowrap']}}>
-                  <Button
-                    variant="ctaLg"
-                    as="a"
-                    {...({ href: "https://slack.hackclub.com" } as any)}
-                    my={[3, 3, 0]}
-                    mr={3}
-                    sx={{ transformOrigin: 'center left', whiteSpace: 'nowrap' }}
-                  >
-                    Join Hack Club
-                  </Button>
-                  <Text
-                    variant="eyebrow"
-                    as="h4"
-                    sx={{
-                      fontSize: [2, 2, 3],
-                      maxWidth: 'layout',
-                      my: 'auto',
-                      color: 'white',
-                      textShadow:
-                        'rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 0.5) 0 0 10px'
-                    }}
-                  >
-                    Or, check out our programs:
-                  </Text>
-                </Box>
-              </Box>
-              <CTAS cards={ctaCards} />
-             
-              </Box>
-              <Box sx={{
-                position: 'relative',
-                marginLeft: [0, 0, 0, 'auto'],  
-                width: ['100%', '100%', '100%', 'auto'],
-                }}>
-                <Text 
-                as="a"
-                href="https://fallout.hackclub.com/?utm_source=cta"
-                target="_blank"
-                sx={{
-                  position: 'absolute',
-                  top: '100%',
-                  right: 0,
-                  color: 'white',
-                  zIndex: 100,
-                  textDecoration: 'underline',
-                  display: 'flex',
-                  alignItems: 'center',
-                  my: 3,
-                  width: 'fit-content',
-                  textTransform: 'none',
-                  fontSize: [1, '16px', '18px'],
-                  fontWeight: 'normal',
-                }}>
-                Join Fallout
-                </Text>
-                <Box
-                  sx={{
-                    position:'relative',
-                    background: 'white',
-                    width: ['100%', '100%', '100%', '28vw'],
-                    minWidth: [null, null,'330px', null],
-                    maxWidth: [null, null, null,'600px'],
+                    <Box sx={{ display: 'flex', pb: [1, 2, 3], flexWrap: ['wrap', 'wrap', 'wrap', 'nowrap'] }}>
+                      <Button
+                        variant="ctaLg"
+                        as="a"
+                        {...({ href: "https://slack.hackclub.com" } as any)}
+                        my={[3, 3, 0]}
+                        mr={3}
+                        sx={{ transformOrigin: 'center left', whiteSpace: 'nowrap' }}
+                      >
+                        Join Hack Club
+                      </Button>
+                      <Text
+                        variant="eyebrow"
+                        as="h4"
+                        sx={{
+                          fontSize: [2, 2, 3],
+                          maxWidth: 'layout',
+                          my: 'auto',
+                          color: 'white',
+                          textShadow:
+                            'rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 0.5) 0 0 10px'
+                        }}
+                      >
+                        Or, check out our programs:
+                      </Text>
+                    </Box>
+                  </Box>
+                  <CTAS cards={ctaCards} />
 
-                    borderRadius:'extra',
-                    aspectRatio:'16/9',
-                    overflow: 'hidden',
-                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.125)',
-                    transition: 'transform .125s ease-in-out, box-shadow .125s ease-in-out',
-                    '&:hover': { transform: 'scale(1.0625)' },
-                    }}>
-                      <iframe 
-                        width="100%"
-                        height="100%" 
-                        src="https://www.youtube.com/embed/SrP2ZeNHm6s?si=orljJtYrC7EGSNzi&controls=0&modestbranding=1&rel=0" 
-                        title="YouTube video player" 
-                        frameBorder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" 
-                        allowFullScreen>
-                      </iframe>
                 </Box>
-              </Box>   
+                <Box sx={{
+                  position: 'relative',
+                  marginLeft: [0, 0, 0, 'auto'],
+                  width: ['100%', '100%', '100%', 'auto'],
+                }}>
+                  <Text
+                    as="a"
+                    href="https://fallout.hackclub.com/?utm_source=cta"
+                    target="_blank"
+                    sx={{
+                      position: 'absolute',
+                      top: '100%',
+                      right: 0,
+                      color: 'white',
+                      zIndex: 100,
+                      textDecoration: 'underline',
+                      display: 'flex',
+                      alignItems: 'center',
+                      my: 3,
+                      width: 'fit-content',
+                      textTransform: 'none',
+                      fontSize: [1, '16px', '18px'],
+                      fontWeight: 'normal',
+                    }}>
+                    Join Fallout
+                  </Text>
+                  <Box
+                    sx={{
+                      position: 'relative',
+                      background: 'white',
+                      width: ['100%', '100%', '100%', '22vw'],
+                      minWidth: [null, null, '280px', null],
+                      maxWidth: [null, null, null, '480px'],
+
+                      borderRadius: 'extra',
+                      aspectRatio: '16/9',
+                      overflow: 'hidden',
+                      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.125)',
+                      transition: 'transform .125s ease-in-out, box-shadow .125s ease-in-out',
+                      '&:hover': { transform: 'scale(1.0625)' },
+                    }}>
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src="https://www.youtube.com/embed/SrP2ZeNHm6s?si=orljJtYrC7EGSNzi&controls=0&modestbranding=1&rel=0"
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen>
+                    </iframe>
+                  </Box>
+                </Box>
               </Box>
               <Button
                 sx={{
@@ -951,7 +953,7 @@ function Page({
                 >
                   builders
                 </Text>{' '}
-                from around the world 
+                from around the world
               </Text>
               <Text
                 variant="subtitle"
@@ -969,6 +971,7 @@ function Page({
             />
             <Sleepover />
             <Stasis />
+            <Jackpot />
             <Fallout />
             <Scraps />
             <HackClubTheGame />
@@ -1504,7 +1507,11 @@ function Page({
 
 export async function getStaticProps() {
   const carouselCards = require('../public/carousel.json')
-  const ctaCards = require('../lib/cta.json')
+  const allCtaCards = require('../lib/cta.json')
+  const ctaCards =
+    allCtaCards.length > 3
+      ? allCtaCards.sort(() => Math.random() - 0.5).slice(0, 3)
+      : allCtaCards
 
   // HCB: get total raised
   const bankData = []

@@ -2,43 +2,14 @@
 import { Box, Heading, Button, Link, Text, Container } from 'theme-ui'
 import Snowfall from 'react-snowfall'
 import { Fade } from '../react-reveal-compat'
-import { keyframes } from '@emotion/react'
 
-const flashing = keyframes({
-  from: { opacity: 0 },
-  '50%': { opacity: 1 },
-  to: { opacity: 0 }
-})
-
-function Dot() {
-  return (
-    <Text
-      sx={{
-        bg: 'green',
-        color: 'white',
-        borderRadius: 'circle',
-        display: 'inline-block',
-        lineHeight: 0,
-        width: '.4em',
-        height: '.4em',
-        marginRight: '.4em',
-        marginBottom: '.12em',
-        animationName: `${flashing}`,
-        animationDuration: '3s',
-        animationTimingFunction: 'ease-in-out',
-        animationIterationCount: 'infinite'
-      }}
-    />
-  )
-}
-
-export default function Landing({ rsvpCount }) {
+export default function Landing() {
   return (
     <Box sx={{ position: 'relative' }}>
       <Box
         sx={{
           background:
-            'url(https://cloud-6h53svh6x-hack-club-bot.vercel.app/0group_5.png), linear-gradient(0deg, #3561A4 0%, #338EDA 100%)',
+            'url(https://cdn.hackclub.com/019d2f1a-6419-75bd-b60b-6df8e8136c96/w.webp), linear-gradient(0deg, #3561A4 0%, #338EDA 100%)',
           backgroundPosition: 'bottom center',
           backgroundSize: ['200%', '150%', '100%'],
           backgroundRepeat: 'no-repeat',
@@ -64,10 +35,9 @@ export default function Landing({ rsvpCount }) {
                 variant="eyebrow"
                 sx={{
                   color: 'sunken'
-                  // fontSize: ['18px', '20px', '24px']
                 }}
               >
-                {/* <Dot /> */}a hacker's
+                a hacker's
               </Heading>
             </Fade>
             <Fade left cascade>
@@ -96,8 +66,8 @@ export default function Landing({ rsvpCount }) {
                 my: 3
               }}
             >
-              RSVPs have closed and hundreds of projects will soon be built
-              together in the{' '}
+              This event has ended. Hundreds of amazing projects were built
+              together by the{' '}
               <Link
                 href="https://slack.hackclub.com"
                 target="_blank"

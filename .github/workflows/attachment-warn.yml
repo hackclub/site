@@ -1,0 +1,87 @@
+name: Perhaps You Should Upload To CDN Instead?
+
+on:
+    pull_request:
+        types: [opened, synchronize]
+
+jobs:
+    warn:
+        runs-on: ubuntu-slim
+        permissions:
+            pull-requests: write
+        steps:
+            - uses: actions/github-script@v8
+              continue-on-error: true
+              with:
+                  # this checks via the octokit, because just using pull_requests.paths would warn on every single commit, regardless of the files changed if the PR has at least 1 attachment in it
+                  script: |
+                      // dont comment again if already commented
+                      const comments = await github.rest.issues.listComments({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          issue_number: context.issue.number
+                      });
+
+                      const existingComment = comments.data.find(c =>
+                        c.body.includes("Heyo, maybe upload these to a CDN instead")
+                      );
+
+                      // unallowed file extensions
+                      const EXTENSIONS = [
+                        'png','jpg','jpeg','gif','webp',
+                        'webm','pdf','mp4','mov','zip',
+                      ];
+
+                      // paginate cause what if there's 100+ changed files, better safe than sorry
+                      const files = await github.paginate(
+                        github.rest.pulls.listFiles,
+                        {
+                            owner: context.repo.owner,
+                            repo: context.repo.repo,
+                            pull_number: context.issue.number,
+                            per_page: 100
+                        }
+                      );
+
+                      // check if any of the changed files have unallowed extension, and are not removed
+                      // only exclude removed files, since modifying/copying/etc has the same hit to the repo size as a new file
+                      const blobs = files.filter(f => {
+                        if (!f.filename.includes('.')) return false;
+                        const ext = f.filename.split('.').pop().toLowerCase();
+                        return EXTENSIONS.includes(ext) && f.status !== 'removed';
+                      });
+
+                      if (blobs.length === 0) {
+                        // if we already commented, but the files were removed, edit the comment to kinda mark as resolved
+                        if (existingComment) {
+                          await github.rest.issues.updateComment({
+                            owner: context.repo.owner,
+                            repo: context.repo.repo,
+                            comment_id: existingComment.id,
+                            body: `## ~~Heyo, maybe upload these to a CDN instead~~\n\nThis has been resolved now.`
+                          });
+                          return;
+                        }
+                        return
+                      };
+
+                      const prefix = `## Heyo, maybe upload these to a CDN instead\n\nImages, videos or any attachments can unnecessarily bloat the repository size. Consider uploading these files to [Hack Club CDN](https://cdn.hackclub.com/) instead, and using the CDN links instead.\n\n---\n\n### Files Detected:\n\n`;
+
+                      if (existingComment) {
+                        // Update existing comment with new file list
+                        await github.rest.issues.updateComment({
+                            owner: context.repo.owner,
+                            repo: context.repo.repo,
+                            comment_id: existingComment.id,
+                            body: `${prefix}${blobs.map(b => `- \`${b.filename}\``).join('\n')}`
+                        });
+                        return;
+                      }
+
+                      // create comment if there are any attachments
+                      await github.rest.issues.createComment({ 
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        issue_number: context.issue.number,
+                        body: `${prefix}${blobs.map(b => `- \`${b.filename}\``).join('\n')}`
+                      });
