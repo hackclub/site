@@ -960,14 +960,10 @@ function Page({
               </Text>
             </Box>
             <Flavortown />
-            <Blueprint
-              blueprintData={blueprintData}
-              stars={stars.onboard.stargazerCount}
-            />
+            <Fallout />
             <Sleepover />
             <Stasis />
             <Jackpot />
-            <Fallout />
             <Scraps />
             <HackClubTheGame />
             <Milkyway />
