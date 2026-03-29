@@ -528,64 +528,6 @@ function Page({
                   </Box>
                   <CTAS cards={ctaCards} />
                 </Box>
-                <Box
-                  sx={{
-                    position: 'relative',
-                    marginLeft: [0, 0, 0, 'auto'],
-                    width: ['100%', '100%', '100%', 'auto']
-                  }}
-                >
-                  <Text
-                    as="a"
-                    href="https://fallout.hackclub.com/?utm_source=cta"
-                    target="_blank"
-                    sx={{
-                      position: 'absolute',
-                      top: '100%',
-                      right: 0,
-                      color: 'white',
-                      zIndex: 100,
-                      textDecoration: 'underline',
-                      display: 'flex',
-                      alignItems: 'center',
-                      my: 3,
-                      width: 'fit-content',
-                      textTransform: 'none',
-                      fontSize: [1, '16px', '18px'],
-                      fontWeight: 'normal'
-                    }}
-                  >
-                    Join Fallout
-                  </Text>
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      background: 'white',
-                      width: ['100%', '100%', '100%', '22vw'],
-                      minWidth: [null, null, '280px', null],
-                      maxWidth: [null, null, null, '480px'],
-
-                      borderRadius: 'extra',
-                      aspectRatio: '16/9',
-                      overflow: 'hidden',
-                      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.125)',
-                      transition:
-                        'transform .125s ease-in-out, box-shadow .125s ease-in-out',
-                      '&:hover': { transform: 'scale(1.0625)' }
-                    }}
-                  >
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src="https://www.youtube.com/embed/SrP2ZeNHm6s?si=orljJtYrC7EGSNzi&controls=0&modestbranding=1&rel=0"
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                    ></iframe>
-                  </Box>
-                </Box>
               </Box>
               <Button
                 sx={{
@@ -1018,14 +960,10 @@ function Page({
               </Text>
             </Box>
             <Flavortown />
-            <Blueprint
-              blueprintData={blueprintData}
-              stars={stars.onboard.stargazerCount}
-            />
+            <Fallout />
             <Sleepover />
             <Stasis />
             <Jackpot />
-            <Fallout />
             <Scraps />
             <HackClubTheGame />
             <Milkyway />
