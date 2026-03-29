@@ -56,5 +56,18 @@
     "buttonText": "JOIN NOW",
     "buttonColor": "#FAD10B",
     "link": "https://jackpot.hackclub.com"
+  },
+    {
+    "title": "Fallout",
+    "logo": "https://cdn.hackclub.com/019cdfd0-6f09-7c8c-bd01-d0349e421c32/logo2.svg",
+    "background": "#39c9ff",
+    "logoScale": 1,
+    "stickerImage": "https://cdn.hackclub.com/019d36f6-2170-792f-9487-db64bce4cf65/koifish.webp",
+    "stickerImageScale": 0.7,
+    "description": "Build hardware projects, get build funding, and fly to a Shenzhen hackathon!",
+    "descriptionColor": "white",
+    "buttonText": "JOIN NOW",
+    "buttonColor": "#FAD10B",
+    "link": "https://fallout.hackclub.com"
   }
 ]
