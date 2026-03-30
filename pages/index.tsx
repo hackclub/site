@@ -49,64 +49,6 @@ import Fallout from '../components/index/cards/fallout'
 import CTAS from '../components/index/ctas'
 import { slackData as SlackDataLib } from '../lib/slackData'
 
-const ANNOUNCEMENTS = [
-  {
-    id: 'blueprint',
-    expiresAt: new Date('2026-01-31'),
-    copy: 'Get up to $400 to make a hardware project!',
-    caption:
-      "Design a project and get a grant to make it real with Blueprint, Hack Club's largest hardware program",
-    href: 'https://blueprint.hackclub.com/?utm_source=site-announcement',
-    imgSrc:
-      'https://cdn.hackclub.com/019c76b8-9716-7a35-bf79-929ad4d6d873/Y86cSA.png'
-  },
-  {
-    id: 'fallout',
-    expiresAt: new Date('2026-07-01'),
-    copy: 'Build hardware projects and fly to a hackathon in Shenzhen, China!',
-    caption:
-      'Spend 60 hours building hardware projects, earn a trip to Shenzhen for a hardware hackathon this July!',
-    href: 'https://fallout.hackclub.com?utm_source=site-announcement',
-    imgSrc:
-      'https://cdn.hackclub.com/019cd51e-8a0d-704c-b3ed-7238d5ba4067/soup.png'
-  },
-  {
-    id: 'sleepover',
-    expiresAt: new Date('2026-04-26'),
-    copy: 'Learn to code and fly to a Sleepover hackathon!',
-    caption:
-      'Spend 30 hours learning to code, earn prizes like plushies and iPads, and fly out to an all girls hackathon this April in Chicago!',
-    href: 'https://sleepover.hackclub.com/?utm_source=site-announcement',
-    imgSrc:
-      'https://cdn.hackclub.com/019c76b8-c704-724a-9bcb-f0f2acf7c839/2gOaRg.png'
-  },
-  {
-    id: 'stasis',
-    expiresAt: new Date('2026-05-26'),
-    copy: 'Build hardware projects and fly out to a hardware hackathon in Austin, TX ',
-    caption:
-      'Learn to design and build three hardware projects and fly out to Stasis, a hardware hackathon in Austin, TX this May!',
-    href: 'https://stasis.hackclub.com/?utm_source=site-announcement',
-    imgSrc:
-      'https://cdn.hackclub.com/019c76ba-6439-7c9e-ac28-813ad404e0b5/i8kaDQ.png'
-  },
-  {
-    id: 'flavortown',
-    expiresAt: new Date('2026-12-31'),
-    copy: 'Build projects, earn cookies, get free tech!',
-    caption:
-      'Make a website, game, or hardware project and exchange cookies for iPads, MacBooks, and more',
-    href: 'https://flavortown.hackclub.com/?ref=site-announcement',
-    imgSrc:
-      'https://cdn.hackclub.com/019c76b5-b513-7f5a-8718-bea38d4abb80/DM6Ztg.avif'
-  }
-]
-
-function getActiveAnnouncements() {
-  const now = new Date()
-  return ANNOUNCEMENTS.filter(a => a.expiresAt > now)
-}
-
 declare global {
   interface Window {
     kc: string
@@ -134,11 +76,7 @@ function Page({
   blueprintData,
   ctaCards
 }) {
-  const [gameImage, setGameImage] = useState('')
-  const [gameImage1, setGameImage1] = useState('')
   const [reveal, setReveal] = useState(false)
-  const [hover, setHover] = useState(true)
-  const [announcement, setAnnouncement] = useState(null)
 
   const { asPath } = useRouter()
 
@@ -149,15 +87,6 @@ function Page({
 
     window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
     window.paper = `Welcome, intrepid hacker! We'd love to have you in our community. Get your invite at hack.af/slack. Under "Why do you want to join the Hack Club Slack?" add a 🦄 and we'll ship you some exclusive stickers! `
-  }, [])
-
-  // Pick a random active announcement on client to avoid hydration mismatches
-  useEffect(() => {
-    const active = getActiveAnnouncements()
-    if (active.length > 0) {
-      const randomIndex = Math.floor(Math.random() * active.length)
-      setAnnouncement(active[randomIndex])
-    }
   }, [])
 
   // easter egg detector, one-shot
@@ -209,14 +138,6 @@ function Page({
     })
   }
 
-  useEffect(() => {
-    if (reveal && !hover) {
-      setTimeout(() => {
-        setReveal(false)
-      }, 2000)
-    }
-  }, [reveal, hover])
-
   const [count, setCount] = useState(0)
 
   const images = [
@@ -232,17 +153,6 @@ function Page({
     { alt: 'AMA with Sal Khan', src: '/home/ama.png' },
     { alt: 'Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' }
   ]
-
-  // janky right now and does not show last image
-
-  useEffect(() => {
-    console.log(
-      `White sheets of paper\nWaiting to be printed on\nA blank console waits`
-    )
-    if (count === images.length - 1) {
-      setCount(0)
-    }
-  }, [count, images.length])
 
   // Spotlight effect
   const spotlightRef = useRef(null)
@@ -288,8 +198,7 @@ function Page({
         <Secret
           reveal={reveal}
           onMouseEnter={() => {
-            setHover(true)
-            console.log(hover)
+            setReveal(true)
           }}
           onMouseOut={() => {
             setReveal(false)
@@ -419,77 +328,6 @@ function Page({
                       marginBottom: 3
                     }}
                   >
-                    {/* {ctaVariant === 'blueprint' ? (
-                  <Button
-                    variant="ctaLg"
-                    as="a"
-                    href="https://blueprint.hackclub.com/?utm_source=site-cta"
-                    mt={[3, 0, 0]}
-                    mr={3}
-                    sx={{
-                      transformOrigin: 'center',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      width: 'fit-content',
-                      backgroundColor: '#0e305b',
-                      backgroundImage:
-                        'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
-                      backgroundSize: '50px 50px',
-                      border: '2px solid #dbe4ee',
-                      color: '#dbe4ee',
-                      '&:hover': {
-                        transform: 'scale(1.05)',
-                        boxShadow: '0 0 20px rgba(219, 228, 238, 0.4)'
-                      }
-                    }}
-                  >
-                    Sign Up for Blueprint
-                    <Text
-                      as="span"
-                      sx={{
-                        fontSize: 0,
-                        opacity: 0.8,
-                        mt: 1,
-                        color: '#dbe4ee'
-                      }}
-                    >
-                      Get up to $400 to make Hardware
-                    </Text>
-                  </Button>
-                ) : (
-                  <>
-                    <Button
-                      variant="ctaLg"
-                      as="a"
-                      href="https://moonshot.hackclub.com?t=webt"
-                      mt={[3, 0, 0]}
-                      mr={3}
-                      sx={{
-                        transformOrigin: 'center left',
-                        backgroundColor: 'black',
-                        color: 'white',
-                        border: '2px solid white',
-                        boxShadow: '0 0 10px rgba(255,255,255,0.25)',
-                        animation: 'moonshotPulse 2s ease-in-out infinite',
-                        textShadow: '0 1px 1px rgba(0,0,0,0.6)',
-                        backgroundImage: 'none',
-                        '&:hover': {
-                          transform: 'scale(1.05)'
-                        }
-                      }}
-                    >
-                      RSVP for Moonshot!
-                    </Button>
-                    <style>{`
-                      @keyframes moonshotPulse {
-                        0% { box-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 0 rgba(255,255,255,0.15); }
-                        50% { box-shadow: 0 0 16px rgba(255,255,255,0.6), 0 0 24px rgba(255,255,255,0.35); }
-                        100% { box-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 0 rgba(255,255,255,0.15); }
-                      }
-                    `}</style>
-                  </>
-                )} */}
                     <Box
                       sx={{
                         display: 'flex',
@@ -659,7 +497,7 @@ function Page({
                   py: [3, 3, 3, 0]
                 }}
                 onClick={() => {
-                  setCount(count + 1)
+                  setCount(prevCount => (prevCount + 1) % images.length)
                 }}
               >
                 <Box
@@ -1080,8 +918,8 @@ function Page({
               <Sprig
                 stars={stars.sprig.stargazerCount}
                 game={game}
-                gameImage={gameImage}
-                gameImage1={gameImage1}
+                gameImage=""
+                gameImage1=""
               />
               <Haxidraw stars={stars.blot.stargazerCount} />
               <Sinerider stars={stars.sinerider.stargazerCount} />
@@ -1104,17 +942,6 @@ function Page({
               backgroundPosition: '10% 10%'
             }}
           >
-            <Box
-              sx={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                top: 0,
-                left: 0
-              }}
-            >
-              {}
-            </Box>
             <Box
               py={[4, 5, '82px']}
               sx={{
@@ -1524,11 +1351,7 @@ export async function getStaticProps() {
   const slackData = await SlackDataLib()
 
   // GitHub: get latest github activity (currently this is erroring and
-  // preventing the site from deploying
-
-  const { fetchGitHub } = require('./api/github')
-  // let gitHubData = await fetchGitHub()
-
+  // preventing the site from deploying)
   const gitHubData = null
 
   // GitHub: get latest GitHub stars
@@ -1538,8 +1361,6 @@ export async function getStaticProps() {
   // Sprig: get newest games
   const { getGames } = require('./api/games')
   const game = await getGames()
-
-  const gameTitle = game.map(r => r.title)
 
   // Sprig: get console count
   const { getConsoles } = require('./api/sprig-console')
@@ -1569,18 +1390,10 @@ export async function getStaticProps() {
   )
 
   const events = []
-  try {
-    await fetch('https://events.hackclub.com/api/events/upcoming/').then(res =>
-      res.json()
-    )
-  } catch (error) {
-    console.error('Error fetching events:', error)
-  }
 
   return {
     props: {
       game,
-      gameTitle,
       gitHubData,
       consoleCount,
       hackathonsData,
