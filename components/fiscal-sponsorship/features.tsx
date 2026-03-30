@@ -94,12 +94,35 @@ export default function Features() {
 
 function Module({ icon, name, body }) {
   return (
-    <Box sx={{ display: 'flex', alignItems: 'start' }}>
-      <Icon
-        size={48}
-        glyph={icon}
-        sx={{ flexShrink: 0, marginRight: 3, color: 'primary' }}
-      />
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'start',
+        columnGap: 3
+      }}
+    >
+      <Box
+        sx={{
+          flexShrink: 0,
+          width: 40,
+          height: 40,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        <Icon
+          size={40}
+          glyph={icon}
+          sx={{
+            color: 'primary',
+            flexShrink: 0,
+            display: 'block',
+            width: 40,
+            height: 40
+          }}
+        />
+      </Box>
       <Text
         as="p"
         sx={{
