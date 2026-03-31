@@ -37,7 +37,6 @@ import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
-import Blueprint from '../components/index/cards/blueprint'
 import Milkyway from '../components/index/cards/milkyway'
 import Flavortown from '../components/index/cards/flavortown'
 import Scraps from '../components/index/cards/scraps'
@@ -73,7 +72,6 @@ function Page({
   game,
   events,
   carouselCards,
-  blueprintData,
   ctaCards
 }) {
   const [reveal, setReveal] = useState(false)
@@ -1366,10 +1364,6 @@ export async function getStaticProps() {
   const { getConsoles } = require('./api/sprig-console')
   const consoleCount = await getConsoles()
 
-  // Blueprint: get project count
-  const { fetchBlueprint } = require('./api/blueprint')
-  const blueprintData = await fetchBlueprint()
-
   // Hackathons: get latest hackathons
   let hackathonsData
   try {
@@ -1402,7 +1396,6 @@ export async function getStaticProps() {
       stars,
       events,
       carouselCards,
-      blueprintData,
       ctaCards
     },
     revalidate: 60

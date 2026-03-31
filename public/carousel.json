@@ -9,18 +9,6 @@
     "link": "https://jams.hackclub.com"
   },
   {
-    "background": "#0e305b",
-    "backgroundImage": "linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)",
-    "backgroundSize": "50px 50px",
-    "titleColor": "#dbe4ee",
-    "textColor": "#dbe4ee",
-    "descriptionColor": "#dbe4ee",
-    "title": "Blueprint",
-    "description": "Design a hardware project and get up to $400 to make it real",
-    "img": "https://cdn.hackclub.com/019c76b8-9716-7a35-bf79-929ad4d6d873/Y86cSA.png",
-    "link": "https://blueprint.hackclub.com/?utm_source=site-carousel"
-  },
-  {
     "background": "linear-gradient(to bottom right, rgba(176, 209, 253, 0.7), rgba(222, 215, 247, 0.7))",
     "titleColor": "#5B4A8A",
     "descriptionColor": "#3D6098",

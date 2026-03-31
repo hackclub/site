@@ -190,13 +190,13 @@ const ShipPage = () => {
       >
         OnBoard has ended!{' '}
         <Link
-          href="https://blueprint.hackclub.com/?utm_source=onboard-site"
+          href="https://fallout.hackclub.com/?utm_source=onboard-site"
           target="_blank"
           sx={{ color: 'white', textDecoration: 'underline' }}
         >
           Click here
         </Link>{' '}
-        to sign up for Blueprint - the next hardware program
+        to sign up for Fallout - the next hardware program
       </Box>
 
       <Box
