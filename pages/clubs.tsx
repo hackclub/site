@@ -390,7 +390,7 @@ const Page = () => (
     >
       <BGImg
         gradient="linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.625))"
-        src="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2F2020-05-16_screenshot.jpeg?v=1589633885855"
+        src="https://cdn.hackclub.com/019d3f60-c241-7386-825c-68732568c4b4/image.png"
         alt="Hack Clubbers gather at the Elon Musk AMA in 2020"
       />
       <Container>
