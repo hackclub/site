@@ -42,7 +42,7 @@ export default function First({ stats }) {
       <Meta
         as={Head}
         title="Financial Toolkit for FIRST Teams"
-        description="HCB is the ultimate financial tool for FRC, FTC, and FLL teams to receive grants, fundraise, make purchases, and so much more."
+        description="HCB is the ultimate booster club for FRC, FTC, and FLL teams to receive grants, fundraise, make purchases, and so much more."
         image="/fiscal-sponsorship/first/og-image.png"
       >
         <title>Financial Toolkit for FIRST Teams | HCB</title>
@@ -85,7 +85,7 @@ export default function First({ stats }) {
               }}
             >
               <Balancer>
-                The ultimate financial tool for{' '}
+                The ultimate booster club for{' '}
                 <Text
                   as="span"
                   sx={{
