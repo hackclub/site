@@ -212,7 +212,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/hardware',
-        destination: 'https://blueprint.hackclub.com',
+        destination: 'https://fallout.hackclub.com',
         permanent: true
       },
       {
