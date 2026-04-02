@@ -224,7 +224,7 @@ function Page({
           <Box
             sx={{
               width: '100%',
-              maxWidth: ['100%', '100%', '1500px'],
+              maxWidth: ['100%', '100%', '1200px'],
               px: [3, 4, 4],
               position: 'relative',
               mx: 'auto',
