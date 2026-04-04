@@ -198,7 +198,8 @@ export default function CTAS({ cards }) {
                     sx={{
                       color: descriptionColor,
                       fontSize: [1, '16px', '18px'],
-                      my: 2
+                      my: 2,
+                      whiteSpace: 'pre-line'
                     }}
                   >
                     {description}
