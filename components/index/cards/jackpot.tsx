@@ -66,7 +66,7 @@ export default function Jackpot() {
               textAlign: 'left'
             }}
           >
-            Spend time coding and enjoy prizes that YOU choose!
+            No hours required...enjoy a weekend hackathon in Las Vegas!
           </Text>
           <Box
             as="a"
