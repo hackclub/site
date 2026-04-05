@@ -37,7 +37,6 @@ import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
-import Milkyway from '../components/index/cards/milkyway'
 import Flavortown from '../components/index/cards/flavortown'
 import Scraps from '../components/index/cards/scraps'
 import HackClubTheGame from '../components/index/cards/hctg'
@@ -802,7 +801,6 @@ function Page({
             <Jackpot />
             <Scraps />
             <HackClubTheGame />
-            <Milkyway />
 
             <Slack data={slackData} events={events} />
           </Box>
