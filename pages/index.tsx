@@ -152,7 +152,7 @@ function Page({
   ]
 
   // Spotlight effect
-  const spotlightRef = useRef(null)
+  const spotlightRef = useRef<HTMLDivElement | null>(null)
   useEffect(() => {
     const handler = event => {
       const rect = document.getElementById('spotlight').getBoundingClientRect()

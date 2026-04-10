@@ -1167,7 +1167,17 @@ const Philanthropy = ({ posts = [] }) => {
                 Join our community of generous donors
               </Text>
             </Fade>
-            <Grid gap={2} columns={[2, 4, 4]} mt={2}>
+            <Grid
+              gap={[2, 2, 3]}
+              mt={2}
+              sx={{
+                gridTemplateColumns: [
+                  'repeat(2, minmax(0, 1fr))',
+                  'repeat(4, minmax(0, 1fr))',
+                  '1.15fr repeat(3, minmax(0, 1fr))'
+                ]
+              }}
+            >
               <Box>
                 <Fade delay={50}>
                   <Text as="h3" sx={{ marginBottom: '8px' }}>
@@ -1176,10 +1186,10 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <Fade delay={70}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Tom Preston-Werner (8x)
+                    Tom Preston-Werner (9x)
                   </Text>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Musk Foundation (5x)
+                    Musk Foundation (6x)
                   </Text>
                 </Fade>
                 <br></br>
@@ -1188,56 +1198,80 @@ const Philanthropy = ({ posts = [] }) => {
                     {' '}
                     $1M - $5M{' '}
                   </Text>
-                </Fade>
-                <Fade delay={120}>
+                <Fade delay={110}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Tobi Lutke
+                    Dr. Lisa Su
                   </Text>
                 </Fade>
-                <Fade delay={145}>
+                <Fade delay={130}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Michael Dell
+                    Michael Dell (3x) 
                   </Text>
+                </Fade>
                 </Fade>
                 <Fade delay={150}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    The Libermans
+                    Craig Newmark (4x)
                   </Text>
                 </Fade>
-              </Box>
-              <Box>
                 <Fade delay={170}>
-                  <Text as="h3" sx={{ marginBottom: '8px' }}>
-                    $500k - $1M
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Tobi Lutke 
                   </Text>
                 </Fade>
                 <Fade delay={190}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Lizzy Danhakl/Andrew Reed (5x)
+                    Advanced Micro Devices
                   </Text>
                 </Fade>
                 <Fade delay={210}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Craig Newmark (5x)
+                    The Libermans
                   </Text>
                 </Fade>
                 <Fade delay={230}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Endless Network (3x)
+                    Lizzy Danhakl & Andrew Reed (4x)
                   </Text>
                 </Fade>
-                <Fade delay={250}>
+               <Fade delay={250}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Patrick J. McGovern (3x)
+                  </Text>
+                </Fade>
+              </Box>
+              <Box>
+                <Fade delay={280}>
+                  <Text as="h3" sx={{ marginBottom: '8px' }}>
+                    $500k - $1M
+                  </Text>
+                </Fade>
+                <Fade delay={310}>
+                    <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                      GitHub Education (6x)
+                    </Text>
+                </Fade>
+                <Fade delay={330}>
+                  <Fade delay={410}>
+                    <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                      Argosy Foundation (5x)
+                    </Text>
+                  </Fade>
+                </Fade>
+                <Fade delay={350}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Endless Network (4x)
+                  </Text>
+                </Fade>
+               <Fade delay={370}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    FUTO (3x)
+                  </Text>
+                </Fade>
+                <Fade delay={390}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Joe Liemandt
                   </Text>
-                </Fade>
-
-                <Fade delay={260}>
-                  <Fade delay={410}>
-                    <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                      Argosy Foundation (4x)
-                    </Text>
-                  </Fade>
                 </Fade>
               </Box>
               <Box>
@@ -1246,64 +1280,76 @@ const Philanthropy = ({ posts = [] }) => {
                     $200k - $500k
                   </Text>
                 </Fade>
-                <Fade delay={290}>
+                <Fade delay={410}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Ron Conway (6x)
+                  </Text>
+                </Fade>
+                <Fade delay={430}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Adam Ross (3x)
+                  </Text>
+                </Fade>
+                <Fade delay={450}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Gwynne Shotwell
                   </Text>
                 </Fade>
-                <Fade delay={300}>
+                <Fade delay={470}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Ron Baron 
+                  </Text>
+                </Fade>
+                <Fade delay={490}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Jack Dorsey
                   </Text>
                 </Fade>
-                <Fade delay={330}>
+                <Fade delay={510}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Vitalik Buterin
+                    Vitalik Buterin 
                   </Text>
-                </Fade>
-                <Fade delay={345}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Ron Baron
-                  </Text>
-                </Fade>
-                <Fade delay={530}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Adam Ross (4x)
-                  </Text>
-                </Fade>
-                <Fade delay={360}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Ron Conway (5x)
-                  </Text>
-                </Fade>
-
-                <Fade delay={470}>
-                  <Fade delay={360}>
-                    <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                      GitHub Education (5x)
-                    </Text>
-                  </Fade>
                 </Fade>
               </Box>
               <Box>
-                <Fade delay={470}>
+                <Fade delay={530}>
                   <Text as="h3" sx={{ marginBottom: '8px' }}>
                     $100k- $200k
                   </Text>
                 </Fade>
-                <Fade delay={500}>
+                <Fade delay={550}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Quinn Slack (3x)
                   </Text>
                 </Fade>
-                <Fade delay={560}>
+                <Fade delay={570}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Peter Levine
+                    Peter Levine 
                   </Text>
                 </Fade>
                 <Fade delay={590}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    FUTO (3x)
+                    Mitchell Hashimoto
+                  </Text>
+                </Fade>
+                <Fade delay={610}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Proton Foundation
+                  </Text>
+                </Fade>
+                <Fade delay={630}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Chuck & Marna Davis
+                  </Text>
+                </Fade>
+                <Fade delay={650}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Kellogg Foundation
+                  </Text>
+                </Fade>
+                <Fade delay={670}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Pinkerton Foundation
                   </Text>
                 </Fade>
               </Box>
@@ -1341,8 +1387,14 @@ const Philanthropy = ({ posts = [] }) => {
             </Fade>
             <Fade delay={120}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/5sequoia.png"
-                name="Andrew Reed, Partner, Sequoia"
+                logo="https://user-cdn.hackclub-assets.com/019d60ed-1665-758f-8eee-ef3c3a1a4223/simile_ai_inc_logo.jfif"
+                name="Theo Bleier, Technical Staff, Simile"
+              />
+            </Fade>
+            <Fade delay={120}>
+              <Pill
+                logo="https://cdn.hackclub.com/019d60e7-9c9e-7eec-af86-27c0b712d246/Microsoft_Logo_512px.png"
+                name="Kevin Yang, Principal Researcher, Microsoft"
               />
             </Fade>
             <Fade delay={150}>
