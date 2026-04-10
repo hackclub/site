@@ -1198,16 +1198,16 @@ const Philanthropy = ({ posts = [] }) => {
                     {' '}
                     $1M - $5M{' '}
                   </Text>
-                <Fade delay={110}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Dr. Lisa Su
-                  </Text>
-                </Fade>
-                <Fade delay={130}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Michael Dell (3x) 
-                  </Text>
-                </Fade>
+                  <Fade delay={110}>
+                    <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                      Dr. Lisa Su
+                    </Text>
+                  </Fade>
+                  <Fade delay={130}>
+                    <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                      Michael Dell (3x)
+                    </Text>
+                  </Fade>
                 </Fade>
                 <Fade delay={150}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
@@ -1216,7 +1216,7 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <Fade delay={170}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Tobi Lutke 
+                    Tobi Lutke
                   </Text>
                 </Fade>
                 <Fade delay={190}>
@@ -1234,7 +1234,7 @@ const Philanthropy = ({ posts = [] }) => {
                     Lizzy Danhakl & Andrew Reed (4x)
                   </Text>
                 </Fade>
-               <Fade delay={250}>
+                <Fade delay={250}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Patrick J. McGovern (3x)
                   </Text>
@@ -1247,9 +1247,9 @@ const Philanthropy = ({ posts = [] }) => {
                   </Text>
                 </Fade>
                 <Fade delay={310}>
-                    <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                      GitHub Education (6x)
-                    </Text>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    GitHub Education (6x)
+                  </Text>
                 </Fade>
                 <Fade delay={330}>
                   <Fade delay={410}>
@@ -1263,7 +1263,7 @@ const Philanthropy = ({ posts = [] }) => {
                     Endless Network (4x)
                   </Text>
                 </Fade>
-               <Fade delay={370}>
+                <Fade delay={370}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     FUTO (3x)
                   </Text>
@@ -1297,7 +1297,7 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <Fade delay={470}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Ron Baron 
+                    Ron Baron
                   </Text>
                 </Fade>
                 <Fade delay={490}>
@@ -1307,7 +1307,7 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <Fade delay={510}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Vitalik Buterin 
+                    Vitalik Buterin
                   </Text>
                 </Fade>
               </Box>
@@ -1324,7 +1324,7 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <Fade delay={570}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Peter Levine 
+                    Peter Levine
                   </Text>
                 </Fade>
                 <Fade delay={590}>
