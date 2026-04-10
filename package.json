@@ -39,7 +39,7 @@
     "camelcase": "^9.0.0",
     "cookies-next": "^4.3.0",
     "date-fns": "^4.1.0",
-    "fuzzysort": "^2.0.4",
+    "fuzzysort": "^3.1.0",
     "geopattern": "^1.2.3",
     "js-confetti": "^0.13.1",
     "jszip": "^3.10.1",
