@@ -45,15 +45,6 @@
     "link": "https://fallout.hackclub.com/?utm_source=site-carousel"
   },
   {
-    "background": "white",
-    "titleColor": "black",
-    "descriptionColor": "black",
-    "title": "scraps",
-    "description": "Build projects, track your hours, earn scraps, and roll for prizes like hardware, stickers, and rare collectibles!",
-    "img": "https://raw.githubusercontent.com/hackclub/scraps/refs/heads/main/frontend/static/icon.png",
-    "link": "https://scraps.hackclub.com/?utm_source=site-carousel"
-  },
-  {
     "background": "#ffd966",
     "titleColor": "black",
     "descriptionColor": "black",

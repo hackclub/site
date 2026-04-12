@@ -38,7 +38,6 @@ import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Flavortown from '../components/index/cards/flavortown'
-import Scraps from '../components/index/cards/scraps'
 import HackClubTheGame from '../components/index/cards/hctg'
 import Sleepover from '../components/index/cards/sleepover'
 import Stasis from '../components/index/cards/stasis'
@@ -799,7 +798,6 @@ function Page({
             <Sleepover />
             <Stasis />
             <Jackpot />
-            <Scraps />
             <HackClubTheGame />
 
             <Slack data={slackData} events={events} />
