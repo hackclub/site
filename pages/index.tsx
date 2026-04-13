@@ -43,6 +43,7 @@ import Sleepover from '../components/index/cards/sleepover'
 import Stasis from '../components/index/cards/stasis'
 import Jackpot from '../components/index/cards/jackpot'
 import Fallout from '../components/index/cards/fallout'
+import Beest from '../components/index/cards/beest'
 import CTAS from '../components/index/ctas'
 import { slackData as SlackDataLib } from '../lib/slackData'
 
@@ -799,6 +800,7 @@ function Page({
             <Stasis />
             <Jackpot />
             <HackClubTheGame />
+            <Beest />
 
             <Slack data={slackData} events={events} />
           </Box>

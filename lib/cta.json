@@ -69,5 +69,20 @@
     "buttonText": "JOIN NOW",
     "buttonColor": "#FAD10B",
     "link": "https://fallout.hackclub.com"
+  },
+  {
+    "title": "Beest",
+    "logo": "https://cdn.hackclub.com/019d87e3-965d-75b0-83dd-c73469f47911/beest-cropped.png",
+    "logoScale": 1,
+    "background": "#A7C1D6",
+    "backgroundImage": "url(https://cdn.hackclub.com/019d87bd-fdf5-725a-a552-7207ebceaf06/bg.png)",
+    "stickerImage": "https://cdn.hackclub.com/019d87b5-6865-7985-b88d-12a4c528cc86/beest-sticker.webp",
+    "stickerImageScale": 0.65,
+    "description": "Code a project, fly to the Netherlands, build a mechanical animal!",
+    "backgroundSize": "auto 131%",
+    "descriptionColor": "#4C483C",
+    "buttonText": "JOIN NOW",
+    "buttonColor": "#D95D39",
+    "link": "https://beest.hackclub.com/?utm_source=cta"
   }
 ]
