@@ -5,7 +5,7 @@ import { keyframes } from '@emotion/react'
 
 const slideIn = keyframes({
   from: { transform: 'translateX(0)' },
-  to: { transform: 'translateX(-70%)' },
+  to: { transform: 'translateX(-70%)' }
 })
 
 export default function Beest() {
@@ -14,7 +14,8 @@ export default function Beest() {
       color="black"
       sx={{
         background: '#A7C1D6',
-        backgroundImage: 'url(https://cdn.hackclub.com/019d88c4-02ec-7b2a-844a-02dcb9f02b99/beestbg.webp)',
+        backgroundImage:
+          'url(https://cdn.hackclub.com/019d88c4-02ec-7b2a-844a-02dcb9f02b99/beestbg.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'bottom',
         borderRadius: '16px',
@@ -32,18 +33,18 @@ export default function Beest() {
         sx={{
           position: 'absolute',
           bottom: '45px',
-          right: '-170px', 
+          right: '-170px',
           maxWidth: '21em',
           zIndex: 1,
           display: ['none', 'none', 'none', 'block'],
-          
+
           // Explicitly handle the animation
           '@supports (animation-timeline: scroll(root))': {
             animationName: `${slideIn}`,
             animationTimingFunction: 'ease-in-out',
             animationFillMode: 'both',
             animationTimeline: 'scroll(root)',
-            animationRange: 'entry 10% contain 50%',
+            animationRange: 'entry 10% contain 50%'
           },
 
           // Firefox Fallback
@@ -69,7 +70,7 @@ export default function Beest() {
           alt="beest"
           src="https://cdn.hackclub.com/019d87e3-965d-75b0-83dd-c73469f47911/beest-cropped.png"
           sx={{
-            maxWidth: ['80%', '60%', '50%', '45%'],
+            maxWidth: ['80%', '60%', '50%', '45%']
           }}
         />
 
@@ -83,14 +84,17 @@ export default function Beest() {
             lineHeight: 1.3,
             mb: 5,
             display: 'block',
-            textAlign: 'left',
+            textAlign: 'left'
           }}
         >
-          Spend 40 hours building projects, fly to the Netherlands, build a mechanical animal!
+          Spend 40 hours building projects, fly to the Netherlands, build a
+          mechanical animal!
         </Text>
-        <Box sx={{
-          height: '48px'
-        }}>
+        <Box
+          sx={{
+            height: '48px'
+          }}
+        >
           <Box
             as="a"
             href="https://beest.hackclub.com/"
@@ -108,7 +112,8 @@ export default function Beest() {
               border: '3px solid #a06a69',
               borderBottom: '8px solid #8a5857',
               boxShadow: '4px 4px 0 #3a3832',
-              transition: 'transform 0.1s ease, box-shadow 0.1s ease, border-bottom-width 0.1s ease',
+              transition:
+                'transform 0.1s ease, box-shadow 0.1s ease, border-bottom-width 0.1s ease',
               '&:hover': {
                 transform: 'translate(-1px, -1px)',
                 boxShadow: '5px 5px 0 #3a3832'
