@@ -46,7 +46,7 @@ import Fallout from '../components/index/cards/fallout'
 import Beest from '../components/index/cards/beest'
 import CTAS from '../components/index/ctas'
 import { slackData as SlackDataLib } from '../lib/slackData'
-
+import Horizons from '../components/index/cards/hero'
 declare global {
   interface Window {
     kc: string
@@ -800,7 +800,6 @@ function Page({
             <Stasis />
             <Jackpot />
             <HackClubTheGame />
-            <Beest />
 
             <Slack data={slackData} events={events} />
           </Box>
