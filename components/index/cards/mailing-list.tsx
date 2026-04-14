@@ -6,8 +6,6 @@ import BGImg from '../../background-image'
 import background from '../../../public/home/footer.png'
 import MailCard from '../../mail-card'
 
-const markdownToHtml = require('@hackclub/markdown')
-
 const Loading = () => (
   <Box
     sx={{
@@ -77,7 +75,9 @@ const MailingList = () => {
           Promise.all(responses.map(response => response.text()))
         )
         .then(markdown =>
-          Promise.all(markdown.map(markdown => markdownToHtml(markdown)))
+          import('@hackclub/markdown').then(mod =>
+            Promise.all(markdown.map(md => mod.default(md)))
+          )
         )
         .then(html =>
           html.map(html =>
