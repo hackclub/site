@@ -37,7 +37,7 @@
         "react": "^19.2.4",
         "react-before-after-slider-component": "^1.1.8",
         "react-datepicker": "^9.1.0",
-        "react-dom": "^19.2.4",
+        "react-dom": "^19.2.5",
         "react-masonry-css": "^1.0.16",
         "react-page-visibility": "^7.0.0",
         "react-relative-time": "^0.0.9",
@@ -1304,7 +1304,7 @@
 
     "react-datepicker": ["react-datepicker@9.1.0", "", { "dependencies": { "@floating-ui/react": "^0.27.15", "clsx": "^2.1.1", "date-fns": "^4.1.0" }, "peerDependencies": { "date-fns-tz": "^3.0.0", "react": "^16.9.0 || ^17 || ^18 || ^19 || ^19.0.0-rc", "react-dom": "^16.9.0 || ^17 || ^18 || ^19 || ^19.0.0-rc" }, "optionalPeers": ["date-fns-tz"] }, "sha512-lOp+m5bc+ttgtB5MHEjwiVu4nlp4CvJLS/PG1OiOe5pmg9kV73pEqO8H0Geqvg2E8gjqTaL9eRhSe+ZpeKP3nA=="],
 
-    "react-dom": ["react-dom@19.2.4", "", { "dependencies": { "scheduler": "^0.27.0" }, "peerDependencies": { "react": "^19.2.4" } }, "sha512-AXJdLo8kgMbimY95O2aKQqsz2iWi9jMgKJhRBAxECE4IFxfcazB2LmzloIoibJI3C12IlY20+KFaLv+71bUJeQ=="],
+    "react-dom": ["react-dom@19.2.5", "", { "dependencies": { "scheduler": "^0.27.0" }, "peerDependencies": { "react": "^19.2.5" } }, "sha512-J5bAZz+DXMMwW/wV3xzKke59Af6CHY7G4uYLN1OvBcKEsWOs4pQExj86BBKamxl/Ik5bx9whOrvBlSDfWzgSag=="],
 
     "react-easy-swipe": ["react-easy-swipe@0.0.21", "", { "dependencies": { "prop-types": "^15.5.8" } }, "sha512-OeR2jAxdoqUMHIn/nS9fgreI5hSpgGoL5ezdal4+oO7YSSgJR8ga+PkYGJrSrJ9MKlPcQjMQXnketrD7WNmNsg=="],
 
