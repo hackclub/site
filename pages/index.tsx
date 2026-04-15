@@ -800,7 +800,8 @@ function Page({
             <Stasis />
             <Jackpot />
             <HackClubTheGame />
-
+            <Beest />
+            <Horizons />
             <Slack data={slackData} events={events} />
           </Box>
         </Box>
