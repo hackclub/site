@@ -22,7 +22,7 @@ const waveFlagScaled = keyframes`
 `
 
 const scrolled = props =>
-  props.scrolled &&
+  props.scrolled ?
   css`
     transform: scale(0.875);
     height: 56px;
@@ -30,7 +30,7 @@ const scrolled = props =>
     &:focus {
       animation: ${waveFlagScaled} 0.5s linear infinite alternate;
     }
-  `
+  ` : undefined
 
 const Base = styled(Link)<{ uwu?: boolean }>`
   background-image: ${props =>
