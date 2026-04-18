@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import CardModel from './card-model'
-import { Text, Box, Image } from 'theme-ui'
+import { Text, Box, Image, Button } from 'theme-ui'
 import localFont from 'next/font/local'
 
 const hypebuzz = localFont({
@@ -11,21 +11,14 @@ export default function Horizons() {
     <CardModel
       color="black"
       sx={{
+    
         background: 'url(/horizons/horizons-bg.jpg) no-repeat center center',
         backgroundSize: 'cover',
-        borderRadius: '16px',
-        position: 'relative',
-        overflow: 'hidden',
-        minHeight: '500px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        pt: 1,
       }}
       position={[null, 'bottom', 'bottom']}
       visible={true}
     >
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', zIndex: 2, borderRadius: '16px' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', zIndex: 2, gap: 2  }}>
         <Box
           sx={{
             position: 'relative',
@@ -34,7 +27,7 @@ export default function Horizons() {
             alignItems: 'center',
             textAlign: 'center',
             gap: '16px',
-            maxWidth: '700px',
+            maxWidth: '900px',
           }}
         >
           <Image
@@ -44,6 +37,7 @@ export default function Horizons() {
               maxWidth: '100%',
               top: '-20px',
               position: 'relative',
+              mt: 3,
             }}
           />
         </Box>
@@ -55,22 +49,25 @@ export default function Horizons() {
             alignItems: 'center',
             textAlign: 'center',
             gap: '16px',
-            maxWidth: '700px',
             mt: 2,
+            mb: 2,
+
           }}
         >
-          <Text className={hypebuzz.className} sx={{ color: '#000000', fontSize: '1.5rem' }}>
-            HIGH SCHOOL FLAGSHIP HACKATHONS ACROSS THE WORLD
-          </Text>
+            <Text className={hypebuzz.className} sx={{ color: '#000000', fontSize: '1.3rem' }}>
+              HIGH SCHOOL FLAGSHIP HACKATHONS ACROSS THE WORLD
+            </Text>
         </Box>
         <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '6px',
-            width: '100%',
-            mt: '6px',
-          }}
+  sx={{
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '6px',
+    width: ['calc(100% + 48px)', 'calc(100% + 65px)'],
+    ml: ['-24px', '-32.5px'],
+    mr: ['-24px', '-32.5px'],
+    mt: '6px',
+  }}
         >
           {[
             { color: '#ffa936', height: '15px' },
@@ -89,12 +86,26 @@ export default function Horizons() {
             textAlign: 'center',
             gap: '16px',
             maxWidth: '700px',
-            mt: 3,
+            mt: 4,
+            whiteSpace: 'nowrap',
           }}
         >
-          <Text className={hypebuzz.className} sx={{ color: '#000000', fontSize: '1.5rem' }}>
-            HIGH SCHOOL FLAGSHIP HACKATHONS ACROSS THE WORLD
-          </Text>
+<a href="https://horizons.hackclub.com/" target="_blank" rel="noopener noreferrer">
+<Button
+  sx={{
+    background: '#fba74d',
+    color: '#000000',
+    border: '2px solid #000000',
+    borderRadius: '10px',
+    padding: '10px 20px',
+    
+  }}
+>
+
+  CLICK HERE TO LEARN MORE!
+
+</Button>
+  </a>
         </Box>
       </Box>
     </CardModel>
