@@ -958,6 +958,17 @@
     "avatar": "https://mahadk.com/me.webp"
   },
   {
+    "name": "Violet Budiansky",
+    "department": "HQ",
+    "role": "Events & Engineering",
+    "acknowledged": false,
+    "bio": "Hi! I'm Violet, I'm a 17 year old programming who loves working on hackathons such as Campfire Flagship and Horizons. I also enjoy sewing stuffed animals, 3d printing and making games!",
+    "slackId": "U080YU735YH",
+    "email": "violet",
+    "website": "https://vvqb.dev",
+    "avatar": "https://cdn.hackclub.com/019d9e2f-c903-70b4-94f1-681003a0986b/picture.png"
+  },
+  {
     "name": "Asc",
     "department": "HQ",
     "role": "Engineering",
