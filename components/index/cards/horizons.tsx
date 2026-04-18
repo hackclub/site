@@ -12,7 +12,7 @@ export default function Horizons() {
       color="black"
       sx={{
     
-        background: 'url(/horizons/horizons-bg.jpg) no-repeat center center',
+        background: 'url(https://cdn.hackclub.com/019da274-78f6-7f66-b869-df642820ac5d/horizons-bg.jpg) no-repeat center center',
         backgroundSize: 'cover',
       }}
       position={[null, 'bottom', 'bottom']}
@@ -31,7 +31,7 @@ export default function Horizons() {
           }}
         >
           <Image
-            src="horizons/horizons-title.svg"
+            src="https://cdn.hackclub.com/019da274-549f-7437-80ca-c4583c485402/horizons-title.svg"
             alt="Horizons"
             sx={{
               maxWidth: '100%',
