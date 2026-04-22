@@ -76,6 +76,6 @@
     "eslint-config-next": "^16.1.6",
     "jiti": "^2.6.1",
     "prettier": "^3.8.1",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.2"
   }
 }
