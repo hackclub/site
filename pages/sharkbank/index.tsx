@@ -16,7 +16,7 @@ function DesktopMode({ billboardBottom }) {
           fill
           sizes="100vw"
           style={{
-            zIndex: '20',
+            zIndex: 20,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             overflow: 'hidden',
@@ -155,7 +155,7 @@ function DesktopMode({ billboardBottom }) {
             justifyContent: 'center',
             alignItems: 'center',
             position: 'absolute',
-            zIndex: '200',
+            zIndex: 200,
             bottom: '200px'
           }}
         >
@@ -164,7 +164,7 @@ function DesktopMode({ billboardBottom }) {
             sx={{
               fontSize: '30px',
               position: 'absolute',
-              zIndex: '20',
+              zIndex: 20,
               maxWidth: '750px',
               textAlign: 'center',
               transform: 'perspective(800px) rotateX(17deg)',
@@ -280,7 +280,7 @@ function DesktopMode({ billboardBottom }) {
                     position: 'absolute', // Position the image to fill the button
                     top: '0',
                     left: '0',
-                    zIndex: '-1', // Place the image behind the text
+                    zIndex: -1, // Place the image behind the text
                     borderRadius: '50px' // Apply the same border-radius as the button
                   }}
                 />
@@ -459,7 +459,7 @@ function TabletMode() {
             justifyContent: 'center',
             alignItems: 'center',
             position: 'absolute',
-            zIndex: '200',
+            zIndex: 200,
             top: '-350px'
           }}
         >
@@ -468,7 +468,7 @@ function TabletMode() {
             sx={{
               fontSize: '25px',
               position: 'absolute',
-              zIndex: '20',
+              zIndex: 20,
               maxWidth: '600px',
               textAlign: 'center',
               transform: 'perspective(800px) rotateX(17deg)',
@@ -584,7 +584,7 @@ function TabletMode() {
                     position: 'absolute', // Position the image to fill the button
                     top: '0',
                     left: '0',
-                    zIndex: '-1', // Place the image behind the text
+                    zIndex: -1, // Place the image behind the text
                     borderRadius: '50px' // Apply the same border-radius as the button
                   }}
                 />
@@ -766,7 +766,7 @@ function MobileMode() {
             justifyContent: 'center',
             alignItems: 'center',
             position: 'absolute',
-            zIndex: '200',
+            zIndex: 200,
             top: '-300px'
           }}
         >
@@ -775,7 +775,7 @@ function MobileMode() {
             sx={{
               fontSize: '20px',
               position: 'absolute',
-              zIndex: '20',
+              zIndex: 20,
               maxWidth: '300px',
               textAlign: 'center',
               transform: 'perspective(800px) rotateX(17deg)',
@@ -894,7 +894,7 @@ function MobileMode() {
                     position: 'absolute', // Position the image to fill the button
                     top: '6px',
                     left: '0',
-                    zIndex: '-1', // Place the image behind the text
+                    zIndex: -1, // Place the image behind the text
                     borderRadius: '50px' // Apply the same border-radius as the button
                   }}
                 />
