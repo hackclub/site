@@ -43,6 +43,7 @@ import Sleepover from '../components/index/cards/sleepover'
 import Stasis from '../components/index/cards/stasis'
 import Jackpot from '../components/index/cards/jackpot'
 import Fallout from '../components/index/cards/fallout'
+import Macondo from '../components/index/cards/macondo'
 import Beest from '../components/index/cards/beest'
 import CTAS from '../components/index/ctas'
 import { slackData as SlackDataLib } from '../lib/slackData'
@@ -796,6 +797,7 @@ function Page({
             </Box>
             <Flavortown />
             <Fallout />
+            <Macondo />
             <Sleepover />
             <Stasis />
             <Jackpot />

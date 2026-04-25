@@ -45,6 +45,15 @@
     "link": "https://fallout.hackclub.com/?utm_source=site-carousel"
   },
   {
+    "background": "#684D3A",
+    "titleColor": "#EACFB3",
+    "descriptionColor": "#EACFB3",
+    "title": "Macondo",
+    "description": "Make hardware or software projects, win free prizes, and fly to Bogotá, Colombia for a hackathon!",
+    "img": "https://cdn.hackclub.com/019dc21b-d702-72d2-9930-487a4f7cfd9a/android-chrome-512x512.webp",
+    "link": "https://macondo.hackclub.com/?utm_source=site-carousel"
+  },
+  {
     "background": "#ffd966",
     "titleColor": "black",
     "descriptionColor": "black",
