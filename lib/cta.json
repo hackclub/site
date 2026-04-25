@@ -24,6 +24,21 @@
     "link": "https://stasis.hackclub.com/?utm_source=cta"
   },
   {
+    "title": "Macondo",
+    "logo": "https://cdn.hackclub.com/019dc215-69df-7087-9b63-73db5a7126fd/logo_macondo.png",
+    "logoScale": 1.2,
+    "stickerImage": "https://cdn.hackclub.com/019dc21b-d702-72d2-9930-487a4f7cfd9a/android-chrome-512x512.webp",
+    "stickerImageScale": 0.5,
+    "background": "#684D3A",
+    "backgroundImage": "url(https://cdn.hackclub.com/019dc218-1e6a-7562-800c-d79da12bc5d1/background_logo_2.png)",
+    "backgroundSize": "480px 240px",
+    "description": "Make hardware or software projects and win free prizes! Fly to Bogotá, Colombia for a hackathon!",
+    "descriptionColor": "#EACFB3",
+    "buttonText": "JOIN NOW",
+    "buttonColor": "#EACFB3",
+    "link": "https://macondo.hackclub.com/?utm_source=cta"
+  },
+  {
     "title": "Sleepover",
     "logo": "https://cdn.hackclub.com/019c76b7-644a-7ef7-b855-63253c99d2f8/UpZIvQ.png",
     "background": "#B5AAE7",
