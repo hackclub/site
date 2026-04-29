@@ -59,7 +59,7 @@ const Page = () => (
       >
         <Press />
       </Box>
-      <a href="https://assets.hackclub.com/press.zip">
+      <a href="https://assets.hackclub.com/press-photos.zip">
         <Button variant="outline" mt={4} mb={4}>
           View all →
         </Button>
@@ -79,7 +79,7 @@ const Page = () => (
           <Logo name={key} key={key} />
         ))}
       </Grid>
-      <a href="https://assets.hackclub.com/logos.zip">
+      <a href="https://assets.hackclub.com/2020_branding.zip">
         <Button variant="outline" my={4}>
           Download all →
         </Button>
