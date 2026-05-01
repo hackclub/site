@@ -18,7 +18,6 @@ import Nav from '../../components/nav'
 import ForceTheme from '../../components/force-theme'
 import Footer from '../../components/footer'
 import ReactBeforeSliderComponent from 'react-before-after-slider-component'
-import 'react-before-after-slider-component/dist/build.css'
 import { Fade, Slide } from '../../components/react-reveal-compat'
 import Marquee from '../../components/marquee'
 import ExecuteBig from '../../public/donate/codedaydc_hack.jpg'
@@ -51,8 +50,8 @@ const PhotoRow = ({ photos }) => (
     <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>
       <AMarquee
         velocity={usePrefersMotion() ? 12 : 0}
-        onInit={() => {}}
-        onFinish={() => {}}
+        onInit={() => { }}
+        onFinish={() => { }}
       >
         {photos.map((photo, index) => (
           <Image
@@ -75,8 +74,8 @@ const PhotoRow = ({ photos }) => (
     <Box sx={{ display: ['none', 'none', 'none', 'none', 'block'] }}>
       <AMarquee
         velocity={usePrefersMotion() ? 12 : 0}
-        onInit={() => {}}
-        onFinish={() => {}}
+        onInit={() => { }}
+        onFinish={() => { }}
       >
         {photos.map((photo, index) => (
           <Image
@@ -384,7 +383,7 @@ const Philanthropy = ({ posts = [] }) => {
               zIndex: 1,
               position: 'relative',
               color: 'white!important',
-              height: '480px'
+              height: '480px',
             }}
             pt={[5, 5, '110px']}
           >
@@ -399,12 +398,12 @@ const Philanthropy = ({ posts = [] }) => {
               py={2}
               px={[1, 3]}
             >
-              <Container sx={{ maxWidth: '48rem' }}>
+              <Container sx={{ maxWidth: '48rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <Heading
                   sx={{
                     fontSize: ['42px', '54px', '72px'],
                     my: 2,
-                    color: 'white'
+                    color: 'white',
                   }}
                 >
                   Invest in the future.
@@ -413,7 +412,8 @@ const Philanthropy = ({ posts = [] }) => {
                   sx={{
                     fontSize: ['22px', '23px', '28px'],
                     maxWidth: '40rem',
-                    color: 'white'
+                    color: 'white',
+                    textAlign: 'center'
                   }}
                 >
                   Contribute today to empower the next generation.
