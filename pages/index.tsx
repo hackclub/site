@@ -37,7 +37,6 @@ import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
-import Flavortown from '../components/index/cards/flavortown'
 import HackClubTheGame from '../components/index/cards/hctg'
 import Sleepover from '../components/index/cards/sleepover'
 import Stasis from '../components/index/cards/stasis'
@@ -795,7 +794,6 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Flavortown />
             <Fallout />
             <Macondo />
             <Sleepover />
