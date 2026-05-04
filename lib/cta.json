@@ -28,17 +28,6 @@
     "link": "https://macondo.hackclub.com/?utm_source=cta"
   },
   {
-    "title": "Sleepover",
-    "logo": "https://cdn.hackclub.com/019c76b7-644a-7ef7-b855-63253c99d2f8/UpZIvQ.png",
-    "background": "#B5AAE7",
-    "stickerImage": "https://cdn.hackclub.com/019c76b5-f328-725e-9d6d-4f5368685ab5/tNACWw.png",
-    "description": "Learn to code and fly to an all girls slumber party hackathon!",
-    "descriptionColor": "white",
-    "buttonText": "JOIN NOW",
-    "buttonColor": "#9DC9F7",
-    "link": "https://sleepover.hackclub.com/?utm_source=site_cta"
-  },
-  {
     "title": "Hack Club: The Game",
     "logo": "https://cdn.hackclub.com/019d0899-f270-7530-b145-19d1e53f113f/hctg-text-logo.png",
     "description": "Build projects, then join a scavenger hunt in Manhattan!",
