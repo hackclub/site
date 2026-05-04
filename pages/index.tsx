@@ -1222,74 +1222,74 @@ function Page({
 
         {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
           'z' && (
-            <>
+          <>
+            <Box
+              sx={{
+                position: 'fixed',
+                top: 0,
+                width: '100%',
+                zIndex: 1000
+              }}
+            >
               <Box
                 sx={{
-                  position: 'fixed',
-                  top: 0,
-                  width: '100%',
-                  zIndex: 1000
-                }}
-              >
-                <Box
-                  sx={{
-                    position: 'relative',
-                    margin: 'auto',
-                    width: 'fit-content',
-                    lineHeight: 0
-                  }}
-                >
-                  <iframe
-                    width="560"
-                    height="315"
-                    src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
-                </Box>
-              </Box>
-              <Box
-                sx={{
-                  position: 'fixed',
-                  bottom: 0,
-                  right: 0,
-                  zIndex: 1000,
+                  position: 'relative',
+                  margin: 'auto',
+                  width: 'fit-content',
                   lineHeight: 0
                 }}
               >
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
+                  src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
                   title="YouTube video player"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 ></iframe>
               </Box>
-              <Box
-                sx={{
-                  position: 'fixed',
-                  bottom: 0,
-                  left: 0,
-                  zIndex: 1000,
-                  lineHeight: 0
-                }}
-              >
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              </Box>
-            </>
-          )}
+            </Box>
+            <Box
+              sx={{
+                position: 'fixed',
+                bottom: 0,
+                right: 0,
+                zIndex: 1000,
+                lineHeight: 0
+              }}
+            >
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </Box>
+            <Box
+              sx={{
+                position: 'fixed',
+                bottom: 0,
+                left: 0,
+                zIndex: 1000,
+                lineHeight: 0
+              }}
+            >
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </Box>
+          </>
+        )}
         <MailingList />
       </Box>
       <Footer
