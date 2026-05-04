@@ -9,6 +9,15 @@
     "link": "https://jams.hackclub.com"
   },
   {
+    "background": "linear-gradient(to bottom right, rgba(176, 209, 253, 0.7), rgba(222, 215, 247, 0.7))",
+    "titleColor": "#5B4A8A",
+    "descriptionColor": "#3D6098",
+    "title": "Sleepover",
+    "description": "Learn to code, earn prizes like plushies and iPads, and fly out to an all girls slumber party in Chicago!",
+    "img": "https://cdn.hackclub.com/019c76b5-f328-725e-9d6d-4f5368685ab5/tNACWw.png",
+    "link": "https://sleepover.hackclub.com/?utm_source=site-carousel"
+  },
+  {
     "background": "#D6CEBD",
     "titleColor": "#D95D39",
     "descriptionColor": "#443C38",

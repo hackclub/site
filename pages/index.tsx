@@ -38,6 +38,7 @@ import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import HackClubTheGame from '../components/index/cards/hctg'
+import Sleepover from '../components/index/cards/sleepover'
 import Stasis from '../components/index/cards/stasis'
 import Jackpot from '../components/index/cards/jackpot'
 import Fallout from '../components/index/cards/fallout'
@@ -795,6 +796,7 @@ function Page({
             </Box>
             <Fallout />
             <Macondo />
+            <Sleepover />
             <Stasis />
             <Jackpot />
             <HackClubTheGame />
