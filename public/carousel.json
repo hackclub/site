@@ -27,15 +27,6 @@
     "link": "https://stasis.hackclub.com/?utm_source=site-carousel"
   },
   {
-    "background": "#5F1212",
-    "titleColor": "#FAD10B",
-    "descriptionColor": "white",
-    "title": "Jackpot",
-    "description": "No hours required...enjoy a weekend Hackathon in Las Vegas!",
-    "img": "https://cdn.hackclub.com/019d01dd-6b56-748a-8386-8f77bad07d46/meow.png",
-    "link": "https://jackpot.hackclub.com/?utm_source=site-carousel"
-  },
-  {
     "background": "#38C9FF",
     "titleColor": "#FFFFFF",
     "descriptionColor": "#FFFFFF",
