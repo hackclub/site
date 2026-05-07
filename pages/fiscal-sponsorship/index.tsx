@@ -882,6 +882,12 @@ export default function Page() {
         </Flex>
       </Box>
       <ContactBanner sx={{ justifyContent: 'center' }} />
+      <Container sx={{ pb: 4, px: 3, textAlign: 'center' }}>
+        <Text variant="caption" sx={{ color: 'muted' }}>
+          HCB Visa® Commercial cards are powered by Stripe and issued by Celtic
+          Bank.
+        </Text>
+      </Container>
       <Footer />
     </>
   )
