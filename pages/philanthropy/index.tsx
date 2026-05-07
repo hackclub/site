@@ -859,7 +859,7 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <Fade delay={120}>
                   <Stat
-                    num="450+"
+                    num="1400+"
                     words="coding clubs"
                     background="https://icons.hackclub.com/api/icons/0xFAFAFA/glyph:event-code.svg"
                   />
@@ -873,14 +873,14 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <Fade delay={150}>
                   <Stat
-                    num="1800+"
-                    words="nonprofits & clubs sponsored"
+                    num="6500+"
+                    words="projects sponsored"
                     background="https://icons.hackclub.com/api/icons/0xFAFAFA/glyph:member-add.svg"
                   />
                 </Fade>
                 <Fade delay={180}>
                   <Stat
-                    num="$14 million"
+                    num="$100M+"
                     words="transacted on HCB"
                     background="https://icons.hackclub.com/api/icons/0xFAFAFA/glyph:photo.svg"
                   />
