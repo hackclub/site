@@ -34,7 +34,7 @@
         "jszip": "^3.10.1",
         "lodash": "^4.17.23",
         "next": "^16.2.4",
-        "react": "^19.2.4",
+        "react": "^19.2.6",
         "react-before-after-slider-component": "^1.1.8",
         "react-datepicker": "^9.1.0",
         "react-dom": "^19.2.4",
@@ -1296,7 +1296,7 @@
 
     "quick-lru": ["quick-lru@1.1.0", "", {}, "sha512-tRS7sTgyxMXtLum8L65daJnHUhfDUgboRdcWW2bR9vBfrj2+O5HSMbQOJfJJjIVSPFqbBCF37FpwWXGitDc5tA=="],
 
-    "react": ["react@19.2.4", "", {}, "sha512-9nfp2hYpCwOjAN+8TZFGhtWEwgvWHXqESH8qT89AT/lWklpLON22Lc8pEtnpsZz7VmawabSU0gCjnj8aC0euHQ=="],
+    "react": ["react@19.2.6", "", {}, "sha512-sfWGGfavi0xr8Pg0sVsyHMAOziVYKgPLNrS7ig+ivMNb3wbCBw3KxtflsGBAwD3gYQlE/AEZsTLgToRrSCjb0Q=="],
 
     "react-before-after-slider-component": ["react-before-after-slider-component@1.1.8", "", { "peerDependencies": { "react": ">=17.0.2", "react-dom": ">=17.0.2" } }, "sha512-KcY231f68+7bF0Zkfat55jvgNSSCB5TkBtm1HhLeb336jtQ0hYKkdq6VwrleNrfeVdUD2v+E7DzgNJYc6dsY3Q=="],
 
