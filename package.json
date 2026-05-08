@@ -48,7 +48,7 @@
     "react": "^19.2.4",
     "react-before-after-slider-component": "^1.1.8",
     "react-datepicker": "^9.1.0",
-    "react-dom": "^19.2.4",
+    "react-dom": "^19.2.6",
     "react-masonry-css": "^1.0.16",
     "react-page-visibility": "^7.0.0",
     "react-relative-time": "^0.0.9",
