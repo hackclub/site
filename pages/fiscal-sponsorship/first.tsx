@@ -8,6 +8,7 @@ import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import Icon from '../../components/icon'
 import Features from '../../components/fiscal-sponsorship/first/features'
+import IssuingNotice from '../../components/fiscal-sponsorship/issuing'
 
 import Testimonials from '../../components/fiscal-sponsorship/first/testimonials'
 import Start from '../../components/fiscal-sponsorship/first/start'
@@ -197,13 +198,8 @@ export default function First({ stats }) {
           <Start stats={stats} />
         </Box>
       </Box>
-      <Container sx={{ pb: 4, px: 3, textAlign: 'center' }}>
-        <Text variant="caption" sx={{ color: 'muted' }}>
-          HCB Visa® Commercial cards are powered by Stripe and issued by Celtic
-          Bank.
-        </Text>
-      </Container>
       <Footer dark />
+      <IssuingNotice sx={{ bg: 'darker', color: 'muted' }} />
     </>
   )
 }
