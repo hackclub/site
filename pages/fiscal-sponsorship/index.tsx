@@ -20,6 +20,7 @@ import Footer from '../../components/footer'
 import Photo from '../../components/photo'
 import Stat from '../../components/stat'
 import ContactBanner from '../../components/fiscal-sponsorship/contact'
+import IssuingNotice from '../../components/fiscal-sponsorship/issuing'
 import Features from '../../components/fiscal-sponsorship/features'
 import OuternetImgFile from '../../public/home/outernet-110.jpg'
 import SignIn from '../../components/fiscal-sponsorship/sign-in'
@@ -882,13 +883,8 @@ export default function Page() {
         </Flex>
       </Box>
       <ContactBanner sx={{ justifyContent: 'center' }} />
-      <Container sx={{ pb: 4, px: 3, textAlign: 'center' }}>
-        <Text variant="caption" sx={{ color: 'muted' }}>
-          HCB Visa® Commercial cards are powered by Stripe and issued by Celtic
-          Bank.
-        </Text>
-      </Container>
       <Footer />
+      <IssuingNotice />
     </>
   )
 }
