@@ -22,7 +22,7 @@ const DeprecatedPage = ({
     <Meta
       as={Head}
       title={name}
-      desc={`Hack Club no longer offers ${name}. Learn more here.`}
+      description={`Hack Club no longer offers ${name}. Learn more here.`}
       image={`https://workshop-cards.hackclub.com/${encodeURIComponent(
         name
       )}.png?theme=dark&caption=deprecated&fontSize=250px&brand=HQ`}
