@@ -211,7 +211,7 @@ const Footer = ({
         </Box>
       </Grid>
       <Text as="p" variant="caption" sx={{ mt: 3 }}>
-        © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit (EIN:
+        © {new Date().getFullYear()}{" "}Hack&nbsp;Club. 501(c)(3) nonprofit (EIN:
         81-2908499)
       </Text>
     </Container>
