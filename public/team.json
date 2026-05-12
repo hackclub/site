@@ -1012,7 +1012,7 @@
     "slackId": "U08L7HLBT6V",
     "email": "",
     "website": "https://maadhavbhatt.github.io",
-    "avatar": "https://i.ibb.co/RkPLjQHP/matthew.jpg"
+    "avatar": "https://cachet.dunkirk.sh/users/U08L7HLBT6V/r"
   },
   {
     "name": "Aishaani",
@@ -1049,7 +1049,7 @@
     "name": "Hasan",
     "department": "Moderation",
     "role": "Moderation & Conduct",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "",
     "slackId": "U062U3SQ2T1",
     "email": "",
@@ -1061,7 +1061,7 @@
     "department": "Moderation",
     "role": "Moderation & Conduct",
     "acknowledged": false,
-    "bio": "",
+    "bio": "Junya is an enthusiastic programmer from the rainy place that is the UK. She is responsible for conduct and moderation at Hack Club, making the Slack a safer space with a friendly face. Outside of Hack Club she enjoys traveling around the world taking photos with her DSLR camera, and drowning in music!",
     "slackId": "U082PAFDDS5",
     "email": "",
     "website": "",
@@ -1098,6 +1098,39 @@
     "email": "felix",
     "website": "https://felixgao.dev/",
     "avatar": "https://i.ibb.co/3mCMrhZ2/Felix.png"
+  },
+  {
+    "name": "Lachlan",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U096NGLTF4K",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U096NGLTF4K/r"
+  },
+  {
+    "name": "Julia Do",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": false,
+    "bio": "Julia is a 17-year-old Hack Clubber who loves mangoes, karaoke, and creating projects that tell stories. When she's not working, you can probably find her on Slack!",
+    "slackId": "U0943NG73PA",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U0943NG73PA/r"
+  },
+  {
+    "name": "Dani",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U07E6TW9DL0",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U07E6TW9DL0/r"
   },
   {
     "name": "Mahad Kalam",
