@@ -794,14 +794,14 @@ function Page({
                 and make things together!
               </Text>
             </Box>
+            <Horizons />
             <Fallout />
             <Macondo />
             <Sleepover />
             <Stasis />
-            <Jackpot />
             <HackClubTheGame />
             <Beest />
-            <Horizons />
+
             <Slack data={slackData} events={events} />
           </Box>
         </Box>

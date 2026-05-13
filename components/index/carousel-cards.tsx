@@ -86,7 +86,7 @@ export default function CarouselCards({
           <Icon
             glyph="external"
             size={32}
-            color="#E9E9E9"
+            color={titleColor || '#E9E9E9'}
             sx={{
               position: 'absolute',
               top: 2,
