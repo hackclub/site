@@ -1186,5 +1186,60 @@
     "email": "",
     "website": "https://v1c.rocks/",
     "avatar": "https://profile.vic.wf/vm/picture.png"
-  }
+  },
+{
+  "name": "Freddie Yershon",
+  "department": "HQ",
+  "role": "Club Operations",
+  "acknowledged": false,
+  "bio": "Freddie is a 14-year-old Hack Clubber from London and started helping with the Clubs Team recently. He joined Hack Club in June 2024 and and is very exited to help clubs get started. When he is not coding or clubbing he enjoys reading and boating or walking his dog!",
+  "slackId": "",
+  "email": "freddie",
+  "website": "https://freddieyershon.co.uk",
+  "avatar": "https://user-cdn.hackclub-assets.com/019e26bd-157e-7802-a899-1cec0f58b24c/campfire-pic.JPEG"
+},
+{
+  "name": "Mohammed Zaid",
+  "department": "HQ",
+  "role": "Club Operations",
+  "acknowledged": false,
+  "bio": "Zaid is a 15-year-old Hack Clubber from India who is keen on getting clubs to grow. He is actively involved on the Clubs Team and loves to help out new and upcoming leaders. He also loves to play soccer and cook food in his free time!",
+  "slackId": "",
+  "email": "zaid@hackclub.com",
+  "website": "https://zaids-bunker.vercel.app/",
+  "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U083VVA9M0W-089e768e4eaf-512"
+},
+{
+  "name": "Will Kitch",
+  "department": "HQ",
+  "role": "Club Operations",
+  "acknowledged": false,
+  "bio": "Will is a Hack Clubber from London, UK. Before joining the Clubs Team he was working on 2 club YSWSs: Flavorless and Vibes. He joined the Clubs Team in April 2026. In Will’s free time he enjoys reading, playing video games and volunteering.",
+  "slackId": "",
+  "email": "zaid",
+  "website": "https://willkitch.me",
+  "avatar": "https://lh3.googleusercontent.com/a/ACg8ocI74rONzcColpKzdF8eCtAbzU_SCreTtrvDvSqK6WnRk6dTXRg=s400-c"
+},
+{
+  "name": "David P",
+  "department": "HQ",
+  "role": "Club Operations",
+  "acknowledged": false,
+  "bio": "",
+  "slackId": "",
+  "email": "davidp@hackclub.com",
+  "website": "https://fletchworks.dev/",
+  "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U06LWHNLL3B-aac4d1b71cb9-512"
+},
+{
+  "name": "Wally",
+  "department": "HQ",
+  "role": "Club Operations",
+  "acknowledged": false,
+  "bio": "",
+  "slackId": "",
+  "email": "wally@hackclub.com",
+  "website": "",
+  "avatar": ""
+}
 ]
