@@ -1192,8 +1192,7 @@
   "department": "HQ",
   "role": "Club Operations",
   "acknowledged": false,
-  "bio": "Freddie is a 14-year-old Hack Clubber from London and started helping with the Clubs Team recently. He joined Hack Club in June 2024 and and is very exited to help clubs get started. When he is not coding or clubbing he enjoys reading and boating or walking his dog!",
-  "slackId": "",
+  "bio": "Freddie is a 14-year-old Hack Clubber from London who is part of the clubs tean the Clubs Team. He's been a member of Hack Club since June 2024 and is excited to help clubs get started. When he's not coding or working with clubs, he enjoys reading, boating, and walking his dog!",
   "email": "freddie",
   "website": "https://freddieyershon.co.uk",
   "avatar": "https://user-cdn.hackclub-assets.com/019e26bd-157e-7802-a899-1cec0f58b24c/campfire-pic.JPEG"
@@ -1206,7 +1205,6 @@
   "bio": "Zaid is a 15-year-old Hack Clubber from India who is keen on getting clubs to grow. He is actively involved on the Clubs Team and loves to help out new and upcoming leaders. He also loves to play soccer and cook food in his free time!",
   "slackId": "",
   "email": "zaid@hackclub.com",
-  "website": "https://zaids-bunker.vercel.app/",
   "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U083VVA9M0W-089e768e4eaf-512"
 },
 {
@@ -1225,7 +1223,7 @@
   "department": "HQ",
   "role": "Club Operations",
   "acknowledged": false,
-  "bio": "",
+  "bio": "David is an 18yr old Hack Clubber from the UK, who got started with Hack Club 3 years ago. He's worked on Fusering, and now helps the Clubs team with operations and onboarding. In his free time, he enjoys 3D modelling and archery!",
   "slackId": "",
   "email": "davidp@hackclub.com",
   "website": "https://fletchworks.dev/",
@@ -1237,7 +1235,6 @@
   "role": "Club Operations",
   "acknowledged": false,
   "bio": "",
-  "slackId": "",
   "email": "wally@hackclub.com",
   "avatar": "https://cdn.hackclub.com/019e2bf0-18bc-7abd-88d4-b68156d12c88/1000123054.jpg"
 }
