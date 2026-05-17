@@ -161,7 +161,7 @@ export function Footer() {
               lineHeight: 1.2,
             }}
           >
-            Where teens make cool stuff.
+            For teens, by teens.
           </p>
           <a
             href="tel:18556254225"
