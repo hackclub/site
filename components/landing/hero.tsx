@@ -521,7 +521,7 @@ export function HeroSection() {
           />
           <Photo
             src="/assets/hero_photo7.webp"
-            bbX={-5}
+            bbX={-60}
             bbY={725}
             bbW={390}
             bbH={290}
