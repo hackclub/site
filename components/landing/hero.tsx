@@ -520,19 +520,6 @@ export function HeroSection() {
             parallaxRate={0.05}
           />
           <Photo
-            src="/assets/hero_photo6.webp"
-            bbX={-100}
-            bbY={695}
-            bbW={390}
-            bbH={290}
-            w={370}
-            h={260}
-            rotate={22}
-            zIndex={8}
-            scale={0.78}
-            parallaxRate={0.04}
-          />
-          <Photo
             src="/assets/hero_photo7.webp"
             bbX={-5}
             bbY={725}
