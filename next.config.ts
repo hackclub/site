@@ -43,6 +43,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/hcb/:path*",
+        destination: "/fiscal-sponsorship/:path*",
+        permanent: true,
+      },
+      {
         source: "/privacy",
         destination: "/privacy-and-terms",
         permanent: true,
