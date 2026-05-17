@@ -25,7 +25,8 @@ const arcadeAssets: Record<string, string> = {
   "arcade_bg.png": "https://cdn.hackclub.com/019e383a-b427-7b96-823d-503209f32f81/arcade_bg.png",
   "beige_bg.png": "https://cdn.hackclub.com/019e383a-b655-736b-b1fb-e08a1fd36991/beige_bg.png",
   "blue_bg.svg": "https://cdn.hackclub.com/019e383a-bb5e-7666-95fa-0fbb6b1f50f4/blue_bg.svg",
-  "blue_bottom.svg": "https://cdn.hackclub.com/019e383a-be5c-7aad-bf95-4d9a3401800f/blue_bottom.svg",
+  "blue_bottom.svg":
+    "https://cdn.hackclub.com/019e383a-be5c-7aad-bf95-4d9a3401800f/blue_bottom.svg",
   "blue_top.png": "https://cdn.hackclub.com/019e383a-bf7f-7683-a876-16d867402200/blue_top.png",
   "blue_top.svg": "https://cdn.hackclub.com/019e383a-c0ca-7e75-af59-4b3355cfcdd9/blue_top.svg",
   "brown_bg.svg": "https://cdn.hackclub.com/019e383a-c2fe-7576-9077-d9d68e34f02f/brown_bg.svg",
@@ -37,17 +38,22 @@ const arcadeAssets: Record<string, string> = {
   "prizes.png": "https://cdn.hackclub.com/019e383a-cd3b-7a4b-b7da-09367ba3d1cc/prizes.png",
   "r5.png": "https://cdn.hackclub.com/019e383a-cf23-7553-b4a4-56058f8c0431/r5.png",
   "r6.png": "https://cdn.hackclub.com/019e383a-d0a9-715c-b5e9-9c0bd9b9c50e/r6.png",
-  "yellow_bottom.svg": "https://cdn.hackclub.com/019e383a-d1d4-7d2a-921d-48725f1a6b85/yellow_bottom.svg",
+  "yellow_bottom.svg":
+    "https://cdn.hackclub.com/019e383a-d1d4-7d2a-921d-48725f1a6b85/yellow_bottom.svg",
 };
 
 const stickerAssets: Record<string, string> = {
-  "2020_progress.png": "https://cdn.hackclub.com/019e383a-d35b-7c92-9cbb-124198c1593c/2020_progress.png",
-  "2021_design_awards.png": "https://cdn.hackclub.com/019e383a-d474-7f6d-acbc-cd880ff971d4/2021_design_awards.png",
+  "2020_progress.png":
+    "https://cdn.hackclub.com/019e383a-d35b-7c92-9cbb-124198c1593c/2020_progress.png",
+  "2021_design_awards.png":
+    "https://cdn.hackclub.com/019e383a-d474-7f6d-acbc-cd880ff971d4/2021_design_awards.png",
   "Blot.png": "https://cdn.hackclub.com/019e383a-d662-7da2-9dc8-2271e9fdde8c/Blot.png",
-  "HackHackClub.png": "https://cdn.hackclub.com/019e383a-d910-7d56-9d3d-6c3a3224845c/HackHackClub.png",
+  "HackHackClub.png":
+    "https://cdn.hackclub.com/019e383a-d910-7d56-9d3d-6c3a3224845c/HackHackClub.png",
   "In-N-Out.png": "https://cdn.hackclub.com/019e383a-da56-79e0-8a4f-0dce7ba77403/In-N-Out.png",
   "MRT.png": "https://cdn.hackclub.com/019e383a-dc1d-73e3-930e-91b9e6e337db/MRT.png",
-  "OnBoard_holographic_sticker.png": "https://cdn.hackclub.com/019e383a-de59-799c-8429-330e3e31146e/OnBoard_holographic_sticker.png",
+  "OnBoard_holographic_sticker.png":
+    "https://cdn.hackclub.com/019e383a-de59-799c-8429-330e3e31146e/OnBoard_holographic_sticker.png",
   "Rummage.png": "https://cdn.hackclub.com/019e383a-dfc2-7c3b-8de3-ff21f8612163/Rummage.png",
 };
 
