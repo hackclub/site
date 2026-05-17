@@ -565,7 +565,8 @@ const Page = () => (
                 <a href="https://leaders.hackclub.com"> Leaders Portal</a>! A
                 place to manage your club! We've also got free subscriptions to
                 Brilliant Premium, Code Crafters, and more for running a great
-                computer science club.
+                computer science club.Check out our{' '}
+                <a href="https://toolbox.hackclub.com/">Toolbox</a> for even more resources!
               </>
             }
           />
