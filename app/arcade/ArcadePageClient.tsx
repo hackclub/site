@@ -18,10 +18,41 @@ export type ArcadeCarouselItem = {
   imageURL: string;
 };
 
-const rawBase = "https://raw.githubusercontent.com/hackclub/site/main/public";
+const arcadeAssets: Record<string, string> = {
+  "a1.png": "https://cdn.hackclub.com/019e383a-adac-7bed-bcb1-9d75a79dd2b3/a1.png",
+  "a2.png": "https://cdn.hackclub.com/019e383a-afc9-7c6c-bd04-90172a0d094d/a2.png",
+  "a3.png": "https://cdn.hackclub.com/019e383a-b1f6-7894-b6df-e97639ce732c/a3.png",
+  "arcade_bg.png": "https://cdn.hackclub.com/019e383a-b427-7b96-823d-503209f32f81/arcade_bg.png",
+  "beige_bg.png": "https://cdn.hackclub.com/019e383a-b655-736b-b1fb-e08a1fd36991/beige_bg.png",
+  "blue_bg.svg": "https://cdn.hackclub.com/019e383a-bb5e-7666-95fa-0fbb6b1f50f4/blue_bg.svg",
+  "blue_bottom.svg": "https://cdn.hackclub.com/019e383a-be5c-7aad-bf95-4d9a3401800f/blue_bottom.svg",
+  "blue_top.png": "https://cdn.hackclub.com/019e383a-bf7f-7683-a876-16d867402200/blue_top.png",
+  "blue_top.svg": "https://cdn.hackclub.com/019e383a-c0ca-7e75-af59-4b3355cfcdd9/blue_top.svg",
+  "brown_bg.svg": "https://cdn.hackclub.com/019e383a-c2fe-7576-9077-d9d68e34f02f/brown_bg.svg",
+  "o1.png": "https://cdn.hackclub.com/019e383a-c491-7731-997e-2af2db1dab8b/o1.png",
+  "o2.png": "https://cdn.hackclub.com/019e383a-c5d5-78eb-bb85-14c2f9256fd6/o2.png",
+  "o5.png": "https://cdn.hackclub.com/019e383a-c73a-77b3-abfd-bd39ae520c2f/o5.png",
+  "o6.png": "https://cdn.hackclub.com/019e383a-c985-7e07-bc0d-121d85c3155b/o6.png",
+  "o7.png": "https://cdn.hackclub.com/019e383a-cb0e-73b5-8d12-fd6158ac3e25/o7.png",
+  "prizes.png": "https://cdn.hackclub.com/019e383a-cd3b-7a4b-b7da-09367ba3d1cc/prizes.png",
+  "r5.png": "https://cdn.hackclub.com/019e383a-cf23-7553-b4a4-56058f8c0431/r5.png",
+  "r6.png": "https://cdn.hackclub.com/019e383a-d0a9-715c-b5e9-9c0bd9b9c50e/r6.png",
+  "yellow_bottom.svg": "https://cdn.hackclub.com/019e383a-d1d4-7d2a-921d-48725f1a6b85/yellow_bottom.svg",
+};
 
-const arcadeAsset = (path: string) => `${rawBase}/arcade/${path}`;
-const stickerAsset = (path: string) => `${rawBase}/stickers/${encodeURIComponent(path)}`;
+const stickerAssets: Record<string, string> = {
+  "2020_progress.png": "https://cdn.hackclub.com/019e383a-d35b-7c92-9cbb-124198c1593c/2020_progress.png",
+  "2021_design_awards.png": "https://cdn.hackclub.com/019e383a-d474-7f6d-acbc-cd880ff971d4/2021_design_awards.png",
+  "Blot.png": "https://cdn.hackclub.com/019e383a-d662-7da2-9dc8-2271e9fdde8c/Blot.png",
+  "HackHackClub.png": "https://cdn.hackclub.com/019e383a-d910-7d56-9d3d-6c3a3224845c/HackHackClub.png",
+  "In-N-Out.png": "https://cdn.hackclub.com/019e383a-da56-79e0-8a4f-0dce7ba77403/In-N-Out.png",
+  "MRT.png": "https://cdn.hackclub.com/019e383a-dc1d-73e3-930e-91b9e6e337db/MRT.png",
+  "OnBoard_holographic_sticker.png": "https://cdn.hackclub.com/019e383a-de59-799c-8429-330e3e31146e/OnBoard_holographic_sticker.png",
+  "Rummage.png": "https://cdn.hackclub.com/019e383a-dfc2-7c3b-8de3-ff21f8612163/Rummage.png",
+};
+
+const arcadeAsset = (path: string) => arcadeAssets[path] ?? "";
+const stickerAsset = (path: string) => stickerAssets[path] ?? "";
 
 const stickerNames = [
   "Blot.png",
