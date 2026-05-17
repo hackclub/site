@@ -7,7 +7,6 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Icon } from "@/components/Icon";
 import { FISCAL_COLORS, FISCAL_TYPOGRAPHY } from "@/components/fiscal-sponsorship/constants";
-import { IssuingNotice } from "@/components/fiscal-sponsorship/IssuingNotice";
 
 type HCBStats = {
   transactions_volume?: number;
@@ -1057,7 +1056,6 @@ export function FirstPageClient() {
             </p>
           </div>
         </section>
-        <IssuingNotice dark />
       </main>
       <Footer />
 
