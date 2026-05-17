@@ -8,7 +8,6 @@ import { Footer } from "@/components/Footer";
 import { Features } from "@/components/fiscal-sponsorship/Features";
 import { OrganizationGrid } from "@/components/fiscal-sponsorship/OrganizationSpotlight";
 import { ContactBanner } from "@/components/fiscal-sponsorship/ContactBanner";
-import { IssuingNotice } from "@/components/fiscal-sponsorship/IssuingNotice";
 import { OpenSource } from "@/components/fiscal-sponsorship/OpenSource";
 import { SignIn } from "@/components/fiscal-sponsorship/SignIn";
 import { Icon } from "@/components/Icon";
@@ -915,7 +914,6 @@ export default function FiscalSponsorshipPage() {
         </section>
 
         <ContactBanner />
-        <IssuingNotice />
       </main>
       <Footer />
     </>
