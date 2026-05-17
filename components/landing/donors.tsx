@@ -2,11 +2,31 @@ import Image from "next/image";
 import Link from "next/link";
 
 const donors = [
-  { src: "https://cdn.hackclub.com/019db857-4e1c-7b22-9252-78c368e53eef/donorGithub.webp",     width: 147, height: 147 },
-  { src: "https://cdn.hackclub.com/019db857-50fe-7835-bd6b-72fcb4a0475c/donorLogo2.webp",      width: 141, height: 142 },
-  { src: "https://cdn.hackclub.com/019db857-53a5-7e88-809e-45709e065277/donorMIT.webp",        width: 125, height: 159 },
-  { src: "https://cdn.hackclub.com/019db857-5624-7ffb-ae4c-132aabbbe537/donorLogoMasked.webp", width: 143, height: 143 },
-  { src: "https://cdn.hackclub.com/019db857-58db-7e5d-823d-ba7651096cd6/donorLogo4.webp",      width: 248, height: 161 },
+  {
+    src: "https://cdn.hackclub.com/019db857-4e1c-7b22-9252-78c368e53eef/donorGithub.webp",
+    width: 147,
+    height: 147,
+  },
+  {
+    src: "https://cdn.hackclub.com/019db857-50fe-7835-bd6b-72fcb4a0475c/donorLogo2.webp",
+    width: 141,
+    height: 142,
+  },
+  {
+    src: "https://cdn.hackclub.com/019db857-53a5-7e88-809e-45709e065277/donorMIT.webp",
+    width: 125,
+    height: 159,
+  },
+  {
+    src: "https://cdn.hackclub.com/019db857-5624-7ffb-ae4c-132aabbbe537/donorLogoMasked.webp",
+    width: 143,
+    height: 143,
+  },
+  {
+    src: "https://cdn.hackclub.com/019db857-58db-7e5d-823d-ba7651096cd6/donorLogo4.webp",
+    width: 248,
+    height: 161,
+  },
 ];
 
 const donorNames = [
@@ -39,7 +59,8 @@ export function DonorsSection() {
           left: 0,
           right: 0,
           height: "30%",
-          background: "linear-gradient(0deg, rgba(236,55,80,0.40) 0%, rgba(236,55,80,0.04) 75%, transparent 100%)",
+          background:
+            "linear-gradient(0deg, rgba(236,55,80,0.40) 0%, rgba(236,55,80,0.04) 75%, transparent 100%)",
           pointerEvents: "none",
           zIndex: 0,
         }}
@@ -219,11 +240,20 @@ export function DonorsSection() {
       >
         <p style={{ margin: "0 0 0" }}>
           {"Hack Club is a 501(c)(3) nonprofit. Our finances are fully open — anyone can "}
-          <a href="https://hcb.hackclub.com/hq" target="_blank" rel="noopener noreferrer" style={{ color: "#ee404e", textDecoration: "underline" }}>see exactly how money is spent.</a>
+          <a
+            href="https://hcb.hackclub.com/hq"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#ee404e", textDecoration: "underline" }}
+          >
+            see exactly how money is spent.
+          </a>
         </p>
         <p style={{ margin: "0.75em 0 0" }}>
           {"If you believe in what we're building, "}
-          <Link href="/philanthropy" style={{ color: "#ee404e", textDecoration: "underline" }}>{"we'd love your support."}</Link>
+          <Link href="/philanthropy" style={{ color: "#ee404e", textDecoration: "underline" }}>
+            {"we'd love your support."}
+          </Link>
         </p>
       </div>
 
@@ -253,7 +283,7 @@ export function DonorsSection() {
           zIndex: 1,
           marginBottom: 80,
         }}
-        >
+      >
         Learn more &amp; donate
         <svg
           aria-hidden="true"
@@ -290,7 +320,6 @@ export function DonorsSection() {
           }
         }
       `}</style>
-
     </section>
   );
 }

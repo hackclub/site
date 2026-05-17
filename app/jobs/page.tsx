@@ -31,18 +31,15 @@ const decodeEntities = (value: string) =>
     .replace(/&gt;/g, ">");
 
 const jobMeta = (job: JobItem) =>
-  [job.job_category_name, job.display_location, job.kind_pretty]
-    .filter(Boolean)
-    .join(" • ");
+  [job.job_category_name, job.display_location, job.kind_pretty].filter(Boolean).join(" • ");
 
 async function getJobs(): Promise<JobsResponse> {
   const fallback: JobsResponse = { items: [] };
 
   try {
-    const response = await fetch(
-      "https://api.polymer.co/v1/hire/organizations/hackclub/jobs",
-      { next: { revalidate: 60 } },
-    );
+    const response = await fetch("https://api.polymer.co/v1/hire/organizations/hackclub/jobs", {
+      next: { revalidate: 60 },
+    });
 
     if (!response.ok) {
       return fallback;
@@ -64,12 +61,10 @@ export default async function JobsPage() {
         <Navbar invertColors />
         <div className="jobs-shell jobs-hero__inner">
           <div className="jobs-hero__copy">
-            <h1 className="jobs-hero__title">
-              Join the Hack Club Team
-            </h1>
+            <h1 className="jobs-hero__title">Join the Hack Club Team</h1>
             <p className="jobs-hero__lede">
-              We are a nonprofit building the best programs and adventures for
-              teenage makers around the world. If you love making things, you will feel right at home.
+              We are a nonprofit building the best programs and adventures for teenage makers around
+              the world. If you love making things, you will feel right at home.
             </p>
             <div className="jobs-hero__terminal">
               <span>$ ssh jobs.hackclub.com -p 1337</span>
@@ -104,7 +99,10 @@ export default async function JobsPage() {
           ) : (
             <div className="jobs-empty">
               <h3>No open roles at this time. Check back later!</h3>
-              <p>Interested in working with us? Email us at team@hackclub.com with how you&apos;d like to contribute.</p>
+              <p>
+                Interested in working with us? Email us at team@hackclub.com with how you&apos;d
+                like to contribute.
+              </p>
             </div>
           )}
         </div>

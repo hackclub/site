@@ -36,12 +36,10 @@ function MobileAppAlert() {
           position: "relative",
           overflow: "hidden",
           padding: "20px 32px",
-          background:
-            "linear-gradient(rgba(255,255,255,0.95), rgba(240,240,240,0.9))",
+          background: "linear-gradient(rgba(255,255,255,0.95), rgba(240,240,240,0.9))",
           backdropFilter: "blur(20px)",
           borderRadius: "20px",
-          boxShadow:
-            "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)",
+          boxShadow: "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)",
           display: "flex",
           alignItems: "center",
           gap: "20px",
@@ -79,8 +77,7 @@ function MobileAppAlert() {
         >
           <strong style={{ fontSize: "20px" }}>HCB Mobile is here!</strong>
           <br />
-          Manage your HCB organizations on the go. Issue cards, view
-          transactions, and more!
+          Manage your HCB organizations on the go. Issue cards, view transactions, and more!
         </span>
         <div
           style={{
@@ -189,8 +186,7 @@ function MobileAppSection() {
               lineHeight: 1.1,
             }}
           >
-            HCB in your{" "}
-            <span style={{ color: FISCAL_COLORS.primary }}>pocket</span>
+            HCB in your <span style={{ color: FISCAL_COLORS.primary }}>pocket</span>
           </h2>
           <p
             style={{
@@ -202,8 +198,8 @@ function MobileAppSection() {
               lineHeight: 1.5,
             }}
           >
-            The official mobile app lets you manage your organization&apos;s
-            finances, issue cards, and more!
+            The official mobile app lets you manage your organization&apos;s finances, issue cards,
+            and more!
           </p>
           <div
             style={{
@@ -384,11 +380,10 @@ function FeesSection() {
               maxWidth: "52ch",
             }}
           >
-            This fee goes directly to Hack Club&apos;s operations staff,
-            including teen interns working under mentors. This allows us to
-            deliver best-in-class software and support, grow sustainably, while
-            also providing paid career training for young people from diverse
-            backgrounds.
+            This fee goes directly to Hack Club&apos;s operations staff, including teen interns
+            working under mentors. This allows us to deliver best-in-class software and support,
+            grow sustainably, while also providing paid career training for young people from
+            diverse backgrounds.
           </p>
         </div>
         <div>
@@ -494,9 +489,8 @@ function BuiltByHackClub() {
             <Link href="/" style={{ color: FISCAL_COLORS.primary, textDecoration: "none" }}>
               Hack Club
             </Link>{" "}
-            grew, we needed a way to empower our members. We currently have over
-            60,000 high schoolers involved in Hack Club with over 400 clubs
-            around the world.
+            grew, we needed a way to empower our members. We currently have over 60,000 high
+            schoolers involved in Hack Club with over 400 clubs around the world.
           </p>
           <p
             style={{
@@ -508,12 +502,19 @@ function BuiltByHackClub() {
               lineHeight: 1.6,
             }}
           >
-            We started HCB in 2018 to support teen-led clubs and hackathons.
-            After showing it to our educational partners, we knew we had tapped
-            into something much larger. Today, HCB removes financial and legal
-            barriers for thousands doing good in their community.
+            We started HCB in 2018 to support teen-led clubs and hackathons. After showing it to our
+            educational partners, we knew we had tapped into something much larger. Today, HCB
+            removes financial and legal barriers for thousands doing good in their community.
           </p>
-          <div style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", color: "#687578", lineHeight: 1.5 }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              gap: "0.75rem",
+              color: "#687578",
+              lineHeight: 1.5,
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={28}
@@ -525,8 +526,8 @@ function BuiltByHackClub() {
               <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
             </svg>
             <span style={{ fontSize: "15px", fontFamily: FISCAL_TYPOGRAPHY.bodyFont }}>
-              As part of our commitment to the environment, funding for
-              HCB&apos;s operations and staff will never come from the{" "}
+              As part of our commitment to the environment, funding for HCB&apos;s operations and
+              staff will never come from the{" "}
               <a
                 href="https://www.ffisolutions.com/the-carbon-underground-200-500/"
                 style={{ color: "#2376ae", textDecoration: "none" }}
@@ -592,8 +593,10 @@ export default function FiscalSponsorshipPage() {
               backgroundImage: `linear-gradient(to right, #fcc8bf 1px, transparent 1px),
                                 linear-gradient(to bottom, #fcc8bf 1px, transparent 1px)`,
               backgroundPosition: "top center",
-              maskImage: "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.5) 10%, white 100%)",
-              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.5) 10%, white 100%)",
+              maskImage:
+                "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.5) 10%, white 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.5) 10%, white 100%)",
               opacity: 0.18,
             }}
           />
@@ -650,9 +653,8 @@ export default function FiscalSponsorshipPage() {
                   maxWidth: "55ch",
                 }}
               >
-                Start your nonprofit with{" "}
-                <strong>our fiscal sponsorship program, HCB</strong>: a 501(c)(3)
-                legal entity, bank account, automatic taxes &amp; accounting, and
+                Start your nonprofit with <strong>our fiscal sponsorship program, HCB</strong>: a
+                501(c)(3) legal entity, bank account, automatic taxes &amp; accounting, and
                 best-in-class software.
               </p>
 
@@ -669,13 +671,27 @@ export default function FiscalSponsorshipPage() {
                     maxWidth: "55ch",
                   }}
                 >
-                  <p style={{ margin: 0, fontSize: "16px", color: "white", fontFamily: FISCAL_TYPOGRAPHY.bodyFont }}>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: "16px",
+                      color: "white",
+                      fontFamily: FISCAL_TYPOGRAPHY.bodyFont,
+                    }}
+                  >
                     <strong>Referred by:</strong> {referralParam}
                   </p>
                 </div>
               )}
 
-              <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" as const, alignItems: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "1rem",
+                  flexWrap: "wrap" as const,
+                  alignItems: "center",
+                }}
+              >
                 <Link
                   href="https://hcb.hackclub.com/applications/new"
                   style={{
@@ -781,7 +797,14 @@ export default function FiscalSponsorshipPage() {
               Powering nonprofits at every scale
             </h2>
 
-            <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "2rem", marginBottom: "2.5rem" }}>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap" as const,
+                gap: "2rem",
+                marginBottom: "2.5rem",
+              }}
+            >
               <StatItem value="$100M+" label="processed transactions" />
               <StatItem value="6500+" label="projects" />
               <StatItem value="2018" label="serving nonprofits since" />
@@ -789,7 +812,14 @@ export default function FiscalSponsorshipPage() {
 
             <OrganizationGrid organizations={FEATURED_ORGANIZATIONS} />
 
-            <div style={{ marginTop: "2rem", width: "100%", display: "flex", justifyContent: "center" }}>
+            <div
+              style={{
+                marginTop: "2rem",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
               <Link
                 href="/fiscal-sponsorship/directory"
                 style={{

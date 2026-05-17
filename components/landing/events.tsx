@@ -38,7 +38,9 @@ function EventCard({ program }: { program: AirtableProgram }) {
   const buttonBorderWidth = s?.buttonBorderWidth ?? 0;
   const buttonBorderColor = s?.buttonBorderColor ?? "#17171d";
   const slackChannel = s?.slackChannel ?? null;
-  const slackUrl = slackChannel ? `https://hackclub.slack.com/channels/${slackChannel.replace(/^#/, "")}` : null;
+  const slackUrl = slackChannel
+    ? `https://hackclub.slack.com/channels/${slackChannel.replace(/^#/, "")}`
+    : null;
   const description = s?.description ?? null;
 
   const irlStart = s?.inPersonStart ?? null;
@@ -76,203 +78,214 @@ function EventCard({ program }: { program: AirtableProgram }) {
         if (!el) return;
         el.style.transition = "transform 0.4s ease";
         el.style.transform = "perspective(900px) scale(1) rotateY(0deg) rotateX(0deg)";
-        setTimeout(() => { if (wrapperRef.current) wrapperRef.current.style.transition = "transform 0.06s ease"; }, 400);
+        setTimeout(() => {
+          if (wrapperRef.current) wrapperRef.current.style.transition = "transform 0.06s ease";
+        }, 400);
       }}
       onMouseEnter={() => {
         if (wrapperRef.current) wrapperRef.current.style.transition = "transform 0.06s ease";
       }}
       style={{ position: "relative", transition: "transform 0.06s ease", willChange: "transform" }}
     >
-    <div
-      style={{
-        position: "relative",
-        background: bgImageUrl ? "transparent" : bgColor,
-        borderRadius: 16,
-        boxShadow: "2px 4px 6px rgba(0,0,0,0.25)",
-        overflow: "hidden",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        padding: "28px 32px 16px",
-        minHeight: 260,
-        height: "100%",
-        boxSizing: "border-box",
-      }}
-    >
-      {/* Background image */}
-      {bgImageUrl && (
-        <Image
-          src={bgImageUrl}
-          alt=""
-          width={400}
-          height={260}
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            pointerEvents: "none",
-          }}
-          unoptimized
-        />
-      )}
-
-      {/* Logo or title */}
-      {logoUrl ? (
-        <Image
-          src={logoUrl}
-          alt={program.name}
-          width={logoSize}
-          height={logoSize}
-          style={{
-            height: logoSize,
-            width: "auto",
-            maxWidth: "100%",
-            objectFit: "contain",
-            marginBottom: 12,
-            position: "relative",
-            zIndex: 1,
-            alignSelf: "center",
-          }}
-          unoptimized
-        />
-      ) : (
-        <h2
-          style={{
-            position: "relative",
-            zIndex: 1,
-            fontFamily: "var(--font-zarathustra)",
-            fontSize: 40,
-            fontWeight: "normal",
-            color: textColor,
-            margin: "0 0 8px",
-            lineHeight: 1,
-            textAlign: "center",
-            width: "100%",
-          }}
-        >
-          {program.name}
-        </h2>
-      )}
-
-      {/* Description */}
-      {description && (
-        <p
-          style={{
-            position: "relative",
-            zIndex: 1,
-            fontFamily: "var(--font-phantom)",
-            fontSize: 20,
-            color: textColor,
-            opacity: 0.9,
-            margin: "0 0 4px",
-            lineHeight: 1.2,
-          }}
-        >
-          {description}
-        </p>
-      )}
-
-      {/* Spacer */}
-      <div style={{ flex: "1 0 12px" }} />
-
-      {/* CTA button */}
-      {program.websiteUrl && (
-        <a
-          href={program.websiteUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cta-btn"
-          style={{
-            position: "relative",
-            zIndex: 1,
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            paddingTop: 6,
-            paddingBottom: 6,
-            paddingLeft: 20,
-            paddingRight: 20,
-            background: buttonColor,
-            borderRadius: buttonRadius,
-            border: `${buttonBorderWidth}px solid ${buttonBorderColor}`,
-            fontFamily: "var(--font-phantom)",
-            fontWeight: "bold",
-            fontSize: 20,
-            color: buttonTextColor,
-            textDecoration: "none",
-            whiteSpace: "nowrap",
-            marginBottom: slackChannel ? 6 : 0,
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-          onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-        >
-          Start now <span className="btn-arrow">→</span>
-        </a>
-      )}
-
-      {/* Slack channel */}
-      {slackChannel && (
-        <p
-          style={{
-            position: "relative",
-            zIndex: 1,
-            fontFamily: "var(--font-phantom)",
-            fontStyle: "italic",
-            fontSize: 16,
-            color: textColor,
-            margin: 0,
-            lineHeight: 1.2,
-            paddingRight: 110,
-          }}
-        >
-          Join the discussion in{" "}
-          <a
-            href={slackUrl ?? "#"}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: accentColor, textDecoration: "none", display: "inline-block", whiteSpace: "nowrap" }}
-          >
-            #{slackChannel.replace(/^#/, "")}
-          </a>
-        </p>
-      )}
-
-      {/* Badge */}
       <div
         style={{
-          position: "absolute",
-          bottom: 0,
-          right: 0,
-          height: 36,
-          width: 130,
-          background: "#ec3750",
-          borderTopLeftRadius: 8,
+          position: "relative",
+          background: bgImageUrl ? "transparent" : bgColor,
+          borderRadius: 16,
+          boxShadow: "2px 4px 6px rgba(0,0,0,0.25)",
+          overflow: "hidden",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          padding: "28px 32px 16px",
+          minHeight: 260,
+          height: "100%",
+          boxSizing: "border-box",
         }}
       >
-        <span
+        {/* Background image */}
+        {bgImageUrl && (
+          <Image
+            src={bgImageUrl}
+            alt=""
+            width={400}
+            height={260}
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              pointerEvents: "none",
+            }}
+            unoptimized
+          />
+        )}
+
+        {/* Logo or title */}
+        {logoUrl ? (
+          <Image
+            src={logoUrl}
+            alt={program.name}
+            width={logoSize}
+            height={logoSize}
+            style={{
+              height: logoSize,
+              width: "auto",
+              maxWidth: "100%",
+              objectFit: "contain",
+              marginBottom: 12,
+              position: "relative",
+              zIndex: 1,
+              alignSelf: "center",
+            }}
+            unoptimized
+          />
+        ) : (
+          <h2
+            style={{
+              position: "relative",
+              zIndex: 1,
+              fontFamily: "var(--font-zarathustra)",
+              fontSize: 40,
+              fontWeight: "normal",
+              color: textColor,
+              margin: "0 0 8px",
+              lineHeight: 1,
+              textAlign: "center",
+              width: "100%",
+            }}
+          >
+            {program.name}
+          </h2>
+        )}
+
+        {/* Description */}
+        {description && (
+          <p
+            style={{
+              position: "relative",
+              zIndex: 1,
+              fontFamily: "var(--font-phantom)",
+              fontSize: 20,
+              color: textColor,
+              opacity: 0.9,
+              margin: "0 0 4px",
+              lineHeight: 1.2,
+            }}
+          >
+            {description}
+          </p>
+        )}
+
+        {/* Spacer */}
+        <div style={{ flex: "1 0 12px" }} />
+
+        {/* CTA button */}
+        {program.websiteUrl && (
+          <a
+            href={program.websiteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta-btn"
+            style={{
+              position: "relative",
+              zIndex: 1,
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              paddingTop: 6,
+              paddingBottom: 6,
+              paddingLeft: 20,
+              paddingRight: 20,
+              background: buttonColor,
+              borderRadius: buttonRadius,
+              border: `${buttonBorderWidth}px solid ${buttonBorderColor}`,
+              fontFamily: "var(--font-phantom)",
+              fontWeight: "bold",
+              fontSize: 20,
+              color: buttonTextColor,
+              textDecoration: "none",
+              whiteSpace: "nowrap",
+              marginBottom: slackChannel ? 6 : 0,
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          >
+            Start now <span className="btn-arrow">→</span>
+          </a>
+        )}
+
+        {/* Slack channel */}
+        {slackChannel && (
+          <p
+            style={{
+              position: "relative",
+              zIndex: 1,
+              fontFamily: "var(--font-phantom)",
+              fontStyle: "italic",
+              fontSize: 16,
+              color: textColor,
+              margin: 0,
+              lineHeight: 1.2,
+              paddingRight: 110,
+            }}
+          >
+            Join the discussion in{" "}
+            <a
+              href={slackUrl ?? "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: accentColor,
+                textDecoration: "none",
+                display: "inline-block",
+                whiteSpace: "nowrap",
+              }}
+            >
+              #{slackChannel.replace(/^#/, "")}
+            </a>
+          </p>
+        )}
+
+        {/* Badge */}
+        <div
           style={{
-            fontFamily: "var(--font-phantom)",
-            fontWeight: "bold",
-            fontSize: 16,
-            color: "#ffffff",
-            whiteSpace: "nowrap",
+            position: "absolute",
+            bottom: 0,
+            right: 0,
+            height: 36,
+            width: 130,
+            background: "#ec3750",
+            borderTopLeftRadius: 8,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          {badgeLabel}
-        </span>
+          <span
+            style={{
+              fontFamily: "var(--font-phantom)",
+              fontWeight: "bold",
+              fontSize: 16,
+              color: "#ffffff",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {badgeLabel}
+          </span>
+        </div>
       </div>
-    </div>
     </div>
   );
 }
 
 // ── Section ──────────────────────────────────────────────────────────────────
-export function EventsSection({ initialCards = null }: { initialCards?: AirtableProgram[] | null }) {
+export function EventsSection({
+  initialCards = null,
+}: {
+  initialCards?: AirtableProgram[] | null;
+}) {
   const [cards, setCards] = useState<AirtableProgram[] | null>(initialCards);
 
   useEffect(() => {
@@ -333,7 +346,15 @@ export function EventsSection({ initialCards = null }: { initialCards?: Airtable
       />
 
       {/* Headline — right-aligned */}
-      <div style={{ textAlign: "right", marginBottom: 4, marginTop: 100, position: "relative", zIndex: 1 }}>
+      <div
+        style={{
+          textAlign: "right",
+          marginBottom: 4,
+          marginTop: 100,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
         <p
           style={{
             fontFamily: "var(--font-zarathustra)",
@@ -379,8 +400,7 @@ export function EventsSection({ initialCards = null }: { initialCards?: Airtable
           zIndex: 1,
         }}
       >
-        Every event below is free, open to any teen, and happening right now.
-        Yes, you can go.
+        Every event below is free, open to any teen, and happening right now. Yes, you can go.
       </p>
 
       {/* 2×2 Grid */}
@@ -396,11 +416,7 @@ export function EventsSection({ initialCards = null }: { initialCards?: Airtable
         className="events-grid"
       >
         {displayCards.map((p, i) =>
-          loading || p === null ? (
-            <SkeletonCard key={i} />
-          ) : (
-            <EventCard key={p.id} program={p} />
-          )
+          loading || p === null ? <SkeletonCard key={i} /> : <EventCard key={p.id} program={p} />,
         )}
       </div>
 

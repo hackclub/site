@@ -20,9 +20,7 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default async function Home() {
-  const programs = hasKey()
-    ? selectFeaturedPrograms(await fetchPrograms())
-    : [];
+  const programs = hasKey() ? selectFeaturedPrograms(await fetchPrograms()) : [];
 
   return (
     <>

@@ -42,27 +42,21 @@ const members = [...(teamData as TeamMember[])].sort((left, right) =>
   left.name.localeCompare(right.name),
 );
 
-const filterMembers = (predicate: (member: TeamMember) => boolean) =>
-  members.filter(predicate);
+const filterMembers = (predicate: (member: TeamMember) => boolean) => members.filter(predicate);
 
 const hqGroups: MemberGroup[] = [
   {
     label: "Staff",
-    members: filterMembers(
-      (member) => member.department === "HQ" && Boolean(member.staff),
-    ),
+    members: filterMembers((member) => member.department === "HQ" && Boolean(member.staff)),
   },
   {
     label: "Gap Years",
-    members: filterMembers(
-      (member) => member.department === "HQ" && Boolean(member.gapyear),
-    ),
+    members: filterMembers((member) => member.department === "HQ" && Boolean(member.gapyear)),
   },
   {
     label: "Teen Contributors",
     members: filterMembers(
-      (member) =>
-        member.department === "HQ" && !member.staff && !member.gapyear,
+      (member) => member.department === "HQ" && !member.staff && !member.gapyear,
     ),
   },
 ];
@@ -70,15 +64,11 @@ const hqGroups: MemberGroup[] = [
 const hcbGroups: MemberGroup[] = [
   {
     label: "Staff",
-    members: filterMembers(
-      (member) => member.department === "HCB" && Boolean(member.staff),
-    ),
+    members: filterMembers((member) => member.department === "HCB" && Boolean(member.staff)),
   },
   {
     label: "Contributors",
-    members: filterMembers(
-      (member) => member.department === "HCB" && !member.staff,
-    ),
+    members: filterMembers((member) => member.department === "HCB" && !member.staff),
   },
 ];
 
@@ -139,17 +129,37 @@ function emailHref(email?: string) {
 }
 
 function BoardCard({
-  img, name, role, subrole, bio, email, href,
+  img,
+  name,
+  role,
+  subrole,
+  bio,
+  email,
+  href,
 }: {
-  img: string; name: string; role: string;
-  subrole?: string; bio?: string; email?: string; href?: string;
+  img: string;
+  name: string;
+  role: string;
+  subrole?: string;
+  bio?: string;
+  email?: string;
+  href?: string;
 }) {
   const mailHref = email
-    ? email.includes("@") ? `mailto:${email}` : `mailto:${email}@hackclub.com`
+    ? email.includes("@")
+      ? `mailto:${email}`
+      : `mailto:${email}@hackclub.com`
     : null;
   const card = (
     <article className={`board-card${href ? " board-card--linked" : ""}`}>
-      <Image src={img} alt={name} width={96} height={96} sizes="96px" className="board-card__avatar" />
+      <Image
+        src={img}
+        alt={name}
+        width={96}
+        height={96}
+        sizes="96px"
+        className="board-card__avatar"
+      />
       <p className="board-card__name">{name}</p>
       <p className="board-card__role">{role}</p>
       {subrole && <p className="board-card__subrole">{subrole}</p>}
@@ -165,7 +175,9 @@ function BoardCard({
     <a href={href} target="_blank" rel="noopener noreferrer" className="board-card-anchor">
       {card}
     </a>
-  ) : card;
+  ) : (
+    card
+  );
 }
 
 function PersonCard({ member, onClick }: { member: TeamMember; onClick: () => void }) {
@@ -196,7 +208,14 @@ function PersonCard({ member, onClick }: { member: TeamMember; onClick: () => vo
   );
 }
 
-function TeamLane({ eyebrow, title, description, tone, groups, onMemberClick }: TeamLaneProps & { onMemberClick: (member: TeamMember) => void }) {
+function TeamLane({
+  eyebrow,
+  title,
+  description,
+  tone,
+  groups,
+  onMemberClick,
+}: TeamLaneProps & { onMemberClick: (member: TeamMember) => void }) {
   return (
     <section className={`lane lane--${tone}`}>
       <div className="lane__header">
@@ -215,7 +234,11 @@ function TeamLane({ eyebrow, title, description, tone, groups, onMemberClick }: 
               </div>
               <div className="person-grid">
                 {group.members.map((member) => (
-                  <PersonCard key={`${group.label}-${member.name}`} member={member} onClick={() => onMemberClick(member)} />
+                  <PersonCard
+                    key={`${group.label}-${member.name}`}
+                    member={member}
+                    onClick={() => onMemberClick(member)}
+                  />
                 ))}
               </div>
             </div>
@@ -225,7 +248,13 @@ function TeamLane({ eyebrow, title, description, tone, groups, onMemberClick }: 
   );
 }
 
-function CommunityPod({ title, description, tone, members, onMemberClick }: CommunityPodProps & { onMemberClick: (member: TeamMember) => void }) {
+function CommunityPod({
+  title,
+  description,
+  tone,
+  members,
+  onMemberClick,
+}: CommunityPodProps & { onMemberClick: (member: TeamMember) => void }) {
   return (
     <section className={`pod pod--${tone}`}>
       <div className="pod__header">
@@ -237,7 +266,11 @@ function CommunityPod({ title, description, tone, members, onMemberClick }: Comm
       <p className="pod__description">{description}</p>
       <div className="person-grid person-grid--compact">
         {members.map((member) => (
-          <PersonCard key={`${title}-${member.name}`} member={member} onClick={() => onMemberClick(member)} />
+          <PersonCard
+            key={`${title}-${member.name}`}
+            member={member}
+            onClick={() => onMemberClick(member)}
+          />
         ))}
       </div>
     </section>
@@ -259,9 +292,9 @@ export default function TeamPage() {
               for teenagers.
             </h1>
             <p className="team-hero__lede">
-              Hack Club runs on a mix of staff, gap years, and teen contributors
-              building programs, infrastructure, community rituals, and helping with the
-              day-to-day magic behind the scenes.
+              Hack Club runs on a mix of staff, gap years, and teen contributors building programs,
+              infrastructure, community rituals, and helping with the day-to-day magic behind the
+              scenes.
             </p>
           </div>
         </div>
@@ -325,7 +358,9 @@ export default function TeamPage() {
         <div className="team-section__header">
           <h2 className="team-section__title">Core teams</h2>
           <p className="team-section__copy">
-            HQ helps run the main Hack Club experience, while HCB keeps thousands of fiscally sponsored non-profits running. Both are made up of staff, gap years, and teen contributors.
+            HQ helps run the main Hack Club experience, while HCB keeps thousands of fiscally
+            sponsored non-profits running. Both are made up of staff, gap years, and teen
+            contributors.
           </p>
         </div>
 
@@ -354,9 +389,8 @@ export default function TeamPage() {
           <p className="team-kicker team-kicker--dark">Community Teams</p>
           <h2 className="team-section__title">The teen-facing crews shaping daily culture.</h2>
           <p className="team-section__copy">
-            These teams are the visible edge of Hack Club: welcoming people in,
-            moderating the space, hosting events, and telling the story of what
-            everyone is making together.
+            These teams are the visible edge of Hack Club: welcoming people in, moderating the
+            space, hosting events, and telling the story of what everyone is making together.
           </p>
         </div>
 
@@ -372,7 +406,9 @@ export default function TeamPage() {
       {selectedMember && (
         <div className="modal-overlay" onClick={() => setSelectedMember(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setSelectedMember(null)}>×</button>
+            <button className="modal-close" onClick={() => setSelectedMember(null)}>
+              ×
+            </button>
             {selectedMember.avatar && (
               <Image
                 src={selectedMember.avatar}
@@ -387,10 +423,17 @@ export default function TeamPage() {
             {selectedMember.bio && <p className="modal-bio">{selectedMember.bio}</p>}
             <div className="modal-links">
               {emailHref(selectedMember.email) && (
-                <a href={emailHref(selectedMember.email)!} className="modal-link">Email</a>
+                <a href={emailHref(selectedMember.email)!} className="modal-link">
+                  Email
+                </a>
               )}
               {normalizeWebsite(selectedMember.website) && (
-                <a href={normalizeWebsite(selectedMember.website)!} target="_blank" rel="noopener noreferrer" className="modal-link">
+                <a
+                  href={normalizeWebsite(selectedMember.website)!}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="modal-link"
+                >
                   {websiteLabel(normalizeWebsite(selectedMember.website)!)}
                 </a>
               )}

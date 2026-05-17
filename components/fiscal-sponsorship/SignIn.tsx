@@ -15,12 +15,9 @@ export function SignIn() {
   useEffect(() => {
     const checkUser = async () => {
       try {
-        const response = await fetch(
-          "https://hcb.hackclub.com/api/current_user",
-          {
-            credentials: "include",
-          }
-        );
+        const response = await fetch("https://hcb.hackclub.com/api/current_user", {
+          credentials: "include",
+        });
 
         if (response.ok) {
           const userData = await response.json();

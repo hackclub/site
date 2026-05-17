@@ -6,20 +6,13 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Icon } from "@/components/Icon";
-import {
-  FISCAL_COLORS,
-  FISCAL_TYPOGRAPHY,
-} from "@/components/fiscal-sponsorship/constants";
+import { FISCAL_COLORS, FISCAL_TYPOGRAPHY } from "@/components/fiscal-sponsorship/constants";
 
 type HCBStats = {
   transactions_volume?: number;
 };
 
-const HERO_BADGES = [
-  "Nonprofit status",
-  "Receive grants",
-  "Debit cards",
-];
+const HERO_BADGES = ["Nonprofit status", "Receive grants", "Debit cards"];
 
 const FEATURES = [
   {
@@ -61,8 +54,7 @@ const TESTIMONIALS = [
     teamLocation: "San Jose, CA",
     website: "evposeidon.wixsite.com",
     url: "https://evposeidon.wixsite.com/robo/home",
-    imgSrc:
-      "https://cloud-qtng6088u-hack-club-bot.vercel.app/0image.png",
+    imgSrc: "https://cloud-qtng6088u-hack-club-bot.vercel.app/0image.png",
     logo: "https://cloud-ab81zjlm9-hack-club-bot.vercel.app/0image.png",
     quote:
       "Overall, [HCB] has opened more opportunities for Poseidon, allowing us to undertake larger projects, both on the playing field and in our community.",
@@ -171,9 +163,7 @@ function MoneyWheel({
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          transform: reveal
-            ? `translateY(${-(turns * 10 + digit)}em)`
-            : "translateY(0em)",
+          transform: reveal ? `translateY(${-(turns * 10 + digit)}em)` : "translateY(0em)",
           transitionProperty: "transform",
           transitionDuration: "1800ms",
           transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
@@ -203,11 +193,7 @@ function MoneyWheel({
   );
 }
 
-function AnimatedMoney({
-  amount,
-}: {
-  amount: number | undefined;
-}) {
+function AnimatedMoney({ amount }: { amount: number | undefined }) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -222,7 +208,7 @@ function AnimatedMoney({
           observer.disconnect();
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.4 },
     );
 
     observer.observe(node);
@@ -288,7 +274,7 @@ function AnimatedMoney({
             >
               {token.value}
             </span>
-          )
+          ),
         )}
       </div>
     </div>
@@ -360,15 +346,7 @@ function SectionHeading({
   );
 }
 
-function FeatureCard({
-  icon,
-  name,
-  body,
-}: {
-  icon: string;
-  name: string;
-  body: string;
-}) {
+function FeatureCard({ icon, name, body }: { icon: string; name: string; body: string }) {
   return (
     <article
       style={{
@@ -578,9 +556,7 @@ function TestimonialCard({
               }}
             />
             <div style={{ color: "#ffffff", fontFamily: FISCAL_TYPOGRAPHY.bodyFont }}>
-              <div style={{ fontWeight: 700, fontSize: 18, lineHeight: 1.1 }}>
-                {hackerName}
-              </div>
+              <div style={{ fontWeight: 700, fontSize: 18, lineHeight: 1.1 }}>{hackerName}</div>
               <div style={{ fontSize: 16, lineHeight: 1.3, color: "rgba(255,255,255,0.72)" }}>
                 {hackerRole}
               </div>
@@ -745,9 +721,8 @@ export function FirstPageClient() {
                     marginRight: "auto",
                   }}
                 >
-                  Built by <i>FIRST</i> alumni for <i>FIRST</i> teams, HCB is a
-                  comprehensive financial platform used by hundreds of clubs,
-                  teams and hackathons.
+                  Built by <i>FIRST</i> alumni for <i>FIRST</i> teams, HCB is a comprehensive
+                  financial platform used by hundreds of clubs, teams and hackathons.
                 </p>
 
                 <div
@@ -861,11 +836,10 @@ export function FirstPageClient() {
               title="Everything you'll need."
               body={
                 <>
-                  Organize your team&apos;s finances in real time, receive grants,
-                  gain nonprofit status, &amp; more.
+                  Organize your team&apos;s finances in real time, receive grants, gain nonprofit
+                  status, &amp; more.
                   <br />
-                  Use features engineered by <i>FIRST</i> alumni to help you
-                  run a successful team.
+                  Use features engineered by <i>FIRST</i> alumni to help you run a successful team.
                 </>
               }
             />

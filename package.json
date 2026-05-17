@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check ."
   },
   "dependencies": {
     "@hackclub/icons": "^0.2.2",
@@ -28,6 +30,7 @@
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.4",
     "eslint-config-next": "16.2.6",
+    "oxfmt": "^0.50.0",
     "tailwindcss": "^4.3.0",
     "typescript": "^5.9.3"
   }

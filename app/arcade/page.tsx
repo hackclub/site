@@ -14,7 +14,8 @@ const livePrizes: ArcadePrize[] = [
     name: "YubiKey",
     description: "5C NFC model w/ GitHub logo",
     hours: 12,
-    imageURL: "https://cloud-elfpck7gj-hack-club-bot.vercel.app/0screenshot_2024-06-14_at_07.42.35.png",
+    imageURL:
+      "https://cloud-elfpck7gj-hack-club-bot.vercel.app/0screenshot_2024-06-14_at_07.42.35.png",
     limited: true,
   },
   {
@@ -46,7 +47,8 @@ const livePrizes: ArcadePrize[] = [
     name: "MacBook",
     smallName: "Air M2",
     hours: 400,
-    imageURL: "https://cloud-9zwbzfbtw-hack-club-bot.vercel.app/00image_from_ios-removebg-preview.png",
+    imageURL:
+      "https://cloud-9zwbzfbtw-hack-club-bot.vercel.app/00image_from_ios-removebg-preview.png",
     limited: true,
   },
   {
@@ -59,13 +61,15 @@ const livePrizes: ArcadePrize[] = [
     name: "Logitech",
     smallName: "MX Mechanical",
     hours: 75,
-    imageURL: "https://cloud-gt96uxjmh-hack-club-bot.vercel.app/061__ok6aqtl._ac_uf894_1000_ql80_.png",
+    imageURL:
+      "https://cloud-gt96uxjmh-hack-club-bot.vercel.app/061__ok6aqtl._ac_uf894_1000_ql80_.png",
     limited: true,
   },
   {
     name: "Quest 3",
     hours: 200,
-    imageURL: "https://cloud-7x2qyu0b9-hack-club-bot.vercel.app/0screenshot_2024-06-14_at_08.46.20.png",
+    imageURL:
+      "https://cloud-7x2qyu0b9-hack-club-bot.vercel.app/0screenshot_2024-06-14_at_08.46.20.png",
   },
 ];
 
@@ -76,7 +80,8 @@ const liveCarousel: ArcadeCarouselItem[] = [
   },
   {
     hours: 12,
-    imageURL: "https://cloud-elfpck7gj-hack-club-bot.vercel.app/0screenshot_2024-06-14_at_07.42.35.png",
+    imageURL:
+      "https://cloud-elfpck7gj-hack-club-bot.vercel.app/0screenshot_2024-06-14_at_07.42.35.png",
   },
   {
     hours: 18,

@@ -71,11 +71,14 @@ function makeBatch(seed: number, count: number, w: number, h: number) {
   return { stickers: out, seed: s };
 }
 
-const title = (p: Phase) => p === "lost" ? "Sled destroyed" : "";
+const title = (p: Phase) => (p === "lost" ? "Sled destroyed" : "");
 
 const body = (p: Phase, s: number) =>
-  p === "intro" ? "Pilot the sled on the right. Move up and down with your mouse, finger, or arrow keys. Survive as long as you can without crashing into a sticker!"
-  : p === "lost" ? `Score: ${fmt(s)}. Better luck next time!` : "";
+  p === "intro"
+    ? "Pilot the sled on the right. Move up and down with your mouse, finger, or arrow keys. Survive as long as you can without crashing into a sticker!"
+    : p === "lost"
+      ? `Score: ${fmt(s)}. Better luck next time!`
+      : "";
 
 export function Game() {
   const [phase, setPhase] = useState<Phase>("idle");
@@ -96,12 +99,21 @@ export function Game() {
   const shipTargetRef = useRef(0);
   const phaseRef = useRef<Phase>("idle");
 
-  const syncStickers = (n: Sticker[]) => { stickersRef.current = n; setStickers(n); };
-  const syncShip = (n: number) => { shipYRef.current = n; setShipY(n); };
+  const syncStickers = (n: Sticker[]) => {
+    stickersRef.current = n;
+    setStickers(n);
+  };
+  const syncShip = (n: number) => {
+    shipYRef.current = n;
+    setShipY(n);
+  };
 
   const measure = () => {
     const r = fieldRef.current?.getBoundingClientRect();
-    sizeRef.current = { width: r?.width ?? window.innerWidth, height: r?.height ?? window.innerHeight };
+    sizeRef.current = {
+      width: r?.width ?? window.innerWidth,
+      height: r?.height ?? window.innerHeight,
+    };
   };
 
   const respawn = (id: number) => {
@@ -112,7 +124,11 @@ export function Game() {
   };
 
   const setShipTarget = (v: number) => {
-    shipTargetRef.current = clamp(v, fieldPad, Math.max(fieldPad, sizeRef.current.height - fieldPad - shipH));
+    shipTargetRef.current = clamp(
+      v,
+      fieldPad,
+      Math.max(fieldPad, sizeRef.current.height - fieldPad - shipH),
+    );
   };
 
   const close = useCallback(() => {
@@ -177,7 +193,10 @@ export function Game() {
 
       if (phaseRef.current !== "playing") return;
       const dir = /^(ArrowUp|w)$/i.test(e.key) ? -1 : /^(ArrowDown|s)$/i.test(e.key) ? 1 : 0;
-      if (dir) { e.preventDefault(); setShipTarget(shipTargetRef.current + dir * 72); }
+      if (dir) {
+        e.preventDefault();
+        setShipTarget(shipTargetRef.current + dir * 72);
+      }
     };
 
     window.addEventListener("resize", onResize);
@@ -209,7 +228,8 @@ export function Game() {
       lastRef.current = now;
       scoreRef.current += dt * 1000;
 
-      const ship = shipYRef.current + (shipTargetRef.current - shipYRef.current) * Math.min(1, dt * 10);
+      const ship =
+        shipYRef.current + (shipTargetRef.current - shipYRef.current) * Math.min(1, dt * 10);
       shipYRef.current = ship;
 
       const boost = 1 + Math.min(2.5, scoreRef.current / 10000);
@@ -319,7 +339,12 @@ export function Game() {
       ) : null}
 
       {open ? (
-        <div className="game-overlay" role="dialog" aria-modal="true" aria-labelledby="sticker-game-title">
+        <div
+          className="game-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="sticker-game-title"
+        >
           <Navbar />
           <div className="game-overlay__wash" aria-hidden="true" />
 

@@ -2,10 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ClimatePageClient from "../../ClimatePageClient";
 import { buildPageMetadata } from "@/lib/seo";
-import {
-  FISCAL_REGIONS,
-  getRegionBySlug,
-} from "@/lib/fiscal-sponsorship-config";
+import { FISCAL_REGIONS, getRegionBySlug } from "@/lib/fiscal-sponsorship-config";
 import { fetchClimateOrganizations } from "@/lib/fiscal-sponsorship-data";
 import { filterOrganizationsByRegion } from "@/lib/fiscal-sponsorship-config";
 
@@ -24,9 +21,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: ClimateRegionPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ClimateRegionPageProps): Promise<Metadata> {
   const { region: rawRegion } = await params;
   const region = decodeURIComponent(rawRegion);
   const regionConfig = getRegionBySlug(region);
@@ -47,9 +42,7 @@ export async function generateMetadata({
   });
 }
 
-export default async function ClimateRegionPage({
-  params,
-}: ClimateRegionPageProps) {
+export default async function ClimateRegionPage({ params }: ClimateRegionPageProps) {
   const { region: rawRegion } = await params;
   const region = decodeURIComponent(rawRegion);
   const regionConfig = getRegionBySlug(region);
@@ -59,10 +52,7 @@ export default async function ClimateRegionPage({
   }
 
   const organizations = await fetchClimateOrganizations();
-  const filteredOrganizations = filterOrganizationsByRegion(
-    organizations,
-    regionConfig.slug,
-  );
+  const filteredOrganizations = filterOrganizationsByRegion(organizations, regionConfig.slug);
 
   return (
     <ClimatePageClient

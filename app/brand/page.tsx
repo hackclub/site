@@ -81,8 +81,7 @@ const fontCss = `@font-face {
   font-display: swap;
 }`;
 
-const assetUrl = (name: string, ext: string) =>
-  `https://assets.hackclub.com/${name}.${ext}`;
+const assetUrl = (name: string, ext: string) => `https://assets.hackclub.com/${name}.${ext}`;
 
 const logoTitle = (name: string) =>
   name
@@ -113,8 +112,8 @@ export default function BrandPage() {
         <div className="brand-section__header">
           <h2 className="brand-section__title">Logos</h2>
           <p className="brand-section__lede">
-            Here are the official logo files for Hack Club. We offer SVG, PNG, or
-            PDF formats. Avoid stretching, outlining, or recoloring.
+            Here are the official logo files for Hack Club. We offer SVG, PNG, or PDF formats. Avoid
+            stretching, outlining, or recoloring.
           </p>
         </div>
         <div className="brand-grid brand-grid--logos">
@@ -127,9 +126,15 @@ export default function BrandPage() {
               <div className="brand-card__body">
                 <h3>{logoTitle(key)}</h3>
                 <div className="brand-card__actions">
-                  <a className="brand-link" href={assetUrl(key, "svg")}>SVG</a>
-                  <a className="brand-link" href={assetUrl(key, "png")}>PNG</a>
-                  <a className="brand-link" href={assetUrl(key, "pdf")}>PDF</a>
+                  <a className="brand-link" href={assetUrl(key, "svg")}>
+                    SVG
+                  </a>
+                  <a className="brand-link" href={assetUrl(key, "png")}>
+                    PNG
+                  </a>
+                  <a className="brand-link" href={assetUrl(key, "pdf")}>
+                    PDF
+                  </a>
                 </div>
                 <div className="brand-card__url">{assetUrl(key, "svg")}</div>
               </div>
@@ -162,16 +167,25 @@ export default function BrandPage() {
               <div className="brand-card__body">
                 <h3>{logoTitle(key)}</h3>
                 <div className="brand-card__actions">
-                  <a className="brand-link" href={assetUrl(key, "svg")}>SVG</a>
-                  <a className="brand-link" href={assetUrl(key, "png")}>PNG</a>
-                  <a className="brand-link" href={assetUrl(key, "pdf")}>PDF</a>
+                  <a className="brand-link" href={assetUrl(key, "svg")}>
+                    SVG
+                  </a>
+                  <a className="brand-link" href={assetUrl(key, "png")}>
+                    PNG
+                  </a>
+                  <a className="brand-link" href={assetUrl(key, "pdf")}>
+                    PDF
+                  </a>
                 </div>
                 <div className="brand-card__url">{assetUrl(key, "svg")}</div>
               </div>
             </article>
           ))}
         </div>
-        <a className="brand-btn brand-btn--dark brand-btn--block" href="https://hcb.hackclub.com/branding">
+        <a
+          className="brand-btn brand-btn--dark brand-btn--block"
+          href="https://hcb.hackclub.com/branding"
+        >
           View HCB branding guidelines
         </a>
       </section>
@@ -201,7 +215,10 @@ export default function BrandPage() {
             <pre>{bannerHtmlYear}</pre>
           </div>
         </div>
-        <a className="brand-btn brand-btn--ghost brand-btn--block" href="https://hackclub.com/banner">
+        <a
+          className="brand-btn brand-btn--ghost brand-btn--block"
+          href="https://hackclub.com/banner"
+        >
           React component
         </a>
       </section>
@@ -212,8 +229,8 @@ export default function BrandPage() {
             <p className="brand-kicker brand-kicker--dark">Color</p>
             <h2 className="brand-section__title">The official palette.</h2>
             <p className="brand-section__lede">
-              Use these colors for Hack Club branding. Red is the hero; the rest
-              are supporting accents.
+              Use these colors for Hack Club branding. Red is the hero; the rest are supporting
+              accents.
             </p>
           </div>
           <div className="brand-grid brand-grid--colors">
@@ -235,8 +252,7 @@ export default function BrandPage() {
           <p className="brand-kicker brand-kicker--dark">Fonts</p>
           <h2 className="brand-section__title">Phantom Sans is our brand font.</h2>
           <p className="brand-section__lede">
-            Use Phantom Sans for product copy and UI. The webfont CSS is below for
-            HQ sites only.
+            Use Phantom Sans for product copy and UI. The webfont CSS is below for HQ sites only.
           </p>
         </div>
         <div className="brand-font">
@@ -263,7 +279,10 @@ export default function BrandPage() {
             </div>
           ))}
         </div>
-        <a className="brand-btn brand-btn--ghost brand-btn--block" href="https://icons.hackclub.com">
+        <a
+          className="brand-btn brand-btn--ghost brand-btn--block"
+          href="https://icons.hackclub.com"
+        >
           Explore Hack Club Icons
         </a>
       </section>
@@ -280,7 +299,10 @@ export default function BrandPage() {
           <a className="brand-btn brand-btn--ghost" href="https://theme.hackclub.com/">
             Explore Hack Club Theme
           </a>
-          <a className="brand-btn brand-btn--ghost" href="https://github.com/hackclub/theme-starter">
+          <a
+            className="brand-btn brand-btn--ghost"
+            href="https://github.com/hackclub/theme-starter"
+          >
             Theme Starter on GitHub
           </a>
           <a className="brand-btn brand-btn--ghost" href="https://github.com/hackclub/css">

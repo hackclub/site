@@ -60,7 +60,11 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
 
   const c = cfg[variant];
   const hasHover = "hover" in c && !!c.hover;
-  const boxShadow = err ? "0 0 0 2px #ec3750" : isReady && f ? "0 0 0 3px rgba(236,55,80,0.25)" : "none";
+  const boxShadow = err
+    ? "0 0 0 2px #ec3750"
+    : isReady && f
+      ? "0 0 0 3px rgba(236,55,80,0.25)"
+      : "none";
 
   return (
     <div style={{ position: "relative", display: "inline-block" }}>
@@ -101,7 +105,11 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
             border: "none",
             outline: "none",
             paddingLeft: isVideo ? "clamp(16px, 4.5vw, 22px)" : 24,
-            paddingRight: isVideo ? "clamp(98px, 30vw, 130px)" : isReady ? 160 : "clamp(108px, 25vw, 140px)",
+            paddingRight: isVideo
+              ? "clamp(98px, 30vw, 130px)"
+              : isReady
+                ? 160
+                : "clamp(108px, 25vw, 140px)",
             fontFamily: "var(--font-phantom)",
             fontSize: isVideo ? "clamp(16px, 4.8vw, 20px)" : 20,
             color: "#17171d",

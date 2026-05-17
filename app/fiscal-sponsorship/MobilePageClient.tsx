@@ -18,8 +18,7 @@ export default function MobilePageClient() {
               Mobile is here!
             </h1>
             <h2 className="mobile-hero__subtitle">
-              Manage your HCB organizations on the go. Issue cards, view
-              transactions, and more!
+              Manage your HCB organizations on the go. Issue cards, view transactions, and more!
             </h2>
           </div>
         </section>
@@ -42,41 +41,34 @@ export default function MobilePageClient() {
 
             <article className="mobile-article">
               <p>
-                I&apos;m Mohamad, a 17-year-old from the SF Bay Area, and I just
-                shipped the official mobile app for HCB.
+                I&apos;m Mohamad, a 17-year-old from the SF Bay Area, and I just shipped the
+                official mobile app for HCB.
               </p>
 
               <p>
-                If you haven&apos;t heard of it, HCB is the financial backbone
-                for over <strong>6,500 teenager-led nonprofits</strong>, clubs,
-                and hackathons. We provide{" "}
-                <strong>501(c)(3) nonprofit</strong> status, access to a bank
-                account, a donation collection platform, and debit cards for
-                thousands of young people trying to do good in their
-                communities.
+                If you haven&apos;t heard of it, HCB is the financial backbone for over{" "}
+                <strong>6,500 teenager-led nonprofits</strong>, clubs, and hackathons. We provide{" "}
+                <strong>501(c)(3) nonprofit</strong> status, access to a bank account, a donation
+                collection platform, and debit cards for thousands of young people trying to do good
+                in their communities.
               </p>
 
               <p>
-                HCB is currently processing an average of{" "}
-                <strong>$6 million per month</strong> (over $80M in its
-                lifetime)
+                HCB is currently processing an average of <strong>$6 million per month</strong>{" "}
+                (over $80M in its lifetime)
                 <sup>
                   <a href="#fn-1" id="fnref-1">
                     1
                   </a>
                 </sup>
-                . For the last year, I&apos;ve led the project to build the
-                first-ever mobile app for this entire community.
+                . For the last year, I&apos;ve led the project to build the first-ever mobile app
+                for this entire community.
               </p>
 
               <p>
                 <em>
                   The entire project is open source on{" "}
-                  <a
-                    href="https://github.com/hackclub/hcb-mobile"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href="https://github.com/hackclub/hcb-mobile" target="_blank" rel="noreferrer">
                     GitHub
                   </a>{" "}
                   (we&apos;d love a ⭐️!).
@@ -86,73 +78,62 @@ export default function MobilePageClient() {
               <h2>Why build this?</h2>
 
               <p>
-                These teenagers are running run robotics teams, hackathons, and
-                nonprofit projects that improve their community. They need a way
-                to manage their organization&apos;s finances from their pocket.
-                With HCB Mobile, they&apos;ll be able to:
+                These teenagers are running run robotics teams, hackathons, and nonprofit projects
+                that improve their community. They need a way to manage their organization&apos;s
+                finances from their pocket. With HCB Mobile, they&apos;ll be able to:
               </p>
 
               <ul>
                 <li>
-                  Track their <strong>organization&apos;s balance</strong> and
-                  transactions on the go.
+                  Track their <strong>organization&apos;s balance</strong> and transactions on the
+                  go.
                 </li>
                 <li>
-                  Accept in-person <strong>tap-to-pay donations</strong>,
-                  perfect for an in-person fundraiser or event! No extra
-                  hardware required. Just tap any credit/debit card against your
-                  phone.
+                  Accept in-person <strong>tap-to-pay donations</strong>, perfect for an in-person
+                  fundraiser or event! No extra hardware required. Just tap any credit/debit card
+                  against your phone.
                 </li>
                 <li>
                   <strong>Issue new debit cards</strong>, add them to{" "}
-                  <strong>Apple / Google Wallet</strong>, and freeze or cancel
-                  them directly from their phone.
+                  <strong>Apple / Google Wallet</strong>, and freeze or cancel them directly from
+                  their phone.
                 </li>
                 <li>
-                  <strong>Upload receipts</strong> directly from their device or
-                  match existing receipts in Receipt Bin to transactions with a
-                  tap.
+                  <strong>Upload receipts</strong> directly from their device or match existing
+                  receipts in Receipt Bin to transactions with a tap.
                 </li>
               </ul>
 
               <h2>The Technical Stuff</h2>
 
               <p>
-                When I started working on this app, I wanted to build in native
-                code like <strong>SwiftUI</strong> for iOS and{" "}
-                <strong>Kotlin/Jetpack Compose</strong> for Android. However, I
-                realized that it would be a pain for me, a{" "}
-                <strong>full-time student</strong> with classes, to handle two
-                codebases. I&apos;d have to duplicate every feature I created
-                for one OS to the other and deal with all the integration issues
-                along the way. Then, I discovered{" "}
-                <strong>Expo</strong> (a React Native framework) which allowed
-                me to write one app that worked on multiple devices. Working
-                with Expo, I learned about creating my own Expo Modules (to
-                bridge native code features to Typescript) and optimization
-                methods like memoization and component recycling.
+                When I started working on this app, I wanted to build in native code like{" "}
+                <strong>SwiftUI</strong> for iOS and <strong>Kotlin/Jetpack Compose</strong> for
+                Android. However, I realized that it would be a pain for me, a{" "}
+                <strong>full-time student</strong> with classes, to handle two codebases. I&apos;d
+                have to duplicate every feature I created for one OS to the other and deal with all
+                the integration issues along the way. Then, I discovered <strong>Expo</strong> (a
+                React Native framework) which allowed me to write one app that worked on multiple
+                devices. Working with Expo, I learned about creating my own Expo Modules (to bridge
+                native code features to Typescript) and optimization methods like memoization and
+                component recycling.
               </p>
 
               <p>
-                The non-code side of this app was <em>no joke</em>, either. I
-                had to work with the Apple and Google app review teams to obtain{" "}
-                <strong>restricted entitlements</strong> for features like
-                mobile <strong>tap-to-pay terminal provisioning</strong> (made
-                possible by Stripe) and <strong>push provisioning</strong>{" "}
-                (which allows users to add cards to their payment wallet
-                directly from HCB Mobile). It took several months and many
-                back-and-forth email chains to finally get the entitlements we
-                needed.
+                The non-code side of this app was <em>no joke</em>, either. I had to work with the
+                Apple and Google app review teams to obtain <strong>restricted entitlements</strong>{" "}
+                for features like mobile <strong>tap-to-pay terminal provisioning</strong> (made
+                possible by Stripe) and <strong>push provisioning</strong> (which allows users to
+                add cards to their payment wallet directly from HCB Mobile). It took several months
+                and many back-and-forth email chains to finally get the entitlements we needed.
               </p>
 
               <p>
-                After over 250 hours of development work, I can say that I&apos;m
-                incredibly proud of HCB Mobile because it&apos;s{" "}
-                <strong>built by teenagers</strong> to make it easier for
-                teenagers like me to run nonprofit organizations and projects
-                with HCB. Beyond teenagers, HCB also supports hundreds of
-                adult-ran organizations such as mutual aid groups, open source
-                projects, and community spaces.
+                After over 250 hours of development work, I can say that I&apos;m incredibly proud
+                of HCB Mobile because it&apos;s <strong>built by teenagers</strong> to make it
+                easier for teenagers like me to run nonprofit organizations and projects with HCB.
+                Beyond teenagers, HCB also supports hundreds of adult-ran organizations such as
+                mutual aid groups, open source projects, and community spaces.
               </p>
 
               <div className="mobile-article__spacer" aria-hidden="true" />
@@ -192,11 +173,7 @@ export default function MobilePageClient() {
                 <li id="fn-1">
                   <em>
                     This amount is excluding HQ (our own){" "}
-                    <a
-                      href="https://hcb.hackclub.com/hq"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <a href="https://hcb.hackclub.com/hq" target="_blank" rel="noreferrer">
                       finances
                     </a>
                     .
@@ -216,12 +193,10 @@ export default function MobilePageClient() {
               <Icon glyph="bank-account" size={72} />
             </div>
             <div>
-              <h2 className="mobile-cta__title">
-                Looking to start a nonprofit?
-              </h2>
+              <h2 className="mobile-cta__title">Looking to start a nonprofit?</h2>
               <p className="mobile-cta__body">
-                We&apos;re accepting applications! No startup fees, no minimum
-                balance, and no long wait time.
+                We&apos;re accepting applications! No startup fees, no minimum balance, and no long
+                wait time.
               </p>
               <div className="mobile-cta__actions">
                 <Link

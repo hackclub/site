@@ -4,9 +4,23 @@ import { EmailSignupInput } from "./email-signup";
 
 // Community back-img photos — repeated to fill taller section
 const backImgsBase = [
-  "/assets/backImg1.webp", "/assets/backImg2.webp", "/assets/backImg3.webp", "/assets/backImg4.webp", "/assets/backImg5.webp", "/assets/backImg6.webp",
-  "/assets/backImg7.webp", "/assets/backImg8.webp", "/assets/backImg9.webp", "/assets/backImg10.webp", "/assets/backImg11.webp", "/assets/backImg12.webp",
-  "/assets/backImg13.webp", "/assets/backImg14.webp", "/assets/backImg15.webp", "/assets/backImg16.webp", "/assets/backImg17.webp",
+  "/assets/backImg1.webp",
+  "/assets/backImg2.webp",
+  "/assets/backImg3.webp",
+  "/assets/backImg4.webp",
+  "/assets/backImg5.webp",
+  "/assets/backImg6.webp",
+  "/assets/backImg7.webp",
+  "/assets/backImg8.webp",
+  "/assets/backImg9.webp",
+  "/assets/backImg10.webp",
+  "/assets/backImg11.webp",
+  "/assets/backImg12.webp",
+  "/assets/backImg13.webp",
+  "/assets/backImg14.webp",
+  "/assets/backImg15.webp",
+  "/assets/backImg16.webp",
+  "/assets/backImg17.webp",
 ];
 const backImgs = [...backImgsBase, ...backImgsBase, ...backImgsBase];
 
@@ -24,7 +38,9 @@ export function VideoSection() {
       <div
         style={{
           position: "absolute",
-          top: 0, left: 0, right: 0,
+          top: 0,
+          left: 0,
+          right: 0,
           height: 180,
           background: "linear-gradient(180deg, #ffffff 0%, transparent 100%)",
           zIndex: 3,
@@ -72,7 +88,6 @@ export function VideoSection() {
         ))}
       </div>
 
-
       {/* Content — centered card/block that floats over the photo grid */}
       <div
         style={{
@@ -113,7 +128,9 @@ export function VideoSection() {
             }}
           >
             {"Imagine a world where"}
-            <span className="video-headline-break" style={{ display: "inline" }}>{" "}</span>
+            <span className="video-headline-break" style={{ display: "inline" }}>
+              {" "}
+            </span>
             <span
               style={{
                 background: "linear-gradient(90deg, #ec3750 0%, #ff8c37 100%)",
@@ -184,7 +201,9 @@ export function VideoSection() {
       <div
         style={{
           position: "absolute",
-          bottom: 0, left: 0, right: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
           height: 280,
           background: "linear-gradient(0deg, #ffffff 40%, transparent 100%)",
           zIndex: 3,

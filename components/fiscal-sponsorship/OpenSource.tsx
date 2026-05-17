@@ -59,9 +59,8 @@ export function OpenSource({
               lineHeight: 1.5,
             }}
           >
-            HCB is open source and built in public, like many other Hack Club
-            projects. Join us in building the infrastructure powering fiscally
-            sponsored organizations around the world.
+            HCB is open source and built in public, like many other Hack Club projects. Join us in
+            building the infrastructure powering fiscally sponsored organizations around the world.
           </p>
 
           {/* Button Group */}

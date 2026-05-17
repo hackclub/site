@@ -30,7 +30,9 @@ async function isAdmin(slackId: string): Promise<boolean> {
   const siteKey = process.env.HACK_CLUB_SITE_AIRTABLE_KEY;
   if (!siteKey) return false;
 
-  const url = new URL(`https://api.airtable.com/v0/${SITE_BASE_ID}/${encodeURIComponent(ADMINS_TABLE)}`);
+  const url = new URL(
+    `https://api.airtable.com/v0/${SITE_BASE_ID}/${encodeURIComponent(ADMINS_TABLE)}`,
+  );
   url.searchParams.set("filterByFormula", `{slack_id}="${slackId}"`);
   url.searchParams.append("fields[]", "slack_id");
 
@@ -57,7 +59,9 @@ export async function canEditProgram(req: NextRequest, programName: string): Pro
   const ywswHeaders = { Authorization: `Bearer ${apiKey}` };
 
   // Find the YSWS Authors record for this Slack ID
-  const authorsUrl = new URL(`https://api.airtable.com/v0/${YSWS_BASE}/${encodeURIComponent(AUTHORS_TABLE)}`);
+  const authorsUrl = new URL(
+    `https://api.airtable.com/v0/${YSWS_BASE}/${encodeURIComponent(AUTHORS_TABLE)}`,
+  );
   authorsUrl.searchParams.set("filterByFormula", `{Slack ID}="${slackId}"`);
   authorsUrl.searchParams.append("fields[]", "Current YSWS Programs");
 
@@ -71,7 +75,9 @@ export async function canEditProgram(req: NextRequest, programName: string): Pro
 
   // Resolve those record IDs to program names
   const formula = `OR(${programRecordIds.map((id) => `RECORD_ID()="${id}"`).join(",")})`;
-  const programsUrl = new URL(`https://api.airtable.com/v0/${YSWS_BASE}/${encodeURIComponent(PROGRAMS_TABLE)}`);
+  const programsUrl = new URL(
+    `https://api.airtable.com/v0/${YSWS_BASE}/${encodeURIComponent(PROGRAMS_TABLE)}`,
+  );
   programsUrl.searchParams.set("filterByFormula", formula);
   programsUrl.searchParams.append("fields[]", "Name");
 

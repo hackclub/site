@@ -11,10 +11,7 @@ interface WebfontCssBoxProps {
 export function WebfontCssBox({ code }: WebfontCssBoxProps) {
   const [copied, setCopied] = useState(false);
 
-  const highlightedCode = useMemo(
-    () => Prism.highlight(code, Prism.languages.css, "css"),
-    [code],
-  );
+  const highlightedCode = useMemo(() => Prism.highlight(code, Prism.languages.css, "css"), [code]);
 
   const handleCopy = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -31,12 +28,8 @@ export function WebfontCssBox({ code }: WebfontCssBoxProps) {
       <summary>
         <span className="brand-details__title-wrap">
           <span>Webfont CSS</span>
-          <span className="brand-details__hint brand-details__hint--closed">
-            (click to expand)
-          </span>
-          <span className="brand-details__hint brand-details__hint--open">
-            (click to collapse)
-          </span>
+          <span className="brand-details__hint brand-details__hint--closed">(click to expand)</span>
+          <span className="brand-details__hint brand-details__hint--open">(click to collapse)</span>
         </span>
         <button
           type="button"
@@ -48,10 +41,7 @@ export function WebfontCssBox({ code }: WebfontCssBoxProps) {
         </button>
       </summary>
       <pre className="language-css">
-        <code
-          className="language-css"
-          dangerouslySetInnerHTML={{ __html: highlightedCode }}
-        />
+        <code className="language-css" dangerouslySetInnerHTML={{ __html: highlightedCode }} />
       </pre>
     </details>
   );

@@ -14,12 +14,12 @@ export function hasKey(): boolean {
 }
 
 function createFetchOptions(fresh: boolean): RequestInit {
-  return fresh
-    ? { cache: "no-store" }
-    : { next: { revalidate: PROGRAMS_REVALIDATE_SECONDS } };
+  return fresh ? { cache: "no-store" } : { next: { revalidate: PROGRAMS_REVALIDATE_SECONDS } };
 }
 
-async function readPrograms({ fresh = false }: FetchProgramsOptions = {}): Promise<AirtableProgram[]> {
+async function readPrograms({ fresh = false }: FetchProgramsOptions = {}): Promise<
+  AirtableProgram[]
+> {
   const apiKey = process.env.AIRTABLE_API_KEY;
   if (!apiKey) {
     return [];
@@ -38,20 +38,17 @@ async function readPrograms({ fresh = false }: FetchProgramsOptions = {}): Promi
   const fetchOptions = createFetchOptions(fresh);
 
   const [ywswRes, siteData] = await Promise.all([
-    fetch(
-      `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(TABLE_NAME)}?${params}`,
-      {
-        ...fetchOptions,
-        headers: { Authorization: `Bearer ${apiKey}` },
-      }
-    ),
+    fetch(`https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(TABLE_NAME)}?${params}`, {
+      ...fetchOptions,
+      headers: { Authorization: `Bearer ${apiKey}` },
+    }),
     siteKey
       ? fetch(
           `${siteBaseUrl()}?${SITE_FIELDS.map((field) => `fields[]=${encodeURIComponent(field)}`).join("&")}`,
           {
             ...fetchOptions,
             headers: siteAuthHeaders(siteKey),
-          }
+          },
         )
           .then((response) => (response.ok ? response.json() : { records: [] }))
           .catch(() => ({ records: [] }))
@@ -67,7 +64,7 @@ async function readPrograms({ fresh = false }: FetchProgramsOptions = {}): Promi
     ((siteData as { records: unknown[] }).records ?? []).map((record) => {
       const parsed = parseRecord(record as Parameters<typeof parseRecord>[0]);
       return [parsed.programName, parsed] as const;
-    })
+    }),
   );
 
   return (ywswData.records ?? []).map((record: { id: string; fields: Record<string, string> }) => {

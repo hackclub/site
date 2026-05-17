@@ -16,13 +16,20 @@ export function parseLocalDate(iso: string): Date {
   return new Date(y, m - 1, d);
 }
 
-export function getProgramStatus(program: Pick<AirtableProgram, "startDate" | "endDate">, now = new Date()): ProgramStatus {
+export function getProgramStatus(
+  program: Pick<AirtableProgram, "startDate" | "endDate">,
+  now = new Date(),
+): ProgramStatus {
   const started = parseLocalDate(program.startDate) <= now;
   const ended = parseLocalDate(program.endDate) < now;
   return !started ? "draft" : ended ? "ended" : "ongoing";
 }
 
-export function selectFeaturedPrograms(programs: AirtableProgram[], limit = 4, now = new Date()): AirtableProgram[] {
+export function selectFeaturedPrograms(
+  programs: AirtableProgram[],
+  limit = 4,
+  now = new Date(),
+): AirtableProgram[] {
   return programs
     .filter((program) => getProgramStatus(program, now) === "ongoing")
     .sort((a, b) => {
@@ -34,7 +41,8 @@ export function selectFeaturedPrograms(programs: AirtableProgram[], limit = 4, n
       const bHasLogo = Number(Boolean(b.site?.logoUrl));
       if (aHasLogo !== bHasLogo) return bHasLogo - aHasLogo;
 
-      const endDateDelta = parseLocalDate(a.endDate).getTime() - parseLocalDate(b.endDate).getTime();
+      const endDateDelta =
+        parseLocalDate(a.endDate).getTime() - parseLocalDate(b.endDate).getTime();
       if (endDateDelta !== 0) return endDateDelta;
 
       return a.name.localeCompare(b.name);

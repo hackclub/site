@@ -71,7 +71,9 @@ html {
 
 /* ── Mobile line-break helpers ───────────────────────────────── */
 @media (max-width: 767px) {
-  .video-headline-break { display: block; }
+  .video-headline-break {
+    display: block;
+  }
 }
 
 /* ── Mobile wave fix ─────────────────────────────────────────── */
@@ -93,7 +95,9 @@ html {
 
 /* ── Dark pill button hover ──────────────────────────────────── */
 .dark-btn {
-  transition: background 0.4s ease, color 0.4s ease;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease;
 }
 .dark-btn:hover {
   background: #ec3750 !important;
@@ -101,7 +105,9 @@ html {
 
 /* ── CTA button hover ─────────────────────────────────────────── */
 .cta-btn {
-  transition: background 0.4s ease, color 0.4s ease;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease;
 }
 .cta-btn:hover {
   filter: brightness(1.15);

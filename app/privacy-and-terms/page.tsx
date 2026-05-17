@@ -11,6 +11,9 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function PrivacyAndTermsPage() {
-  const content = fs.readFileSync(path.join(process.cwd(), "content/privacy-and-terms.md"), "utf-8");
+  const content = fs.readFileSync(
+    path.join(process.cwd(), "content/privacy-and-terms.md"),
+    "utf-8",
+  );
   return <MarkdownPage content={content} />;
 }

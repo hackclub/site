@@ -41,7 +41,9 @@ export default function OpenSourcePage() {
       <section className="opensource-shell opensource-section">
         <div className="opensource-section__header">
           <p className="opensource-kicker opensource-kicker--dark">Finances</p>
-          <h2 className="opensource-section__title">All open sourced through HCB Transparency Mode.</h2>
+          <h2 className="opensource-section__title">
+            All open sourced through HCB Transparency Mode.
+          </h2>
         </div>
         <div className="opensource-finance-grid">
           {financeItems.map((item) => (

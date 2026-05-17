@@ -63,8 +63,7 @@ const stats = [
   { label: "Teens yearly", value: "100,000" },
 ];
 
-const assetUrl = (name: string, ext: string) =>
-  `https://assets.hackclub.com/${name}.${ext}`;
+const assetUrl = (name: string, ext: string) => `https://assets.hackclub.com/${name}.${ext}`;
 
 const logoTitle = (name: string) =>
   name
@@ -86,13 +85,15 @@ export default function PressPage() {
               Press Kit
             </h1>
             <p className="press-hero__lede">
-              Hack Club is a global nonprofit network of high school makers &amp;
-              student-led coding clubs where young people build the agency, the
-              network, &amp; the technical talent to think big &amp; do big things in the
-              world.
+              Hack Club is a global nonprofit network of high school makers &amp; student-led coding
+              clubs where young people build the agency, the network, &amp; the technical talent to
+              think big &amp; do big things in the world.
             </p>
             <div className="press-hero__actions">
-              <a className="press-btn press-btn--ghost" href="https://assets.hackclub.com/2020_branding.zip">
+              <a
+                className="press-btn press-btn--ghost"
+                href="https://assets.hackclub.com/2020_branding.zip"
+              >
                 Download press kit
               </a>
             </div>
@@ -130,18 +131,17 @@ export default function PressPage() {
           <p className="press-kicker press-kicker--dark">About</p>
           <h2 className="press-section__title">Who we are.</h2>
           <p className="press-section__copy">
-            Founded in 2014 by 16-year-old Zach Latta, Hack Clubs are now in
-            nearly 1,400 high schools with 100,000 teenagers each year. Hack Club has
-            been profiled on the TODAY Show, in the Wall Street Journal, and in
-            many other publications around the country.
+            Founded in 2014 by 16-year-old Zach Latta, Hack Clubs are now in nearly 1,400 high
+            schools with 100,000 teenagers each year. Hack Club has been profiled on the TODAY Show,
+            in the Wall Street Journal, and in many other publications around the country.
           </p>
         </div>
         <div className="press-callout">
           <div>
             <h3>Press inquiries</h3>
             <p>
-              If you are writing a story or have other press inquiries, please
-              contact Christina Asquith.
+              If you are writing a story or have other press inquiries, please contact Christina
+              Asquith.
             </p>
           </div>
           <a className="press-btn press-btn--dark" href="mailto:christina@hackclub.com">
@@ -155,20 +155,14 @@ export default function PressPage() {
           <p className="press-kicker press-kicker--dark">Photos</p>
           <h2 className="press-section__title">Press-ready event shots.</h2>
           <p className="press-section__copy">
-            Download and use these images for coverage of Hack Club programs and
-            events.
+            Download and use these images for coverage of Hack Club programs and events.
           </p>
         </div>
         <div className="press-photo-grid">
           {photoItems.map((photo) => (
             <figure key={photo.src} className="press-photo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                width={photo.width}
-                height={photo.height}
-              />
+              <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} />
               <figcaption>{photo.alt}</figcaption>
             </figure>
           ))}
@@ -186,8 +180,8 @@ export default function PressPage() {
           <p className="press-kicker press-kicker--dark">Logos</p>
           <h2 className="press-section__title">Official Hack Club marks.</h2>
           <p className="press-section__copy">
-            Use these official logo files for Hack Club HQ. Stick to SVG, PNG, or
-            PDF. Avoid stretching, outlining, or recoloring.
+            Use these official logo files for Hack Club HQ. Stick to SVG, PNG, or PDF. Avoid
+            stretching, outlining, or recoloring.
           </p>
         </div>
         <div className="press-logo-grid">
@@ -205,9 +199,15 @@ export default function PressPage() {
               <div className="press-logo-card__body">
                 <h3>{logoTitle(logo.key)}</h3>
                 <div className="press-logo-card__actions">
-                  <a className="press-link" href={assetUrl(logo.key, "svg")}>SVG</a>
-                  <a className="press-link" href={assetUrl(logo.key, "png")}>PNG</a>
-                  <a className="press-link" href={assetUrl(logo.key, "pdf")}>PDF</a>
+                  <a className="press-link" href={assetUrl(logo.key, "svg")}>
+                    SVG
+                  </a>
+                  <a className="press-link" href={assetUrl(logo.key, "png")}>
+                    PNG
+                  </a>
+                  <a className="press-link" href={assetUrl(logo.key, "pdf")}>
+                    PDF
+                  </a>
                 </div>
               </div>
             </article>

@@ -43,9 +43,8 @@ export function Features() {
               lineHeight: 1.5,
             }}
           >
-            Since day one, we&apos;ve built beautiful, self-serve software to empower
-            you to raise and spend money without administrative hassle. We&apos;re also
-            open source!
+            Since day one, we&apos;ve built beautiful, self-serve software to empower you to raise
+            and spend money without administrative hassle. We&apos;re also open source!
           </p>
         </div>
 
@@ -127,10 +126,7 @@ export function Features() {
               See <em>Reboot</em>&apos;s finances in Transparency Mode
             </p>
           </Link>
-          <Link
-            href="https://github.com/hackclub/hcb"
-            style={{ textDecoration: "none" }}
-          >
+          <Link href="https://github.com/hackclub/hcb" style={{ textDecoration: "none" }}>
             <p
               style={{
                 fontSize: "14px",

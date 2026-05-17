@@ -36,8 +36,7 @@ export const DIRECTORY_CATEGORIES: FiscalDirectoryCategory[] = [
     label: "FIRST Teams",
     id: "first",
     color: "blue",
-    description:
-      "Everywhere from San Jose to Boston to New York, HCB powers teams of all sizes.",
+    description: "Everywhere from San Jose to Boston to New York, HCB powers teams of all sizes.",
     icon: "sam",
   },
   {
@@ -113,7 +112,7 @@ export function getClimateRegionParam(region: FiscalRegion) {
 
 export function organizationMatchesCategory(
   organization: Pick<Organization, "category">,
-  categoryId: string
+  categoryId: string,
 ) {
   if (categoryId === "organizations") {
     return true;
@@ -132,45 +131,35 @@ export function organizationMatchesCategory(
 
 export function organizationMatchesRegion(
   organization: Pick<Organization, "location">,
-  region: FiscalRegion
+  region: FiscalRegion,
 ) {
   const continent = organization.location.continent?.toLowerCase();
   if (!continent) return false;
 
   if (region.continents) {
-    return region.continents.some(
-      (entry) => entry.toLowerCase() === continent
-    );
+    return region.continents.some((entry) => entry.toLowerCase() === continent);
   }
 
   return continent === region.label.toLowerCase();
 }
 
-export function filterOrganizationsByCategory(
-  organizations: Organization[],
-  categoryId: string
-) {
+export function filterOrganizationsByCategory(organizations: Organization[], categoryId: string) {
   return organizations.filter((organization) =>
-    organizationMatchesCategory(organization, categoryId)
+    organizationMatchesCategory(organization, categoryId),
   );
 }
 
-export function filterOrganizationsByRegion(
-  organizations: Organization[],
-  regionSlug: string
-) {
+export function filterOrganizationsByRegion(organizations: Organization[], regionSlug: string) {
   const region = getRegionBySlug(regionSlug);
   if (!region) return [];
 
-  return organizations.filter((organization) =>
-    organizationMatchesRegion(organization, region)
-  );
+  return organizations.filter((organization) => organizationMatchesRegion(organization, region));
 }
 
 export function filterOrganizationsByCategoryAndRegion(
   organizations: Organization[],
   categoryId: string,
-  regionSlug: string
+  regionSlug: string,
 ) {
   const region = getRegionBySlug(regionSlug);
   if (!region) return [];

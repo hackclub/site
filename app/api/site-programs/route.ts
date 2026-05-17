@@ -19,10 +19,10 @@ function fieldParams() {
 }
 
 async function getAllRecords(key: string) {
-  const res = await fetch(
-    `${siteBaseUrl()}?${fieldParams()}`,
-    { headers: siteAuthHeaders(key), cache: "no-store" }
-  );
+  const res = await fetch(`${siteBaseUrl()}?${fieldParams()}`, {
+    headers: siteAuthHeaders(key),
+    cache: "no-store",
+  });
   if (!res.ok) throw new Error(`Airtable ${res.status}: ${await res.text()}`);
   const data = await res.json();
   return (data.records ?? []) as { id: string; fields: Record<string, unknown> }[];
@@ -32,10 +32,7 @@ async function getAllRecords(key: string) {
 export async function GET() {
   const key = apiKey();
   if (!key) {
-    return NextResponse.json(
-      { error: "HACK_CLUB_SITE_AIRTABLE_KEY is not set" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "HACK_CLUB_SITE_AIRTABLE_KEY is not set" }, { status: 500 });
   }
   try {
     const records = await getAllRecords(key);
@@ -49,10 +46,7 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   const key = apiKey();
   if (!key) {
-    return NextResponse.json(
-      { error: "HACK_CLUB_SITE_AIRTABLE_KEY is not set" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "HACK_CLUB_SITE_AIRTABLE_KEY is not set" }, { status: 500 });
   }
 
   const body = (await req.json()) as {
@@ -83,7 +77,7 @@ export async function POST(req: NextRequest) {
   };
 
   // Authorization — must own this program (or be admin)
-  if (!await canEditProgram(req, body.programName)) {
+  if (!(await canEditProgram(req, body.programName))) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
@@ -95,12 +89,19 @@ export async function POST(req: NextRequest) {
   if (body.bgType !== undefined) fields["BG Type"] = body.bgType;
   if (body.clearLogo) fields["Logo"] = [];
   if (body.clearBg) fields["BG Image"] = [];
-  if (body.setLogoUrl) fields["Logo"] = [{ url: body.setLogoUrl, filename: body.setLogoUrl.split("/").pop() || "logo" }];
-  if (body.setBgImageUrl) fields["BG Image"] = [{ url: body.setBgImageUrl, filename: body.setBgImageUrl.split("/").pop() || "bg" }];
+  if (body.setLogoUrl)
+    fields["Logo"] = [
+      { url: body.setLogoUrl, filename: body.setLogoUrl.split("/").pop() || "logo" },
+    ];
+  if (body.setBgImageUrl)
+    fields["BG Image"] = [
+      { url: body.setBgImageUrl, filename: body.setBgImageUrl.split("/").pop() || "bg" },
+    ];
   if (body.logoSize !== undefined) fields["Logo Size"] = body.logoSize;
   if (body.buttonColor !== undefined) fields["Button Color"] = body.buttonColor;
   if (body.buttonTextColor !== undefined) fields["Button Text Color"] = body.buttonTextColor;
-  if (body.buttonBorderRadius !== undefined) fields["Button Border Radius"] = body.buttonBorderRadius;
+  if (body.buttonBorderRadius !== undefined)
+    fields["Button Border Radius"] = body.buttonBorderRadius;
   if (body.buttonBorderWidth !== undefined) fields["Button Border Width"] = body.buttonBorderWidth;
   if (body.buttonBorderColor !== undefined) fields["Button Border Color"] = body.buttonBorderColor;
   if (body.slackChannel !== undefined) fields["Slack Channel"] = body.slackChannel;
@@ -109,7 +110,8 @@ export async function POST(req: NextRequest) {
   if (body.inPersonStart !== undefined) fields["In-Person Start"] = body.inPersonStart;
   if (body.inPersonEnd !== undefined) fields["In-Person End"] = body.inPersonEnd;
   if (body.inPersonLocation !== undefined) fields["In-Person Location"] = body.inPersonLocation;
-  if (body.additionalRequirements !== undefined) fields["Additional Requirements"] = body.additionalRequirements;
+  if (body.additionalRequirements !== undefined)
+    fields["Additional Requirements"] = body.additionalRequirements;
 
   let recordId = body.recordId;
 
@@ -117,9 +119,7 @@ export async function POST(req: NextRequest) {
   if (!recordId) {
     try {
       const all = await getAllRecords(key);
-      const match = all.find(
-        (r) => (r.fields["Name"] as string | undefined) === body.programName
-      );
+      const match = all.find((r) => (r.fields["Name"] as string | undefined) === body.programName);
       if (match) recordId = match.id;
     } catch (e) {
       return NextResponse.json({ error: String(e) }, { status: 500 });
@@ -153,7 +153,7 @@ export async function POST(req: NextRequest) {
   if (!res.ok) {
     return NextResponse.json(
       { error: `Airtable error ${res.status}`, detail: await res.text() },
-      { status: res.status }
+      { status: res.status },
     );
   }
 

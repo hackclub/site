@@ -13,7 +13,13 @@ import { EmailSignupInput } from "./email-signup";
  * rotate: rotation angle in degrees
  */
 function DraggableSticker({
-  src, initialLeft, initialRight, initialTop, rotate, width, sizes,
+  src,
+  initialLeft,
+  initialRight,
+  initialTop,
+  rotate,
+  width,
+  sizes,
 }: {
   src: string;
   initialLeft?: number | string;
@@ -58,8 +64,13 @@ function DraggableSticker({
   return (
     <div
       onMouseDown={handleMouseDown}
-      onMouseEnter={() => { hoverTimer.current = setTimeout(() => setIsHovered(true), 150); }}
-      onMouseLeave={() => { if (hoverTimer.current) clearTimeout(hoverTimer.current); if (!isDragging) setIsHovered(false); }}
+      onMouseEnter={() => {
+        hoverTimer.current = setTimeout(() => setIsHovered(true), 150);
+      }}
+      onMouseLeave={() => {
+        if (hoverTimer.current) clearTimeout(hoverTimer.current);
+        if (!isDragging) setIsHovered(false);
+      }}
       style={{
         position: "absolute",
         left: initialLeft,
@@ -70,7 +81,9 @@ function DraggableSticker({
         pointerEvents: "auto",
         cursor: isDragging ? "grabbing" : "grab",
         transform: `translate(${dragX}px, ${offset.y - lift}px) scale(${scale})`,
-        transition: isDragging ? "none" : "transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.25s ease",
+        transition: isDragging
+          ? "none"
+          : "transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.25s ease",
         filter: lifted
           ? `drop-shadow(0 ${lift}px ${lift + 6}px rgba(0,0,0,0.28))`
           : "drop-shadow(0 2px 4px rgba(0,0,0,0.12))",
@@ -99,8 +112,12 @@ function DraggableSticker({
 
 function Photo({
   src,
-  bbX, bbY, bbW, bbH,
-  w, h,
+  bbX,
+  bbY,
+  bbW,
+  bbH,
+  w,
+  h,
   rotate,
   zIndex = 8,
   border = true,
@@ -110,8 +127,12 @@ function Photo({
   sizes = "(max-width: 1023px) 0px, 370px",
 }: {
   src: string;
-  bbX: number; bbY: number; bbW: number; bbH: number;
-  w: number; h: number;
+  bbX: number;
+  bbY: number;
+  bbW: number;
+  bbH: number;
+  w: number;
+  h: number;
   rotate: number;
   zIndex?: number;
   border?: boolean;
@@ -124,9 +145,7 @@ function Photo({
   const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const edgeStyle: React.CSSProperties =
-    side === "right"
-      ? { right: -(bbX + bbW - 1920) }
-      : { left: bbX };
+    side === "right" ? { right: -(bbX + bbW - 1920) } : { left: bbX };
 
   const REVEAL = 80;
   const MIN_SLIDE = 160;
@@ -161,8 +180,13 @@ function Photo({
       >
         {/* Inner: photo with rotate/scale and event handlers */}
         <div
-          onMouseEnter={() => { if (leaveTimer.current) clearTimeout(leaveTimer.current); setHovered(true); }}
-          onMouseLeave={() => { leaveTimer.current = setTimeout(() => setHovered(false), 200); }}
+          onMouseEnter={() => {
+            if (leaveTimer.current) clearTimeout(leaveTimer.current);
+            setHovered(true);
+          }}
+          onMouseLeave={() => {
+            leaveTimer.current = setTimeout(() => setHovered(false), 200);
+          }}
           style={{
             position: "absolute",
             top: "50%",
@@ -291,7 +315,8 @@ export function HeroSection() {
     };
 
     const scheduleParallax = () => {
-      if (prefersReducedMotionRef.current || !isHeroVisibleRef.current || rafRef.current !== null) return;
+      if (prefersReducedMotionRef.current || !isHeroVisibleRef.current || rafRef.current !== null)
+        return;
       rafRef.current = requestAnimationFrame(applyParallax);
     };
 
@@ -366,8 +391,7 @@ export function HeroSection() {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        background:
-          "linear-gradient(180deg, rgba(236,55,80,0.04) 60%, rgba(236,55,80,0.40) 100%)",
+        background: "linear-gradient(180deg, rgba(236,55,80,0.04) 60%, rgba(236,55,80,0.40) 100%)",
       }}
     >
       {/*
@@ -383,7 +407,15 @@ export function HeroSection() {
         @media (max-width: 1023px) { .hero-photos-left, .hero-photos-right, .hero-stickers { display: none; } }
       `}</style>
       {/* Magazine background — behind photos */}
-      <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 0 }}>
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          overflow: "hidden",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      >
         <div
           ref={magazineRef}
           style={{
@@ -412,39 +444,251 @@ export function HeroSection() {
       </div>
 
       {/* Photos — in front of magazine bg */}
-      <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 1 }}>
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          overflow: "hidden",
+          pointerEvents: "none",
+          zIndex: 1,
+        }}
+      >
         <div className="hero-photos-left">
-          <Photo src="/assets/hero_photo1.webp"  bbX={-140} bbY={65}  bbW={390} bbH={290} w={370} h={260} rotate={-8}  zIndex={8}  scale={0.78} parallaxRate={0.15} />
-          <Photo src="/assets/hero_photo2.webp"  bbX={-185} bbY={225} bbW={390} bbH={290} w={370} h={260} rotate={16}  zIndex={7}  scale={0.78} parallaxRate={0.12} />
-          <Photo src="/assets/hero_photo3.webp"  bbX={-170} bbY={365} bbW={390} bbH={290} w={370} h={260} rotate={-14} zIndex={7}  scale={0.78} parallaxRate={0.09} />
-          <Photo src="/assets/hero_photo4.webp"  bbX={-140} bbY={495} bbW={390} bbH={290} w={370} h={260} rotate={11}  zIndex={8}  scale={0.78} parallaxRate={0.07} />
-          <Photo src="/assets/hero_photo5.webp"  bbX={-95}  bbY={610} bbW={390} bbH={290} w={370} h={260} rotate={-20} zIndex={9}  scale={0.78} parallaxRate={0.05} />
-          <Photo src="/assets/hero_photo6.webp"  bbX={-100} bbY={695} bbW={390} bbH={290} w={370} h={260} rotate={22}  zIndex={8}  scale={0.78} parallaxRate={0.04} />
-          <Photo src="/assets/hero_photo7.webp"  bbX={-5}   bbY={725} bbW={390} bbH={290} w={370} h={260} rotate={-9}  zIndex={10} scale={0.78} parallaxRate={0.03} />
+          <Photo
+            src="/assets/hero_photo1.webp"
+            bbX={-140}
+            bbY={65}
+            bbW={390}
+            bbH={290}
+            w={370}
+            h={260}
+            rotate={-8}
+            zIndex={8}
+            scale={0.78}
+            parallaxRate={0.15}
+          />
+          <Photo
+            src="/assets/hero_photo2.webp"
+            bbX={-185}
+            bbY={225}
+            bbW={390}
+            bbH={290}
+            w={370}
+            h={260}
+            rotate={16}
+            zIndex={7}
+            scale={0.78}
+            parallaxRate={0.12}
+          />
+          <Photo
+            src="/assets/hero_photo3.webp"
+            bbX={-170}
+            bbY={365}
+            bbW={390}
+            bbH={290}
+            w={370}
+            h={260}
+            rotate={-14}
+            zIndex={7}
+            scale={0.78}
+            parallaxRate={0.09}
+          />
+          <Photo
+            src="/assets/hero_photo4.webp"
+            bbX={-140}
+            bbY={495}
+            bbW={390}
+            bbH={290}
+            w={370}
+            h={260}
+            rotate={11}
+            zIndex={8}
+            scale={0.78}
+            parallaxRate={0.07}
+          />
+          <Photo
+            src="/assets/hero_photo5.webp"
+            bbX={-95}
+            bbY={610}
+            bbW={390}
+            bbH={290}
+            w={370}
+            h={260}
+            rotate={-20}
+            zIndex={9}
+            scale={0.78}
+            parallaxRate={0.05}
+          />
+          <Photo
+            src="/assets/hero_photo6.webp"
+            bbX={-100}
+            bbY={695}
+            bbW={390}
+            bbH={290}
+            w={370}
+            h={260}
+            rotate={22}
+            zIndex={8}
+            scale={0.78}
+            parallaxRate={0.04}
+          />
+          <Photo
+            src="/assets/hero_photo7.webp"
+            bbX={-5}
+            bbY={725}
+            bbW={390}
+            bbH={290}
+            w={370}
+            h={260}
+            rotate={-9}
+            zIndex={10}
+            scale={0.78}
+            parallaxRate={0.03}
+          />
         </div>
         <div className="hero-photos-right">
-          <Photo src="/assets/hero_photo8.webp"  bbX={1680} bbY={70}  bbW={390} bbH={290} w={370} h={260} rotate={10}  zIndex={8}  side="right" scale={0.78} parallaxRate={0.15} />
-          <Photo src="/assets/hero_photo9.webp"  bbX={1710} bbY={230} bbW={390} bbH={290} w={370} h={260} rotate={-16} zIndex={7}  side="right" scale={0.78} parallaxRate={0.12} />
-          <Photo src="/assets/hero_photo10.webp" bbX={1690} bbY={370} bbW={390} bbH={290} w={370} h={260} rotate={13}  zIndex={7}  side="right" scale={0.78} parallaxRate={0.09} />
-          <Photo src="/assets/hero_photo11.webp" bbX={1665} bbY={500} bbW={390} bbH={290} w={370} h={260} rotate={-11} zIndex={8}  side="right" scale={0.78} parallaxRate={0.07} />
-          <Photo src="/assets/hero_photo12.webp" bbX={1640} bbY={615} bbW={390} bbH={290} w={370} h={260} rotate={20}  zIndex={8}  side="right" scale={0.78} parallaxRate={0.05} />
-          <Photo src="/assets/hero_photo13.webp" bbX={1555} bbY={715} bbW={390} bbH={290} w={370} h={260} rotate={-10} zIndex={10} side="right" scale={0.78} parallaxRate={0.03} />
+          <Photo
+            src="/assets/hero_photo8.webp"
+            bbX={1680}
+            bbY={70}
+            bbW={390}
+            bbH={290}
+            w={370}
+            h={260}
+            rotate={10}
+            zIndex={8}
+            side="right"
+            scale={0.78}
+            parallaxRate={0.15}
+          />
+          <Photo
+            src="/assets/hero_photo9.webp"
+            bbX={1710}
+            bbY={230}
+            bbW={390}
+            bbH={290}
+            w={370}
+            h={260}
+            rotate={-16}
+            zIndex={7}
+            side="right"
+            scale={0.78}
+            parallaxRate={0.12}
+          />
+          <Photo
+            src="/assets/hero_photo10.webp"
+            bbX={1690}
+            bbY={370}
+            bbW={390}
+            bbH={290}
+            w={370}
+            h={260}
+            rotate={13}
+            zIndex={7}
+            side="right"
+            scale={0.78}
+            parallaxRate={0.09}
+          />
+          <Photo
+            src="/assets/hero_photo11.webp"
+            bbX={1665}
+            bbY={500}
+            bbW={390}
+            bbH={290}
+            w={370}
+            h={260}
+            rotate={-11}
+            zIndex={8}
+            side="right"
+            scale={0.78}
+            parallaxRate={0.07}
+          />
+          <Photo
+            src="/assets/hero_photo12.webp"
+            bbX={1640}
+            bbY={615}
+            bbW={390}
+            bbH={290}
+            w={370}
+            h={260}
+            rotate={20}
+            zIndex={8}
+            side="right"
+            scale={0.78}
+            parallaxRate={0.05}
+          />
+          <Photo
+            src="/assets/hero_photo13.webp"
+            bbX={1555}
+            bbY={715}
+            bbW={390}
+            bbH={290}
+            w={370}
+            h={260}
+            rotate={-10}
+            zIndex={10}
+            side="right"
+            scale={0.78}
+            parallaxRate={0.03}
+          />
         </div>
-
       </div>
 
       {/* ── STICKERS — draggable, outside overflow clip, hidden on mobile ── */}
       <div className="hero-stickers">
-        <DraggableSticker src="/assets/hero_sticker1.webp" initialLeft="calc(75 / 1920 * 100vw)" initialTop="calc(266 / 1080 * 100vh)" rotate={18} width="calc(141 / 1920 * 100vw)" sizes="(max-width: 1023px) 0px, 7.35vw" />
-        <DraggableSticker src="/assets/hero_sticker2.webp" initialLeft="calc(215 / 1920 * 100vw)" initialTop="calc(663 / 1080 * 100vh)" rotate={-24} width="calc(65 / 1920 * 100vw)" sizes="(max-width: 1023px) 0px, 3.39vw" />
-        <DraggableSticker src="/assets/hero_sticker3.webp" initialLeft="calc(300 / 1920 * 100vw)" initialTop="calc(768 / 1080 * 100vh)" rotate={13} width="calc(81 / 1920 * 100vw)" sizes="(max-width: 1023px) 0px, 4.22vw" />
-        <DraggableSticker src="/assets/hero_sticker7.webp" initialRight="calc(100 / 1920 * 100vw)" initialTop="calc(285 / 1080 * 100vh)" rotate={-16} width="calc(112 / 1920 * 100vw)" sizes="(max-width: 1023px) 0px, 5.83vw" />
-        <DraggableSticker src="/assets/hero_sticker5.webp" initialRight="calc(155 / 1920 * 100vw)" initialTop="calc(528 / 1080 * 100vh)" rotate={22} width="calc(89 / 1920 * 100vw)" sizes="(max-width: 1023px) 0px, 4.64vw" />
-        <DraggableSticker src="/assets/hero_sticker6.webp" initialRight="calc(280 / 1920 * 100vw)" initialTop="calc(767 / 1080 * 100vh)" rotate={-9} width="calc(65 / 1920 * 100vw)" sizes="(max-width: 1023px) 0px, 3.39vw" />
+        <DraggableSticker
+          src="/assets/hero_sticker1.webp"
+          initialLeft="calc(75 / 1920 * 100vw)"
+          initialTop="calc(266 / 1080 * 100vh)"
+          rotate={18}
+          width="calc(141 / 1920 * 100vw)"
+          sizes="(max-width: 1023px) 0px, 7.35vw"
+        />
+        <DraggableSticker
+          src="/assets/hero_sticker2.webp"
+          initialLeft="calc(215 / 1920 * 100vw)"
+          initialTop="calc(663 / 1080 * 100vh)"
+          rotate={-24}
+          width="calc(65 / 1920 * 100vw)"
+          sizes="(max-width: 1023px) 0px, 3.39vw"
+        />
+        <DraggableSticker
+          src="/assets/hero_sticker3.webp"
+          initialLeft="calc(300 / 1920 * 100vw)"
+          initialTop="calc(768 / 1080 * 100vh)"
+          rotate={13}
+          width="calc(81 / 1920 * 100vw)"
+          sizes="(max-width: 1023px) 0px, 4.22vw"
+        />
+        <DraggableSticker
+          src="/assets/hero_sticker7.webp"
+          initialRight="calc(100 / 1920 * 100vw)"
+          initialTop="calc(285 / 1080 * 100vh)"
+          rotate={-16}
+          width="calc(112 / 1920 * 100vw)"
+          sizes="(max-width: 1023px) 0px, 5.83vw"
+        />
+        <DraggableSticker
+          src="/assets/hero_sticker5.webp"
+          initialRight="calc(155 / 1920 * 100vw)"
+          initialTop="calc(528 / 1080 * 100vh)"
+          rotate={22}
+          width="calc(89 / 1920 * 100vw)"
+          sizes="(max-width: 1023px) 0px, 4.64vw"
+        />
+        <DraggableSticker
+          src="/assets/hero_sticker6.webp"
+          initialRight="calc(280 / 1920 * 100vw)"
+          initialTop="calc(767 / 1080 * 100vh)"
+          rotate={-9}
+          width="calc(65 / 1920 * 100vw)"
+          sizes="(max-width: 1023px) 0px, 3.39vw"
+        />
       </div>
 
       {/* ── CENTER CONTENT ── */}
-      <style>{`.hero-center { padding-left: 0; padding-right: 0; }
+      <style>
+        {`.hero-center { padding-left: 0; padding-right: 0; }
         @media (max-width: 1023px) {
           .hero-center { padding-left: 24px; padding-right: 24px; }
           .hero-mag-link { display: none !important; }
@@ -529,7 +773,8 @@ export function HeroSection() {
           {"Where "}
           <span
             style={{
-              background: "repeating-linear-gradient(105deg, #ec3750 0%, #ff8c37 16%, #f1c40f 32%, #33d6a6 48%, #338eda 64%, #a633d6 80%, #ec3750 100%)",
+              background:
+                "repeating-linear-gradient(105deg, #ec3750 0%, #ff8c37 16%, #f1c40f 32%, #33d6a6 48%, #338eda 64%, #a633d6 80%, #ec3750 100%)",
               backgroundSize: "200% 100%",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -557,7 +802,8 @@ export function HeroSection() {
             maxWidth: "min(600px, calc(100vw - 64px))",
           }}
         >
-          Hack Club is the world&rsquo;s largest nonprofit movement of teenagers making cool projects.
+          Hack Club is the world&rsquo;s largest nonprofit movement of teenagers making cool
+          projects.
         </p>
 
         {/* Email signup */}

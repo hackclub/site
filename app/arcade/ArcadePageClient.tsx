@@ -85,13 +85,25 @@ const faqItems = [
     "What types of projects count?",
     "Projects need to be open source and have a way for people to experience them. Document progress as you go.",
   ],
-  ["How many projects can I build?", "You can submit as many projects as you make. We just count the hours."],
-  ["How much does it cost?", "It is free. Some shipments may have customs charges depending on your country."],
+  [
+    "How many projects can I build?",
+    "You can submit as many projects as you make. We just count the hours.",
+  ],
+  [
+    "How much does it cost?",
+    "It is free. Some shipments may have customs charges depending on your country.",
+  ],
   ["I need help!", "Get help in the #arcade-help channel in the Hack Club Slack."],
   ["My hours aren't counted!", "Reviews are done by humans and may take a few days to show up."],
   ["Does a team project count?", "Yes, but your own work needs to be clearly documented."],
-  ["What about school work or a job?", "If you are building for school or work, it does not count for Arcade."],
-  ["What counts as a scrap?", "Code needs a commit. Share links for projects like Sprig, Blot, or hosted 3D models."],
+  [
+    "What about school work or a job?",
+    "If you are building for school or work, it does not count for Arcade.",
+  ],
+  [
+    "What counts as a scrap?",
+    "Code needs a commit. Share links for projects like Sprig, Blot, or hosted 3D models.",
+  ],
 ];
 
 function IntroCard({
@@ -117,7 +129,13 @@ function IntroCard({
   );
 }
 
-function PrizeCard({ prize, onOpen }: { prize: ArcadePrize; onOpen: (prize: ArcadePrize) => void }) {
+function PrizeCard({
+  prize,
+  onOpen,
+}: {
+  prize: ArcadePrize;
+  onOpen: (prize: ArcadePrize) => void;
+}) {
   return (
     <article className="arcade-prize-card">
       {prize.limited ? <div className="arcade-prize-limited">Limited!</div> : null}
@@ -128,8 +146,15 @@ function PrizeCard({ prize, onOpen }: { prize: ArcadePrize; onOpen: (prize: Arca
         <h3>{prize.name}</h3>
         <p>{prize.smallName || "\u00a0"}</p>
       </div>
-      <div className="arcade-prize-ticket">{prize.hours} {prize.hours === 1 ? "ticket" : "tickets"}</div>
-      <button type="button" className="arcade-prize-info" onClick={() => onOpen(prize)} aria-label={`More about ${prize.name}`}>
+      <div className="arcade-prize-ticket">
+        {prize.hours} {prize.hours === 1 ? "ticket" : "tickets"}
+      </div>
+      <button
+        type="button"
+        className="arcade-prize-info"
+        onClick={() => onOpen(prize)}
+        aria-label={`More about ${prize.name}`}
+      >
         📦
       </button>
     </article>
@@ -183,7 +208,12 @@ export default function ArcadePageClient({
     <main id="main" tabIndex={-1} className="arcade-page">
       <section className="arcade-hero">
         <Navbar />
-        <img src={arcadeAsset("beige_bg.png")} alt="" aria-hidden="true" className="arcade-beige-swirl" />
+        <img
+          src={arcadeAsset("beige_bg.png")}
+          alt=""
+          aria-hidden="true"
+          className="arcade-beige-swirl"
+        />
         <div className="arcade-shell arcade-hero-grid">
           <div className="arcade-hero-copy">
             <img
@@ -202,13 +232,22 @@ export default function ArcadePageClient({
             </p>
           </div>
           <div className="arcade-hero-art">
-            <img src={arcadeAsset("prizes.png")} alt="Arcade prizes" className="arcade-prizes-hero" />
+            <img
+              src={arcadeAsset("prizes.png")}
+              alt="Arcade prizes"
+              className="arcade-prizes-hero"
+            />
           </div>
         </div>
       </section>
 
       <section className="arcade-blue-section">
-        <img src={arcadeAsset("blue_top.svg")} alt="" aria-hidden="true" className="arcade-top-scribble" />
+        <img
+          src={arcadeAsset("blue_top.svg")}
+          alt=""
+          aria-hidden="true"
+          className="arcade-top-scribble"
+        />
         <div className="arcade-shell">
           <h2 className="arcade-section-title">How to play</h2>
           <div className="arcade-intro-stack">
@@ -219,16 +258,30 @@ export default function ArcadePageClient({
                 number="1"
                 image={arcadeAsset("o2.png")}
               />
-              <img src={arcadeAsset("a1.png")} alt="" aria-hidden="true" className="arcade-arrow arcade-arrow--left" />
-              <img src={arcadeAsset("a2.png")} alt="" aria-hidden="true" className="arcade-arrow arcade-arrow--right" />
+              <img
+                src={arcadeAsset("a1.png")}
+                alt=""
+                aria-hidden="true"
+                className="arcade-arrow arcade-arrow--left"
+              />
+              <img
+                src={arcadeAsset("a2.png")}
+                alt=""
+                aria-hidden="true"
+                className="arcade-arrow arcade-arrow--right"
+              />
             </div>
             <div className="arcade-intro-row">
               <IntroCard
                 title="Bank your hours"
                 text={
                   <>
-                    Join the <a href="https://slack.hackclub.com" target="_blank" rel="noreferrer">Hack Club Slack</a> and use
-                    {" "}/hack in #arcade to log your hours. You earn a ticket for each hour spent.
+                    Join the{" "}
+                    <a href="https://slack.hackclub.com" target="_blank" rel="noreferrer">
+                      Hack Club Slack
+                    </a>{" "}
+                    and use /hack in #arcade to log your hours. You earn a ticket for each hour
+                    spent.
                   </>
                 }
                 number="2"
@@ -240,7 +293,12 @@ export default function ArcadePageClient({
                 number="3"
                 image={arcadeAsset("o7.png")}
               />
-              <img src={arcadeAsset("a3.png")} alt="" aria-hidden="true" className="arcade-arrow arcade-arrow--center" />
+              <img
+                src={arcadeAsset("a3.png")}
+                alt=""
+                aria-hidden="true"
+                className="arcade-arrow arcade-arrow--center"
+              />
             </div>
             <p className="arcade-repeat-line">
               <span>Make stuff. Get stuff. Repeat.</span>
@@ -257,7 +315,12 @@ export default function ArcadePageClient({
             ))}
           </div>
         </div>
-        <img src={arcadeAsset("blue_bottom.svg")} alt="" aria-hidden="true" className="arcade-bottom-triangle" />
+        <img
+          src={arcadeAsset("blue_bottom.svg")}
+          alt=""
+          aria-hidden="true"
+          className="arcade-bottom-triangle"
+        />
       </section>
 
       <section className="arcade-sticker-section">
@@ -271,12 +334,16 @@ export default function ArcadePageClient({
             onMouseLeave={() => setShowSticker(false)}
           >
             <p>
-              Get <span className="arcade-sticker-trigger">free stickers</span> and code with other high schoolers!
+              Get <span className="arcade-sticker-trigger">free stickers</span> and code with other
+              high schoolers!
             </p>
             {showSticker && (
               <div className="arcade-sticker-pop">
                 <div className="arcade-sticker-pop-inner">
-                  <img src={stickerAsset(currentSticker)} alt={currentSticker.replace(/\.(png|svg)$/i, "")} />
+                  <img
+                    src={stickerAsset(currentSticker)}
+                    alt={currentSticker.replace(/\.(png|svg)$/i, "")}
+                  />
                   <span>{currentSticker.replace(/\.(png|svg)$/i, "").replaceAll("_", " ")}</span>
                 </div>
               </div>
@@ -290,7 +357,10 @@ export default function ArcadePageClient({
         <div className="arcade-shell arcade-projects-shell">
           <h2 className="arcade-projects-title">
             <span>You could be building a</span>
-            <button type="button" onClick={() => setIdeaIndex((value) => (value + 1) % projectIdeas.length)}>
+            <button
+              type="button"
+              onClick={() => setIdeaIndex((value) => (value + 1) % projectIdeas.length)}
+            >
               {projectIdeas[ideaIndex]}
             </button>
           </h2>
@@ -299,7 +369,12 @@ export default function ArcadePageClient({
               <ProjectCard key={card.username} {...card} />
             ))}
           </div>
-          <a href="https://scrapbook.hackclub.com/" target="_blank" rel="noreferrer" className="arcade-projects-link">
+          <a
+            href="https://scrapbook.hackclub.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="arcade-projects-link"
+          >
             See more projects →
           </a>
         </div>
@@ -316,28 +391,90 @@ export default function ArcadePageClient({
               <h3>Build whatever you want!</h3>
               <div>
                 <p>
-                  Any technical project counts. You could build an AR game, pixel art display, drawing robot, and more.
-                  Anytime you work on your project, start the hack hour timer. You earn a ticket for every hour.
+                  Any technical project counts. You could build an AR game, pixel art display,
+                  drawing robot, and more. Anytime you work on your project, start the hack hour
+                  timer. You earn a ticket for every hour.
                 </p>
                 <h4>Don&apos;t know where to start?</h4>
                 <ul>
-                  <li><a href="https://boba.hackclub.com/" target="_blank" rel="noreferrer">Boba drops</a>: Build a website, get boba.</li>
-                  <li><a href="https://jams.hackclub.com/jam/wizard-orpheus" target="_blank" rel="noreferrer">Wizard Orpheus</a>: Build a text-based game with AI.</li>
-                  <li><a href="/bin" target="_blank" rel="noreferrer">The Bin</a>: Build an online circuit, get the parts for free.</li>
-                  <li><a href="/sprig" target="_blank" rel="noreferrer">Sprig</a>: Build a JS game, play it on your own console.</li>
-                  <li><a href="/onboard" target="_blank" rel="noreferrer">OnBoard</a>: Design a PCB, get a $100 grant.</li>
-                  <li><a href="https://fraps.hackclub.com" target="_blank" rel="noreferrer">Hackaccino</a>: Build a 3D website and get a free frappuccino.</li>
-                  <li><a href="https://blot.hackclub.com/" target="_blank" rel="noreferrer">Blot</a>: Write code. Make art. Get a drawing machine.</li>
-                  <li><a href="https://cider.hackclub.com" target="_blank" rel="noreferrer">Cider</a>: Make a mobile app and get an Apple Developer account.</li>
-                  <li><a href="https://easel.hackclub.com/orpheus-finds-easel" target="_blank" rel="noreferrer">Easel</a>: Write a programming language and receive fudge.</li>
+                  <li>
+                    <a href="https://boba.hackclub.com/" target="_blank" rel="noreferrer">
+                      Boba drops
+                    </a>
+                    : Build a website, get boba.
+                  </li>
+                  <li>
+                    <a
+                      href="https://jams.hackclub.com/jam/wizard-orpheus"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Wizard Orpheus
+                    </a>
+                    : Build a text-based game with AI.
+                  </li>
+                  <li>
+                    <a href="/bin" target="_blank" rel="noreferrer">
+                      The Bin
+                    </a>
+                    : Build an online circuit, get the parts for free.
+                  </li>
+                  <li>
+                    <a href="/sprig" target="_blank" rel="noreferrer">
+                      Sprig
+                    </a>
+                    : Build a JS game, play it on your own console.
+                  </li>
+                  <li>
+                    <a href="/onboard" target="_blank" rel="noreferrer">
+                      OnBoard
+                    </a>
+                    : Design a PCB, get a $100 grant.
+                  </li>
+                  <li>
+                    <a href="https://fraps.hackclub.com" target="_blank" rel="noreferrer">
+                      Hackaccino
+                    </a>
+                    : Build a 3D website and get a free frappuccino.
+                  </li>
+                  <li>
+                    <a href="https://blot.hackclub.com/" target="_blank" rel="noreferrer">
+                      Blot
+                    </a>
+                    : Write code. Make art. Get a drawing machine.
+                  </li>
+                  <li>
+                    <a href="https://cider.hackclub.com" target="_blank" rel="noreferrer">
+                      Cider
+                    </a>
+                    : Make a mobile app and get an Apple Developer account.
+                  </li>
+                  <li>
+                    <a
+                      href="https://easel.hackclub.com/orpheus-finds-easel"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Easel
+                    </a>
+                    : Write a programming language and receive fudge.
+                  </li>
                 </ul>
               </div>
             </article>
             <article className="arcade-ticket-card arcade-ticket-card--idea">
               <h3>Not sure what to make?</h3>
               <p>Click me for ideas!</p>
-              <button type="button" className="arcade-idea-console" onClick={() => setShowThought((value) => !value)}>
-                {showThought && <span className="arcade-thought-bubble">Arcade has ended! Thanks for playing.</span>}
+              <button
+                type="button"
+                className="arcade-idea-console"
+                onClick={() => setShowThought((value) => !value)}
+              >
+                {showThought && (
+                  <span className="arcade-thought-bubble">
+                    Arcade has ended! Thanks for playing.
+                  </span>
+                )}
                 <img
                   src="https://cloud-ocoecqzgs-hack-club-bot.vercel.app/0screenshot_2024-06-13_at_22.01.02.png"
                   alt="Need an idea?"
@@ -347,7 +484,12 @@ export default function ArcadePageClient({
             <img src={arcadeAsset("r5.png")} alt="" aria-hidden="true" className="arcade-r5" />
           </div>
         </div>
-        <img src={arcadeAsset("yellow_bottom.svg")} alt="" aria-hidden="true" className="arcade-yellow-zig" />
+        <img
+          src={arcadeAsset("yellow_bottom.svg")}
+          alt=""
+          aria-hidden="true"
+          className="arcade-yellow-zig"
+        />
       </section>
 
       <section className="arcade-prizes-section">
@@ -357,19 +499,31 @@ export default function ArcadePageClient({
           <h2 className="arcade-prizes-title">
             <span>Prizes</span> to powerup your next project!
           </h2>
-          <p className="arcade-prizes-subtitle">Redeem these with your tickets. For high schoolers or younger only.</p>
+          <p className="arcade-prizes-subtitle">
+            Redeem these with your tickets. For high schoolers or younger only.
+          </p>
           <div className="arcade-prize-grid">
             {prizes.map((prize) => (
-              <PrizeCard key={`${prize.name}-${prize.hours}`} prize={prize} onOpen={setSelectedPrize} />
+              <PrizeCard
+                key={`${prize.name}-${prize.hours}`}
+                prize={prize}
+                onOpen={setSelectedPrize}
+              />
             ))}
           </div>
           <p className="arcade-sneak-peek">
-            This is just a <span>sneak peek</span>... there were many more prizes that were unlocked as the summer went on!
+            This is just a <span>sneak peek</span>... there were many more prizes that were unlocked
+            as the summer went on!
           </p>
         </div>
 
         <div className="arcade-faq-wrap">
-          <img src={arcadeAsset("blue_top.png")} alt="" aria-hidden="true" className="arcade-blue-top-png" />
+          <img
+            src={arcadeAsset("blue_top.png")}
+            alt=""
+            aria-hidden="true"
+            className="arcade-blue-top-png"
+          />
           <div className="arcade-shell">
             <h2 className="arcade-faq-title">F.A.Q.</h2>
             <div className="arcade-faq-grid">
@@ -397,14 +551,28 @@ export default function ArcadePageClient({
       {selectedPrize && (
         <div className="arcade-dialog-backdrop" onClick={() => setSelectedPrize(null)}>
           <dialog open className="arcade-dialog" onClick={(event) => event.stopPropagation()}>
-            <button type="button" className="arcade-dialog-close" onClick={() => setSelectedPrize(null)}>
+            <button
+              type="button"
+              className="arcade-dialog-close"
+              onClick={() => setSelectedPrize(null)}
+            >
               ×
             </button>
-            <img src={selectedPrize.imageURL} alt={selectedPrize.name} className="arcade-dialog-image" />
+            <img
+              src={selectedPrize.imageURL}
+              alt={selectedPrize.name}
+              className="arcade-dialog-image"
+            />
             <h3>{selectedPrize.name}</h3>
-            {selectedPrize.smallName ? <p className="arcade-dialog-subtitle">{selectedPrize.smallName}</p> : null}
-            {selectedPrize.description ? <p className="arcade-dialog-copy">{selectedPrize.description}</p> : null}
-            <div className="arcade-dialog-ticket">{selectedPrize.hours} {selectedPrize.hours === 1 ? "ticket" : "tickets"}</div>
+            {selectedPrize.smallName ? (
+              <p className="arcade-dialog-subtitle">{selectedPrize.smallName}</p>
+            ) : null}
+            {selectedPrize.description ? (
+              <p className="arcade-dialog-copy">{selectedPrize.description}</p>
+            ) : null}
+            <div className="arcade-dialog-ticket">
+              {selectedPrize.hours} {selectedPrize.hours === 1 ? "ticket" : "tickets"}
+            </div>
           </dialog>
         </div>
       )}
@@ -822,7 +990,9 @@ export default function ArcadePageClient({
           background:
             linear-gradient(rgba(30, 24, 22, 0.18), rgba(30, 24, 22, 0.18)),
             linear-gradient(transparent 96%, rgba(255, 255, 255, 0.06) 96%);
-          background-size: auto, 28px 28px;
+          background-size:
+            auto,
+            28px 28px;
           opacity: 1;
         }
 
@@ -908,7 +1078,11 @@ export default function ArcadePageClient({
           padding: 12px 18px;
           border-radius: 999px;
           text-decoration: none;
-          background: linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%);
+          background: linear-gradient(
+            32deg,
+            rgba(51, 142, 218, 0.9) 0%,
+            rgba(51, 214, 166, 0.9) 100%
+          );
           color: white;
           font-weight: 700;
         }

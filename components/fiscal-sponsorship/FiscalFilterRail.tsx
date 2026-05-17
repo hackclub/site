@@ -4,10 +4,7 @@ import Link from "next/link";
 import { useState, type CSSProperties, type ReactNode } from "react";
 import { Icon } from "@/components/Icon";
 import { FISCAL_COLORS, FISCAL_TYPOGRAPHY } from "./constants";
-import {
-  DIRECTORY_CATEGORIES,
-  FISCAL_REGIONS,
-} from "@/lib/fiscal-sponsorship-config";
+import { DIRECTORY_CATEGORIES, FISCAL_REGIONS } from "@/lib/fiscal-sponsorship-config";
 
 type FiscalFilterRailProps = {
   activeCategory?: string;
@@ -261,10 +258,7 @@ export function FiscalFilterRail({
             >
               Filter
             </h2>
-            <CategoryLinks
-              activeCategory={activeCategory}
-              categoryHrefFor={categoryHrefFor}
-            />
+            <CategoryLinks activeCategory={activeCategory} categoryHrefFor={categoryHrefFor} />
           </section>
         )}
 
@@ -290,10 +284,7 @@ export function FiscalFilterRail({
       <div className="mobile-rail" style={{ display: "none", gap: "1rem" }}>
         {showCategories && (
           <section style={sectionStyle}>
-            <RailTitle
-              open={categoryOpen}
-              onClick={() => setCategoryOpen((current) => !current)}
-            >
+            <RailTitle open={categoryOpen} onClick={() => setCategoryOpen((current) => !current)}>
               Filter by category
             </RailTitle>
             <div
@@ -310,8 +301,7 @@ export function FiscalFilterRail({
                 <div
                   style={{
                     transform: categoryOpen ? "translateY(0)" : "translateY(-6px)",
-                    transition:
-                      "transform 240ms cubic-bezier(0.215, 0.61, 0.355, 1)",
+                    transition: "transform 240ms cubic-bezier(0.215, 0.61, 0.355, 1)",
                   }}
                 >
                   <CategoryLinks
@@ -326,10 +316,7 @@ export function FiscalFilterRail({
         )}
 
         <section style={sectionStyle}>
-          <RailTitle
-            open={regionOpen}
-            onClick={() => setRegionOpen((current) => !current)}
-          >
+          <RailTitle open={regionOpen} onClick={() => setRegionOpen((current) => !current)}>
             Filter by region
           </RailTitle>
           <div
@@ -346,15 +333,10 @@ export function FiscalFilterRail({
               <div
                 style={{
                   transform: regionOpen ? "translateY(0)" : "translateY(-6px)",
-                  transition:
-                    "transform 240ms cubic-bezier(0.215, 0.61, 0.355, 1)",
+                  transition: "transform 240ms cubic-bezier(0.215, 0.61, 0.355, 1)",
                 }}
               >
-                <RegionLinks
-                  activeRegion={activeRegion}
-                  regionHrefFor={regionHrefFor}
-                  compact
-                />
+                <RegionLinks activeRegion={activeRegion} regionHrefFor={regionHrefFor} compact />
               </div>
             </div>
           </div>

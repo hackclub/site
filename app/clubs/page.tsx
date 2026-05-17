@@ -180,8 +180,8 @@ export default function ClubPage() {
                 opacity: 0.95,
               }}
             >
-              A global nonprofit network of high school coding clubs where teens
-              build technical skills, real projects, and momentum.
+              A global nonprofit network of high school coding clubs where teens build technical
+              skills, real projects, and momentum.
             </p>
             <div
               style={{
@@ -279,14 +279,11 @@ export default function ClubPage() {
                 lineHeight: 1.2,
               }}
             >
-              Hack Clubs meet weekly in schools and communities. Leaders kick
-              things off, members build websites, apps, and games at their own
-              pace, then everyone demos what they made.
+              Hack Clubs meet weekly in schools and communities. Leaders kick things off, members
+              build websites, apps, and games at their own pace, then everyone demos what they made.
             </p>
 
-            <div
-              className="rundown-grid"
-            >
+            <div className="rundown-grid">
               <div
                 style={{
                   position: "relative",
@@ -376,8 +373,8 @@ export default function ClubPage() {
                 lineHeight: 1.2,
               }}
             >
-              Clubs also run and attend hackathons, join year-long programs, and
-              grow with other student leaders worldwide.
+              Clubs also run and attend hackathons, join year-long programs, and grow with other
+              student leaders worldwide.
             </p>
           </div>
         </section>
@@ -427,8 +424,8 @@ export default function ClubPage() {
                 lineHeight: 1.2,
               }}
             >
-              Learning to code should feel creative and social, not like another
-              class. Every Hack Club is student-led and project-driven.
+              Learning to code should feel creative and social, not like another class. Every Hack
+              Club is student-led and project-driven.
             </p>
             <Link
               href="/philosophy"
@@ -497,8 +494,8 @@ export default function ClubPage() {
                 accent="#338eda"
                 description={
                   <>
-                    Join thousands of leaders in the Hack Club Slack to share
-                    ideas, ask questions, and meet peers.
+                    Join thousands of leaders in the Hack Club Slack to share ideas, ask questions,
+                    and meet peers.
                   </>
                 }
               />
@@ -507,8 +504,8 @@ export default function ClubPage() {
                 accent="#33d6a6"
                 description={
                   <>
-                    Use ready-to-run meeting content so beginners can build
-                    websites, games, bots, and more.
+                    Use ready-to-run meeting content so beginners can build websites, games, bots,
+                    and more.
                   </>
                 }
               />
@@ -517,8 +514,8 @@ export default function ClubPage() {
                 accent="#ff8c37"
                 description={
                   <>
-                    We ship physical materials to help you recruit members and
-                    create club culture fast.
+                    We ship physical materials to help you recruit members and create club culture
+                    fast.
                   </>
                 }
               />
@@ -527,8 +524,8 @@ export default function ClubPage() {
                 accent="#6f31b7"
                 description={
                   <>
-                    Raise and manage money through Hack Club&apos;s nonprofit
-                    infrastructure and spend on what your club needs.
+                    Raise and manage money through Hack Club&apos;s nonprofit infrastructure and
+                    spend on what your club needs.
                   </>
                 }
               />
@@ -537,8 +534,8 @@ export default function ClubPage() {
                 accent="#ec3750"
                 description={
                   <>
-                    AMAs, hack nights, lock-ins, and weird internet events keep
-                    your members inspired all year.
+                    AMAs, hack nights, lock-ins, and weird internet events keep your members
+                    inspired all year.
                   </>
                 }
               />
@@ -547,8 +544,8 @@ export default function ClubPage() {
                 accent="#17171d"
                 description={
                   <>
-                    Already running a CS club? You can join Hack Club and keep
-                    your current name while using all our resources.
+                    Already running a CS club? You can join Hack Club and keep your current name
+                    while using all our resources.
                   </>
                 }
               />

@@ -1,8 +1,15 @@
 export const SITE_BASE_ID = "appsbFEoTS7vN2zeB";
 export const SITE_TABLE_NAME = "Programs";
 
-export const PROJECT_TYPE_OPTIONS = ["Electronics", "Websites", "Software", "Gamedev", "CAD", "Other"] as const;
-export type ProjectType = typeof PROJECT_TYPE_OPTIONS[number];
+export const PROJECT_TYPE_OPTIONS = [
+  "Electronics",
+  "Websites",
+  "Software",
+  "Gamedev",
+  "CAD",
+  "Other",
+] as const;
+export type ProjectType = (typeof PROJECT_TYPE_OPTIONS)[number];
 export type ProgramFormat = "In-Person Only" | "Online Only" | "Both";
 
 export interface SiteProgram {
@@ -26,8 +33,8 @@ export interface SiteProgram {
   slackChannel: string | null;
   projectTypes: ProjectType[];
   format: ProgramFormat | null;
-  inPersonStart: string | null;  // ISO date YYYY-MM-DD
-  inPersonEnd: string | null;    // ISO date YYYY-MM-DD
+  inPersonStart: string | null; // ISO date YYYY-MM-DD
+  inPersonEnd: string | null; // ISO date YYYY-MM-DD
   inPersonLocation: string | null;
   additionalRequirements: string | null;
 }
@@ -72,7 +79,9 @@ export function parseRecord(r: RawRecord): SiteProgram {
 
   const rawFormat = fields["Format"];
   const format = rawFormat
-    ? typeof rawFormat === "string" ? rawFormat : ((rawFormat as { name?: string }).name ?? null)
+    ? typeof rawFormat === "string"
+      ? rawFormat
+      : ((rawFormat as { name?: string }).name ?? null)
     : null;
 
   return {
@@ -113,12 +122,27 @@ export function siteAuthHeaders(key: string) {
 }
 
 export const SITE_FIELDS = [
-  "Name", "Description", "Card BG Color", "Text Color", "Accent Color", "BG Type",
-  "Logo", "BG Image", "Logo Size",
-  "Button Color", "Button Text Color", "Button Border Radius", "Button Border Width", "Button Border Color",
+  "Name",
+  "Description",
+  "Card BG Color",
+  "Text Color",
+  "Accent Color",
+  "BG Type",
+  "Logo",
+  "BG Image",
+  "Logo Size",
+  "Button Color",
+  "Button Text Color",
+  "Button Border Radius",
+  "Button Border Width",
+  "Button Border Color",
   "Slack Channel",
-  "Project Types", "Format",
-  "In-Person Start", "In-Person End", "In-Person Location", "Additional Requirements",
+  "Project Types",
+  "Format",
+  "In-Person Start",
+  "In-Person End",
+  "In-Person Location",
+  "Additional Requirements",
 ];
 
 // Parse a YYYY-MM-DD string as a local calendar date (no timezone shift)
@@ -131,7 +155,7 @@ function parseLocalDate(iso: string): Date {
 export function formatInPersonDate(
   start: string | null,
   end: string | null,
-  location: string | null
+  location: string | null,
 ): string | null {
   let datePart = "";
   if (start) {

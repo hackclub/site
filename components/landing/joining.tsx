@@ -151,7 +151,18 @@ function CardCta({ children, href }: { children: React.ReactNode; href: string }
   return (
     <Link href={href} style={cardCtaStyle} className="cta-btn">
       <span style={{ display: "inline-flex", alignItems: "center", gap: 8, lineHeight: 1 }}>
-        {children} <span className="btn-arrow" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", lineHeight: 1 }}>→</span>
+        {children}{" "}
+        <span
+          className="btn-arrow"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            lineHeight: 1,
+          }}
+        >
+          →
+        </span>
       </span>
     </Link>
   );
@@ -216,8 +227,19 @@ function IconGlyph({ icon }: { icon: SlackStat["icon"] }) {
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
         <circle cx="9.5" cy="9.2" r="2.7" stroke={iconColor} strokeWidth="1.8" />
         <circle cx="15.9" cy="10.4" r="2.1" stroke={iconColor} strokeWidth="1.8" opacity="0.78" />
-        <path d="M4.8 18.8C5.3 15.9 7.5 14.3 9.9 14.3C12.3 14.3 14.6 15.9 15.1 18.8" stroke={iconColor} strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M13.9 18.2C14.1 16.6 15.5 15.5 17 15.5C18.4 15.5 19.7 16.6 19.9 18.2" stroke={iconColor} strokeWidth="1.8" strokeLinecap="round" opacity="0.78" />
+        <path
+          d="M4.8 18.8C5.3 15.9 7.5 14.3 9.9 14.3C12.3 14.3 14.6 15.9 15.1 18.8"
+          stroke={iconColor}
+          strokeWidth="1.8"
+          strokeLinecap="round"
+        />
+        <path
+          d="M13.9 18.2C14.1 16.6 15.5 15.5 17 15.5C18.4 15.5 19.7 16.6 19.9 18.2"
+          stroke={iconColor}
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          opacity="0.78"
+        />
       </svg>
     </span>
   );
@@ -248,7 +270,10 @@ function OdometerNumber({
         position: "relative",
       }}
     >
-      <span aria-hidden="true" style={{ display: "inline-flex", alignItems: "center", lineHeight: 1 }}>
+      <span
+        aria-hidden="true"
+        style={{ display: "inline-flex", alignItems: "center", lineHeight: 1 }}
+      >
         {chars.map((char, charIndex) => {
           if (!/\d/.test(char)) {
             return (
@@ -543,7 +568,9 @@ export function JoiningSection() {
             lineHeight: 1.2,
           }}
         >
-          {"Hack Club isn\u2019t just events \u2014 here\u2019s what you get as part of the community."}
+          {
+            "Hack Club isn\u2019t just events \u2014 here\u2019s what you get as part of the community."
+          }
         </p>
 
         {/* Cards stack */}
@@ -557,10 +584,22 @@ export function JoiningSection() {
           {/* ── Card 1: Our online community ── */}
           <div style={{ ...cardWrapStyle, overflow: "visible" }}>
             {/* Background + overlay clipped to rounded corners */}
-            <CardBg src={"https://cdn.hackclub.com/019db857-6029-75d8-b74b-1de86e95a794/joiningCard1Bg.webp"} />
+            <CardBg
+              src={
+                "https://cdn.hackclub.com/019db857-6029-75d8-b74b-1de86e95a794/joiningCard1Bg.webp"
+              }
+            />
 
             {/* Content — normal flow so card shrinks to fit */}
-            <div className="joining-card1-content" style={{ position: "relative", zIndex: 1, padding: "32px 44px 32px", maxWidth: "calc(100% - 260px)" }}>
+            <div
+              className="joining-card1-content"
+              style={{
+                position: "relative",
+                zIndex: 1,
+                padding: "32px 44px 32px",
+                maxWidth: "calc(100% - 260px)",
+              }}
+            >
               {/* Icon + title row */}
               <div
                 style={{
@@ -571,7 +610,9 @@ export function JoiningSection() {
                 }}
               >
                 <Image
-                  src={"https://cdn.hackclub.com/019db857-62cb-75fb-99e3-8b7813b65ac9/joiningCard1Icon.webp"}
+                  src={
+                    "https://cdn.hackclub.com/019db857-62cb-75fb-99e3-8b7813b65ac9/joiningCard1Icon.webp"
+                  }
                   alt="Slack"
                   width={40}
                   height={40}
@@ -582,17 +623,18 @@ export function JoiningSection() {
                     marginRight: 8,
                   }}
                 />
-                <h3 style={cardTitleStyle}>
-                  Our online community
-                </h3>
+                <h3 style={cardTitleStyle}>Our online community</h3>
               </div>
 
               {/* Body text */}
               <p style={cardBodyStyle}>
-                Chat, collaborate, and hang out with tens of thousands of teen makers from around the world. Find people working on the same weird projects as you, get help when you&rsquo;re stuck, or just #lounge.
+                Chat, collaborate, and hang out with tens of thousands of teen makers from around
+                the world. Find people working on the same weird projects as you, get help when
+                you&rsquo;re stuck, or just #lounge.
               </p>
               <p style={cardBodyGapStyle}>
-                We also host AMAs with people like Sal Khan, George Hotz, and Lady Ada &mdash; people we really wanted to talk to, so we just invited them.
+                We also host AMAs with people like Sal Khan, George Hotz, and Lady Ada &mdash;
+                people we really wanted to talk to, so we just invited them.
               </p>
               {/* CTA Button */}
               <CardCta href="https://slack.hackclub.com/">Join the Slack</CardCta>
@@ -622,11 +664,17 @@ export function JoiningSection() {
           {/* ── Card 2: HCB ── */}
           <div style={{ ...cardWrapStyle, overflow: "visible" }}>
             {/* Background + overlay clipped to rounded corners */}
-            <CardBg src={"https://cdn.hackclub.com/019db857-6649-7f66-9184-21b9f538728a/joiningCard2Bg.webp"} />
+            <CardBg
+              src={
+                "https://cdn.hackclub.com/019db857-6649-7f66-9184-21b9f538728a/joiningCard2Bg.webp"
+              }
+            />
 
             {/* Right decorative image — hangs off right edge, hidden on mobile */}
             <Image
-              src={"https://cdn.hackclub.com/019db857-6b76-7bfa-acda-8bf66cb16dc4/joiningCard2Right.webp"}
+              src={
+                "https://cdn.hackclub.com/019db857-6b76-7bfa-acda-8bf66cb16dc4/joiningCard2Right.webp"
+              }
               alt=""
               className="joining-card2-deco"
               width={380}
@@ -645,20 +693,22 @@ export function JoiningSection() {
               {/* Icon + title — full width since image is below the header */}
               <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 12 }}>
                 <Image
-                  src={"https://cdn.hackclub.com/019db857-688f-7536-9ec3-5033f559b7e8/joiningCard2Icon.webp"}
+                  src={
+                    "https://cdn.hackclub.com/019db857-688f-7536-9ec3-5033f559b7e8/joiningCard2Icon.webp"
+                  }
                   alt="HCB"
                   width={50}
                   height={50}
                   style={{ objectFit: "contain", flexShrink: 0 }}
                 />
-                <h3 style={cardTitleStyle}>
-                  HCB &mdash; run your event like a nonprofit
-                </h3>
+                <h3 style={cardTitleStyle}>HCB &mdash; run your event like a nonprofit</h3>
               </div>
               {/* Body text — constrained to leave room for right image */}
               <div className="joining-card2-body" style={{ maxWidth: "calc(100% - 340px)" }}>
                 <p style={cardBodyStyle}>
-                  Got an idea for a hackathon, club, or event? HCB gives your team the financial tools to accept donations, manage money, and operate under a real 501(c)(3) umbrella &mdash; no paperwork nightmare.
+                  Got an idea for a hackathon, club, or event? HCB gives your team the financial
+                  tools to accept donations, manage money, and operate under a real 501(c)(3)
+                  umbrella &mdash; no paperwork nightmare.
                 </p>
                 <p style={cardBodyGapStyle}>
                   Already used by 700+ teenager-led teams running world-class events
@@ -671,18 +721,32 @@ export function JoiningSection() {
           {/* ── Card 3: Clubs ── */}
           <div style={cardWrapStyle}>
             {/* Background + overlay */}
-            <CardBg src={"https://cdn.hackclub.com/019db857-6e96-70e9-bf4c-c2e50b6092e1/joiningCard3Bg.webp"} />
+            <CardBg
+              src={
+                "https://cdn.hackclub.com/019db857-6e96-70e9-bf4c-c2e50b6092e1/joiningCard3Bg.webp"
+              }
+            />
 
             {/* Content — normal flow */}
-            <div className="joining-card-content" style={{ ...cardContentStyle, maxWidth: "calc(100% - 88px)" }}>
+            <div
+              className="joining-card-content"
+              style={{ ...cardContentStyle, maxWidth: "calc(100% - 88px)" }}
+            >
               <div style={{ display: "flex", alignItems: "center", gap: 18, marginBottom: 12 }}>
-                <Image src={"https://cdn.hackclub.com/019db857-7127-7f50-94df-c948bf0eb601/joiningCard3Icon.svg"} alt="" width={48} height={48} style={{ objectFit: "contain", flexShrink: 0 }} />
-                <h3 style={cardTitleStyle}>
-                  1,500+ in-person clubs
-                </h3>
+                <Image
+                  src={
+                    "https://cdn.hackclub.com/019db857-7127-7f50-94df-c948bf0eb601/joiningCard3Icon.svg"
+                  }
+                  alt=""
+                  width={48}
+                  height={48}
+                  style={{ objectFit: "contain", flexShrink: 0 }}
+                />
+                <h3 style={cardTitleStyle}>1,500+ in-person clubs</h3>
               </div>
               <p style={cardBodyStyle}>
-                There are Hack Clubs at high schools all over the world. Each one is a place where you build real projects from day one &mdash; no boring lectures, no prerequisites.
+                There are Hack Clubs at high schools all over the world. Each one is a place where
+                you build real projects from day one &mdash; no boring lectures, no prerequisites.
               </p>
               <p style={cardBodyGapStyle}>
                 Find one near you, or start your own and we&rsquo;ll help you get it off the ground.
@@ -694,18 +758,32 @@ export function JoiningSection() {
           {/* ── Card 4: Free stuff ── */}
           <div style={cardWrapStyle}>
             {/* Background + overlay */}
-            <CardBg src={"https://cdn.hackclub.com/019db857-7448-732f-9016-6ebbe0d2fe28/joiningCard4Bg.webp"} />
+            <CardBg
+              src={
+                "https://cdn.hackclub.com/019db857-7448-732f-9016-6ebbe0d2fe28/joiningCard4Bg.webp"
+              }
+            />
 
             {/* Content — normal flow */}
-            <div className="joining-card-content" style={{ ...cardContentStyle, maxWidth: "calc(100% - 88px)" }}>
+            <div
+              className="joining-card-content"
+              style={{ ...cardContentStyle, maxWidth: "calc(100% - 88px)" }}
+            >
               <div style={{ display: "flex", alignItems: "center", gap: 5, marginBottom: 12 }}>
-                <Image src={"https://cdn.hackclub.com/019db857-76a0-7d26-87cd-35a340d34585/joiningCard4Icon.svg"} alt="" width={58} height={58} style={{ objectFit: "contain", flexShrink: 0 }} />
-                <h3 style={cardTitleStyle}>
-                  Free stuff, just for joining
-                </h3>
+                <Image
+                  src={
+                    "https://cdn.hackclub.com/019db857-76a0-7d26-87cd-35a340d34585/joiningCard4Icon.svg"
+                  }
+                  alt=""
+                  width={58}
+                  height={58}
+                  style={{ objectFit: "contain", flexShrink: 0 }}
+                />
+                <h3 style={cardTitleStyle}>Free stuff, just for joining</h3>
               </div>
               <p style={cardBodyStyle}>
-                GitHub Education, Brilliant Premium, CodeCrafters membership, and a bunch more &mdash; all unlocked just by being part of Hack Club. No catch, no cost.
+                GitHub Education, Brilliant Premium, CodeCrafters membership, and a bunch more
+                &mdash; all unlocked just by being part of Hack Club. No catch, no cost.
               </p>
               <CardCta href="https://toolbox.hackclub.com/">See all perks</CardCta>
             </div>

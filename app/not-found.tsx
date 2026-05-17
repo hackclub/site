@@ -22,7 +22,7 @@ const src = Array.from({ length: 11 }, (_, i) => `/assets/hero_sticker${i + 1}.w
 
 function create(count: number) {
   let seed = 404404;
-  const r = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296);
+  const r = () => (seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296;
 
   return Array.from({ length: count }, (_, i) => {
     const w = Math.round(56 + r() * 68);
@@ -67,14 +67,16 @@ export default function NotFound() {
             <div
               key={s.id}
               className="float-track"
-              style={{
-                top: s.top,
-                animationDuration: `${s.duration}s`,
-                animationDelay: `-${s.delay}s`,
-                opacity: s.opacity,
-                zIndex: s.zIndex,
-                "--startX": `${s.startX}%`,
-              } as FloatTrackStyle}
+              style={
+                {
+                  top: s.top,
+                  animationDuration: `${s.duration}s`,
+                  animationDelay: `-${s.delay}s`,
+                  opacity: s.opacity,
+                  zIndex: s.zIndex,
+                  "--startX": `${s.startX}%`,
+                } as FloatTrackStyle
+              }
             >
               <Image
                 src={s.src}
@@ -82,14 +84,16 @@ export default function NotFound() {
                 width={s.width}
                 height={s.width}
                 className="float-image"
-                style={{
-                  width: `clamp(${Math.max(48, s.width - 20)}px, ${s.width / 11}vw, ${s.width}px)`,
-                  height: "auto",
-                  "--spinStart": `${s.rotate + s.spinStart}deg`,
-                  filter: `blur(${s.blur}px) saturate(0.9)`,
-                  animation: `spin-${s.spin} ${s.spinSpeed}s linear infinite, bob ${s.bob}s ease-in-out infinite alternate`,
-                  mixBlendMode: "multiply",
-                } as FloatImageStyle}
+                style={
+                  {
+                    width: `clamp(${Math.max(48, s.width - 20)}px, ${s.width / 11}vw, ${s.width}px)`,
+                    height: "auto",
+                    "--spinStart": `${s.rotate + s.spinStart}deg`,
+                    filter: `blur(${s.blur}px) saturate(0.9)`,
+                    animation: `spin-${s.spin} ${s.spinSpeed}s linear infinite, bob ${s.bob}s ease-in-out infinite alternate`,
+                    mixBlendMode: "multiply",
+                  } as FloatImageStyle
+                }
               />
             </div>
           ))}
@@ -135,7 +139,10 @@ export default function NotFound() {
               lineHeight: 1.28,
             }}
           >
-            Try heading back to the homepage to find what you are looking for, or explore our programs to discover something new. We recently updated our website, so a few things have moved around. If you think something should be here that isn&apos;t, let us know by filing an issue on our{" "}
+            Try heading back to the homepage to find what you are looking for, or explore our
+            programs to discover something new. We recently updated our website, so a few things
+            have moved around. If you think something should be here that isn&apos;t, let us know by
+            filing an issue on our{" "}
             <a
               href="https://github.com/hackclub/site/issues"
               target="_blank"

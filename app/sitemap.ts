@@ -12,24 +12,19 @@ const SITE_URL = "https://hackclub.com";
 const APP_DIR = path.join(process.cwd(), "app");
 const EXCLUDED_PAGE_ROUTES = new Set(["/programs/edit"]);
 
-function collectStaticRoutes(
-  dir = APP_DIR,
-  routeSegments: string[] = [],
-): string[] {
+function collectStaticRoutes(dir = APP_DIR, routeSegments: string[] = []): string[] {
   const entries = readdirSync(dir, { withFileTypes: true });
   const routes: string[] = [];
 
   for (const entry of entries) {
     if (entry.isDirectory()) {
-      if (
-        entry.name === "api" ||
-        entry.name.startsWith("[") ||
-        entry.name.startsWith("(")
-      ) {
+      if (entry.name === "api" || entry.name.startsWith("[") || entry.name.startsWith("(")) {
         continue;
       }
 
-      routes.push(...collectStaticRoutes(path.join(dir, entry.name), [...routeSegments, entry.name]));
+      routes.push(
+        ...collectStaticRoutes(path.join(dir, entry.name), [...routeSegments, entry.name]),
+      );
       continue;
     }
 

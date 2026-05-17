@@ -14,14 +14,11 @@ function apiKey() {
 }
 
 // Find or create a record by program name
-async function findOrCreate(
-  programName: string,
-  key: string
-): Promise<string> {
-  const listRes = await fetch(
-    `${siteBaseUrl()}?fields[]=Name`,
-    { headers: siteAuthHeaders(key), cache: "no-store" }
-  );
+async function findOrCreate(programName: string, key: string): Promise<string> {
+  const listRes = await fetch(`${siteBaseUrl()}?fields[]=Name`, {
+    headers: siteAuthHeaders(key),
+    cache: "no-store",
+  });
   const listData = await listRes.json();
   const records = (listData.records ?? []) as { id: string; fields: { Name?: string } }[];
   const existing = records.find((r) => r.fields.Name === programName);
@@ -43,10 +40,7 @@ async function findOrCreate(
 export async function POST(req: NextRequest) {
   const key = apiKey();
   if (!key) {
-    return NextResponse.json(
-      { error: "HACK_CLUB_SITE_AIRTABLE_KEY is not set" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "HACK_CLUB_SITE_AIRTABLE_KEY is not set" }, { status: 500 });
   }
 
   const form = await req.formData();
@@ -55,14 +49,11 @@ export async function POST(req: NextRequest) {
   const file = form.get("file") as File | null;
 
   if (!programName || !type || !file) {
-    return NextResponse.json(
-      { error: "Missing programName, type, or file" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Missing programName, type, or file" }, { status: 400 });
   }
 
   // Authorization — must own this program (or be admin)
-  if (!await canEditProgram(req, programName)) {
+  if (!(await canEditProgram(req, programName))) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
@@ -75,7 +66,13 @@ export async function POST(req: NextRequest) {
   const bytes = await file.arrayBuffer();
   const base64 = Buffer.from(bytes).toString("base64");
 
-  console.error("[upload] POSTing to content API", { baseId: SITE_BASE_ID, recordId, fieldName, filename, size: bytes.byteLength });
+  console.error("[upload] POSTing to content API", {
+    baseId: SITE_BASE_ID,
+    recordId,
+    fieldName,
+    filename,
+    size: bytes.byteLength,
+  });
 
   const uploadRes = await fetch(
     `https://content.airtable.com/v0/${SITE_BASE_ID}/${recordId}/${encodeURIComponent(fieldName)}/uploadAttachment`,
@@ -90,7 +87,7 @@ export async function POST(req: NextRequest) {
         filename,
         file: base64,
       }),
-    }
+    },
   );
 
   if (!uploadRes.ok) {
@@ -98,7 +95,7 @@ export async function POST(req: NextRequest) {
     console.error("[upload] Airtable content API error", uploadRes.status, detail);
     return NextResponse.json(
       { error: `Airtable upload error ${uploadRes.status}`, detail },
-      { status: uploadRes.status }
+      { status: uploadRes.status },
     );
   }
 
@@ -108,7 +105,10 @@ export async function POST(req: NextRequest) {
     cache: "no-store",
   });
   if (!fetchRes.ok) {
-    return NextResponse.json({ error: "Upload succeeded but failed to fetch updated record" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Upload succeeded but failed to fetch updated record" },
+      { status: 500 },
+    );
   }
 
   return NextResponse.json(parseRecord(await fetchRes.json()));

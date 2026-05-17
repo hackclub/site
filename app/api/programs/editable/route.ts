@@ -23,7 +23,12 @@ export async function GET(req: NextRequest) {
 
   const slackId: string | null = me.identity?.slack_id ?? null;
   if (!slackId) {
-    return NextResponse.json({ name: me.identity?.id ?? "Unknown", slack_id: null, isAdmin: false, editablePrograms: [] });
+    return NextResponse.json({
+      name: me.identity?.id ?? "Unknown",
+      slack_id: null,
+      isAdmin: false,
+      editablePrograms: [],
+    });
   }
 
   const apiKey = process.env.AIRTABLE_API_KEY;
@@ -34,13 +39,13 @@ export async function GET(req: NextRequest) {
 
   // 3. Check admin status + YSWS author record in parallel
   const adminsUrl = new URL(
-    `https://api.airtable.com/v0/${SITE_BASE_ID}/${encodeURIComponent(ADMINS_TABLE)}`
+    `https://api.airtable.com/v0/${SITE_BASE_ID}/${encodeURIComponent(ADMINS_TABLE)}`,
   );
   adminsUrl.searchParams.set("filterByFormula", `{slack_id}="${slackId}"`);
   adminsUrl.searchParams.append("fields[]", "slack_id");
 
   const authorsUrl = new URL(
-    `https://api.airtable.com/v0/${YSWS_BASE}/${encodeURIComponent(AUTHORS_TABLE)}`
+    `https://api.airtable.com/v0/${YSWS_BASE}/${encodeURIComponent(AUTHORS_TABLE)}`,
   );
   authorsUrl.searchParams.set("filterByFormula", `{Slack ID}="${slackId}"`);
   authorsUrl.searchParams.append("fields[]", "Name");
@@ -54,9 +59,7 @@ export async function GET(req: NextRequest) {
   ]);
 
   // Check admin
-  const isAdmin = adminsRes?.ok
-    ? ((await adminsRes.json()).records ?? []).length > 0
-    : false;
+  const isAdmin = adminsRes?.ok ? ((await adminsRes.json()).records ?? []).length > 0 : false;
 
   // Get author name
   const authorsData = authorsRes.ok ? await authorsRes.json() : { records: [] };
@@ -65,25 +68,40 @@ export async function GET(req: NextRequest) {
 
   // Admins can edit everything — skip the program ownership lookup
   if (isAdmin) {
-    return NextResponse.json({ name: authorName, slack_id: slackId, isAdmin: true, editablePrograms: [] });
+    return NextResponse.json({
+      name: authorName,
+      slack_id: slackId,
+      isAdmin: true,
+      editablePrograms: [],
+    });
   }
 
   // 4. Find which programs this person owns
   const programRecordIds: string[] = authorRecord?.fields?.["Current YSWS Programs"] ?? [];
   if (programRecordIds.length === 0) {
-    return NextResponse.json({ name: authorName, slack_id: slackId, isAdmin: false, editablePrograms: [] });
+    return NextResponse.json({
+      name: authorName,
+      slack_id: slackId,
+      isAdmin: false,
+      editablePrograms: [],
+    });
   }
 
   const formula = `OR(${programRecordIds.map((id) => `RECORD_ID()="${id}"`).join(",")})`;
   const programsUrl = new URL(
-    `https://api.airtable.com/v0/${YSWS_BASE}/${encodeURIComponent(PROGRAMS_TABLE)}`
+    `https://api.airtable.com/v0/${YSWS_BASE}/${encodeURIComponent(PROGRAMS_TABLE)}`,
   );
   programsUrl.searchParams.set("filterByFormula", formula);
   programsUrl.searchParams.append("fields[]", "Name");
 
   const programsRes = await fetch(programsUrl.toString(), { headers: ywswHeaders });
   if (!programsRes.ok) {
-    return NextResponse.json({ name: authorName, slack_id: slackId, isAdmin: false, editablePrograms: [] });
+    return NextResponse.json({
+      name: authorName,
+      slack_id: slackId,
+      isAdmin: false,
+      editablePrograms: [],
+    });
   }
   const programsData = await programsRes.json();
 
@@ -91,5 +109,10 @@ export async function GET(req: NextRequest) {
     .map((r: { fields: { Name?: string } }) => r.fields.Name ?? "")
     .filter(Boolean);
 
-  return NextResponse.json({ name: authorName, slack_id: slackId, isAdmin: false, editablePrograms });
+  return NextResponse.json({
+    name: authorName,
+    slack_id: slackId,
+    isAdmin: false,
+    editablePrograms,
+  });
 }

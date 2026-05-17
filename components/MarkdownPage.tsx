@@ -14,17 +14,20 @@ function slugify(text: string) {
 }
 
 function Heading({ level, children }: { level: number; children: React.ReactNode }) {
-  const text = typeof children === "string"
-    ? children
-    : Array.isArray(children)
-      ? children.map((c) => (typeof c === "string" ? c : "")).join("")
-      : "";
+  const text =
+    typeof children === "string"
+      ? children
+      : Array.isArray(children)
+        ? children.map((c) => (typeof c === "string" ? c : "")).join("")
+        : "";
   const id = slugify(text);
   const Tag = `h${level}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
   return (
     <Tag id={id} className="md-heading">
-      <a href={`#${id}`} className="md-heading__anchor" aria-hidden="true">#</a>
+      <a href={`#${id}`} className="md-heading__anchor" aria-hidden="true">
+        #
+      </a>
       {children}
     </Tag>
   );

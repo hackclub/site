@@ -7,8 +7,7 @@ export const dynamic = "force-static";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Organization Directory | Hack Club",
-  description:
-    "Discover the amazing organizations and projects using HCB for fiscal sponsorship.",
+  description: "Discover the amazing organizations and projects using HCB for fiscal sponsorship.",
   canonical: "/fiscal-sponsorship/directory",
 });
 

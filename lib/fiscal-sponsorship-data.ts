@@ -27,7 +27,7 @@ let organizationsPromise: Promise<Organization[]> | null = null;
 async function fetchWithTimeout(
   url: string,
   options: RequestInit = {},
-  timeout = FETCH_TIMEOUT
+  timeout = FETCH_TIMEOUT,
 ): Promise<Response> {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), timeout);
@@ -81,7 +81,7 @@ export async function fetchHCBOrganizations(): Promise<Organization[]> {
         while (lastLength >= 100) {
           const response = await fetchWithTimeout(
             `${HCB_API_BASE}/directory/organizations?per_page=100&page=${page}`,
-            { headers: { Accept: "application/json" } }
+            { headers: { Accept: "application/json" } },
           );
 
           if (!response.ok) {
@@ -98,10 +98,7 @@ export async function fetchHCBOrganizations(): Promise<Organization[]> {
           page++;
         }
 
-        return [
-          ...total.filter((o) => o.logo),
-          ...total.filter((o) => !o.logo),
-        ];
+        return [...total.filter((o) => o.logo), ...total.filter((o) => !o.logo)];
       } catch (error) {
         console.error("Failed to fetch HCB organizations:", error);
         return [];
@@ -115,23 +112,17 @@ export async function fetchHCBOrganizations(): Promise<Organization[]> {
   return organizationsPromise;
 }
 
-export async function fetchOrganizationsByCategory(
-  category: string
-): Promise<Organization[]> {
+export async function fetchOrganizationsByCategory(category: string): Promise<Organization[]> {
   try {
     const allOrgs = await fetchHCBOrganizations();
-    return allOrgs.filter(
-      (org) => org.category?.toLowerCase() === category.toLowerCase()
-    );
+    return allOrgs.filter((org) => org.category?.toLowerCase() === category.toLowerCase());
   } catch (error) {
     console.error(`Failed to fetch organizations for category ${category}:`, error);
     return [];
   }
 }
 
-export async function fetchOrganizationsByRegion(
-  region: string
-): Promise<Organization[]> {
+export async function fetchOrganizationsByRegion(region: string): Promise<Organization[]> {
   try {
     const allOrgs = await fetchHCBOrganizations();
     const normalizedRegion = region.toLowerCase();
@@ -141,7 +132,7 @@ export async function fetchOrganizationsByRegion(
         org.location.continent
           ?.toLowerCase()
           .replace(/\s*&\s*/g, " and ")
-          .includes(normalizedRegion)
+          .includes(normalizedRegion),
     );
   } catch (error) {
     console.error(`Failed to fetch organizations for region ${region}:`, error);
@@ -151,14 +142,13 @@ export async function fetchOrganizationsByRegion(
 
 export async function fetchOrganizationsByCategoryAndRegion(
   category: string,
-  region: string
+  region: string,
 ): Promise<Organization[]> {
   try {
     const allOrgs = await fetchHCBOrganizations();
     const normalizedRegion = region.toLowerCase();
     return allOrgs.filter((org) => {
-      const matchesCategory =
-        org.category?.toLowerCase() === category.toLowerCase();
+      const matchesCategory = org.category?.toLowerCase() === category.toLowerCase();
       const matchesRegion =
         org.location.continent?.toLowerCase() === normalizedRegion ||
         org.location.continent
@@ -183,9 +173,7 @@ export async function fetchClimateOrganizations(): Promise<Organization[]> {
   }
 }
 
-export async function fetchClimateOrganizationsByRegion(
-  region: string
-): Promise<Organization[]> {
+export async function fetchClimateOrganizationsByRegion(region: string): Promise<Organization[]> {
   try {
     const climateOrgs = await fetchClimateOrganizations();
     const normalizedRegion = region.toLowerCase();
@@ -195,7 +183,7 @@ export async function fetchClimateOrganizationsByRegion(
         org.location.continent
           ?.toLowerCase()
           .replace(/\s*&\s*/g, " and ")
-          .includes(normalizedRegion)
+          .includes(normalizedRegion),
     );
   } catch (error) {
     console.error(`Failed to fetch climate organizations for region ${region}:`, error);
@@ -203,14 +191,11 @@ export async function fetchClimateOrganizationsByRegion(
   }
 }
 
-export async function fetchOrganizationBySlug(
-  slug: string
-): Promise<Organization | null> {
+export async function fetchOrganizationBySlug(slug: string): Promise<Organization | null> {
   try {
-    const response = await fetchWithTimeout(
-      `${HCB_API_BASE}/organizations/${slug}`,
-      { headers: { Accept: "application/json" } }
-    );
+    const response = await fetchWithTimeout(`${HCB_API_BASE}/organizations/${slug}`, {
+      headers: { Accept: "application/json" },
+    });
     if (!response.ok) return null;
     const data = await response.json();
     return normalizeOrganization(data as Record<string, unknown>);
@@ -269,7 +254,8 @@ export const MOCK_ORGANIZATIONS: Organization[] = [
     id: "org_campfire",
     name: "Campfire",
     slug: "campfire",
-    description: "Hack Club's largest satellite game jam hackathon running in 200+ cities in February 2026",
+    description:
+      "Hack Club's largest satellite game jam hackathon running in 200+ cities in February 2026",
     logo: "/fiscal-sponsorship/campfire.webp",
     backgroundImage: "/fiscal-sponsorship/campfire-bg.webp",
     location: { readable: "Worldwide", country: "USA", city: "VT" },

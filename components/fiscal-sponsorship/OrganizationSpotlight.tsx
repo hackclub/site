@@ -206,11 +206,7 @@ export function OrganizationGrid({ organizations }: OrganizationGridProps) {
       }}
     >
       {organizations.map((org, index) => (
-        <OrganizationSpotlight
-          key={org.id}
-          organization={org}
-          animationDelayMs={index * 45}
-        />
+        <OrganizationSpotlight key={org.id} organization={org} animationDelayMs={index * 45} />
       ))}
     </div>
   );

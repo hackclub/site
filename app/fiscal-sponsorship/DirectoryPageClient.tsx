@@ -8,10 +8,7 @@ import { ContactBanner } from "@/components/fiscal-sponsorship/ContactBanner";
 import { FiscalFilterRail } from "@/components/fiscal-sponsorship/FiscalFilterRail";
 import { OrganizationGrid } from "@/components/fiscal-sponsorship/OrganizationSpotlight";
 import { FISCAL_COLORS, FISCAL_TYPOGRAPHY } from "@/components/fiscal-sponsorship/constants";
-import {
-  getDirectoryCategoryById,
-  getRegionBySlug,
-} from "@/lib/fiscal-sponsorship-config";
+import { getDirectoryCategoryById, getRegionBySlug } from "@/lib/fiscal-sponsorship-config";
 import { buildOrganizationDescriptionPreview } from "@/lib/fiscal-sponsorship-description";
 import type { Organization } from "@/lib/fiscal-sponsorship-data";
 
@@ -137,8 +134,7 @@ export default function DirectoryPageClient({
                   color: "rgba(255,255,255,0.9)",
                 }}
               >
-                Discover the organizations and projects using HCB for
-                fiscal sponsorship.
+                Discover the organizations and projects using HCB for fiscal sponsorship.
               </p>
               <label
                 className="directory-search"
@@ -221,8 +217,7 @@ export default function DirectoryPageClient({
                     opacity: 0.72,
                   }}
                 >
-                  Showing {pageStartLabel}-{pageEndLabel} of{" "}
-                  {filteredOrganizations.length}
+                  Showing {pageStartLabel}-{pageEndLabel} of {filteredOrganizations.length}
                 </p>
                 <p
                   style={{

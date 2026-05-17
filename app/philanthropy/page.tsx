@@ -192,7 +192,8 @@ const annualReports = [
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Philanthropy — Hack Club",
-  description: "Support Hack Club's mission to build a generation of teen makers. Learn how to donate and get involved.",
+  description:
+    "Support Hack Club's mission to build a generation of teen makers. Learn how to donate and get involved.",
   canonical: "/philanthropy",
 });
 
@@ -209,8 +210,8 @@ export default function PhilanthropyPage() {
               Empower the next generation.
             </h1>
             <p className="philanthropy-lede">
-              Led by young engineers, Hack Club already reaches tens of thousands of
-              teenagers. With your support, Hack Club can grow to hundreds of thousands more.
+              Led by young engineers, Hack Club already reaches tens of thousands of teenagers. With
+              your support, Hack Club can grow to hundreds of thousands more.
             </p>
             <div className="philanthropy-hero__actions">
               <a
@@ -228,13 +229,28 @@ export default function PhilanthropyPage() {
 
           <div className="philanthropy-hero__collage" aria-hidden="true">
             <div className="philanthropy-collage__frame philanthropy-collage__frame--lg">
-              <Image src="/assets/hero_photo8.webp" alt="" fill sizes="(max-width: 767px) 260px, 360px" />
+              <Image
+                src="/assets/hero_photo8.webp"
+                alt=""
+                fill
+                sizes="(max-width: 767px) 260px, 360px"
+              />
             </div>
             <div className="philanthropy-collage__frame philanthropy-collage__frame--md">
-              <Image src="/assets/hero_photo3.webp" alt="" fill sizes="(max-width: 767px) 200px, 260px" />
+              <Image
+                src="/assets/hero_photo3.webp"
+                alt=""
+                fill
+                sizes="(max-width: 767px) 200px, 260px"
+              />
             </div>
             <div className="philanthropy-collage__frame philanthropy-collage__frame--sm">
-              <Image src="/assets/hero_photo12.webp" alt="" fill sizes="(max-width: 767px) 140px, 180px" />
+              <Image
+                src="/assets/hero_photo12.webp"
+                alt=""
+                fill
+                sizes="(max-width: 767px) 140px, 180px"
+              />
             </div>
             <div className="philanthropy-collage__frame philanthropy-collage__frame--sticker">
               <Image src="/assets/hero_sticker3.webp" alt="" fill sizes="88px" />
@@ -248,22 +264,22 @@ export default function PhilanthropyPage() {
         <div className="philanthropy-section__header">
           <h2>We back teens with big ideas.</h2>
           <p>
-            In the next ten years, Hack Club will discover, foster, and inspire thousands
-            more teenagers to use technical skills to solve problems.
+            In the next ten years, Hack Club will discover, foster, and inspire thousands more
+            teenagers to use technical skills to solve problems.
           </p>
         </div>
 
         <div className="philanthropy-vision">
           <div>
             <p>
-              Hack Club is always free for teenagers. With your support, Hack Club can bring
-              free computer science education, a hacker mindset, and an equal shot at success
-              to every teenager, regardless of where they are from.
+              Hack Club is always free for teenagers. With your support, Hack Club can bring free
+              computer science education, a hacker mindset, and an equal shot at success to every
+              teenager, regardless of where they are from.
             </p>
             <p>
-              Over time, Hack Clubbers will reshape societies as entrepreneurs,
-              environmentalists, political leaders, activists, and policy makers. We help
-              shape the values of these future leaders.
+              Over time, Hack Clubbers will reshape societies as entrepreneurs, environmentalists,
+              political leaders, activists, and policy makers. We help shape the values of these
+              future leaders.
             </p>
             <p className="philanthropy-vision__conclusion">
               We need your support to make this vision a reality.
@@ -282,7 +298,12 @@ export default function PhilanthropyPage() {
         <div className="philanthropy-testimonials">
           {testimonials.map((item) => (
             <article key={item.info} className="philanthropy-testimonial-card">
-              <Image src={item.photo} alt={item.info} fill sizes="(max-width: 1100px) 100vw, 20vw" />
+              <Image
+                src={item.photo}
+                alt={item.info}
+                fill
+                sizes="(max-width: 1100px) 100vw, 20vw"
+              />
               <div>
                 <p>&quot;{item.quote}&quot;</p>
                 <span>{item.info}</span>
@@ -330,7 +351,9 @@ export default function PhilanthropyPage() {
             </div>
           ))}
         </div>
-        <p className="philanthropy-donors__note">* number in parentheses indicates gifts since 2018.</p>
+        <p className="philanthropy-donors__note">
+          * number in parentheses indicates gifts since 2018.
+        </p>
 
         <h3 className="philanthropy-supporters-title">A few others who support Hack Club</h3>
         <div className="philanthropy-pill-grid">
@@ -364,9 +387,7 @@ export default function PhilanthropyPage() {
         </div>
 
         <div className="philanthropy-belle-quote">
-          <h3>
-            “Hack Club helped me fall in love with creating and made me feel like I belong.”
-          </h3>
+          <h3>“Hack Club helped me fall in love with creating and made me feel like I belong.”</h3>
           <div>
             <Image src={bellePhoto} alt="Belle" width={28} height={28} />
             <span>Belle, 17, Malaysia</span>
@@ -415,18 +436,16 @@ export default function PhilanthropyPage() {
           </div>
           <div className="philanthropy-board__quote">
             <p>
-              “Hack Club is the organization I wish I had when I was a teenager. In 2017, I
-              joined as a founding board member, and I have seen firsthand the leadership team
-              act with integrity and transparency since Day 1.”
+              “Hack Club is the organization I wish I had when I was a teenager. In 2017, I joined
+              as a founding board member, and I have seen firsthand the leadership team act with
+              integrity and transparency since Day 1.”
             </p>
             <p>
               “Founder Zach Latta and COO Christina Asquith are efficient, responsible and
-              disciplined stewards of every dollar, and I have proudly grown my donations over
-              the years.”
+              disciplined stewards of every dollar, and I have proudly grown my donations over the
+              years.”
             </p>
-            <span>
-              — Tom Preston-Werner, Co-founder and former CEO, GitHub
-            </span>
+            <span>— Tom Preston-Werner, Co-founder and former CEO, GitHub</span>
           </div>
         </div>
       </section>
@@ -438,8 +457,8 @@ export default function PhilanthropyPage() {
         </div>
         <ul className="philanthropy-list">
           <li>
-            Increase support to serve thousands more teenagers, with a strong focus on
-            teens who face additional barriers.
+            Increase support to serve thousands more teenagers, with a strong focus on teens who
+            face additional barriers.
           </li>
           <li>Create hundreds more Hack Clubs in high schools and communities across the world.</li>
           <li>Inspire a problem-solving mindset where teenagers build what they want to see.</li>
@@ -454,8 +473,8 @@ export default function PhilanthropyPage() {
           <p className="philanthropy-kicker philanthropy-kicker--dark">Transparency</p>
           <h2>Financials and annual reports.</h2>
           <p>
-            Starting in 2021, Hack Club has engaged with an external auditing firm and has
-            audited financials through the current fiscal year.
+            Starting in 2021, Hack Club has engaged with an external auditing firm and has audited
+            financials through the current fiscal year.
           </p>
         </div>
 
@@ -493,9 +512,8 @@ export default function PhilanthropyPage() {
             <p className="philanthropy-kicker philanthropy-kicker--dark">Thank you</p>
             <h2>Hack Club invites leading thinkers, builders, and disrupters to join us.</h2>
             <p>
-              We envision thousands of diverse Hack Club leaders in towns and cities across
-              America and the world, connected online and self-organizing events and
-              hackathons.
+              We envision thousands of diverse Hack Club leaders in towns and cities across America
+              and the world, connected online and self-organizing events and hackathons.
             </p>
           </div>
           <div className="philanthropy-cta__card">
@@ -503,8 +521,10 @@ export default function PhilanthropyPage() {
             <span>Co-founder &amp; COO</span>
             <a href="mailto:christina@hackclub.com">christina@hackclub.com</a>
             <p>
-              The Hack Foundation<br />
-              8605 Santa Monica Blvd #86294<br />
+              The Hack Foundation
+              <br />
+              8605 Santa Monica Blvd #86294
+              <br />
               West Hollywood, CA 90069
             </p>
           </div>
@@ -534,14 +554,14 @@ export default function PhilanthropyPage() {
         </div>
       </section>
 
-      <div style={{ textAlign: 'center', margin: '56px 0' }}>
+      <div style={{ textAlign: "center", margin: "56px 0" }}>
         <a
           href="https://cdn.hackclub.com/019d9ddf-c03d-76de-8ff1-64edd1bdcb16/hackclub_philanthropy.pdf"
           className="philanthropy-btn philanthropy-btn--red"
           download
           target="_blank"
           rel="noopener noreferrer"
-          style={{ minWidth: 210, background: '#ec3750', color: 'white' }}
+          style={{ minWidth: 210, background: "#ec3750", color: "white" }}
         >
           Download as PDF
         </a>

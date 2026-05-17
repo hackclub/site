@@ -7,7 +7,9 @@ const photos = [
     logo: (
       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
         <Image
-          src={"https://cdn.hackclub.com/019db857-7952-7be6-bf18-9aee5cf67274/hereLogoDaydream.webp"}
+          src={
+            "https://cdn.hackclub.com/019db857-7952-7be6-bf18-9aee5cf67274/hereLogoDaydream.webp"
+          }
           alt="Daydream"
           width={182}
           height={52}

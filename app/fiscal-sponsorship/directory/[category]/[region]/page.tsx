@@ -30,9 +30,7 @@ export async function generateStaticParams() {
   );
 }
 
-export async function generateMetadata({
-  params,
-}: RegionPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: RegionPageProps): Promise<Metadata> {
   const { category: rawCategory, region: rawRegion } = await params;
   const category = decodeURIComponent(rawCategory);
   const region = decodeURIComponent(rawRegion);

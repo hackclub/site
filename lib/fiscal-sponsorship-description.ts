@@ -12,7 +12,7 @@ export function buildOrganizationDescriptionPreview(description: string) {
   const sentenceBoundary = Math.max(
     preview.lastIndexOf("."),
     preview.lastIndexOf("!"),
-    preview.lastIndexOf("?")
+    preview.lastIndexOf("?"),
   );
 
   if (sentenceBoundary >= MIN_SENTENCE_BREAK_INDEX) {
@@ -21,9 +21,7 @@ export function buildOrganizationDescriptionPreview(description: string) {
 
   const wordBoundary = preview.lastIndexOf(" ");
   const cutoff =
-    wordBoundary >= MIN_SENTENCE_BREAK_INDEX
-      ? wordBoundary
-      : DESCRIPTION_PREVIEW_LENGTH;
+    wordBoundary >= MIN_SENTENCE_BREAK_INDEX ? wordBoundary : DESCRIPTION_PREVIEW_LENGTH;
 
   return `${preview.slice(0, cutoff).trim()}...`;
 }

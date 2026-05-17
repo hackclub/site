@@ -1,6 +1,15 @@
 const BASE_ID = "appsbFEoTS7vN2zeB";
 const TABLE = "Projects";
-const FIELDS = ["Project Name", "Person", "Age", "Country", "Playable URL", "Code URL", "Image", "Program Name"];
+const FIELDS = [
+  "Project Name",
+  "Person",
+  "Age",
+  "Country",
+  "Playable URL",
+  "Code URL",
+  "Image",
+  "Program Name",
+];
 
 export interface AirtableProject {
   id: string;
@@ -26,10 +35,13 @@ export async function getProjects(): Promise<AirtableProject[]> {
     FIELDS.forEach((f) => params.append("fields[]", f));
     if (offset) params.set("offset", offset);
 
-    const res = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(TABLE)}?${params}`, {
-      headers: { Authorization: `Bearer ${key}` },
-      cache: "no-store",
-    });
+    const res = await fetch(
+      `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(TABLE)}?${params}`,
+      {
+        headers: { Authorization: `Bearer ${key}` },
+        cache: "no-store",
+      },
+    );
     if (!res.ok) throw new Error("Airtable fetch failed");
 
     const data = await res.json();
@@ -69,11 +81,17 @@ function di(projects: AirtableProject[]): AirtableProject[] {
     }
 
   const out: AirtableProject[] = [];
-  let lastK: string | null = null, lastP: string | null = null;
+  let lastK: string | null = null,
+    lastP: string | null = null;
   while (out.length < projects.length) {
-    const c = [...buckets.entries()].filter(([, a]) => a.length).sort((a, b) => b[1].length - a[1].length);
+    const c = [...buckets.entries()]
+      .filter(([, a]) => a.length)
+      .sort((a, b) => b[1].length - a[1].length);
     if (!c.length) break;
-    const [k, a] = c.find(([k, a]) => k !== lastK && a[0].person !== lastP) ?? c.find(([k]) => k !== lastK) ?? c[0];
+    const [k, a] =
+      c.find(([k, a]) => k !== lastK && a[0].person !== lastP) ??
+      c.find(([k]) => k !== lastK) ??
+      c[0];
     out.push(a.shift()!);
     lastK = k;
     lastP = out[out.length - 1].person;

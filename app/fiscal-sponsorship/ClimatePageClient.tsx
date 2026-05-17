@@ -20,10 +20,7 @@ type ClimatePageClientProps = {
 
 const PAGE_SIZE = 12;
 
-export default function ClimatePageClient({
-  organizations,
-  region,
-}: ClimatePageClientProps) {
+export default function ClimatePageClient({ organizations, region }: ClimatePageClientProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [pageIndex, setPageIndex] = useState(1);
   const regionConfig = region ? getRegionBySlug(region) : undefined;
@@ -55,7 +52,7 @@ export default function ClimatePageClient({
 
   return (
     <>
-      <Navbar invertColors/>
+      <Navbar invertColors />
       <main id="main" tabIndex={-1}>
         <section
           className="climate-hero"
@@ -120,9 +117,7 @@ export default function ClimatePageClient({
                   textShadow: "0 10px 30px rgba(0,0,0,0.25)",
                 }}
               >
-                {regionConfig
-                  ? `Climate in ${regionConfig.label}`
-                  : "Climate Organizations"}
+                {regionConfig ? `Climate in ${regionConfig.label}` : "Climate Organizations"}
               </h1>
               <p
                 className="climate-hero-description"
@@ -137,8 +132,8 @@ export default function ClimatePageClient({
                   textShadow: "0 6px 24px rgba(0,0,0,0.2)",
                 }}
               >
-                Climate-focused organizations using HCB to accelerate
-                environmental action and sustainability initiatives.
+                Climate-focused organizations using HCB to accelerate environmental action and
+                sustainability initiatives.
               </p>
               <label
                 className="climate-search"
@@ -214,8 +209,7 @@ export default function ClimatePageClient({
                     opacity: 0.72,
                   }}
                 >
-                  Showing {pageStartLabel}-{pageEndLabel} of{" "}
-                  {filteredOrganizations.length}
+                  Showing {pageStartLabel}-{pageEndLabel} of {filteredOrganizations.length}
                 </p>
                 <p
                   style={{

@@ -24,9 +24,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: CategoryPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
   const { category: rawCategory } = await params;
   const category = decodeURIComponent(rawCategory);
   const categoryConfig = getDirectoryCategoryById(category);
@@ -46,8 +44,8 @@ export async function generateMetadata({
       : `${categoryConfig.label} | Hack Club`,
     description: categoryConfig.index
       ? "Browse the organizations building on HCB."
-      : categoryConfig.description ??
-        `Browse HCB organizations in the ${categoryConfig.label} category.`,
+      : (categoryConfig.description ??
+        `Browse HCB organizations in the ${categoryConfig.label} category.`),
     canonical: categoryConfig.index
       ? "/fiscal-sponsorship/directory"
       : `/fiscal-sponsorship/directory/${encodeURIComponent(categoryConfig.id)}`,
@@ -68,10 +66,5 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     organizationMatchesCategory(organization, categoryConfig.id),
   );
 
-  return (
-    <DirectoryPageClient
-      organizations={filteredOrganizations}
-      category={categoryConfig.id}
-    />
-  );
+  return <DirectoryPageClient organizations={filteredOrganizations} category={categoryConfig.id} />;
 }

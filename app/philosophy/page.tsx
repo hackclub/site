@@ -5,7 +5,8 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Philosophy — Hack Club",
-  description: "Hack Club's philosophy on coding, learning, and building a community of teenage makers.",
+  description:
+    "Hack Club's philosophy on coding, learning, and building a community of teenage makers.",
   canonical: "/philosophy",
 });
 
@@ -15,27 +16,23 @@ const rows = [
     superText: "superpower.",
     accent: "#ec3750",
     superColor: "#ff8c37",
-    body:
-      "Learning to code is uniquely like gaining a superpower: it converts you from a consumer to a creator. Suddenly, computers become a tool for creating.",
+    body: "Learning to code is uniquely like gaining a superpower: it converts you from a consumer to a creator. Suddenly, computers become a tool for creating.",
   },
   {
     title: "Make, from anywhere.",
     accent: "#cf2de4",
-    body:
-      "There's never been a better time for making: anywhere in the world, anyone with a laptop and an internet connection can learn to make an app. Building things has never been so globally democratized.",
+    body: "There's never been a better time for making: anywhere in the world, anyone with a laptop and an internet connection can learn to make an app. Building things has never been so globally democratized.",
   },
   {
     title: "Hack, hack, hack.",
     accent: "#732de4",
-    body:
-      "The goal of Hack Club is to help you become a hacker. We want a space at every school where people are making interesting things with code, every week. Most schools don't provide that, so we're creating it in every school to make building things accessible to everyone.",
+    body: "The goal of Hack Club is to help you become a hacker. We want a space at every school where people are making interesting things with code, every week. Most schools don't provide that, so we're creating it in every school to make building things accessible to everyone.",
     strongLead: true,
   },
   {
     title: "Start building.",
     accent: "#338eda",
-    body:
-      "Most coding classes teach you programming concepts instead of how to write real code. It's like trying to learn carpentry without any wood. So at Hack Club, you learn to code entirely through building things. You start with no experience and build and ship a project every meeting.",
+    body: "Most coding classes teach you programming concepts instead of how to write real code. It's like trying to learn carpentry without any wood. So at Hack Club, you learn to code entirely through building things. You start with no experience and build and ship a project every meeting.",
   },
   {
     title: "Learn as you build.",
@@ -52,8 +49,7 @@ const rows = [
   {
     title: "Be part of a community.",
     accent: "#33d6a6",
-    body:
-      "Hack Club gives you a worldwide community of thousands of other young makers to talk to. We're artists, writers, engineers, tinkerers, campers, filmmakers, volunteers. We make things. We help one another. We have fun. Join us.",
+    body: "Hack Club gives you a worldwide community of thousands of other young makers to talk to. We're artists, writers, engineers, tinkerers, campers, filmmakers, volunteers. We make things. We help one another. We have fun. Join us.",
   },
 ];
 
@@ -88,9 +84,13 @@ export default function PhilosophyPage() {
               </h2>
 
               <p>
-                {row.strongLead ? <strong>The goal of Hack Club is to help you become a hacker.</strong> : null}
+                {row.strongLead ? (
+                  <strong>The goal of Hack Club is to help you become a hacker.</strong>
+                ) : null}
                 {row.strongLead ? " " : ""}
-                {row.strongLead ? row.body.replace("The goal of Hack Club is to help you become a hacker. ", "") : row.body}
+                {row.strongLead
+                  ? row.body.replace("The goal of Hack Club is to help you become a hacker. ", "")
+                  : row.body}
                 {row.link ? (
                   <>
                     {row.bodyPrefix} <a href={row.link.href}>{row.link.label}</a> {row.bodySuffix}

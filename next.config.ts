@@ -2,11 +2,16 @@ import type { NextConfig } from "next";
 import { execSync } from "node:child_process";
 
 const getsha = (): string => {
-  const sha = process.env.NEXT_PUBLIC_COMMIT_SHA ?? process.env.VERCEL_GIT_COMMIT_SHA ?? process.env.GITHUB_SHA;
+  const sha =
+    process.env.NEXT_PUBLIC_COMMIT_SHA ??
+    process.env.VERCEL_GIT_COMMIT_SHA ??
+    process.env.GITHUB_SHA;
   if (sha) return sha.slice(0, 6);
 
   try {
-    return execSync("git describe --always --dirty", { stdio: ["ignore", "pipe", "ignore"] }).toString().trim();
+    return execSync("git describe --always --dirty", { stdio: ["ignore", "pipe", "ignore"] })
+      .toString()
+      .trim();
   } catch {
     return "dev";
   }
@@ -20,11 +25,13 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      ...["minecraft", "onboard", "replit", "sponsorship", "amas", "ship", "pizza"].map((route) => ({
-        source: `/${route}`,
-        destination: `https://v3.hackclub.com/${route}`,
-        permanent: true,
-      })),
+      ...["minecraft", "onboard", "replit", "sponsorship", "amas", "ship", "pizza"].map(
+        (route) => ({
+          source: `/${route}`,
+          destination: `https://v3.hackclub.com/${route}`,
+          permanent: true,
+        }),
+      ),
       {
         source: "/fiscal-sponsorship/apply/",
         destination: "https://hcb.hackclub.com/applications/new",

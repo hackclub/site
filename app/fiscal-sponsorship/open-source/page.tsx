@@ -45,13 +45,7 @@ export const metadata: Metadata = buildPageMetadata({
   imageAlt: "HCB is now open source!",
 });
 
-function Pill({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
+function Pill({ children, className }: { children: ReactNode; className?: string }) {
   const pillClassName = className ? `announcement-pill ${className}` : "announcement-pill";
 
   return <div className={pillClassName}>{children}</div>;
@@ -159,10 +153,9 @@ export default function OpenSourcePage() {
               </h1>
 
               <p>
-                Hack Club launched HCB in 2018 to enable hackathons to raise and spend money
-                through <Link href="/fiscal-sponsorship">fiscal sponsorship</Link>. Since then,
-                we&apos;ve expanded to all nonprofit projects; our 12,000 users have transacted
-                $50 million.
+                Hack Club launched HCB in 2018 to enable hackathons to raise and spend money through{" "}
+                <Link href="/fiscal-sponsorship">fiscal sponsorship</Link>. Since then, we&apos;ve
+                expanded to all nonprofit projects; our 12,000 users have transacted $50 million.
               </p>
 
               <p className="announcement-center">
@@ -182,11 +175,7 @@ export default function OpenSourcePage() {
               <p>
                 When we started HCB, it was developed in private for security reasons. That said,
                 one of Hack Club&apos;s core principles has always been transparency - we{" "}
-                <a
-                  href="https://github.com/hackclub/ledger"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href="https://github.com/hackclub/ledger" target="_blank" rel="noreferrer">
                   open source
                 </a>{" "}
                 our{" "}
@@ -194,11 +183,7 @@ export default function OpenSourcePage() {
                   finances
                 </a>
                 ,{" "}
-                <a
-                  href="https://github.com/hackclub/assemble"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href="https://github.com/hackclub/assemble" target="_blank" rel="noreferrer">
                   document how we run events
                 </a>
                 , and have 500+ public repositories on{" "}
@@ -222,8 +207,8 @@ export default function OpenSourcePage() {
               <p>
                 Paired with our technical documentation, it&apos;s a great resource for anyone
                 interested in building financial software or applications with Ruby on Rails. Our
-                engineering work is also entirely public; the world can learn from our successes
-                and mistakes.
+                engineering work is also entirely public; the world can learn from our successes and
+                mistakes.
               </p>
 
               <p>
