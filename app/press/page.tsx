@@ -20,7 +20,7 @@ const logoAssets = [
 
 const photoItems = [
   {
-    src: "https://cdn.hackclub.com/019db857-4b48-7633-9df8-a4b335a251ef/bigCollage.webp",
+    src: "https://cdn.hackclub.com/019e3850-82f9-7a36-8043-2748e49cd8cb/assemble-2022-group-photo.webp",
     alt: "Group photo at Assemble, our Summer 2022 hackathon",
     width: 1820,
     height: 1218,
