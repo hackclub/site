@@ -16,6 +16,7 @@ const cfg = {
     btnW: "clamp(96px, 20vw, 110px)",
     btnH: "clamp(38px, 10vw, 42px)",
     inputId: "hero-email-input",
+    hover: true,
   },
   video: {
     bg: "#e0e6ed",
