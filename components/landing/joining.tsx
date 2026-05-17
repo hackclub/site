@@ -782,7 +782,7 @@ export function JoiningSection() {
                 <h3 style={cardTitleStyle}>Free stuff, just for joining</h3>
               </div>
               <p style={cardBodyStyle}>
-                GitHub Education, Brilliant Premium, CodeCrafters membership, and a bunch more
+                GitHub Education, Brilliant Premium, and a bunch more
                 &mdash; all unlocked just by being part of Hack Club. No catch, no cost.
               </p>
               <CardCta href="https://toolbox.hackclub.com/">See all perks</CardCta>
