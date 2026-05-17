@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+/* ── Design tokens ────────────────────────────────────────────── */
+:root {
+  --background: #ffffff;
+  --foreground: #17171d;
+  --red: #ec3750;
+  --orange: #ff8c37;
+  --font-phantom: var(--font-phantom-src), system-ui, sans-serif;
+  --font-zarathustra: var(--font-zarathustra-src), Georgia, serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-red: #ec3750;
+  --color-orange: #ff8c37;
+  --font-phantom: var(--font-phantom);
+  --font-zarathustra: var(--font-zarathustra);
+}
+
+/* ── Base ─────────────────────────────────────────────────────── */
+body {
+  background: #ffffff;
+  color: var(--foreground);
+  font-family: var(--font-phantom);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.skip-to-content {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  z-index: 10000;
+  background: #17171d;
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-family: var(--font-phantom);
+  font-size: 16px;
+  font-weight: 600;
+  transform: translateY(-140%);
+  transition: transform 0.2s ease;
+}
+
+.skip-to-content:focus-visible {
+  transform: translateY(0);
+  outline: 3px solid #ff8c37;
+  outline-offset: 2px;
+}
+
+/* ── Mobile section padding ──────────────────────────────────── */
+/* clamp(24px, 14.29%, …) produces ~54px at 375px viewport — too much.
+   Override to a tight 16px on mobile for all padded sections. */
+@media (max-width: 767px) {
+  .section-padded {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+/* ── Mobile line-break helpers ───────────────────────────────── */
+@media (max-width: 767px) {
+  .video-headline-break { display: block; }
+}
+
+/* ── Mobile wave fix ─────────────────────────────────────────── */
+/* Wave SVGs are designed for a 1920px canvas; on mobile they show
+   24 tiny compressed peaks. Fix: widen the SVG element to 300% of
+   the container (so the path stretches to 3× peak width), shift it
+   left by 100% to centre the visible portion, then clip.
+   Using element width — not CSS scaleX — so vectorEffect="non-scaling-stroke"
+   keeps the thin stroke at its intended pixel weight. */
+@media (max-width: 767px) {
+  .wave-container {
+    overflow: hidden !important;
+  }
+  .wave-container svg {
+    width: 300% !important;
+    margin-left: -100% !important;
+  }
+}
+
+/* ── Dark pill button hover ──────────────────────────────────── */
+.dark-btn {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+.dark-btn:hover {
+  background: #ec3750 !important;
+}
+
+/* ── CTA button hover ─────────────────────────────────────────── */
+.cta-btn {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+.cta-btn:hover {
+  filter: brightness(1.15);
+}
+
+/* ── CTA button arrow animation ──────────────────────────────── */
+.cta-btn .btn-arrow {
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 0.2s ease;
+}
+.cta-btn:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* ── Utilities ────────────────────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Keep legacy class name working too */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

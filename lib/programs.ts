@@ -1,0 +1,43 @@
+import type { SiteProgram } from "./site-programs";
+
+export interface AirtableProgram {
+  id: string;
+  name: string;
+  startDate: string;
+  endDate: string;
+  websiteUrl: string | null;
+  site: SiteProgram | null;
+}
+
+export type ProgramStatus = "ongoing" | "ended" | "draft";
+
+export function parseLocalDate(iso: string): Date {
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(y, m - 1, d);
+}
+
+export function getProgramStatus(program: Pick<AirtableProgram, "startDate" | "endDate">, now = new Date()): ProgramStatus {
+  const started = parseLocalDate(program.startDate) <= now;
+  const ended = parseLocalDate(program.endDate) < now;
+  return !started ? "draft" : ended ? "ended" : "ongoing";
+}
+
+export function selectFeaturedPrograms(programs: AirtableProgram[], limit = 4, now = new Date()): AirtableProgram[] {
+  return programs
+    .filter((program) => getProgramStatus(program, now) === "ongoing")
+    .sort((a, b) => {
+      const aHasImage = Number(Boolean(a.site?.bgImageUrl));
+      const bHasImage = Number(Boolean(b.site?.bgImageUrl));
+      if (aHasImage !== bHasImage) return bHasImage - aHasImage;
+
+      const aHasLogo = Number(Boolean(a.site?.logoUrl));
+      const bHasLogo = Number(Boolean(b.site?.logoUrl));
+      if (aHasLogo !== bHasLogo) return bHasLogo - aHasLogo;
+
+      const endDateDelta = parseLocalDate(a.endDate).getTime() - parseLocalDate(b.endDate).getTime();
+      if (endDateDelta !== 0) return endDateDelta;
+
+      return a.name.localeCompare(b.name);
+    })
+    .slice(0, limit);
+}
