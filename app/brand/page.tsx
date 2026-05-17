@@ -340,7 +340,7 @@ export default function BrandPage() {
 
         .brand-hero {
           position: relative;
-          overflow: hidden;
+          overflow: visible;
           background:
             radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.4), transparent 32%),
             radial-gradient(circle at 90% 0%, rgba(255, 140, 55, 0.35), transparent 35%),
