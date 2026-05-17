@@ -43,7 +43,7 @@ const rows = [
       "you'll be walked through building projects. Starting out, you won't understand how the code works, but you'll build understanding as you go. You'll get stuck along the way, but we're here to help.",
     link: {
       label: "workshops",
-      href: "/programs",
+      href: "https://workshops.hackclub.com",
     },
   },
   {
