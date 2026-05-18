@@ -75,7 +75,7 @@ function LinkCol({ title, links }: { title: string; links: { label: string; href
         {links.map((l) => (
           <li key={l.label}>
             {isExternal(l.href) ? (
-              
+              <a
                 href={l.href}
                 target="_blank"
                 rel="noopener noreferrer"
