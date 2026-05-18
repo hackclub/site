@@ -50,8 +50,12 @@ const icons = [
 
 const sha = process.env.NEXT_PUBLIC_COMMIT_SHA ?? "dev";
 
-function ext(href: string) {
-  return href.startsWith("http") || href.startsWith("mailto:");
+function isExternal(href: string) {
+  return href.startsWith("http");
+}
+
+function isMailto(href: string) {
+  return href.startsWith("mailto:");
 }
 
 function LinkCol({ title, links }: { title: string; links: { label: string; href: string }[] }) {
@@ -70,8 +74,8 @@ function LinkCol({ title, links }: { title: string; links: { label: string; href
       >
         {links.map((l) => (
           <li key={l.label}>
-            {ext(l.href) ? (
-              <a
+            {isExternal(l.href) ? (
+              
                 href={l.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -93,6 +97,8 @@ function LinkCol({ title, links }: { title: string; links: { label: string; href
 }
 
 export function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer
       className="site-footer"
@@ -165,8 +171,9 @@ export function Footer() {
           >
             For teens, by teens.
           </p>
-          <a
+          
             href="tel:18556254225"
+            aria-label="Call Hack Club toll-free at 1-855-625-4225"
             style={{
               fontWeight: 400,
               fontSize: 20,
@@ -182,11 +189,11 @@ export function Footer() {
           </a>
           <div style={{ display: "flex", gap: 12 }}>
             {icons.map((i) => (
-              <a
+              
                 key={i.label}
                 href={i.href}
-                target={ext(i.href) ? "_blank" : undefined}
-                rel={ext(i.href) ? "noopener noreferrer" : undefined}
+                target={isExternal(i.href) ? "_blank" : undefined}
+                rel={isExternal(i.href) ? "noopener noreferrer" : undefined}
                 aria-label={i.label}
                 className="footer-social-link"
                 style={{
@@ -224,8 +231,8 @@ export function Footer() {
             lineHeight: 1.5,
           }}
         >
-          © 2026 Hack Club. Registered under{" "}
-          <a
+          © {year} Hack Club. Registered under{" "}
+          
             href="https://the.hackfoundation.org/"
             target="_blank"
             rel="noopener noreferrer"
@@ -235,7 +242,7 @@ export function Footer() {
           </a>
           , a 501(c)(3) nonprofit (EIN: 81-2908499).
           {` Commit ${sha}`}, open source at{" "}
-          <a
+          
             href="https://github.com/hackclub/site"
             target="_blank"
             rel="noopener noreferrer"
