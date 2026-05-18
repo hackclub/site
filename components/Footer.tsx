@@ -143,13 +143,15 @@ export function Footer() {
           style={{ display: "flex", flexDirection: "column", gap: 0, flexShrink: 0, width: 280 }}
         >
           <div style={{ marginBottom: 28 }}>
-            <Image
-              src="/assets/hackClubFlag.svg"
-              alt="Hack Club"
-              width={200}
-              height={70}
-              style={{ display: "block", objectFit: "contain" }}
-            />
+            <Link href="/">
+              <Image
+                src="/assets/hackClubFlag.svg"
+                alt="Hack Club"
+                width={200}
+                height={70}
+                style={{ display: "block", objectFit: "contain" }}
+              />
+            </Link>
           </div>
           <p
             style={{
