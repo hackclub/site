@@ -19,7 +19,7 @@ const getsha = (): string => {
 
 const nextConfig: NextConfig = {
   trailingSlash: false,
-  productionBrowserSourceMaps: true,
+  productionBrowserSourceMaps: true, // source maps are great for oss :)
   env: {
     NEXT_PUBLIC_COMMIT_SHA: getsha(),
   },
