@@ -497,7 +497,7 @@ export default function ClubPage() {
                     Join thousands of leaders in the Hack Club Slack to share ideas, ask questions,
                     and meet peers in{" "}
                     <a
-                      href="https://hackclub.slack.com/channels/leaders"
+                      href="leaders.hackclub.com"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ color: "#338eda", textDecoration: "underline" }}
