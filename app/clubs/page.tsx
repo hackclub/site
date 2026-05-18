@@ -494,8 +494,11 @@ export default function ClubPage() {
                 accent="#338eda"
                 description={
                   <>
-                    Join thousands of leaders in the Hack Club Slack to share ideas, ask questions,
-                    and meet peers.
+                        Join thousands of leaders in the Hack Club Slack to share ideas, ask questions,and meet peers in{" "} 
+                         href="https://hackclub.slack.com/channels/leaders"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         style={{ color: "#338eda", textDecoration: "underline" }}>#leaders</a>.
                   </>
                 }
               />
@@ -504,8 +507,11 @@ export default function ClubPage() {
                 accent="#33d6a6"
                 description={
                   <>
-                    Use ready-to-run meeting content so beginners can build websites, games, bots,
-                    and more.
+                  Use ready-to-run meeting content so beginners can build websites, games, bots, and more at{" "}
+                  href="https://jams.hackclub.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#33d6a6", textDecoration: "underline" }}>Hack Club Jams</a>.
                   </>
                 }
               />
@@ -544,8 +550,11 @@ export default function ClubPage() {
                 accent="#17171d"
                 description={
                   <>
-                    Already running a CS club? You can join Hack Club and keep your current name
-                    while using all our resources.
+                  Already running a CS club? You can join Hack Club and keep your current name while using all our{" "}
+                  href="https://toolbox.hackclub.com/?category=Resources&query="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#17171d", textDecoration: "underline" }} > resources</a>.
                   </>
                 }
               />
