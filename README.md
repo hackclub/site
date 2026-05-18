@@ -6,7 +6,6 @@ This codebase powers the Hack Club website, which is built with [Next.js](https:
 ## Development
 
 1. Clone the repository
-
 ```sh
 git clone --depth 1 https://github.com/hackclub/site.git
 ```
