@@ -5,14 +5,20 @@ This codebase powers the Hack Club website, which is built with [Next.js](https:
 
 ## Development
 
-To run the website locally, first install the dependencies:
+1. Clone the repository
 
+```sh
+git clone --depth 1 https://github.com/hackclub/site.git
+```
+> [!NOTE]
+> --depth 1 only gets the latest commit, if you need the full history (unlikely, ~562M), remove the --depth.
+
+2. Install the dependencies
 ```sh
 bun install
 ```
 
-Then, start the development server:
-
+3. Then, start the development server:
 ```sh
 bun dev
 ```
