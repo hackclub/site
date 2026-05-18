@@ -39,7 +39,7 @@ export async function getProjects(): Promise<AirtableProject[]> {
       `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(TABLE)}?${params}`,
       {
         headers: { Authorization: `Bearer ${key}` },
-        cache: "no-store",
+        next: { revalidate: 3600 },
       },
     );
     if (!res.ok) throw new Error("Airtable fetch failed");

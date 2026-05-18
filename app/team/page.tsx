@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
-import TeamPageClient from "./TeamPageClient";
+import TeamPageClient, {
+  type CommunityPodData,
+  type MemberGroup,
+  type TeamMember,
+} from "./TeamPageClient";
 import { buildPageMetadata } from "@/lib/seo";
+import teamData from "../../public/team.json";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Team — Hack Club",
@@ -9,6 +14,67 @@ export const metadata: Metadata = buildPageMetadata({
   canonical: "/team",
 });
 
+const members = [...(teamData as TeamMember[])].sort((left, right) =>
+  left.name.localeCompare(right.name),
+);
+
+const filterMembers = (predicate: (member: TeamMember) => boolean) => members.filter(predicate);
+
+const hqGroups: MemberGroup[] = [
+  {
+    label: "Staff",
+    members: filterMembers((member) => member.department === "HQ" && Boolean(member.staff)),
+  },
+  {
+    label: "Gap Years",
+    members: filterMembers((member) => member.department === "HQ" && Boolean(member.gapyear)),
+  },
+  {
+    label: "Teen Contributors",
+    members: filterMembers(
+      (member) => member.department === "HQ" && !member.staff && !member.gapyear,
+    ),
+  },
+];
+
+const hcbGroups: MemberGroup[] = [
+  {
+    label: "Staff",
+    members: filterMembers((member) => member.department === "HCB" && Boolean(member.staff)),
+  },
+  {
+    label: "Contributors",
+    members: filterMembers((member) => member.department === "HCB" && !member.staff),
+  },
+];
+
+const communityPods: CommunityPodData[] = [
+  {
+    title: "Moderation",
+    description: "Keeping spaces safe, welcoming, and healthy as the community grows.",
+    tone: "rose",
+    members: filterMembers((member) => member.department === "Moderation"),
+  },
+  {
+    title: "Welcomers",
+    description: "The first hello for new Hack Clubbers showing up in the Slack.",
+    tone: "sun",
+    members: filterMembers((member) => member.department === "Welcoming"),
+  },
+  {
+    title: "Virtual Events",
+    description: "Running online moments, experiments, and community-wide activities.",
+    tone: "sun",
+    members: filterMembers((member) => member.department === "Events"),
+  },
+  {
+    title: "Newspaper",
+    description: "Publishing stories about the community and showcasing makers.",
+    tone: "rose",
+    members: filterMembers((member) => member.department === "Newspaper"),
+  },
+];
+
 export default function TeamPage() {
-  return <TeamPageClient />;
+  return <TeamPageClient hqGroups={hqGroups} hcbGroups={hcbGroups} communityPods={communityPods} />;
 }

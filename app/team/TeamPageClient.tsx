@@ -4,9 +4,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";
-import teamData from "../../public/team.json";
 
-type TeamMember = {
+export type TeamMember = {
   name: string;
   department: string;
   role: string;
@@ -18,7 +17,7 @@ type TeamMember = {
   gapyear?: boolean;
 };
 
-type MemberGroup = {
+export type MemberGroup = {
   label: string;
   members: TeamMember[];
 };
@@ -38,66 +37,13 @@ type CommunityPodProps = {
   members: TeamMember[];
 };
 
-const members = [...(teamData as TeamMember[])].sort((left, right) =>
-  left.name.localeCompare(right.name),
-);
+export type CommunityPodData = CommunityPodProps;
 
-const filterMembers = (predicate: (member: TeamMember) => boolean) => members.filter(predicate);
-
-const hqGroups: MemberGroup[] = [
-  {
-    label: "Staff",
-    members: filterMembers((member) => member.department === "HQ" && Boolean(member.staff)),
-  },
-  {
-    label: "Gap Years",
-    members: filterMembers((member) => member.department === "HQ" && Boolean(member.gapyear)),
-  },
-  {
-    label: "Teen Contributors",
-    members: filterMembers(
-      (member) => member.department === "HQ" && !member.staff && !member.gapyear,
-    ),
-  },
-];
-
-const hcbGroups: MemberGroup[] = [
-  {
-    label: "Staff",
-    members: filterMembers((member) => member.department === "HCB" && Boolean(member.staff)),
-  },
-  {
-    label: "Contributors",
-    members: filterMembers((member) => member.department === "HCB" && !member.staff),
-  },
-];
-
-const communityPods: CommunityPodProps[] = [
-  {
-    title: "Moderation",
-    description: "Keeping spaces safe, welcoming, and healthy as the community grows.",
-    tone: "rose",
-    members: filterMembers((member) => member.department === "Moderation"),
-  },
-  {
-    title: "Welcomers",
-    description: "The first hello for new Hack Clubbers showing up in the Slack.",
-    tone: "sun",
-    members: filterMembers((member) => member.department === "Welcoming"),
-  },
-  {
-    title: "Virtual Events",
-    description: "Running online moments, experiments, and community-wide activities.",
-    tone: "sun",
-    members: filterMembers((member) => member.department === "Events"),
-  },
-  {
-    title: "Newspaper",
-    description: "Publishing stories about the community and showcasing makers.",
-    tone: "rose",
-    members: filterMembers((member) => member.department === "Newspaper"),
-  },
-];
+type TeamPageClientProps = {
+  hqGroups: MemberGroup[];
+  hcbGroups: MemberGroup[];
+  communityPods: CommunityPodData[];
+};
 
 function normalizeWebsite(website?: string) {
   if (!website) {
@@ -277,7 +223,11 @@ function CommunityPod({
   );
 }
 
-export default function TeamPage() {
+export default function TeamPageClient({
+  hqGroups,
+  hcbGroups,
+  communityPods,
+}: TeamPageClientProps) {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
   return (
     <main id="main" tabIndex={-1} className="team-page">
