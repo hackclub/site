@@ -823,7 +823,12 @@ export default function ProgramsPage({
             Every event below is free and open to any teen, over the world. Yes, you can go!
           </p>
           <p
-            style={{ fontFamily: "var(--font-phantom)", fontSize: 20, color: "var(--foreground)", margin: 0 }}
+            style={{
+              fontFamily: "var(--font-phantom)",
+              fontSize: 20,
+              color: "var(--foreground)",
+              margin: 0,
+            }}
           >
             (Check out our program documentary videos{" "}
             <a

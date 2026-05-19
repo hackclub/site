@@ -839,7 +839,9 @@ export function HeroSection() {
             columnGap: 4,
           }}
         >
-          <span style={{ color: "var(--foreground)" }}>For all teens aged 13–18. By continuing, you agree to our</span>
+          <span style={{ color: "var(--foreground)" }}>
+            For all teens aged 13–18. By continuing, you agree to our
+          </span>
           <Link
             href="/privacy-and-terms"
             style={{

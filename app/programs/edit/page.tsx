@@ -1548,7 +1548,11 @@ export default function EditPage() {
                         {prog.ysws.name}
                       </span>
                       <span
-                        style={{ fontFamily: "var(--font-phantom)", fontSize: 13, color: "var(--muted)" }}
+                        style={{
+                          fontFamily: "var(--font-phantom)",
+                          fontSize: 13,
+                          color: "var(--muted)",
+                        }}
                       >
                         {new Date(prog.ysws.startDate).toLocaleDateString("en-GB", {
                           day: "numeric",
