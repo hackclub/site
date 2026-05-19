@@ -50,7 +50,7 @@ const stickers = create(20);
 
 export default function NotFound() {
   return (
-    <main id="main" tabIndex={-1} style={{ background: "#fff6eb", minHeight: "100vh" }}>
+    <main id="main" tabIndex={-1} style={{ background: "var(--background)", minHeight: "100vh" }}>
       <section
         style={{
           position: "relative",
@@ -122,7 +122,7 @@ export default function NotFound() {
               fontFamily: font,
               fontWeight: 500,
               fontSize: "clamp(24px, 4.2vw, 48px)",
-              color: "#17171d",
+              color: "var(--foreground)",
               lineHeight: 1.08,
             }}
           >
@@ -135,7 +135,7 @@ export default function NotFound() {
               fontFamily: font,
               fontSize: "clamp(16px, 1.7vw, 22px)",
               maxWidth: 620,
-              color: "rgba(23,23,29,0.72)",
+              color: "var(--muted)",
               lineHeight: 1.28,
             }}
           >
@@ -147,7 +147,7 @@ export default function NotFound() {
               href="https://github.com/hackclub/site/issues"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "rgba(23,23,29,0.72)", textDecoration: "underline" }}
+              style={{ color: "var(--muted)", textDecoration: "underline" }}
             >
               GitHub repo
             </a>
@@ -168,8 +168,8 @@ export default function NotFound() {
               className="go-home-btn"
               style={{
                 ...base,
-                color: "#ffffff",
-                background: "#17171d",
+                color: "var(--cream)",
+                background: "var(--ink)",
               }}
             >
               Go home
@@ -178,9 +178,9 @@ export default function NotFound() {
               href="/programs"
               style={{
                 ...base,
-                color: "#17171d",
-                border: "1.5px solid rgba(23,23,29,0.18)",
-                background: "rgba(255,255,255,0.66)",
+                color: "var(--foreground)",
+                border: "1.5px solid var(--border)",
+                background: "var(--nav-bg)",
               }}
             >
               Explore programs
@@ -227,7 +227,7 @@ export default function NotFound() {
           }
 
           .go-home-btn:hover {
-            background: #ec3750;
+            background: var(--red);
           }
 
           @keyframes drift-right {

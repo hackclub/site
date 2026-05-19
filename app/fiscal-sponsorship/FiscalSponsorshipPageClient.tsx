@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ThemeLock } from "@/components/ThemeToggle";
 import { Features } from "@/components/fiscal-sponsorship/Features";
 import { OrganizationGrid } from "@/components/fiscal-sponsorship/OrganizationSpotlight";
 import { ContactBanner } from "@/components/fiscal-sponsorship/ContactBanner";
@@ -565,6 +566,7 @@ export default function FiscalSponsorshipPage() {
 
   return (
     <>
+      <ThemeLock />
       <Navbar invertColors />
       <main id="main" tabIndex={-1}>
         {/* Hero */}

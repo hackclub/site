@@ -15,8 +15,8 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
   const isDraft = parseLocalDate(program.startDate) > now;
 
   const s = program.site;
-  const bgColor = s?.bgColor ?? "#ffffff";
-  const textColor = s?.textColor ?? "#17171d";
+  const bgColor = s?.bgColor ?? "var(--surface)";
+  const textColor = s?.textColor ?? "var(--foreground)";
   const accentColor = s?.accentColor ?? "#ec3750";
   const logoUrl = s?.logoUrl ?? null;
   const logoSize = s?.logoSize ?? 48;
@@ -26,7 +26,7 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
   const buttonTextColor = s?.buttonTextColor ?? "#ffffff";
   const buttonRadius = s?.buttonBorderRadius ?? 44;
   const buttonBorderWidth = s?.buttonBorderWidth ?? 0;
-  const buttonBorderColor = s?.buttonBorderColor ?? "#17171d";
+  const buttonBorderColor = s?.buttonBorderColor ?? "var(--foreground)";
   const slackChannel = s?.slackChannel ?? null;
   const slackUrl = slackChannel
     ? `https://hackclub.slack.com/channels/${slackChannel.replace(/^#/, "")}`
@@ -277,7 +277,7 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
             right: 0,
             height: 36,
             width: 130,
-            background: badgeEnded ? "#e0e6ed" : "#ec3750",
+            background: badgeEnded ? "var(--surface-hover)" : "var(--red)",
             borderTopLeftRadius: 8,
             display: "flex",
             alignItems: "center",
@@ -289,7 +289,7 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
               fontFamily: "var(--font-phantom)",
               fontWeight: "bold",
               fontSize: 16,
-              color: badgeEnded ? "#17171d" : "#ffffff",
+              color: badgeEnded ? "var(--foreground)" : "var(--paper)",
               whiteSpace: "nowrap",
             }}
           >
@@ -307,7 +307,7 @@ function CardSkeleton() {
     <div
       style={{
         borderRadius: 16,
-        background: "#f0f0f0",
+        background: "var(--surface-hover)",
         minHeight: 260,
         animation: "pulse 1.5s ease-in-out infinite",
       }}
@@ -316,7 +316,7 @@ function CardSkeleton() {
 }
 
 // ── Chevron icon ──────────────────────────────────────────────────────────────
-function Chevron({ color = "#17171d" }: { color?: string }) {
+function Chevron({ color = "currentColor" }: { color?: string }) {
   return (
     <svg width="14" height="8" viewBox="0 0 14 8" fill="none" style={{ flexShrink: 0 }}>
       <path
@@ -406,11 +406,11 @@ function PillDropdown({
           paddingLeft: active ? 8 : 16,
           paddingRight: 16,
           borderRadius: 9999,
-          border: "2.5px solid #ec3750",
+          border: "2.5px solid var(--red)",
           background: "transparent",
           fontFamily: "var(--font-phantom)",
           fontSize: 20,
-          color: active ? "#ec3750" : "#17171d",
+          color: active ? "var(--red)" : "var(--foreground)",
           cursor: "pointer",
           whiteSpace: "nowrap",
           outline: "none",
@@ -447,7 +447,7 @@ function PillDropdown({
           </span>
         )}
         {label}
-        <Chevron color={active ? "#ec3750" : "#17171d"} />
+        <Chevron />
       </button>
       {mounted && (
         <div
@@ -457,8 +457,8 @@ function PillDropdown({
             position: "absolute",
             top: "calc(100% + 8px)",
             left: 0,
-            background: "#fff",
-            border: "3px solid #ec3750",
+            background: "var(--surface)",
+            border: "3px solid var(--red)",
             borderRadius: 16,
             padding: "12px 16px",
             display: "flex",
@@ -495,7 +495,7 @@ function CheckItem({
         cursor: "pointer",
         fontFamily: "var(--font-phantom)",
         fontSize: 20,
-        color: "#17171d",
+        color: "var(--foreground)",
         userSelect: "none",
       }}
     >
@@ -504,8 +504,8 @@ function CheckItem({
           width: 20,
           height: 20,
           borderRadius: 6,
-          border: "2.5px solid #ec3750",
-          background: checked ? "#ec3750" : "transparent",
+          border: "2.5px solid var(--red)",
+          background: checked ? "var(--red)" : "transparent",
           display: "inline-flex",
           alignItems: "center",
           justifyContent: "center",
@@ -707,7 +707,7 @@ export default function ProgramsPage({
       tabIndex={-1}
       style={{
         position: "relative",
-        background: "#ffffff",
+        background: "var(--background)",
         minHeight: "100vh",
         overflow: "hidden",
       }}
@@ -745,7 +745,7 @@ export default function ProgramsPage({
           position: "absolute",
           inset: 0,
           background:
-            "linear-gradient(180deg, rgba(236,55,80,0.18) 0%, rgba(236,55,80,0.04) 20%, rgba(255,255,255,0) 40%)",
+            "linear-gradient(180deg, rgba(236,55,80,0.18) 0%, rgba(236,55,80,0.04) 20%, transparent 40%)",
           pointerEvents: "none",
           zIndex: 0,
         }}
@@ -804,7 +804,7 @@ export default function ProgramsPage({
             fontSize: 60,
             fontWeight: "normal",
             lineHeight: 0.92,
-            color: "#17171d",
+            color: "var(--foreground)",
             textAlign: "center",
             margin: "40px 0 16px",
           }}
@@ -816,14 +816,14 @@ export default function ProgramsPage({
             style={{
               fontFamily: "var(--font-phantom)",
               fontSize: 20,
-              color: "#17171d",
+              color: "var(--foreground)",
               margin: "0 0 4px",
             }}
           >
             Every event below is free and open to any teen, over the world. Yes, you can go!
           </p>
           <p
-            style={{ fontFamily: "var(--font-phantom)", fontSize: 20, color: "#17171d", margin: 0 }}
+            style={{ fontFamily: "var(--font-phantom)", fontSize: 20, color: "var(--foreground)", margin: 0 }}
           >
             (Check out our program documentary videos{" "}
             <a
@@ -840,10 +840,10 @@ export default function ProgramsPage({
         {/* Search */}
         <div
           style={{
-            background: "#fff",
+            background: "var(--surface)",
             borderRadius: 9999,
             height: 64,
-            border: "2.5px solid #e0e6ed",
+            border: "2.5px solid var(--border)",
             display: "flex",
             alignItems: "center",
             paddingLeft: 28,
@@ -856,7 +856,7 @@ export default function ProgramsPage({
             height="22"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#17171d"
+            stroke="currentColor"
             strokeWidth="2.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -877,7 +877,7 @@ export default function ProgramsPage({
               border: "none",
               fontFamily: "var(--font-phantom)",
               fontSize: 20,
-              color: "#17171d",
+              color: "var(--foreground)",
             }}
           />
         </div>
@@ -927,8 +927,8 @@ export default function ProgramsPage({
                   position: "absolute",
                   top: "calc(100% + 8px)",
                   left: 0,
-                  background: "#fff",
-                  border: "3px solid #ec3750",
+                  background: "var(--surface)",
+                  border: "3px solid var(--red)",
                   borderRadius: 16,
                   padding: "12px 16px",
                   display: "flex",
@@ -949,13 +949,13 @@ export default function ProgramsPage({
                       closeSortPanel();
                     }}
                     style={{
-                      background: sort === k ? "#ec3750" : "transparent",
+                      background: sort === k ? "var(--red)" : "transparent",
                       border: "none",
                       borderRadius: 8,
                       padding: "8px 12px",
                       fontFamily: "var(--font-phantom)",
                       fontSize: 20,
-                      color: sort === k ? "#fff" : "#17171d",
+                      color: sort === k ? "#fff" : "var(--foreground)",
                       cursor: "pointer",
                       textAlign: "left",
                     }}
@@ -1044,7 +1044,7 @@ export default function ProgramsPage({
             style={{
               fontFamily: "var(--font-phantom)",
               fontSize: 20,
-              color: "#17171d",
+              color: "var(--foreground)",
               opacity: 0.5,
               textAlign: "center",
               marginTop: 40,
@@ -1068,7 +1068,7 @@ export default function ProgramsPage({
             style={{
               fontFamily: "var(--font-phantom)",
               fontSize: 20,
-              color: "#17171d",
+              color: "var(--foreground)",
               opacity: 0.55,
               margin: 0,
             }}
@@ -1088,7 +1088,7 @@ export default function ProgramsPage({
             style={{
               fontFamily: "var(--font-phantom)",
               fontSize: 20,
-              color: "#17171d",
+              color: "var(--foreground)",
               opacity: 0.55,
               margin: 0,
             }}

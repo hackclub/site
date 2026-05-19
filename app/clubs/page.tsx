@@ -26,8 +26,8 @@ function FeatureCard({
     <article
       style={{
         borderRadius: 18,
-        border: "1px solid rgba(23,23,29,0.12)",
-        background: "#ffffff",
+        border: "1px solid var(--border)",
+        background: "var(--surface)",
         padding: "22px 20px",
         boxShadow: "0 10px 28px rgba(23,23,29,0.08)",
       }}
@@ -50,7 +50,7 @@ function FeatureCard({
           fontWeight: 700,
           fontSize: 27,
           lineHeight: 1.1,
-          color: "#17171d",
+          color: "var(--foreground)",
         }}
       >
         {title}
@@ -61,7 +61,7 @@ function FeatureCard({
           fontFamily: "var(--font-phantom)",
           fontSize: 20,
           lineHeight: 1.25,
-          color: "#17171d",
+          color: "var(--foreground)",
           opacity: 0.92,
         }}
       >
@@ -85,7 +85,7 @@ function StepCard({
       style={{
         borderRadius: 20,
         padding: "26px 22px",
-        color: "#ffffff",
+        color: "var(--paper)",
         background: gradient,
         boxShadow: "0 12px 30px rgba(23,23,29,0.16)",
       }}
@@ -151,7 +151,7 @@ export default function ClubPage() {
               maxWidth: 1100,
               margin: "0 auto",
               textAlign: "center",
-              color: "#fff6eb",
+              color: "var(--cream)",
             }}
           >
             <h1
@@ -162,7 +162,7 @@ export default function ClubPage() {
                 fontWeight: 400,
                 fontSize: "clamp(52px, 8.3vw, 114px)",
                 lineHeight: 0.93,
-                color: "#ffffff",
+                color: "var(--paper)",
               }}
             >
               Don&apos;t run your coding club alone.
@@ -176,7 +176,7 @@ export default function ClubPage() {
                 fontFamily: "var(--font-phantom)",
                 fontSize: "clamp(24px, 2.3vw, 35px)",
                 lineHeight: 1.15,
-                color: "#fff6eb",
+                color: "var(--cream)",
                 opacity: 0.95,
               }}
             >
@@ -202,7 +202,7 @@ export default function ClubPage() {
                   alignItems: "center",
                   justifyContent: "center",
                   background: "#ec3750",
-                  color: "#ffffff",
+                  color: "var(--paper)",
                   borderRadius: 999,
                   height: 56,
                   padding: "0 28px",
@@ -223,7 +223,7 @@ export default function ClubPage() {
                   alignItems: "center",
                   justifyContent: "center",
                   background: "linear-gradient(135deg, #338eda 0%, #33d6a6 100%)",
-                  color: "#ffffff",
+                  color: "var(--paper)",
                   borderRadius: 999,
                   height: 56,
                   padding: "0 28px",
@@ -240,8 +240,8 @@ export default function ClubPage() {
 
         <section
           style={{
-            background: "#f9fafc",
-            color: "#17171d",
+            background: "var(--surface)",
+            color: "var(--foreground)",
             padding: "clamp(64px, 8.5vw, 112px) clamp(16px, 6vw, 80px)",
           }}
         >
@@ -299,8 +299,8 @@ export default function ClubPage() {
               <div
                 style={{
                   borderRadius: 18,
-                  background: "#ffffff",
-                  border: "1px solid rgba(23,23,29,0.12)",
+                  background: "var(--background)",
+                  border: "1px solid var(--border)",
                   padding: "20px 18px",
                   boxShadow: "0 8px 22px rgba(23,23,29,0.08)",
                 }}
@@ -385,7 +385,7 @@ export default function ClubPage() {
             overflow: "hidden",
             background:
               "linear-gradient(165deg, rgba(23,23,29,0.95) 0%, rgba(24,29,40,0.95) 100%), url('https://cdn.hackclub.com/019d3f60-c241-7386-825c-68732568c4b4/image.png') center/cover",
-            color: "#ffffff",
+            color: "var(--paper)",
             padding: "clamp(64px, 8.5vw, 108px) clamp(16px, 6vw, 80px)",
             textAlign: "center",
           }}
@@ -439,7 +439,7 @@ export default function ClubPage() {
                 borderRadius: 999,
                 textDecoration: "none",
                 background: "linear-gradient(135deg, #6f31b7 0%, #fb558e 100%)",
-                color: "#ffffff",
+                color: "var(--paper)",
                 fontFamily: "var(--font-phantom)",
                 fontSize: 23,
               }}
@@ -451,8 +451,8 @@ export default function ClubPage() {
 
         <section
           style={{
-            background: "#ffffff",
-            color: "#17171d",
+            background: "var(--background)",
+            color: "var(--foreground)",
             padding: "clamp(64px, 8.5vw, 112px) clamp(16px, 6vw, 80px)",
           }}
         >
@@ -541,7 +541,7 @@ export default function ClubPage() {
               />
               <FeatureCard
                 title="Existing clubs welcome"
-                accent="#17171d"
+                accent="var(--ink)"
                 description={
                   <>
                     Already running a CS club? You can join Hack Club and keep your current name
@@ -555,8 +555,8 @@ export default function ClubPage() {
 
         <section
           style={{
-            background: "#fef2f3",
-            color: "#17171d",
+            background: "var(--surface)",
+            color: "var(--foreground)",
             padding: "clamp(64px, 8.5vw, 106px) clamp(16px, 6vw, 80px)",
           }}
         >
@@ -617,8 +617,8 @@ export default function ClubPage() {
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
-                background: "#17171d",
-                color: "#ffffff",
+                background: "var(--foreground)",
+                color: "var(--background)",
                 borderRadius: 999,
                 minHeight: 56,
                 padding: "0 30px",

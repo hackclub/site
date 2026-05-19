@@ -115,8 +115,8 @@ export default async function JobsPage() {
           background:
             radial-gradient(circle at 10% 0%, rgba(255, 140, 55, 0.2), transparent 34%),
             radial-gradient(circle at 90% 8%, rgba(236, 55, 80, 0.16), transparent 32%),
-            #fffaf4;
-          color: #17171d;
+            var(--background);
+          color: var(--foreground);
         }
 
         .jobs-shell {
@@ -130,7 +130,7 @@ export default async function JobsPage() {
           background:
             radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.36), transparent 32%),
             radial-gradient(circle at 90% 0%, rgba(255, 140, 55, 0.35), transparent 35%),
-            linear-gradient(135deg, #17171d 0%, #2e1719 45%, #ec3750 100%);
+            linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 45%, var(--red) 100%);
           padding: 120px 0 88px;
         }
 
@@ -144,7 +144,7 @@ export default async function JobsPage() {
 
         .jobs-hero__copy {
           max-width: 800px;
-          color: #fff6eb;
+          color: var(--cream);
           text-align: center;
         }
 
@@ -154,7 +154,7 @@ export default async function JobsPage() {
           font-weight: 400;
           font-size: clamp(3rem, 6.8vw, 5.6rem);
           line-height: 0.92;
-          color: #fff6eb;
+          color: var(--cream);
         }
 
         .jobs-hero__lede {
@@ -219,8 +219,8 @@ export default async function JobsPage() {
         .jobs-card {
           border-radius: 24px;
           padding: 20px 22px;
-          background: #ffffff;
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           box-shadow: 0 18px 40px rgba(91, 52, 18, 0.08);
           text-decoration: none;
           color: inherit;
@@ -250,14 +250,14 @@ export default async function JobsPage() {
 
         .jobs-card__head span {
           font-size: 1.2rem;
-          color: #ec3750;
+          color: var(--red);
         }
 
         .jobs-card p {
           margin: 0;
           font-family: var(--font-phantom);
           font-size: 0.95rem;
-          color: rgba(23, 23, 29, 0.7);
+          color: var(--muted);
         }
 
         .jobs-empty {
@@ -265,9 +265,9 @@ export default async function JobsPage() {
           border-radius: 28px;
           padding: 28px;
           text-align: center;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 244, 235, 0.96));
-          border: 1px dashed rgba(23, 23, 29, 0.2);
-          color: rgba(23, 23, 29, 0.7);
+          background: var(--surface);
+          border: 1px dashed var(--border);
+          color: var(--muted);
         }
 
         .jobs-empty h3 {

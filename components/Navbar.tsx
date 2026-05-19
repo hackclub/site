@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ThemeToggle } from "./ThemeToggle";
 
 const about = [
   { label: "Philosophy", href: "/philosophy" },
@@ -72,10 +73,10 @@ function DropdownMenu({ items, menuId }: { items: Item[]; menuId: string }) {
             minWidth: 220,
             zIndex: 100,
             pointerEvents: "auto",
-            ["--dd-bg" as string]: "#ffffff",
-            ["--dd-shadow" as string]: "0 8px 32px rgba(0,0,0,0.13)",
-            ["--dd-link" as string]: "#17171d",
-            ["--dd-hover" as string]: "#f9fafc",
+            ["--dd-bg" as string]: "var(--surface)",
+            ["--dd-shadow" as string]: "var(--shadow-dd)",
+            ["--dd-link" as string]: "var(--foreground)",
+            ["--dd-hover" as string]: "var(--surface-hover)",
           } as React.CSSProperties
         }
       >
@@ -155,14 +156,12 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
   }, []);
 
   const inv = invertColors && !scrolled;
-  const txt = inv ? "#fff6eb" : "#17171d";
-  const muted = inv ? "rgba(255, 246, 235, 0.7)" : "#17171d";
-  const btnBg = inv ? "#fff6eb" : "#17171d";
-  const btnTxt = inv ? "#17171d" : "#ffffff";
-  const btnHover = inv ? "#ec3750" : "#2c2c33";
-  const ham = inv ? "#fff6eb" : "#17171d";
-  const mobBg = inv ? "rgba(23, 23, 29, 0.96)" : "rgba(254,242,243,0.97)";
-  const mobBorder = inv ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(0,0,0,0.08)";
+  const txt = inv ? "var(--cream)" : "var(--foreground)";
+  const muted = inv ? "rgba(255, 246, 235, 0.7)" : "var(--muted)";
+  const btnTxt = inv ? "var(--ink)" : "var(--background)";
+  const btnHover = "var(--red)";
+  const mobBg = inv ? "rgba(23, 23, 29, 0.96)" : "var(--nav-bg)";
+  const mobBorder = `1px solid ${inv ? "rgba(255, 255, 255, 0.08)" : "var(--border)"}`;
 
   const enter = (l: string) => {
     if (timer.current) clearTimeout(timer.current);
@@ -335,6 +334,8 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
             );
           })}
 
+          <ThemeToggle />
+
           <a
             href="https://slack.hackclub.com"
             className="dark-btn nav-cta"
@@ -381,7 +382,7 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
                 display: "block",
                 width: 26,
                 height: 3,
-                background: ham,
+                background: txt,
                 borderRadius: 2,
                 boxShadow: inv ? "0 1px 2px rgba(0,0,0,0.25)" : "none",
                 transform:
@@ -474,7 +475,7 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
                 fontSize: 20,
                 color: btnTxt,
                 textDecoration: "none",
-                background: btnBg,
+                background: txt,
                 borderRadius: 9999,
                 padding: "10px 24px",
                 textAlign: "center",
@@ -484,6 +485,9 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
             >
               Join the community
             </a>
+            <div className="mobile-nav-item" style={{ display: "flex", justifyContent: "center" }}>
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       )}
@@ -497,10 +501,10 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
         }
         @media (max-width: 1023px) {
           .navbar-shell {
-            background: ${scrolled ? "rgba(255,255,255,0.82)" : "transparent"};
+            background: ${scrolled ? "var(--nav-bg)" : "transparent"};
             backdrop-filter: ${scrolled ? "blur(16px)" : "none"};
             -webkit-backdrop-filter: ${scrolled ? "blur(16px)" : "none"};
-            border-bottom: ${scrolled ? "1px solid rgba(0,0,0,0.06)" : "1px solid transparent"};
+            border-bottom: ${scrolled ? "1px solid var(--border)" : "1px solid transparent"};
           }
         }
         .mobile-nav-overlay {
@@ -587,14 +591,14 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
         }
         .nav-cta {
           color: ${btnTxt};
-          background: ${btnBg};
+          background: ${txt};
           transition:
             background 180ms ease,
             color 180ms ease;
         }
         .nav-cta:hover {
           background: ${btnHover};
-          color: #ffffff;
+          color: var(--paper);
         }
         .nav-cta:active {
           transform: translateY(0) scale(0.98);

@@ -397,8 +397,8 @@ export default function TeamPageClient({
           background:
             radial-gradient(circle at top left, rgba(255, 140, 55, 0.24), transparent 34%),
             radial-gradient(circle at top right, rgba(236, 55, 80, 0.18), transparent 28%),
-            #fffaf4;
-          color: #17171d;
+            var(--background);
+          color: var(--foreground);
         }
 
         .team-shell {
@@ -417,7 +417,7 @@ export default function TeamPageClient({
         }
 
         .team-kicker--dark {
-          color: rgba(23, 23, 29, 0.58);
+          color: var(--muted);
         }
 
         .team-hero {
@@ -425,7 +425,7 @@ export default function TeamPageClient({
           overflow: hidden;
           background:
             radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.22), transparent 28%),
-            linear-gradient(135deg, #17171d 0%, #2b1115 44%, #ec3750 100%);
+            linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 44%, var(--red) 100%);
           padding: 120px 0 88px;
         }
 
@@ -448,7 +448,7 @@ export default function TeamPageClient({
           font-family: var(--font-zarathustra);
           font-size: clamp(2.9rem, 5.2vw, 4.8rem);
           line-height: 0.86;
-          color: #fff6eb;
+          color: var(--cream);
           font-weight: 400;
         }
 
@@ -481,8 +481,8 @@ export default function TeamPageClient({
         .team-intro__card {
           border-radius: 32px;
           padding: 28px clamp(24px, 4vw, 40px);
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 244, 235, 0.96));
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           box-shadow: 0 24px 60px rgba(91, 52, 18, 0.12);
         }
 
@@ -512,7 +512,7 @@ export default function TeamPageClient({
           font-family: var(--font-phantom);
           font-size: 1.08rem;
           line-height: 1.55;
-          color: rgba(23, 23, 29, 0.76);
+          color: var(--muted);
         }
 
         .lane-grid {
@@ -526,7 +526,7 @@ export default function TeamPageClient({
           overflow: hidden;
           border-radius: 32px;
           padding: 28px;
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          border: 1px solid var(--border);
           box-shadow: 0 24px 60px rgba(91, 52, 18, 0.08);
         }
 
@@ -536,12 +536,19 @@ export default function TeamPageClient({
             linear-gradient(180deg, rgba(200, 230, 255, 0.98), rgba(180, 220, 255, 0.96));
         }
 
+        html.dark .lane--ember {
+          background:
+            radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 28%),
+            linear-gradient(180deg, rgba(30, 45, 70, 0.85), rgba(22, 32, 52, 0.9));
+          color: var(--paper);
+        }
+
         .lane--ink {
           background:
             radial-gradient(circle at top right, rgba(236, 55, 80, 0.3), transparent 30%),
             radial-gradient(circle at bottom left, rgba(255, 140, 55, 0.24), transparent 38%),
-            linear-gradient(180deg, rgba(255, 245, 238, 0.99), rgba(255, 225, 231, 0.96));
-          color: #17171d;
+            var(--surface);
+          color: var(--foreground);
         }
 
         .lane__eyebrow {
@@ -551,11 +558,11 @@ export default function TeamPageClient({
           font-weight: 700;
           letter-spacing: 0.16em;
           text-transform: uppercase;
-          color: rgba(23, 23, 29, 0.52);
+          color: var(--muted);
         }
 
         .lane--ink .lane__eyebrow {
-          color: rgba(23, 23, 29, 0.52);
+          color: var(--muted);
         }
 
         .lane__title {
@@ -571,11 +578,11 @@ export default function TeamPageClient({
           font-family: var(--font-phantom);
           font-size: 1rem;
           line-height: 1.5;
-          color: rgba(23, 23, 29, 0.72);
+          color: var(--muted);
         }
 
         .lane--ink .lane__description {
-          color: rgba(23, 23, 29, 0.72);
+          color: var(--muted);
         }
 
         .lane__groups {
@@ -612,11 +619,11 @@ export default function TeamPageClient({
           font-family: var(--font-phantom);
           font-size: 0.96rem;
           font-weight: 700;
-          background: rgba(23, 23, 29, 0.08);
+          background: var(--border);
         }
 
         .lane--ink .lane__group-head span {
-          background: rgba(23, 23, 29, 0.08);
+          background: var(--border);
         }
 
         .pod-grid {
@@ -628,27 +635,27 @@ export default function TeamPageClient({
         .pod {
           border-radius: 30px;
           padding: 24px;
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          border: 1px solid var(--border);
           box-shadow: 0 22px 48px rgba(91, 52, 18, 0.08);
         }
 
         .pod--sun {
           background:
             radial-gradient(circle at top right, rgba(255, 140, 55, 0.22), transparent 24%),
-            linear-gradient(180deg, rgba(255, 247, 235, 0.98), rgba(255, 240, 220, 0.94));
+            var(--surface);
         }
 
         .pod--rose {
           background:
             radial-gradient(circle at top right, rgba(236, 55, 80, 0.18), transparent 24%),
-            linear-gradient(180deg, rgba(255, 245, 245, 0.98), rgba(255, 233, 235, 0.94));
+            var(--surface);
         }
 
         .pod--ink {
           background:
             radial-gradient(circle at top right, rgba(255, 140, 55, 0.14), transparent 22%),
             linear-gradient(180deg, rgba(53, 50, 51, 0.98), rgba(43, 39, 45, 0.98));
-          color: #ffffff;
+          color: var(--paper);
         }
 
         .pod__header {
@@ -665,7 +672,7 @@ export default function TeamPageClient({
           font-weight: 700;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: rgba(23, 23, 29, 0.5);
+          color: var(--muted);
         }
 
         .pod--ink .pod__label {
@@ -685,7 +692,7 @@ export default function TeamPageClient({
           font-family: var(--font-phantom);
           font-size: 0.98rem;
           line-height: 1.5;
-          color: rgba(23, 23, 29, 0.74);
+          color: var(--muted);
         }
 
         .pod--ink .pod__description {
@@ -709,13 +716,13 @@ export default function TeamPageClient({
           min-height: 100%;
           border-radius: 22px;
           padding: 16px;
-          background: rgba(255, 255, 255, 0.82);
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           box-shadow: 0 12px 24px rgba(91, 52, 18, 0.06);
           transition:
-            transform 0.18s ease,
-            box-shadow 0.18s ease,
-            border-color 0.18s ease;
+            transform 0.22s ease-out,
+            box-shadow 0.22s ease-out,
+            border-color 0.22s ease-out;
           cursor: pointer;
         }
 
@@ -726,13 +733,13 @@ export default function TeamPageClient({
         }
 
         .pod--ink .person-card {
-          background: rgba(23, 23, 29, 0.08);
-          border-color: rgba(23, 23, 29, 0.1);
+          background: rgba(255, 255, 255, 0.08);
+          border-color: rgba(255, 255, 255, 0.12);
           box-shadow: none;
         }
 
         .lane--ink .person-card {
-          background: rgba(255, 255, 255, 0.9);
+          background: var(--surface);
           border-color: rgba(236, 55, 80, 0.2);
           box-shadow: 0 14px 28px rgba(91, 52, 18, 0.09);
         }
@@ -762,7 +769,7 @@ export default function TeamPageClient({
           justify-content: center;
           font-family: var(--font-zarathustra);
           font-size: 2rem;
-          color: #ec3750;
+          color: var(--red);
         }
 
         .person-card__identity {
@@ -782,7 +789,7 @@ export default function TeamPageClient({
           font-family: var(--font-phantom);
           font-size: 0.95rem;
           line-height: 1.3;
-          color: #ec3750;
+          color: var(--red);
         }
 
         .pod--ink .person-card__role {
@@ -798,7 +805,7 @@ export default function TeamPageClient({
           font-family: var(--font-phantom);
           font-size: 0.96rem;
           line-height: 1.48;
-          color: rgba(23, 23, 29, 0.78);
+          color: var(--muted);
           display: -webkit-box;
           -webkit-line-clamp: 4;
           -webkit-box-orient: vertical;
@@ -807,7 +814,7 @@ export default function TeamPageClient({
 
         .pod--ink .person-card__bio,
         .lane--ink .person-card__bio {
-          color: rgba(23, 23, 29, 0.78);
+          color: var(--muted);
         }
 
         .person-card__links {
@@ -826,9 +833,9 @@ export default function TeamPageClient({
           font-family: var(--font-phantom);
           font-size: 0.82rem;
           font-weight: 700;
-          color: #17171d;
+          color: var(--foreground);
           text-decoration: none;
-          background: rgba(23, 23, 29, 0.08);
+          background: var(--border);
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -836,8 +843,8 @@ export default function TeamPageClient({
 
         .pod--ink .person-card__link,
         .lane--ink .person-card__link {
-          color: #17171d;
-          background: rgba(23, 23, 29, 0.08);
+          color: var(--paper);
+          background: rgba(255, 255, 255, 0.12);
         }
 
         .modal-overlay {
@@ -854,7 +861,8 @@ export default function TeamPageClient({
         }
 
         .modal-content {
-          background: white;
+          background: var(--background);
+          color: var(--foreground);
           border-radius: 24px;
           padding: 24px;
           max-width: 400px;
@@ -894,7 +902,7 @@ export default function TeamPageClient({
           margin: 0 0 16px;
           font-family: var(--font-phantom);
           font-size: 1rem;
-          color: #ec3750;
+          color: var(--red);
         }
 
         .modal-bio {
@@ -902,7 +910,7 @@ export default function TeamPageClient({
           font-family: var(--font-phantom);
           font-size: 0.95rem;
           line-height: 1.5;
-          color: rgba(23, 23, 29, 0.78);
+          color: var(--muted);
         }
 
         .modal-links {
@@ -919,9 +927,9 @@ export default function TeamPageClient({
           font-family: var(--font-phantom);
           font-size: 0.9rem;
           font-weight: 700;
-          color: #17171d;
+          color: var(--foreground);
           text-decoration: none;
-          background: rgba(23, 23, 29, 0.08);
+          background: var(--border);
         }
 
         .board-section {
@@ -931,8 +939,8 @@ export default function TeamPageClient({
         .board-section__inner {
           border-radius: 32px;
           padding: 36px clamp(24px, 4vw, 48px);
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 244, 235, 0.96));
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           box-shadow: 0 24px 60px rgba(91, 52, 18, 0.12);
         }
 
@@ -943,7 +951,7 @@ export default function TeamPageClient({
           line-height: 0.96;
           font-weight: 400;
           text-align: center;
-          color: #17171d;
+          color: var(--foreground);
         }
 
         .board-grid {
@@ -993,14 +1001,14 @@ export default function TeamPageClient({
           font-size: 1.1rem;
           font-weight: 700;
           line-height: 1.2;
-          color: #17171d;
+          color: var(--foreground);
         }
 
         .board-card__role {
           margin: 0;
           font-family: var(--font-phantom);
           font-size: 0.9rem;
-          color: #ec3750;
+          color: var(--red);
           font-weight: 600;
         }
 
@@ -1008,7 +1016,7 @@ export default function TeamPageClient({
           margin: 0;
           font-family: var(--font-phantom);
           font-size: 0.84rem;
-          color: rgba(23, 23, 29, 0.55);
+          color: var(--muted);
         }
 
         .board-card__bio {
@@ -1016,7 +1024,7 @@ export default function TeamPageClient({
           font-family: var(--font-phantom);
           font-size: 0.92rem;
           line-height: 1.52;
-          color: rgba(23, 23, 29, 0.72);
+          color: var(--muted);
         }
 
         .board-card__pill {
@@ -1028,9 +1036,9 @@ export default function TeamPageClient({
           font-family: var(--font-phantom);
           font-size: 0.82rem;
           font-weight: 700;
-          color: #17171d;
+          color: var(--foreground);
           text-decoration: none;
-          background: rgba(23, 23, 29, 0.07);
+          background: var(--border);
         }
 
         @media (max-width: 1100px) {

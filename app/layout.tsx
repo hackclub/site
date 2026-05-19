@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import PlausibleProvider from "next-plausible";
 import "./globals.css";
 import { SkipToMainLink } from "../components/SkipToMainLink";
@@ -12,6 +13,8 @@ export const metadata: Metadata = {
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
 };
+
+const themesrc = `(function(){try{var s=localStorage.getItem('hc-site-theme'),t=s==='dark'||s==='light'?s:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),r=document.documentElement;if(t==='dark')r.classList.add('dark');r.style.colorScheme=t;}catch(_){}})();`;
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -37,12 +40,18 @@ export default function RootLayout({
       lang="en"
       className={`h-full ${phantomSans.variable} ${zarathustra.variable}`}
       data-scroll-behavior="smooth"
+      suppressHydrationWarning
     >
       <head>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {themesrc}
+        </Script>
         <link rel="icon" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon.png" />
-        <script
+        <Script
+          id="organization-jsonld"
           type="application/ld+json"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>

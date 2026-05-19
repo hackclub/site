@@ -9,9 +9,12 @@ interface EmailSignupInputProps {
 
 type Variant = NonNullable<EmailSignupInputProps["variant"]>;
 
+const BG = "var(--surface-hover)";
+const BTN_BG = "var(--foreground)";
+const BTN_TXT = "var(--background)";
+
 const cfg = {
   hero: {
-    bg: "#fff",
     w: "min(560px, calc(100vw - 48px))",
     btnW: "clamp(96px, 20vw, 110px)",
     btnH: "clamp(38px, 10vw, 42px)",
@@ -19,14 +22,12 @@ const cfg = {
     hover: true,
   },
   video: {
-    bg: "#e0e6ed",
     w: "100%",
     btnW: "clamp(90px, 27vw, 108px)",
     btnH: "clamp(38px, 10vw, 42px)",
     inputId: "video-email-input",
   },
   ready: {
-    bg: "#e0e6ed",
     w: "min(616px, calc(100vw - 48px))",
     btnW: 100,
     btnH: 40,
@@ -36,7 +37,6 @@ const cfg = {
 } as const satisfies Record<
   Variant,
   {
-    bg: string;
     w: string;
     btnW: number | string;
     btnH: number | string;
@@ -62,7 +62,7 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
   const c = cfg[variant];
   const hasHover = "hover" in c && !!c.hover;
   const boxShadow = err
-    ? "0 0 0 2px #ec3750"
+    ? "0 0 0 2px var(--red)"
     : isReady && f
       ? "0 0 0 3px rgba(236,55,80,0.25)"
       : "none";
@@ -74,7 +74,7 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
           position: "relative",
           display: "flex",
           alignItems: "center",
-          background: c.bg,
+          background: BG,
           borderRadius: 9999,
           width: c.w,
           height: "clamp(48px, 12vw, 52px)",
@@ -113,7 +113,7 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
                 : "clamp(108px, 25vw, 140px)",
             fontFamily: "var(--font-phantom)",
             fontSize: isVideo ? "clamp(16px, 4.8vw, 20px)" : 20,
-            color: "#17171d",
+            color: "var(--foreground)",
           }}
         />
         <button
@@ -123,8 +123,8 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
             top: "50%",
             right: 6,
             transform: "translateY(-50%)",
-            background: "#17171d",
-            color: "#ffffff",
+            background: BTN_BG,
+            color: BTN_TXT,
             border: "none",
             borderRadius: 9999,
             width: c.btnW,
@@ -141,14 +141,14 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
           }}
           onMouseEnter={(ev) => {
             if (hasHover) {
-              ev.currentTarget.style.background = "#ec3750";
-              ev.currentTarget.style.color = "#ffffff";
+              ev.currentTarget.style.background = "var(--red)";
+              ev.currentTarget.style.color = "var(--paper)";
             }
           }}
           onMouseLeave={(ev) => {
             if (hasHover) {
-              ev.currentTarget.style.background = "#17171d";
-              ev.currentTarget.style.color = "#ffffff";
+              ev.currentTarget.style.background = BTN_BG;
+              ev.currentTarget.style.color = BTN_TXT;
             }
           }}
         >
@@ -163,8 +163,8 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
             top: -40,
             left: "50%",
             transform: "translateX(-50%)",
-            background: "#ec3750",
-            color: "#ffffff",
+            background: "var(--red)",
+            color: "var(--paper)",
             padding: "8px 16px",
             borderRadius: 6,
             fontFamily: "var(--font-phantom)",
@@ -187,7 +187,7 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
               height: 0,
               borderLeft: "6px solid transparent",
               borderRight: "6px solid transparent",
-              borderTop: "6px solid #ec3750",
+              borderTop: "6px solid var(--red)",
             }}
           />
         </div>

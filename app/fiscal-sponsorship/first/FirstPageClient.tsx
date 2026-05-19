@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ThemeLock } from "@/components/ThemeToggle";
 import { Icon } from "@/components/Icon";
 import { FISCAL_COLORS, FISCAL_TYPOGRAPHY } from "@/components/fiscal-sponsorship/constants";
 
@@ -605,6 +606,7 @@ export function FirstPageClient() {
 
   return (
     <>
+      <ThemeLock />
       <Navbar invertColors />
       <main id="main" tabIndex={-1} style={{ backgroundColor: "#0f1118" }}>
         <section

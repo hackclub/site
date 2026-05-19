@@ -74,7 +74,7 @@ export function HerePhotosSection() {
     <section
       className="section-padded"
       style={{
-        background: "#ffffff",
+        background: "var(--background)",
         paddingTop: 48,
         paddingBottom: 80,
         paddingLeft: "clamp(24px, 14.29%, 220px)",
@@ -86,7 +86,7 @@ export function HerePhotosSection() {
         style={{
           fontFamily: "var(--font-phantom)",
           fontSize: 20,
-          color: "#17171d",
+          color: "var(--foreground)",
           textAlign: "center",
           marginBottom: 36,
           marginTop: 0,
@@ -99,7 +99,7 @@ export function HerePhotosSection() {
         <a
           href="https://www.youtube.com/@HackClubHQ"
           className="here-photos-youtube-link"
-          style={{ color: "#ec3750", textDecoration: "none" }}
+          style={{ color: "var(--red)", textDecoration: "none" }}
         >
           Youtube.
         </a>
@@ -143,7 +143,7 @@ export function HerePhotosSection() {
               style={{
                 fontFamily: "var(--font-phantom)",
                 fontSize: 20,
-                color: "#17171d",
+                color: "var(--foreground)",
                 margin: 0,
                 lineHeight: 1.2,
                 textAlign: "center",
