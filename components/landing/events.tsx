@@ -212,7 +212,7 @@ function EventCard({ program }: { program: AirtableProgram }) {
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
-            Start now <span className="btn-arrow">→</span>
+            Start now <span className="btn-arrow"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: "block", flexShrink: 0 }}><path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
           </a>
         )}
 
@@ -462,7 +462,7 @@ export function EventsSection({
             cursor: "pointer",
           }}
         >
-          Explore all programs <span className="btn-arrow">→</span>
+          Explore all programs <span className="btn-arrow"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: "block", flexShrink: 0 }}><path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
         </a>
       </div>
 
