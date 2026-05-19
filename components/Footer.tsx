@@ -112,9 +112,10 @@ export function Footer() {
       <Image
         className="site-footer-illustration"
         src="/assets/footer.webp"
-        alt=""
-        width={680}
-        height={350}
+        alt="footer illustration"
+        loading="lazy"
+        width={2048}
+        height={1680}
         style={{
           position: "absolute",
           right: 0,
@@ -249,7 +250,7 @@ export function Footer() {
         .footer-social-link:hover, .footer-social-link:focus-visible { opacity: 1 !important; }
         @media (max-width: 767px) {
           .site-footer { padding-top: 120px !important; }
-          .site-footer-illustration { width: min(320px, 72vw) !important; transform: translateY(-40%) !important; }
+          .site-footer-illustration { width: min(320px, 72vw) !important; height: auto !important; transform: translateY(-40%) !important; }
         }
       `}</style>
     </footer>
