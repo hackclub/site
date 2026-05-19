@@ -234,14 +234,6 @@ const nextConfig: NextConfig = {
         destination: "/content/sunsetting-som",
       },
       {
-        source: "/map",
-        destination: "https://map.hackclub.dev/",
-      },
-      {
-        source: "/map/(.*)",
-        destination: "https://map.hackclub.dev/$1",
-      },
-      {
         source: "/how-to-organize-a-hackathon",
         destination: "https://expandables.hackclub.dev/organizing.html",
       },
