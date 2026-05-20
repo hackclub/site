@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 import { execSync } from "node:child_process";
 
-const getsha = (): string => {
+const getCommitSha = (): string => {
   const sha =
     process.env.NEXT_PUBLIC_COMMIT_SHA ??
     process.env.VERCEL_GIT_COMMIT_SHA ??
@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
   trailingSlash: false,
   productionBrowserSourceMaps: true, // source maps are great for oss :)
   env: {
-    NEXT_PUBLIC_COMMIT_SHA: getsha(),
+    NEXT_PUBLIC_COMMIT_SHA: getCommitSha(),
   },
   async redirects() {
     return [
@@ -264,7 +264,7 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    qualities: [75, 85, 100],
+    qualities: [85],
     remotePatterns: [
       { protocol: "https", hostname: "www.figma.com" },
       { protocol: "https", hostname: "assets.hackclub.com" },

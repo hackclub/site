@@ -2,7 +2,7 @@ import { Icon } from "./Icon";
 import Image from "next/image";
 import Link from "next/link";
 
-const lnk = {
+const footerLinkStyles = {
   fontWeight: 400,
   fontSize: 16,
   color: "#fff",
@@ -11,7 +11,7 @@ const lnk = {
   transition: "opacity 0.15s",
   display: "inline-block",
 } as const;
-const h = {
+const sectionHeadingStyles = {
   fontWeight: 700,
   fontSize: 20,
   color: "#fff",
@@ -57,7 +57,7 @@ function ext(href: string) {
 function LinkCol({ title, links }: { title: string; links: { label: string; href: string }[] }) {
   return (
     <div style={title === "Resources" ? { minWidth: 140 } : undefined}>
-      <p style={h}>{title}</p>
+      <p style={sectionHeadingStyles}>{title}</p>
       <ul
         style={{
           listStyle: "none",
@@ -68,21 +68,21 @@ function LinkCol({ title, links }: { title: string; links: { label: string; href
           gap: 14,
         }}
       >
-        {links.map((l) => (
-          <li key={l.label}>
-            {ext(l.href) ? (
+        {links.map((link) => (
+          <li key={link.label}>
+            {ext(link.href) ? (
               <a
-                href={l.href}
+                href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-link"
-                style={lnk}
+                style={footerLinkStyles}
               >
-                {l.label}
+                {link.label}
               </a>
             ) : (
-              <Link href={l.href} className="footer-link" style={lnk}>
-                {l.label}
+              <Link href={link.href} className="footer-link" style={footerLinkStyles}>
+                {link.label}
               </Link>
             )}
           </li>
@@ -180,13 +180,13 @@ export function Footer() {
             1-855-625-HACK (call toll-free)
           </a>
           <div style={{ display: "flex", gap: 12 }}>
-            {icons.map((i) => (
+            {icons.map((icon) => (
               <a
-                key={i.label}
-                href={i.href}
-                target={ext(i.href) ? "_blank" : undefined}
-                rel={ext(i.href) ? "noopener noreferrer" : undefined}
-                aria-label={i.label}
+                key={icon.label}
+                href={icon.href}
+                target={ext(icon.href) ? "_blank" : undefined}
+                rel={ext(icon.href) ? "noopener noreferrer" : undefined}
+                aria-label={icon.label}
                 className="footer-social-link"
                 style={{
                   display: "flex",
@@ -201,7 +201,7 @@ export function Footer() {
                   color: "#fff",
                 }}
               >
-                <Icon glyph={i.glyph} size={48} />
+                <Icon glyph={icon.glyph} size={48} />
               </a>
             ))}
           </div>
