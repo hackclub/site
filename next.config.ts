@@ -274,8 +274,10 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cachet.dunkirk.sh" },
       { protocol: "https", hostname: "raw.githubusercontent.com" },
       { protocol: "https", hostname: "github.com" },
+      { protocol: "https", hostname: "gravatar.com" },
       { protocol: "https", hostname: "secure.gravatar.com" },
       { protocol: "https", hostname: "www.gravatar.com" },
+      { protocol: "https", hostname: "ui-avatars.com" },
     ],
   },
 };
