@@ -264,7 +264,7 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    qualities: [85],
+    qualities: [75, 85, 100],
     remotePatterns: [
       { protocol: "https", hostname: "www.figma.com" },
       { protocol: "https", hostname: "assets.hackclub.com" },
