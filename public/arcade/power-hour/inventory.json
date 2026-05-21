@@ -1,0 +1,1578 @@
+{
+  "inventory": [
+    {
+      "name": "Stickers",
+      "smallName": "(3 random)",
+      "hours": 1,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5895-1162-7b86-bfa7-e08478a59e4b/stickerpack_image.png",
+      "description": "",
+      "flavorText": [
+        {
+          "message": "Puts the \"ad\" in \"adhesive\"!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "You can have whatever sticker you want, as long as it's random!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        }
+      ]
+    },
+    {
+      "name": "Sticker",
+      "smallName": "(your choice)",
+      "hours": 2,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5895-1162-7b86-bfa7-e08478a59e4b/stickerpack_image.png",
+      "description": "",
+      "flavorText": [
+        {
+          "message": "Puts the \"ad\" in \"adhesive\"!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "You really know what you want, don't you!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Take your pick!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        }
+      ]
+    },
+    {
+      "name": "3d printing",
+      "smallName": "$10 in credits",
+      "hours": 3,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5894-aaf6-7ed4-a172-bae12c7bb368/image.png",
+      "description": "We'll issue you a card for your amount you can use at the 3d printing service of your choice, or for ordering the filament of your choice.",
+      "flavorText": [
+        {
+          "message": "Takes the \"rapid\" out of \"rapid prototyping\"!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "Oh, do they print in chocolate?!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "If a picture is worth 1000 words, a 3d print should be worth [ArithmeticOverflowException]",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9374-7d15-b002-25f25592da7b/007.png"
+        },
+        {
+          "message": "It's like a hot glue gun, but with more steps",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "if you make a 3d printer by printing it, how did they make the first?",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9dae-7201-8bd2-328d370aa941/000.png"
+        }
+      ]
+    },
+    {
+      "name": "Breadboard",
+      "smallName": "& jumper wires",
+      "hours": 4,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5895-0ff5-76f6-9f7e-5e893ec84dbb/jumper_n_breadboard.png",
+      "description": "We can fulfill this to any address Amazon ships to.",
+      "flavorText": [
+        {
+          "message": "Ooooh! Shiny",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-5012-7129-895e-09a1a71d757c/003.png"
+        },
+        {
+          "message": "Red to red and black to black!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "And if you short it, you'll have toast!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "It's a canvas for electrons!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "wonder if it's gluten free?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "an important part of a circuit sandwich",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "low carb!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "no soldering required!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9dae-7201-8bd2-328d370aa941/000.png"
+        },
+        {
+          "message": "breadboard, breadboard, make me a circuit",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        },
+        {
+          "message": "connect the dots!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "any circuit is a smoke machine if you're wrong enough",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-4f4a-7315-861b-eb8c8ddcb860/002.png"
+        }
+      ]
+    },
+    {
+      "name": "Free domain",
+      "smallName": "for 1 year",
+      "hours": 4,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5894-a764-795c-b6f4-f878e4f17520/image.png",
+      "description": "Anything on porkbun.com for under $10 per year.",
+      "flavorText": [
+        {
+          "message": "you could make zombo.com, you could do anything! anything at all...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make zombo.com, you could do anything! anything at all...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make zombo.com, you could do anything! anything at all...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make zombo.com, you could do anything! anything at all...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "the internet is your oyster!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "the internet is your oyster!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "the internet is your oyster!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "the internet is your oyster!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "on the internet nobody will know you're a dog",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a1bf-7816-a0da-9b99f869b2a6/004.png"
+        },
+        {
+          "message": "on the internet nobody will know you're a dog",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a1bf-7816-a0da-9b99f869b2a6/004.png"
+        },
+        {
+          "message": "on the internet nobody will know you're a dog",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a1bf-7816-a0da-9b99f869b2a6/004.png"
+        },
+        {
+          "message": "on the internet nobody will know you're a dog",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a1bf-7816-a0da-9b99f869b2a6/004.png"
+        },
+        {
+          "message": "you could make the next eelslap.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next eelslap.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next eelslap.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next eelslap.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next fallingfalling.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next fallingfalling.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next fallingfalling.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next fallingfalling.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "where the possibilities are endless!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "where the possibilities are endless!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "where the possibilities are endless!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "where the possibilities are endless!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next heeeeeeeey.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next heeeeeeeey.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next heeeeeeeey.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next heeeeeeeey.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What about endless.horse?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What about endless.horse?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What about endless.horse?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What about endless.horse?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ever just go to puginarug.com?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ever just go to puginarug.com?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ever just go to puginarug.com?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ever just go to puginarug.com?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next dinosaurbbq.org!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-bde5-72a8-9c17-b3d45b70423d/02x-speed-ezgif.com-speed.gif"
+        },
+        {
+          "message": "You could make the next dinosaurbbq.org!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-bde5-72a8-9c17-b3d45b70423d/02x-speed-ezgif.com-speed.gif"
+        },
+        {
+          "message": "You could make the next dinosaurbbq.org!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-bde5-72a8-9c17-b3d45b70423d/02x-speed-ezgif.com-speed.gif"
+        },
+        {
+          "message": "You could make the next dinosaurbbq.org!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-bde5-72a8-9c17-b3d45b70423d/02x-speed-ezgif.com-speed.gif"
+        },
+        {
+          "message": "you could make the next staggeringbeauty.com...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        },
+        {
+          "message": "you could make the next staggeringbeauty.com...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        },
+        {
+          "message": "you could make the next staggeringbeauty.com...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        },
+        {
+          "message": "you could make the next staggeringbeauty.com...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        }
+      ]
+    },
+    {
+      "name": "3d printing",
+      "smallName": "$20 in credits",
+      "hours": 6,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5894-aaf6-7ed4-a172-bae12c7bb368/image.png",
+      "description": "We'll issue you a card for your amount you can use at the 3d printing service of your choice, or for ordering the filament of your choice.",
+      "flavorText": [
+        {
+          "message": "Takes the \"rapid\" out of \"rapid prototyping\"!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "Oh, do they print in chocolate?!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "If a picture is worth 1000 words, a 3d print should be worth [ArithmeticOverflowException]",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9374-7d15-b002-25f25592da7b/007.png"
+        },
+        {
+          "message": "It's like a hot glue gun, but with more steps",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "if you make a 3d printer by printing it, how did they make the first?",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9dae-7201-8bd2-328d370aa941/000.png"
+        }
+      ]
+    },
+    {
+      "name": "Multimeter",
+      "smallName": null,
+      "hours": 6,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5894-c6e6-79cc-a22e-26a62fe854c2/image.png",
+      "description": "We can fulfill this to any address Amazon ships to.",
+      "flavorText": [
+        {
+          "message": "V over I * R, right?",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9dae-7201-8bd2-328d370aa941/000.png"
+        },
+        {
+          "message": "Ooooh! Shiny",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-5012-7129-895e-09a1a71d757c/003.png"
+        },
+        {
+          "message": "Red to red and black to black!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What do these things actually measure?",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9dae-7201-8bd2-328d370aa941/000.png"
+        },
+        {
+          "message": "What's up, ohmie?",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "I'm not sure what I'm measuring, but I'm sure it's important",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9dae-7201-8bd2-328d370aa941/000.png"
+        },
+        {
+          "message": "Ohm my!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "It's like a lie detector, but for electrons!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "Red probe on ground, black probe...       ....wait.",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8b52-7ee4-b68d-d5dc1a75e15e/004.png"
+        },
+        {
+          "message": "ooooh, the beep boop box",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-5012-7129-895e-09a1a71d757c/003.png"
+        },
+        {
+          "message": "red to ground, black to power, and... oh, the smoke machine works!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-4f4a-7315-861b-eb8c8ddcb860/002.png"
+        },
+        {
+          "message": "now go measure your... multis?",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9dae-7201-8bd2-328d370aa941/000.png"
+        },
+        {
+          "message": "sigh, i'm sorry, i'm struggling with some good puns for this one",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-4f4a-7315-861b-eb8c8ddcb860/002.png"
+        }
+      ]
+    },
+    {
+      "name": "Soldering iron",
+      "smallName": "+ solder",
+      "hours": 6,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5894-bec6-7485-a91b-febfe8b764cb/soldering_iron.png",
+      "description": "We can fulfill this to any address Amazon ships to.",
+      "flavorText": [
+        {
+          "message": "Warning: May contain lead",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "Be careful if you have a lead allergy!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "hot! Hot! HOT!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9fad-781b-9478-6e675777758e/002.png"
+        },
+        {
+          "message": "It\u2019s like welding but tiny!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "don't hold it by the hot end...\nask me how i know",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "if you used these as chopsticks you could cook your food while you eat it!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-5012-7129-895e-09a1a71d757c/003.png"
+        },
+        {
+          "message": "don't use these as chopsticks...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-4f4a-7315-861b-eb8c8ddcb860/002.png"
+        }
+      ]
+    },
+    {
+      "name": "Hack Hour Clock",
+      "smallName": null,
+      "hours": 7,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5894-a963-7dcf-b76c-1d791247ea84/19719_3.png",
+      "description": "",
+      "flavorText": [
+        {
+          "message": "Ooooh! Shiny",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-5012-7129-895e-09a1a71d757c/003.png"
+        },
+        {
+          "message": "There\u2019s a joke in here somewhere about tracking time so you get a clock, but I can\u2019t think of it rn",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8b52-7ee4-b68d-d5dc1a75e15e/004.png"
+        },
+        {
+          "message": "Every hour more power!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "Tick tock!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "An hour a day keeps the doctor away!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9374-7d15-b002-25f25592da7b/007.png"
+        },
+        {
+          "message": "Psh, it's just a pico and a 7-segment display...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "I bet you could use that pi pico for something fun",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        },
+        {
+          "message": "oh no, it's ticking down!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9fad-781b-9478-6e675777758e/002.png"
+        },
+        {
+          "message": "quick, do something productive!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-4d63-7f69-8168-db5e9ae5ec28/001.png"
+        },
+        {
+          "message": "every time you use this, you get a little bit closer to being a tomato",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9dae-7201-8bd2-328d370aa941/000.png"
+        },
+        {
+          "message": "go on, take a break! you've earned it!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-4d63-7f69-8168-db5e9ae5ec28/001.png"
+        },
+        {
+          "message": "pomodoro, pomodoro, wherefore art thou, pomodoro?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-4bb8-79f5-ad40-d5d9fe2b9417/000.png"
+        }
+      ]
+    },
+    {
+      "name": "Free domain",
+      "smallName": "for 2 years",
+      "hours": 8,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5894-a764-795c-b6f4-f878e4f17520/image.png",
+      "description": "Anything on porkbun.com for under $10 per year.",
+      "flavorText": [
+        {
+          "message": "you could make zombo.com, you could do anything! anything at all...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make zombo.com, you could do anything! anything at all...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make zombo.com, you could do anything! anything at all...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make zombo.com, you could do anything! anything at all...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "the internet is your oyster!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "the internet is your oyster!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "the internet is your oyster!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "the internet is your oyster!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "on the internet nobody will know you're a dog",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a1bf-7816-a0da-9b99f869b2a6/004.png"
+        },
+        {
+          "message": "on the internet nobody will know you're a dog",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a1bf-7816-a0da-9b99f869b2a6/004.png"
+        },
+        {
+          "message": "on the internet nobody will know you're a dog",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a1bf-7816-a0da-9b99f869b2a6/004.png"
+        },
+        {
+          "message": "on the internet nobody will know you're a dog",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a1bf-7816-a0da-9b99f869b2a6/004.png"
+        },
+        {
+          "message": "you could make the next eelslap.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next eelslap.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next eelslap.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next eelslap.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next fallingfalling.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next fallingfalling.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next fallingfalling.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next fallingfalling.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "where the possibilities are endless!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "where the possibilities are endless!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "where the possibilities are endless!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "where the possibilities are endless!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next heeeeeeeey.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next heeeeeeeey.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next heeeeeeeey.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next heeeeeeeey.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What about endless.horse?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What about endless.horse?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What about endless.horse?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What about endless.horse?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ever just go to puginarug.com?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ever just go to puginarug.com?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ever just go to puginarug.com?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ever just go to puginarug.com?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next dinosaurbbq.org!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-bde5-72a8-9c17-b3d45b70423d/02x-speed-ezgif.com-speed.gif"
+        },
+        {
+          "message": "You could make the next dinosaurbbq.org!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-bde5-72a8-9c17-b3d45b70423d/02x-speed-ezgif.com-speed.gif"
+        },
+        {
+          "message": "You could make the next dinosaurbbq.org!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-bde5-72a8-9c17-b3d45b70423d/02x-speed-ezgif.com-speed.gif"
+        },
+        {
+          "message": "You could make the next dinosaurbbq.org!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-bde5-72a8-9c17-b3d45b70423d/02x-speed-ezgif.com-speed.gif"
+        },
+        {
+          "message": "you could make the next staggeringbeauty.com...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        },
+        {
+          "message": "you could make the next staggeringbeauty.com...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        },
+        {
+          "message": "you could make the next staggeringbeauty.com...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        },
+        {
+          "message": "you could make the next staggeringbeauty.com...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        }
+      ]
+    },
+    {
+      "name": "3d printing",
+      "smallName": "$30 in credits",
+      "hours": 9,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5894-aaf6-7ed4-a172-bae12c7bb368/image.png",
+      "description": "We'll issue you a card for your amount you can use at the 3d printing service of your choice, or for ordering the filament of your choice.",
+      "flavorText": [
+        {
+          "message": "Takes the \"rapid\" out of \"rapid prototyping\"!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "Oh, do they print in chocolate?!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "If a picture is worth 1000 words, a 3d print should be worth [ArithmeticOverflowException]",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9374-7d15-b002-25f25592da7b/007.png"
+        },
+        {
+          "message": "It's like a hot glue gun, but with more steps",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "if you make a 3d printer by printing it, how did they make the first?",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9dae-7201-8bd2-328d370aa941/000.png"
+        }
+      ]
+    },
+    {
+      "name": "3d printing",
+      "smallName": "$40 in credits",
+      "hours": 12,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5894-aaf6-7ed4-a172-bae12c7bb368/image.png",
+      "description": "We'll issue you a card for your amount you can use at the 3d printing service of your choice, or for ordering the filament of your choice.",
+      "flavorText": [
+        {
+          "message": "Takes the \"rapid\" out of \"rapid prototyping\"!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "Oh, do they print in chocolate?!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "If a picture is worth 1000 words, a 3d print should be worth [ArithmeticOverflowException]",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9374-7d15-b002-25f25592da7b/007.png"
+        },
+        {
+          "message": "It's like a hot glue gun, but with more steps",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "if you make a 3d printer by printing it, how did they make the first?",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9dae-7201-8bd2-328d370aa941/000.png"
+        }
+      ]
+    },
+    {
+      "name": "Free domain",
+      "smallName": "for 3 years",
+      "hours": 12,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5894-a764-795c-b6f4-f878e4f17520/image.png",
+      "description": "Anything on porkbun.com for under $10 per year.",
+      "flavorText": [
+        {
+          "message": "you could make zombo.com, you could do anything! anything at all...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make zombo.com, you could do anything! anything at all...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make zombo.com, you could do anything! anything at all...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make zombo.com, you could do anything! anything at all...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "the internet is your oyster!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "the internet is your oyster!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "the internet is your oyster!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "the internet is your oyster!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "on the internet nobody will know you're a dog",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a1bf-7816-a0da-9b99f869b2a6/004.png"
+        },
+        {
+          "message": "on the internet nobody will know you're a dog",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a1bf-7816-a0da-9b99f869b2a6/004.png"
+        },
+        {
+          "message": "on the internet nobody will know you're a dog",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a1bf-7816-a0da-9b99f869b2a6/004.png"
+        },
+        {
+          "message": "on the internet nobody will know you're a dog",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a1bf-7816-a0da-9b99f869b2a6/004.png"
+        },
+        {
+          "message": "you could make the next eelslap.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next eelslap.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next eelslap.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next eelslap.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next fallingfalling.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next fallingfalling.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next fallingfalling.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next fallingfalling.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "where the possibilities are endless!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "where the possibilities are endless!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "where the possibilities are endless!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "where the possibilities are endless!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next heeeeeeeey.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next heeeeeeeey.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next heeeeeeeey.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next heeeeeeeey.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What about endless.horse?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What about endless.horse?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What about endless.horse?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What about endless.horse?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ever just go to puginarug.com?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ever just go to puginarug.com?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ever just go to puginarug.com?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ever just go to puginarug.com?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next dinosaurbbq.org!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-bde5-72a8-9c17-b3d45b70423d/02x-speed-ezgif.com-speed.gif"
+        },
+        {
+          "message": "You could make the next dinosaurbbq.org!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-bde5-72a8-9c17-b3d45b70423d/02x-speed-ezgif.com-speed.gif"
+        },
+        {
+          "message": "You could make the next dinosaurbbq.org!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-bde5-72a8-9c17-b3d45b70423d/02x-speed-ezgif.com-speed.gif"
+        },
+        {
+          "message": "You could make the next dinosaurbbq.org!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-bde5-72a8-9c17-b3d45b70423d/02x-speed-ezgif.com-speed.gif"
+        },
+        {
+          "message": "you could make the next staggeringbeauty.com...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        },
+        {
+          "message": "you could make the next staggeringbeauty.com...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        },
+        {
+          "message": "you could make the next staggeringbeauty.com...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        },
+        {
+          "message": "you could make the next staggeringbeauty.com...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        }
+      ]
+    },
+    {
+      "name": "Free domain",
+      "smallName": "for 4 years",
+      "hours": 16,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5894-a764-795c-b6f4-f878e4f17520/image.png",
+      "description": "Anything on porkbun.com for under $10 per year.",
+      "flavorText": [
+        {
+          "message": "you could make zombo.com, you could do anything! anything at all...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make zombo.com, you could do anything! anything at all...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make zombo.com, you could do anything! anything at all...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make zombo.com, you could do anything! anything at all...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "the internet is your oyster!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "the internet is your oyster!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "the internet is your oyster!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "the internet is your oyster!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "on the internet nobody will know you're a dog",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a1bf-7816-a0da-9b99f869b2a6/004.png"
+        },
+        {
+          "message": "on the internet nobody will know you're a dog",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a1bf-7816-a0da-9b99f869b2a6/004.png"
+        },
+        {
+          "message": "on the internet nobody will know you're a dog",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a1bf-7816-a0da-9b99f869b2a6/004.png"
+        },
+        {
+          "message": "on the internet nobody will know you're a dog",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a1bf-7816-a0da-9b99f869b2a6/004.png"
+        },
+        {
+          "message": "you could make the next eelslap.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next eelslap.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next eelslap.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next eelslap.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next fallingfalling.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next fallingfalling.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next fallingfalling.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "you could make the next fallingfalling.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "where the possibilities are endless!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "where the possibilities are endless!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "where the possibilities are endless!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "where the possibilities are endless!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next heeeeeeeey.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next heeeeeeeey.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next heeeeeeeey.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next heeeeeeeey.com!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What about endless.horse?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What about endless.horse?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What about endless.horse?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "What about endless.horse?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ever just go to puginarug.com?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ever just go to puginarug.com?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ever just go to puginarug.com?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ever just go to puginarug.com?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "You could make the next dinosaurbbq.org!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-bde5-72a8-9c17-b3d45b70423d/02x-speed-ezgif.com-speed.gif"
+        },
+        {
+          "message": "You could make the next dinosaurbbq.org!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-bde5-72a8-9c17-b3d45b70423d/02x-speed-ezgif.com-speed.gif"
+        },
+        {
+          "message": "You could make the next dinosaurbbq.org!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-bde5-72a8-9c17-b3d45b70423d/02x-speed-ezgif.com-speed.gif"
+        },
+        {
+          "message": "You could make the next dinosaurbbq.org!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-bde5-72a8-9c17-b3d45b70423d/02x-speed-ezgif.com-speed.gif"
+        },
+        {
+          "message": "you could make the next staggeringbeauty.com...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        },
+        {
+          "message": "you could make the next staggeringbeauty.com...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        },
+        {
+          "message": "you could make the next staggeringbeauty.com...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        },
+        {
+          "message": "you could make the next staggeringbeauty.com...",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-a02c-701b-8c9c-035e0c19455d/003.png"
+        }
+      ]
+    },
+    {
+      "name": "3d printing",
+      "smallName": "$70 in credits",
+      "hours": 21,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5894-aaf6-7ed4-a172-bae12c7bb368/image.png",
+      "description": "We'll issue you a card for your amount you can use at the 3d printing service of your choice, or for ordering the filament of your choice.",
+      "flavorText": [
+        {
+          "message": "Takes the \"rapid\" out of \"rapid prototyping\"!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "Oh, do they print in chocolate?!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "If a picture is worth 1000 words, a 3d print should be worth [ArithmeticOverflowException]",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9374-7d15-b002-25f25592da7b/007.png"
+        },
+        {
+          "message": "It's like a hot glue gun, but with more steps",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "if you make a 3d printer by printing it, how did they make the first?",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9dae-7201-8bd2-328d370aa941/000.png"
+        }
+      ]
+    },
+    {
+      "name": "Wacom",
+      "smallName": "Intuos S",
+      "hours": 30,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5894-c9cc-7646-ae54-a87a9df7e4a9/image.png",
+      "description": "We can fulfill this to any address Amazon ships to.",
+      "flavorText": [
+        {
+          "message": "There's probably a wacom-mole joke I could make here...",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8b52-7ee4-b68d-d5dc1a75e15e/004.png"
+        },
+        {
+          "message": "Ooooh, can I see whatcha gonna draw?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Oh, maybe you could draw me?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "Do you take commissions?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "quick! photoshop or paint tool sai?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Personally, I was drawn on trackpad",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8b52-7ee4-b68d-d5dc1a75e15e/004.png"
+        },
+        {
+          "message": "h-hey! maybe you could make me a ref sheet?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "P-please don't erase me!!!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9fad-781b-9478-6e675777758e/002.png"
+        },
+        {
+          "message": "do you wanna do an art trade?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "Do you wanna use it for hack.af/draw-dino?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png"
+        },
+        {
+          "message": "Ooooh, what's your DeviantArt? I'll give you a llama badge!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "oh oh oh! let me see your OCs!",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png"
+        },
+        {
+          "message": "digital illustration is my passion",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-34ce-70b9-8620-5e67eeb8e364/drawing-dino.png"
+        },
+        {
+          "message": "how many layers are you using?",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-4bb8-79f5-ad40-d5d9fe2b9417/000.png"
+        },
+        {
+          "message": "the pen is mightier than the mouse?",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9dae-7201-8bd2-328d370aa941/000.png"
+        },
+        {
+          "message": "aaah yes, digital art, the only way to draw a straight line",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-4d63-7f69-8168-db5e9ae5ec28/001.png"
+        }
+      ]
+    },
+    {
+      "name": "3d printing",
+      "smallName": "$100 in credits",
+      "hours": 30,
+      "imageURL": "https://user-cdn.hackclub-assets.com/019c5894-aaf6-7ed4-a172-bae12c7bb368/image.png",
+      "description": "We'll issue you a card for your amount you can use at the 3d printing service of your choice, or for ordering the filament of your choice.",
+      "flavorText": [
+        {
+          "message": "Takes the \"rapid\" out of \"rapid prototyping\"!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "Oh, do they print in chocolate?!",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "If a picture is worth 1000 words, a 3d print should be worth [ArithmeticOverflowException]",
+          "character": "Dino",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9374-7d15-b002-25f25592da7b/007.png"
+        },
+        {
+          "message": "It's like a hot glue gun, but with more steps",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png"
+        },
+        {
+          "message": "if you make a 3d printer by printing it, how did they make the first?",
+          "character": "Raccoon",
+          "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9dae-7201-8bd2-328d370aa941/000.png"
+        }
+      ]
+    }
+  ],
+  "selfClicks": {
+    "Raccoon": [
+      {
+        "message": "hey, I'm not for sale!",
+        "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9fad-781b-9478-6e675777758e/002.png",
+        "character": "Raccoon"
+      },
+      {
+        "message": "d-did you just click me?!",
+        "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9fad-781b-9478-6e675777758e/002.png",
+        "character": "Raccoon"
+      },
+      {
+        "message": "I'm *not* for sale!",
+        "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png",
+        "character": "Raccoon"
+      },
+      {
+        "message": "i'm a luxury you can't afford!",
+        "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9fad-781b-9478-6e675777758e/002.png",
+        "character": "Raccoon"
+      },
+      {
+        "message": "click me one more time, i dare you.",
+        "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-45b8-7086-99fe-515d41732d54/002.png",
+        "character": "Raccoon"
+      },
+      {
+        "message": "hey!! i'm allergic to cursors!",
+        "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-45b8-7086-99fe-515d41732d54/002.png",
+        "character": "Raccoon"
+      },
+      {
+        "message": "*angry raccoon chittering noises*",
+        "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-45b8-7086-99fe-515d41732d54/002.png",
+        "character": "Raccoon"
+      },
+      {
+        "message": "i'm flattered you think i'm a treasure, but i'm just trash...",
+        "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-4f4a-7315-861b-eb8c8ddcb860/002.png",
+        "character": "Raccoon"
+      },
+      {
+        "message": "guess who's got 2 thumbs and is not for sale!",
+        "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-49ac-7fa6-bb98-6df567bc18c6/001.png",
+        "character": "Raccoon"
+      }
+    ],
+    "Dino": [
+      {
+        "message": "w-wait, I'm not a marketable plushie!",
+        "characterURL": "https://user-cdn.hackclub-assets.com/019c5895-5788-79af-ae0d-49c53ba9e1b8/untitled_design.png",
+        "character": "Dino"
+      },
+      {
+        "message": "stop clicking!\nt-that tickles!",
+        "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png",
+        "character": "Dino"
+      },
+      {
+        "message": "click me again and you'll be hearing from my lawyers!",
+        "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-9374-7d15-b002-25f25592da7b/007.png",
+        "character": "Dino"
+      },
+      {
+        "message": "*scared dinosaur noises*",
+        "characterURL": "https://user-cdn.hackclub-assets.com/019c5894-8c4b-7b8c-927e-913ce775079c/006.png",
+        "character": "Dino"
+      }
+    ]
+  }
+}
