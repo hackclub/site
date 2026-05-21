@@ -282,6 +282,8 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cachet.dunkirk.sh" },
       { protocol: "https", hostname: "raw.githubusercontent.com" },
       { protocol: "https", hostname: "github.com" },
+      { protocol: "https", hostname: "jer.app" },
+      { protocol: "https", hostname: "user-cdn.hackclub-assets.com"}
     ],
   },
 };

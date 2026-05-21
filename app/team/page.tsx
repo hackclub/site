@@ -48,6 +48,17 @@ const hcbGroups: MemberGroup[] = [
   },
 ];
 
+const clubGroups: MemberGroup[] = [
+  {
+    label: "Staff",
+    members: filterMembers((member) => member.department === "HQ" && Boolean(member.staff) && Boolean(member.club)),
+  },
+  {
+    label: "Teen Contributors",
+    members: filterMembers((member) => member.department === "HQ" && !member.staff && Boolean(member.club)),
+  }
+]
+
 const communityPods: CommunityPodData[] = [
   {
     title: "Moderation",
@@ -76,5 +87,5 @@ const communityPods: CommunityPodData[] = [
 ];
 
 export default function TeamPage() {
-  return <TeamPageClient hqGroups={hqGroups} hcbGroups={hcbGroups} communityPods={communityPods} />;
+  return <TeamPageClient hqGroups={hqGroups} hcbGroups={hcbGroups} clubGroups={clubGroups} communityPods={communityPods} />;
 }

@@ -15,6 +15,7 @@ export type TeamMember = {
   avatar?: string;
   staff?: boolean;
   gapyear?: boolean;
+  club?: boolean;
 };
 
 export type MemberGroup = {
@@ -26,7 +27,7 @@ type TeamLaneProps = {
   eyebrow: string;
   title: string;
   description: string;
-  tone: "ember" | "ink";
+  tone: "ember" | "ink" | "mellow";
   groups: MemberGroup[];
 };
 
@@ -42,6 +43,7 @@ export type CommunityPodData = CommunityPodProps;
 type TeamPageClientProps = {
   hqGroups: MemberGroup[];
   hcbGroups: MemberGroup[];
+  clubGroups: MemberGroup[];
   communityPods: CommunityPodData[];
 };
 
@@ -226,6 +228,7 @@ function CommunityPod({
 export default function TeamPageClient({
   hqGroups,
   hcbGroups,
+  clubGroups,
   communityPods,
 }: TeamPageClientProps) {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
@@ -309,8 +312,9 @@ export default function TeamPageClient({
           <h2 className="team-section__title">Core teams</h2>
           <p className="team-section__copy">
             HQ helps run the main Hack Club experience, while HCB keeps thousands of fiscally
-            sponsored non-profits running. Both are made up of staff, gap years, and teen
-            contributors.
+            sponsored non-profits running and Clubs support thousands of high school coding clubs
+            worldwide.
+            All are made up of staff, gap years, and teen contributors.
           </p>
         </div>
 
@@ -329,6 +333,14 @@ export default function TeamPageClient({
             description="The team keeping nonprofits, reimbursements, and back-office operations moving."
             tone="ink"
             groups={hcbGroups}
+            onMemberClick={setSelectedMember}
+          />
+          <TeamLane
+            eyebrow=""
+            title="Clubs"
+            description="The team who support, teen led, high school coding clubs from around the world."
+            tone="mellow"
+            groups={clubGroups}
             onMemberClick={setSelectedMember}
           />
         </div>
@@ -542,6 +554,12 @@ export default function TeamPageClient({
             radial-gradient(circle at bottom left, rgba(255, 140, 55, 0.24), transparent 38%),
             linear-gradient(180deg, rgba(255, 245, 238, 0.99), rgba(255, 225, 231, 0.96));
           color: #17171d;
+        }
+
+        .lane--mellow {
+          background:
+            radial-gradient(circle at top right, rgba(47, 221, 38, 0.2), transparent 26%),
+            linear-gradient(180deg, rgba(25, 167, 17, 0.2), rgba(61, 211, 54, 0.2));
         }
 
         .lane__eyebrow {
