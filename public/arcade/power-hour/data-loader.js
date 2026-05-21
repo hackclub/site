@@ -1,7 +1,7 @@
 let fetchedDataCache = {};
 
 async function fetchData() {
-  return await fetch("inventory.json").then((d) => d.json());
+  return await fetch("/arcade/power-hour/inventory.json").then((d) => d.json());
 }
 
 async function fetchedDataLoader() {
