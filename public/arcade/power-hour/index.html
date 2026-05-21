@@ -7,7 +7,7 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="https://cloud-n6tkrqcbc-hack-club-bot.vercel.app/0favicon.png"
+      href="https://user-cdn.hackclub-assets.com/019c5894-9bfb-73c4-9e69-e116e5f928cd/favicon.png"
     />
 
     <script>
@@ -28,9 +28,9 @@
       let items = {};
 
       const containerImages = [
-        "https://cloud-3mgl7gw96-hack-club-bot.vercel.app/0container1.png",
-        "https://cloud-13mfwysva-hack-club-bot.vercel.app/0container2.png",
-        "https://cloud-ly6qgiv93-hack-club-bot.vercel.app/0container3.png",
+        "https://user-cdn.hackclub-assets.com/019c5894-b789-77da-bece-164a667d4be6/container1.png",
+        "https://user-cdn.hackclub-assets.com/019c5894-c0cb-7acb-be04-dcb87b6da204/container2.png",
+        "https://user-cdn.hackclub-assets.com/019c5894-b8b1-7aa2-bb38-3cfd8f9e5df5/container3.png",
       ];
 
       const sample = (arr) => arr[Math.floor(Math.random() * arr.length)];
@@ -61,9 +61,11 @@
         function characterImage(character) {
           return (
             {
-              Dino: "https://cloud-h4wi9l5hg-hack-club-bot.vercel.app/2005.png",
-              Raccoon: "https://cloud-nfmmdwony-hack-club-bot.vercel.app/1001.png",
-            }[character] || "https://cloud-6rd1boq71-hack-club-bot.vercel.app/0image.png"
+              Dino: "https://user-cdn.hackclub-assets.com/019c5894-8f50-744e-a07c-98b8e73e9947/005.png",
+              Raccoon:
+                "https://user-cdn.hackclub-assets.com/019c5894-9e2b-748e-87d8-4f2d24173047/001.png",
+            }[character] ||
+            "https://user-cdn.hackclub-assets.com/019c5894-94a2-7ca4-85ac-d5b0b2a5bda2/image.png"
           );
         }
 
@@ -142,7 +144,7 @@
             <image src="${inv.imageURL}" class="itemimg"></image>
             <div class="itemnumber">ITEM ${(i + 1).toString().padStart(2, "0")}</div>
             <div class="price">${inv.hours || "-"}</div>
-            <image src="https://cloud-7kkn345tx-hack-club-bot.vercel.app/0energy.png" class="energy"></image>
+            <image src="https://user-cdn.hackclub-assets.com/019c5894-de86-7fb8-96ed-d433f722db5b/energy.png" class="energy"></image>
             `;
 
             document.querySelector(".item-list").appendChild(el);
@@ -160,7 +162,7 @@
         // audio stuff
         const showMusic = new Howl({
           src: [
-            "https://cloud-akjvxw4d0-hack-club-bot.vercel.app/0indigo_park_ost_-_airplayn___mollie_s_landing_pad____vmy-mxohsuy__audio.mp4",
+            "https://user-cdn.hackclub-assets.com/019c5894-a53d-7425-9d73-0c2748972cf8/indigo_park_ost_-_airplayn___mollie_s_landing_pad____vmy-mxohsuy__audio.mp4",
           ],
           // volume: 0.01,
           loop: true,
