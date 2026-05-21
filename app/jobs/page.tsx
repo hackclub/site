@@ -24,11 +24,11 @@ type JobsResponse = {
 
 const decodeEntities = (value: string) =>
   value
-    .replace(/&amp;/g, "&")
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
     .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">");
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&");
 
 const jobMeta = (job: JobItem) =>
   [job.job_category_name, job.display_location, job.kind_pretty].filter(Boolean).join(" • ");
