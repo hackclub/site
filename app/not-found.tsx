@@ -222,6 +222,12 @@ export default function NotFound() {
             pointer-events: none;
           }
 
+          html.dark .content-veil {
+            background:
+              radial-gradient(circle at top, rgba(23, 23, 29, 0.08), transparent 36%),
+              linear-gradient(180deg, rgba(23, 23, 29, 0.18) 10%, rgba(23, 23, 29, 0.68) 42%, rgba(23, 23, 29, 0.94) 100%);
+          }
+
           .go-home-btn {
             transition: background-color 160ms ease;
           }

@@ -534,6 +534,7 @@ export default function TeamPageClient({
           background:
             radial-gradient(circle at top right, rgba(59, 130, 246, 0.2), transparent 26%),
             linear-gradient(180deg, rgba(200, 230, 255, 0.98), rgba(180, 220, 255, 0.96));
+          color: #17171d;
         }
 
         html.dark .lane--ember {
@@ -561,8 +562,10 @@ export default function TeamPageClient({
           color: var(--muted);
         }
 
-        .lane--ink .lane__eyebrow {
-          color: var(--muted);
+        html.dark .lane--ember .lane__eyebrow,
+        html.dark .lane--ember .lane__description,
+        html.dark .lane--ember .lane__group-head h3 {
+          color: rgba(255, 246, 235, 0.7);
         }
 
         .lane__title {
@@ -578,10 +581,6 @@ export default function TeamPageClient({
           font-family: var(--font-phantom);
           font-size: 1rem;
           line-height: 1.5;
-          color: var(--muted);
-        }
-
-        .lane--ink .lane__description {
           color: var(--muted);
         }
 
@@ -760,7 +759,7 @@ export default function TeamPageClient({
           border-radius: 20px;
           object-fit: cover;
           display: block;
-          background: linear-gradient(135deg, #ffe3c5, #ffd5da);
+          background: var(--surface-hover);
         }
 
         .person-card__avatar--fallback {
@@ -797,7 +796,7 @@ export default function TeamPageClient({
         }
 
         .lane--ink .person-card__role {
-          color: #d92f56;
+          color: var(--red);
         }
 
         .person-card__bio {
@@ -812,7 +811,10 @@ export default function TeamPageClient({
           overflow: hidden;
         }
 
-        .pod--ink .person-card__bio,
+        .pod--ink .person-card__bio {
+          color: rgba(255, 255, 255, 0.7);
+        }
+
         .lane--ink .person-card__bio {
           color: var(--muted);
         }
@@ -879,6 +881,7 @@ export default function TeamPageClient({
           border: none;
           font-size: 24px;
           cursor: pointer;
+          color: var(--foreground);
         }
 
         .modal-avatar {
