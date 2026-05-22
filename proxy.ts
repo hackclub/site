@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const h = new Headers(request.headers);
   h.set("x-pathname", request.nextUrl.pathname);
 

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { headers } from "next/headers";
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 import type { CSSProperties } from "react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -84,7 +84,7 @@ export default async function NotFound() {
   const p = h.get("x-pathname") ?? "";
   const t = await findV3Redirect(p);
   if (t) {
-    redirect(t);
+    permanentRedirect(t);
   }
 
   return (
