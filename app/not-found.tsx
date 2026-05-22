@@ -1,9 +1,40 @@
 import Image from "next/image";
 import Link from "next/link";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 import type { CSSProperties } from "react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { Game } from "../components/not-found/Game";
+
+async function findV3Redirect(pathname: string): Promise<string | null> {
+  if (!pathname || pathname === "/" || pathname.startsWith("/_next")) {
+    return null;
+  }
+
+  const target = `https://v3.hackclub.com/${pathname}`;
+
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 3000);
+
+    const res = await fetch(target, {
+      method: "GET",
+      redirect: "manual",
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeout);
+
+    if (res.status >= 200 && res.status < 400) {
+      return target;
+    }
+  } catch {
+    // fall through to the 404 page.
+  }
+
+  return null;
+}
 
 type FloatTrackStyle = CSSProperties & Record<"--startX", string>;
 type FloatImageStyle = CSSProperties & Record<"--spinStart", string>;
@@ -48,7 +79,14 @@ function create(count: number) {
 
 const stickers = create(20);
 
-export default function NotFound() {
+export default async function NotFound() {
+  const h = await headers();
+  const p = h.get("x-pathname") ?? "";
+  const t = await findV3Redirect(p);
+  if (t) {
+    redirect(t);
+  }
+
   return (
     <main id="main" tabIndex={-1} style={{ background: "#fff6eb", minHeight: "100vh" }}>
       <section
