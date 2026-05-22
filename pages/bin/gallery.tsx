@@ -12,7 +12,7 @@ export async function getStaticProps() {
   const host =
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000'
-      : 'https://hackclub.com'
+      : 'https://v3.hackclub.com'
   const res = await fetch(`${host}/api/bin/gallery/posts/`)
   const posts = await res.json()
 
