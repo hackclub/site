@@ -47,7 +47,7 @@ const Root = styled(Box, {
     !['bgColor', 'scrolled', 'toggled', 'fixed', 'dark'].includes(prop)
 })`
   position: fixed;
-  top: 0;
+  top: var(--new-site-banner, 0px);
   width: 100vw;
   z-index: 1000;
   ${fixed};

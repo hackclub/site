@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
 import Analytics from '../components/analytics'
+import NewSite from '../components/new-site'
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 
@@ -19,6 +20,7 @@ const App = ({ Component, pageProps }) => (
       />
     </Meta>
     <BalancerProvider>
+      <NewSite />
       <Component {...pageProps} />
     </BalancerProvider>
     <Analytics />
