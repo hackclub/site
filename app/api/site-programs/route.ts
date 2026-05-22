@@ -136,8 +136,13 @@ export async function POST(req: NextRequest) {
 
   let res: Response;
   if (recordId) {
+    if (!isValid(recordId)) {
+      return NextResponse.json({ status: 400 });
+    }
+
+    const x = encodeURIComponent(recordId);
     // Update existing record
-    res = await fetch(`${siteBaseUrl()}/${recordId}`, {
+    res = await fetch(`${siteBaseUrl()}/${x}`, {
       method: "PATCH",
       headers: siteAuthHeaders(key),
       body: JSON.stringify({ fields }),
