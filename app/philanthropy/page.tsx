@@ -1116,6 +1116,11 @@ export default function PhilanthropyPage() {
           object-fit: contain;
         }
 
+        html.dark .philanthropy-press img,
+        html.dark .philanthropy-signature-image {
+          filter: invert(1);
+        }
+
         .philanthropy-board {
           margin-top: 28px;
           display: grid;
