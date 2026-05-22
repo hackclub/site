@@ -68,7 +68,7 @@ export async function getProjects(): Promise<AirtableProject[]> {
   return out;
 }
 
-function di(projects: AirtableProject[]): AirtableProject[] {
+function distributeProjects(projects: AirtableProject[]): AirtableProject[] {
   const buckets = new Map<string, AirtableProject[]>();
   for (const p of projects) {
     const k = p.programName ?? `__solo_${p.id}`;
@@ -102,8 +102,8 @@ function di(projects: AirtableProject[]): AirtableProject[] {
 export async function pull(minCards: number): Promise<AirtableProject[]> {
   const projects = await getProjects();
   if (!projects.length) return [];
-  const d = di(projects);
+  const distributedProjects = distributeProjects(projects);
   const out: AirtableProject[] = [];
-  while (out.length < minCards) out.push(...d);
+  while (out.length < minCards) out.push(...distributedProjects);
   return out;
 }

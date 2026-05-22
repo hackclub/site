@@ -26,8 +26,8 @@ const rows = [
   {
     title: "Hack, hack, hack.",
     accent: "#732de4",
-    body: "The goal of Hack Club is to help you become a hacker. We want a space at every school where people are making interesting things with code, every week. Most schools don't provide that, so we're creating it in every school to make building things accessible to everyone.",
-    strongLead: true,
+    leadText: "The goal of Hack Club is to help you become a hacker.",
+    body: "We want a space at every school where people are making interesting things with code, every week. Most schools don't provide that, so we're creating it in every school to make building things accessible to everyone.",
   },
   {
     title: "Start building.",
@@ -84,18 +84,15 @@ export default function PhilosophyPage() {
               </h2>
 
               <p>
-                {row.strongLead ? (
-                  <strong>The goal of Hack Club is to help you become a hacker.</strong>
-                ) : null}
-                {row.strongLead ? " " : ""}
-                {row.strongLead
-                  ? row.body.replace("The goal of Hack Club is to help you become a hacker. ", "")
-                  : row.body}
+                {row.leadText ? <strong>{row.leadText}</strong> : null}
+                {row.leadText && (row.link || row.body) ? " " : ""}
                 {row.link ? (
                   <>
                     {row.bodyPrefix} <a href={row.link.href}>{row.link.label}</a> {row.bodySuffix}
                   </>
-                ) : null}
+                ) : (
+                  row.body
+                )}
               </p>
             </article>
           ))}

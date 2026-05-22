@@ -14,6 +14,10 @@ function apiKey() {
   return process.env.HACK_CLUB_SITE_AIRTABLE_KEY;
 }
 
+function isValid(value: string): boolean {
+  return /^rec[A-Za-z0-9]{10,32}$/.test(value);
+}
+
 function fieldParams() {
   return SITE_FIELDS.map((f) => `fields[]=${encodeURIComponent(f)}`).join("&");
 }
@@ -75,6 +79,10 @@ export async function POST(req: NextRequest) {
     inPersonLocation?: string;
     additionalRequirements?: string | null;
   };
+
+  if (body.recordId !== undefined && !isValid(body.recordId)) {
+    return NextResponse.json({ status: 400 });
+  }
 
   // Authorization — must own this program (or be admin)
   if (!(await canEditProgram(req, body.programName))) {

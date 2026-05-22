@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 import { execSync } from "node:child_process";
 
-const getsha = (): string => {
+const getCommitSha = (): string => {
   const sha =
     process.env.NEXT_PUBLIC_COMMIT_SHA ??
     process.env.VERCEL_GIT_COMMIT_SHA ??
@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
   trailingSlash: false,
   productionBrowserSourceMaps: true, // source maps are great for oss :)
   env: {
-    NEXT_PUBLIC_COMMIT_SHA: getsha(),
+    NEXT_PUBLIC_COMMIT_SHA: getCommitSha(),
   },
   async redirects() {
     return [
@@ -234,14 +234,6 @@ const nextConfig: NextConfig = {
         destination: "/content/sunsetting-som",
       },
       {
-        source: "/map",
-        destination: "https://map.hackclub.dev/",
-      },
-      {
-        source: "/map/(.*)",
-        destination: "https://map.hackclub.dev/$1",
-      },
-      {
         source: "/how-to-organize-a-hackathon",
         destination: "https://expandables.hackclub.dev/organizing.html",
       },
@@ -282,6 +274,10 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cachet.dunkirk.sh" },
       { protocol: "https", hostname: "raw.githubusercontent.com" },
       { protocol: "https", hostname: "github.com" },
+      { protocol: "https", hostname: "gravatar.com" },
+      { protocol: "https", hostname: "secure.gravatar.com" },
+      { protocol: "https", hostname: "www.gravatar.com" },
+      { protocol: "https", hostname: "ui-avatars.com" },
     ],
   },
 };
