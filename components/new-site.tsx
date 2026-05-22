@@ -20,9 +20,7 @@ const NewSite = () => {
     return () => {
       ro.disconnect()
       window.removeEventListener('resize', setHeight)
-      document.documentElement.style.removeProperty(
-        '--new-site-banner'
-      )
+      document.documentElement.style.removeProperty('--new-site-banner')
     }
   }, [])
 
@@ -48,7 +46,14 @@ const NewSite = () => {
         boxShadow: 'elevated'
       }}
     >
-      We have a new home! Visit <a href="https://hackclub.com" style={{ color: 'inherit', textDecoration: 'underline' }}>hackclub.com</a> for the latest, content here might be outdated.
+      We have a new home! Visit{' '}
+      <a
+        href="https://hackclub.com"
+        style={{ color: 'inherit', textDecoration: 'underline' }}
+      >
+        hackclub.com
+      </a>{' '}
+      for the latest, content here might be outdated.
     </Box>
   )
 }
