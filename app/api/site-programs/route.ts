@@ -38,7 +38,8 @@ export async function GET() {
     const records = await getAllRecords(key);
     return NextResponse.json(records.map(parseRecord));
   } catch (e) {
-    return NextResponse.json({ error: String(e) }, { status: 500 });
+    console.error("[site-programs] GET failed", e);
+    return NextResponse.json({ error: "Failed to fetch programs" }, { status: 500 });
   }
 }
 
@@ -122,7 +123,8 @@ export async function POST(req: NextRequest) {
     const match = all.find((r) => (r.fields["Name"] as string | undefined) === body.programName);
     if (match) recordId = match.id;
   } catch (e) {
-    return NextResponse.json({ error: String(e) }, { status: 500 });
+    console.error("[site-programs] record lookup failed", e);
+    return NextResponse.json({ error: "Failed to look up program" }, { status: 500 });
   }
 
   let res: Response;
@@ -150,8 +152,9 @@ export async function POST(req: NextRequest) {
   }
 
   if (!res.ok) {
+    console.error("[site-programs] Airtable error", res.status, await res.text());
     return NextResponse.json(
-      { error: `Airtable error ${res.status}`, detail: await res.text() },
+      { error: `Upstream error ${res.status}` },
       { status: res.status },
     );
   }
