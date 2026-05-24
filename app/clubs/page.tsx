@@ -497,7 +497,7 @@ export default function ClubPage() {
                     Join thousands of leaders in the Hack Club Slack to share ideas, ask questions,
                     and meet peers in{" "}
                     <a
-                      href="leaders.hackclub.com"
+                      href="https://hackclub.enterprise.slack.com/archives/C02PA5G01ND"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ color: "#338eda", textDecoration: "underline" }}
@@ -565,7 +565,7 @@ export default function ClubPage() {
                     Already running a CS club? You can join Hack Club and keep your current name
                     while using all our{" "}
                     <a
-                      href="https://toolbox.hackclub.com/?category=Resources&query="
+                      href="https://toolbox.hackclub.com/?category=Resources"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ color: "#17171d", textDecoration: "underline" }}
