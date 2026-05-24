@@ -153,10 +153,7 @@ export async function POST(req: NextRequest) {
 
   if (!res.ok) {
     console.error("[site-programs] Airtable error", res.status, await res.text());
-    return NextResponse.json(
-      { error: `Upstream error ${res.status}` },
-      { status: res.status },
-    );
+    return NextResponse.json({ error: `Upstream error ${res.status}` }, { status: res.status });
   }
 
   return NextResponse.json(parseRecord(await res.json()) as SiteProgram);
