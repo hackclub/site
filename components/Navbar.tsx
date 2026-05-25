@@ -80,12 +80,7 @@ function DropdownMenu({ items, menuId }: { items: Item[]; menuId: string }) {
         }
       >
         {items.map((i) => (
-          <NL
-            key={i.label}
-            href={i.href}
-            role="menuitem"
-            className="dd-link"
-          >
+          <NL key={i.label} href={i.href} role="menuitem" className="dd-link">
             {i.label}
           </NL>
         ))}
