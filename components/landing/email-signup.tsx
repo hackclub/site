@@ -24,6 +24,7 @@ const cfg = {
     btnW: "clamp(90px, 27vw, 108px)",
     btnH: "clamp(38px, 10vw, 42px)",
     inputId: "video-email-input",
+    hover: true, // Enabled hover color change for the video variant
   },
   ready: {
     bg: "#e0e6ed",
@@ -176,7 +177,7 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
             boxShadow: "0 4px 12px rgba(236,55,80,0.3)",
           }}
         >
-          Please enter a valid email
+          Enter Valid email
           <div
             style={{
               position: "absolute",
