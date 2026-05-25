@@ -385,12 +385,14 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
                 boxShadow: inv ? "0 1px 2px rgba(0,0,0,0.25)" : "none",
                 transform:
                   i === 0 && isOpen
-                    ? "translateY(6px) rotate(45deg)"
-                    : i === 2 && isOpen
-                      ? "translateY(-6px) rotate(-45deg)"
-                      : "none",
+                    ? "translateY(8px) rotate(45deg)"
+                    : i === 1 && isOpen
+                      ? "scaleX(0)"
+                      : i === 2 && isOpen
+                        ? "translateY(-8px) rotate(-45deg)"
+                        : "none",
                 opacity: i === 1 && isOpen ? 0 : 1,
-                transition: `transform 220ms ${ease}, opacity 160ms ease-out`,
+                transition: `transform 220ms ${ease}, opacity 220ms ${ease}`,
               }}
             />
           ))}
