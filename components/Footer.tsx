@@ -218,7 +218,18 @@ export function Footer() {
         </div>
       </div>
 
-      <div style={{ paddingTop: 32, maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
+      <div
+        style={{
+          paddingTop: 32,
+          maxWidth: 1200,
+          margin: "0 auto",
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "space-between",
+          gap: 24,
+          flexWrap: "wrap",
+        }}
+      >
         <p
           style={{
             fontWeight: 400,
