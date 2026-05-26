@@ -129,7 +129,7 @@ export async function POST(req: NextRequest) {
 
   let res: Response;
   if (recordId) {
-    if (!isValid(recordId)) {
+    if (!/^rec[A-Za-z0-9]{14}$/.test(recordId)) {
       return NextResponse.json({ status: 400 });
     }
 
