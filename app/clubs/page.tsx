@@ -495,7 +495,16 @@ export default function ClubPage() {
                 description={
                   <>
                     Join thousands of leaders in the Hack Club Slack to share ideas, ask questions,
-                    and meet peers.
+                    and meet peers in{" "}
+                    <a
+                      href="https://hackclub.enterprise.slack.com/archives/C02PA5G01ND"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "#338eda", textDecoration: "underline" }}
+                    >
+                      #leaders
+                    </a>
+                    .
                   </>
                 }
               />
@@ -505,7 +514,16 @@ export default function ClubPage() {
                 description={
                   <>
                     Use ready-to-run meeting content so beginners can build websites, games, bots,
-                    and more.
+                    and more at{" "}
+                    <a
+                      href="https://jams.hackclub.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "#33d6a6", textDecoration: "underline" }}
+                    >
+                      Hack Club Jams
+                    </a>
+                    .
                   </>
                 }
               />
@@ -545,7 +563,16 @@ export default function ClubPage() {
                 description={
                   <>
                     Already running a CS club? You can join Hack Club and keep your current name
-                    while using all our resources.
+                    while using all our{" "}
+                    <a
+                      href="https://toolbox.hackclub.com/?category=Resources"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "#17171d", textDecoration: "underline" }}
+                    >
+                      resources
+                    </a>
+                    .
                   </>
                 }
               />

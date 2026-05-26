@@ -1,33 +1,46 @@
 import Image from "next/image";
 import Link from "next/link";
 import { headers } from "next/headers";
-import { permanentRedirect } from "next/navigation";
+import { redirect } from "next/navigation";
 import type { CSSProperties } from "react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { Game } from "../components/not-found/Game";
 
-async function findV3Redirect(pathname: string): Promise<string | null> {
+async function findV3Redirect(pathname: string, search: string): Promise<string | null> {
   if (!pathname || pathname === "/" || pathname.startsWith("/_next")) {
     return null;
   }
 
-  const target = `https://v3.hackclub.com/${pathname}`;
+  let target: URL;
+  try {
+    target = new URL(pathname.replace(/^\/+/, ""), "https://v3.hackclub.com/");
+  } catch {
+    return null;
+  }
+
+  if (target.origin !== "https://v3.hackclub.com" || target.pathname === "/") {
+    return null;
+  }
+
+  if (search) {
+    target.search = search;
+  }
 
   try {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 3000);
 
     const res = await fetch(target, {
-      method: "GET",
-      redirect: "manual",
+      method: "HEAD",
+      redirect: "follow",
       signal: controller.signal,
     });
 
     clearTimeout(timeout);
 
-    if (res.status >= 200 && res.status < 400) {
-      return target;
+    if (res.status >= 200 && res.status < 300) {
+      return target.toString();
     }
   } catch {
     // fall through to the 404 page.
@@ -82,9 +95,10 @@ const stickers = create(20);
 export default async function NotFound() {
   const h = await headers();
   const p = h.get("x-pathname") ?? "";
-  const t = await findV3Redirect(p);
+  const s = h.get("x-search") ?? "";
+  const t = await findV3Redirect(p, s);
   if (t) {
-    permanentRedirect(t);
+    redirect(t);
   }
 
   return (

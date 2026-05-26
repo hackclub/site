@@ -9,9 +9,9 @@ const donors = [
     height: 147,
   },
   {
-    src: "https://cdn.hackclub.com/019db857-50fe-7835-bd6b-72fcb4a0475c/donorLogo2.webp",
-    width: 141,
-    height: 142,
+    src: "https://cdn.hackclub.com/019e64cd-d05f-7436-9d0d-ae814369415f/amd.webp",
+    width: 821,
+    height: 197,
   },
   {
     src: "https://cdn.hackclub.com/019db857-53a5-7e88-809e-45709e065277/donorMIT.webp",

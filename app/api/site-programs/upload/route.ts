@@ -52,12 +52,35 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Missing programName, type, or file" }, { status: 400 });
   }
 
+  if (type !== "logo" && type !== "bg") {
+    return NextResponse.json({ error: "Invalid type" }, { status: 400 });
+  }
+
+  const ALLOWED_MIME: Record<string, string> = {
+    "image/png": "png",
+    "image/jpeg": "jpg",
+    "image/gif": "gif",
+    "image/webp": "webp",
+  };
+  const MAX_BYTES = 8 * 1024 * 1024;
+
+  const mime = file.type;
+  const ext = ALLOWED_MIME[mime];
+  if (!ext) {
+    return NextResponse.json(
+      { error: "Unsupported file type. Allowed: PNG, JPEG, GIF, WebP." },
+      { status: 415 },
+    );
+  }
+  if (file.size > MAX_BYTES) {
+    return NextResponse.json({ error: "File too large (max 8 MB)" }, { status: 413 });
+  }
+
   // Authorization — must own this program (or be admin)
   if (!(await canEditProgram(req, programName))) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
-  const ext = file.name.split(".").pop() ?? "png";
   const filename = `${type}.${ext}`;
   const fieldName = type === "logo" ? "Logo" : "BG Image";
 
@@ -83,7 +106,7 @@ export async function POST(req: NextRequest) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        contentType: file.type || "image/png",
+        contentType: mime,
         filename,
         file: base64,
       }),
@@ -91,10 +114,9 @@ export async function POST(req: NextRequest) {
   );
 
   if (!uploadRes.ok) {
-    const detail = await uploadRes.text();
-    console.error("[upload] Airtable content API error", uploadRes.status, detail);
+    console.error("[upload] Airtable content API error", uploadRes.status, await uploadRes.text());
     return NextResponse.json(
-      { error: `Airtable upload error ${uploadRes.status}`, detail },
+      { error: `Upload failed (${uploadRes.status})` },
       { status: uploadRes.status },
     );
   }

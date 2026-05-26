@@ -260,7 +260,6 @@ function UploadButton({
   label,
   type,
   programName,
-  recordId,
   currentUrl,
   onUploaded,
   onRemoved,
@@ -268,7 +267,6 @@ function UploadButton({
   label: string;
   type: "logo" | "bg";
   programName: string;
-  recordId?: string;
   currentUrl: string | null;
   onUploaded: (s: SiteProgram) => void;
   onRemoved: (s: SiteProgram) => void;
@@ -307,8 +305,8 @@ function UploadButton({
     try {
       const body =
         type === "logo"
-          ? { programName, recordId, setLogoUrl: urlInput.trim() }
-          : { programName, recordId, setBgImageUrl: urlInput.trim() };
+          ? { programName, setLogoUrl: urlInput.trim() }
+          : { programName, setBgImageUrl: urlInput.trim() };
       const res = await fetch("/api/site-programs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -336,7 +334,6 @@ function UploadButton({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           programName,
-          recordId,
           clearLogo: type === "logo",
           clearBg: type === "bg",
         }),
@@ -717,7 +714,6 @@ function ProgramEditor({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           programName: prog.ysws.name,
-          recordId: prog.site?.recordId,
           description: prog.draft.description,
           bgType: prog.draft.bgType,
           bgColor: prog.draft.bgColor,
@@ -766,7 +762,6 @@ function ProgramEditor({
               label="Logo"
               type="logo"
               programName={prog.ysws.name}
-              recordId={prog.site?.recordId}
               currentUrl={prog.site?.logoUrl ?? null}
               onUploaded={onSiteUpdate}
               onRemoved={onSiteUpdate}
@@ -830,7 +825,6 @@ function ProgramEditor({
                 label=""
                 type="bg"
                 programName={prog.ysws.name}
-                recordId={prog.site?.recordId}
                 currentUrl={prog.site?.bgImageUrl ?? null}
                 onUploaded={onSiteUpdate}
                 onRemoved={onSiteUpdate}

@@ -14,10 +14,6 @@ function apiKey() {
   return process.env.HACK_CLUB_SITE_AIRTABLE_KEY;
 }
 
-function isValid(value: string): boolean {
-  return /^rec[A-Za-z0-9]{10,32}$/.test(value);
-}
-
 function fieldParams() {
   return SITE_FIELDS.map((f) => `fields[]=${encodeURIComponent(f)}`).join("&");
 }
@@ -42,7 +38,8 @@ export async function GET() {
     const records = await getAllRecords(key);
     return NextResponse.json(records.map(parseRecord));
   } catch (e) {
-    return NextResponse.json({ error: String(e) }, { status: 500 });
+    console.error("[site-programs] GET failed", e);
+    return NextResponse.json({ error: "Failed to fetch programs" }, { status: 500 });
   }
 }
 
@@ -55,7 +52,6 @@ export async function POST(req: NextRequest) {
 
   const body = (await req.json()) as {
     programName: string;
-    recordId?: string;
     description?: string;
     bgType?: "color" | "image";
     bgColor?: string;
@@ -79,10 +75,6 @@ export async function POST(req: NextRequest) {
     inPersonLocation?: string;
     additionalRequirements?: string | null;
   };
-
-  if (body.recordId !== undefined && !isValid(body.recordId)) {
-    return NextResponse.json({ status: 400 });
-  }
 
   // Authorization — must own this program (or be admin)
   if (!(await canEditProgram(req, body.programName))) {
@@ -121,17 +113,18 @@ export async function POST(req: NextRequest) {
   if (body.additionalRequirements !== undefined)
     fields["Additional Requirements"] = body.additionalRequirements;
 
-  let recordId = body.recordId;
-
-  // If no recordId supplied, find by name from the full record list
-  if (!recordId) {
-    try {
-      const all = await getAllRecords(key);
-      const match = all.find((r) => (r.fields["Name"] as string | undefined) === body.programName);
-      if (match) recordId = match.id;
-    } catch (e) {
-      return NextResponse.json({ error: String(e) }, { status: 500 });
-    }
+  // Always resolve recordId server-side from the authorized programName.
+  // Never trust a client-supplied recordId: the authorization check is keyed on
+  // programName, so accepting an arbitrary recordId would let any program owner
+  // edit any other program's record.
+  let recordId: string | undefined;
+  try {
+    const all = await getAllRecords(key);
+    const match = all.find((r) => (r.fields["Name"] as string | undefined) === body.programName);
+    if (match) recordId = match.id;
+  } catch (e) {
+    console.error("[site-programs] record lookup failed", e);
+    return NextResponse.json({ error: "Failed to look up program" }, { status: 500 });
   }
 
   let res: Response;
@@ -164,10 +157,8 @@ export async function POST(req: NextRequest) {
   }
 
   if (!res.ok) {
-    return NextResponse.json(
-      { error: `Airtable error ${res.status}`, detail: await res.text() },
-      { status: res.status },
-    );
+    console.error("[site-programs] Airtable error", res.status, await res.text());
+    return NextResponse.json({ error: `Upstream error ${res.status}` }, { status: res.status });
   }
 
   return NextResponse.json(parseRecord(await res.json()) as SiteProgram);

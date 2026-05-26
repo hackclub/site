@@ -69,7 +69,7 @@ function DropdownMenu({ items, menuId }: { items: Item[]; menuId: string }) {
             background: "var(--dd-bg)",
             borderRadius: 12,
             boxShadow: "var(--dd-shadow)",
-            padding: "8px 0",
+            padding: "8px",
             minWidth: 220,
             zIndex: 100,
             pointerEvents: "auto",
@@ -81,21 +81,7 @@ function DropdownMenu({ items, menuId }: { items: Item[]; menuId: string }) {
         }
       >
         {items.map((i) => (
-          <NL
-            key={i.label}
-            href={i.href}
-            role="menuitem"
-            className="dd-link"
-            style={{
-              display: "block",
-              padding: "10px 20px",
-              fontFamily: F,
-              fontSize: 18,
-              color: "var(--dd-link)",
-              textDecoration: "none",
-              whiteSpace: "nowrap" as const,
-            }}
-          >
+          <NL key={i.label} href={i.href} role="menuitem" className="dd-link">
             {i.label}
           </NL>
         ))}
@@ -107,14 +93,27 @@ function DropdownMenu({ items, menuId }: { items: Item[]; menuId: string }) {
           animation: ddIn 180ms ${ease};
           will-change: transform, opacity;
         }
-        .dd-link {
+        :global(.dd-link) {
+          display: block;
+          padding: 10px 20px;
+          font-family: ${F};
+          font-size: 18px;
+          color: var(--dd-link);
+          text-decoration: none;
+          white-space: nowrap;
+          border-radius: 8px;
           background-color: transparent;
           transition:
-            background-color 150ms ease,
-            color 150ms ease;
+            background-color 200ms ease,
+            color 200ms ease,
+            padding-left 200ms ease,
+            box-shadow 200ms ease;
         }
-        .dd-link:hover {
+        :global(.dd-link:hover) {
           background-color: var(--dd-hover);
+          color: #ec3750;
+          padding-left: 26px;
+          box-shadow: 0 4px 12px rgba(236, 55, 80, 0.12);
         }
         @keyframes ddIn {
           from {
@@ -130,7 +129,7 @@ function DropdownMenu({ items, menuId }: { items: Item[]; menuId: string }) {
           .dropdown-menu {
             animation: none;
           }
-          .dd-link {
+          :global(.dd-link) {
             transition: none;
           }
         }
@@ -387,12 +386,14 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
                 boxShadow: inv ? "0 1px 2px rgba(0,0,0,0.25)" : "none",
                 transform:
                   i === 0 && isOpen
-                    ? "translateY(6px) rotate(45deg)"
-                    : i === 2 && isOpen
-                      ? "translateY(-6px) rotate(-45deg)"
-                      : "none",
+                    ? "translateY(8px) rotate(45deg)"
+                    : i === 1 && isOpen
+                      ? "scaleX(0)"
+                      : i === 2 && isOpen
+                        ? "translateY(-8px) rotate(-45deg)"
+                        : "none",
                 opacity: i === 1 && isOpen ? 0 : 1,
-                transition: `transform 220ms ${ease}, opacity 160ms ease-out`,
+                transition: `transform 220ms ${ease}, opacity 220ms ${ease}`,
               }}
             />
           ))}

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { siteBaseUrl, siteAuthHeaders } from "../../../../lib/site-programs";
+import { siteAuthHeaders } from "../../../../lib/site-programs";
+import { isValidSlackId } from "../../../../lib/server-auth";
 
 export const dynamic = "force-dynamic";
 
@@ -21,7 +22,8 @@ export async function GET(req: NextRequest) {
   if (!meRes.ok) return NextResponse.json({ error: "Invalid token" }, { status: 401 });
   const me = await meRes.json();
 
-  const slackId: string | null = me.identity?.slack_id ?? null;
+  const rawSlackId: string | null = me.identity?.slack_id ?? null;
+  const slackId = isValidSlackId(rawSlackId) ? rawSlackId : null;
   if (!slackId) {
     return NextResponse.json({
       name: me.identity?.id ?? "Unknown",

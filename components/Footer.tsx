@@ -51,8 +51,8 @@ const icons = [
 
 const sha = process.env.NEXT_PUBLIC_COMMIT_SHA ?? "dev";
 
-function ext(href: string) {
-  return href.startsWith("http") || href.startsWith("mailto:");
+function isExternal(href: string) {
+  return href.startsWith("http");
 }
 
 function LinkCol({ title, links }: { title: string; links: { label: string; href: string }[] }) {
@@ -69,21 +69,21 @@ function LinkCol({ title, links }: { title: string; links: { label: string; href
           gap: 14,
         }}
       >
-        {links.map((link) => (
-          <li key={link.label}>
-            {ext(link.href) ? (
+        {links.map((l) => (
+          <li key={l.label}>
+            {isExternal(l.href) ? (
               <a
-                href={link.href}
+                href={l.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-link"
                 style={footerLinkStyles}
               >
-                {link.label}
+                {l.label}
               </a>
             ) : (
-              <Link href={link.href} className="footer-link" style={footerLinkStyles}>
-                {link.label}
+              <Link href={l.href} className="footer-link" style={footerLinkStyles}>
+                {l.label}
               </Link>
             )}
           </li>
@@ -94,6 +94,8 @@ function LinkCol({ title, links }: { title: string; links: { label: string; href
 }
 
 export function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer
       className="site-footer"
@@ -113,10 +115,9 @@ export function Footer() {
       <Image
         className="site-footer-illustration"
         src="/assets/footer.webp"
-        alt="footer illustration"
-        loading="lazy"
-        width={2048}
-        height={1680}
+        alt=""
+        width={680}
+        height={558}
         style={{
           position: "absolute",
           right: 0,
@@ -145,13 +146,15 @@ export function Footer() {
           style={{ display: "flex", flexDirection: "column", gap: 0, flexShrink: 0, width: 280 }}
         >
           <div style={{ marginBottom: 28 }}>
-            <Image
-              src="/assets/hackClubFlag.svg"
-              alt="Hack Club"
-              width={200}
-              height={70}
-              style={{ display: "block", objectFit: "contain" }}
-            />
+            <Link href="/">
+              <Image
+                src="/assets/hackClubFlag.svg"
+                alt="Hack Club"
+                width={200}
+                height={70}
+                style={{ display: "block", objectFit: "contain" }}
+              />
+            </Link>
           </div>
           <p
             style={{
@@ -167,6 +170,7 @@ export function Footer() {
           </p>
           <a
             href="tel:18556254225"
+            aria-label="Call Hack Club toll-free at 1-855-625-4225"
             style={{
               fontWeight: 400,
               fontSize: 20,
@@ -181,13 +185,13 @@ export function Footer() {
             1-855-625-HACK (call toll-free)
           </a>
           <div style={{ display: "flex", gap: 12 }}>
-            {icons.map((icon) => (
+            {icons.map((i) => (
               <a
-                key={icon.label}
-                href={icon.href}
-                target={ext(icon.href) ? "_blank" : undefined}
-                rel={ext(icon.href) ? "noopener noreferrer" : undefined}
-                aria-label={icon.label}
+                key={i.label}
+                href={i.href}
+                target={isExternal(i.href) ? "_blank" : undefined}
+                rel={isExternal(i.href) ? "noopener noreferrer" : undefined}
+                aria-label={i.label}
                 className="footer-social-link"
                 style={{
                   display: "flex",
@@ -202,7 +206,7 @@ export function Footer() {
                   color: "var(--paper)",
                 }}
               >
-                <Icon glyph={icon.glyph} size={48} />
+                <Icon glyph={i.glyph} size={48} />
               </a>
             ))}
           </div>
@@ -224,7 +228,7 @@ export function Footer() {
             lineHeight: 1.5,
           }}
         >
-          © 2026 Hack Club. Registered under{" "}
+          © {year} Hack Club. Registered under{" "}
           <a
             href="https://the.hackfoundation.org/"
             target="_blank"
@@ -251,7 +255,7 @@ export function Footer() {
         .footer-social-link:hover, .footer-social-link:focus-visible { opacity: 1 !important; }
         @media (max-width: 767px) {
           .site-footer { padding-top: 120px !important; }
-          .site-footer-illustration { width: min(320px, 72vw) !important; height: auto !important; transform: translateY(-40%) !important; }
+          .site-footer-illustration { width: min(320px, 72vw) !important; transform: translateY(-40%) !important; }
         }
       `}</style>
     </footer>

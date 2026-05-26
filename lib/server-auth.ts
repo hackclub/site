@@ -11,6 +11,10 @@ const ADMINS_TABLE = "Admins";
 const AUTHORS_TABLE = "YSWS Authors";
 const PROGRAMS_TABLE = "YSWS Programs";
 
+export function isValidSlackId(value: string | null | undefined): value is string {
+  return typeof value === "string" && /^[UW][A-Z0-9]{2,32}$/i.test(value);
+}
+
 /** Resolve the Hack Club Slack ID for the currently signed-in user, or null. */
 async function getSlackId(req: NextRequest): Promise<string | null> {
   const token = req.cookies.get("hc_access_token")?.value;
@@ -22,7 +26,8 @@ async function getSlackId(req: NextRequest): Promise<string | null> {
   if (!meRes.ok) return null;
 
   const me = await meRes.json();
-  return me.identity?.slack_id ?? null;
+  const slackId = me.identity?.slack_id ?? null;
+  return isValidSlackId(slackId) ? slackId : null;
 }
 
 /** Return true if the given Slack ID is in the Site Admins table. */
