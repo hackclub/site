@@ -12,7 +12,7 @@ function ProjectCard({ project }: { project: AirtableProject }) {
         width: 290,
         borderRadius: 16,
         overflow: "hidden",
-        background: "var(--background)",
+        background: "var(--surface)",
         boxShadow: "0 2px 16px rgba(0,0,0,0.10)",
         display: "flex",
         flexDirection: "column",
@@ -140,17 +140,6 @@ export async function ProjectsSection() {
         paddingBottom: 100,
       }}
     >
-      {/* Background texture overlay */}
-      <div style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
-        <Image
-          src={"/assets/projectsBg.svg"}
-          alt=""
-          width={1920}
-          height={400}
-          style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.15 }}
-        />
-      </div>
-
       {/* Creature overlay — 3.5 waves wide, front of everything including hero wave and images */}
 
       {/* Headline */}
@@ -452,7 +441,7 @@ export async function ProjectsSection() {
         >
           <path
             d="M0,0 L0,8 C40,8 40,27 80,27 C120,27 120,8 160,8 C200,8 200,27 240,27 C280,27 280,8 320,8 C360,8 360,27 400,27 C440,27 440,8 480,8 C520,8 520,27 560,27 C600,27 600,8 640,8 C680,8 680,27 720,27 C760,27 760,8 800,8 C840,8 840,27 880,27 C920,27 920,8 960,8 C1000,8 1000,27 1040,27 C1080,27 1080,8 1120,8 C1160,8 1160,27 1200,27 C1240,27 1240,8 1280,8 C1320,8 1320,27 1360,27 C1400,27 1400,8 1440,8 C1480,8 1480,27 1520,27 C1560,27 1560,8 1600,8 C1640,8 1640,27 1680,27 C1720,27 1720,8 1760,8 C1800,8 1800,27 1840,27 C1880,27 1880,8 1920,8 L1920,0 Z"
-            style={{ fill: "var(--surface)" }}
+            style={{ fill: "var(--background)" }}
           />
         </svg>
         {/* Main fill layer — 40px, amplitude 19px matching HeroSection */}
@@ -463,7 +452,7 @@ export async function ProjectsSection() {
         >
           <path
             d="M0,0 L0,8 C40,8 40,27 80,27 C120,27 120,8 160,8 C200,8 200,27 240,27 C280,27 280,8 320,8 C360,8 360,27 400,27 C440,27 440,8 480,8 C520,8 520,27 560,27 C600,27 600,8 640,8 C680,8 680,27 720,27 C760,27 760,8 800,8 C840,8 840,27 880,27 C920,27 920,8 960,8 C1000,8 1000,27 1040,27 C1080,27 1080,8 1120,8 C1160,8 1160,27 1200,27 C1240,27 1240,8 1280,8 C1320,8 1320,27 1360,27 C1400,27 1400,8 1440,8 C1480,8 1480,27 1520,27 C1560,27 1560,8 1600,8 C1640,8 1640,27 1680,27 C1720,27 1720,8 1760,8 C1800,8 1800,27 1840,27 C1880,27 1880,8 1920,8 L1920,0 Z"
-            style={{ fill: "var(--surface)" }}
+            style={{ fill: "var(--background)" }}
           />
         </svg>
         {/* Thin stroke wave — same as HeroSection stroke, positioned at fill edge */}
@@ -483,7 +472,7 @@ export async function ProjectsSection() {
           <path
             d="M0,2 C40,2 40,18 80,18 C120,18 120,2 160,2 C200,2 200,18 240,18 C280,18 280,2 320,2 C360,2 360,18 400,18 C440,18 440,2 480,2 C520,2 520,18 560,18 C600,18 600,2 640,2 C680,2 680,18 720,18 C760,18 760,2 800,2 C840,2 840,18 880,18 C920,18 920,2 960,2 C1000,2 1000,18 1040,18 C1080,18 1080,2 1120,2 C1160,2 1160,18 1200,18 C1240,18 1240,2 1280,2 C1320,2 1320,18 1360,18 C1400,18 1400,2 1440,2 C1480,2 1480,18 1520,18 C1560,18 1560,2 1600,2 C1640,2 1640,18 1680,18 C1720,18 1720,2 1760,2 C1800,2 1800,18 1840,18 C1880,18 1880,2 1920,2"
             fill="none"
-            style={{ stroke: "var(--surface)" }}
+            style={{ stroke: "var(--background)" }}
             strokeWidth="2.5"
             vectorEffect="non-scaling-stroke"
           />
