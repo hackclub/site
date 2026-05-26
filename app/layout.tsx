@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import PlausibleProvider from "next-plausible";
 import "./globals.css";
 import { SkipToMainLink } from "../components/SkipToMainLink";
@@ -43,15 +42,11 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <Script id="theme-init" strategy="beforeInteractive">
-          {themesrc}
-        </Script>
+        <script dangerouslySetInnerHTML={{ __html: themesrc }} />
         <link rel="icon" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon.png" />
-        <Script
-          id="organization-jsonld"
+        <script
           type="application/ld+json"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
