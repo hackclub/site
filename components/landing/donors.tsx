@@ -7,16 +7,19 @@ const donors = [
     src: "https://cdn.hackclub.com/019db857-4e1c-7b22-9252-78c368e53eef/donorGithub.webp",
     width: 147,
     height: 147,
+    invert: true,
   },
   {
     src: "https://cdn.hackclub.com/019e64cd-d05f-7436-9d0d-ae814369415f/amd.webp",
     width: 821,
     height: 197,
+    invert: true,
   },
   {
     src: "https://cdn.hackclub.com/019db857-53a5-7e88-809e-45709e065277/donorMIT.webp",
     width: 125,
     height: 159,
+    invert: true,
   },
   {
     src: "https://cdn.hackclub.com/019db857-5624-7ffb-ae4c-132aabbbe537/donorLogoMasked.webp",
@@ -172,6 +175,7 @@ export function DonorsSection() {
               alt="Donor logo"
               width={donor.width}
               height={donor.height}
+              className={donor.invert ? "donor-logo-image--invert" : undefined}
               style={{
                 width: "100%",
                 height: "100%",
@@ -290,6 +294,10 @@ export function DonorsSection() {
       </Link>
 
       <style>{`
+        html.dark .donor-logo-image--invert {
+          filter: invert(1);
+        }
+
         @media (max-width: 900px) {
           .donor-logo-item {
             width: min(140px, 28vw) !important;
