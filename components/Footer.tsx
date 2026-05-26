@@ -1,4 +1,5 @@
 import { Icon } from "./Icon";
+import { ThemeToggle } from "./ThemeToggle";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -217,7 +218,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div style={{ paddingTop: 32, maxWidth: 1200, margin: "0 auto" }}>
+      <div style={{ paddingTop: 32, maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
         <p
           style={{
             fontWeight: 400,
@@ -248,11 +249,13 @@ export function Footer() {
             hackclub/site
           </a>
         </p>
+        <ThemeToggle variant="footer" />
       </div>
 
       <style>{`
         .footer-link:hover, .footer-link:focus-visible,
-        .footer-social-link:hover, .footer-social-link:focus-visible { opacity: 1 !important; }
+        .footer-social-link:hover, .footer-social-link:focus-visible,
+        .footer-theme-toggle:hover, .footer-theme-toggle:focus-visible { opacity: 1 !important; }
         @media (max-width: 767px) {
           .site-footer { padding-top: 120px !important; }
           .site-footer-illustration { width: min(320px, 72vw) !important; transform: translateY(-40%) !important; }
