@@ -42,7 +42,7 @@ export function VideoSection() {
           left: 0,
           right: 0,
           height: 180,
-          background: "linear-gradient(180deg, #ffffff 0%, transparent 100%)",
+          background: "linear-gradient(180deg, var(--background) 0%, transparent 100%)",
           zIndex: 3,
           pointerEvents: "none",
         }}
@@ -106,7 +106,7 @@ export function VideoSection() {
         {/* Card background — doesn't extend to edges */}
         <div
           style={{
-            background: "#ffffff",
+            background: "var(--background)",
             borderRadius: 24,
             padding: "clamp(32px, 5vw, 60px) clamp(24px, 5vw, 60px)",
             width: "min(640px, calc(100vw - 48px))",
@@ -122,7 +122,7 @@ export function VideoSection() {
               fontWeight: "normal",
               fontSize: 40,
               lineHeight: 1.05,
-              color: "#17171d",
+              color: "var(--foreground)",
               margin: "0 auto 32px",
               maxWidth: 640,
             }}
@@ -175,7 +175,7 @@ export function VideoSection() {
               fontFamily: "var(--font-phantom)",
               fontStyle: "italic",
               fontSize: 16,
-              color: "rgba(0,0,0,0.5)",
+              color: "var(--muted)",
               margin: 0,
               pointerEvents: "auto",
             }}
@@ -185,7 +185,7 @@ export function VideoSection() {
               href="/privacy-and-terms"
               className="video-terms-link"
               style={{
-                color: "#ec3750",
+                color: "var(--red)",
                 textDecoration: "underline",
                 textUnderlineOffset: 2,
                 pointerEvents: "auto",
@@ -205,7 +205,7 @@ export function VideoSection() {
           left: 0,
           right: 0,
           height: 280,
-          background: "linear-gradient(0deg, #ffffff 40%, transparent 100%)",
+          background: "linear-gradient(0deg, var(--background) 40%, transparent 100%)",
           zIndex: 3,
           pointerEvents: "none",
         }}

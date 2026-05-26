@@ -242,8 +242,8 @@ export default function PressPage() {
           background:
             radial-gradient(circle at 10% 0%, rgba(255, 140, 55, 0.18), transparent 34%),
             radial-gradient(circle at 90% 8%, rgba(236, 55, 80, 0.16), transparent 32%),
-            #fffaf4;
-          color: #17171d;
+            var(--background);
+          color: var(--foreground);
         }
 
         .press-shell {
@@ -262,7 +262,7 @@ export default function PressPage() {
         }
 
         .press-kicker--dark {
-          color: rgba(23, 23, 29, 0.58);
+          color: var(--muted);
         }
 
         .press-hero {
@@ -271,7 +271,7 @@ export default function PressPage() {
           background:
             radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.36), transparent 32%),
             radial-gradient(circle at 90% 0%, rgba(255, 140, 55, 0.35), transparent 35%),
-            linear-gradient(135deg, #17171d 0%, #2e1719 45%, #ec3750 100%);
+            linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 45%, var(--red) 100%);
           padding: 120px 0 88px;
         }
 
@@ -327,8 +327,8 @@ export default function PressPage() {
         }
 
         .press-btn--dark {
-          background: #17171d;
-          color: #ffffff;
+          background: var(--foreground);
+          color: var(--background);
         }
 
         .press-btn--ghost {
@@ -344,7 +344,7 @@ export default function PressPage() {
 
         .press-photos-download {
           background: rgba(23, 23, 29, 0.04);
-          color: #17171d;
+          color: var(--foreground);
           border-color: rgba(23, 23, 29, 0.16);
           box-shadow: none;
         }
@@ -480,7 +480,7 @@ export default function PressPage() {
           font-family: var(--font-phantom);
           font-size: 1.05rem;
           line-height: 1.6;
-          color: rgba(23, 23, 29, 0.72);
+          color: var(--muted);
         }
 
         .press-callout {
@@ -490,8 +490,8 @@ export default function PressPage() {
           align-items: center;
           border-radius: 30px;
           padding: 28px;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 244, 235, 0.97));
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           box-shadow: 0 24px 60px rgba(91, 52, 18, 0.12);
         }
 
@@ -505,7 +505,7 @@ export default function PressPage() {
         .press-callout p {
           margin: 0;
           font-family: var(--font-phantom);
-          color: rgba(23, 23, 29, 0.7);
+          color: var(--muted);
         }
 
         .press-photo-grid {
@@ -518,8 +518,8 @@ export default function PressPage() {
           margin: 0;
           border-radius: 24px;
           overflow: hidden;
-          background: #ffffff;
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           box-shadow: 0 20px 44px rgba(91, 52, 18, 0.1);
           display: grid;
         }
@@ -535,7 +535,7 @@ export default function PressPage() {
           padding: 14px 16px 18px;
           font-family: var(--font-phantom);
           font-size: 0.95rem;
-          color: rgba(23, 23, 29, 0.7);
+          color: var(--muted);
         }
 
         .press-logo-grid {
@@ -547,8 +547,8 @@ export default function PressPage() {
         .press-logo-card {
           border-radius: 26px;
           overflow: hidden;
-          border: 1px solid rgba(23, 23, 29, 0.08);
-          background: #ffffff;
+          border: 1px solid var(--border);
+          background: var(--surface);
           box-shadow: 0 18px 40px rgba(91, 52, 18, 0.08);
           display: grid;
           grid-template-rows: 160px 1fr;
@@ -612,8 +612,8 @@ export default function PressPage() {
         .press-cta {
           border-radius: 32px;
           padding: 32px;
-          background: linear-gradient(135deg, #fff3ea, #fffaf0);
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           box-shadow: 0 24px 60px rgba(91, 52, 18, 0.12);
           display: grid;
           grid-template-columns: minmax(0, 1fr) auto;
@@ -628,14 +628,14 @@ export default function PressPage() {
         }
 
         .press-cta .press-btn--ghost {
-          background: rgba(23, 23, 29, 0.04);
-          color: #17171d;
-          border-color: rgba(23, 23, 29, 0.16);
+          background: var(--surface-hover);
+          color: var(--foreground);
+          border-color: var(--border);
           box-shadow: none;
         }
 
         .press-cta .press-btn--ghost:hover {
-          background: rgba(23, 23, 29, 0.08);
+          background: var(--surface-hover);
         }
 
         .press-page > .site-footer {

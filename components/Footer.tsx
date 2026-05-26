@@ -1,11 +1,12 @@
 import { Icon } from "./Icon";
+import { ThemeToggle } from "./ThemeToggle";
 import Image from "next/image";
 import Link from "next/link";
 
 const footerLinkStyles = {
   fontWeight: 400,
   fontSize: 16,
-  color: "#fff",
+  color: "var(--paper)",
   textDecoration: "none",
   opacity: 0.8,
   transition: "opacity 0.15s",
@@ -14,11 +15,12 @@ const footerLinkStyles = {
 const sectionHeadingStyles = {
   fontWeight: 700,
   fontSize: 20,
-  color: "#fff",
+  color: "var(--paper)",
   margin: 0,
   marginBottom: 16,
   lineHeight: 1.2,
 } as const;
+const u = { color: "var(--paper)", textDecoration: "underline", textUnderlineOffset: 2 } as const;
 
 const hcLinks = [
   { label: "Philosophy", href: "/philosophy" },
@@ -99,9 +101,9 @@ export function Footer() {
     <footer
       className="site-footer"
       style={{
-        background: `linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), #000`,
+        background: `linear-gradient(90deg, var(--grid-line) 1px, transparent 1px), linear-gradient(var(--grid-line) 1px, transparent 1px), var(--footer-bg)`,
         backgroundSize: "50px 50px",
-        color: "#fff",
+        color: "var(--paper)",
         paddingTop: 80,
         paddingBottom: 60,
         paddingLeft: "clamp(24px, 6vw, 80px)",
@@ -159,7 +161,7 @@ export function Footer() {
             style={{
               fontWeight: 400,
               fontSize: 20,
-              color: "#fff",
+              color: "var(--paper)",
               margin: 0,
               marginBottom: 8,
               lineHeight: 1.2,
@@ -173,7 +175,7 @@ export function Footer() {
             style={{
               fontWeight: 400,
               fontSize: 20,
-              color: "#fff",
+              color: "var(--paper)",
               margin: 0,
               marginBottom: 32,
               lineHeight: 1.2,
@@ -202,7 +204,7 @@ export function Footer() {
                   background: "transparent",
                   flexShrink: 0,
                   transition: "opacity 0.15s",
-                  color: "#fff",
+                  color: "var(--paper)",
                 }}
               >
                 <Icon glyph={i.glyph} size={48} />
@@ -216,12 +218,23 @@ export function Footer() {
         </div>
       </div>
 
-      <div style={{ paddingTop: 32, maxWidth: 1200, margin: "0 auto" }}>
+      <div
+        style={{
+          paddingTop: 32,
+          maxWidth: 1200,
+          margin: "0 auto",
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "space-between",
+          gap: 24,
+          flexWrap: "wrap",
+        }}
+      >
         <p
           style={{
             fontWeight: 400,
             fontSize: 16,
-            color: "#fff",
+            color: "var(--paper)",
             opacity: 0.8,
             margin: 0,
             lineHeight: 1.5,
@@ -232,7 +245,7 @@ export function Footer() {
             href="https://the.hackfoundation.org/"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: "#fff", textDecoration: "underline", textUnderlineOffset: 2 }}
+            style={u}
           >
             The Hack Foundation
           </a>
@@ -242,16 +255,18 @@ export function Footer() {
             href="https://github.com/hackclub/site"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: "#fff", textDecoration: "underline", textUnderlineOffset: 2 }}
+            style={u}
           >
             hackclub/site
           </a>
         </p>
+        <ThemeToggle variant="footer" />
       </div>
 
       <style>{`
         .footer-link:hover, .footer-link:focus-visible,
-        .footer-social-link:hover, .footer-social-link:focus-visible { opacity: 1 !important; }
+        .footer-social-link:hover, .footer-social-link:focus-visible,
+        .footer-theme-toggle:hover, .footer-theme-toggle:focus-visible { opacity: 1 !important; }
         @media (max-width: 767px) {
           .site-footer { padding-top: 120px !important; }
           .site-footer-illustration { width: min(320px, 72vw) !important; transform: translateY(-40%) !important; }

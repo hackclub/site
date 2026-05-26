@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { EmailSignupInput } from "./email-signup";
+import { BtnArrow } from "./btn-arrow";
 
 export function ReadySection() {
   return (
     <section
       style={{
         position: "relative",
-        background: "#f9fafc",
+        background: "var(--surface)",
         paddingTop: "clamp(80px, 15vw, 192px)",
         paddingBottom: "clamp(60px, 10vw, 120px)",
         paddingLeft: 24,
@@ -33,7 +34,7 @@ export function ReadySection() {
             fontWeight: 400,
             fontSize: 40,
             lineHeight: 1,
-            color: "#17171d",
+            color: "var(--foreground)",
             margin: "0 0 24px",
           }}
         >
@@ -49,7 +50,7 @@ export function ReadySection() {
             fontFamily: "var(--font-phantom)",
             fontWeight: 400,
             fontSize: 20,
-            color: "#17171d",
+            color: "var(--foreground)",
             margin: "48px 0 0",
             lineHeight: 1.2,
           }}
@@ -65,8 +66,8 @@ export function ReadySection() {
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "#17171d",
-            color: "#ffffff",
+            background: "var(--foreground)",
+            color: "var(--background)",
             borderRadius: 41,
             height: 52,
             paddingLeft: 36,
@@ -80,26 +81,7 @@ export function ReadySection() {
             marginTop: 16,
           }}
         >
-          Explore current programs{" "}
-          <span className="btn-arrow">
-            <svg
-              aria-hidden="true"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ display: "block", flexShrink: 0 }}
-            >
-              <path
-                d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
+          Explore current programs <BtnArrow />
         </Link>
 
         {/* Italic subtitle */}
@@ -109,7 +91,7 @@ export function ReadySection() {
             fontWeight: 400,
             fontStyle: "italic",
             fontSize: 16,
-            color: "#17171d",
+            color: "var(--foreground)",
             margin: "20px 0 0",
             lineHeight: 1.2,
             pointerEvents: "auto",
@@ -120,7 +102,7 @@ export function ReadySection() {
             href="/privacy-and-terms"
             className="ready-terms-link"
             style={{
-              color: "#ec3750",
+              color: "var(--red)",
               textDecoration: "underline",
               textUnderlineOffset: 2,
               pointerEvents: "auto",

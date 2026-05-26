@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { CSSProperties } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ThemeLock } from "@/components/ThemeToggle";
 import { ContactBanner } from "@/components/fiscal-sponsorship/ContactBanner";
 import { FiscalFilterRail } from "@/components/fiscal-sponsorship/FiscalFilterRail";
 import { OrganizationGrid } from "@/components/fiscal-sponsorship/OrganizationSpotlight";
@@ -69,6 +70,7 @@ export default function DirectoryPageClient({
 
   return (
     <>
+      <ThemeLock />
       <Navbar invertColors />
       <main id="main" tabIndex={-1}>
         <section

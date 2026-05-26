@@ -315,8 +315,8 @@ export default function BrandPage() {
 
       <style>{`
         .brand-page {
-          color: #17171d;
-          background: #fffaf4;
+          color: var(--foreground);
+          background: var(--background);
         }
 
         .brand-shell {
@@ -335,7 +335,7 @@ export default function BrandPage() {
         }
 
         .brand-kicker--dark {
-          color: rgba(23, 23, 29, 0.58);
+          color: var(--muted);
         }
 
         .brand-hero {
@@ -344,7 +344,7 @@ export default function BrandPage() {
           background:
             radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.4), transparent 32%),
             radial-gradient(circle at 90% 0%, rgba(255, 140, 55, 0.35), transparent 35%),
-            linear-gradient(135deg, #17171d 0%, #2e1719 45%, #ec3750 100%);
+            linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 45%, var(--red) 100%);
           padding: 120px 0 88px;
         }
 
@@ -359,7 +359,7 @@ export default function BrandPage() {
 
         .brand-hero__center {
           text-align: center;
-          color: #fff6eb;
+          color: var(--cream);
           padding: 24px 0 8px;
         }
 
@@ -369,7 +369,7 @@ export default function BrandPage() {
           font-weight: 400;
           font-size: clamp(3.5rem, 7vw, 6rem);
           line-height: 0.9;
-          color: #fff6eb;
+          color: var(--cream);
         }
 
         .brand-btn {
@@ -386,14 +386,14 @@ export default function BrandPage() {
         }
 
         .brand-btn--dark {
-          background: #17171d;
-          color: #ffffff;
+          background: var(--foreground);
+          color: var(--background);
         }
 
         .brand-btn--ghost {
-          background: #ffffff;
-          color: #17171d;
-          border: 1px solid rgba(23, 23, 29, 0.18);
+          background: var(--surface);
+          color: var(--foreground);
+          border: 1px solid var(--border);
         }
 
         .brand-btn--block {
@@ -433,7 +433,7 @@ export default function BrandPage() {
           font-weight: 400;
           font-size: clamp(2.2rem, 4vw, 3.4rem);
           line-height: 0.96;
-          color: #17171d;
+          color: var(--foreground);
         }
 
         .brand-section__lede {
@@ -441,7 +441,7 @@ export default function BrandPage() {
           font-family: var(--font-phantom);
           font-size: 1.05rem;
           line-height: 1.6;
-          color: rgba(23, 23, 29, 0.72);
+          color: var(--muted);
         }
 
         .brand-grid {
@@ -456,8 +456,8 @@ export default function BrandPage() {
         .brand-card {
           border-radius: 28px;
           overflow: hidden;
-          border: 1px solid rgba(23, 23, 29, 0.08);
-          background: #ffffff;
+          border: 1px solid var(--border);
+          background: var(--surface);
           box-shadow: 0 20px 50px rgba(91, 52, 18, 0.08);
           display: grid;
           grid-template-rows: auto 1fr;
@@ -502,7 +502,7 @@ export default function BrandPage() {
         .brand-card__url {
           font-family: var(--font-phantom);
           font-size: 0.85rem;
-          color: rgba(23, 23, 29, 0.74);
+          color: var(--muted);
           word-break: break-all;
         }
 
@@ -524,7 +524,7 @@ export default function BrandPage() {
         .brand-section--swatches {
           margin-top: 72px;
           padding: 72px 0;
-          background: linear-gradient(135deg, #fff2ea, #fffaf2);
+          background: var(--surface);
         }
 
         .brand-grid--colors {
@@ -535,10 +535,10 @@ export default function BrandPage() {
           display: flex;
           align-items: center;
           gap: 14px;
-          background: #ffffff;
+          background: var(--surface);
           border-radius: 22px;
           padding: 16px;
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          border: 1px solid var(--border);
           box-shadow: 0 18px 36px rgba(91, 52, 18, 0.08);
         }
 
@@ -546,7 +546,7 @@ export default function BrandPage() {
           width: 54px;
           height: 54px;
           border-radius: 18px;
-          border: 2px solid rgba(23, 23, 29, 0.08);
+          border: 2px solid var(--border);
         }
 
         .brand-swatch p {
@@ -558,7 +558,7 @@ export default function BrandPage() {
         .brand-swatch span {
           font-family: var(--font-phantom);
           font-size: 0.88rem;
-          color: rgba(23, 23, 29, 0.64);
+          color: var(--muted);
         }
 
         .brand-table {
@@ -571,10 +571,10 @@ export default function BrandPage() {
           grid-template-columns: 140px minmax(0, 1fr);
           gap: 20px;
           align-items: center;
-          background: #ffffff;
+          background: var(--surface);
           border-radius: 24px;
           padding: 18px;
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          border: 1px solid var(--border);
           box-shadow: 0 18px 36px rgba(91, 52, 18, 0.08);
         }
 
@@ -588,7 +588,7 @@ export default function BrandPage() {
           white-space: pre-wrap;
           font-family: var(--font-phantom);
           font-size: 0.9rem;
-          color: rgba(23, 23, 29, 0.8);
+          color: var(--muted);
         }
 
         .brand-font {
@@ -604,14 +604,14 @@ export default function BrandPage() {
         .brand-font__sub {
           font-family: var(--font-phantom);
           font-size: 1.2rem;
-          color: rgba(23, 23, 29, 0.7);
+          color: var(--muted);
         }
 
         .brand-details {
           border-radius: 20px;
           padding: 0;
-          background: #ffffff;
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           box-shadow: 0 16px 30px rgba(91, 52, 18, 0.08);
           overflow: hidden;
         }
@@ -629,13 +629,13 @@ export default function BrandPage() {
         }
 
         .brand-details summary::marker {
-          color: rgba(23, 23, 29, 0.44);
+          color: var(--muted);
         }
 
         .brand-details__hint {
           font-size: 0.86rem;
           font-weight: 500;
-          color: rgba(23, 23, 29, 0.56);
+          color: var(--muted);
         }
 
         .brand-details__hint--open {
@@ -649,9 +649,9 @@ export default function BrandPage() {
         }
 
         .brand-details__copy {
-          border: 1px solid rgba(23, 23, 29, 0.14);
-          background: #ffffff;
-          color: rgba(23, 23, 29, 0.84);
+          border: 1px solid var(--border);
+          background: var(--surface);
+          color: var(--muted);
           border-radius: 999px;
           padding: 6px 11px;
           font-family: var(--font-phantom);
@@ -663,9 +663,9 @@ export default function BrandPage() {
         }
 
         .brand-details__copy:hover {
-          background: #17171d;
-          border-color: #17171d;
-          color: #ffffff;
+          background: var(--foreground);
+          border-color: var(--foreground);
+          color: var(--background);
         }
 
         .brand-details[open] .brand-details__hint--closed {
@@ -686,7 +686,7 @@ export default function BrandPage() {
           white-space: pre-wrap;
           font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
           font-size: 0.88rem;
-          color: rgba(23, 23, 29, 0.86);
+          color: var(--muted);
           line-height: 1.55;
         }
 
@@ -759,8 +759,8 @@ export default function BrandPage() {
         .brand-icon {
           border-radius: 20px;
           padding: 16px;
-          background: #ffffff;
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           display: grid;
           place-items: center;
           gap: 8px;
@@ -775,7 +775,7 @@ export default function BrandPage() {
         .brand-icon span {
           font-family: var(--font-phantom);
           font-size: 0.85rem;
-          color: rgba(23, 23, 29, 0.6);
+          color: var(--muted);
         }
 
         .brand-links {
@@ -795,8 +795,8 @@ export default function BrandPage() {
         .brand-cta {
           border-radius: 32px;
           padding: 32px;
-          background: linear-gradient(135deg, #fff3ea, #fffaf0);
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           box-shadow: 0 24px 60px rgba(91, 52, 18, 0.12);
           display: grid;
           grid-template-columns: minmax(0, 1fr) auto;

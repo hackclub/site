@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import type { AirtableProgram } from "../../lib/programs";
 import { parseLocalDate, selectFeaturedPrograms } from "../../lib/programs";
+import { BtnArrow } from "./btn-arrow";
 
 // ── Skeleton card ────────────────────────────────────────────────────────────
 function SkeletonCard() {
@@ -11,7 +12,7 @@ function SkeletonCard() {
     <div
       style={{
         borderRadius: 16,
-        background: "#e8e8e8",
+        background: "var(--surface-hover)",
         minHeight: 260,
         boxShadow: "2px 4px 6px rgba(0,0,0,0.10)",
         animation: "events-pulse 1.5s ease-in-out infinite",
@@ -26,8 +27,8 @@ function EventCard({ program }: { program: AirtableProgram }) {
   const endDate = parseLocalDate(program.endDate);
 
   const s = program.site;
-  const bgColor = s?.bgColor ?? "#ffffff";
-  const textColor = s?.textColor ?? "#17171d";
+  const bgColor = s?.bgColor ?? "var(--surface)";
+  const textColor = s?.textColor ?? "var(--foreground)";
   const accentColor = s?.accentColor ?? "#ec3750";
   const logoUrl = s?.logoUrl ?? null;
   const logoSize = s?.logoSize ?? 48;
@@ -36,7 +37,7 @@ function EventCard({ program }: { program: AirtableProgram }) {
   const buttonTextColor = s?.buttonTextColor ?? "#ffffff";
   const buttonRadius = s?.buttonBorderRadius ?? 44;
   const buttonBorderWidth = s?.buttonBorderWidth ?? 0;
-  const buttonBorderColor = s?.buttonBorderColor ?? "#17171d";
+  const buttonBorderColor = s?.buttonBorderColor ?? "var(--foreground)";
   const slackChannel = s?.slackChannel ?? null;
   const slackUrl = slackChannel
     ? `https://hackclub.slack.com/channels/${slackChannel.replace(/^#/, "")}`
@@ -212,26 +213,7 @@ function EventCard({ program }: { program: AirtableProgram }) {
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
-            Start now{" "}
-            <span className="btn-arrow">
-              <svg
-                aria-hidden="true"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{ display: "block", flexShrink: 0 }}
-              >
-                <path
-                  d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
+            Start now <BtnArrow />
           </a>
         )}
 
@@ -287,7 +269,7 @@ function EventCard({ program }: { program: AirtableProgram }) {
               fontFamily: "var(--font-phantom)",
               fontWeight: "bold",
               fontSize: 16,
-              color: "#ffffff",
+              color: "var(--paper)",
               whiteSpace: "nowrap",
             }}
           >
@@ -323,7 +305,7 @@ export function EventsSection({
     <section
       className="section-padded"
       style={{
-        background: "#ffffff",
+        background: "var(--background)",
         paddingTop: 80,
         paddingBottom: 60,
         paddingLeft: "clamp(24px, 14.29%, 220px)",
@@ -379,7 +361,7 @@ export function EventsSection({
             fontFamily: "var(--font-zarathustra)",
             fontSize: 40,
             lineHeight: 1,
-            color: "#17171d",
+            color: "var(--foreground)",
             margin: 0,
             fontWeight: "normal",
           }}
@@ -410,7 +392,7 @@ export function EventsSection({
         style={{
           fontFamily: "var(--font-phantom)",
           fontSize: 20,
-          color: "#17171d",
+          color: "var(--foreground)",
           textAlign: "right",
           marginBottom: 32,
           marginTop: 8,
@@ -452,7 +434,7 @@ export function EventsSection({
           style={{
             fontFamily: "var(--font-phantom)",
             fontSize: 20,
-            color: "#17171d",
+            color: "var(--foreground)",
             margin: 0,
             marginTop: 40,
             marginBottom: 8,
@@ -467,8 +449,8 @@ export function EventsSection({
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "#17171d",
-            color: "#ffffff",
+            background: "var(--foreground)",
+            color: "var(--background)",
             borderRadius: 41,
             height: 48,
             paddingLeft: 28,
@@ -481,26 +463,7 @@ export function EventsSection({
             cursor: "pointer",
           }}
         >
-          Explore all programs{" "}
-          <span className="btn-arrow">
-            <svg
-              aria-hidden="true"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ display: "block", flexShrink: 0 }}
-            >
-              <path
-                d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
+          Explore all programs <BtnArrow />
         </a>
       </div>
 

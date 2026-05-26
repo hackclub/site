@@ -7,6 +7,7 @@ import Icon from "@hackclub/icons";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { buildPageMetadata } from "@/lib/seo";
+import { ThemeLock } from "@/components/ThemeToggle";
 
 const AUTHORS = [
   {
@@ -104,6 +105,7 @@ function WelcomeCta() {
 export default function OpenSourcePage() {
   return (
     <>
+      <ThemeLock />
       <div className="open-source-announcement-page">
         <header className="announcement-header">
           <Navbar />

@@ -115,8 +115,8 @@ export default function PhilosophyPage() {
 
       <style>{`
         .philosophy-page {
-          background: #ffffff;
-          color: #17171d;
+          background: var(--background);
+          color: var(--foreground);
         }
 
         .philosophy-shell {
@@ -251,7 +251,7 @@ export default function PhilosophyPage() {
           font-family: var(--font-phantom);
           font-size: clamp(1.28rem, 1.42vw, 1.9rem);
           line-height: 1.48;
-          color: #17171d;
+          color: var(--foreground);
           max-width: 100%;
         }
 
@@ -260,7 +260,7 @@ export default function PhilosophyPage() {
         }
 
         .philosophy-row p a {
-          color: #17171d;
+          color: var(--foreground);
           text-decoration: underline;
           text-underline-offset: 2px;
         }

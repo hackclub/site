@@ -129,8 +129,13 @@ export async function POST(req: NextRequest) {
 
   let res: Response;
   if (recordId) {
+    if (!/^rec[A-Za-z0-9]{14}$/.test(recordId)) {
+      return NextResponse.json({ status: 400 });
+    }
+
+    const x = encodeURIComponent(recordId);
     // Update existing record
-    res = await fetch(`${siteBaseUrl()}/${recordId}`, {
+    res = await fetch(`${siteBaseUrl()}/${x}`, {
       method: "PATCH",
       headers: siteAuthHeaders(key),
       body: JSON.stringify({ fields }),
