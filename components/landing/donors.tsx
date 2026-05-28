@@ -2,77 +2,34 @@ import Image from "next/image";
 import Link from "next/link";
 import { BtnArrowSvg } from "./btn-arrow";
 
-const donors: {
-  src: string;
-  href?: string;
-  width: number;
-  height: number;
-  invert?: boolean;
-}[] = [
+const donors = [
   {
     src: "https://cdn.hackclub.com/019db857-4e1c-7b22-9252-78c368e53eef/donorGithub.webp",
-    href: "https://github.com",
     width: 147,
     height: 147,
     invert: true,
   },
   {
     src: "https://cdn.hackclub.com/019e64cd-d05f-7436-9d0d-ae814369415f/amd.webp",
-    href: "https://amd.com",
     width: 821,
     height: 197,
     invert: true,
   },
   {
-    src: "https://cdn.hackclub.com/019e7013-89bc-7d76-aaf2-a5de1cde541f/opensauce.webp",
-    href: "https://opensauce.com",
+    src: "https://cdn.hackclub.com/019db857-53a5-7e88-809e-45709e065277/donorMIT.webp",
     width: 125,
     height: 159,
     invert: true,
   },
   {
-    src: "https://cdn.hackclub.com/019e7012-84b5-788a-b800-7c82873bb711/girlswhocode.webp",
-    href: "https://girlswhocode.com",
+    src: "https://cdn.hackclub.com/019db857-5624-7ffb-ae4c-132aabbbe537/donorLogoMasked.webp",
     width: 143,
     height: 143,
   },
   {
-    src: "https://cdn.hackclub.com/019e7013-05f1-7c62-968d-1560936b552b/mit.webp",
-    href: "https://mit.edu",
+    src: "https://cdn.hackclub.com/019db857-58db-7e5d-823d-ba7651096cd6/donorLogo4.webp",
     width: 248,
     height: 161,
-  },
-  {
-    src: "https://cdn.hackclub.com/019e7023-c31a-729a-b024-2c0a10b2e268/vercel.webp",
-    width: 2048,
-    height: 407,
-    invert: true,
-    href: "https://vercel.com",
-  },
-  {
-    src: "https://cdn.hackclub.com/019e7023-ddbd-71b6-8782-0d0233903dd2/google.webp",
-    width: 1024,
-    height: 310,
-    href: "https://google.com",
-  },
-  {
-    src: "https://cdn.hackclub.com/019e7023-e567-77ee-a345-9a090a32292a/checkly.webp",
-    width: 200,
-    height: 200,
-    href: "https://checklyhq.com",
-  },
-  {
-    src: "https://cdn.hackclub.com/019e7023-ed77-7227-8011-e86d253d6635/fastfoward.webp",
-    width: 128,
-    height: 129,
-    href: "https://ffwd.org",
-  },
-  {
-    src: "https://cdn.hackclub.com/019e702b-11b1-7a26-8a7f-a880ef93cd8c/finintercom.webp",
-    width: 692,
-    height: 258,
-    invert: true,
-    href: "https://fin.ai",
   },
 ];
 
@@ -198,8 +155,21 @@ export function DonorsSection() {
           padding: "8px 0",
         }}
       >
-        {donors.map((donor, i) => {
-          const image = (
+        {donors.map((donor, i) => (
+          <div
+            key={i}
+            className="donor-logo-item"
+            style={{
+              width: donor.width * 0.9,
+              height: donor.height * 0.9,
+              maxWidth: 240,
+              maxHeight: 170,
+              flexShrink: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <Image
               src={donor.src}
               alt="Donor logo"
@@ -213,41 +183,8 @@ export function DonorsSection() {
                 display: "block",
               }}
             />
-          );
-          return (
-            <div
-              key={i}
-              className="donor-logo-item"
-              style={{
-                width: donor.width * 0.9,
-                height: donor.height * 0.9,
-                maxWidth: 240,
-                maxHeight: 170,
-                flexShrink: 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              {donor.href ? (
-                <a
-                  href={donor.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    height: "100%",
-                  }}
-                >
-                  {image}
-                </a>
-              ) : (
-                image
-              )}
-            </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
 
       {/* Donor name pills */}
