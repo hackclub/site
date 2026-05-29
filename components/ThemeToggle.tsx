@@ -119,7 +119,7 @@ export function ThemeToggle({ variant = "nav" }: { variant?: "nav" | "footer" })
       onClick={toggle}
       aria-label={mounted ? `Switch to ${isDark ? "light" : "dark"} mode` : "Toggle theme"}
       aria-pressed={mounted ? isDark : undefined}
-      className="grid place-items-center w-10 h-10 rounded-full border border-border bg-surface hover:bg-surface-hover transition-colors cursor-pointer"
+      className="grid place-items-center w-10 h-10 rounded-full border border-border bg-surface text-foreground hover:bg-surface-hover transition-colors cursor-pointer"
     >
       <span suppressHydrationWarning aria-hidden="true">
         {isDark ? <SunIcon /> : <MoonIcon />}
