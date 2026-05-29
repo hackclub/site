@@ -118,16 +118,10 @@ export default function PhilosophyPage() {
             </p>
           </div>
           <div className="philosophy-cta__actions">
-            <a
-              href="https://apply.hackclub.com"
-              className="philosophy-btn philosophy-btn--red"
-            >
+            <a href="https://apply.hackclub.com" className="philosophy-btn philosophy-btn--red">
               Start a club
             </a>
-            <a
-              href="https://slack.hackclub.com"
-              className="philosophy-btn philosophy-btn--ghost"
-            >
+            <a href="https://slack.hackclub.com" className="philosophy-btn philosophy-btn--ghost">
               Join our Slack
             </a>
           </div>
