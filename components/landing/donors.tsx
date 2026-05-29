@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BtnArrowSvg } from "./btn-arrow";
+import Reveal from "../Reveal";
 
 const donors = [
   {
@@ -142,7 +143,7 @@ export function DonorsSection() {
       </p>
 
       {/* Donor logo wall — static and larger */}
-      <div
+      <Reveal><div
         className="donor-logos-grid"
         style={{
           display: "flex",
@@ -185,7 +186,7 @@ export function DonorsSection() {
             />
           </div>
         ))}
-      </div>
+      </div></Reveal>
 
       {/* Donor name pills */}
       <div

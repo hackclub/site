@@ -118,7 +118,7 @@ export default function BrandPage() {
             stretching, outlining, or recoloring.
           </p>
         </div>
-        <div className="brand-grid brand-grid--logos">
+        <Reveal><div className="brand-grid brand-grid--logos">
           {logoKeys.map((key) => (
             <TiltedCard key={key}>
               <article className="brand-card">
@@ -143,8 +143,8 @@ export default function BrandPage() {
               </div>
             </article>
             </TiltedCard>
-          ))}
-        </div>
+            ))}
+        </div></Reveal>
         <a
           className="brand-btn brand-btn--dark brand-btn--block"
           href="https://assets.hackclub.com/2020_branding.zip"
@@ -161,7 +161,7 @@ export default function BrandPage() {
             HCB has its own identity. Grab the light and dark versions here.
           </p>
         </div>
-        <div className="brand-grid brand-grid--logos">
+        <Reveal delay={0.1}><div className="brand-grid brand-grid--logos">
           {hcbLogoKeys.map((key) => (
             <TiltedCard key={key}>
               <article className="brand-card">
@@ -186,8 +186,8 @@ export default function BrandPage() {
               </div>
             </article>
             </TiltedCard>
-          ))}
-        </div>
+            ))}
+        </div></Reveal>
         <a
           className="brand-btn brand-btn--dark brand-btn--block"
           href="https://hcb.hackclub.com/branding"

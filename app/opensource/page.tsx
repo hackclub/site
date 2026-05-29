@@ -47,15 +47,15 @@ export default function OpenSourcePage() {
             All open sourced through HCB Transparency Mode.
           </h2>
         </div>
-        <div className="opensource-finance-grid">
+        <Reveal><div className="opensource-finance-grid">
           {financeItems.map((item) => (
             <TiltedCard key={item}>
               <article className="opensource-card">
               <h3>{item}</h3>
             </article>
             </TiltedCard>
-          ))}
-        </div>
+            ))}
+        </div></Reveal>
       </section>
 
       <section className="opensource-shell opensource-section opensource-section--last">

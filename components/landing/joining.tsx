@@ -585,7 +585,7 @@ export function JoiningSection() {
           }}
         >
           {/* ── Card 1: Our online community ── */}
-          <TiltedCard style={{ overflow: "visible" }}>
+          <Reveal delay={0}><TiltedCard style={{ overflow: "visible" }}>
             <div style={{ ...cardWrapStyle, overflow: "visible" }}>
             {/* Background + overlay clipped to rounded corners */}
             <CardBg
@@ -664,10 +664,10 @@ export function JoiningSection() {
               </div>
             )}
           </div>
-          </TiltedCard>
+          </TiltedCard></Reveal>
 
           {/* ── Card 2: HCB ── */}
-          <TiltedCard style={{ overflow: "visible" }}>
+          <Reveal delay={0.1}><TiltedCard style={{ overflow: "visible" }}>
             <div style={{ ...cardWrapStyle, overflow: "visible" }}>
             {/* Background + overlay clipped to rounded corners */}
             <CardBg
@@ -723,10 +723,10 @@ export function JoiningSection() {
               <CardCta href="https://hcb.hackclub.com/applications/new">Start fundraising</CardCta>
             </div>
           </div>
-          </TiltedCard>
+          </TiltedCard></Reveal>
 
           {/* ── Card 3: Clubs ── */}
-          <TiltedCard>
+          <Reveal delay={0.2}><TiltedCard>
             <div style={cardWrapStyle}>
             {/* Background + overlay */}
             <CardBg
@@ -762,10 +762,10 @@ export function JoiningSection() {
               <CardCta href="https://hackclub.com/clubs/">Start or find a club</CardCta>
             </div>
           </div>
-          </TiltedCard>
+          </TiltedCard></Reveal>
 
           {/* ── Card 4: Free stuff ── */}
-          <TiltedCard>
+          <Reveal delay={0.3}><TiltedCard>
             <div style={cardWrapStyle}>
             {/* Background + overlay */}
             <CardBg
@@ -798,7 +798,7 @@ export function JoiningSection() {
               <CardCta href="https://toolbox.hackclub.com/">See all perks</CardCta>
             </div>
           </div>
-          </TiltedCard>
+          </TiltedCard></Reveal>
         </div>
       </div>
 

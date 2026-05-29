@@ -81,7 +81,7 @@ export default async function JobsPage() {
           <h2 className="jobs-section__title">Open roles</h2>
         </div>
 
-        <div className="jobs-grid">
+        <Reveal><div className="jobs-grid">
           {hasJobs ? (
             jobs.items.map((job) => (
               <TiltedCard key={job.id}>
@@ -108,7 +108,7 @@ export default async function JobsPage() {
               </p>
             </div>
           )}
-        </div>
+        </div></Reveal>
       </section>
 
       <Footer />

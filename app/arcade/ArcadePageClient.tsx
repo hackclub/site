@@ -543,7 +543,7 @@ export default function ArcadePageClient({
           <p className="arcade-prizes-subtitle">
             Redeem these with your tickets. For high schoolers or younger only.
           </p>
-          <div className="arcade-prize-grid">
+          <Reveal><div className="arcade-prize-grid">
             {prizes.map((prize) => (
               <PrizeCard
                 key={`${prize.name}-${prize.hours}`}
@@ -551,7 +551,7 @@ export default function ArcadePageClient({
                 onOpen={setSelectedPrize}
               />
             ))}
-          </div>
+          </div></Reveal>
           <p className="arcade-sneak-peek">
             This is just a <span>sneak peek</span>... there were many more prizes that were unlocked
             as the summer went on!
