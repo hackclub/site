@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { buildPageMetadata } from "@/lib/seo";
+import TiltedCard from "../../components/TiltedCard";
+import Reveal from "../../components/Reveal";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Open Source — Hack Club",
@@ -47,9 +49,11 @@ export default function OpenSourcePage() {
         </div>
         <div className="opensource-finance-grid">
           {financeItems.map((item) => (
-            <article key={item} className="opensource-card">
+            <TiltedCard key={item}>
+              <article className="opensource-card">
               <h3>{item}</h3>
             </article>
+            </TiltedCard>
           ))}
         </div>
       </section>

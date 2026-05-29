@@ -3,6 +3,8 @@ import { WebfontCssBox } from "@/components/WebfontCssBox";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";
 import { buildPageMetadata } from "@/lib/seo";
+import TiltedCard from "../../components/TiltedCard";
+import Reveal from "../../components/Reveal";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Brand — Hack Club",
@@ -118,7 +120,8 @@ export default function BrandPage() {
         </div>
         <div className="brand-grid brand-grid--logos">
           {logoKeys.map((key) => (
-            <article key={key} className="brand-card">
+            <TiltedCard key={key}>
+              <article className="brand-card">
               <div className="brand-card__preview brand-card__preview--light">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={assetUrl(key, "svg")} alt={logoTitle(key)} />
@@ -139,6 +142,7 @@ export default function BrandPage() {
                 <div className="brand-card__url">{assetUrl(key, "svg")}</div>
               </div>
             </article>
+            </TiltedCard>
           ))}
         </div>
         <a
@@ -159,7 +163,8 @@ export default function BrandPage() {
         </div>
         <div className="brand-grid brand-grid--logos">
           {hcbLogoKeys.map((key) => (
-            <article key={key} className="brand-card">
+            <TiltedCard key={key}>
+              <article className="brand-card">
               <div className="brand-card__preview brand-card__preview--light">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={assetUrl(key, "png")} alt={logoTitle(key)} />
@@ -180,6 +185,7 @@ export default function BrandPage() {
                 <div className="brand-card__url">{assetUrl(key, "svg")}</div>
               </div>
             </article>
+            </TiltedCard>
           ))}
         </div>
         <a

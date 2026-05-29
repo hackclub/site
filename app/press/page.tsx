@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";
 import { buildPageMetadata } from "@/lib/seo";
+import TiltedCard from "../../components/TiltedCard";
+import Reveal from "../../components/Reveal";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Press — Hack Club",
@@ -186,7 +188,8 @@ export default function PressPage() {
         </div>
         <div className="press-logo-grid">
           {logoAssets.map((logo) => (
-            <article key={logo.key} className="press-logo-card">
+            <TiltedCard key={logo.key}>
+              <article className="press-logo-card">
               <div className="press-logo-card__preview">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -211,6 +214,7 @@ export default function PressPage() {
                 </div>
               </div>
             </article>
+            </TiltedCard>
           ))}
         </div>
       </section>

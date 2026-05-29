@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";
+import TiltedCard from "../../components/TiltedCard";
+import Reveal from "../../components/Reveal";
 
 export type TeamMember = {
   name: string;
@@ -128,7 +130,8 @@ function BoardCard({
 
 function PersonCard({ member, onClick }: { member: TeamMember; onClick: () => void }) {
   return (
-    <article className="person-card" onClick={onClick}>
+    <TiltedCard rotateAmplitude={10} scaleOnHover={1.04}>
+      <article className="person-card" onClick={onClick}>
       <div className="person-card__top">
         <div className="person-card__avatar-wrap">
           {member.avatar ? (
@@ -151,6 +154,7 @@ function PersonCard({ member, onClick }: { member: TeamMember; onClick: () => vo
         </div>
       </div>
     </article>
+    </TiltedCard>
   );
 }
 
@@ -726,7 +730,6 @@ export default function TeamPageClient({
         }
 
         .person-card:hover {
-          transform: scale(1.05);
           box-shadow: 0 18px 30px rgba(91, 52, 18, 0.1);
           border-color: rgba(236, 55, 80, 0.18);
         }
