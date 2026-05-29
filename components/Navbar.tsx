@@ -20,7 +20,7 @@ const resources = [
   { label: "Hacker Toolbox", href: "https://toolbox.hackclub.com" },
   { label: "Code of Conduct", href: "/conduct" },
   { label: "Privacy & Terms", href: "/privacy-and-terms" },
-  { label: "Safeguarding", href: "/safeguarding" },
+  { label: "Safety", href: "/safety" },
 ];
 
 const links = [
