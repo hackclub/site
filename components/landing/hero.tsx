@@ -711,8 +711,7 @@ export function HeroSection() {
         }
         .mag-link[data-state="in"]::before  { animation: mag-bg-in  0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
         .mag-link[data-state="out"]::before { animation: mag-bg-out 0.25s cubic-bezier(0.55, 0, 1, 0.45) forwards; }
-        .mag-link .btn-arrow { display: inline-flex; align-items: center; transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .mag-link:hover .btn-arrow { transform: translateX(5px); }`}
+        .mag-link .btn-arrow { display: inline-flex; align-items: center; }`}
       </style>
       <div
         className="hero-center"
@@ -745,7 +744,7 @@ export function HeroSection() {
             gap: 8,
             fontFamily: "var(--font-phantom)",
             fontSize: 20,
-            color: magHover === "in" ? "#ffffff" : "rgba(23,23,29,0.5)",
+            color: magHover === "in" ? "#ffffff" : "var(--muted)",
             textDecoration: "none",
             textAlign: "center",
             marginBottom: 18,
@@ -759,7 +758,15 @@ export function HeroSection() {
             setMagHover(magHover === "in" ? "out" : "idle");
           }}
         >
-          <span style={{ color: magHover === "in" ? "#ffffff" : "#ec3750" }}>✦</span>
+          {/* <span style={{ color: magHover === "in" ? "#ffffff" : "#ec3750" }}>✦</span> */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://cdn.hackclub.com/019e7ad9-26a3-75ba-afcb-2f384110ea6c/star.svg"
+            alt=""
+            width={177}
+            height={222}
+            style={{ width: 18, height: "auto", display: "block", flexShrink: 0 }}
+          />
           {"Check out Stardance, the largest free STEM event of the summer"}
           <span className="btn-arrow" aria-hidden="true">
             <BtnArrowSvg />
