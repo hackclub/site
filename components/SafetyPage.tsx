@@ -41,18 +41,18 @@ export function SafetyPage() {
             <div className="safety-help__context">
               <span className="safety-help__context-title">On Slack or online</span>
               <div className="safety-help__item">
-                <span className="safety-help__label">Need urgent help?</span>
+                <span className="safety-help__label">Report via Slack</span>
                 <a
                   className="safety-help__btn"
                   href="https://hackclub.enterprise.slack.com/archives/D07SPS1MNS0"
                 >
-                  DM @Shroud &rarr;
+                  DM @Shroud on Slack &rarr;
                 </a>
               </div>
               <div className="safety-help__item">
-                <span className="safety-help__label">Report an incident</span>
+                <span className="safety-help__label">Report via email</span>
                 <a className="safety-help__btn" href="mailto:conduct@hackclub.com">
-                  conduct@hackclub.com &rarr;
+                  Email conduct@hackclub.com &rarr;
                 </a>
               </div>
             </div>
@@ -62,11 +62,11 @@ export function SafetyPage() {
               <div className="safety-help__item">
                 <span className="safety-help__label">Need urgent help?</span>
                 <a className="safety-help__btn" href="tel:18556254225">
-                  Call 1-855-625-4225
+                  Call 1-855-625-4225 &rarr;
                 </a>
               </div>
               <div className="safety-help__item">
-                <span className="safety-help__label">Report an incident</span>
+                <span className="safety-help__label">File an incident report</span>
                 <a className="safety-help__btn" href="https://hack.club/incident">
                   hack.club/incident &rarr;
                 </a>
