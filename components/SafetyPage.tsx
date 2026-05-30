@@ -44,7 +44,7 @@ export function SafetyPage() {
                 <span className="safety-help__label">Report via Slack</span>
                 <a
                   className="safety-help__btn"
-                  href="https://hackclub.enterprise.slack.com/archives/D07SPS1MNS0"
+                  href="https://hackclub.enterprise.slack.com/team/U07K4TS9HQE"
                 >
                   DM @Shroud on Slack &rarr;
                 </a>
