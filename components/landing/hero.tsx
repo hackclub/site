@@ -731,7 +731,7 @@ export function HeroSection() {
       >
         {/* Stardance link */}
         <a
-          href="https://stardance.hackclub.com"
+          href="https://stardance.hackclub.com/hackclubsite"
           target="_blank"
           rel="noopener"
           className="mag-link hero-mag-link"
