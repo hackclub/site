@@ -12,14 +12,14 @@ This policy is being beta-tested by all in-person Hack Club events, and will be 
 
     2.1 Application
 
-    * This policy applies to everyone involved with Hack Club events globally:
+    * This policy applies to anyone involved with Hack Club events globally:
         * Participants (aged 13-18)
         * Parents/guardians of participants
         * Organizers, event staff and volunteers
         * Mentors, guest speakers, external vendors and venue staff
         * Any other individual present at the event
 
-        It covers all event locations (hacking venue, sleeping/rest areas if applicable, common spaces) and event-related activities (pre-event, the 24-hour/12-hour event, social time, post-event wrap-up).
+        It covers all event locations (event venue, sleeping/rest areas if applicable, common spaces) and event-related activities (pre-event, the 24-hour/12-hour event, social time, post-event wrap-up).
 
     2.2 Safeguarding Principles
 
@@ -112,7 +112,7 @@ This policy is being beta-tested by all in-person Hack Club events, and will be 
 
     4.2 Check-in / Check-out
 
-    * Arrival and departure of participants must be logged (time, name, guardian contact) using the provided administrative tools (Attend, Cockpit, etc.).
+    * Arrival and departure of participants must be logged (time, name, guardian contact and signed consent) using the provided administrative tools (Attend, Cockpit, etc.).
 
     * If participants are to potentially leave the venue during an event, an explicit protocol must have been pre-defined by event organizers (parent/guardian sign-out, staff accompaniment, etc)
 
@@ -120,7 +120,7 @@ This policy is being beta-tested by all in-person Hack Club events, and will be 
 
     4.3 Mentor/Participant Boundaries
 
-    * Mentors and staff should not share personal contact details (personal phone, social media, etc.) with participants.  Work emails, Hack Club Slack user ID, and public social media profiles may be shared upon request.
+    * Mentors and staff should not share personal contact details (personal phone, social media, etc.) with participants. Work emails, Hack Club Slack user IDs, and Hack Club-issued phone numbers may be shared upon request.
 
     * One-on-one mentoring is permissible but should occur in visible open spaces, with at least one other volunteer present.
 
