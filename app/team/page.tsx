@@ -35,10 +35,7 @@ const hqGroups: MemberGroup[] = [
     label: "Teen Contributors",
     members: filterMembers(
       (member) =>
-        member.department === "HQ" &&
-        !member.staff &&
-        !member.gapyear &&
-        !isSummerIntern(member),
+        member.department === "HQ" && !member.staff && !member.gapyear && !isSummerIntern(member),
     ),
   },
   {
