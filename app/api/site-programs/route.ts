@@ -139,9 +139,7 @@ export async function POST(req: NextRequest) {
   }
 
   if (body.pinned === true) {
-    const pinned = allRecords.filter(
-      (r) => r.fields["Pinned"] === true && r.id !== recordId,
-    );
+    const pinned = allRecords.filter((r) => r.fields["Pinned"] === true && r.id !== recordId);
     for (const r of pinned) {
       await fetch(`${siteBaseUrl()}/${encodeURIComponent(r.id)}`, {
         method: "PATCH",

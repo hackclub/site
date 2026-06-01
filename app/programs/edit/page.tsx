@@ -1399,8 +1399,7 @@ export default function EditPage() {
       (prev) =>
         prev?.map((p) => {
           if (p.ysws.name === name) return { ...p, site };
-          if (site.pinned && p.site?.pinned)
-            return { ...p, site: { ...p.site, pinned: false } };
+          if (site.pinned && p.site?.pinned) return { ...p, site: { ...p.site, pinned: false } };
           return p;
         }) ?? null,
     );
