@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";
+import TiltedCard from "../../components/TiltedCard";
+import Reveal from "../../components/Reveal";
 
 export type TeamMember = {
   name: string;
@@ -128,7 +130,8 @@ function BoardCard({
 
 function PersonCard({ member, onClick }: { member: TeamMember; onClick: () => void }) {
   return (
-    <article className="person-card" onClick={onClick}>
+    <TiltedCard rotateAmplitude={10} scaleOnHover={1.04}>
+      <article className="person-card" onClick={onClick}>
       <div className="person-card__top">
         <div className="person-card__avatar-wrap">
           {member.avatar ? (
@@ -151,6 +154,7 @@ function PersonCard({ member, onClick }: { member: TeamMember; onClick: () => vo
         </div>
       </div>
     </article>
+    </TiltedCard>
   );
 }
 
@@ -164,11 +168,11 @@ function TeamLane({
 }: TeamLaneProps & { onMemberClick: (member: TeamMember) => void }) {
   return (
     <section className={`lane lane--${tone}`}>
-      <div className="lane__header">
+      <Reveal><div className="lane__header">
         <p className="lane__eyebrow">{eyebrow}</p>
         <h2 className="lane__title">{title}</h2>
         <p className="lane__description">{description}</p>
-      </div>
+      </div></Reveal>
 
       <div className="lane__groups">
         {groups
@@ -178,7 +182,7 @@ function TeamLane({
               <div className="lane__group-head">
                 <h3>{group.label}</h3>
               </div>
-              <div className="person-grid">
+              <Reveal delay={0.1}><div className="person-grid">
                 {group.members.map((member) => (
                   <PersonCard
                     key={`${group.label}-${member.name}`}
@@ -186,7 +190,7 @@ function TeamLane({
                     onClick={() => onMemberClick(member)}
                   />
                 ))}
-              </div>
+              </div></Reveal>
             </div>
           ))}
       </div>
@@ -203,14 +207,14 @@ function CommunityPod({
 }: CommunityPodProps & { onMemberClick: (member: TeamMember) => void }) {
   return (
     <section className={`pod pod--${tone}`}>
-      <div className="pod__header">
+      <Reveal><div className="pod__header">
         <div>
           <p className="pod__label"></p>
           <h3 className="pod__title">{title}</h3>
         </div>
-      </div>
-      <p className="pod__description">{description}</p>
-      <div className="person-grid person-grid--compact">
+      </div></Reveal>
+      <Reveal delay={0.1}><p className="pod__description">{description}</p></Reveal>
+      <Reveal delay={0.2}><div className="person-grid person-grid--compact">
         {members.map((member) => (
           <PersonCard
             key={`${title}-${member.name}`}
@@ -218,7 +222,7 @@ function CommunityPod({
             onClick={() => onMemberClick(member)}
           />
         ))}
-      </div>
+      </div></Reveal>
     </section>
   );
 }
@@ -261,8 +265,8 @@ export default function TeamPageClient({
 
       <section className="team-shell board-section">
         <div className="board-section__inner">
-          <h2 className="board-section__title">Board &amp; Advisors</h2>
-          <div className="board-grid board-grid--leaders">
+          <Reveal><h2 className="board-section__title">Board &amp; Advisors</h2></Reveal>
+          <Reveal delay={0.1}><div className="board-grid board-grid--leaders">
             <BoardCard
               img="https://cdn.hackclub.com/019d8d79-96e5-7902-9e5b-1de299c1bdff/2026_04_14_0pu_Kleki%20(2).png"
               name="Zach Latta"
@@ -277,8 +281,8 @@ export default function TeamPageClient({
               bio="With over a decade of experience leading organizations, Christina has built global teams and raised millions. A former New York Times journalist and public school teacher, she co-founded Hack Club."
               email="christina"
             />
-          </div>
-          <div className="board-grid board-grid--advisors">
+          </div></Reveal>
+          <Reveal delay={0.2}><div className="board-grid board-grid--advisors">
             <BoardCard
               img="https://cdn.hackclub.com/019da8a0-de67-721b-911c-5a4cf1a2ad4a/p.webp"
               name="Tom Preston-Werner"
@@ -300,19 +304,19 @@ export default function TeamPageClient({
               subrole="Founder, Boston Scientific"
               href="https://en.wikipedia.org/wiki/John_Abele"
             />
-          </div>
+          </div></Reveal>
         </div>
       </section>
 
       <section className="team-shell team-section">
-        <div className="team-section__header">
+        <Reveal><div className="team-section__header">
           <h2 className="team-section__title">Core teams</h2>
           <p className="team-section__copy">
             HQ helps run the main Hack Club experience, while HCB keeps thousands of fiscally
             sponsored non-profits running. Both are made up of staff, gap years, and teen
             contributors.
           </p>
-        </div>
+        </div></Reveal>
 
         <div className="lane-grid">
           <TeamLane
@@ -335,14 +339,14 @@ export default function TeamPageClient({
       </section>
 
       <section className="team-shell team-section team-section--community">
-        <div className="team-section__header">
+        <Reveal><div className="team-section__header">
           <p className="team-kicker team-kicker--dark">Community Teams</p>
           <h2 className="team-section__title">The teen-facing crews shaping daily culture.</h2>
           <p className="team-section__copy">
             These teams are the visible edge of Hack Club: welcoming people in, moderating the
             space, hosting events, and telling the story of what everyone is making together.
           </p>
-        </div>
+        </div></Reveal>
 
         <div className="pod-grid">
           {communityPods.map((pod) => (
@@ -726,7 +730,6 @@ export default function TeamPageClient({
         }
 
         .person-card:hover {
-          transform: scale(1.05);
           box-shadow: 0 18px 30px rgba(91, 52, 18, 0.1);
           border-color: rgba(236, 55, 80, 0.18);
         }

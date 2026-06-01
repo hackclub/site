@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { EmailSignupInput } from "./email-signup";
 import { BtnArrow } from "./btn-arrow";
+import Reveal from "../Reveal";
 
 export function ReadySection() {
   return (
@@ -16,7 +17,7 @@ export function ReadySection() {
       }}
     >
       {/* Centred content — Figma order: headline → email → description → button → italic */}
-      <div
+      <Reveal><div
         style={{
           position: "relative",
           zIndex: 1,
@@ -111,7 +112,7 @@ export function ReadySection() {
             terms.
           </Link>
         </p>
-      </div>
+      </div></Reveal>
 
       <style>{`
         .ready-terms-link:hover,

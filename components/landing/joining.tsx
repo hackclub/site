@@ -5,6 +5,8 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { useEffect, useRef, useState } from "react";
 import { BtnArrowSvg } from "./btn-arrow";
+import TiltedCard from "../TiltedCard";
+import Reveal from "../Reveal";
 
 type SlackStat = {
   value: number;
@@ -583,7 +585,8 @@ export function JoiningSection() {
           }}
         >
           {/* ── Card 1: Our online community ── */}
-          <div style={{ ...cardWrapStyle, overflow: "visible" }}>
+          <Reveal delay={0}><TiltedCard style={{ overflow: "visible" }}>
+            <div style={{ ...cardWrapStyle, overflow: "visible" }}>
             {/* Background + overlay clipped to rounded corners */}
             <CardBg
               src={
@@ -661,9 +664,11 @@ export function JoiningSection() {
               </div>
             )}
           </div>
+          </TiltedCard></Reveal>
 
           {/* ── Card 2: HCB ── */}
-          <div style={{ ...cardWrapStyle, overflow: "visible" }}>
+          <Reveal delay={0.1}><TiltedCard style={{ overflow: "visible" }}>
+            <div style={{ ...cardWrapStyle, overflow: "visible" }}>
             {/* Background + overlay clipped to rounded corners */}
             <CardBg
               src={
@@ -718,9 +723,11 @@ export function JoiningSection() {
               <CardCta href="https://hcb.hackclub.com/applications/new">Start fundraising</CardCta>
             </div>
           </div>
+          </TiltedCard></Reveal>
 
           {/* ── Card 3: Clubs ── */}
-          <div style={cardWrapStyle}>
+          <Reveal delay={0.2}><TiltedCard>
+            <div style={cardWrapStyle}>
             {/* Background + overlay */}
             <CardBg
               src={
@@ -755,9 +762,11 @@ export function JoiningSection() {
               <CardCta href="https://hackclub.com/clubs/">Start or find a club</CardCta>
             </div>
           </div>
+          </TiltedCard></Reveal>
 
           {/* ── Card 4: Free stuff ── */}
-          <div style={cardWrapStyle}>
+          <Reveal delay={0.3}><TiltedCard>
+            <div style={cardWrapStyle}>
             {/* Background + overlay */}
             <CardBg
               src={
@@ -789,6 +798,7 @@ export function JoiningSection() {
               <CardCta href="https://toolbox.hackclub.com/">See all perks</CardCta>
             </div>
           </div>
+          </TiltedCard></Reveal>
         </div>
       </div>
 

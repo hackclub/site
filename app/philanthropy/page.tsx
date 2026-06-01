@@ -4,6 +4,7 @@ import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { buildPageMetadata } from "@/lib/seo";
 import insiderLogo from "./assets/insider-logo.svg";
+import Reveal from "../../components/Reveal";
 import wsjLogo from "./assets/wsj-logo.svg";
 import forbesLogo from "./assets/forbes-logo.svg";
 import copLogo from "./assets/cop.webp";
@@ -295,7 +296,7 @@ export default function PhilanthropyPage() {
       </section>
 
       <section className="philanthropy-shell philanthropy-section">
-        <div className="philanthropy-testimonials">
+        <Reveal><div className="philanthropy-testimonials">
           {testimonials.map((item) => (
             <article key={item.info} className="philanthropy-testimonial-card">
               <Image
@@ -310,7 +311,7 @@ export default function PhilanthropyPage() {
               </div>
             </article>
           ))}
-        </div>
+        </div></Reveal>
       </section>
 
       <section className="philanthropy-shell philanthropy-section">
@@ -339,7 +340,7 @@ export default function PhilanthropyPage() {
           <p className="philanthropy-kicker philanthropy-kicker--dark">Community</p>
           <h2>Join our community of generous donors.</h2>
         </div>
-        <div className="philanthropy-donors">
+        <Reveal><div className="philanthropy-donors">
           {donorTiers.map((tier) => (
             <div key={tier.title} className="philanthropy-donors__tier">
               <h3>{tier.title}</h3>
@@ -350,7 +351,7 @@ export default function PhilanthropyPage() {
               </ul>
             </div>
           ))}
-        </div>
+        </div></Reveal>
         <p className="philanthropy-donors__note">
           * number in parentheses indicates gifts since 2018.
         </p>
@@ -368,7 +369,7 @@ export default function PhilanthropyPage() {
           <p className="philanthropy-kicker philanthropy-kicker--dark">Impact stories</p>
           <h2>What your support enables.</h2>
         </div>
-        <div className="philanthropy-impact-grid">
+        <Reveal><div className="philanthropy-impact-grid">
           {impactStories.map((story) => (
             <article key={story.title} className="philanthropy-impact-card">
               <div className="philanthropy-impact-card__copy">
@@ -384,7 +385,7 @@ export default function PhilanthropyPage() {
               </div>
             </article>
           ))}
-        </div>
+        </div></Reveal>
 
         <div className="philanthropy-belle-quote">
           <h3>“Hack Club helped me fall in love with creating and made me feel like I belong.”</h3>
@@ -400,13 +401,13 @@ export default function PhilanthropyPage() {
           <p className="philanthropy-kicker philanthropy-kicker--dark">In the news</p>
           <h2>As the largest network of technical teenagers, we are featured in global press.</h2>
         </div>
-        <div className="philanthropy-press">
+        <Reveal><div className="philanthropy-press">
           {pressLogos.map((logo) => (
             <a key={logo.href} href={logo.href} target="_blank" rel="noreferrer">
               <Image src={logo.src} alt={logo.alt} width={180} height={60} />
             </a>
           ))}
-        </div>
+        </div></Reveal>
       </section>
 
       <section className="philanthropy-shell philanthropy-section">

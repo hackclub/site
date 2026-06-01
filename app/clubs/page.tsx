@@ -5,6 +5,7 @@ import { Footer } from "../../components/Footer";
 import { YouTubeEmbed } from "../../components/YouTubeEmbed";
 import type { ReactNode } from "react";
 import { buildPageMetadata } from "@/lib/seo";
+import Reveal from "../../components/Reveal";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Hack Club Clubs — Start a Club",
@@ -482,7 +483,7 @@ export default function ClubPage() {
             >
               Get your club going and growing.
             </h2>
-            <div
+            <Reveal><div
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
@@ -576,7 +577,7 @@ export default function ClubPage() {
                   </>
                 }
               />
-            </div>
+            </div></Reveal>
           </div>
         </section>
 
@@ -588,7 +589,7 @@ export default function ClubPage() {
           }}
         >
           <div style={{ maxWidth: 1120, margin: "0 auto", textAlign: "center" }}>
-            <h2
+            <Reveal><h2
               style={{
                 margin: "0 0 14px",
                 fontFamily: "var(--font-zarathustra)",
@@ -598,8 +599,8 @@ export default function ClubPage() {
               }}
             >
               Start your club.
-            </h2>
-            <p
+            </h2></Reveal>
+            <Reveal delay={0.1}><p
               style={{
                 margin: "0 auto 24px",
                 maxWidth: 820,
@@ -609,8 +610,8 @@ export default function ClubPage() {
               }}
             >
               It&apos;s online, free, and takes less than an hour to kick off.
-            </p>
-            <div
+            </p></Reveal>
+            <Reveal delay={0.2}><div
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
@@ -634,7 +635,7 @@ export default function ClubPage() {
                 description="Schedule your first session and start shipping projects."
                 gradient="linear-gradient(135deg, #6f31b7 0%, #fb558e 100%)"
               />
-            </div>
+            </div></Reveal>
             <a
               href="https://apply.hackclub.com"
               target="_blank"

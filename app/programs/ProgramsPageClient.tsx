@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
+import Reveal from "../../components/Reveal";
 import type { ProgramFormat, ProjectType } from "../../lib/site-programs";
 import { PROJECT_TYPE_OPTIONS, formatInPersonDate } from "../../lib/site-programs";
 import type { AirtableProgram } from "../../lib/programs";
@@ -1062,14 +1063,14 @@ export default function ProgramsPage({
           </p>
         )}
 
-        <div
+        <Reveal><div
           className="programs-grid"
           style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28 }}
         >
           {programs === null
             ? Array.from({ length: 4 }).map((_, i) => <CardSkeleton key={i} />)
             : sorted.map((p) => <ProgramCard key={p.id} program={p} />)}
-        </div>
+        </div></Reveal>
 
         {programs !== null && sorted.length === 0 && (
           <p

@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
+import TiltedCard from "../../components/TiltedCard";
+import Reveal from "../../components/Reveal";
 
 export type ArcadePrize = {
   name: string;
@@ -174,6 +176,7 @@ function PrizeCard({
   onOpen: (prize: ArcadePrize) => void;
 }) {
   return (
+    <TiltedCard rotateAmplitude={8} scaleOnHover={1.05}>
     <article className="arcade-prize-card">
       {prize.limited ? <div className="arcade-prize-limited">Limited!</div> : null}
       <div className="arcade-prize-image-shell">
@@ -195,6 +198,7 @@ function PrizeCard({
         📦
       </button>
     </article>
+    </TiltedCard>
   );
 }
 
@@ -539,7 +543,7 @@ export default function ArcadePageClient({
           <p className="arcade-prizes-subtitle">
             Redeem these with your tickets. For high schoolers or younger only.
           </p>
-          <div className="arcade-prize-grid">
+          <Reveal><div className="arcade-prize-grid">
             {prizes.map((prize) => (
               <PrizeCard
                 key={`${prize.name}-${prize.hours}`}
@@ -547,7 +551,7 @@ export default function ArcadePageClient({
                 onOpen={setSelectedPrize}
               />
             ))}
-          </div>
+          </div></Reveal>
           <p className="arcade-sneak-peek">
             This is just a <span>sneak peek</span>... there were many more prizes that were unlocked
             as the summer went on!
@@ -1319,12 +1323,8 @@ export default function ArcadePageClient({
           transform: rotate(-12deg);
         }
 
-        .arcade-prize-card:nth-child(even) {
-          transform: rotate(2deg);
-        }
-
         .arcade-prize-card:hover {
-          transform: scale(1.06) rotate(0deg);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
         }
 
         .arcade-prize-image-shell {

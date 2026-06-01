@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";
 import { buildPageMetadata } from "@/lib/seo";
+import TiltedCard from "../../components/TiltedCard";
+import Reveal from "../../components/Reveal";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Jobs — Hack Club",
@@ -79,12 +81,12 @@ export default async function JobsPage() {
           <h2 className="jobs-section__title">Open roles</h2>
         </div>
 
-        <div className="jobs-grid">
+        <Reveal><div className="jobs-grid">
           {hasJobs ? (
             jobs.items.map((job) => (
-              <a
-                key={job.id}
-                className="jobs-card"
+              <TiltedCard key={job.id}>
+                <a
+                  className="jobs-card"
                 href={job.job_post_url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -95,6 +97,7 @@ export default async function JobsPage() {
                 </div>
                 <p>{jobMeta(job)}</p>
               </a>
+              </TiltedCard>
             ))
           ) : (
             <div className="jobs-empty">
@@ -105,7 +108,7 @@ export default async function JobsPage() {
               </p>
             </div>
           )}
-        </div>
+        </div></Reveal>
       </section>
 
       <Footer />
@@ -230,7 +233,6 @@ export default async function JobsPage() {
         }
 
         .jobs-card:hover {
-          transform: translateY(-2px);
           box-shadow: 0 24px 50px rgba(91, 52, 18, 0.12);
         }
 

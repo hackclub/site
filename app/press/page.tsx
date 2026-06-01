@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";
 import { buildPageMetadata } from "@/lib/seo";
+import TiltedCard from "../../components/TiltedCard";
+import Reveal from "../../components/Reveal";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Press — Hack Club",
@@ -158,7 +160,7 @@ export default function PressPage() {
             Download and use these images for coverage of Hack Club programs and events.
           </p>
         </div>
-        <div className="press-photo-grid">
+        <Reveal><div className="press-photo-grid">
           {photoItems.map((photo) => (
             <figure key={photo.src} className="press-photo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -166,7 +168,7 @@ export default function PressPage() {
               <figcaption>{photo.alt}</figcaption>
             </figure>
           ))}
-        </div>
+        </div></Reveal>
         <a
           className="press-btn press-btn--ghost press-btn--block press-photos-download"
           href="https://assets.hackclub.com/press-photos.zip"
@@ -184,9 +186,10 @@ export default function PressPage() {
             stretching, outlining, or recoloring.
           </p>
         </div>
-        <div className="press-logo-grid">
+        <Reveal><div className="press-logo-grid">
           {logoAssets.map((logo) => (
-            <article key={logo.key} className="press-logo-card">
+            <TiltedCard key={logo.key}>
+              <article className="press-logo-card">
               <div className="press-logo-card__preview">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -211,8 +214,9 @@ export default function PressPage() {
                 </div>
               </div>
             </article>
-          ))}
-        </div>
+            </TiltedCard>
+            ))}
+        </div></Reveal>
       </section>
 
       <section className="press-shell press-section press-section--cta">
