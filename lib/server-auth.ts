@@ -47,6 +47,13 @@ async function isAdmin(slackId: string): Promise<boolean> {
   return (data.records ?? []).length > 0;
 }
 
+/** Return true if the signed-in user is in the Site Admins table. */
+export async function isAdminRequest(req: NextRequest): Promise<boolean> {
+  const slackId = await getSlackId(req);
+  if (!slackId) return false;
+  return isAdmin(slackId);
+}
+
 /**
  * Returns true if the signed-in user is allowed to edit the given program name.
  * Admins can edit anything. Others must be listed as a Current Owner in YSWS Authors.

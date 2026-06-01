@@ -6,7 +6,7 @@ import {
   SITE_FIELDS,
   type SiteProgram,
 } from "../../../lib/site-programs";
-import { canEditProgram } from "../../../lib/server-auth";
+import { canEditProgram, isAdminRequest } from "../../../lib/server-auth";
 
 export const dynamic = "force-dynamic";
 
@@ -74,6 +74,7 @@ export async function POST(req: NextRequest) {
     inPersonEnd?: string | null;
     inPersonLocation?: string;
     additionalRequirements?: string | null;
+    pinned?: boolean;
   };
 
   // Authorization — must own this program (or be admin)
@@ -113,18 +114,41 @@ export async function POST(req: NextRequest) {
   if (body.additionalRequirements !== undefined)
     fields["Additional Requirements"] = body.additionalRequirements;
 
+  if (body.pinned !== undefined) {
+    if (!(await isAdminRequest(req))) {
+      return NextResponse.json({ error: "Only admins can pin events" }, { status: 403 });
+    }
+    fields["Pinned"] = body.pinned;
+  }
+
   // Always resolve recordId server-side from the authorized programName.
   // Never trust a client-supplied recordId: the authorization check is keyed on
   // programName, so accepting an arbitrary recordId would let any program owner
   // edit any other program's record.
   let recordId: string | undefined;
+  let allRecords: { id: string; fields: Record<string, unknown> }[];
   try {
-    const all = await getAllRecords(key);
-    const match = all.find((r) => (r.fields["Name"] as string | undefined) === body.programName);
+    allRecords = await getAllRecords(key);
+    const match = allRecords.find(
+      (r) => (r.fields["Name"] as string | undefined) === body.programName,
+    );
     if (match) recordId = match.id;
   } catch (e) {
     console.error("[site-programs] record lookup failed", e);
     return NextResponse.json({ error: "Failed to look up program" }, { status: 500 });
+  }
+
+  if (body.pinned === true) {
+    const pinned = allRecords.filter(
+      (r) => r.fields["Pinned"] === true && r.id !== recordId,
+    );
+    for (const r of pinned) {
+      await fetch(`${siteBaseUrl()}/${encodeURIComponent(r.id)}`, {
+        method: "PATCH",
+        headers: siteAuthHeaders(key),
+        body: JSON.stringify({ fields: { Pinned: false } }),
+      });
+    }
   }
 
   let res: Response;

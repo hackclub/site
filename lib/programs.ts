@@ -30,9 +30,14 @@ export function selectFeaturedPrograms(
   limit = 4,
   now = new Date(),
 ): AirtableProgram[] {
-  return programs
+  const pinned = programs.find((p) => p.site?.pinned);
+  const ongoing = programs
     .filter((program) => getProgramStatus(program, now) === "ongoing")
     .sort((a, b) => {
+      const aPinned = Number(Boolean(a.site?.pinned));
+      const bPinned = Number(Boolean(b.site?.pinned));
+      if (aPinned !== bPinned) return bPinned - aPinned;
+
       const aHasImage = Number(Boolean(a.site?.bgImageUrl));
       const bHasImage = Number(Boolean(b.site?.bgImageUrl));
       if (aHasImage !== bHasImage) return bHasImage - aHasImage;
@@ -48,4 +53,12 @@ export function selectFeaturedPrograms(
       return a.name.localeCompare(b.name);
     })
     .slice(0, limit);
+
+  // Pinned event always appears even if it's not ongoing
+  if (pinned && !ongoing.some((p) => p.site?.pinned)) {
+    ongoing.pop();
+    ongoing.unshift(pinned);
+  }
+
+  return ongoing;
 }
