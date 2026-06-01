@@ -54,9 +54,8 @@ export function selectFeaturedPrograms(
     })
     .slice(0, limit);
 
-  // Pinned event always appears even if it's not ongoing
   if (pinned && !ongoing.some((p) => p.site?.pinned)) {
-    ongoing.pop();
+    if (ongoing.length >= limit) ongoing.pop();
     ongoing.unshift(pinned);
   }
 

@@ -701,9 +701,11 @@ function PinToggle({
   onUpdate: (s: SiteProgram) => void;
 }) {
   const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function toggle() {
     setBusy(true);
+    setError(null);
     try {
       const res = await fetch("/api/site-programs", {
         method: "POST",
@@ -711,58 +713,78 @@ function PinToggle({
         body: JSON.stringify({ programName, pinned: !pinned }),
       });
       const data = await res.json();
-      if (res.ok) onUpdate(data as SiteProgram);
+      if (res.ok) {
+        onUpdate(data as SiteProgram);
+      } else {
+        setError(data?.error ?? `Failed to update (${res.status})`);
+      }
+    } catch {
+      setError("Network issue, try again?");
     } finally {
       setBusy(false);
     }
   }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: 10,
-        padding: "10px 14px",
-        background: pinned ? "rgba(236,55,80,0.08)" : "var(--surface)",
-        borderRadius: 12,
-        border: pinned ? "2px solid var(--red)" : "2px solid var(--border)",
-      }}
-    >
-      <svg width="16" height="16" viewBox="0 0 24 24" fill={pinned ? "#ec3750" : "var(--muted)"}>
-        <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z" />
-      </svg>
-      <span
+    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+      <div
         style={{
-          fontFamily: "var(--font-phantom)",
-          fontSize: 13,
-          fontWeight: "bold",
-          color: pinned ? "var(--red)" : "var(--foreground)",
-          flex: 1,
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+          padding: "10px 14px",
+          background: pinned ? "rgba(236,55,80,0.08)" : "var(--surface)",
+          borderRadius: 12,
+          border: pinned ? "2px solid var(--red)" : "2px solid var(--border)",
         }}
       >
-        {pinned ? "Pinned to homepage" : "Pin to homepage"}
-      </span>
-      <button
-        onClick={toggle}
-        disabled={busy}
-        style={{
-          height: 30,
-          paddingLeft: 14,
-          paddingRight: 14,
-          borderRadius: 9999,
-          border: "none",
-          background: pinned ? "var(--red)" : "var(--foreground)",
-          color: "var(--paper)",
-          fontFamily: "var(--font-phantom)",
-          fontSize: 12,
-          fontWeight: "bold",
-          cursor: busy ? "default" : "pointer",
-          opacity: busy ? 0.5 : 1,
-        }}
-      >
-        {busy ? "..." : pinned ? "Unpin" : "Pin"}
-      </button>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill={pinned ? "#ec3750" : "var(--muted)"}>
+          <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z" />
+        </svg>
+        <span
+          style={{
+            fontFamily: "var(--font-phantom)",
+            fontSize: 13,
+            fontWeight: "bold",
+            color: pinned ? "var(--red)" : "var(--foreground)",
+            flex: 1,
+          }}
+        >
+          {pinned ? "Pinned to homepage" : "Pin to homepage"}
+        </span>
+        <button
+          onClick={toggle}
+          disabled={busy}
+          style={{
+            height: 30,
+            paddingLeft: 14,
+            paddingRight: 14,
+            borderRadius: 9999,
+            border: "none",
+            background: pinned ? "var(--red)" : "var(--foreground)",
+            color: "var(--paper)",
+            fontFamily: "var(--font-phantom)",
+            fontSize: 12,
+            fontWeight: "bold",
+            cursor: busy ? "default" : "pointer",
+            opacity: busy ? 0.5 : 1,
+          }}
+        >
+          {busy ? "..." : pinned ? "Unpin" : "Pin"}
+        </button>
+      </div>
+      {error && (
+        <span
+          style={{
+            fontFamily: "var(--font-phantom)",
+            fontSize: 12,
+            color: "var(--red)",
+            paddingLeft: 4,
+          }}
+        >
+          {error}
+        </span>
+      )}
     </div>
   );
 }
