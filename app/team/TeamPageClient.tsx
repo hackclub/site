@@ -273,8 +273,8 @@ export default function TeamPageClient({
             <BoardCard
               img="https://cdn.hackclub.com/019d8d79-0da7-7b99-a8fe-ee6412aca976/2026_04_14_0pu_Kleki%20(1).png"
               name="Christina Asquith"
-              role="Co-Founder and COO"
-              bio="With over a decade of experience leading organizations, Christina has built global teams and raised millions. A former New York Times journalist and public school teacher, she co-founded Hack Club."
+              role="Co-Founder"
+              bio="Christina cofounded Hack Club after 20 years as a journalist/war correspondent, reporting from Iraq, Afghanistan and Africa, and founding The Fuller Project, an investigative journalism nonprofit focused on women. She holds an MA in philosophy from London School of Economics and has published 2 nonfiction books."
               email="christina"
             />
           </div>
