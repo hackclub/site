@@ -1,5 +1,5 @@
 export function x(email?: string) {
-  const url = new URL("https://auth.hackclub.com/slack");
+  const url = new URL("https://slack.hackclub.com/slides/1");
 
   const x = email?.trim();
   if (x) {
