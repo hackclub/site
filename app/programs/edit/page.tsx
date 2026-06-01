@@ -690,15 +690,116 @@ function TextField({
   );
 }
 
+// ── Pin toggle (admin only) ──────────────────────────────────────────────────
+function PinToggle({
+  programName,
+  pinned,
+  onUpdate,
+}: {
+  programName: string;
+  pinned: boolean;
+  onUpdate: (s: SiteProgram) => void;
+}) {
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function toggle() {
+    setBusy(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/site-programs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ programName, pinned: !pinned }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        onUpdate(data as SiteProgram);
+      } else {
+        setError(data?.error ?? `Failed to update (${res.status})`);
+      }
+    } catch {
+      setError("Network issue, try again?");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+          padding: "10px 14px",
+          background: pinned ? "rgba(236,55,80,0.08)" : "var(--surface)",
+          borderRadius: 12,
+          border: pinned ? "2px solid var(--red)" : "2px solid var(--border)",
+        }}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill={pinned ? "#ec3750" : "var(--muted)"}>
+          <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z" />
+        </svg>
+        <span
+          style={{
+            fontFamily: "var(--font-phantom)",
+            fontSize: 13,
+            fontWeight: "bold",
+            color: pinned ? "var(--red)" : "var(--foreground)",
+            flex: 1,
+          }}
+        >
+          {pinned ? "Pinned to homepage" : "Pin to homepage"}
+        </span>
+        <button
+          onClick={toggle}
+          disabled={busy}
+          style={{
+            height: 30,
+            paddingLeft: 14,
+            paddingRight: 14,
+            borderRadius: 9999,
+            border: "none",
+            background: pinned ? "var(--red)" : "var(--foreground)",
+            color: "var(--paper)",
+            fontFamily: "var(--font-phantom)",
+            fontSize: 12,
+            fontWeight: "bold",
+            cursor: busy ? "default" : "pointer",
+            opacity: busy ? 0.5 : 1,
+          }}
+        >
+          {busy ? "..." : pinned ? "Unpin" : "Pin"}
+        </button>
+      </div>
+      {error && (
+        <span
+          style={{
+            fontFamily: "var(--font-phantom)",
+            fontSize: 12,
+            color: "var(--red)",
+            paddingLeft: 4,
+          }}
+        >
+          {error}
+        </span>
+      )}
+    </div>
+  );
+}
+
 // ── Program editor panel ──────────────────────────────────────────────────────
 function ProgramEditor({
   prog,
   onChange,
   onSiteUpdate,
+  isAdmin,
 }: {
   prog: EditorProgram;
   onChange: (d: EditorProgram["draft"]) => void;
   onSiteUpdate: (s: SiteProgram) => void;
+  isAdmin: boolean;
 }) {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -1163,6 +1264,15 @@ function ProgramEditor({
           />
         </div>
 
+        {/* ── Pin (admin only) ── */}
+        {isAdmin && (
+          <PinToggle
+            programName={prog.ysws.name}
+            pinned={prog.site?.pinned ?? false}
+            onUpdate={onSiteUpdate}
+          />
+        )}
+
         {/* ── Save ── */}
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <button
@@ -1307,7 +1417,14 @@ export default function EditPage() {
   }
 
   function updateSite(name: string, site: SiteProgram) {
-    setPrograms((prev) => prev?.map((p) => (p.ysws.name === name ? { ...p, site } : p)) ?? null);
+    setPrograms(
+      (prev) =>
+        prev?.map((p) => {
+          if (p.ysws.name === name) return { ...p, site };
+          if (site.pinned && p.site?.pinned) return { ...p, site: { ...p.site, pinned: false } };
+          return p;
+        }) ?? null,
+    );
   }
 
   async function logout() {
@@ -1537,9 +1654,34 @@ export default function EditPage() {
                           fontSize: 22,
                           color: "var(--foreground)",
                           flex: 1,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 8,
                         }}
                       >
                         {prog.ysws.name}
+                        {prog.site?.pinned && (
+                          <span
+                            style={{
+                              display: "inline-flex",
+                              alignItems: "center",
+                              gap: 4,
+                              padding: "2px 8px",
+                              borderRadius: 9999,
+                              background: "#ec3750",
+                              fontFamily: "var(--font-phantom)",
+                              fontSize: 11,
+                              fontWeight: "bold",
+                              color: "#fff",
+                              whiteSpace: "nowrap",
+                            }}
+                          >
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="white">
+                              <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z" />
+                            </svg>
+                            Pinned
+                          </span>
+                        )}
                       </span>
                       <span
                         style={{
@@ -1571,6 +1713,7 @@ export default function EditPage() {
                             prog={prog}
                             onChange={(draft) => updateDraft(prog.ysws.name, draft)}
                             onSiteUpdate={(site) => updateSite(prog.ysws.name, site)}
+                            isAdmin={auth.isAdmin}
                           />
                         </div>
                       </div>

@@ -58,6 +58,22 @@ export async function canEditProgram(req: NextRequest, programName: string): Pro
   // Admins bypass all ownership checks
   if (await isAdmin(slackId)) return true;
 
+  return ownsProgram(slackId, programName);
+}
+
+export async function getEditAuth(
+  req: NextRequest,
+  programName: string,
+): Promise<{ canEdit: boolean; isAdmin: boolean }> {
+  const slackId = await getSlackId(req);
+  if (!slackId) return { canEdit: false, isAdmin: false };
+
+  if (await isAdmin(slackId)) return { canEdit: true, isAdmin: true };
+
+  return { canEdit: await ownsProgram(slackId, programName), isAdmin: false };
+}
+
+async function ownsProgram(slackId: string, programName: string): Promise<boolean> {
   const apiKey = process.env.AIRTABLE_API_KEY;
   if (!apiKey) return false;
 
