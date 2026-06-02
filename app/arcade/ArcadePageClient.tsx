@@ -413,7 +413,10 @@ export default function ArcadePageClient({
             rel="noreferrer"
             className="arcade-projects-link cta-btn"
           >
-            See more projects <span className="btn-arrow" aria-hidden="true"><BtnArrowSvg /></span>
+            See more projects{" "}
+            <span className="btn-arrow" aria-hidden="true">
+              <BtnArrowSvg />
+            </span>
           </a>
         </div>
       </section>

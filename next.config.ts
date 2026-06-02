@@ -246,10 +246,6 @@ const nextConfig: NextConfig = {
         destination: "/bin/index.html",
       },
       {
-        source: "/bin/:path*",
-        destination: "/bin/:path*",
-      },
-      {
         source: "/bin/selector/",
         destination: "/bin/selector/index.html",
       },

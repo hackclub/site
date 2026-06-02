@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ThemeLock } from "@/components/ThemeToggle";
@@ -553,17 +553,24 @@ function BuiltByHackClub() {
   );
 }
 
+const subscribeReferral = () => () => {};
+const getReferralSnapshot = () => {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("referral") || params.get("tub_program");
+};
+
 export default function FiscalSponsorshipPage() {
-  const [referralParam, setReferralParam] = useState<string | null>(null);
+  const referralParam = useSyncExternalStore<string | null>(
+    subscribeReferral,
+    getReferralSnapshot,
+    () => null,
+  );
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const referral = params.get("referral") || params.get("tub_program");
-    setReferralParam(referral);
-    if (referral) {
-      document.cookie = `referral=${encodeURIComponent(referral)}; path=/; max-age=31536000`;
+    if (referralParam) {
+      document.cookie = `referral=${encodeURIComponent(referralParam)}; path=/; max-age=31536000`;
     }
-  }, []);
+  }, [referralParam]);
 
   return (
     <>

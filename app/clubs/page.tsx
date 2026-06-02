@@ -212,7 +212,10 @@ export default function ClubPage() {
                   textDecoration: "none",
                 }}
               >
-                Apply now <span className="btn-arrow" aria-hidden="true"><BtnArrowSvg /></span>
+                Apply now{" "}
+                <span className="btn-arrow" aria-hidden="true">
+                  <BtnArrowSvg />
+                </span>
               </a>
               <a
                 href="https://slack.hackclub.com"
@@ -445,7 +448,10 @@ export default function ClubPage() {
                 fontSize: 23,
               }}
             >
-              Our philosophy <span className="btn-arrow" aria-hidden="true"><BtnArrowSvg /></span>
+              Our philosophy{" "}
+              <span className="btn-arrow" aria-hidden="true">
+                <BtnArrowSvg />
+              </span>
             </Link>
           </div>
         </section>
@@ -655,7 +661,10 @@ export default function ClubPage() {
                 textDecoration: "none",
               }}
             >
-              Apply to Hack Club <span className="btn-arrow" aria-hidden="true"><BtnArrowSvg /></span>
+              Apply to Hack Club{" "}
+              <span className="btn-arrow" aria-hidden="true">
+                <BtnArrowSvg />
+              </span>
             </a>
           </div>
         </section>
