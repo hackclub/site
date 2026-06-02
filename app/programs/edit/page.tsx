@@ -1346,10 +1346,15 @@ export default function EditPage() {
 
   // Check auth and load editable programs
   useEffect(() => {
+    const authError =
+      new URLSearchParams(window.location.search).get("auth_error") === "1"
+        ? "Sign-in failed. Please try again."
+        : undefined;
+
     fetch("/api/programs/editable")
       .then((r) => {
         if (r.status === 401) {
-          setAuth({ status: "unauthenticated" });
+          setAuth({ status: "unauthenticated", error: authError });
           return null;
         }
         return r.json();
