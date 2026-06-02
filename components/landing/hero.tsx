@@ -751,7 +751,7 @@ export function HeroSection() {
             pointerEvents: "auto",
           }}
           onMouseEnter={() => {
-            magHoverTimer.current = setTimeout(() => setMagHover("in"), 300);
+            magHoverTimer.current = setTimeout(() => setMagHover("in"), 10);
           }}
           onMouseLeave={() => {
             if (magHoverTimer.current) clearTimeout(magHoverTimer.current);
