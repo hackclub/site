@@ -14,6 +14,7 @@ import { SignIn } from "@/components/fiscal-sponsorship/SignIn";
 import { Icon } from "@/components/Icon";
 import { FISCAL_COLORS, FISCAL_TYPOGRAPHY } from "@/components/fiscal-sponsorship/constants";
 import { MOCK_ORGANIZATIONS } from "@/lib/fiscal-sponsorship-data";
+import { BtnArrowSvg } from "@/components/landing/btn-arrow";
 
 const V = FISCAL_TYPOGRAPHY.sectionPaddingV;
 const H = FISCAL_TYPOGRAPHY.sectionPaddingH;
@@ -839,7 +840,7 @@ export default function FiscalSponsorshipPage() {
                   whiteSpace: "nowrap" as const,
                 }}
               >
-                See more organizations →
+                See more organizations <BtnArrowSvg />
               </Link>
             </div>
           </div>

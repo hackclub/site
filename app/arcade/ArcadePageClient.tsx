@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
+import { BtnArrowSvg } from "../../components/landing/btn-arrow";
 
 export type ArcadePrize = {
   name: string;
@@ -410,9 +411,9 @@ export default function ArcadePageClient({
             href="https://scrapbook.hackclub.com/"
             target="_blank"
             rel="noreferrer"
-            className="arcade-projects-link"
+            className="arcade-projects-link cta-btn"
           >
-            See more projects →
+            See more projects <span className="btn-arrow" aria-hidden="true"><BtnArrowSvg /></span>
           </a>
         </div>
       </section>

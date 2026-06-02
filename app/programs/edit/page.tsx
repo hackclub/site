@@ -5,6 +5,7 @@ import { Navbar } from "../../../components/Navbar";
 import type { AirtableProgram } from "../../../lib/programs";
 import type { SiteProgram, ProjectType, ProgramFormat } from "../../../lib/site-programs";
 import { PROJECT_TYPE_OPTIONS, formatInPersonDate } from "../../../lib/site-programs";
+import { BtnArrowSvg } from "../../../components/landing/btn-arrow";
 
 interface EditorProgram {
   ysws: AirtableProgram;
@@ -49,7 +50,7 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
       ? "Ended"
       : `Ends ${parseLocalDate(ysws.endDate).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}`;
   const badgeEnded = isEnded || isDraft;
-  const buttonText = isEnded ? "See the site →" : "Start now →";
+  const buttonText = isEnded ? "See the site" : "Start now";
   const buttonColor = draft.buttonColor || "#ec3750";
 
   const inPersonStr = formatInPersonDate(
@@ -186,6 +187,7 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
             zIndex: 1,
             display: "inline-flex",
             alignItems: "center",
+            gap: 6,
             paddingTop: 6,
             paddingBottom: 6,
             paddingLeft: 20,
@@ -201,6 +203,7 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
           }}
         >
           {buttonText}
+          <BtnArrowSvg />
         </div>
       )}
 

@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, type ReactNode } from "react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import type { ProgramFormat, ProjectType } from "../../lib/site-programs";
 import { PROJECT_TYPE_OPTIONS, formatInPersonDate } from "../../lib/site-programs";
 import type { AirtableProgram } from "../../lib/programs";
 import { getProgramStatus, parseLocalDate } from "../../lib/programs";
+import { BtnArrowSvg } from "../../components/landing/btn-arrow";
 
 function ProgramCard({ program }: { program: AirtableProgram }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -256,7 +257,9 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
             {buttonLabel}
-            <span className="btn-arrow">→</span>
+            <span className="btn-arrow" aria-hidden="true">
+              <BtnArrowSvg />
+            </span>
           </a>
         )}
 
@@ -560,11 +563,27 @@ const STATUS_LABELS: Record<StatusOption, string> = {
   draft: "Draft",
 };
 type SortOption = "deadline-asc" | "deadline-desc" | "az" | "za";
-const SORT_LABELS: Record<SortOption, string> = {
+const SortArrow = () => (
+  <span
+    aria-hidden="true"
+    style={{ display: "inline-flex", verticalAlign: "middle", margin: "0 4px" }}
+  >
+    <BtnArrowSvg />
+  </span>
+);
+const SORT_LABELS: Record<SortOption, ReactNode> = {
   "deadline-asc": "Earliest deadline",
   "deadline-desc": "Latest deadline",
-  az: "A → Z",
-  za: "Z → A",
+  az: (
+    <>
+      A<SortArrow />Z
+    </>
+  ),
+  za: (
+    <>
+      Z<SortArrow />A
+    </>
+  ),
 };
 const FORMAT_OPTIONS: ProgramFormat[] = ["In-Person Only", "Online Only", "Both"];
 
@@ -863,7 +882,13 @@ export default function ProgramsPage({
               target="_blank"
               style={{ color: "#ec3750", textDecoration: "none" }}
             >
-              on Youtube→
+              on Youtube
+              <span
+                aria-hidden="true"
+                style={{ display: "inline-flex", verticalAlign: "middle", marginLeft: 2 }}
+              >
+                <BtnArrowSvg />
+              </span>
             </a>
             )
           </p>
