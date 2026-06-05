@@ -339,9 +339,9 @@ export function Game() {
       ) : null}
 
       {open ? (
-        <div
+        <dialog
+          open
           className="game-overlay"
-          role="dialog"
           aria-modal="true"
           aria-labelledby="sticker-game-title"
         >
@@ -412,8 +412,16 @@ export function Game() {
             .game-overlay {
               position: fixed;
               inset: 0;
+              width: 100%;
+              max-width: none;
+              height: 100%;
+              max-height: none;
+              margin: 0;
+              padding: 0;
+              border: 0;
               z-index: 2000;
               overflow: hidden;
+              color: inherit;
               background:
                 radial-gradient(circle at 18% 18%, rgba(91, 192, 222, 0.16), transparent 30%),
                 radial-gradient(circle at 86% 16%, rgba(255, 206, 107, 0.22), transparent 24%),
@@ -700,7 +708,7 @@ export function Game() {
               }
             }
           `}</style>
-        </div>
+        </dialog>
       ) : null}
 
       <style>{`

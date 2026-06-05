@@ -25,7 +25,7 @@ function Heading({ level, children }: { level: number; children: React.ReactNode
 
   return (
     <Tag id={id} className="md-heading">
-      <a href={`#${id}`} className="md-heading__anchor" aria-hidden="true">
+      <a href={`#${id}`} className="md-heading__anchor" aria-hidden="true" tabIndex={-1}>
         #
       </a>
       {children}

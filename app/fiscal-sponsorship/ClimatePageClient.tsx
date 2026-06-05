@@ -137,7 +137,7 @@ export default function ClimatePageClient({ organizations, region }: ClimatePage
                 Climate-focused organizations using HCB to accelerate environmental action and
                 sustainability initiatives.
               </p>
-              <label
+              <div
                 className="climate-search"
                 style={{
                   display: "block",
@@ -147,6 +147,7 @@ export default function ClimatePageClient({ organizations, region }: ClimatePage
               >
                 <input
                   type="search"
+                  aria-label="Search organizations"
                   value={searchTerm}
                   onChange={(event) => {
                     setSearchTerm(event.target.value);
@@ -167,7 +168,7 @@ export default function ClimatePageClient({ organizations, region }: ClimatePage
                     backdropFilter: "blur(12px)",
                   }}
                 />
-              </label>
+              </div>
             </div>
           </div>
         </section>

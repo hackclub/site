@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";
 
@@ -77,7 +77,7 @@ function emailHref(email?: string) {
 function BoardCard({
   img,
   name,
-  role,
+  boardRole,
   subrole,
   bio,
   email,
@@ -85,7 +85,7 @@ function BoardCard({
 }: {
   img: string;
   name: string;
-  role: string;
+  boardRole: string;
   subrole?: string;
   bio?: string;
   email?: string;
@@ -107,7 +107,7 @@ function BoardCard({
         className="board-card__avatar"
       />
       <p className="board-card__name">{name}</p>
-      <p className="board-card__role">{role}</p>
+      <p className="board-card__role">{boardRole}</p>
       {subrole && <p className="board-card__subrole">{subrole}</p>}
       {bio && <p className="board-card__bio">{bio}</p>}
       {mailHref && (
@@ -128,9 +128,14 @@ function BoardCard({
 
 function PersonCard({ member, onClick }: { member: TeamMember; onClick: () => void }) {
   return (
-    <article className="person-card" onClick={onClick}>
-      <div className="person-card__top">
-        <div className="person-card__avatar-wrap">
+    <button
+      type="button"
+      className="person-card"
+      onClick={onClick}
+      aria-label={`View ${member.name}`}
+    >
+      <span className="person-card__top">
+        <span className="person-card__avatar-wrap">
           {member.avatar ? (
             <Image
               src={member.avatar}
@@ -140,17 +145,17 @@ function PersonCard({ member, onClick }: { member: TeamMember; onClick: () => vo
               className="person-card__avatar"
             />
           ) : (
-            <div className="person-card__avatar person-card__avatar--fallback">
+            <span className="person-card__avatar person-card__avatar--fallback">
               {member.name.charAt(0)}
-            </div>
+            </span>
           )}
-        </div>
-        <div className="person-card__identity">
-          <p className="person-card__name">{member.name}</p>
-          <p className="person-card__role">{member.role}</p>
-        </div>
-      </div>
-    </article>
+        </span>
+        <span className="person-card__identity">
+          <span className="person-card__name">{member.name}</span>
+          <span className="person-card__role">{member.role}</span>
+        </span>
+      </span>
+    </button>
   );
 }
 
@@ -229,6 +234,18 @@ export default function TeamPageClient({
   communityPods,
 }: TeamPageClientProps) {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+
+  useEffect(() => {
+    if (!selectedMember) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedMember(null);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedMember]);
+
   return (
     <main id="main" tabIndex={-1} className="team-page">
       <section className="team-hero">
@@ -266,14 +283,14 @@ export default function TeamPageClient({
             <BoardCard
               img="https://cdn.hackclub.com/019d8d79-96e5-7902-9e5b-1de299c1bdff/2026_04_14_0pu_Kleki%20(2).png"
               name="Zach Latta"
-              role="Founder"
+              boardRole="Founder"
               bio="Zach founded Hack Club after dropping out of high school to build software used by millions. He's been awarded the Thiel Fellowship and Forbes 30 Under 30."
               email="zach"
             />
             <BoardCard
               img="https://cdn.hackclub.com/019d8d79-0da7-7b99-a8fe-ee6412aca976/2026_04_14_0pu_Kleki%20(1).png"
               name="Christina Asquith"
-              role="Co-Founder"
+              boardRole="Co-Founder"
               bio="Christina cofounded Hack Club after 20 years as a journalist/war correspondent, reporting from Iraq, Afghanistan and Africa, and founding The Fuller Project, an investigative journalism nonprofit focused on women. She holds an MA in philosophy from London School of Economics and has published 2 nonfiction books."
               email="christina"
             />
@@ -282,21 +299,21 @@ export default function TeamPageClient({
             <BoardCard
               img="https://cdn.hackclub.com/019da8a0-de67-721b-911c-5a4cf1a2ad4a/p.webp"
               name="Tom Preston-Werner"
-              role="Board Member"
+              boardRole="Board Member"
               subrole="Co-Founder, GitHub"
               href="https://github.com/mojombo"
             />
             <BoardCard
               img="https://cdn.hackclub.com/019da8a1-7997-71bd-a69c-84970e8a238d/sqs.webp"
               name="Quinn Slack"
-              role="Board Member"
+              boardRole="Board Member"
               subrole="Co-Founder and CEO, AMP"
               href="https://github.com/sqs"
             />
             <BoardCard
               img="https://cdn.hackclub.com/019da8a1-fcce-73eb-9e9e-e7f4ae1d2677/john.webp"
               name="John Abele"
-              role="Board Advisor"
+              boardRole="Board Advisor"
               subrole="Founder, Boston Scientific"
               href="https://en.wikipedia.org/wiki/John_Abele"
             />
@@ -354,9 +371,20 @@ export default function TeamPageClient({
       <Footer />
 
       {selectedMember && (
-        <div className="modal-overlay" onClick={() => setSelectedMember(null)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setSelectedMember(null)}>
+        <dialog
+          open
+          className="modal-overlay"
+          aria-labelledby="team-member-modal-title"
+          aria-modal="true"
+        >
+          <button
+            type="button"
+            className="modal-backdrop"
+            aria-label="Close dialog"
+            onClick={() => setSelectedMember(null)}
+          />
+          <div className="modal-content">
+            <button className="modal-close" type="button" onClick={() => setSelectedMember(null)}>
               ×
             </button>
             {selectedMember.avatar && (
@@ -368,7 +396,9 @@ export default function TeamPageClient({
                 className="modal-avatar"
               />
             )}
-            <h3 className="modal-name">{selectedMember.name}</h3>
+            <h3 id="team-member-modal-title" className="modal-name">
+              {selectedMember.name}
+            </h3>
             <p className="modal-role">{selectedMember.role}</p>
             {selectedMember.bio && <p className="modal-bio">{selectedMember.bio}</p>}
             <div className="modal-links">
@@ -389,7 +419,7 @@ export default function TeamPageClient({
               )}
             </div>
           </div>
-        </div>
+        </dialog>
       )}
 
       <style>{`
@@ -709,6 +739,8 @@ export default function TeamPageClient({
         }
 
         .person-card {
+          appearance: none;
+          width: 100%;
           display: flex;
           flex-direction: column;
           gap: 14px;
@@ -717,6 +749,9 @@ export default function TeamPageClient({
           padding: 16px;
           background: var(--surface);
           border: 1px solid var(--border);
+          color: inherit;
+          font: inherit;
+          text-align: left;
           box-shadow: 0 12px 24px rgba(91, 52, 18, 0.06);
           transition:
             transform 0.22s ease-out,
@@ -776,6 +811,7 @@ export default function TeamPageClient({
         }
 
         .person-card__name {
+          display: block;
           margin: 0 0 4px;
           font-family: var(--font-phantom);
           font-size: 1.05rem;
@@ -784,6 +820,7 @@ export default function TeamPageClient({
         }
 
         .person-card__role {
+          display: block;
           margin: 0;
           font-family: var(--font-phantom);
           font-size: 0.95rem;
@@ -855,11 +892,30 @@ export default function TeamPageClient({
           left: 0;
           right: 0;
           bottom: 0;
+          width: 100vw;
+          max-width: none;
+          height: 100vh;
+          max-height: none;
+          margin: 0;
+          padding: 0;
+          border: 0;
           background: rgba(0, 0, 0, 0.5);
           display: flex;
           align-items: center;
           justify-content: center;
           z-index: 1000;
+          color: inherit;
+        }
+
+        .modal-backdrop {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          padding: 0;
+          border: 0;
+          background: transparent;
+          cursor: pointer;
         }
 
         .modal-content {
@@ -871,6 +927,7 @@ export default function TeamPageClient({
           width: 90%;
           text-align: center;
           position: relative;
+          z-index: 1;
         }
 
         .modal-close {

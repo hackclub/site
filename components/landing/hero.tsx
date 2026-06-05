@@ -64,6 +64,8 @@ function DraggableSticker({
 
   return (
     <div
+      role="presentation"
+      aria-hidden="true"
       onMouseDown={handleMouseDown}
       onMouseEnter={() => {
         hoverTimer.current = setTimeout(() => setIsHovered(true), 150);

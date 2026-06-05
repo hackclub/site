@@ -138,7 +138,7 @@ export default function DirectoryPageClient({
               >
                 Discover the organizations and projects using HCB for fiscal sponsorship.
               </p>
-              <label
+              <div
                 className="directory-search"
                 style={{
                   display: "block",
@@ -148,6 +148,7 @@ export default function DirectoryPageClient({
               >
                 <input
                   type="search"
+                  aria-label="Search organizations"
                   value={searchTerm}
                   onChange={(event) => {
                     setSearchTerm(event.target.value);
@@ -168,7 +169,7 @@ export default function DirectoryPageClient({
                     backdropFilter: "blur(12px)",
                   }}
                 />
-              </label>
+              </div>
             </div>
           </div>
         </section>

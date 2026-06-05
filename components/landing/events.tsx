@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import type { AirtableProgram } from "../../lib/programs";
 import { parseLocalDate, selectFeaturedPrograms } from "../../lib/programs";
 import { BtnArrow } from "./btn-arrow";
@@ -465,7 +466,7 @@ export function EventsSection({
         >
           Don&apos;t see something you like?
         </p>
-        <a
+        <Link
           href="/programs"
           className="cta-btn dark-btn"
           style={{
@@ -487,7 +488,7 @@ export function EventsSection({
           }}
         >
           Explore all programs <BtnArrow />
-        </a>
+        </Link>
       </div>
 
       {/* Responsive: stack cards on small screens */}
