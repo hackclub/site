@@ -128,7 +128,19 @@ function BoardCard({
 
 function PersonCard({ member, onClick }: { member: TeamMember; onClick: () => void }) {
   return (
-    <article className="person-card" onClick={onClick}>
+    <article
+      className="person-card"
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      aria-label={`View ${member.name}`}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick();
+        }
+      }}
+    >
       <div className="person-card__top">
         <div className="person-card__avatar-wrap">
           {member.avatar ? (
@@ -354,7 +366,16 @@ export default function TeamPageClient({
       <Footer />
 
       {selectedMember && (
-        <div className="modal-overlay" onClick={() => setSelectedMember(null)}>
+        <div
+          className="modal-overlay"
+          onClick={() => setSelectedMember(null)}
+          role="button"
+          tabIndex={0}
+          aria-label="Close dialog"
+          onKeyDown={(e) => {
+            if (e.key === "Escape" || e.key === "Enter") setSelectedMember(null);
+          }}
+        >
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={() => setSelectedMember(null)}>
               ×

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback, type ReactNode } from "react";
+import Link from "next/link";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import type { ProgramFormat, ProjectType } from "../../lib/site-programs";
@@ -512,9 +513,16 @@ function CheckItem({
   onToggle: () => void;
 }) {
   return (
-    <label
+    <button
+      type="button"
       onClick={onToggle}
+      aria-pressed={checked}
       style={{
+        appearance: "none",
+        border: "none",
+        background: "none",
+        padding: 0,
+        textAlign: "left",
         display: "flex",
         alignItems: "center",
         gap: 10,
@@ -552,7 +560,7 @@ function CheckItem({
         )}
       </span>
       {label}
-    </label>
+    </button>
   );
 }
 
@@ -925,6 +933,7 @@ export default function ProgramsPage({
           <input
             data-programs-search
             type="text"
+            aria-label="Search programs"
             placeholder="Search for your next adventure..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -1151,9 +1160,9 @@ export default function ProgramsPage({
             }}
           >
             You can also{" "}
-            <a href="/programs/edit" style={{ color: "#ec3750", textDecoration: "none" }}>
+            <Link href="/programs/edit" style={{ color: "#ec3750", textDecoration: "none" }}>
               edit an event here
-            </a>
+            </Link>
             .
           </p>
         </div>

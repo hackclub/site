@@ -405,9 +405,16 @@ function UploadButton({
       </div>
 
       {mode === "upload" ? (
-        <div
+        <button
+          type="button"
+          aria-label="Upload image"
           onClick={() => !busy && inputRef.current?.click()}
           style={{
+            appearance: "none",
+            font: "inherit",
+            color: "inherit",
+            textAlign: "left",
+            width: "100%",
             border: "2px dashed var(--border)",
             borderRadius: 10,
             padding: "10px 14px",
@@ -450,11 +457,12 @@ function UploadButton({
                   ? "Replace"
                   : "Upload file"}
           </span>
-        </div>
+        </button>
       ) : (
         <div style={{ display: "flex", gap: 6 }}>
           <input
             type="url"
+            aria-label={`${label} image URL`}
             value={urlInput}
             onChange={(e) => setUrlInput(e.target.value)}
             onKeyDown={(e) => {
@@ -534,6 +542,7 @@ function UploadButton({
         ref={inputRef}
         type="file"
         accept="image/*"
+        aria-label={`${label} file`}
         style={{ display: "none" }}
         onChange={(e) => {
           const f = e.target.files?.[0];
@@ -571,6 +580,7 @@ function ColorField({
       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
         <input
           type="color"
+          aria-label={label}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           style={{
@@ -584,6 +594,7 @@ function ColorField({
         />
         <input
           type="text"
+          aria-label={`${label} hex value`}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           style={{
@@ -638,6 +649,7 @@ function SliderField({
       </div>
       <input
         type="range"
+        aria-label={label}
         min={min}
         max={max}
         value={value}
@@ -675,6 +687,7 @@ function TextField({
       </div>
       <input
         type="text"
+        aria-label={label}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
@@ -953,6 +966,7 @@ function ProgramEditor({
             Description
           </div>
           <textarea
+            aria-label="Description"
             value={d.description}
             onChange={(e) => set({ description: e.target.value })}
             rows={3}
@@ -1116,6 +1130,7 @@ function ProgramEditor({
                   </div>
                   <input
                     type="date"
+                    aria-label="Start date"
                     value={d.inPersonStart}
                     onChange={(e) => set({ inPersonStart: e.target.value })}
                     style={{
@@ -1144,6 +1159,7 @@ function ProgramEditor({
                   </div>
                   <input
                     type="date"
+                    aria-label="End date"
                     value={d.inPersonEnd}
                     onChange={(e) => set({ inPersonEnd: e.target.value })}
                     style={{
@@ -1251,6 +1267,7 @@ function ProgramEditor({
           </div>
           <input
             type="text"
+            aria-label="Additional requirements"
             value={d.additionalRequirements}
             onChange={(e) => set({ additionalRequirements: e.target.value })}
             placeholder="e.g. Girls only"
@@ -1491,6 +1508,7 @@ export default function EditPage() {
                 {auth.error}
               </p>
             )}
+            {/* oxlint-disable-next-line nextjs/no-html-link-for-pages */}
             <a
               href="/api/auth/login"
               style={{

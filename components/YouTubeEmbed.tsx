@@ -76,7 +76,11 @@ export function YouTubeEmbed({ id, title = "Hack Club video" }: { id: string; ti
 
       {isMounted && (
         <div
+          aria-label="Close video"
           onClick={handleBackdropClick}
+          onKeyDown={(e) => {
+            if (e.key === "Escape" || e.key === "Enter") requestClose();
+          }}
           style={{
             position: "fixed",
             inset: 0,

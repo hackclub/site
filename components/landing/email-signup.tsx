@@ -96,6 +96,7 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
         <input
           id={c.inputId}
           type="email"
+          aria-label="Email address"
           placeholder="orpheus@email.com"
           value={e}
           onChange={(ev) => {
