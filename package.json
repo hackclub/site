@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
     "format": "oxfmt .",
     "format:check": "oxfmt --check ."
   },
@@ -28,9 +29,8 @@
     "@types/node": "^25.9.1",
     "@types/react": "^19.2.16",
     "@types/react-dom": "^19.2.3",
-    "eslint": "^9.39.4",
-    "eslint-config-next": "16.2.7",
     "oxfmt": "^0.52.0",
+    "oxlint": "^1.68.0",
     "tailwindcss": "^4.3.0",
     "typescript": "^6.0.3"
   }
