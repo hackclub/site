@@ -31,28 +31,32 @@ export function selectFeaturedPrograms(
   now = new Date(),
 ): AirtableProgram[] {
   const pinned = programs.find((p) => p.site?.pinned);
-  const ongoing = programs
-    .filter((program) => getProgramStatus(program, now) === "ongoing")
-    .sort((a, b) => {
-      const aPinned = Number(Boolean(a.site?.pinned));
-      const bPinned = Number(Boolean(b.site?.pinned));
-      if (aPinned !== bPinned) return bPinned - aPinned;
+  const ongoing = programs.filter(
+    (program) => getProgramStatus(program, now) === "ongoing",
+  );
 
-      const aHasImage = Number(Boolean(a.site?.bgImageUrl));
-      const bHasImage = Number(Boolean(b.site?.bgImageUrl));
-      if (aHasImage !== bHasImage) return bHasImage - aHasImage;
+  for (let i = ongoing.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [ongoing[i], ongoing[j]] = [ongoing[j], ongoing[i]];
+  }
 
-      const aHasLogo = Number(Boolean(a.site?.logoUrl));
-      const bHasLogo = Number(Boolean(b.site?.logoUrl));
-      if (aHasLogo !== bHasLogo) return bHasLogo - aHasLogo;
+  ongoing.sort((a, b) => {
+    const aPinned = Number(Boolean(a.site?.pinned));
+    const bPinned = Number(Boolean(b.site?.pinned));
+    if (aPinned !== bPinned) return bPinned - aPinned;
 
-      const endDateDelta =
-        parseLocalDate(a.endDate).getTime() - parseLocalDate(b.endDate).getTime();
-      if (endDateDelta !== 0) return endDateDelta;
+    const aHasImage = Number(Boolean(a.site?.bgImageUrl));
+    const bHasImage = Number(Boolean(b.site?.bgImageUrl));
+    if (aHasImage !== bHasImage) return bHasImage - aHasImage;
 
-      return a.name.localeCompare(b.name);
-    })
-    .slice(0, limit);
+    const aHasLogo = Number(Boolean(a.site?.logoUrl));
+    const bHasLogo = Number(Boolean(b.site?.logoUrl));
+    if (aHasLogo !== bHasLogo) return bHasLogo - aHasLogo;
+
+    return 0;
+  });
+
+  ongoing.splice(limit);
 
   if (pinned && !ongoing.some((p) => p.site?.pinned)) {
     if (ongoing.length >= limit) ongoing.pop();
