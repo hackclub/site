@@ -31,9 +31,7 @@ export function selectFeaturedPrograms(
   now = new Date(),
 ): AirtableProgram[] {
   const pinned = programs.find((p) => p.site?.pinned);
-  const ongoing = programs.filter(
-    (program) => getProgramStatus(program, now) === "ongoing",
-  );
+  const ongoing = programs.filter((program) => getProgramStatus(program, now) === "ongoing");
 
   for (let i = ongoing.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
