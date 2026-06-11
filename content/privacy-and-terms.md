@@ -19,7 +19,7 @@ This Hack Club Privacy Notice applies to your use of hackclub.com, and any other
 
 If Hack Club is involved in a merger, consolidation, reorganization, or similar nonprofit change‑of‑control transaction, we reserve the right, in any of these circumstances, to transfer or assign the information that we have collected from users as part of that transaction, including in the course of diligence.
 
-For purposes of data protection laws, Hack Club is located at 15 Falls Rd., Shelburne, VT 05482, USA, and is the "data controller" of your information collected in connection with Hack Club Services.
+For purposes of data protection laws, Hack Club is located at 212 Battery St #3, Burlington, VT 05401, USA, and is the "data controller" of your information collected in connection with Hack Club Services.
 
 ### What We Collect
 
