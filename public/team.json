@@ -892,6 +892,17 @@
     "avatar": "https://github.com/EerierGosling/Personal-Website/blob/main/public/hc-team-pfp.jpg?raw=true"
   },
   {
+    "name": "Orpheus",
+    "department": "HQ",
+    "role": "Entertainment",
+    "acknowledged": false,
+    "bio": "Orpheus is a 12 year old dinosaur from Hack Club. She's always getting into crazy adventures, from stealing food to going to the moon.",
+    "slackId": "UM1L1C38X",
+    "website": "",
+    "email": "",
+    "avatar": "https://cdn.hackclub.com/019e8abc-1a11-749d-bc13-991beee0ceeb/orpheus_headshot_small.jpg"
+  },
+  {
     "name": "Neon",
     "department": "HQ",
     "role": "Engineering",
