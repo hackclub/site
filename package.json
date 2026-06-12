@@ -29,7 +29,7 @@
     "@types/node": "^25.9.1",
     "@types/react": "^19.2.16",
     "@types/react-dom": "^19.2.3",
-    "oxfmt": "^0.52.0",
+    "oxfmt": "^0.54.0",
     "oxlint": "^1.68.0",
     "tailwindcss": "^4.3.0",
     "typescript": "^6.0.3"
