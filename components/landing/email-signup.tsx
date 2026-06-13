@@ -97,7 +97,7 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
           id={c.inputId}
           type="email"
           aria-label="Email address"
-          placeholder="orpheus@email.com"
+          placeholder="orpheus@example.com"
           value={e}
           onChange={(ev) => {
             setE(ev.target.value);
@@ -185,7 +185,7 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
             boxShadow: "0 4px 12px rgba(236,55,80,0.3)",
           }}
         >
-          Enter Valid email
+          Enter a valid email address
           <div
             style={{
               position: "absolute",
