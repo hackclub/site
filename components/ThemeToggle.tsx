@@ -104,7 +104,9 @@ export function useTheme(): [Theme, (mode?: Theme) => void] {
         try {
           document.documentElement.dispatchEvent(new CustomEvent("hc-theme-changed"));
         } catch {}
-        const prefersDark = typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const prefersDark =
+          typeof window !== "undefined" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
         r.classList.toggle("dark", prefersDark);
         r.style.colorScheme = prefersDark ? "dark" : "light";
         return;
@@ -204,7 +206,7 @@ export function ThemeToggle({ variant = "nav" }: { variant?: "nav" | "footer" })
   if (mounted && document.documentElement.dataset.themeLock) return null;
 
   const isDark = mounted && t === "dark";
-  const isLight = mounted && t === "light";
+  const _isLight = mounted && t === "light";
   const isSystem = mounted && t === "system";
 
   // Single circular toggle that cycles: light -> system -> dark -> light
