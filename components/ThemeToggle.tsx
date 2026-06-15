@@ -2,40 +2,150 @@
 
 import { useEffect, useCallback, useSyncExternalStore } from "react";
 
-type Theme = "light" | "dark";
+type Theme = "light" | "dark" | "system";
 
-const read = (): Theme =>
-  typeof document !== "undefined" && document.documentElement.classList.contains("dark")
-    ? "dark"
-    : "light";
+const getStored = (): Theme => {
+  try {
+    if (typeof window === "undefined" || typeof localStorage === "undefined") return "system";
+    const v = localStorage.getItem("hc-site-theme");
+    if (v === "light" || v === "dark" || v === "system") return v as Theme;
+    return "system";
+  } catch {
+    return "system";
+  }
+};
+
+const read = (): Theme => {
+  if (typeof document === "undefined") return "light";
+  try {
+    return getStored();
+  } catch {
+    return document.documentElement.classList.contains("dark") ? "dark" : "light";
+  }
+};
 
 const subscribe = (cb: () => void) => {
   const observer = new MutationObserver(cb);
   observer.observe(document.documentElement, {
     attributes: true,
-    attributeFilter: ["class"],
+    attributeFilter: ["class", "data-hc-site-theme"],
   });
-  return () => observer.disconnect();
+  const onStorage = () => cb();
+  const onCustom = () => cb();
+  if (typeof window !== "undefined") {
+    window.addEventListener("storage", onStorage);
+    document.documentElement.addEventListener("hc-theme-changed", onCustom as EventListener);
+  }
+
+  return () => {
+    observer.disconnect();
+    if (typeof window !== "undefined") {
+      window.removeEventListener("storage", onStorage);
+      document.documentElement.removeEventListener("hc-theme-changed", onCustom as EventListener);
+    }
+  };
 };
 
-export function useTheme(): [Theme, () => void] {
+export function useTheme(): [Theme, (mode?: Theme) => void] {
   const t = useSyncExternalStore<Theme>(subscribe, read, () => "light");
 
   useEffect(() => {
     document.documentElement.classList.add("theme-ready");
   }, []);
 
-  const toggle = useCallback(() => {
-    const next: Theme = read() === "dark" ? "light" : "dark";
+  // apply stored theme on mount so reload reflects saved preference
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const stored = getStored();
     const r = document.documentElement;
-    r.classList.toggle("dark", next === "dark");
-    r.style.colorScheme = next;
+    if (stored === "system") {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      r.classList.toggle("dark", prefersDark);
+      r.style.colorScheme = prefersDark ? "dark" : "light";
+      try {
+        r.dataset.hcSiteTheme = "system";
+      } catch {}
+    } else {
+      r.classList.toggle("dark", stored === "dark");
+      r.style.colorScheme = stored;
+      try {
+        r.dataset.hcSiteTheme = stored;
+      } catch {}
+    }
+  }, []);
+
+  const setTheme = useCallback((mode?: Theme) => {
+    const r = document.documentElement;
     try {
-      localStorage.setItem("hc-site-theme", next);
+      if (!mode) {
+        // legacy toggle behaviour
+        const next: Theme = read() === "dark" ? "light" : "dark";
+        r.classList.toggle("dark", next === "dark");
+        r.style.colorScheme = next;
+        try {
+          localStorage.setItem("hc-site-theme", next);
+        } catch {}
+        try {
+          r.dataset.hcSiteTheme = next;
+        } catch {}
+        try {
+          document.documentElement.dispatchEvent(new CustomEvent("hc-theme-changed"));
+        } catch {}
+        return;
+      }
+
+      if (mode === "system") {
+        try {
+          localStorage.setItem("hc-site-theme", "system");
+        } catch {}
+        try {
+          r.dataset.hcSiteTheme = "system";
+        } catch {}
+        try {
+          document.documentElement.dispatchEvent(new CustomEvent("hc-theme-changed"));
+        } catch {}
+        const prefersDark = typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        r.classList.toggle("dark", prefersDark);
+        r.style.colorScheme = prefersDark ? "dark" : "light";
+        return;
+      }
+
+      // light or dark
+      try {
+        localStorage.setItem("hc-site-theme", mode);
+      } catch {}
+      try {
+        r.dataset.hcSiteTheme = mode;
+      } catch {}
+      try {
+        document.documentElement.dispatchEvent(new CustomEvent("hc-theme-changed"));
+      } catch {}
+      r.classList.toggle("dark", mode === "dark");
+      r.style.colorScheme = mode;
     } catch {}
   }, []);
 
-  return [t, toggle];
+  // When stored preference is "system", keep the DOM in sync with OS changes
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (t !== "system") return;
+    const mql = window.matchMedia("(prefers-color-scheme: dark)");
+    const handler = (e: MediaQueryListEvent | MediaQueryList) => {
+      const matches = "matches" in e ? e.matches : mql.matches;
+      const r = document.documentElement;
+      r.classList.toggle("dark", matches);
+      r.style.colorScheme = matches ? "dark" : "light";
+    };
+    handler(mql);
+    if (mql.addEventListener) mql.addEventListener("change", handler as any);
+    else mql.addListener(handler as any);
+    return () => {
+      if (mql.removeEventListener) mql.removeEventListener("change", handler as any);
+      else mql.removeListener(handler as any);
+    };
+  }, [t]);
+
+  return [t, setTheme as unknown as () => void];
 }
 
 export function ThemeLock() {
@@ -88,20 +198,46 @@ const useIsMounted = () =>
   );
 
 export function ThemeToggle({ variant = "nav" }: { variant?: "nav" | "footer" }) {
-  const [t, toggle] = useTheme();
+  const [t, setTheme] = useTheme();
   const mounted = useIsMounted();
 
   if (mounted && document.documentElement.dataset.themeLock) return null;
 
   const isDark = mounted && t === "dark";
+  const isLight = mounted && t === "light";
+  const isSystem = mounted && t === "system";
+
+  // Single circular toggle that cycles: light -> system -> dark -> light
+  const cycle = () => {
+    const next: Theme = t === "light" ? "system" : t === "system" ? "dark" : "light";
+    setTheme(next);
+  };
+
+  const SystemIcon = () => (
+    <svg
+      fillRule="evenodd"
+      clipRule="evenodd"
+      strokeLinejoin="round"
+      strokeMiterlimit="1.414"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="contrast"
+      viewBox="0 0 32 32"
+      preserveAspectRatio="xMidYMid meet"
+      fill="currentColor"
+      width="20"
+      height="20"
+    >
+      <path d="M16 26C21.523 26 26 21.523 26 16C26 10.477 21.523 6 16 6V26ZM16 28C22.627 28 28 22.627 28 16C28 9.373 22.627 4 16 4C9.373 4 4 9.373 4 16C4 22.627 9.373 28 16 28Z" />
+    </svg>
+  );
 
   if (variant === "footer") {
     return (
       <button
         type="button"
-        onClick={toggle}
-        aria-label={mounted ? `Switch to ${isDark ? "light" : "dark"} mode` : "Toggle theme"}
-        aria-pressed={mounted ? isDark : undefined}
+        onClick={cycle}
+        aria-label={mounted ? `Current theme ${t}` : "Toggle theme"}
+        aria-pressed={mounted ? (t === "dark" ? true : false) : undefined}
         style={{
           display: "inline-flex",
           alignItems: "center",
@@ -120,9 +256,11 @@ export function ThemeToggle({ variant = "nav" }: { variant?: "nav" | "footer" })
         className="footer-theme-toggle"
       >
         <span suppressHydrationWarning style={{ display: "flex", alignItems: "center" }}>
-          {isDark ? <SunIcon /> : <MoonIcon />}
+          {isDark ? <MoonIcon /> : isSystem ? <SystemIcon /> : <SunIcon />}
         </span>
-        <span suppressHydrationWarning>{isDark ? "Light mode" : "Dark mode"}</span>
+        <span suppressHydrationWarning>
+          {isSystem ? "System mode" : isDark ? "Dark mode" : "Light mode"}
+        </span>
       </button>
     );
   }
@@ -130,13 +268,13 @@ export function ThemeToggle({ variant = "nav" }: { variant?: "nav" | "footer" })
   return (
     <button
       type="button"
-      onClick={toggle}
-      aria-label={mounted ? `Switch to ${isDark ? "light" : "dark"} mode` : "Toggle theme"}
-      aria-pressed={mounted ? isDark : undefined}
+      onClick={cycle}
+      aria-label={mounted ? `Current theme ${t}` : "Toggle theme"}
+      aria-pressed={mounted ? (t === "dark" ? true : false) : undefined}
       className="grid place-items-center w-10 h-10 rounded-full border border-border bg-surface text-foreground hover:bg-surface-hover transition-colors cursor-pointer"
     >
       <span suppressHydrationWarning aria-hidden="true">
-        {isDark ? <SunIcon /> : <MoonIcon />}
+        {isDark ? <MoonIcon /> : isSystem ? <SystemIcon /> : <SunIcon />}
       </span>
     </button>
   );
