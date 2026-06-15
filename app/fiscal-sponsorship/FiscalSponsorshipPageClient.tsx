@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ThemeLock } from "@/components/ThemeToggle";
 import { Features } from "@/components/fiscal-sponsorship/Features";
 import { OrganizationGrid } from "@/components/fiscal-sponsorship/OrganizationSpotlight";
 import { ContactBanner } from "@/components/fiscal-sponsorship/ContactBanner";
@@ -13,6 +14,7 @@ import { SignIn } from "@/components/fiscal-sponsorship/SignIn";
 import { Icon } from "@/components/Icon";
 import { FISCAL_COLORS, FISCAL_TYPOGRAPHY } from "@/components/fiscal-sponsorship/constants";
 import { MOCK_ORGANIZATIONS } from "@/lib/fiscal-sponsorship-data";
+import { BtnArrowSvg } from "@/components/landing/btn-arrow";
 
 const V = FISCAL_TYPOGRAPHY.sectionPaddingV;
 const H = FISCAL_TYPOGRAPHY.sectionPaddingH;
@@ -551,20 +553,28 @@ function BuiltByHackClub() {
   );
 }
 
+const subscribeReferral = () => () => {};
+const getReferralSnapshot = () => {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("referral") || params.get("tub_program");
+};
+
 export default function FiscalSponsorshipPage() {
-  const [referralParam, setReferralParam] = useState<string | null>(null);
+  const referralParam = useSyncExternalStore<string | null>(
+    subscribeReferral,
+    getReferralSnapshot,
+    () => null,
+  );
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const referral = params.get("referral") || params.get("tub_program");
-    setReferralParam(referral);
-    if (referral) {
-      document.cookie = `referral=${encodeURIComponent(referral)}; path=/; max-age=31536000`;
+    if (referralParam) {
+      document.cookie = `referral=${encodeURIComponent(referralParam)}; path=/; max-age=31536000`;
     }
-  }, []);
+  }, [referralParam]);
 
   return (
     <>
+      <ThemeLock />
       <Navbar invertColors />
       <main id="main" tabIndex={-1}>
         {/* Hero */}
@@ -837,7 +847,7 @@ export default function FiscalSponsorshipPage() {
                   whiteSpace: "nowrap" as const,
                 }}
               >
-                See more organizations →
+                See more organizations <BtnArrowSvg />
               </Link>
             </div>
           </div>

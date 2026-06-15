@@ -307,7 +307,7 @@ export function Game() {
           fontWeight: 400,
           fontFamily: "var(--font-zarathustra)",
           fontSize: "clamp(64px, 16vw, 172px)",
-          color: "#17171d",
+          color: "var(--foreground)",
         }}
       >
         <button
@@ -339,9 +339,9 @@ export function Game() {
       ) : null}
 
       {open ? (
-        <div
+        <dialog
+          open
           className="game-overlay"
-          role="dialog"
           aria-modal="true"
           aria-labelledby="sticker-game-title"
         >
@@ -412,8 +412,16 @@ export function Game() {
             .game-overlay {
               position: fixed;
               inset: 0;
+              width: 100%;
+              max-width: none;
+              height: 100%;
+              max-height: none;
+              margin: 0;
+              padding: 0;
+              border: 0;
               z-index: 2000;
               overflow: hidden;
+              color: inherit;
               background:
                 radial-gradient(circle at 18% 18%, rgba(91, 192, 222, 0.16), transparent 30%),
                 radial-gradient(circle at 86% 16%, rgba(255, 206, 107, 0.22), transparent 24%),
@@ -421,12 +429,17 @@ export function Game() {
               animation: overlay-enter 260ms cubic-bezier(0.22, 1, 0.36, 1);
             }
 
+            html.dark .game-overlay {
+              background:
+                radial-gradient(circle at 18% 18%, rgba(91, 192, 222, 0.12), transparent 30%),
+                radial-gradient(circle at 86% 16%, rgba(255, 206, 107, 0.14), transparent 24%),
+                linear-gradient(180deg, #1d1a18 0%, #21160f 100%);
+            }
+
             .game-overlay__wash {
               position: absolute;
               inset: 0;
-              background:
-                radial-gradient(circle at center, rgba(236, 55, 80, 0.06), transparent 40%),
-                linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0));
+              background: radial-gradient(circle at center, rgba(236, 55, 80, 0.06), transparent 40%);
               pointer-events: none;
             }
 
@@ -446,7 +459,7 @@ export function Game() {
               left: -10%;
               right: 22%;
               height: 1px;
-              border-top: 1px dashed rgba(23, 23, 29, 0.12);
+              border-top: 1px dashed var(--border);
               opacity: 0.8;
               animation: lane-drift 1.4s linear infinite;
             }
@@ -531,10 +544,10 @@ export function Game() {
               min-height: 42px;
               padding: 0 16px;
               border-radius: 999px;
-              border: 1px solid rgba(23, 23, 29, 0.1);
-              background: rgba(255, 255, 255, 0.72);
+              border: 1px solid var(--border);
+              background: var(--nav-bg);
               backdrop-filter: blur(12px);
-              color: rgba(23, 23, 29, 0.88);
+              color: var(--foreground);
               font-family: var(--font-phantom);
               font-size: 14px;
               line-height: 1;
@@ -561,9 +574,9 @@ export function Game() {
               max-width: 440px;
               padding: 18px 18px 16px;
               border-radius: 24px;
-              background: rgba(255, 255, 255, 0.82);
-              border: 1px solid rgba(23, 23, 29, 0.1);
-              box-shadow: 0 18px 48px rgba(23, 23, 29, 0.14);
+              background: var(--nav-bg);
+              border: 1px solid var(--border);
+              box-shadow: var(--shadow-dd);
               backdrop-filter: blur(20px);
               animation: panel-enter 320ms 80ms cubic-bezier(0.22, 1, 0.36, 1) both;
             }
@@ -579,7 +592,7 @@ export function Game() {
               font-size: clamp(34px, 7vw, 56px);
               line-height: 0.92;
               font-weight: 400;
-              color: #17171d;
+              color: var(--foreground);
             }
 
             .game-overlay__panel p {
@@ -588,7 +601,7 @@ export function Game() {
               font-family: var(--font-phantom);
               font-size: clamp(15px, 1.8vw, 19px);
               line-height: 1.3;
-              color: rgba(23, 23, 29, 0.74);
+              color: var(--muted);
             }
 
             .game-actions {
@@ -612,22 +625,23 @@ export function Game() {
 
             .game-primary {
               border: 0;
-              background: #17171d;
-              color: #ffffff;
+              background: var(--foreground);
+              color: var(--background);
             }
 
             .game-primary:hover {
-              background: ##ec3750;
+              background: var(--red);
+              color: var(--paper);
             }
 
             .game-secondary {
-              border: 1px solid rgba(23, 23, 29, 0.14);
-              background: rgba(23, 23, 29, 0.04);
-              color: #17171d;
+              border: 1px solid var(--border);
+              background: transparent;
+              color: var(--foreground);
             }
 
             .game-secondary:hover {
-              background: rgba(255, 255, 255, 0.12);
+              background: var(--surface-hover);
             }
 
             @keyframes overlay-enter {
@@ -694,7 +708,7 @@ export function Game() {
               }
             }
           `}</style>
-        </div>
+        </dialog>
       ) : null}
 
       <style>{`
@@ -747,9 +761,9 @@ export function Game() {
           margin-top: 18px;
           padding: 10px 16px;
           border-radius: 999px;
-          background: rgba(255, 255, 255, 0.56);
-          border: 1px solid rgba(23, 23, 29, 0.08);
-          box-shadow: 0 16px 38px rgba(23, 23, 29, 0.08);
+          background: var(--nav-bg);
+          border: 1px solid var(--border);
+          box-shadow: var(--shadow-dd);
           animation: arming-enter 180ms ease-out;
         }
 
@@ -757,7 +771,7 @@ export function Game() {
           width: 10px;
           height: 10px;
           border-radius: 999px;
-          background: rgba(23, 23, 29, 0.14);
+          background: var(--border);
           transform: scale(0.6);
           opacity: 0;
           animation: arming-dot-in 260ms cubic-bezier(0.22, 1, 0.36, 1) forwards;

@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, type ReactNode } from "react";
+import Link from "next/link";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import type { ProgramFormat, ProjectType } from "../../lib/site-programs";
 import { PROJECT_TYPE_OPTIONS, formatInPersonDate } from "../../lib/site-programs";
 import type { AirtableProgram } from "../../lib/programs";
 import { getProgramStatus, parseLocalDate } from "../../lib/programs";
+import { BtnArrowSvg } from "../../components/landing/btn-arrow";
 
 function ProgramCard({ program }: { program: AirtableProgram }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -15,8 +17,8 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
   const isDraft = parseLocalDate(program.startDate) > now;
 
   const s = program.site;
-  const bgColor = s?.bgColor ?? "#ffffff";
-  const textColor = s?.textColor ?? "#17171d";
+  const bgColor = s?.bgColor ?? "var(--surface)";
+  const textColor = s?.textColor ?? "var(--foreground)";
   const accentColor = s?.accentColor ?? "#ec3750";
   const logoUrl = s?.logoUrl ?? null;
   const logoSize = s?.logoSize ?? 48;
@@ -26,7 +28,7 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
   const buttonTextColor = s?.buttonTextColor ?? "#ffffff";
   const buttonRadius = s?.buttonBorderRadius ?? 44;
   const buttonBorderWidth = s?.buttonBorderWidth ?? 0;
-  const buttonBorderColor = s?.buttonBorderColor ?? "#17171d";
+  const buttonBorderColor = s?.buttonBorderColor ?? "var(--foreground)";
   const slackChannel = s?.slackChannel ?? null;
   const slackUrl = slackChannel
     ? `https://hackclub.slack.com/channels/${slackChannel.replace(/^#/, "")}`
@@ -103,6 +105,29 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
           boxSizing: "border-box",
         }}
       >
+        {/* Pin icon */}
+        {program.site?.pinned && (
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: 36,
+              height: 36,
+              background: "#ec3750",
+              borderBottomRightRadius: 8,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 2,
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+              <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z" />
+            </svg>
+          </div>
+        )}
+
         {/* Background image */}
         {bgImageUrl && (
           // eslint-disable-next-line @next/next/no-img-element
@@ -233,7 +258,9 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
             {buttonLabel}
-            <span className="btn-arrow">→</span>
+            <span className="btn-arrow" aria-hidden="true">
+              <BtnArrowSvg />
+            </span>
           </a>
         )}
 
@@ -277,7 +304,7 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
             right: 0,
             height: 36,
             width: 130,
-            background: badgeEnded ? "#e0e6ed" : "#ec3750",
+            background: badgeEnded ? "var(--surface-hover)" : "var(--red)",
             borderTopLeftRadius: 8,
             display: "flex",
             alignItems: "center",
@@ -289,7 +316,7 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
               fontFamily: "var(--font-phantom)",
               fontWeight: "bold",
               fontSize: 16,
-              color: badgeEnded ? "#17171d" : "#ffffff",
+              color: badgeEnded ? "var(--foreground)" : "var(--paper)",
               whiteSpace: "nowrap",
             }}
           >
@@ -307,7 +334,7 @@ function CardSkeleton() {
     <div
       style={{
         borderRadius: 16,
-        background: "#f0f0f0",
+        background: "var(--surface-hover)",
         minHeight: 260,
         animation: "pulse 1.5s ease-in-out infinite",
       }}
@@ -316,7 +343,7 @@ function CardSkeleton() {
 }
 
 // ── Chevron icon ──────────────────────────────────────────────────────────────
-function Chevron({ color = "#17171d" }: { color?: string }) {
+function Chevron({ color = "currentColor" }: { color?: string }) {
   return (
     <svg width="14" height="8" viewBox="0 0 14 8" fill="none" style={{ flexShrink: 0 }}>
       <path
@@ -406,11 +433,11 @@ function PillDropdown({
           paddingLeft: active ? 8 : 16,
           paddingRight: 16,
           borderRadius: 9999,
-          border: "2.5px solid #ec3750",
+          border: "2.5px solid var(--red)",
           background: "transparent",
           fontFamily: "var(--font-phantom)",
           fontSize: 20,
-          color: active ? "#ec3750" : "#17171d",
+          color: active ? "var(--red)" : "var(--foreground)",
           cursor: "pointer",
           whiteSpace: "nowrap",
           outline: "none",
@@ -447,7 +474,7 @@ function PillDropdown({
           </span>
         )}
         {label}
-        <Chevron color={active ? "#ec3750" : "#17171d"} />
+        <Chevron />
       </button>
       {mounted && (
         <div
@@ -457,8 +484,8 @@ function PillDropdown({
             position: "absolute",
             top: "calc(100% + 8px)",
             left: 0,
-            background: "#fff",
-            border: "3px solid #ec3750",
+            background: "var(--surface)",
+            border: "3px solid var(--red)",
             borderRadius: 16,
             padding: "12px 16px",
             display: "flex",
@@ -486,16 +513,23 @@ function CheckItem({
   onToggle: () => void;
 }) {
   return (
-    <label
+    <button
+      type="button"
       onClick={onToggle}
+      aria-pressed={checked}
       style={{
+        appearance: "none",
+        border: "none",
+        background: "none",
+        padding: 0,
+        textAlign: "left",
         display: "flex",
         alignItems: "center",
         gap: 10,
         cursor: "pointer",
         fontFamily: "var(--font-phantom)",
         fontSize: 20,
-        color: "#17171d",
+        color: "var(--foreground)",
         userSelect: "none",
       }}
     >
@@ -504,8 +538,8 @@ function CheckItem({
           width: 20,
           height: 20,
           borderRadius: 6,
-          border: "2.5px solid #ec3750",
-          background: checked ? "#ec3750" : "transparent",
+          border: "2.5px solid var(--red)",
+          background: checked ? "var(--red)" : "transparent",
           display: "inline-flex",
           alignItems: "center",
           justifyContent: "center",
@@ -526,7 +560,7 @@ function CheckItem({
         )}
       </span>
       {label}
-    </label>
+    </button>
   );
 }
 
@@ -537,11 +571,27 @@ const STATUS_LABELS: Record<StatusOption, string> = {
   draft: "Draft",
 };
 type SortOption = "deadline-asc" | "deadline-desc" | "az" | "za";
-const SORT_LABELS: Record<SortOption, string> = {
+const SortArrow = () => (
+  <span
+    aria-hidden="true"
+    style={{ display: "inline-flex", verticalAlign: "middle", margin: "0 4px" }}
+  >
+    <BtnArrowSvg />
+  </span>
+);
+const SORT_LABELS: Record<SortOption, ReactNode> = {
   "deadline-asc": "Earliest deadline",
   "deadline-desc": "Latest deadline",
-  az: "A → Z",
-  za: "Z → A",
+  az: (
+    <>
+      A<SortArrow />Z
+    </>
+  ),
+  za: (
+    <>
+      Z<SortArrow />A
+    </>
+  ),
 };
 const FORMAT_OPTIONS: ProgramFormat[] = ["In-Person Only", "Online Only", "Both"];
 
@@ -655,6 +705,10 @@ export default function ProgramsPage({
   });
 
   const sorted = [...filtered].sort((a, b) => {
+    const aPinned = Number(Boolean(a.site?.pinned));
+    const bPinned = Number(Boolean(b.site?.pinned));
+    if (aPinned !== bPinned) return bPinned - aPinned;
+
     if (sort === "deadline-asc")
       return parseLocalDate(a.endDate).getTime() - parseLocalDate(b.endDate).getTime();
     if (sort === "deadline-desc")
@@ -707,7 +761,7 @@ export default function ProgramsPage({
       tabIndex={-1}
       style={{
         position: "relative",
-        background: "#ffffff",
+        background: "var(--background)",
         minHeight: "100vh",
         overflow: "hidden",
       }}
@@ -745,7 +799,7 @@ export default function ProgramsPage({
           position: "absolute",
           inset: 0,
           background:
-            "linear-gradient(180deg, rgba(236,55,80,0.18) 0%, rgba(236,55,80,0.04) 20%, rgba(255,255,255,0) 40%)",
+            "linear-gradient(180deg, rgba(236,55,80,0.18) 0%, rgba(236,55,80,0.04) 20%, transparent 40%)",
           pointerEvents: "none",
           zIndex: 0,
         }}
@@ -804,7 +858,7 @@ export default function ProgramsPage({
             fontSize: 60,
             fontWeight: "normal",
             lineHeight: 0.92,
-            color: "#17171d",
+            color: "var(--foreground)",
             textAlign: "center",
             margin: "40px 0 16px",
           }}
@@ -816,14 +870,19 @@ export default function ProgramsPage({
             style={{
               fontFamily: "var(--font-phantom)",
               fontSize: 20,
-              color: "#17171d",
+              color: "var(--foreground)",
               margin: "0 0 4px",
             }}
           >
             Every event below is free and open to any teen, over the world. Yes, you can go!
           </p>
           <p
-            style={{ fontFamily: "var(--font-phantom)", fontSize: 20, color: "#17171d", margin: 0 }}
+            style={{
+              fontFamily: "var(--font-phantom)",
+              fontSize: 20,
+              color: "var(--foreground)",
+              margin: 0,
+            }}
           >
             (Check out our program documentary videos{" "}
             <a
@@ -831,7 +890,13 @@ export default function ProgramsPage({
               target="_blank"
               style={{ color: "#ec3750", textDecoration: "none" }}
             >
-              on Youtube→
+              on Youtube
+              <span
+                aria-hidden="true"
+                style={{ display: "inline-flex", verticalAlign: "middle", marginLeft: 2 }}
+              >
+                <BtnArrowSvg />
+              </span>
             </a>
             )
           </p>
@@ -840,10 +905,10 @@ export default function ProgramsPage({
         {/* Search */}
         <div
           style={{
-            background: "#fff",
+            background: "var(--surface)",
             borderRadius: 9999,
             height: 64,
-            border: "2.5px solid #e0e6ed",
+            border: "2.5px solid var(--border)",
             display: "flex",
             alignItems: "center",
             paddingLeft: 28,
@@ -856,7 +921,7 @@ export default function ProgramsPage({
             height="22"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#17171d"
+            stroke="currentColor"
             strokeWidth="2.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -868,6 +933,7 @@ export default function ProgramsPage({
           <input
             data-programs-search
             type="text"
+            aria-label="Search programs"
             placeholder="Search for your next adventure..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -877,7 +943,7 @@ export default function ProgramsPage({
               border: "none",
               fontFamily: "var(--font-phantom)",
               fontSize: 20,
-              color: "#17171d",
+              color: "var(--foreground)",
             }}
           />
         </div>
@@ -927,8 +993,8 @@ export default function ProgramsPage({
                   position: "absolute",
                   top: "calc(100% + 8px)",
                   left: 0,
-                  background: "#fff",
-                  border: "3px solid #ec3750",
+                  background: "var(--surface)",
+                  border: "3px solid var(--red)",
                   borderRadius: 16,
                   padding: "12px 16px",
                   display: "flex",
@@ -949,13 +1015,13 @@ export default function ProgramsPage({
                       closeSortPanel();
                     }}
                     style={{
-                      background: sort === k ? "#ec3750" : "transparent",
+                      background: sort === k ? "var(--red)" : "transparent",
                       border: "none",
                       borderRadius: 8,
                       padding: "8px 12px",
                       fontFamily: "var(--font-phantom)",
                       fontSize: 20,
-                      color: sort === k ? "#fff" : "#17171d",
+                      color: sort === k ? "#fff" : "var(--foreground)",
                       cursor: "pointer",
                       textAlign: "left",
                     }}
@@ -1044,7 +1110,7 @@ export default function ProgramsPage({
             style={{
               fontFamily: "var(--font-phantom)",
               fontSize: 20,
-              color: "#17171d",
+              color: "var(--foreground)",
               opacity: 0.5,
               textAlign: "center",
               marginTop: 40,
@@ -1068,7 +1134,7 @@ export default function ProgramsPage({
             style={{
               fontFamily: "var(--font-phantom)",
               fontSize: 20,
-              color: "#17171d",
+              color: "var(--foreground)",
               opacity: 0.55,
               margin: 0,
             }}
@@ -1088,15 +1154,15 @@ export default function ProgramsPage({
             style={{
               fontFamily: "var(--font-phantom)",
               fontSize: 20,
-              color: "#17171d",
+              color: "var(--foreground)",
               opacity: 0.55,
               margin: 0,
             }}
           >
             You can also{" "}
-            <a href="/programs/edit" style={{ color: "#ec3750", textDecoration: "none" }}>
+            <Link href="/programs/edit" style={{ color: "#ec3750", textDecoration: "none" }}>
               edit an event here
-            </a>
+            </Link>
             .
           </p>
         </div>

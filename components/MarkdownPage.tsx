@@ -25,7 +25,7 @@ function Heading({ level, children }: { level: number; children: React.ReactNode
 
   return (
     <Tag id={id} className="md-heading">
-      <a href={`#${id}`} className="md-heading__anchor" aria-hidden="true">
+      <a href={`#${id}`} className="md-heading__anchor" aria-hidden="true" tabIndex={-1}>
         #
       </a>
       {children}
@@ -51,8 +51,8 @@ export function MarkdownPage({ content }: { content: string }) {
 
       <style>{`
         .markdown-page {
-          background: #ffffff;
-          color: #17171d;
+          background: var(--background);
+          color: var(--foreground);
         }
 
         .markdown-page__content {
@@ -69,7 +69,7 @@ export function MarkdownPage({ content }: { content: string }) {
           font-weight: 800;
           line-height: 1.15;
           margin: 0 0 24px;
-          color: #17171d;
+          color: var(--foreground);
           text-align: center;
         }
 
@@ -78,7 +78,7 @@ export function MarkdownPage({ content }: { content: string }) {
           font-weight: 700;
           line-height: 1.25;
           margin: 48px 0 16px;
-          color: #17171d;
+          color: var(--foreground);
         }
 
         .markdown-page__content h3 {
@@ -86,7 +86,7 @@ export function MarkdownPage({ content }: { content: string }) {
           font-weight: 700;
           line-height: 1.3;
           margin: 36px 0 12px;
-          color: #17171d;
+          color: var(--foreground);
         }
 
         .markdown-page__content h4 {
@@ -94,7 +94,7 @@ export function MarkdownPage({ content }: { content: string }) {
           font-weight: 700;
           line-height: 1.3;
           margin: 36px 0 12px;
-          color: #17171d;
+          color: var(--foreground);
         }
 
         .md-heading {
@@ -104,7 +104,7 @@ export function MarkdownPage({ content }: { content: string }) {
         .md-heading__anchor {
           position: absolute;
           left: -1.2em;
-          color: #8492a6;
+          color: var(--muted);
           text-decoration: none;
           font-weight: 400;
           opacity: 0;
@@ -116,7 +116,7 @@ export function MarkdownPage({ content }: { content: string }) {
         }
 
         .md-heading__anchor:hover {
-          color: #ec3750;
+          color: var(--red);
         }
 
         .markdown-page__content h1 .md-heading__anchor {
@@ -129,7 +129,7 @@ export function MarkdownPage({ content }: { content: string }) {
         }
 
         .markdown-page__content a {
-          color: #ec3750;
+          color: var(--red);
           text-decoration: underline;
           text-underline-offset: 2px;
         }
@@ -157,7 +157,7 @@ export function MarkdownPage({ content }: { content: string }) {
         }
 
         .markdown-page__content li > ul li {
-          color: #3c4858;
+          color: var(--muted);
         }
 
         .markdown-page__content li > ol {
@@ -167,7 +167,7 @@ export function MarkdownPage({ content }: { content: string }) {
 
         .markdown-page__content hr {
           border: none;
-          border-top: 2px solid #e0e6ed;
+          border-top: 2px solid var(--border);
           margin: 48px 0;
         }
 

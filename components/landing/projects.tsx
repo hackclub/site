@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { pull, type AirtableProject } from "../../lib/projects";
+import { BtnArrow } from "./btn-arrow";
 
 function ProjectCard({ project }: { project: AirtableProject }) {
   const { projectName, person, age, country, imageUrl, programName, playableUrl, codeUrl } =
@@ -11,7 +12,7 @@ function ProjectCard({ project }: { project: AirtableProject }) {
         width: 290,
         borderRadius: 16,
         overflow: "hidden",
-        background: "#ffffff",
+        background: "var(--surface)",
         boxShadow: "0 2px 16px rgba(0,0,0,0.10)",
         display: "flex",
         flexDirection: "column",
@@ -24,7 +25,7 @@ function ProjectCard({ project }: { project: AirtableProject }) {
           height: 200,
           overflow: "hidden",
           flexShrink: 0,
-          background: "#e0e6ed",
+          background: "var(--surface-hover)",
         }}
       >
         <Image
@@ -54,7 +55,7 @@ function ProjectCard({ project }: { project: AirtableProject }) {
           style={{
             fontFamily: "var(--font-phantom)",
             fontSize: 20,
-            color: "#17171d",
+            color: "var(--foreground)",
             margin: 0,
             lineHeight: 1.2,
             flex: 1,
@@ -74,7 +75,7 @@ function ProjectCard({ project }: { project: AirtableProject }) {
               className="cta-btn"
               style={{
                 fontSize: 20,
-                color: "#ec3750",
+                color: "var(--red)",
                 textDecoration: "none",
                 fontFamily: "var(--font-phantom)",
                 display: "inline-flex",
@@ -82,7 +83,7 @@ function ProjectCard({ project }: { project: AirtableProject }) {
                 fontWeight: 600,
               }}
             >
-              Try it out <span className="btn-arrow"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: "block", flexShrink: 0 }}><path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
+              Try it out <BtnArrow />
             </a>
           )}
           {codeUrl && (
@@ -93,7 +94,7 @@ function ProjectCard({ project }: { project: AirtableProject }) {
               aria-label="View source code"
               title="View source code"
               style={{
-                color: "#17171d",
+                color: "var(--foreground)",
                 textDecoration: "none",
                 display: "inline-flex",
                 alignItems: "center",
@@ -134,22 +135,11 @@ export async function ProjectsSection() {
       style={{
         position: "relative",
         zIndex: 1,
-        background: "#f9fafc",
+        background: "var(--background)",
         paddingTop: 80,
         paddingBottom: 100,
       }}
     >
-      {/* Background texture overlay */}
-      <div style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
-        <Image
-          src={"/assets/projectsBg.svg"}
-          alt=""
-          width={1920}
-          height={400}
-          style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.15 }}
-        />
-      </div>
-
       {/* Creature overlay — 3.5 waves wide, front of everything including hero wave and images */}
 
       {/* Headline */}
@@ -169,7 +159,7 @@ export async function ProjectsSection() {
             fontFamily: "var(--font-zarathustra)",
             fontSize: 40,
             lineHeight: 1,
-            color: "#17171d",
+            color: "var(--foreground)",
             margin: 0,
             fontWeight: "normal",
           }}
@@ -205,7 +195,7 @@ export async function ProjectsSection() {
           style={{
             fontFamily: "var(--font-phantom)",
             fontSize: 20,
-            color: "#17171d",
+            color: "var(--foreground)",
             lineHeight: 1.2,
             margin: 0,
           }}
@@ -226,7 +216,7 @@ export async function ProjectsSection() {
             top: 0,
             bottom: 0,
             width: 120,
-            background: "linear-gradient(90deg, #f9fafc 0%, transparent 100%)",
+            background: "linear-gradient(90deg, var(--background) 0%, transparent 100%)",
             zIndex: 2,
             pointerEvents: "none",
           }}
@@ -239,7 +229,7 @@ export async function ProjectsSection() {
             top: 0,
             bottom: 0,
             width: 120,
-            background: "linear-gradient(270deg, #f9fafc 0%, transparent 100%)",
+            background: "linear-gradient(270deg, var(--background) 0%, transparent 100%)",
             zIndex: 2,
             pointerEvents: "none",
           }}
@@ -272,7 +262,7 @@ export async function ProjectsSection() {
           .carousel-pause-toggle:checked ~ .pause-icon { display: none; }
           .carousel-pause-toggle:checked ~ .play-icon { display: block; }
           .carousel-pause-toggle:focus-visible {
-            outline: 3px solid #ff8c37;
+            outline: 3px solid var(--orange);
             outline-offset: 2px;
           }
           .carousel-track {
@@ -328,8 +318,8 @@ export async function ProjectsSection() {
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
-              background: "#17171d",
-              color: "#ffffff",
+              background: "var(--foreground)",
+              color: "var(--background)",
               borderRadius: 41,
               height: 52,
               paddingLeft: 32,
@@ -344,8 +334,7 @@ export async function ProjectsSection() {
             className="cta-btn dark-btn"
           >
             <span className="projects-cta-full">See more projects in the 2025 magazine</span>
-            <span className="projects-cta-short">See more in the magazine</span>{" "}
-            <span className="btn-arrow"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: "block", flexShrink: 0 }}><path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
+            <span className="projects-cta-short">See more in the magazine</span> <BtnArrow />
           </a>
 
           <label
@@ -357,9 +346,9 @@ export async function ProjectsSection() {
               justifyContent: "center",
               width: 36,
               height: 36,
-              color: "#4b5563",
+              color: "var(--muted)",
               background: "transparent",
-              border: "3px solid #4b5563",
+              border: "3px solid var(--muted)",
               borderRadius: 999,
               cursor: "pointer",
               userSelect: "none",
@@ -452,7 +441,7 @@ export async function ProjectsSection() {
         >
           <path
             d="M0,0 L0,8 C40,8 40,27 80,27 C120,27 120,8 160,8 C200,8 200,27 240,27 C280,27 280,8 320,8 C360,8 360,27 400,27 C440,27 440,8 480,8 C520,8 520,27 560,27 C600,27 600,8 640,8 C680,8 680,27 720,27 C760,27 760,8 800,8 C840,8 840,27 880,27 C920,27 920,8 960,8 C1000,8 1000,27 1040,27 C1080,27 1080,8 1120,8 C1160,8 1160,27 1200,27 C1240,27 1240,8 1280,8 C1320,8 1320,27 1360,27 C1400,27 1400,8 1440,8 C1480,8 1480,27 1520,27 C1560,27 1560,8 1600,8 C1640,8 1640,27 1680,27 C1720,27 1720,8 1760,8 C1800,8 1800,27 1840,27 C1880,27 1880,8 1920,8 L1920,0 Z"
-            fill="#f9fafc"
+            style={{ fill: "var(--background)" }}
           />
         </svg>
         {/* Main fill layer — 40px, amplitude 19px matching HeroSection */}
@@ -463,7 +452,7 @@ export async function ProjectsSection() {
         >
           <path
             d="M0,0 L0,8 C40,8 40,27 80,27 C120,27 120,8 160,8 C200,8 200,27 240,27 C280,27 280,8 320,8 C360,8 360,27 400,27 C440,27 440,8 480,8 C520,8 520,27 560,27 C600,27 600,8 640,8 C680,8 680,27 720,27 C760,27 760,8 800,8 C840,8 840,27 880,27 C920,27 920,8 960,8 C1000,8 1000,27 1040,27 C1080,27 1080,8 1120,8 C1160,8 1160,27 1200,27 C1240,27 1240,8 1280,8 C1320,8 1320,27 1360,27 C1400,27 1400,8 1440,8 C1480,8 1480,27 1520,27 C1560,27 1560,8 1600,8 C1640,8 1640,27 1680,27 C1720,27 1720,8 1760,8 C1800,8 1800,27 1840,27 C1880,27 1880,8 1920,8 L1920,0 Z"
-            fill="#f9fafc"
+            style={{ fill: "var(--background)" }}
           />
         </svg>
         {/* Thin stroke wave — same as HeroSection stroke, positioned at fill edge */}
@@ -483,7 +472,7 @@ export async function ProjectsSection() {
           <path
             d="M0,2 C40,2 40,18 80,18 C120,18 120,2 160,2 C200,2 200,18 240,18 C280,18 280,2 320,2 C360,2 360,18 400,18 C440,18 440,2 480,2 C520,2 520,18 560,18 C600,18 600,2 640,2 C680,2 680,18 720,18 C760,18 760,2 800,2 C840,2 840,18 880,18 C920,18 920,2 960,2 C1000,2 1000,18 1040,18 C1080,18 1080,2 1120,2 C1160,2 1160,18 1200,18 C1240,18 1240,2 1280,2 C1320,2 1320,18 1360,18 C1400,18 1400,2 1440,2 C1480,2 1480,18 1520,18 C1560,18 1560,2 1600,2 C1640,2 1640,18 1680,18 C1720,18 1720,2 1760,2 C1800,2 1800,18 1840,18 C1880,18 1880,2 1920,2"
             fill="none"
-            stroke="#f9fafc"
+            style={{ stroke: "var(--background)" }}
             strokeWidth="2.5"
             vectorEffect="non-scaling-stroke"
           />

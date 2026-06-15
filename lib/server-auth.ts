@@ -11,6 +11,14 @@ const ADMINS_TABLE = "Admins";
 const AUTHORS_TABLE = "YSWS Authors";
 const PROGRAMS_TABLE = "YSWS Programs";
 
+export function isValidSlackId(value: string | null | undefined): value is string {
+  return typeof value === "string" && /^[UW][A-Z0-9]{2,32}$/i.test(value);
+}
+
+export function isValidAirtableRecordId(value: unknown): value is string {
+  return typeof value === "string" && /^rec[A-Za-z0-9]{14}$/.test(value);
+}
+
 /** Resolve the Hack Club Slack ID for the currently signed-in user, or null. */
 async function getSlackId(req: NextRequest): Promise<string | null> {
   const token = req.cookies.get("hc_access_token")?.value;
@@ -22,7 +30,8 @@ async function getSlackId(req: NextRequest): Promise<string | null> {
   if (!meRes.ok) return null;
 
   const me = await meRes.json();
-  return me.identity?.slack_id ?? null;
+  const slackId = me.identity?.slack_id ?? null;
+  return isValidSlackId(slackId) ? slackId : null;
 }
 
 /** Return true if the given Slack ID is in the Site Admins table. */
@@ -53,6 +62,22 @@ export async function canEditProgram(req: NextRequest, programName: string): Pro
   // Admins bypass all ownership checks
   if (await isAdmin(slackId)) return true;
 
+  return ownsProgram(slackId, programName);
+}
+
+export async function getEditAuth(
+  req: NextRequest,
+  programName: string,
+): Promise<{ canEdit: boolean; isAdmin: boolean }> {
+  const slackId = await getSlackId(req);
+  if (!slackId) return { canEdit: false, isAdmin: false };
+
+  if (await isAdmin(slackId)) return { canEdit: true, isAdmin: true };
+
+  return { canEdit: await ownsProgram(slackId, programName), isAdmin: false };
+}
+
+async function ownsProgram(slackId: string, programName: string): Promise<boolean> {
   const apiKey = process.env.AIRTABLE_API_KEY;
   if (!apiKey) return false;
 
@@ -69,8 +94,8 @@ export async function canEditProgram(req: NextRequest, programName: string): Pro
   if (!authorsRes.ok) return false;
 
   const authorsData = await authorsRes.json();
-  const authorRecord = (authorsData.records ?? [])[0];
-  const programRecordIds: string[] = authorRecord?.fields?.["Current YSWS Programs"] ?? [];
+  const ids = authorsData.records?.[0]?.fields?.["Current YSWS Programs"];
+  const programRecordIds = Array.isArray(ids) ? ids.filter(isValidAirtableRecordId) : [];
   if (programRecordIds.length === 0) return false;
 
   // Resolve those record IDs to program names

@@ -561,7 +561,7 @@ export default function PhilanthropyPage() {
           download
           target="_blank"
           rel="noopener noreferrer"
-          style={{ minWidth: 210, background: "#ec3750", color: "white" }}
+          style={{ minWidth: 210, background: "var(--red)", color: "var(--paper)" }}
         >
           Download as PDF
         </a>
@@ -570,16 +570,16 @@ export default function PhilanthropyPage() {
 
       <style>{`
         .philanthropy-btn--red {
-          background: #ec3750 !important;
-          color: #fff !important;
+          background: var(--red) !important;
+          color: var(--paper) !important;
         }
 
         .philanthropy-page {
           background:
             radial-gradient(circle at 5% 8%, rgba(236, 55, 80, 0.12), transparent 34%),
             radial-gradient(circle at 95% 0%, rgba(255, 140, 55, 0.18), transparent 32%),
-            #fffaf4;
-          color: #17171d;
+            var(--background);
+          color: var(--foreground);
         }
 
         .philanthropy-shell {
@@ -598,7 +598,7 @@ export default function PhilanthropyPage() {
         }
 
         .philanthropy-kicker--dark {
-          color: rgba(23, 23, 29, 0.55);
+          color: var(--muted);
         }
 
         .philanthropy-hero {
@@ -607,8 +607,8 @@ export default function PhilanthropyPage() {
           background:
             radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.25), transparent 32%),
             radial-gradient(circle at 90% 0%, rgba(255, 140, 55, 0.3), transparent 35%),
-            linear-gradient(140deg, #17171d 0%, #2a1a20 55%, #ec3750 100%);
-          color: #fff6eb;
+            linear-gradient(140deg, var(--ink) 0%, var(--ink-2) 55%, var(--red) 100%);
+          color: var(--cream);
           padding: 120px 0 90px;
         }
 
@@ -634,7 +634,7 @@ export default function PhilanthropyPage() {
           font-family: var(--font-phantom);
           font-size: clamp(1.05rem, 1.6vw, 1.3rem);
           line-height: 1.55;
-          color: rgba(255, 246, 235, 0.88);
+          color: rgba(255, 246, 235, 0.88); /* --cream with opacity, on constant dark hero */
         }
 
         .philanthropy-hero__actions {
@@ -658,15 +658,15 @@ export default function PhilanthropyPage() {
         }
 
         .philanthropy-btn--dark {
-          background: #ffffff;
-          color: #17171d;
+          background: var(--paper);
+          color: var(--ink);
           box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
         }
 
         .philanthropy-btn--ghost {
           background: rgba(255, 255, 255, 0.12);
           border: 1px solid rgba(255, 255, 255, 0.4);
-          color: #fff6eb;
+          color: var(--cream);
         }
 
         .philanthropy-btn:hover {
@@ -677,11 +677,11 @@ export default function PhilanthropyPage() {
           margin: 0 0 26px;
           font-family: var(--font-phantom);
           font-size: 0.95rem;
-          color: rgba(255, 246, 235, 0.78);
+          color: rgba(255, 246, 235, 0.78); /* --cream with opacity, on constant dark hero */
         }
 
         .philanthropy-caption--dark {
-          color: rgba(23, 23, 29, 0.6);
+          color: var(--muted);
           margin-top: 12px;
         }
 
@@ -703,13 +703,13 @@ export default function PhilanthropyPage() {
           display: block;
           font-size: 1.3rem;
           font-weight: 700;
-          color: #fff6eb;
+          color: var(--cream);
         }
 
         .philanthropy-stat p {
           margin: 6px 0 0;
           font-size: 0.82rem;
-          color: rgba(255, 246, 235, 0.72);
+          color: rgba(255, 246, 235, 0.72); /* --cream with opacity, on constant dark hero */
           line-height: 1.3;
         }
 
@@ -722,7 +722,7 @@ export default function PhilanthropyPage() {
           position: absolute;
           border-radius: 22px;
           overflow: hidden;
-          border: 4px solid #ffffff;
+          border: 4px solid var(--paper);
           box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
         }
 
@@ -797,7 +797,7 @@ export default function PhilanthropyPage() {
           font-family: var(--font-phantom);
           font-size: 1.05rem;
           line-height: 1.65;
-          color: rgba(23, 23, 29, 0.72);
+          color: var(--muted);
           max-width: 860px;
         }
 
@@ -813,14 +813,14 @@ export default function PhilanthropyPage() {
           font-family: var(--font-phantom);
           font-size: 1.05rem;
           line-height: 1.65;
-          color: rgba(23, 23, 29, 0.78);
+          color: var(--muted);
         }
 
         .philanthropy-vision__quote {
           border-radius: 26px;
           padding: 26px;
-          background: linear-gradient(135deg, #fff1e7, #fff7ef);
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           box-shadow: 0 24px 60px rgba(91, 52, 18, 0.12);
           display: grid;
           gap: 12px;
@@ -836,7 +836,7 @@ export default function PhilanthropyPage() {
         .philanthropy-vision__quote span {
           font-family: var(--font-phantom);
           font-size: 0.95rem;
-          color: rgba(23, 23, 29, 0.6);
+          color: var(--muted);
         }
 
         .philanthropy-vision__conclusion {
@@ -852,7 +852,7 @@ export default function PhilanthropyPage() {
         .philanthropy-testimonial-card {
           border-radius: 18px;
           overflow: hidden;
-          border: 1px solid rgba(23, 23, 29, 0.12);
+          border: 1px solid var(--border);
           min-height: 260px;
           position: relative;
         }
@@ -905,12 +905,12 @@ export default function PhilanthropyPage() {
         .philanthropy-contact-grid a {
           font-family: var(--font-phantom);
           line-height: 1.6;
-          color: rgba(23, 23, 29, 0.75);
+          color: var(--muted);
           margin: 0 0 8px;
         }
 
         .philanthropy-contact-grid a {
-          color: #ec3750;
+          color: var(--red);
           text-decoration: none;
           font-weight: 700;
         }
@@ -918,8 +918,8 @@ export default function PhilanthropyPage() {
         .philanthropy-checks {
           border-radius: 22px;
           padding: 22px;
-          background: #ffffff;
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
         }
 
         .philanthropy-checks h3 {
@@ -932,8 +932,8 @@ export default function PhilanthropyPage() {
         .philanthropy-section--light {
           margin-top: 72px;
           padding: 72px 0 0;
-          border-top: 1px solid rgba(23, 23, 29, 0.05);
-          border-bottom: 1px solid rgba(23, 23, 29, 0.05);
+          border-top: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
         }
 
         .philanthropy-donors {
@@ -946,8 +946,8 @@ export default function PhilanthropyPage() {
         .philanthropy-donors__tier {
           border-radius: 20px;
           padding: 18px;
-          background: #ffffff;
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
         }
 
         .philanthropy-donors__tier h3 {
@@ -965,13 +965,13 @@ export default function PhilanthropyPage() {
           gap: 6px;
           font-family: var(--font-phantom);
           font-size: 0.9rem;
-          color: rgba(23, 23, 29, 0.7);
+          color: var(--muted);
         }
 
         .philanthropy-donors__note {
           margin: 18px 0 0;
           font-family: var(--font-phantom);
-          color: rgba(23, 23, 29, 0.58);
+          color: var(--muted);
           font-size: 0.9rem;
         }
 
@@ -980,7 +980,7 @@ export default function PhilanthropyPage() {
           font-family: var(--font-phantom);
           font-size: 1.1rem;
           font-weight: 700;
-          color: #17171d;
+          color: var(--foreground);
         }
 
         .philanthropy-pill-grid {
@@ -991,12 +991,12 @@ export default function PhilanthropyPage() {
 
         .philanthropy-pill-grid span {
           border-radius: 999px;
-          background: #ffffff;
-          border: 1px solid rgba(23, 23, 29, 0.12);
+          background: var(--surface);
+          border: 1px solid var(--border);
           padding: 8px 12px;
           font-family: var(--font-phantom);
           font-size: 0.88rem;
-          color: rgba(23, 23, 29, 0.78);
+          color: var(--muted);
         }
 
         .philanthropy-impact-grid {
@@ -1009,8 +1009,8 @@ export default function PhilanthropyPage() {
         .philanthropy-impact-card {
           border-radius: 24px;
           padding: 22px;
-          background: #ffffff;
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           box-shadow: 0 18px 38px rgba(91, 52, 18, 0.1);
           display: grid;
           gap: 16px;
@@ -1020,7 +1020,7 @@ export default function PhilanthropyPage() {
           margin: 0 0 12px;
           font-family: var(--font-phantom);
           line-height: 1.6;
-          color: rgba(23, 23, 29, 0.74);
+          color: var(--muted);
         }
 
         .philanthropy-impact-card__copy h3 {
@@ -1050,7 +1050,7 @@ export default function PhilanthropyPage() {
 
         .philanthropy-impact-card__person span {
           font-family: var(--font-phantom);
-          color: rgba(23, 23, 29, 0.58);
+          color: var(--muted);
           font-size: 0.88rem;
         }
 
@@ -1058,8 +1058,8 @@ export default function PhilanthropyPage() {
           margin-top: 22px;
           border-radius: 24px;
           padding: 22px;
-          background: linear-gradient(135deg, #fff4e8, #ffe8d5);
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           display: grid;
           gap: 12px;
         }
@@ -1086,7 +1086,7 @@ export default function PhilanthropyPage() {
 
         .philanthropy-belle-quote span {
           font-family: var(--font-phantom);
-          color: rgba(23, 23, 29, 0.7);
+          color: var(--muted);
         }
 
         .philanthropy-press {
@@ -1103,8 +1103,8 @@ export default function PhilanthropyPage() {
           justify-content: center;
           border-radius: 18px;
           padding: 18px;
-          background: #ffffff;
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           box-shadow: 0 14px 30px rgba(91, 52, 18, 0.08);
           min-height: 100px;
         }
@@ -1114,6 +1114,11 @@ export default function PhilanthropyPage() {
           max-height: 56px;
           height: auto;
           object-fit: contain;
+        }
+
+        html.dark .philanthropy-press img,
+        html.dark .philanthropy-signature-image {
+          filter: invert(1);
         }
 
         .philanthropy-board {
@@ -1126,8 +1131,8 @@ export default function PhilanthropyPage() {
         .philanthropy-board__list,
         .philanthropy-board__quote {
           border-radius: 22px;
-          background: #ffffff;
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           box-shadow: 0 14px 28px rgba(91, 52, 18, 0.08);
           padding: 22px;
         }
@@ -1145,20 +1150,20 @@ export default function PhilanthropyPage() {
         .philanthropy-board__list span,
         .philanthropy-board__list small {
           font-family: var(--font-phantom);
-          color: rgba(23, 23, 29, 0.6);
+          color: var(--muted);
           font-size: 0.9rem;
         }
 
         .philanthropy-board__quote p {
           margin: 0 0 12px;
           font-family: var(--font-phantom);
-          color: rgba(23, 23, 29, 0.74);
+          color: var(--muted);
           line-height: 1.6;
         }
 
         .philanthropy-board__quote span {
           font-family: var(--font-phantom);
-          color: rgba(23, 23, 29, 0.58);
+          color: var(--muted);
           font-size: 0.9rem;
         }
 
@@ -1168,7 +1173,7 @@ export default function PhilanthropyPage() {
           display: grid;
           gap: 8px;
           font-family: var(--font-phantom);
-          color: rgba(23, 23, 29, 0.76);
+          color: var(--muted);
           line-height: 1.6;
         }
 
@@ -1195,7 +1200,7 @@ export default function PhilanthropyPage() {
           text-decoration: none;
           font-family: var(--font-phantom);
           font-weight: 700;
-          color: #ec3750;
+          color: var(--red);
           background: rgba(236, 55, 80, 0.1);
           padding: 6px 14px;
           border-radius: 999px;
@@ -1212,8 +1217,8 @@ export default function PhilanthropyPage() {
           align-items: center;
           border-radius: 32px;
           padding: 32px;
-          background: linear-gradient(135deg, #fff3ea, #fffaf0);
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           box-shadow: 0 24px 60px rgba(91, 52, 18, 0.12);
         }
 
@@ -1227,15 +1232,15 @@ export default function PhilanthropyPage() {
         .philanthropy-cta p {
           margin: 0;
           font-family: var(--font-phantom);
-          color: rgba(23, 23, 29, 0.7);
+          color: var(--muted);
           line-height: 1.6;
         }
 
         .philanthropy-cta__card {
           border-radius: 22px;
           padding: 22px;
-          background: #ffffff;
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           display: grid;
           gap: 8px;
         }
@@ -1250,13 +1255,13 @@ export default function PhilanthropyPage() {
         .philanthropy-cta__card span {
           font-family: var(--font-phantom);
           font-size: 0.95rem;
-          color: rgba(23, 23, 29, 0.6);
+          color: var(--muted);
         }
 
         .philanthropy-cta__card a {
           font-family: var(--font-phantom);
           font-weight: 700;
-          color: #ec3750;
+          color: var(--red);
           text-decoration: none;
         }
 
@@ -1269,8 +1274,8 @@ export default function PhilanthropyPage() {
 
         .philanthropy-signatures div {
           border-radius: 18px;
-          background: #ffffff;
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           padding: 20px;
         }
 
@@ -1285,7 +1290,7 @@ export default function PhilanthropyPage() {
         .philanthropy-signatures p {
           margin: 8px 0 0;
           font-family: var(--font-phantom);
-          color: rgba(23, 23, 29, 0.7);
+          color: var(--muted);
           font-size: 0.88rem;
         }
 

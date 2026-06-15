@@ -1,24 +1,26 @@
 import { Icon } from "./Icon";
+import { ThemeToggle } from "./ThemeToggle";
 import Image from "next/image";
 import Link from "next/link";
 
-const lnk = {
+const footerLinkStyles = {
   fontWeight: 400,
   fontSize: 16,
-  color: "#fff",
+  color: "var(--paper)",
   textDecoration: "none",
   opacity: 0.8,
   transition: "opacity 0.15s",
   display: "inline-block",
 } as const;
-const h = {
+const sectionHeadingStyles = {
   fontWeight: 700,
   fontSize: 20,
-  color: "#fff",
+  color: "var(--paper)",
   margin: 0,
   marginBottom: 16,
   lineHeight: 1.2,
 } as const;
+const u = { color: "var(--paper)", textDecoration: "underline", textUnderlineOffset: 2 } as const;
 
 const hcLinks = [
   { label: "Philosophy", href: "/philosophy" },
@@ -50,14 +52,14 @@ const icons = [
 
 const sha = process.env.NEXT_PUBLIC_COMMIT_SHA ?? "dev";
 
-function ext(href: string) {
-  return href.startsWith("http") || href.startsWith("mailto:");
+function isExternal(href: string) {
+  return href.startsWith("http");
 }
 
 function LinkCol({ title, links }: { title: string; links: { label: string; href: string }[] }) {
   return (
     <div style={title === "Resources" ? { minWidth: 140 } : undefined}>
-      <p style={h}>{title}</p>
+      <p style={sectionHeadingStyles}>{title}</p>
       <ul
         style={{
           listStyle: "none",
@@ -70,18 +72,18 @@ function LinkCol({ title, links }: { title: string; links: { label: string; href
       >
         {links.map((l) => (
           <li key={l.label}>
-            {ext(l.href) ? (
+            {isExternal(l.href) ? (
               <a
                 href={l.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-link"
-                style={lnk}
+                style={footerLinkStyles}
               >
                 {l.label}
               </a>
             ) : (
-              <Link href={l.href} className="footer-link" style={lnk}>
+              <Link href={l.href} className="footer-link" style={footerLinkStyles}>
                 {l.label}
               </Link>
             )}
@@ -93,13 +95,15 @@ function LinkCol({ title, links }: { title: string; links: { label: string; href
 }
 
 export function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer
       className="site-footer"
       style={{
-        background: `linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), #000`,
+        background: `linear-gradient(90deg, var(--grid-line) 1px, transparent 1px), linear-gradient(var(--grid-line) 1px, transparent 1px), var(--footer-bg)`,
         backgroundSize: "50px 50px",
-        color: "#fff",
+        color: "var(--paper)",
         paddingTop: 80,
         paddingBottom: 60,
         paddingLeft: "clamp(24px, 6vw, 80px)",
@@ -112,10 +116,9 @@ export function Footer() {
       <Image
         className="site-footer-illustration"
         src="/assets/footer.webp"
-        alt="footer illustration"
-        loading="lazy"
-        width={2048}
-        height={1680}
+        alt=""
+        width={680}
+        height={558}
         style={{
           position: "absolute",
           right: 0,
@@ -144,19 +147,21 @@ export function Footer() {
           style={{ display: "flex", flexDirection: "column", gap: 0, flexShrink: 0, width: 280 }}
         >
           <div style={{ marginBottom: 28 }}>
-            <Image
-              src="/assets/hackClubFlag.svg"
-              alt="Hack Club"
-              width={200}
-              height={70}
-              style={{ display: "block", objectFit: "contain" }}
-            />
+            <Link href="/">
+              <Image
+                src="/assets/hackClubFlag.svg"
+                alt="Hack Club"
+                width={200}
+                height={70}
+                style={{ display: "block", objectFit: "contain" }}
+              />
+            </Link>
           </div>
           <p
             style={{
               fontWeight: 400,
               fontSize: 20,
-              color: "#fff",
+              color: "var(--paper)",
               margin: 0,
               marginBottom: 8,
               lineHeight: 1.2,
@@ -166,10 +171,11 @@ export function Footer() {
           </p>
           <a
             href="tel:18556254225"
+            aria-label="Call Hack Club toll-free at 1-855-625-4225"
             style={{
               fontWeight: 400,
               fontSize: 20,
-              color: "#fff",
+              color: "var(--paper)",
               margin: 0,
               marginBottom: 32,
               lineHeight: 1.2,
@@ -184,8 +190,8 @@ export function Footer() {
               <a
                 key={i.label}
                 href={i.href}
-                target={ext(i.href) ? "_blank" : undefined}
-                rel={ext(i.href) ? "noopener noreferrer" : undefined}
+                target={isExternal(i.href) ? "_blank" : undefined}
+                rel={isExternal(i.href) ? "noopener noreferrer" : undefined}
                 aria-label={i.label}
                 className="footer-social-link"
                 style={{
@@ -198,7 +204,7 @@ export function Footer() {
                   background: "transparent",
                   flexShrink: 0,
                   transition: "opacity 0.15s",
-                  color: "#fff",
+                  color: "var(--paper)",
                 }}
               >
                 <Icon glyph={i.glyph} size={48} />
@@ -212,23 +218,34 @@ export function Footer() {
         </div>
       </div>
 
-      <div style={{ paddingTop: 32, maxWidth: 1200, margin: "0 auto" }}>
+      <div
+        style={{
+          paddingTop: 32,
+          maxWidth: 1200,
+          margin: "0 auto",
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "space-between",
+          gap: 24,
+          flexWrap: "wrap",
+        }}
+      >
         <p
           style={{
             fontWeight: 400,
             fontSize: 16,
-            color: "#fff",
+            color: "var(--paper)",
             opacity: 0.8,
             margin: 0,
             lineHeight: 1.5,
           }}
         >
-          © 2026 Hack Club. Registered under{" "}
+          © {year} Hack Club. Registered under{" "}
           <a
             href="https://the.hackfoundation.org/"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: "#fff", textDecoration: "underline", textUnderlineOffset: 2 }}
+            style={u}
           >
             The Hack Foundation
           </a>
@@ -238,19 +255,21 @@ export function Footer() {
             href="https://github.com/hackclub/site"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: "#fff", textDecoration: "underline", textUnderlineOffset: 2 }}
+            style={u}
           >
             hackclub/site
           </a>
         </p>
+        <ThemeToggle variant="footer" />
       </div>
 
       <style>{`
         .footer-link:hover, .footer-link:focus-visible,
-        .footer-social-link:hover, .footer-social-link:focus-visible { opacity: 1 !important; }
+        .footer-social-link:hover, .footer-social-link:focus-visible,
+        .footer-theme-toggle:hover, .footer-theme-toggle:focus-visible { opacity: 1 !important; }
         @media (max-width: 767px) {
           .site-footer { padding-top: 120px !important; }
-          .site-footer-illustration { width: min(320px, 72vw) !important; height: auto !important; transform: translateY(-40%) !important; }
+          .site-footer-illustration { width: min(320px, 72vw) !important; transform: translateY(-40%) !important; }
         }
       `}</style>
     </footer>

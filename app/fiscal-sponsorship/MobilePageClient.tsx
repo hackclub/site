@@ -2,11 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
+import { ThemeLock } from "@/components/ThemeToggle";
 import { Icon } from "@/components/Icon";
 
 export default function MobilePageClient() {
   return (
     <>
+      <ThemeLock />
       <main id="main" tabIndex={-1} className="mobile-page">
         <section className="mobile-hero">
           <Navbar invertColors />

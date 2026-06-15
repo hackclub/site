@@ -7,6 +7,7 @@ import Icon from "@hackclub/icons";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { buildPageMetadata } from "@/lib/seo";
+import { ThemeLock } from "@/components/ThemeToggle";
 
 const AUTHORS = [
   {
@@ -104,6 +105,7 @@ function WelcomeCta() {
 export default function OpenSourcePage() {
   return (
     <>
+      <ThemeLock />
       <div className="open-source-announcement-page">
         <header className="announcement-header">
           <Navbar />
@@ -216,6 +218,7 @@ export default function OpenSourcePage() {
                 can&apos;t wait for more contributors to join us:
               </p>
 
+              {/* oxlint-disable-next-line jsx-a11y/media-has-caption */}
               <video width="100%" controls className="announcement-video">
                 <source
                   src="https://cdn.hackclub.com/019db766-797c-7e13-be36-0e39eaf40c8f/gsource.mp4"

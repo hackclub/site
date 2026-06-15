@@ -5,6 +5,7 @@ import { Navbar } from "../../../components/Navbar";
 import type { AirtableProgram } from "../../../lib/programs";
 import type { SiteProgram, ProjectType, ProgramFormat } from "../../../lib/site-programs";
 import { PROJECT_TYPE_OPTIONS, formatInPersonDate } from "../../../lib/site-programs";
+import { BtnArrowSvg } from "../../../components/landing/btn-arrow";
 
 interface EditorProgram {
   ysws: AirtableProgram;
@@ -49,7 +50,7 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
       ? "Ended"
       : `Ends ${parseLocalDate(ysws.endDate).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}`;
   const badgeEnded = isEnded || isDraft;
-  const buttonText = isEnded ? "See the site →" : "Start now →";
+  const buttonText = isEnded ? "See the site" : "Start now";
   const buttonColor = draft.buttonColor || "#ec3750";
 
   const inPersonStr = formatInPersonDate(
@@ -186,6 +187,7 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
             zIndex: 1,
             display: "inline-flex",
             alignItems: "center",
+            gap: 6,
             paddingTop: 6,
             paddingBottom: 6,
             paddingLeft: 20,
@@ -201,6 +203,7 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
           }}
         >
           {buttonText}
+          <BtnArrowSvg />
         </div>
       )}
 
@@ -232,7 +235,7 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
           right: 0,
           height: 36,
           width: 130,
-          background: badgeEnded ? "#e0e6ed" : "#ec3750",
+          background: badgeEnded ? "var(--surface-hover)" : "var(--red)",
           borderTopLeftRadius: 8,
           display: "flex",
           alignItems: "center",
@@ -244,7 +247,7 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
             fontFamily: "var(--font-phantom)",
             fontWeight: "bold",
             fontSize: "clamp(13px, 1.2vw, 16px)",
-            color: badgeEnded ? "#17171d" : "#fff",
+            color: badgeEnded ? "var(--foreground)" : "var(--paper)",
             whiteSpace: "nowrap",
           }}
         >
@@ -260,7 +263,6 @@ function UploadButton({
   label,
   type,
   programName,
-  recordId,
   currentUrl,
   onUploaded,
   onRemoved,
@@ -268,7 +270,6 @@ function UploadButton({
   label: string;
   type: "logo" | "bg";
   programName: string;
-  recordId?: string;
   currentUrl: string | null;
   onUploaded: (s: SiteProgram) => void;
   onRemoved: (s: SiteProgram) => void;
@@ -307,8 +308,8 @@ function UploadButton({
     try {
       const body =
         type === "logo"
-          ? { programName, recordId, setLogoUrl: urlInput.trim() }
-          : { programName, recordId, setBgImageUrl: urlInput.trim() };
+          ? { programName, setLogoUrl: urlInput.trim() }
+          : { programName, setBgImageUrl: urlInput.trim() };
       const res = await fetch("/api/site-programs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -336,7 +337,6 @@ function UploadButton({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           programName,
-          recordId,
           clearLogo: type === "logo",
           clearBg: type === "bg",
         }),
@@ -367,7 +367,7 @@ function UploadButton({
             style={{
               fontSize: 12,
               fontWeight: "bold",
-              color: "#17171d",
+              color: "var(--foreground)",
               fontFamily: "var(--font-phantom)",
             }}
           >
@@ -378,7 +378,7 @@ function UploadButton({
           style={{
             display: "flex",
             borderRadius: 9999,
-            border: "1.5px solid #e0e6ed",
+            border: "1.5px solid var(--border)",
             overflow: "hidden",
             marginLeft: "auto",
           }}
@@ -390,8 +390,8 @@ function UploadButton({
               style={{
                 padding: "2px 10px",
                 border: "none",
-                background: mode === m ? "#ec3750" : "transparent",
-                color: mode === m ? "#fff" : "#17171d",
+                background: mode === m ? "var(--red)" : "transparent",
+                color: mode === m ? "var(--paper)" : "var(--foreground)",
                 fontFamily: "var(--font-phantom)",
                 fontSize: 11,
                 cursor: "pointer",
@@ -405,17 +405,24 @@ function UploadButton({
       </div>
 
       {mode === "upload" ? (
-        <div
+        <button
+          type="button"
+          aria-label="Upload image"
           onClick={() => !busy && inputRef.current?.click()}
           style={{
-            border: "2px dashed #e0e6ed",
+            appearance: "none",
+            font: "inherit",
+            color: "inherit",
+            textAlign: "left",
+            width: "100%",
+            border: "2px dashed var(--border)",
             borderRadius: 10,
             padding: "10px 14px",
             cursor: busy ? "default" : "pointer",
             display: "flex",
             alignItems: "center",
             gap: 10,
-            background: "#fafafa",
+            background: "var(--surface)",
             minHeight: 52,
           }}
         >
@@ -433,13 +440,13 @@ function UploadButton({
               }}
             />
           ) : (
-            <span style={{ color: "#aaa", fontSize: 20 }}>+</span>
+            <span style={{ color: "var(--muted)", fontSize: 20 }}>+</span>
           )}
           <span
             style={{
               fontFamily: "var(--font-phantom)",
               fontSize: 13,
-              color: busy ? "#aaa" : "#17171d",
+              color: busy ? "var(--muted)" : "var(--foreground)",
             }}
           >
             {uploading
@@ -450,11 +457,12 @@ function UploadButton({
                   ? "Replace"
                   : "Upload file"}
           </span>
-        </div>
+        </button>
       ) : (
         <div style={{ display: "flex", gap: 6 }}>
           <input
             type="url"
+            aria-label={`${label} image URL`}
             value={urlInput}
             onChange={(e) => setUrlInput(e.target.value)}
             onKeyDown={(e) => {
@@ -464,7 +472,7 @@ function UploadButton({
             disabled={busy}
             style={{
               flex: 1,
-              border: "2px solid #e0e6ed",
+              border: "2px solid var(--border)",
               borderRadius: 8,
               padding: "8px 10px",
               fontFamily: "var(--font-phantom)",
@@ -482,8 +490,8 @@ function UploadButton({
               paddingRight: 14,
               borderRadius: 8,
               border: "none",
-              background: "#ec3750",
-              color: "#fff",
+              background: "var(--red)",
+              color: "var(--paper)",
               fontFamily: "var(--font-phantom)",
               fontSize: 12,
               fontWeight: "bold",
@@ -507,7 +515,7 @@ function UploadButton({
             marginTop: 6,
             background: "none",
             border: "none",
-            color: "#ec3750",
+            color: "var(--red)",
             fontFamily: "var(--font-phantom)",
             fontSize: 12,
             cursor: busy ? "default" : "pointer",
@@ -521,7 +529,7 @@ function UploadButton({
       {error && (
         <div
           style={{
-            color: "#ec3750",
+            color: "var(--red)",
             fontSize: 12,
             marginTop: 4,
             fontFamily: "var(--font-phantom)",
@@ -534,6 +542,7 @@ function UploadButton({
         ref={inputRef}
         type="file"
         accept="image/*"
+        aria-label={`${label} file`}
         style={{ display: "none" }}
         onChange={(e) => {
           const f = e.target.files?.[0];
@@ -561,7 +570,7 @@ function ColorField({
         style={{
           fontSize: 12,
           fontWeight: "bold",
-          color: "#17171d",
+          color: "var(--foreground)",
           marginBottom: 6,
           fontFamily: "var(--font-phantom)",
         }}
@@ -571,12 +580,13 @@ function ColorField({
       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
         <input
           type="color"
+          aria-label={label}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           style={{
             width: 36,
             height: 36,
-            border: "2px solid #e0e6ed",
+            border: "2px solid var(--border)",
             borderRadius: 8,
             cursor: "pointer",
             padding: 2,
@@ -584,12 +594,13 @@ function ColorField({
         />
         <input
           type="text"
+          aria-label={`${label} hex value`}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           style={{
             fontFamily: "monospace",
             fontSize: 13,
-            border: "2px solid #e0e6ed",
+            border: "2px solid var(--border)",
             borderRadius: 8,
             padding: "6px 10px",
             width: 90,
@@ -623,7 +634,7 @@ function SliderField({
         style={{
           fontSize: 12,
           fontWeight: "bold",
-          color: "#17171d",
+          color: "var(--foreground)",
           marginBottom: 6,
           fontFamily: "var(--font-phantom)",
           display: "flex",
@@ -638,11 +649,12 @@ function SliderField({
       </div>
       <input
         type="range"
+        aria-label={label}
         min={min}
         max={max}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        style={{ width: "100%", accentColor: "#ec3750" }}
+        style={{ width: "100%", accentColor: "var(--red)" }}
       />
     </div>
   );
@@ -666,7 +678,7 @@ function TextField({
         style={{
           fontSize: 12,
           fontWeight: "bold",
-          color: "#17171d",
+          color: "var(--foreground)",
           marginBottom: 6,
           fontFamily: "var(--font-phantom)",
         }}
@@ -675,12 +687,13 @@ function TextField({
       </div>
       <input
         type="text"
+        aria-label={label}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         style={{
           width: "100%",
-          border: "2px solid #e0e6ed",
+          border: "2px solid var(--border)",
           borderRadius: 8,
           padding: "8px 12px",
           fontFamily: "var(--font-phantom)",
@@ -693,15 +706,116 @@ function TextField({
   );
 }
 
+// ── Pin toggle (admin only) ──────────────────────────────────────────────────
+function PinToggle({
+  programName,
+  pinned,
+  onUpdate,
+}: {
+  programName: string;
+  pinned: boolean;
+  onUpdate: (s: SiteProgram) => void;
+}) {
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function toggle() {
+    setBusy(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/site-programs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ programName, pinned: !pinned }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        onUpdate(data as SiteProgram);
+      } else {
+        setError(data?.error ?? `Failed to update (${res.status})`);
+      }
+    } catch {
+      setError("Network issue, try again?");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+          padding: "10px 14px",
+          background: pinned ? "rgba(236,55,80,0.08)" : "var(--surface)",
+          borderRadius: 12,
+          border: pinned ? "2px solid var(--red)" : "2px solid var(--border)",
+        }}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill={pinned ? "#ec3750" : "var(--muted)"}>
+          <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z" />
+        </svg>
+        <span
+          style={{
+            fontFamily: "var(--font-phantom)",
+            fontSize: 13,
+            fontWeight: "bold",
+            color: pinned ? "var(--red)" : "var(--foreground)",
+            flex: 1,
+          }}
+        >
+          {pinned ? "Pinned to homepage" : "Pin to homepage"}
+        </span>
+        <button
+          onClick={toggle}
+          disabled={busy}
+          style={{
+            height: 30,
+            paddingLeft: 14,
+            paddingRight: 14,
+            borderRadius: 9999,
+            border: "none",
+            background: pinned ? "var(--red)" : "var(--foreground)",
+            color: "var(--paper)",
+            fontFamily: "var(--font-phantom)",
+            fontSize: 12,
+            fontWeight: "bold",
+            cursor: busy ? "default" : "pointer",
+            opacity: busy ? 0.5 : 1,
+          }}
+        >
+          {busy ? "..." : pinned ? "Unpin" : "Pin"}
+        </button>
+      </div>
+      {error && (
+        <span
+          style={{
+            fontFamily: "var(--font-phantom)",
+            fontSize: 12,
+            color: "var(--red)",
+            paddingLeft: 4,
+          }}
+        >
+          {error}
+        </span>
+      )}
+    </div>
+  );
+}
+
 // ── Program editor panel ──────────────────────────────────────────────────────
 function ProgramEditor({
   prog,
   onChange,
   onSiteUpdate,
+  isAdmin,
 }: {
   prog: EditorProgram;
   onChange: (d: EditorProgram["draft"]) => void;
   onSiteUpdate: (s: SiteProgram) => void;
+  isAdmin: boolean;
 }) {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -717,7 +831,6 @@ function ProgramEditor({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           programName: prog.ysws.name,
-          recordId: prog.site?.recordId,
           description: prog.draft.description,
           bgType: prog.draft.bgType,
           bgColor: prog.draft.bgColor,
@@ -766,7 +879,6 @@ function ProgramEditor({
               label="Logo"
               type="logo"
               programName={prog.ysws.name}
-              recordId={prog.site?.recordId}
               currentUrl={prog.site?.logoUrl ?? null}
               onUploaded={onSiteUpdate}
               onRemoved={onSiteUpdate}
@@ -791,7 +903,7 @@ function ProgramEditor({
                 style={{
                   fontSize: 12,
                   fontWeight: "bold",
-                  color: "#17171d",
+                  color: "var(--foreground)",
                   fontFamily: "var(--font-phantom)",
                 }}
               >
@@ -801,7 +913,7 @@ function ProgramEditor({
                 style={{
                   display: "flex",
                   borderRadius: 9999,
-                  border: "2px solid #e0e6ed",
+                  border: "2px solid var(--border)",
                   overflow: "hidden",
                 }}
               >
@@ -812,8 +924,8 @@ function ProgramEditor({
                     style={{
                       padding: "2px 10px",
                       border: "none",
-                      background: d.bgType === t ? "#ec3750" : "transparent",
-                      color: d.bgType === t ? "#fff" : "#17171d",
+                      background: d.bgType === t ? "var(--red)" : "transparent",
+                      color: d.bgType === t ? "var(--paper)" : "var(--foreground)",
                       fontFamily: "var(--font-phantom)",
                       fontSize: 11,
                       cursor: "pointer",
@@ -830,7 +942,6 @@ function ProgramEditor({
                 label=""
                 type="bg"
                 programName={prog.ysws.name}
-                recordId={prog.site?.recordId}
                 currentUrl={prog.site?.bgImageUrl ?? null}
                 onUploaded={onSiteUpdate}
                 onRemoved={onSiteUpdate}
@@ -847,7 +958,7 @@ function ProgramEditor({
             style={{
               fontSize: 12,
               fontWeight: "bold",
-              color: "#17171d",
+              color: "var(--foreground)",
               marginBottom: 6,
               fontFamily: "var(--font-phantom)",
             }}
@@ -855,12 +966,13 @@ function ProgramEditor({
             Description
           </div>
           <textarea
+            aria-label="Description"
             value={d.description}
             onChange={(e) => set({ description: e.target.value })}
             rows={3}
             style={{
               width: "100%",
-              border: "2px solid #e0e6ed",
+              border: "2px solid var(--border)",
               borderRadius: 10,
               padding: "8px 12px",
               fontFamily: "var(--font-phantom)",
@@ -882,7 +994,7 @@ function ProgramEditor({
         {/* ── Button ── */}
         <div
           style={{
-            background: "#f7f8fa",
+            background: "var(--surface)",
             borderRadius: 12,
             padding: 14,
             display: "flex",
@@ -894,7 +1006,7 @@ function ProgramEditor({
             style={{
               fontSize: 12,
               fontWeight: "bold",
-              color: "#17171d",
+              color: "var(--foreground)",
               fontFamily: "var(--font-phantom)",
               marginBottom: -4,
             }}
@@ -961,7 +1073,7 @@ function ProgramEditor({
             style={{
               fontSize: 12,
               fontWeight: "bold",
-              color: "#17171d",
+              color: "var(--foreground)",
               marginBottom: 4,
               fontFamily: "var(--font-phantom)",
             }}
@@ -971,7 +1083,7 @@ function ProgramEditor({
           <div
             style={{
               fontSize: 11,
-              color: "#aaa",
+              color: "var(--muted)",
               fontFamily: "var(--font-phantom)",
               marginBottom: 8,
             }}
@@ -988,9 +1100,9 @@ function ProgramEditor({
                   paddingLeft: 12,
                   paddingRight: 12,
                   borderRadius: 6,
-                  border: d.format === f ? "2px solid #ec3750" : "2px solid #e0e6ed",
-                  background: d.format === f ? "#ec3750" : "transparent",
-                  color: d.format === f ? "#fff" : "#17171d",
+                  border: d.format === f ? "2px solid var(--red)" : "2px solid var(--border)",
+                  background: d.format === f ? "var(--red)" : "transparent",
+                  color: d.format === f ? "var(--paper)" : "var(--foreground)",
                   fontFamily: "var(--font-phantom)",
                   fontSize: 12,
                   cursor: "pointer",
@@ -1009,7 +1121,7 @@ function ProgramEditor({
                     style={{
                       fontSize: 12,
                       fontWeight: "bold",
-                      color: "#17171d",
+                      color: "var(--foreground)",
                       marginBottom: 6,
                       fontFamily: "var(--font-phantom)",
                     }}
@@ -1018,11 +1130,12 @@ function ProgramEditor({
                   </div>
                   <input
                     type="date"
+                    aria-label="Start date"
                     value={d.inPersonStart}
                     onChange={(e) => set({ inPersonStart: e.target.value })}
                     style={{
                       width: "100%",
-                      border: "2px solid #e0e6ed",
+                      border: "2px solid var(--border)",
                       borderRadius: 8,
                       padding: "8px 10px",
                       fontFamily: "var(--font-phantom)",
@@ -1037,7 +1150,7 @@ function ProgramEditor({
                     style={{
                       fontSize: 12,
                       fontWeight: "bold",
-                      color: "#17171d",
+                      color: "var(--foreground)",
                       marginBottom: 6,
                       fontFamily: "var(--font-phantom)",
                     }}
@@ -1046,11 +1159,12 @@ function ProgramEditor({
                   </div>
                   <input
                     type="date"
+                    aria-label="End date"
                     value={d.inPersonEnd}
                     onChange={(e) => set({ inPersonEnd: e.target.value })}
                     style={{
                       width: "100%",
-                      border: "2px solid #e0e6ed",
+                      border: "2px solid var(--border)",
                       borderRadius: 8,
                       padding: "8px 10px",
                       fontFamily: "var(--font-phantom)",
@@ -1077,7 +1191,7 @@ function ProgramEditor({
             style={{
               fontSize: 12,
               fontWeight: "bold",
-              color: "#17171d",
+              color: "var(--foreground)",
               marginBottom: 4,
               fontFamily: "var(--font-phantom)",
             }}
@@ -1087,7 +1201,7 @@ function ProgramEditor({
           <div
             style={{
               fontSize: 11,
-              color: "#aaa",
+              color: "var(--muted)",
               fontFamily: "var(--font-phantom)",
               marginBottom: 8,
             }}
@@ -1112,9 +1226,9 @@ function ProgramEditor({
                     paddingLeft: 12,
                     paddingRight: 12,
                     borderRadius: 9999,
-                    border: checked ? "2px solid #ec3750" : "2px solid #e0e6ed",
-                    background: checked ? "#ec3750" : "transparent",
-                    color: checked ? "#fff" : "#17171d",
+                    border: checked ? "2px solid var(--red)" : "2px solid var(--border)",
+                    background: checked ? "var(--red)" : "transparent",
+                    color: checked ? "var(--paper)" : "var(--foreground)",
                     fontFamily: "var(--font-phantom)",
                     fontSize: 12,
                     cursor: "pointer",
@@ -1134,7 +1248,7 @@ function ProgramEditor({
             style={{
               fontSize: 12,
               fontWeight: "bold",
-              color: "#17171d",
+              color: "var(--foreground)",
               marginBottom: 4,
               fontFamily: "var(--font-phantom)",
             }}
@@ -1144,7 +1258,7 @@ function ProgramEditor({
           <div
             style={{
               fontSize: 11,
-              color: "#aaa",
+              color: "var(--muted)",
               fontFamily: "var(--font-phantom)",
               marginBottom: 8,
             }}
@@ -1153,12 +1267,13 @@ function ProgramEditor({
           </div>
           <input
             type="text"
+            aria-label="Additional requirements"
             value={d.additionalRequirements}
             onChange={(e) => set({ additionalRequirements: e.target.value })}
             placeholder="e.g. Girls only"
             style={{
               width: "100%",
-              border: "2px solid #e0e6ed",
+              border: "2px solid var(--border)",
               borderRadius: 8,
               padding: "8px 12px",
               fontFamily: "var(--font-phantom)",
@@ -1168,6 +1283,15 @@ function ProgramEditor({
             }}
           />
         </div>
+
+        {/* ── Pin (admin only) ── */}
+        {isAdmin && (
+          <PinToggle
+            programName={prog.ysws.name}
+            pinned={prog.site?.pinned ?? false}
+            onUpdate={onSiteUpdate}
+          />
+        )}
 
         {/* ── Save ── */}
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -1193,7 +1317,7 @@ function ProgramEditor({
             {saved ? "Saved ✓" : saving ? "Saving…" : "Save changes"}
           </button>
           {error && (
-            <span style={{ color: "#ec3750", fontSize: 13, fontFamily: "var(--font-phantom)" }}>
+            <span style={{ color: "var(--red)", fontSize: 13, fontFamily: "var(--font-phantom)" }}>
               {error}
             </span>
           )}
@@ -1206,7 +1330,7 @@ function ProgramEditor({
           style={{
             fontSize: 12,
             fontWeight: "bold",
-            color: "#17171d",
+            color: "var(--foreground)",
             marginBottom: 8,
             fontFamily: "var(--font-phantom)",
           }}
@@ -1239,10 +1363,15 @@ export default function EditPage() {
 
   // Check auth and load editable programs
   useEffect(() => {
+    const authError =
+      new URLSearchParams(window.location.search).get("auth_error") === "1"
+        ? "Sign-in failed. Please try again."
+        : undefined;
+
     fetch("/api/programs/editable")
       .then((r) => {
         if (r.status === 401) {
-          setAuth({ status: "unauthenticated" });
+          setAuth({ status: "unauthenticated", error: authError });
           return null;
         }
         return r.json();
@@ -1284,8 +1413,8 @@ export default function EditPage() {
               draft: {
                 description: s?.description ?? "",
                 bgType: s?.bgType ?? "color",
-                bgColor: s?.bgColor ?? "#ffffff",
-                textColor: s?.textColor ?? "#17171d",
+                bgColor: s?.bgColor ?? "var(--surface)",
+                textColor: s?.textColor ?? "var(--foreground)",
                 accentColor: s?.accentColor ?? "#ec3750",
                 logoSize: s?.logoSize ?? 48,
                 buttonColor: s?.buttonColor ?? "",
@@ -1313,7 +1442,14 @@ export default function EditPage() {
   }
 
   function updateSite(name: string, site: SiteProgram) {
-    setPrograms((prev) => prev?.map((p) => (p.ysws.name === name ? { ...p, site } : p)) ?? null);
+    setPrograms(
+      (prev) =>
+        prev?.map((p) => {
+          if (p.ysws.name === name) return { ...p, site };
+          if (site.pinned && p.site?.pinned) return { ...p, site: { ...p.site, pinned: false } };
+          return p;
+        }) ?? null,
+    );
   }
 
   async function logout() {
@@ -1323,7 +1459,7 @@ export default function EditPage() {
   }
 
   return (
-    <main id="main" tabIndex={-1} style={{ background: "#f7f8fa", minHeight: "100vh" }}>
+    <main id="main" tabIndex={-1} style={{ background: "var(--background)", minHeight: "100vh" }}>
       <Navbar />
       <div
         style={{ maxWidth: 1200, margin: "0 auto", padding: "clamp(80px, 10vh, 120px) 32px 80px" }}
@@ -1343,7 +1479,7 @@ export default function EditPage() {
                 fontFamily: "var(--font-zarathustra)",
                 fontSize: "clamp(36px, 5vw, 60px)",
                 fontWeight: "normal",
-                color: "#17171d",
+                color: "var(--foreground)",
                 margin: 0,
               }}
             >
@@ -1353,7 +1489,7 @@ export default function EditPage() {
               style={{
                 fontFamily: "var(--font-phantom)",
                 fontSize: 16,
-                color: "#17171d",
+                color: "var(--foreground)",
                 opacity: 0.6,
                 margin: 0,
               }}
@@ -1365,13 +1501,14 @@ export default function EditPage() {
                 style={{
                   fontFamily: "var(--font-phantom)",
                   fontSize: 14,
-                  color: "#ec3750",
+                  color: "var(--red)",
                   margin: 0,
                 }}
               >
                 {auth.error}
               </p>
             )}
+            {/* oxlint-disable-next-line nextjs/no-html-link-for-pages */}
             <a
               href="/api/auth/login"
               style={{
@@ -1382,8 +1519,8 @@ export default function EditPage() {
                 paddingLeft: 24,
                 paddingRight: 24,
                 borderRadius: 9999,
-                background: "#ec3750",
-                color: "#fff",
+                background: "var(--red)",
+                color: "var(--paper)",
                 fontFamily: "var(--font-phantom)",
                 fontWeight: "bold",
                 fontSize: 16,
@@ -1404,7 +1541,7 @@ export default function EditPage() {
                   fontFamily: "var(--font-zarathustra)",
                   fontSize: "clamp(36px, 5vw, 60px)",
                   fontWeight: "normal",
-                  color: "#17171d",
+                  color: "var(--foreground)",
                   margin: 0,
                 }}
               >
@@ -1423,7 +1560,7 @@ export default function EditPage() {
                 style={{
                   fontFamily: "var(--font-phantom)",
                   fontSize: 15,
-                  color: "#17171d",
+                  color: "var(--foreground)",
                   opacity: 0.5,
                   margin: 0,
                 }}
@@ -1435,7 +1572,7 @@ export default function EditPage() {
                     {auth.isAdmin && (
                       <>
                         {" "}
-                        · <strong style={{ color: "#ec3750", opacity: 1 }}>Admin</strong>
+                        · <strong style={{ color: "var(--red)", opacity: 1 }}>Admin</strong>
                       </>
                     )}
                   </>
@@ -1448,7 +1585,7 @@ export default function EditPage() {
                 style={{
                   background: "none",
                   border: "none",
-                  color: "#ec3750",
+                  color: "var(--red)",
                   fontFamily: "var(--font-phantom)",
                   fontSize: 14,
                   cursor: "pointer",
@@ -1461,7 +1598,7 @@ export default function EditPage() {
             </div>
 
             {loadError && (
-              <p style={{ color: "#ec3750", fontFamily: "var(--font-phantom)" }}>{loadError}</p>
+              <p style={{ color: "var(--red)", fontFamily: "var(--font-phantom)" }}>{loadError}</p>
             )}
             {programs === null && !loadError && (
               <p style={{ fontFamily: "var(--font-phantom)", opacity: 0.4 }}>Loading programs…</p>
@@ -1473,7 +1610,7 @@ export default function EditPage() {
                   style={{
                     fontFamily: "var(--font-phantom)",
                     fontSize: 15,
-                    color: "#17171d",
+                    color: "var(--foreground)",
                     opacity: 0.6,
                     margin: 0,
                   }}
@@ -1484,7 +1621,7 @@ export default function EditPage() {
                   style={{
                     fontFamily: "var(--font-phantom)",
                     fontSize: 15,
-                    color: "#17171d",
+                    color: "var(--foreground)",
                     opacity: 0.6,
                     margin: 0,
                   }}
@@ -1502,7 +1639,7 @@ export default function EditPage() {
                   <div
                     key={prog.ysws.id}
                     style={{
-                      background: "#fff",
+                      background: "var(--surface)",
                       borderRadius: 16,
                       boxShadow: "0 1px 4px rgba(0,0,0,0.08)",
                       overflow: "hidden",
@@ -1541,14 +1678,43 @@ export default function EditPage() {
                         style={{
                           fontFamily: "var(--font-zarathustra)",
                           fontSize: 22,
-                          color: "#17171d",
+                          color: "var(--foreground)",
                           flex: 1,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 8,
                         }}
                       >
                         {prog.ysws.name}
+                        {prog.site?.pinned && (
+                          <span
+                            style={{
+                              display: "inline-flex",
+                              alignItems: "center",
+                              gap: 4,
+                              padding: "2px 8px",
+                              borderRadius: 9999,
+                              background: "#ec3750",
+                              fontFamily: "var(--font-phantom)",
+                              fontSize: 11,
+                              fontWeight: "bold",
+                              color: "#fff",
+                              whiteSpace: "nowrap",
+                            }}
+                          >
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="white">
+                              <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z" />
+                            </svg>
+                            Pinned
+                          </span>
+                        )}
                       </span>
                       <span
-                        style={{ fontFamily: "var(--font-phantom)", fontSize: 13, color: "#aaa" }}
+                        style={{
+                          fontFamily: "var(--font-phantom)",
+                          fontSize: 13,
+                          color: "var(--muted)",
+                        }}
                       >
                         {new Date(prog.ysws.startDate).toLocaleDateString("en-GB", {
                           day: "numeric",
@@ -1562,17 +1728,18 @@ export default function EditPage() {
                           year: "numeric",
                         })}
                       </span>
-                      <span style={{ color: "#ec3750", fontSize: 14, marginLeft: 8 }}>
+                      <span style={{ color: "var(--red)", fontSize: 14, marginLeft: 8 }}>
                         {expanded === prog.ysws.name ? "▲" : "▼"}
                       </span>
                     </button>
                     {expanded === prog.ysws.name && (
-                      <div style={{ padding: "0 24px 24px", borderTop: "1px solid #f0f0f0" }}>
+                      <div style={{ padding: "0 24px 24px", borderTop: "1px solid var(--border)" }}>
                         <div style={{ marginTop: 20 }}>
                           <ProgramEditor
                             prog={prog}
                             onChange={(draft) => updateDraft(prog.ysws.name, draft)}
                             onSiteUpdate={(site) => updateSite(prog.ysws.name, site)}
+                            isAdmin={auth.isAdmin}
                           />
                         </div>
                       </div>

@@ -5,6 +5,7 @@ import { useState } from "react";
 import type { CSSProperties } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ThemeLock } from "@/components/ThemeToggle";
 import { ContactBanner } from "@/components/fiscal-sponsorship/ContactBanner";
 import { FiscalFilterRail } from "@/components/fiscal-sponsorship/FiscalFilterRail";
 import { OrganizationGrid } from "@/components/fiscal-sponsorship/OrganizationSpotlight";
@@ -52,6 +53,7 @@ export default function ClimatePageClient({ organizations, region }: ClimatePage
 
   return (
     <>
+      <ThemeLock />
       <Navbar invertColors />
       <main id="main" tabIndex={-1}>
         <section
@@ -135,7 +137,7 @@ export default function ClimatePageClient({ organizations, region }: ClimatePage
                 Climate-focused organizations using HCB to accelerate environmental action and
                 sustainability initiatives.
               </p>
-              <label
+              <div
                 className="climate-search"
                 style={{
                   display: "block",
@@ -145,6 +147,7 @@ export default function ClimatePageClient({ organizations, region }: ClimatePage
               >
                 <input
                   type="search"
+                  aria-label="Search organizations"
                   value={searchTerm}
                   onChange={(event) => {
                     setSearchTerm(event.target.value);
@@ -165,7 +168,7 @@ export default function ClimatePageClient({ organizations, region }: ClimatePage
                     backdropFilter: "blur(12px)",
                   }}
                 />
-              </label>
+              </div>
             </div>
           </div>
         </section>

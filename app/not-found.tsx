@@ -1,9 +1,53 @@
 import Image from "next/image";
 import Link from "next/link";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 import type { CSSProperties } from "react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { Game } from "../components/not-found/Game";
+
+async function findV3Redirect(pathname: string, search: string): Promise<string | null> {
+  if (!pathname || pathname === "/" || pathname.startsWith("/_next")) {
+    return null;
+  }
+
+  let target: URL;
+  try {
+    target = new URL(pathname.replace(/^\/+/, ""), "https://v3.hackclub.com/");
+  } catch {
+    return null;
+  }
+
+  if (target.origin !== "https://v3.hackclub.com" || target.pathname === "/") {
+    return null;
+  }
+
+  if (search) {
+    target.search = search;
+  }
+
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 3000);
+
+    const res = await fetch(target, {
+      method: "HEAD",
+      redirect: "follow",
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeout);
+
+    if (res.status >= 200 && res.status < 300) {
+      return target.toString();
+    }
+  } catch {
+    // fall through to the 404 page.
+  }
+
+  return null;
+}
 
 type FloatTrackStyle = CSSProperties & Record<"--startX", string>;
 type FloatImageStyle = CSSProperties & Record<"--spinStart", string>;
@@ -48,9 +92,17 @@ function create(count: number) {
 
 const stickers = create(20);
 
-export default function NotFound() {
+export default async function NotFound() {
+  const h = await headers();
+  const p = h.get("x-pathname") ?? "";
+  const s = h.get("x-search") ?? "";
+  const t = await findV3Redirect(p, s);
+  if (t) {
+    redirect(t);
+  }
+
   return (
-    <main id="main" tabIndex={-1} style={{ background: "#fff6eb", minHeight: "100vh" }}>
+    <main id="main" tabIndex={-1} style={{ background: "var(--background)", minHeight: "100vh" }}>
       <section
         style={{
           position: "relative",
@@ -122,7 +174,7 @@ export default function NotFound() {
               fontFamily: font,
               fontWeight: 500,
               fontSize: "clamp(24px, 4.2vw, 48px)",
-              color: "#17171d",
+              color: "var(--foreground)",
               lineHeight: 1.08,
             }}
           >
@@ -135,7 +187,7 @@ export default function NotFound() {
               fontFamily: font,
               fontSize: "clamp(16px, 1.7vw, 22px)",
               maxWidth: 620,
-              color: "rgba(23,23,29,0.72)",
+              color: "var(--muted)",
               lineHeight: 1.28,
             }}
           >
@@ -147,7 +199,7 @@ export default function NotFound() {
               href="https://github.com/hackclub/site/issues"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "rgba(23,23,29,0.72)", textDecoration: "underline" }}
+              style={{ color: "var(--muted)", textDecoration: "underline" }}
             >
               GitHub repo
             </a>
@@ -168,8 +220,8 @@ export default function NotFound() {
               className="go-home-btn"
               style={{
                 ...base,
-                color: "#ffffff",
-                background: "#17171d",
+                color: "var(--cream)",
+                background: "var(--ink)",
               }}
             >
               Go home
@@ -178,9 +230,9 @@ export default function NotFound() {
               href="/programs"
               style={{
                 ...base,
-                color: "#17171d",
-                border: "1.5px solid rgba(23,23,29,0.18)",
-                background: "rgba(255,255,255,0.66)",
+                color: "var(--foreground)",
+                border: "1.5px solid var(--border)",
+                background: "var(--nav-bg)",
               }}
             >
               Explore programs
@@ -222,12 +274,18 @@ export default function NotFound() {
             pointer-events: none;
           }
 
+          html.dark .content-veil {
+            background:
+              radial-gradient(circle at top, rgba(23, 23, 29, 0.08), transparent 36%),
+              linear-gradient(180deg, rgba(23, 23, 29, 0.18) 10%, rgba(23, 23, 29, 0.68) 42%, rgba(23, 23, 29, 0.94) 100%);
+          }
+
           .go-home-btn {
             transition: background-color 160ms ease;
           }
 
           .go-home-btn:hover {
-            background: #ec3750;
+            background: var(--red);
           }
 
           @keyframes drift-right {

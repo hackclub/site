@@ -1,18 +1,11 @@
-export function x(email?: string) {
+export function getAuthUrl(email?: string) {
   const url = new URL("https://auth.hackclub.com/slack");
-
-  const x = email?.trim();
-  if (x) {
-    url.searchParams.set("email", x);
-  }
-
+  const t = email?.trim();
+  if (t) url.searchParams.set("email", t);
   return url.toString();
 }
 
 export function sendToAuth(email?: string) {
-  if (typeof window === "undefined") return;
-
-  if (!email?.trim()) return;
-
-  window.location.assign(x(email));
+  if (typeof window === "undefined" || !email?.trim()) return;
+  window.location.assign(getAuthUrl(email));
 }

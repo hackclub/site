@@ -79,8 +79,8 @@ export default function OpenSourcePage() {
           background:
             radial-gradient(circle at 10% 0%, rgba(255, 140, 55, 0.18), transparent 34%),
             radial-gradient(circle at 90% 8%, rgba(236, 55, 80, 0.16), transparent 32%),
-            #fffaf4;
-          color: #17171d;
+            var(--background);
+          color: var(--foreground);
         }
 
         .opensource-shell {
@@ -99,7 +99,7 @@ export default function OpenSourcePage() {
         }
 
         .opensource-kicker--dark {
-          color: rgba(23, 23, 29, 0.56);
+          color: var(--muted);
         }
 
         .opensource-hero {
@@ -208,7 +208,7 @@ export default function OpenSourcePage() {
           font-family: var(--font-phantom);
           font-size: 1.02rem;
           line-height: 1.55;
-          color: rgba(23, 23, 29, 0.74);
+          color: var(--muted);
         }
 
         .opensource-finance-grid {
@@ -220,8 +220,8 @@ export default function OpenSourcePage() {
         .opensource-card {
           padding: 22px 24px;
           border-radius: 24px;
-          background: rgba(255, 255, 255, 0.82);
-          border: 1px solid rgba(23, 23, 29, 0.08);
+          background: var(--surface);
+          border: 1px solid var(--border);
           box-shadow: 0 14px 36px rgba(91, 52, 18, 0.06);
         }
 
