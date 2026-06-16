@@ -116,6 +116,53 @@ const donorTiers = [
   },
 ];
 
+const inKindDonors: {
+  src: string;
+  alt: string;
+  href: string;
+  width: number;
+  height: number;
+  invert?: boolean;
+}[] = [
+  {
+    src: "https://cdn.hackclub.com/019e7023-c31a-729a-b024-2c0a10b2e268/vercel.webp",
+    alt: "Vercel",
+    href: "https://vercel.com",
+    width: 2048,
+    height: 407,
+    invert: true,
+  },
+  {
+    src: "https://cdn.hackclub.com/019e7023-ddbd-71b6-8782-0d0233903dd2/google.webp",
+    alt: "Google",
+    href: "https://google.com",
+    width: 1024,
+    height: 310,
+  },
+  {
+    src: "https://cdn.hackclub.com/019e7023-e567-77ee-a345-9a090a32292a/checkly.webp",
+    alt: "Checkly",
+    href: "https://www.checklyhq.com",
+    width: 200,
+    height: 200,
+  },
+  {
+    src: "https://cdn.hackclub.com/019e7023-ed77-7227-8011-e86d253d6635/fastfoward.webp",
+    alt: "Fast Forward",
+    href: "https://www.ffwd.org",
+    width: 128,
+    height: 129,
+  },
+  {
+    src: "https://cdn.hackclub.com/019e702b-11b1-7a26-8a7f-a880ef93cd8c/finintercom.webp",
+    alt: "Intercom + Fin",
+    href: "https://www.intercom.com",
+    width: 692,
+    height: 258,
+    invert: true,
+  },
+];
+
 const additionalSupporters = [
   "Dylan Field, Founder, Figma",
   "Guillermo Rauch, Founder, Vercel",
@@ -359,6 +406,32 @@ export default function PhilanthropyPage() {
         <div className="philanthropy-pill-grid">
           {additionalSupporters.map((supporter) => (
             <span key={supporter}>{supporter}</span>
+          ))}
+        </div>
+      </section>
+
+      <section className="philanthropy-shell philanthropy-section">
+        <div className="philanthropy-section__header">
+          <p className="philanthropy-kicker philanthropy-kicker--dark">Service donors</p>
+          <h2>These fabulous companies donate their products to us.</h2>
+        </div>
+        <div className="philanthropy-inkind">
+          {inKindDonors.map((donor) => (
+            <a
+              key={donor.href}
+              href={donor.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={donor.alt}
+            >
+              <Image
+                src={donor.src}
+                alt={donor.alt}
+                width={donor.width}
+                height={donor.height}
+                className={donor.invert ? "philanthropy-inkind__logo--invert" : undefined}
+              />
+            </a>
           ))}
         </div>
       </section>
@@ -1121,6 +1194,43 @@ export default function PhilanthropyPage() {
           filter: invert(1);
         }
 
+        .philanthropy-inkind {
+          margin-top: 28px;
+          display: grid;
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+          gap: 18px;
+          align-items: center;
+        }
+
+        .philanthropy-inkind a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 18px;
+          padding: 22px;
+          background: var(--surface);
+          border: 1px solid var(--border);
+          box-shadow: 0 14px 30px rgba(91, 52, 18, 0.08);
+          min-height: 120px;
+          transition: transform 0.15s ease;
+        }
+
+        .philanthropy-inkind a:hover {
+          transform: translateY(-2px);
+        }
+
+        .philanthropy-inkind img {
+          max-width: 100%;
+          max-height: 64px;
+          width: auto;
+          height: auto;
+          object-fit: contain;
+        }
+
+        html.dark .philanthropy-inkind__logo--invert {
+          filter: invert(1);
+        }
+
         .philanthropy-board {
           margin-top: 28px;
           display: grid;
@@ -1308,6 +1418,7 @@ export default function PhilanthropyPage() {
           .philanthropy-testimonials,
           .philanthropy-donors,
           .philanthropy-press,
+          .philanthropy-inkind,
           .philanthropy-signatures {
             grid-template-columns: repeat(2, minmax(0, 1fr));
           }
@@ -1356,6 +1467,7 @@ export default function PhilanthropyPage() {
           .philanthropy-testimonials,
           .philanthropy-donors,
           .philanthropy-press,
+          .philanthropy-inkind,
           .philanthropy-signatures {
             grid-template-columns: 1fr;
           }
