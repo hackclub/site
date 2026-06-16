@@ -129,7 +129,7 @@ export function Footer() {
           display: "block",
           pointerEvents: "none",
           zIndex: 2,
-         }}
+        }}
       />
       <div
         style={{
@@ -203,7 +203,8 @@ export function Footer() {
                   borderRadius: 8,
                   background: "transparent",
                   flexShrink: 0,
-                  transition: "transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease, background-color 0.2s ease",
+                  transition:
+                    "transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease, background-color 0.2s ease",
                   color: "var(--paper)",
                   opacity: 0.8,
                 }}
