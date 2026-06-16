@@ -129,7 +129,7 @@ export function Footer() {
           display: "block",
           pointerEvents: "none",
           zIndex: 2,
-        }}
+         }}
       />
       <div
         style={{
@@ -274,9 +274,9 @@ export function Footer() {
 
         .footer-social-link:hover,
         .footer-social-link:focus-visible {
+          background-color: rgba(255, 255, 255, 0.1) !important;
           opacity: 1 !important;
           transform: scale(1.12) translateY(-2px);
-          background-color: rgba(255, 255, 255, 0.1) !important;
         }
 
         @media (max-width: 767px) {
@@ -284,8 +284,8 @@ export function Footer() {
             padding-top: 120px !important;
           }
           .site-footer-illustration {
-            width: min(320px, 72vw) !important;
             transform: translateY(-40%) !important;
+            width: min(320px, 72vw) !important;
           }
         }
       `}</style>
