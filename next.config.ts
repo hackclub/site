@@ -205,6 +205,11 @@ const nextConfig: NextConfig = {
         destination: "https://slack.hackclub.com",
         permanent: true,
       },
+      {
+        source: "/events",
+        destination: "https://events.hackclub.com",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
