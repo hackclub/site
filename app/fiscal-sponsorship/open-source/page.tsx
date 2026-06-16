@@ -218,6 +218,7 @@ export default function OpenSourcePage() {
                 can&apos;t wait for more contributors to join us:
               </p>
 
+              {/* oxlint-disable-next-line jsx-a11y/media-has-caption */}
               <video width="100%" controls className="announcement-video">
                 <source
                   src="https://cdn.hackclub.com/019db766-797c-7e13-be36-0e39eaf40c8f/gsource.mp4"

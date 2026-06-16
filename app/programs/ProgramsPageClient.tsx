@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, type ReactNode } from "react";
+import Link from "next/link";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import type { ProgramFormat, ProjectType } from "../../lib/site-programs";
 import { PROJECT_TYPE_OPTIONS, formatInPersonDate } from "../../lib/site-programs";
 import type { AirtableProgram } from "../../lib/programs";
 import { getProgramStatus, parseLocalDate } from "../../lib/programs";
+import { BtnArrowSvg } from "../../components/landing/btn-arrow";
 
 function ProgramCard({ program }: { program: AirtableProgram }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -103,6 +105,29 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
           boxSizing: "border-box",
         }}
       >
+        {/* Pin icon */}
+        {program.site?.pinned && (
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: 36,
+              height: 36,
+              background: "#ec3750",
+              borderBottomRightRadius: 8,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 2,
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+              <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z" />
+            </svg>
+          </div>
+        )}
+
         {/* Background image */}
         {bgImageUrl && (
           // eslint-disable-next-line @next/next/no-img-element
@@ -233,7 +258,9 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
             {buttonLabel}
-            <span className="btn-arrow">→</span>
+            <span className="btn-arrow" aria-hidden="true">
+              <BtnArrowSvg />
+            </span>
           </a>
         )}
 
@@ -486,9 +513,16 @@ function CheckItem({
   onToggle: () => void;
 }) {
   return (
-    <label
+    <button
+      type="button"
       onClick={onToggle}
+      aria-pressed={checked}
       style={{
+        appearance: "none",
+        border: "none",
+        background: "none",
+        padding: 0,
+        textAlign: "left",
         display: "flex",
         alignItems: "center",
         gap: 10,
@@ -526,7 +560,7 @@ function CheckItem({
         )}
       </span>
       {label}
-    </label>
+    </button>
   );
 }
 
@@ -537,11 +571,27 @@ const STATUS_LABELS: Record<StatusOption, string> = {
   draft: "Draft",
 };
 type SortOption = "deadline-asc" | "deadline-desc" | "az" | "za";
-const SORT_LABELS: Record<SortOption, string> = {
+const SortArrow = () => (
+  <span
+    aria-hidden="true"
+    style={{ display: "inline-flex", verticalAlign: "middle", margin: "0 4px" }}
+  >
+    <BtnArrowSvg />
+  </span>
+);
+const SORT_LABELS: Record<SortOption, ReactNode> = {
   "deadline-asc": "Earliest deadline",
   "deadline-desc": "Latest deadline",
-  az: "A → Z",
-  za: "Z → A",
+  az: (
+    <>
+      A<SortArrow />Z
+    </>
+  ),
+  za: (
+    <>
+      Z<SortArrow />A
+    </>
+  ),
 };
 const FORMAT_OPTIONS: ProgramFormat[] = ["In-Person Only", "Online Only", "Both"];
 
@@ -655,6 +705,10 @@ export default function ProgramsPage({
   });
 
   const sorted = [...filtered].sort((a, b) => {
+    const aPinned = Number(Boolean(a.site?.pinned));
+    const bPinned = Number(Boolean(b.site?.pinned));
+    if (aPinned !== bPinned) return bPinned - aPinned;
+
     if (sort === "deadline-asc")
       return parseLocalDate(a.endDate).getTime() - parseLocalDate(b.endDate).getTime();
     if (sort === "deadline-desc")
@@ -836,7 +890,13 @@ export default function ProgramsPage({
               target="_blank"
               style={{ color: "#ec3750", textDecoration: "none" }}
             >
-              on Youtube→
+              on Youtube
+              <span
+                aria-hidden="true"
+                style={{ display: "inline-flex", verticalAlign: "middle", marginLeft: 2 }}
+              >
+                <BtnArrowSvg />
+              </span>
             </a>
             )
           </p>
@@ -873,6 +933,7 @@ export default function ProgramsPage({
           <input
             data-programs-search
             type="text"
+            aria-label="Search programs"
             placeholder="Search for your next adventure..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -1099,9 +1160,9 @@ export default function ProgramsPage({
             }}
           >
             You can also{" "}
-            <a href="/programs/edit" style={{ color: "#ec3750", textDecoration: "none" }}>
+            <Link href="/programs/edit" style={{ color: "#ec3750", textDecoration: "none" }}>
               edit an event here
-            </a>
+            </Link>
             .
           </p>
         </div>

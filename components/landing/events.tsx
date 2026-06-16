@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import type { AirtableProgram } from "../../lib/programs";
 import { parseLocalDate, selectFeaturedPrograms } from "../../lib/programs";
 import { BtnArrow } from "./btn-arrow";
@@ -104,6 +105,29 @@ function EventCard({ program }: { program: AirtableProgram }) {
           boxSizing: "border-box",
         }}
       >
+        {/* Pin icon */}
+        {program.site?.pinned && (
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: 36,
+              height: 36,
+              background: "#ec3750",
+              borderBottomRightRadius: 8,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 2,
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+              <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z" />
+            </svg>
+          </div>
+        )}
+
         {/* Background image */}
         {bgImageUrl && (
           <Image
@@ -442,7 +466,7 @@ export function EventsSection({
         >
           Don&apos;t see something you like?
         </p>
-        <a
+        <Link
           href="/programs"
           className="cta-btn dark-btn"
           style={{
@@ -464,7 +488,7 @@ export function EventsSection({
           }}
         >
           Explore all programs <BtnArrow />
-        </a>
+        </Link>
       </div>
 
       {/* Responsive: stack cards on small screens */}

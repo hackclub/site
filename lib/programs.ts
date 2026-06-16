@@ -30,22 +30,36 @@ export function selectFeaturedPrograms(
   limit = 4,
   now = new Date(),
 ): AirtableProgram[] {
-  return programs
-    .filter((program) => getProgramStatus(program, now) === "ongoing")
-    .sort((a, b) => {
-      const aHasImage = Number(Boolean(a.site?.bgImageUrl));
-      const bHasImage = Number(Boolean(b.site?.bgImageUrl));
-      if (aHasImage !== bHasImage) return bHasImage - aHasImage;
+  const pinned = programs.find((p) => p.site?.pinned);
+  const ongoing = programs.filter((program) => getProgramStatus(program, now) === "ongoing");
 
-      const aHasLogo = Number(Boolean(a.site?.logoUrl));
-      const bHasLogo = Number(Boolean(b.site?.logoUrl));
-      if (aHasLogo !== bHasLogo) return bHasLogo - aHasLogo;
+  for (let i = ongoing.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [ongoing[i], ongoing[j]] = [ongoing[j], ongoing[i]];
+  }
 
-      const endDateDelta =
-        parseLocalDate(a.endDate).getTime() - parseLocalDate(b.endDate).getTime();
-      if (endDateDelta !== 0) return endDateDelta;
+  ongoing.sort((a, b) => {
+    const aPinned = Number(Boolean(a.site?.pinned));
+    const bPinned = Number(Boolean(b.site?.pinned));
+    if (aPinned !== bPinned) return bPinned - aPinned;
 
-      return a.name.localeCompare(b.name);
-    })
-    .slice(0, limit);
+    const aHasImage = Number(Boolean(a.site?.bgImageUrl));
+    const bHasImage = Number(Boolean(b.site?.bgImageUrl));
+    if (aHasImage !== bHasImage) return bHasImage - aHasImage;
+
+    const aHasLogo = Number(Boolean(a.site?.logoUrl));
+    const bHasLogo = Number(Boolean(b.site?.logoUrl));
+    if (aHasLogo !== bHasLogo) return bHasLogo - aHasLogo;
+
+    return 0;
+  });
+
+  ongoing.splice(limit);
+
+  if (pinned && !ongoing.some((p) => p.site?.pinned)) {
+    if (ongoing.length >= limit) ongoing.pop();
+    ongoing.unshift(pinned);
+  }
+
+  return ongoing;
 }

@@ -64,6 +64,8 @@ function DraggableSticker({
 
   return (
     <div
+      role="presentation"
+      aria-hidden="true"
       onMouseDown={handleMouseDown}
       onMouseEnter={() => {
         hoverTimer.current = setTimeout(() => setIsHovered(true), 150);
@@ -751,7 +753,7 @@ export function HeroSection() {
             pointerEvents: "auto",
           }}
           onMouseEnter={() => {
-            magHoverTimer.current = setTimeout(() => setMagHover("in"), 300);
+            magHoverTimer.current = setTimeout(() => setMagHover("in"), 10);
           }}
           onMouseLeave={() => {
             if (magHoverTimer.current) clearTimeout(magHoverTimer.current);

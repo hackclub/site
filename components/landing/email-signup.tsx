@@ -58,7 +58,14 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
     return t.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t);
   };
 
-  const submit = () => (isValid(e) ? (setErr(false), sendToAuth(e)) : setErr(true));
+  const submit = () => {
+    if (!isValid(e)) {
+      setErr(true);
+      return;
+    }
+    setErr(false);
+    sendToAuth(e);
+  };
 
   const c = cfg[variant];
   const hasHover = "hover" in c && !!c.hover;
@@ -89,6 +96,7 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
         <input
           id={c.inputId}
           type="email"
+          aria-label="Email address"
           placeholder="orpheus@email.com"
           value={e}
           onChange={(ev) => {

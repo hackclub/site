@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "react", "nextjs", "jsx-a11y", "import"],
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "nextjs/no-img-element": "off"
+  },
+  "ignorePatterns": [".next/**", "out/**", "build/**", "next-env.d.ts", "public/**"]
+}

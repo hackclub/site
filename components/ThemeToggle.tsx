@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useCallback, useSyncExternalStore } from "react";
 
 type Theme = "light" | "dark";
 
@@ -9,11 +9,19 @@ const read = (): Theme =>
     ? "dark"
     : "light";
 
+const subscribe = (cb: () => void) => {
+  const observer = new MutationObserver(cb);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+  return () => observer.disconnect();
+};
+
 export function useTheme(): [Theme, () => void] {
-  const [t, setT] = useState<Theme>("light");
+  const t = useSyncExternalStore<Theme>(subscribe, read, () => "light");
 
   useEffect(() => {
-    setT(read());
     document.documentElement.classList.add("theme-ready");
   }, []);
 
@@ -25,7 +33,6 @@ export function useTheme(): [Theme, () => void] {
     try {
       localStorage.setItem("hc-site-theme", next);
     } catch {}
-    setT(next);
   }, []);
 
   return [t, toggle];
@@ -72,10 +79,17 @@ function MoonIcon() {
   );
 }
 
+const noopSubscribe = () => () => {};
+const useIsMounted = () =>
+  useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false,
+  );
+
 export function ThemeToggle({ variant = "nav" }: { variant?: "nav" | "footer" }) {
   const [t, toggle] = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useIsMounted();
 
   if (mounted && document.documentElement.dataset.themeLock) return null;
 
