@@ -7,7 +7,7 @@ Please whitelist or unblock the following domains:
 - `hack.af` - link shortener used for miscellanous links
 - `*.replit.com`, `*.cdn.replit.com`, and `*.repl.co` - Replit, a browser-based IDE used for workshops
 - `*.github.com`, `github.dev` - GitHub, an industry standard for code hosting and collaboration, owned by Microsoft.
-- `hackclub.slack.com` - Hack Club's primary communication platform
+- `hackclub.slack.com`, `hackclub.enterprise.slack.com` - Hack Club's primary communication platform
 
 Feel free to read on for more details and potential alternatives.
 
