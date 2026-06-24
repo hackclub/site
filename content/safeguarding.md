@@ -1,6 +1,6 @@
 # Hack Club Events Safeguarding Policy
 
-This policy is being beta-tested by all in-person Hack Club events, and will be rolled out fully by Summer, 2026. Please direct any inquiries to [safeguarding@hackclub.com](mailto:safeguarding@hackclub.com).
+All in-person Hack Club events (satellites and flagships) are required to follow our Youth Protection Policy. Please direct any inquiries to [deven@hackclub.com](mailto:deven@hackclub.com).
 
 1. Purpose
 
