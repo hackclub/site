@@ -5,7 +5,6 @@ Please whitelist or unblock the following domains:
 
 - `*.hackclub.com` - Hack Club's primary domain, hosts workshops, tools and other content
 - `hack.af` - link shortener used for miscellanous links
-- `*.replit.com`, `*.cdn.replit.com`, and `*.repl.co` - Replit, a browser-based IDE used for workshops
 - `*.github.com`, `github.dev` - GitHub, an industry standard for code hosting and collaboration, owned by Microsoft.
 - `hackclub.slack.com`, `hackclub.enterprise.slack.com` - Hack Club's primary communication platform
 
@@ -27,9 +26,3 @@ Besides the typical HTTP(S) ports, ports 22 and 9418 need to be open for SSH and
 ## Inspect Element / Developer Tools
 
 Browser developer tools (eg. Inspect Element) are required for web development projects, so that sites can be debugged and styled.
-
-## Replit
-
-Replit provides their own [toolkit](https://docs.replit.com/teams-edu/it-administrators-toolkit) for IT administrators with further options for providing student access to Replit, including a firewalled domain.
-
-Thank you for supporting your students and their interests. If you have any questions, please reach out to us at [clubs@hackclub.com](mailto:clubs@hackclub.com) and we'd be happy to address your concerns.
