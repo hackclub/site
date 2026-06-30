@@ -454,6 +454,10 @@
     "staff": true,
     "department": "HQ",
     "role": "Community Manager",
+    "acknowledged": false,
+    "bio": " Evan Streams manages the Hack Club Online Community! Before joining Hack Club, he was a taught debate in the US and China. He loves hiking, reading, and thinking about the future of AI and other technology.",
+    "slackId": "U09Q8MLTE58",
+    "email": "eps",
     "avatar": "https://i.ibb.co/PXvjBqF/2026-01-27-0on-Kleki.png"
   },
   {
@@ -462,7 +466,7 @@
     "department": "HQ",
     "role": "Club Operations Lead",
     "acknowledged": false,
-    "bio": "",
+    "bio": "Jared is a 35 year old former teacher from St. Albans, VT. He enjoys golf, reading, riding motorcycles, and eRacing! He is also a cat dad of two gorgeous cats called Toast and Orville. Currently, he is the Club Operations Lead! ",
     "slackId": "U07HEH4N8UV",
     "email": "jared",
     "website": "",
