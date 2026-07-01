@@ -4,7 +4,7 @@ If you are reading this, you are probably an IT administrator at your organizati
 Please whitelist or unblock the following domains:
 
 - `*.hackclub.com` - Hack Club's primary domain, hosts workshops, tools and other content
-- `hack.af` - link shortener used for miscellanous links
+- `hack.af` - link shortener used for miscellaneous links
 - `*.github.com`, `github.dev` - GitHub, an industry standard for code hosting and collaboration, owned by Microsoft.
 - `hackclub.slack.com`, `hackclub.enterprise.slack.com` - Hack Club's primary communication platform
 
@@ -25,4 +25,4 @@ Besides the typical HTTP(S) ports, ports 22 and 9418 need to be open for SSH and
 
 ## Inspect Element / Developer Tools
 
-Browser developer tools (eg. Inspect Element) are required for web development projects, so that sites can be debugged and styled.
+Browser developer tools (e.g. Inspect Element) are required for web development projects, so that sites can be debugged and styled.
