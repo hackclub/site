@@ -203,8 +203,10 @@ export function Footer() {
                   borderRadius: 8,
                   background: "transparent",
                   flexShrink: 0,
-                  transition: "opacity 0.15s",
+                  transition:
+                    "transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease, background-color 0.2s ease",
                   color: "var(--paper)",
+                  opacity: 0.8,
                 }}
               >
                 <Icon glyph={i.glyph} size={48} />
@@ -264,12 +266,28 @@ export function Footer() {
       </div>
 
       <style>{`
-        .footer-link:hover, .footer-link:focus-visible,
-        .footer-social-link:hover, .footer-social-link:focus-visible,
-        .footer-theme-toggle:hover, .footer-theme-toggle:focus-visible { opacity: 1 !important; }
+        .footer-link:hover,
+        .footer-link:focus-visible,
+        .footer-theme-toggle:hover,
+        .footer-theme-toggle:focus-visible {
+          opacity: 1 !important;
+        }
+
+        .footer-social-link:hover,
+        .footer-social-link:focus-visible {
+          background-color: rgba(255, 255, 255, 0.1) !important;
+          opacity: 1 !important;
+          transform: scale(1.12) translateY(-2px);
+        }
+
         @media (max-width: 767px) {
-          .site-footer { padding-top: 120px !important; }
-          .site-footer-illustration { width: min(320px, 72vw) !important; transform: translateY(-40%) !important; }
+          .site-footer {
+            padding-top: 120px !important;
+          }
+          .site-footer-illustration {
+            transform: translateY(-40%) !important;
+            width: min(320px, 72vw) !important;
+          }
         }
       `}</style>
     </footer>
