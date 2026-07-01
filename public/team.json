@@ -103,7 +103,9 @@
     "department": "Events",
     "role": "Virtual Event Organizer",
     "acknowledged": false,
-    "bio": "Tanishq Goyal is a 15-year-old hacker! He joined Hack Club during Highway, when he fell in love with engineering. He has organized a few AMAs and was a part of the Highway and Blueprint team. He loves to fence, hike, snowboard, and bike. He also loves chess and would love to take you up in a game when you meet!",
+    "bio": "{
+  "bio": "Tanishq Goyal is a 15-year-old from New Jersey who joined Hack Club during [Highway](http://highway.hackclub.com/), where he fell in love with engineering. He's now an intern at Hack Club as part of the Special Activities Department, and he organized [Fallout](https://fallout.hackclub.com/). He was also part of the Blueprint team, where he helped lead the review team. Outside of code, he loves to fence, hike, snowboard, bike, and is a chess fan! He'll happily take you on for a game when you meet."
+}",
     "slackId": "U08R4Q9H8EB",
     "email": "",
     "website": "",
@@ -944,7 +946,9 @@
     "department": "HQ",
     "role": "Summer Intern",
     "acknowledged": false,
-    "bio": "Tanishq Goyal is a 15-year-old hacker! He joined Hack Club during Highway, when he fell in love with engineering. He has organized a few AMAs and was a part of the Highway and Blueprint team. He loves to fence, hike, snowboard, and bike. He also loves chess and would love to take you up in a game when you meet!",
+    "bio": "{
+  "bio": "Tanishq Goyal is a 15-year-old from New Jersey who joined Hack Club during [Highway](http://highway.hackclub.com/), where he fell in love with engineering. He's now an intern at Hack Club as part of the Special Activities Department, and he organized [Fallout](https://fallout.hackclub.com/). He was also part of the Blueprint team, where he helped lead the review team. Outside of code, he loves to fence, hike, snowboard, bike, and is a chess fan! He'll happily take you on for a game when you meet."
+}",
     "slackId": "U08R4Q9H8EB",
     "email": "",
     "website": "",
