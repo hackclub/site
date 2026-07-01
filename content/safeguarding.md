@@ -6,7 +6,7 @@ All in-person Hack Club events (satellites and flagships) are required to follow
 
     1.1 Overview
 
-    * The purpose of this Safeguarding Policy (the "Policy") is to ensure that all participants, volunteers, mentors and staff at Hack Club are safe, respected, and supported. It reflects the spirit of the Hack Club Code of Conduct (respect, kindness and  inclusive behavior).
+    * The purpose of this Safeguarding Policy (the "Policy") is to ensure that all participants, volunteers, mentors and staff at Hack Club are safe, respected, and supported. It reflects the spirit of the Hack Club Code of Conduct (respect, kindness and inclusive behavior).
 
 2. Scope
 
@@ -23,7 +23,7 @@ All in-person Hack Club events (satellites and flagships) are required to follow
 
     2.2 Safeguarding Principles
 
-    * Everyone must be treated with dignity, respect, and fairness regardless of age, background, identity, or characteristics.  This includes, but is not limited to a person's gender identity, sex, ethnicity, disability, race or language.
+    * Everyone must be treated with dignity, respect, and fairness regardless of age, background, identity, or characteristics. This includes, but is not limited to a person's gender identity, sex, ethnicity, disability, race or language.
 
     * The safety and welfare of minors must be the paramount consideration.
 
@@ -66,7 +66,7 @@ All in-person Hack Club events (satellites and flagships) are required to follow
 
     * Staff and volunteers should not be interacting with minors in a space outside the view of other staff.
 
-    * ALL DIGITAL COMMUNICATIONS TO PARTICIPANTS MUST BE THROUGH SLACK OR HACK CLUB EMAILS. WhatsApp, Discord or other communication tools with common usage is allowed when Slack or Hack Club email is not available or has limited utility.  Organizers are encouraged to limit the use to group chats with more than one staff member present.
+    * ALL DIGITAL COMMUNICATIONS TO PARTICIPANTS MUST BE THROUGH SLACK OR HACK CLUB EMAILS. WhatsApp, Discord or other communication tools with common usage is allowed when Slack or Hack Club email is not available or has limited utility. Organizers are encouraged to limit the use to group chats with more than one staff member present.
 
     3.4 Participants
 
@@ -173,11 +173,11 @@ All in-person Hack Club events (satellites and flagships) are required to follow
 
     6.3 Mandated Reporting
 
-    * Mandatory submission: All safeguarding incidents, regardless of severity, must be reported by the Event Lead or Safeguarding Officer through the Hack Club organizer dashboard as soon as possible;  reports must be made within 18 hours of the incident occurring.
+    * Mandatory submission: All safeguarding incidents, regardless of severity, must be reported by the Event Lead or Safeguarding Officer through the Hack Club organizer dashboard as soon as possible; reports must be made within 18 hours of the incident occurring.
 
     * Confidentiality: Reports submitted via Hack Club tools are confidential and accessible only to Hack Club HQ staff and designated safeguarding personnel.
 
-    * Timeline: Report emergencies immediately to local emergency services.  Urgent incidents (cases of immediate danger, serious harm, or where statutory reporting requirements take effect) must be reported to Hack Club HQ (after appropriate emergency services are contacted) immediately via phone ([+18556254225](tel:18556254225)) or email (<safeguarding@hackclub.com>) in addition to the form submission.
+    * Timeline: Report emergencies immediately to local emergency services. Urgent incidents (cases of immediate danger, serious harm, or where statutory reporting requirements take effect) must be reported to Hack Club HQ (after appropriate emergency services are contacted) immediately via phone ([+18556254225](tel:18556254225)) or email (<safeguarding@hackclub.com>) in addition to the form submission.
 
     * Consequences: Failure to submit a mandated report may result in organizers being barred from running future Hack Club events and may affect the event's insurance coverage and Hack Club support.
 
