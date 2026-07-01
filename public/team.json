@@ -11,17 +11,6 @@
     "avatar": "https://cachet.dunkirk.sh/users/U06EMBJH71S/r"
   },
   {
-    "name": "Amogh Chaubey",
-    "department": "Community",
-    "role": "Community + Events",
-    "acknowledged": false,
-    "bio": "Amogh is all about having fun. Whether it’s running an art showcase on the Slack or massive Kahoots at hackathons, he loves to run awesome events. Amogh joined HQ to run spectacular community events, to make Hack Club the best place to be a teenager on the internet, and as Hack Club’s second best rapper.",
-    "slackId": "",
-    "email": "",
-    "website": "",
-    "avatar": "https://cloud-qz70b5lb7-hack-club-bot.vercel.app/0tsw6s4shwqjyta7_thumbnail.jpg"
-  },
-  {
     "name": "Eesha",
     "department": "Events",
     "role": "Virtual Events Lead",
@@ -31,39 +20,6 @@
     "email": "eesha",
     "website": "https://eesha-kothari.com",
     "avatar": "https://i.ibb.co/hpgc4Yt/eesha.jpg"
-  },
-  {
-    "name": "Claire Wang",
-    "department": "Community",
-    "role": "Community",
-    "acknowledged": false,
-    "bio": "Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists.",
-    "slackId": "",
-    "email": "",
-    "website": "",
-    "avatar": "https://cloud-du0sm2210-hack-club-bot.vercel.app/1image.png"
-  },
-  {
-    "name": "Maggie Liu",
-    "department": "Community",
-    "role": "Moderation & Events",
-    "acknowledged": false,
-    "bio": "",
-    "slackId": "U026XSMKEDC",
-    "email": "",
-    "website": "",
-    "avatar": "https://cloud-r5ual6hw1-hack-club-bot.vercel.app/0xo8a0seoqnzxofema_512.png"
-  },
-  {
-    "name": "Mingjie Jiang",
-    "department": "Community",
-    "role": "Community",
-    "acknowledged": false,
-    "bio": "Mingjie started working with Hack Club in July 2017, while leading his club in Rockville, Maryland, working on community engagement & public identity. He’s also run Hack Chicago, CodeDay, and countless other hackathons to spread his passion for technology.",
-    "slackId": "",
-    "email": "",
-    "website": "",
-    "avatar": "https://cloud-5s053nrkt-hack-club-bot.vercel.app/0image.png"
   },
   {
     "name": "Aishaani",
@@ -118,7 +74,7 @@
     "slackId": "U072PTA5BNG",
     "email": "",
     "website": "https://v1c.rocks/",
-    "avatar": "https://profile.vic.wf/vm/picture.png"
+    "avatar": "https://cdn.hackclub.com/019d8d6d-d38e-7d2c-97ad-ebed21ae3a69/2026_04_14_0ph_Kleki%20(1).png"
   },
   {
     "name": "Julia Do",
@@ -162,7 +118,7 @@
     "slackId": "U0829HRSQ76",
     "email": "",
     "website": "pianoman0.com",
-    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U0829HRSQ76-d5355bd1e025-512"
+    "avatar": "https://cachet.dunkirk.sh/users/U0829HRSQ76/r"
   },
   {
     "name": "Gary Tou",
@@ -210,7 +166,7 @@
     "slackId": "U05TM5A2B46",
     "email": "kris",
     "website": "",
-    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U05TM5A2B46-4e764f05509c-512"
+    "avatar": "https://cachet.dunkirk.sh/users/U05TM5A2B46/r"
   },
   {
     "name": "Albert C",
@@ -277,7 +233,7 @@
     "slackId": "U04FS5WUXL3",
     "email": "briyan",
     "website": "",
-    "avatar": "https://ca.slack-edge.com/T0266FRGM-U04FS5WUXL3-c46373538def-512"
+    "avatar": "https://cachet.dunkirk.sh/users/U04FS5WUXL3/r"
   },
   {
     "name": "Ian Madden",
@@ -433,7 +389,7 @@
     "slackId": "U0C7B14Q3",
     "email": "max",
     "website": "",
-    "avatar": "https://www.gravatar.com/avatar/0c898623b15817167d8f81b314ffc034?s=512"
+    "avatar": "https://cdn.hackclub.com/019d8d66-3e81-71cf-89b9-a2d47d237f27/2026_04_14_0p9_Kleki%20(1).png"
   },
   {
     "name": "Chris Walker",
@@ -445,7 +401,7 @@
     "slackId": "UDK5M9Y13",
     "email": "cwalker",
     "website": "",
-    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-UDK5M9Y13-be619c5a7099-512"
+    "avatar": "https://cachet.dunkirk.sh/users/UDK5M9Y13/r"
   },
   {
     "name": "Deven Jadhav",
@@ -491,7 +447,7 @@
     "slackId": "U093FC28A82",
     "email": "rebeka",
     "website": "",
-    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U093FC28A82-0beced50bab9-192"
+    "avatar": "https://cachet.dunkirk.sh/users/U093FC28A82/r"
   },
   {
     "name": "Evan Streams",
@@ -534,7 +490,7 @@
     "slackId": "U0791NE7WHH",
     "email": "ralbert",
     "website": "",
-    "avatar": "https://arttherapy.org/wp-content/uploads/2020/08/RachelAlbert-768x768.jpg"
+    "avatar": "https://cdn.hackclub.com/019d8d67-2ef4-7f90-9ebc-7a6e5fd8a81d/2026_04_14_0pa_Kleki%20(1).png"
   },
   {
     "name": "Paolo Carino",
@@ -674,7 +630,7 @@
     "slackId": "U080A3QP42C",
     "email": "echo",
     "website": "https://3kh0.net",
-    "avatar": "https://cdn.3kh0.net/profile.png"
+    "avatar": "https://cdn.hackclub.com/019d8d6d-08a5-7512-949d-d561d6126815/2026_04_14_0pg_Kleki%20(1).png"
   },
   {
     "name": "Emma Borghi",
@@ -718,7 +674,7 @@
     "role": "Engineering",
     "acknowledged": false,
     "bio": "Euan learned to code to automate a boring job at 16, He realised he loved coding and making so started to teach robotics to younger kids and now is building programs to teach kids all around the world at Hack Club",
-    "bioHackFoundatio": "",
+    "bioHackFoundation": "",
     "slackId": "U06T30DNB3L",
     "email": "euan",
     "website": "",
@@ -757,7 +713,7 @@
     "bio": "",
     "slackId": "U07ACECRYM6",
     "website": "",
-    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U07ACECRYM6-757ba9c4219d-512"
+    "avatar": "https://cachet.dunkirk.sh/users/U07ACECRYM6/r"
   },
   {
     "name": "Ivie Fonner",
@@ -768,7 +724,7 @@
     "slackId": "U04KEK4TS72",
     "email": "ivie",
     "website": "https://ivie.codes",
-    "avatar": "https://ivie.codes/assets/pfp.jpg"
+    "avatar": "https://cdn.hackclub.com/019d8d6a-7de7-71f5-9798-d3c8ca3ec1db/2026_04_14_0pe_Kleki%20(1).png"
   },
   {
     "name": "Jenin Henin",
@@ -834,7 +790,7 @@
     "slackId": "U07ULNFPQ4T",
     "email": "lynn",
     "website": "https://lynn.pt/",
-    "avatar": "https://pfp.lynn.pt/api/current"
+    "avatar": "https://cachet.dunkirk.sh/users/U07ULNFPQ4T/r"
   },
   {
     "name": "Manitej Boorgu",
@@ -851,7 +807,7 @@
   {
     "name": "Meghana Madiraju",
     "department": "HQ",
-    "role": "Engineering & Event operations",
+    "role": "Engineering & Event Operations",
     "acknowledged": false,
     "bio": "Hey, I'm Meghana. I'm a 16 year old that spends her free time messing around with robots and making PCBs. I made Pathfinder and Hermes, and ran global operations for Daydream",
     "slackId": "U06P62WGWAV",
@@ -915,14 +871,14 @@
   {
     "name": "Sebastian",
     "department": "HQ",
-    "role": "Quality and Integrity Manager, YSWS",
+    "role": "Quality and Integrity Manager",
     "acknowledged": false,
     "bio": "Sebastian (a.k.a. Leafd) is a 18-year-old developer from México who likes making large-scale Minecraft events, loves working with Kubernetes, likes creating and learning new things, and sometimes does music production.",
     "slackId": "U07UBCSSQH3",
     "email": "sebastian",
     "staff": true,
     "website": "https://leafd.dev",
-    "avatar": "https://cdn.lfdl.ink/f3B0SDagmGemG7kH.JPG"
+    "avatar": "https://cdn.hackclub.com/019d8d69-5708-75bd-9bc3-1fb8087b13c6/2026_04_14_0pc_Kleki%20(1).png"
   },
   {
     "name": "Sofia Egan",
@@ -955,7 +911,7 @@
     "slackId": "U059VC0UDEU",
     "email": "mahad",
     "website": "https://mahadk.com",
-    "avatar": "https://mahadk.com/me.webp"
+    "avatar": "https://cdn.hackclub.com/019d8d6c-37ce-7370-93a3-4125be4a3a52/2026_04_14_0pf_Kleki%20(1).png"
   },
   {
     "name": "Violet Budiansky",
@@ -979,6 +935,54 @@
     "email": "ascpixi",
     "website": "https://ascpixi.dev",
     "avatar": "https://i.ibb.co/fGL56V9B/1000002893-1.jpg"
+  },
+  {
+    "name": "Freddie Yershon",
+    "department": "HQ",
+    "role": "Club Operations",
+    "acknowledged": false,
+    "bio": "Freddie is a 14-year-old Hack Clubber from London who is part of the Clubs Team. He's been a member of Hack Club since June 2024 and is excited to help clubs get started. When he's not coding or working with clubs, he enjoys reading, boating, and walking his dog!",
+    "email": "freddie",
+    "website": "https://freddieyershon.co.uk",
+    "avatar": "https://cdn.hackclub.com/019e26bd-157e-7802-a899-1cec0f58b24c/campfire-pic.jpeg"
+  },
+  {
+    "name": "Mohammed Zaid",
+    "department": "HQ",
+    "role": "Club Operations",
+    "acknowledged": false,
+    "bio": "Zaid is a 15-year-old Hack Clubber from India who is keen on getting clubs to grow. He is actively involved on the Clubs Team and loves to help out new and upcoming leaders. He also loves to play soccer and cook food in his free time!",
+    "email": "zaid@hackclub.com",
+    "avatar": "https://cachet.dunkirk.sh/users/U083VVA9M0W/r"
+  },
+  {
+    "name": "Will Kitch",
+    "department": "HQ",
+    "role": "Club Operations",
+    "acknowledged": false,
+    "bio": "Will is a Hack Clubber from London, UK. Before joining the Clubs Team he was working on 2 club YSWSs: Flavorless and Vibes. He joined the Clubs Team in April 2026. In Will's free time he enjoys reading, playing video games and volunteering.",
+    "email": "will",
+    "website": "https://willkitch.me",
+    "avatar": "https://cdn.hackclub.com/019e2a96-54d0-7bb6-8375-7179fd546e57/Will_Pfp.jpg"
+  },
+  {
+    "name": "David P",
+    "department": "HQ",
+    "role": "Club Operations",
+    "acknowledged": false,
+    "bio": "David is an 18 year old Hack Clubber from the UK, who got started with Hack Club 3 years ago. He's worked on Fusering, and now helps the Clubs team with operations and onboarding. In his free time, he enjoys 3D modelling and archery!",
+    "email": "davidp@hackclub.com",
+    "website": "https://fletchworks.dev/",
+    "avatar": "https://cachet.dunkirk.sh/users/U06LWHNLL3B/r"
+  },
+  {
+    "name": "Wally",
+    "department": "HQ",
+    "role": "Club Operations",
+    "acknowledged": false,
+    "bio": "",
+    "email": "wally@hackclub.com",
+    "avatar": "https://cdn.hackclub.com/019e2bf0-18bc-7abd-88d4-b68156d12c88/1000123054.jpg"
   },
   {
     "name": "Amber",
@@ -1043,18 +1047,7 @@
     "acknowledged": false,
     "bio": "Joel, who goes by PianoMan0 online, is a Hack Clubber who welcomes people into the Slack and helps them settle in.",
     "slackId": "U0829HRSQ76",
-    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U0829HRSQ76-d5355bd1e025-512"
-  },
-  {
-    "name": "Hasan",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
-    "acknowledged": true,
-    "bio": "",
-    "slackId": "U062U3SQ2T1",
-    "email": "",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U062U3SQ2T1/r"
+    "avatar": "https://cachet.dunkirk.sh/users/U0829HRSQ76/r"
   },
   {
     "name": "Junya",
@@ -1075,7 +1068,7 @@
     "bio": "",
     "slackId": "U06UYA5GMB5",
     "website": "https://jeremywoolley.com",
-    "avatar": "https://jer.app/pfp-hc-team"
+    "avatar": "https://cdn.hackclub.com/019e4064-705b-71fd-95e8-4995c3690195/2026_05_19_0fj_Kleki%20(1).png"
   },
   {
     "name": "Felix Gao",
@@ -1141,7 +1134,7 @@
     "slackId": "U059VC0UDEU",
     "email": "mahad",
     "website": "https://mahadk.com",
-    "avatar": "https://mahadk.com/me.webp"
+    "avatar": "https://cdn.hackclub.com/019d8d6c-37ce-7370-93a3-4125be4a3a52/2026_04_14_0pf_Kleki%20(1).png"
   },
   {
     "name": "Adishree Das",
@@ -1196,7 +1189,7 @@
     "slackId": "U07V1ND4H0Q",
     "email": "",
     "website": "https://pbhak.dev/",
-    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U07V1ND4H0Q-694b3547e557-512"
+    "avatar": "https://cachet.dunkirk.sh/users/U07V1ND4H0Q/r"
   },
   {
     "name": "Samvid",
@@ -1218,6 +1211,6 @@
     "slackId": "U072PTA5BNG",
     "email": "",
     "website": "https://v1c.rocks/",
-    "avatar": "https://profile.vic.wf/vm/picture.png"
+    "avatar": "https://cdn.hackclub.com/019d8d6d-d38e-7d2c-97ad-ebed21ae3a69/2026_04_14_0ph_Kleki%20(1).png"
   }
 ]

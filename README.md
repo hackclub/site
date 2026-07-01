@@ -1,87 +1,27 @@
 <p align="center"><img width="192" alt="Hack Club logo" src="https://assets.hackclub.com/flag-standalone.svg"></p>
-<h1 align="center"><a href="https://hackclub.com/">Hack Club's Site (v3)</a></h1>
-<p align="center"><i>The source code for hackclub.com</i></p>
+<h1 align="center">Hack Club's Site (v4)</h1>
 
-Hack Club's new website. This codebase is what runs on [hackclub.com](https://hackclub.com). For new developers getting started, run the following in your terminal:
+This codebase powers the Hack Club website, which is built with [Next.js](https://nextjs.org/). You can view it live at [hackclub.com](https://hackclub.com/)
 
-1. Download the code to your computer:
+## Development
 
-   ```bash
-   git clone https://github.com/hackclub/site && cd site
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   bun install
-   ```
-
-3. Start running the website on your computer:
-
-   ```bash
-   bun run dev
-   ```
-
-4. Open up your web browser and go to [localhost:3000](http://localhost:3000)
-
+1. Clone the repository
+```sh
+git clone --depth 1 https://github.com/hackclub/site.git
+```
 > [!NOTE]
-> There are a number of redirects and rewrites essential to the website's functionality, which you can see in [next.config.ts](./next.config.ts).
+> --depth 1 only gets the latest commit, if you need the full history (unlikely, ~562M), remove the --depth.
 
-Powered by [Next.js] with [MDX], [Theme UI], & [Hack Club Theme].
-
-Code under MIT License, assets may not be re-used or re-distributed.
-
----
-
-<h1 align="center">Building <a href="https://hackclub.com/">hackclub.com</a></h1>
-
-Join us in building Hack Club's homepage and show new hackers what Hack Club could be for them 💖.
-
-See something that could be better? Make a PR! Have an easter egg idea? Make a PR! Is the site missing something? Make a PR! _(Do you see a trend? :))_
-
-If you need to add content to the site, here's how you can:
-
-<details> <summary>Create a new card</summary>
-<img width="600" alt="Screenshot of the Sprig card" src="https://github.com/hackclub/site/assets/65808924/fed45800-c834-4e4c-ad87-a21e01414fa9">
-
-Most things on the homepage are cards, modular components that can easily be added and removed according to relevancy to Hack Clubbers. There are 3 main sections: connection, open-source, and IRL community. Most new cards will likely fall within the first two sections!
-
-First, you can create a new file under [components/index/cards](components/index/cards/) with the name of your new event/project. Next add `import CardModel from './card-model'` and add whatever you want :) Finally, use a `<Buttons>` component (`import Buttons from './button'`) to highlight call-to-action buttons. If it's the main button, use the primary prop to add a background color!
-
-Your challenge: try and make the card as unique as possible, like a mini poster! Not sure where to start? Look at other cards on the page :)
-
-</details>
-
-<details>
-<summary>Add to the carousel</summary>
-
-<img width="600" alt="Screenshot of a carousel section" src="https://github.com/hackclub/site/assets/65808924/044660eb-fb3d-43b6-a270-64a3fe51f3ca">
-
-If there's a Hack Club or Hack Club community-led project (past or present) that Hack Clubbers can get involved in, please add it to [public/carousel.json](public/carousel.json) and add your card to the end of the json file. An example looks like this:
-
-```json
-{
-  "background": "dark",
-  "titleColor": "white",
-  "descriptionColor": "white",
-  "title": "Hackers Wanted",
-  "description": "Our open love letter to hackers",
-  "img": "https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f4bb@2x.png",
-  "link": "/hackers-wanted"
-}
+2. Install the dependencies
+```sh
+bun install
 ```
 
-</details>
+3. Then, start the development server:
+```sh
+bun dev
+```
 
-Every week, thousands of people visit hackclub.com. What story do you want to tell?
+## Credits
 
-_Have questions? Join us in [#hackclub-site-dev](https://hackclub.slack.com/archives/C036BTDGP43) and to learn more about the style guide at Hack Club check [this](https://hackclub.com/brand/) out_
-
----
-
-Hack Club, 2026. MIT License.
-
-[next.js]: https://nextjs.org
-[mdx]: https://mdxjs.com
-[theme ui]: https://theme-ui.com
-[hack club theme]: https://theme.hackclub.com
+Tongyu ([@bucketfish](https://github.com/bucketfish)) made most of the design with help from Rowan ([@3kh0](https://github.com/3kh0)). This is also built with help and feedback from many other Hack Club members! You can join the fun by submitting a pull request!

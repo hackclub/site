@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #17171d;
+  --surface: #f9fafc;
+  --surface-hover: #f1f2f5;
+  --border: rgba(0, 0, 0, 0.08);
+  --muted: rgba(23, 23, 29, 0.7);
+  --shadow-dd: 0 8px 32px rgba(0, 0, 0, 0.13);
+  --nav-bg: rgba(255, 255, 255, 0.82);
+  --red: #ec3750;
+  --orange: #ff8c37;
+  --font-phantom: var(--font-phantom-src), system-ui, sans-serif;
+  --font-zarathustra: var(--font-zarathustra-src), Georgia, serif;
+  color-scheme: light;
+}
+
+html.dark {
+  --background: #17171d;
+  --foreground: #fff6eb;
+  --surface: #1f1f27;
+  --surface-hover: #2a2a33;
+  --border: rgba(255, 255, 255, 0.08);
+  --muted: rgba(255, 246, 235, 0.7);
+  --shadow-dd: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --nav-bg: rgba(23, 23, 29, 0.82);
+  color-scheme: dark;
+}
+
+:root,
+html.dark {
+  --ink: #17171d;
+  --ink-2: #2e1719;
+  --paper: #ffffff;
+  --cream: #fff6eb;
+  --grid-line: rgba(255, 255, 255, 0.1);
+  --footer-bg: #000000;
+}
+
+html.dark[data-theme-lock="light"] {
+  --background: #ffffff;
+  --foreground: #17171d;
+  --surface: #f9fafc;
+  --surface-hover: #f1f2f5;
+  --border: rgba(0, 0, 0, 0.08);
+  --muted: rgba(23, 23, 29, 0.7);
+  --shadow-dd: 0 8px 32px rgba(0, 0, 0, 0.13);
+  --nav-bg: rgba(255, 255, 255, 0.82);
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-red: var(--red);
+  --color-orange: var(--orange);
+  --font-phantom: var(--font-phantom);
+  --font-zarathustra: var(--font-zarathustra);
+}
+
+/* ── Base ─────────────────────────────────────────────────────── */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-phantom);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+ * Smooth theme transitions.
+ *
+ * NOTE: We intentionally do NOT apply this to `*` (every descendant).
+ * The `transition` shorthand fully replaces an element's transition list,
+ * so a universal rule kills every component-level `transform`,
+ * `box-shadow`, `opacity`, etc. transition across the whole site.
+ *
+ * Instead we only animate the body's own background-color and color.
+ * Components that should fade their colors on theme switch can opt in
+ * via the `.theme-fade` utility class below.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  html.theme-ready body {
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+  }
+
+  html.theme-ready .theme-fade {
+    transition:
+      background-color 200ms ease,
+      border-color 200ms ease,
+      color 200ms ease,
+      fill 200ms ease,
+      stroke 200ms ease;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Decorative elements (hero waves, creatures, footer art) are sized/positioned
+   against 100vw, which includes the vertical scrollbar. When scrollbars take
+   layout space (e.g. macOS "always show scrollbars"), that ~15px spills into a
+   phantom horizontal scroll on every page. Clip it at the root — `clip` (not
+   `hidden`) avoids creating a scroll container, so sticky/smooth-scroll still work. */
+html,
+body {
+  overflow-x: clip;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.skip-to-content {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  z-index: 10000;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 999px;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-family: var(--font-phantom);
+  font-size: 16px;
+  font-weight: 600;
+  transform: translateY(-140%);
+  transition: transform 0.2s ease;
+}
+
+.skip-to-content:focus-visible {
+  transform: translateY(0);
+  outline: 3px solid var(--orange);
+  outline-offset: 2px;
+}
+
+/* ── Mobile section padding ──────────────────────────────────── */
+/* clamp(24px, 14.29%, …) produces ~54px at 375px viewport — too much.
+   Override to a tight 16px on mobile for all padded sections. */
+@media (max-width: 767px) {
+  .section-padded {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+/* ── Mobile line-break helpers ───────────────────────────────── */
+@media (max-width: 767px) {
+  .video-headline-break {
+    display: block;
+  }
+}
+
+/* ── Mobile wave fix ─────────────────────────────────────────── */
+/* Wave SVGs are designed for a 1920px canvas; on mobile they show
+   24 tiny compressed peaks. Fix: widen the SVG element to 300% of
+   the container (so the path stretches to 3× peak width), shift it
+   left by 100% to centre the visible portion, then clip.
+   Using element width — not CSS scaleX — so vectorEffect="non-scaling-stroke"
+   keeps the thin stroke at its intended pixel weight. */
+@media (max-width: 767px) {
+  .wave-container {
+    overflow: hidden !important;
+  }
+  .wave-container svg {
+    width: 300% !important;
+    margin-left: -100% !important;
+  }
+}
+
+/* ── Dark pill button hover ──────────────────────────────────── */
+.dark-btn {
+  transition:
+    background 0.4s ease,
+    color 0.4s ease;
+}
+.dark-btn:hover {
+  background: #ec3750 !important;
+}
+
+/* ── CTA button hover ─────────────────────────────────────────── */
+.cta-btn {
+  transition:
+    background 0.4s ease,
+    color 0.4s ease;
+}
+.cta-btn:hover {
+  filter: brightness(1.15);
+}
+
+/* ── CTA button arrow animation ──────────────────────────────── */
+.cta-btn .btn-arrow {
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 0.2s ease;
+}
+.cta-btn:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* ── Utilities ────────────────────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Keep legacy class name working too */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
