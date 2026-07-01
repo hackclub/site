@@ -25,7 +25,7 @@ These principles are always good, but not always clear, so read on to see how we
 
 ## Don’t degrade our shared spaces
 
-1. Hack club spaces should be wholesome and high-quality. Don’t post:
+1. Hack Club spaces should be wholesome and high-quality. Don’t post:
    - Sexual content
    - Spam
    - Almost anything becomes spam if you do it too much

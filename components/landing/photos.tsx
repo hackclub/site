@@ -101,7 +101,7 @@ export function HerePhotosSection() {
           className="here-photos-youtube-link"
           style={{ color: "var(--red)", textDecoration: "none" }}
         >
-          Youtube.
+          YouTube.
         </a>
       </p>
 
