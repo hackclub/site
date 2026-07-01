@@ -890,7 +890,7 @@ export default function ProgramsPage({
               target="_blank"
               style={{ color: "#ec3750", textDecoration: "none" }}
             >
-              on Youtube
+              on YouTube
               <span
                 aria-hidden="true"
                 style={{ display: "inline-flex", verticalAlign: "middle", marginLeft: 2 }}
