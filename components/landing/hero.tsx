@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { EmailSignupInput } from "./email-signup";
 import { BtnArrowSvg } from "./btn-arrow";
+import { StickerEnvelopeLink } from "./stickers";
 
 /**
  * Renders a polaroid photo matched to its Figma bounding box.
@@ -876,6 +877,18 @@ export function HeroSection() {
             terms.
           </Link>
         </p>
+
+        {/* Free stickers envelope */}
+        <div
+          style={{
+            pointerEvents: "auto",
+            marginTop: 28,
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <StickerEnvelopeLink />
+        </div>
       </div>
 
       {/* Creature — sits above the wave on the right */}
