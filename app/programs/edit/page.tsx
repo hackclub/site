@@ -5,6 +5,7 @@ import { Navbar } from "../../../components/Navbar";
 import type { AirtableProgram } from "../../../lib/programs";
 import type { SiteProgram, ProjectType, ProgramFormat } from "../../../lib/site-programs";
 import { PROJECT_TYPE_OPTIONS, formatInPersonDate } from "../../../lib/site-programs";
+import { BtnArrowSvg } from "../../../components/landing/btn-arrow";
 
 interface EditorProgram {
   ysws: AirtableProgram;
@@ -49,7 +50,7 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
       ? "Ended"
       : `Ends ${parseLocalDate(ysws.endDate).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}`;
   const badgeEnded = isEnded || isDraft;
-  const buttonText = isEnded ? "See the site →" : "Start now →";
+  const buttonText = isEnded ? "See the site" : "Start now";
   const buttonColor = draft.buttonColor || "#ec3750";
 
   const inPersonStr = formatInPersonDate(
@@ -186,6 +187,7 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
             zIndex: 1,
             display: "inline-flex",
             alignItems: "center",
+            gap: 6,
             paddingTop: 6,
             paddingBottom: 6,
             paddingLeft: 20,
@@ -201,6 +203,7 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
           }}
         >
           {buttonText}
+          <BtnArrowSvg />
         </div>
       )}
 
@@ -402,9 +405,16 @@ function UploadButton({
       </div>
 
       {mode === "upload" ? (
-        <div
+        <button
+          type="button"
+          aria-label="Upload image"
           onClick={() => !busy && inputRef.current?.click()}
           style={{
+            appearance: "none",
+            font: "inherit",
+            color: "inherit",
+            textAlign: "left",
+            width: "100%",
             border: "2px dashed var(--border)",
             borderRadius: 10,
             padding: "10px 14px",
@@ -447,11 +457,12 @@ function UploadButton({
                   ? "Replace"
                   : "Upload file"}
           </span>
-        </div>
+        </button>
       ) : (
         <div style={{ display: "flex", gap: 6 }}>
           <input
             type="url"
+            aria-label={`${label} image URL`}
             value={urlInput}
             onChange={(e) => setUrlInput(e.target.value)}
             onKeyDown={(e) => {
@@ -531,6 +542,7 @@ function UploadButton({
         ref={inputRef}
         type="file"
         accept="image/*"
+        aria-label={`${label} file`}
         style={{ display: "none" }}
         onChange={(e) => {
           const f = e.target.files?.[0];
@@ -568,6 +580,7 @@ function ColorField({
       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
         <input
           type="color"
+          aria-label={label}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           style={{
@@ -581,6 +594,7 @@ function ColorField({
         />
         <input
           type="text"
+          aria-label={`${label} hex value`}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           style={{
@@ -635,6 +649,7 @@ function SliderField({
       </div>
       <input
         type="range"
+        aria-label={label}
         min={min}
         max={max}
         value={value}
@@ -672,6 +687,7 @@ function TextField({
       </div>
       <input
         type="text"
+        aria-label={label}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
@@ -690,15 +706,116 @@ function TextField({
   );
 }
 
+// ── Pin toggle (admin only) ──────────────────────────────────────────────────
+function PinToggle({
+  programName,
+  pinned,
+  onUpdate,
+}: {
+  programName: string;
+  pinned: boolean;
+  onUpdate: (s: SiteProgram) => void;
+}) {
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function toggle() {
+    setBusy(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/site-programs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ programName, pinned: !pinned }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        onUpdate(data as SiteProgram);
+      } else {
+        setError(data?.error ?? `Failed to update (${res.status})`);
+      }
+    } catch {
+      setError("Network issue, try again?");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+          padding: "10px 14px",
+          background: pinned ? "rgba(236,55,80,0.08)" : "var(--surface)",
+          borderRadius: 12,
+          border: pinned ? "2px solid var(--red)" : "2px solid var(--border)",
+        }}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill={pinned ? "#ec3750" : "var(--muted)"}>
+          <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z" />
+        </svg>
+        <span
+          style={{
+            fontFamily: "var(--font-phantom)",
+            fontSize: 13,
+            fontWeight: "bold",
+            color: pinned ? "var(--red)" : "var(--foreground)",
+            flex: 1,
+          }}
+        >
+          {pinned ? "Pinned to homepage" : "Pin to homepage"}
+        </span>
+        <button
+          onClick={toggle}
+          disabled={busy}
+          style={{
+            height: 30,
+            paddingLeft: 14,
+            paddingRight: 14,
+            borderRadius: 9999,
+            border: "none",
+            background: pinned ? "var(--red)" : "var(--foreground)",
+            color: "var(--paper)",
+            fontFamily: "var(--font-phantom)",
+            fontSize: 12,
+            fontWeight: "bold",
+            cursor: busy ? "default" : "pointer",
+            opacity: busy ? 0.5 : 1,
+          }}
+        >
+          {busy ? "..." : pinned ? "Unpin" : "Pin"}
+        </button>
+      </div>
+      {error && (
+        <span
+          style={{
+            fontFamily: "var(--font-phantom)",
+            fontSize: 12,
+            color: "var(--red)",
+            paddingLeft: 4,
+          }}
+        >
+          {error}
+        </span>
+      )}
+    </div>
+  );
+}
+
 // ── Program editor panel ──────────────────────────────────────────────────────
 function ProgramEditor({
   prog,
   onChange,
   onSiteUpdate,
+  isAdmin,
 }: {
   prog: EditorProgram;
   onChange: (d: EditorProgram["draft"]) => void;
   onSiteUpdate: (s: SiteProgram) => void;
+  isAdmin: boolean;
 }) {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -849,6 +966,7 @@ function ProgramEditor({
             Description
           </div>
           <textarea
+            aria-label="Description"
             value={d.description}
             onChange={(e) => set({ description: e.target.value })}
             rows={3}
@@ -1012,6 +1130,7 @@ function ProgramEditor({
                   </div>
                   <input
                     type="date"
+                    aria-label="Start date"
                     value={d.inPersonStart}
                     onChange={(e) => set({ inPersonStart: e.target.value })}
                     style={{
@@ -1040,6 +1159,7 @@ function ProgramEditor({
                   </div>
                   <input
                     type="date"
+                    aria-label="End date"
                     value={d.inPersonEnd}
                     onChange={(e) => set({ inPersonEnd: e.target.value })}
                     style={{
@@ -1147,6 +1267,7 @@ function ProgramEditor({
           </div>
           <input
             type="text"
+            aria-label="Additional requirements"
             value={d.additionalRequirements}
             onChange={(e) => set({ additionalRequirements: e.target.value })}
             placeholder="e.g. Girls only"
@@ -1162,6 +1283,15 @@ function ProgramEditor({
             }}
           />
         </div>
+
+        {/* ── Pin (admin only) ── */}
+        {isAdmin && (
+          <PinToggle
+            programName={prog.ysws.name}
+            pinned={prog.site?.pinned ?? false}
+            onUpdate={onSiteUpdate}
+          />
+        )}
 
         {/* ── Save ── */}
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -1233,10 +1363,15 @@ export default function EditPage() {
 
   // Check auth and load editable programs
   useEffect(() => {
+    const authError =
+      new URLSearchParams(window.location.search).get("auth_error") === "1"
+        ? "Sign-in failed. Please try again."
+        : undefined;
+
     fetch("/api/programs/editable")
       .then((r) => {
         if (r.status === 401) {
-          setAuth({ status: "unauthenticated" });
+          setAuth({ status: "unauthenticated", error: authError });
           return null;
         }
         return r.json();
@@ -1307,7 +1442,14 @@ export default function EditPage() {
   }
 
   function updateSite(name: string, site: SiteProgram) {
-    setPrograms((prev) => prev?.map((p) => (p.ysws.name === name ? { ...p, site } : p)) ?? null);
+    setPrograms(
+      (prev) =>
+        prev?.map((p) => {
+          if (p.ysws.name === name) return { ...p, site };
+          if (site.pinned && p.site?.pinned) return { ...p, site: { ...p.site, pinned: false } };
+          return p;
+        }) ?? null,
+    );
   }
 
   async function logout() {
@@ -1366,6 +1508,7 @@ export default function EditPage() {
                 {auth.error}
               </p>
             )}
+            {/* oxlint-disable-next-line nextjs/no-html-link-for-pages */}
             <a
               href="/api/auth/login"
               style={{
@@ -1537,9 +1680,34 @@ export default function EditPage() {
                           fontSize: 22,
                           color: "var(--foreground)",
                           flex: 1,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 8,
                         }}
                       >
                         {prog.ysws.name}
+                        {prog.site?.pinned && (
+                          <span
+                            style={{
+                              display: "inline-flex",
+                              alignItems: "center",
+                              gap: 4,
+                              padding: "2px 8px",
+                              borderRadius: 9999,
+                              background: "#ec3750",
+                              fontFamily: "var(--font-phantom)",
+                              fontSize: 11,
+                              fontWeight: "bold",
+                              color: "#fff",
+                              whiteSpace: "nowrap",
+                            }}
+                          >
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="white">
+                              <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z" />
+                            </svg>
+                            Pinned
+                          </span>
+                        )}
                       </span>
                       <span
                         style={{
@@ -1571,6 +1739,7 @@ export default function EditPage() {
                             prog={prog}
                             onChange={(draft) => updateDraft(prog.ysws.name, draft)}
                             onSiteUpdate={(site) => updateSite(prog.ysws.name, site)}
+                            isAdmin={auth.isAdmin}
                           />
                         </div>
                       </div>

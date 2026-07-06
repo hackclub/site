@@ -107,6 +107,16 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Decorative elements (hero waves, creatures, footer art) are sized/positioned
+   against 100vw, which includes the vertical scrollbar. When scrollbars take
+   layout space (e.g. macOS "always show scrollbars"), that ~15px spills into a
+   phantom horizontal scroll on every page. Clip it at the root — `clip` (not
+   `hidden`) avoids creating a scroll container, so sticky/smooth-scroll still work. */
+html,
+body {
+  overflow-x: clip;
+}
+
 * {
   box-sizing: border-box;
 }

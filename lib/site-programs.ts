@@ -37,6 +37,7 @@ export interface SiteProgram {
   inPersonEnd: string | null; // ISO date YYYY-MM-DD
   inPersonLocation: string | null;
   additionalRequirements: string | null;
+  pinned: boolean;
 }
 
 type RawRecord = {
@@ -63,6 +64,7 @@ type RawRecord = {
     "In-Person End"?: string;
     "In-Person Location"?: string;
     "Additional Requirements"?: string;
+    Pinned?: boolean;
   };
 };
 
@@ -107,6 +109,7 @@ export function parseRecord(r: RawRecord): SiteProgram {
     inPersonEnd: fields["In-Person End"] ?? null,
     inPersonLocation: fields["In-Person Location"] ?? null,
     additionalRequirements: fields["Additional Requirements"] ?? null,
+    pinned: fields["Pinned"] === true,
   };
 }
 
@@ -143,6 +146,7 @@ export const SITE_FIELDS = [
   "In-Person End",
   "In-Person Location",
   "Additional Requirements",
+  "Pinned",
 ];
 
 // Parse a YYYY-MM-DD string as a local calendar date (no timezone shift)

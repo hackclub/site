@@ -1,29 +1,29 @@
 # Hack Club Events Safeguarding Policy
 
-This policy is being beta-tested by all in-person Hack Club events, and will be rolled out fully by Summer, 2026. Please direct any inquiries to [safeguarding@hackclub.com](mailto:safeguarding@hackclub.com).
+All in-person Hack Club events (satellites and flagships) are required to follow our Youth Protection Policy. Please direct any inquiries to [deven@hackclub.com](mailto:deven@hackclub.com).
 
 1. Purpose
 
     1.1 Overview
 
-    * The purpose of this Safeguarding Policy (the "Policy") is to ensure that all participants, volunteers, mentors and staff at Hack Club are safe, respected, and supported. It reflects the spirit of the Hack Club Code of Conduct (respect, kindness and  inclusive behavior).
+    * The purpose of this Safeguarding Policy (the "Policy") is to ensure that all participants, volunteers, mentors and staff at Hack Club are safe, respected, and supported. It reflects the spirit of the Hack Club Code of Conduct (respect, kindness and inclusive behavior).
 
 2. Scope
 
     2.1 Application
 
-    * This policy applies to everyone involved with Hack Club events globally:
+    * This policy applies to anyone involved with Hack Club events globally:
         * Participants (aged 13-18)
         * Parents/guardians of participants
         * Organizers, event staff and volunteers
         * Mentors, guest speakers, external vendors and venue staff
         * Any other individual present at the event
 
-        It covers all event locations (hacking venue, sleeping/rest areas if applicable, common spaces) and event-related activities (pre-event, the 24-hour/12-hour event, social time, post-event wrap-up).
+        It covers all event locations (event venue, sleeping/rest areas if applicable, common spaces) and event-related activities (pre-event, the 24-hour/12-hour event, social time, post-event wrap-up).
 
     2.2 Safeguarding Principles
 
-    * Everyone must be treated with dignity, respect, and fairness regardless of age, background, identity, or characteristics.  This includes, but is not limited to a person's gender identity, sex, ethnicity, disability, race or language.
+    * Everyone must be treated with dignity, respect, and fairness regardless of age, background, identity, or characteristics. This includes, but is not limited to a person's gender identity, sex, ethnicity, disability, race or language.
 
     * The safety and welfare of minors must be the paramount consideration.
 
@@ -66,7 +66,7 @@ This policy is being beta-tested by all in-person Hack Club events, and will be 
 
     * Staff and volunteers should not be interacting with minors in a space outside the view of other staff.
 
-    * ALL DIGITAL COMMUNICATIONS TO PARTICIPANTS MUST BE THROUGH SLACK OR HACK CLUB EMAILS. WhatsApp, Discord or other communication tools with common usage is allowed when Slack or Hack Club email is not available or has limited utility.  Organizers are encouraged to limit the use to group chats with more than one staff member present.
+    * ALL DIGITAL COMMUNICATIONS TO PARTICIPANTS MUST BE THROUGH SLACK OR HACK CLUB EMAILS. WhatsApp, Discord or other communication tools with common usage is allowed when Slack or Hack Club email is not available or has limited utility. Organizers are encouraged to limit the use to group chats with more than one staff member present.
 
     3.4 Participants
 
@@ -112,7 +112,7 @@ This policy is being beta-tested by all in-person Hack Club events, and will be 
 
     4.2 Check-in / Check-out
 
-    * Arrival and departure of participants must be logged (time, name, guardian contact) using the provided administrative tools (Attend, Cockpit, etc.).
+    * Arrival and departure of participants must be logged (time, name, guardian contact and signed consent) using the provided administrative tools (Attend, Cockpit, etc.).
 
     * If participants are to potentially leave the venue during an event, an explicit protocol must have been pre-defined by event organizers (parent/guardian sign-out, staff accompaniment, etc)
 
@@ -120,7 +120,7 @@ This policy is being beta-tested by all in-person Hack Club events, and will be 
 
     4.3 Mentor/Participant Boundaries
 
-    * Mentors and staff should not share personal contact details (personal phone, social media, etc.) with participants.  Work emails, Hack Club Slack user ID, and public social media profiles may be shared upon request.
+    * Mentors and staff should not share personal contact details (personal phone, social media, etc.) with participants. Work emails, Hack Club Slack user IDs, and Hack Club-issued phone numbers may be shared upon request.
 
     * One-on-one mentoring is permissible but should occur in visible open spaces, with at least one other volunteer present.
 
@@ -173,11 +173,11 @@ This policy is being beta-tested by all in-person Hack Club events, and will be 
 
     6.3 Mandated Reporting
 
-    * Mandatory submission: All safeguarding incidents, regardless of severity, must be reported by the Event Lead or Safeguarding Officer through the Hack Club organizer dashboard as soon as possible;  reports must be made within 18 hours of the incident occurring.
+    * Mandatory submission: All safeguarding incidents, regardless of severity, must be reported by the Event Lead or Safeguarding Officer through the Hack Club organizer dashboard as soon as possible; reports must be made within 18 hours of the incident occurring.
 
     * Confidentiality: Reports submitted via Hack Club tools are confidential and accessible only to Hack Club HQ staff and designated safeguarding personnel.
 
-    * Timeline: Report emergencies immediately to local emergency services.  Urgent incidents (cases of immediate danger, serious harm, or where statutory reporting requirements take effect) must be reported to Hack Club HQ (after appropriate emergency services are contacted) immediately via phone ([+18556254225](tel:18556254225)) or email (<safeguarding@hackclub.com>) in addition to the form submission.
+    * Timeline: Report emergencies immediately to local emergency services. Urgent incidents (cases of immediate danger, serious harm, or where statutory reporting requirements take effect) must be reported to Hack Club HQ (after appropriate emergency services are contacted) immediately via phone ([+18556254225](tel:18556254225)) or email (<safeguarding@hackclub.com>) in addition to the form submission.
 
     * Consequences: Failure to submit a mandated report may result in organizers being barred from running future Hack Club events and may affect the event's insurance coverage and Hack Club support.
 

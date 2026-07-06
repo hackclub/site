@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
+import { BtnArrowSvg } from "../../components/landing/btn-arrow";
 
 export type ArcadePrize = {
   name: string;
@@ -410,9 +411,12 @@ export default function ArcadePageClient({
             href="https://scrapbook.hackclub.com/"
             target="_blank"
             rel="noreferrer"
-            className="arcade-projects-link"
+            className="arcade-projects-link cta-btn"
           >
-            See more projects →
+            See more projects{" "}
+            <span className="btn-arrow" aria-hidden="true">
+              <BtnArrowSvg />
+            </span>
           </a>
         </div>
       </section>
@@ -586,7 +590,18 @@ export default function ArcadePageClient({
       <Footer />
 
       {selectedPrize && (
-        <div className="arcade-dialog-backdrop" onClick={() => setSelectedPrize(null)}>
+        // oxlint-disable jsx-a11y/prefer-tag-over-role
+        <div
+          className="arcade-dialog-backdrop"
+          onClick={() => setSelectedPrize(null)}
+          role="button"
+          tabIndex={0}
+          aria-label="Close dialog"
+          onKeyDown={(e) => {
+            if (e.key === "Escape" || e.key === "Enter") setSelectedPrize(null);
+          }}
+        >
+          {/* oxlint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */}
           <dialog open className="arcade-dialog" onClick={(event) => event.stopPropagation()}>
             <button
               type="button"
@@ -612,6 +627,7 @@ export default function ArcadePageClient({
             </div>
           </dialog>
         </div>
+        // oxlint-enable jsx-a11y/prefer-tag-over-role
       )}
 
       <style jsx global>{`

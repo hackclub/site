@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { EmailSignupInput } from "./email-signup";
+import { BtnArrowSvg } from "./btn-arrow";
+import { StickerEnvelopeLink } from "./stickers";
 
 /**
  * Renders a polaroid photo matched to its Figma bounding box.
@@ -63,6 +65,8 @@ function DraggableSticker({
 
   return (
     <div
+      role="presentation"
+      aria-hidden="true"
       onMouseDown={handleMouseDown}
       onMouseEnter={() => {
         hoverTimer.current = setTimeout(() => setIsHovered(true), 150);
@@ -174,7 +178,10 @@ function Photo({
         style={{
           width: "100%",
           height: "100%",
-          transform: hovered ? `translateX(${slideX}px) translateY(${slideY}px)` : "none",
+          transform:
+            hovered && !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+              ? `translateX(${slideX}px) translateY(${slideY}px)`
+              : "none",
           transition: "transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
         }}
       >
@@ -709,7 +716,8 @@ export function HeroSection() {
           z-index: -1;
         }
         .mag-link[data-state="in"]::before  { animation: mag-bg-in  0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-        .mag-link[data-state="out"]::before { animation: mag-bg-out 0.25s cubic-bezier(0.55, 0, 1, 0.45) forwards; }`}
+        .mag-link[data-state="out"]::before { animation: mag-bg-out 0.25s cubic-bezier(0.55, 0, 1, 0.45) forwards; }
+        .mag-link .btn-arrow { display: inline-flex; align-items: center; }`}
       </style>
       <div
         className="hero-center"
@@ -727,12 +735,11 @@ export function HeroSection() {
           pointerEvents: "none",
         }}
       >
-        {/* Magazine link — commented out */}
-        {/*
+        {/* Stardance link */}
         <a
-          href="https://magazine.hackclub.com"
+          href="https://stardance.hackclub.com/hackclubsite"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
           className="mag-link hero-mag-link"
           data-state={magHover}
           style={{
@@ -743,19 +750,34 @@ export function HeroSection() {
             gap: 8,
             fontFamily: "var(--font-phantom)",
             fontSize: 20,
-            color: magHover === "in" ? "#ffffff" : "rgba(23,23,29,0.5)",
+            color: magHover === "in" ? "#ffffff" : "var(--muted)",
             textDecoration: "none",
             textAlign: "center",
             marginBottom: 18,
             pointerEvents: "auto",
           }}
-          onMouseEnter={() => { magHoverTimer.current = setTimeout(() => setMagHover("in"), 300); }}
-          onMouseLeave={() => { if (magHoverTimer.current) clearTimeout(magHoverTimer.current); setMagHover(magHover === "in" ? "out" : "idle"); }}
+          onMouseEnter={() => {
+            magHoverTimer.current = setTimeout(() => setMagHover("in"), 10);
+          }}
+          onMouseLeave={() => {
+            if (magHoverTimer.current) clearTimeout(magHoverTimer.current);
+            setMagHover(magHover === "in" ? "out" : "idle");
+          }}
         >
-          <span style={{ color: magHover === "in" ? "#ffffff" : "#ec3750" }}>✦</span>
-          {"Check out our 2025 magazine, featuring 150 amazing projects →"}
+          {/* <span style={{ color: magHover === "in" ? "#ffffff" : "#ec3750" }}>✦</span> */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://cdn.hackclub.com/019e7ad9-26a3-75ba-afcb-2f384110ea6c/star.svg"
+            alt=""
+            width={177}
+            height={222}
+            style={{ width: 18, height: "auto", display: "block", flexShrink: 0 }}
+          />
+          {"Check out Stardance, the largest free STEM event of the summer"}
+          <span className="btn-arrow" aria-hidden="true">
+            <BtnArrowSvg />
+          </span>
         </a>
-        */}
 
         {/* Headline — forced 2-line wrap */}
         <h1
@@ -855,6 +877,18 @@ export function HeroSection() {
             terms.
           </Link>
         </p>
+
+        {/* Free stickers envelope */}
+        <div
+          style={{
+            pointerEvents: "auto",
+            marginTop: 28,
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <StickerEnvelopeLink />
+        </div>
       </div>
 
       {/* Creature — sits above the wave on the right */}

@@ -15,8 +15,11 @@ export async function GET(req: NextRequest) {
     return NextResponse.redirect(new URL("/programs/edit?auth_error=1", req.url));
   }
 
-  const clientId = process.env.HACKCLUB_OAUTH_CLIENT_ID!;
-  const clientSecret = process.env.HACKCLUB_OAUTH_CLIENT_SECRET!;
+  const clientId = process.env.HACKCLUB_OAUTH_CLIENT_ID;
+  const clientSecret = process.env.HACKCLUB_OAUTH_CLIENT_SECRET;
+  if (!clientId || !clientSecret) {
+    return NextResponse.json({ error: "HCA secrets are not set!" }, { status: 500 });
+  }
   const origin = process.env.NEXT_PUBLIC_APP_URL ?? req.nextUrl.origin;
   const redirectUri = `${origin}/api/auth/callback`;
 

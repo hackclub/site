@@ -58,7 +58,14 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
     return t.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t);
   };
 
-  const submit = () => (isValid(e) ? (setErr(false), sendToAuth(e)) : setErr(true));
+  const submit = () => {
+    if (!isValid(e)) {
+      setErr(true);
+      return;
+    }
+    setErr(false);
+    sendToAuth(e);
+  };
 
   const c = cfg[variant];
   const hasHover = "hover" in c && !!c.hover;
@@ -89,7 +96,8 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
         <input
           id={c.inputId}
           type="email"
-          placeholder="orpheus@email.com"
+          aria-label="Email address"
+          placeholder="orpheus@example.com"
           value={e}
           onChange={(ev) => {
             setE(ev.target.value);
@@ -177,7 +185,7 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
             boxShadow: "0 4px 12px rgba(236,55,80,0.3)",
           }}
         >
-          Enter Valid email
+          Enter a valid email address
           <div
             style={{
               position: "absolute",
