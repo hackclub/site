@@ -4,24 +4,28 @@ import { useEffect, useCallback, useSyncExternalStore } from "react";
 
 type Theme = "light" | "dark" | "system";
 
-const getStored = (): Theme => {
+const valid = (value: string | undefined | null): value is Theme =>
+  value === "light" || value === "dark" || value === "system";
+
+const storage = (): [Theme | undefined, boolean] => {
   try {
-    if (typeof window === "undefined" || typeof localStorage === "undefined") return "system";
+    if (typeof window === "undefined" || typeof localStorage === "undefined")
+      return [undefined, false];
     const v = localStorage.getItem("hc-site-theme");
-    if (v === "light" || v === "dark" || v === "system") return v as Theme;
-    return "system";
+    return [valid(v) ? v : undefined, true];
   } catch {
-    return "system";
+    return [undefined, false];
   }
 };
 
+const getStored = (): Theme => storage()[0] ?? "system";
+
 const read = (): Theme => {
   if (typeof document === "undefined") return "light";
-  try {
-    return getStored();
-  } catch {
-    return document.documentElement.classList.contains("dark") ? "dark" : "light";
-  }
+  const [s, ok] = storage();
+  const r = document.documentElement;
+  const d = r.dataset.hcSiteTheme;
+  return s ?? (valid(d) ? d : ok ? "system" : r.classList.contains("dark") ? "dark" : "light");
 };
 
 const subscribe = (cb: () => void) => {
