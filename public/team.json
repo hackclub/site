@@ -741,6 +741,17 @@
     "avatar": "https://cachet.dunkirk.sh/users/U0926UASBJ7/r"
   },
   {
+    "name": "Rushil Chopra",
+    "department": "HQ",
+    "role": "YSWS + Club + Philanthropy Ops",
+    "acknowledged": false,
+    "bio": "Rushil is a 16-year-old builder from California running a youth yoga nonprofit and building Agathon, an AI Socratic learning platform. Having started on Hack Club's YSWS & Clubs team, he now works on the philanthropy team to help scale programs and bring more young makers into the community",
+    "slackId": "U020X4GCWSF",
+    "email": "rushil",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U020X4GCWSF/r"
+  },
+  {
     "name": "Jiang Tongyu",
     "department": "HQ",
     "role": "Engineering",
@@ -848,17 +859,6 @@
     "website": "https://reemkhalifa.xyz",
     "avatar": "https://i.ibb.co/CKV0Bvcz/reem.png",
     "gapyear": true
-  },
-  {
-    "name": "Rushil Chopra",
-    "department": "HQ",
-    "role": "YSWS & Club Operations",
-    "acknowledged": false,
-    "bio": "Rushil is a 16-year-old from California who runs a yoga nonprofit and is building a mental health app for teens. He joined the YSWS & Clubs Team to help grow the program and bring more people into Hack Club!",
-    "slackId": "U020X4GCWSF",
-    "email": "rushil",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U020X4GCWSF/r"
   },
   {
     "name": "Sam Liu",
