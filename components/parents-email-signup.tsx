@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { isValidEmail } from "@/lib/email";
 
 const F = "var(--font-phantom)";
 
@@ -11,10 +12,8 @@ export function ParentsEmailSignup() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
-  const isValid = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
-
   const submit = async () => {
-    if (!isValid(email)) {
+    if (!isValidEmail(email)) {
       setStatus("error");
       setErrorMsg("Enter a valid email address");
       return;

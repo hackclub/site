@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { blockBotRequest } from "@/lib/botid";
+import { isValidEmail } from "@/lib/email";
 
 export const dynamic = "force-dynamic";
 
@@ -9,9 +10,6 @@ const TABLE_NAME = "signup";
 function apiKey() {
   return process.env.PARENTS_AIRTABLE_KEY;
 }
-
-const isValidEmail = (v: unknown): v is string =>
-  typeof v === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
 
 function clientIp(req: NextRequest) {
   const forwardedFor = req.headers.get("x-forwarded-for");

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { isValidEmail } from "@/lib/email";
 import { sendToAuth } from "../../lib/send-auth";
 
 interface EmailSignupInputProps {
@@ -53,13 +54,8 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
   const isVideo = variant === "video";
   const isReady = variant === "ready";
 
-  const isValid = (v: string) => {
-    const t = v.trim();
-    return t.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t);
-  };
-
   const submit = () => {
-    if (!isValid(e)) {
+    if (!isValidEmail(e)) {
       setErr(true);
       return;
     }
