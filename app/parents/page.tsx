@@ -14,7 +14,6 @@ export const metadata: Metadata = buildPageMetadata({
   canonical: "/parents",
 });
 
-
 const F = "var(--font-phantom)";
 
 export default function ParentsPage() {
@@ -55,8 +54,9 @@ export default function ParentsPage() {
               lineHeight: 1.5,
             }}
           >
-            Hack Club is a safe, supportive space where teens 13 - 18 year olds can explore technology, make friends,
-            and build things they&apos;re proud of &mdash; all with independence and agency.
+            Hack Club is a safe, supportive space where teens 13 - 18 year olds can explore
+            technology, make friends, and build things they&apos;re proud of &mdash; all with
+            independence and agency.
           </p>
 
           <ParentsEmailSignup />
@@ -133,8 +133,14 @@ export default function ParentsPage() {
               style={{ objectFit: "cover", objectPosition: "center 30%" }}
             />
             {/* Overlay for readability — dark-mode aware via CSS classes */}
-            <div className="hacker-gen-vignette hacker-gen-overlay-flat" style={{ position: "absolute", inset: 0 }} />
-            <div className="hacker-gen-vignette hacker-gen-overlay-grad" style={{ position: "absolute", inset: 0 }} />
+            <div
+              className="hacker-gen-vignette hacker-gen-overlay-flat"
+              style={{ position: "absolute", inset: 0 }}
+            />
+            <div
+              className="hacker-gen-vignette hacker-gen-overlay-grad"
+              style={{ position: "absolute", inset: 0 }}
+            />
             <div
               style={{
                 position: "absolute",
@@ -208,24 +214,44 @@ export default function ParentsPage() {
             }}
           >
             <li
-              style={{ fontFamily: F, fontSize: "clamp(20px, 2.8vw, 28px)", color: "#ffffff", lineHeight: 1.45 }}
+              style={{
+                fontFamily: F,
+                fontSize: "clamp(20px, 2.8vw, 28px)",
+                color: "#ffffff",
+                lineHeight: 1.45,
+              }}
             >
               a nonprofit and the <strong>world&apos;s largest community</strong> of teenagers who
               like to <strong>code</strong> and <strong>build awesome stuff.</strong>
             </li>
             <li
-              style={{ fontFamily: F, fontSize: "clamp(20px, 2.8vw, 28px)", color: "#ffffff", lineHeight: 1.45 }}
+              style={{
+                fontFamily: F,
+                fontSize: "clamp(20px, 2.8vw, 28px)",
+                color: "#ffffff",
+                lineHeight: 1.45,
+              }}
             >
               an <strong>online community</strong> that supports numerous{" "}
               <strong>in-person events</strong> throughout the year.
             </li>
             <li
-              style={{ fontFamily: F, fontSize: "clamp(20px, 2.8vw, 28px)", color: "#ffffff", lineHeight: 1.45 }}
+              style={{
+                fontFamily: F,
+                fontSize: "clamp(20px, 2.8vw, 28px)",
+                color: "#ffffff",
+                lineHeight: 1.45,
+              }}
             >
               supported by Github, AMD, NASA and more
             </li>
             <li
-              style={{ fontFamily: F, fontSize: "clamp(20px, 2.8vw, 28px)", color: "#ffffff", lineHeight: 1.45 }}
+              style={{
+                fontFamily: F,
+                fontSize: "clamp(20px, 2.8vw, 28px)",
+                color: "#ffffff",
+                lineHeight: 1.45,
+              }}
             >
               always free for teens - no matter what.
             </li>
@@ -265,7 +291,8 @@ export default function ParentsPage() {
                 fontWeight: 400,
               }}
             >
-              See what teens experience at Hack Club Hackathons — from our Undercity Hackathon at GitHub HQ
+              See what teens experience at Hack Club Hackathons — from our Undercity Hackathon at
+              GitHub HQ
             </p>
             <div
               style={{
