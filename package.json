@@ -17,6 +17,7 @@
     "@types/prismjs": "^1.26.6",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
+    "botid": "^1.5.11",
     "next": "16.2.10",
     "next-plausible": "^4.0.0",
     "prismjs": "^1.30.0",

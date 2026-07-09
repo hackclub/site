@@ -26,9 +26,9 @@ export function ParentsEmailSignup() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email.trim() }),
       });
-      if (res.status === 429) {
+      if (res.status === 403) {
         setStatus("error");
-        setErrorMsg("Too many attempts — try again later");
+        setErrorMsg("Unable to verify request — try again");
         return;
       }
       if (!res.ok) throw new Error();

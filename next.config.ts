@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import { execSync } from "node:child_process";
+import { withBotId } from "botid/next/config";
 
 const getCommitSha = (): string => {
   const sha =
@@ -288,4 +289,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withBotId(nextConfig);

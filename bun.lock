@@ -10,6 +10,7 @@
         "@types/prismjs": "^1.26.6",
         "@vercel/analytics": "^2.0.1",
         "@vercel/speed-insights": "^2.0.0",
+        "botid": "^1.5.11",
         "next": "16.2.10",
         "next-plausible": "^4.0.0",
         "prismjs": "^1.30.0",
@@ -255,6 +256,8 @@
     "bail": ["bail@2.0.2", "", {}, "sha512-0xO6mYd7JB2YesxDKplafRpsiOzPt9V02ddPCLbY1xYGPOX24NTyN50qnUxgCPcSoYMhKpAuBTjQoRZCAkUDRw=="],
 
     "baseline-browser-mapping": ["baseline-browser-mapping@2.10.42", "", { "bin": { "baseline-browser-mapping": "dist/cli.cjs" } }, "sha512-c/jurFrDLyui7o1J86yLkRu4LMsTYcBohveus7/I2Hzdn9KIP2bdJPTue/lR1KH46enoPbD77GKeSYNdyPoD3Q=="],
+
+    "botid": ["botid@1.5.11", "", { "peerDependencies": { "next": "*", "react": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["next", "react"] }, "sha512-KOO1A3+/vFVJk5aFoG3sNwiogKFPVR+x4aw4gQ1b2e0XoE+i5xp48/EZn+WqR07jRHeDGwHWQUOtV5WVm7xiww=="],
 
     "caniuse-lite": ["caniuse-lite@1.0.30001802", "", {}, "sha512-vmv8ub2xwTNmljSKf82mtCk5JH7hC+YgzLj3P5zotvA0tPQ9016tdNNOG8WRca1IxOnhSsivB+J0z5FeE5LOUw=="],
 
