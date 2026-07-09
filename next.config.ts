@@ -277,7 +277,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cdn.hackclub.com" },
       { protocol: "https", hostname: "hcb.hackclub.com" },
       { protocol: "https", hostname: "i.ibb.co" },
-      { protocol: "https", hostname: "cachet.dunkirk.sh" },
+      { protocol: "https", hostname: "cachet.hackclub.com" },
       { protocol: "https", hostname: "raw.githubusercontent.com" },
       { protocol: "https", hostname: "github.com" },
       { protocol: "https", hostname: "gravatar.com" },
