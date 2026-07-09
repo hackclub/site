@@ -26,6 +26,11 @@ export function ParentsEmailSignup() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email.trim() }),
       });
+      if (res.status === 429) {
+        setStatus("error");
+        setErrorMsg("Too many attempts — try again later");
+        return;
+      }
       if (!res.ok) throw new Error();
       setStatus("success");
       setEmail("");

@@ -18,6 +18,27 @@ function clientIp(req: NextRequest) {
   return req.headers.get("x-real-ip") ?? undefined;
 }
 
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const RATE_LIMIT_MAX = 5;
+const rateLimitHits = new Map<string, number[]>();
+
+function isRateLimited(key: string) {
+  const now = Date.now();
+  const recent = (rateLimitHits.get(key) ?? []).filter(
+    (t) => now - t < RATE_LIMIT_WINDOW_MS,
+  );
+  recent.push(now);
+  rateLimitHits.set(key, recent);
+
+  if (rateLimitHits.size > 5000) {
+    for (const [k, hits] of rateLimitHits) {
+      if (now - hits[hits.length - 1] > RATE_LIMIT_WINDOW_MS) rateLimitHits.delete(k);
+    }
+  }
+
+  return recent.length > RATE_LIMIT_MAX;
+}
+
 export async function POST(req: NextRequest) {
   const key = apiKey();
   if (!key) {
@@ -37,6 +58,10 @@ export async function POST(req: NextRequest) {
   }
 
   const ip = clientIp(req);
+
+  if (isRateLimited(ip ?? "unknown")) {
+    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+  }
 
   const res = await fetch(
     `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(TABLE_NAME)}`,
