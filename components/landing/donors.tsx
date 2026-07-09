@@ -41,7 +41,7 @@ const donorNames = [
   "Tom Preston-Werner (Co-founder of GitHub)",
 ];
 
-export function DonorsSection() {
+export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
   return (
     <section
       className="section-padded"
@@ -49,12 +49,14 @@ export function DonorsSection() {
         position: "relative",
         background: "var(--background)",
         paddingTop: 80,
-        paddingBottom: 160,
+        paddingBottom: minimal ? 40 : 160,
         paddingLeft: "clamp(24px, 14.29%, 220px)",
         paddingRight: "clamp(24px, 14.29%, 220px)",
         textAlign: "center",
       }}
     >
+      {!minimal && (
+        <>
       {/* Red gradient background — bottom portion only */}
       <div
         style={{
@@ -110,6 +112,8 @@ export function DonorsSection() {
           />
         </svg>
       </div>
+        </>
+      )}
       {/* Headline */}
       <h2
         style={{
@@ -146,13 +150,14 @@ export function DonorsSection() {
         className="donor-logos-grid"
         style={{
           display: "flex",
-          flexWrap: "wrap",
+          flexWrap: minimal ? "nowrap" : "wrap",
           justifyContent: "center",
           alignItems: "center",
           gap: "clamp(24px, 3.5vw, 52px)",
-          maxWidth: 1080,
+          maxWidth: minimal ? "100%" : 1080,
           margin: "0 auto 24px",
           padding: "8px 0",
+          overflowX: minimal ? "auto" : undefined,
         }}
       >
         {donors.map((donor, i) => (
