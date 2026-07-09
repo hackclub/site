@@ -35,6 +35,7 @@ const hcLinks = [
 const resLinks = [
   { label: "Programs", href: "/programs" },
   { label: "Community Events", href: "https://events.hackclub.com/" },
+  { label: "Hackathons", href: "https://hackathons.hackclub.com/" },
   { label: "Toolbox", href: "https://toolbox.hackclub.com/" },
   { label: "Clubs", href: "/clubs" },
   { label: "HCB", href: "/fiscal-sponsorship" },

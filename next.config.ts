@@ -210,6 +210,11 @@ const nextConfig: NextConfig = {
         destination: "https://events.hackclub.com",
         permanent: true,
       },
+      {
+        source: "/hackathons",
+        destination: "https://hackathons.hackclub.com",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
