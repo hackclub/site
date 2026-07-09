@@ -1293,5 +1293,16 @@
     "email": "",
     "website": "https://v1c.rocks/",
     "avatar": "https://cdn.hackclub.com/019d8d6d-d38e-7d2c-97ad-ebed21ae3a69/2026_04_14_0ph_Kleki%20(1).png"
+  },
+  {
+    "name": "Spencer McKnight",
+    "department": "Events",
+    "role": "Safeguarding Associate",
+    "acknowledged": false,
+    "bio": "Spencer is a 19 year old who likes volunteering and tumbling, they are going to university for computing and electronic engineering.",
+    "slackId": "U08U39SCQAE",
+    "email": "spencer@events.hackclub.com",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U08U39SCQAE/r"
   }
 ]
