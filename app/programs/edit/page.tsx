@@ -42,13 +42,16 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
     const [y, m, d] = iso.split("-").map(Number);
     return new Date(y, m - 1, d);
   }
-  const isEnded = parseLocalDate(ysws.endDate) < now;
+  // If no end date, program runs indefinitely (never ends)
+  const isEnded = ysws.endDate ? parseLocalDate(ysws.endDate) < now : false;
   const isDraft = parseLocalDate(ysws.startDate) > now;
   const badgeLabel = isDraft
     ? "Coming soon"
     : isEnded
       ? "Ended"
-      : `Ends ${parseLocalDate(ysws.endDate).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}`;
+      : ysws.endDate
+        ? `Ends ${parseLocalDate(ysws.endDate).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}`
+        : "Ongoing";
   const badgeEnded = isEnded || isDraft;
   const buttonText = isEnded ? "See the site" : "Start now";
   const buttonColor = draft.buttonColor || "#ec3750";
@@ -1722,11 +1725,13 @@ export default function EditPage() {
                           year: "numeric",
                         })}{" "}
                         –{" "}
-                        {new Date(prog.ysws.endDate).toLocaleDateString("en-GB", {
-                          day: "numeric",
-                          month: "short",
-                          year: "numeric",
-                        })}
+                        {prog.ysws.endDate
+                          ? new Date(prog.ysws.endDate).toLocaleDateString("en-GB", {
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                            })
+                          : "Ongoing"}
                       </span>
                       <span style={{ color: "var(--red)", fontSize: 14, marginLeft: 8 }}>
                         {expanded === prog.ysws.name ? "▲" : "▼"}

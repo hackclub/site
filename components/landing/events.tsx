@@ -25,7 +25,8 @@ function SkeletonCard() {
 // ── Dynamic event card ───────────────────────────────────────────────────────
 function EventCard({ program }: { program: AirtableProgram }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const endDate = parseLocalDate(program.endDate);
+  // endDate may be null for indefinite programs
+  const endDate = program.endDate ? parseLocalDate(program.endDate) : null;
 
   const s = program.site;
   const bgColor = s?.bgColor ?? "var(--surface)";
@@ -60,8 +61,10 @@ function EventCard({ program }: { program: AirtableProgram }) {
     } else {
       badgeLabel = `${start.getDate()} ${start.toLocaleDateString("en-GB", { month: "short" })} – ${end.getDate()} ${end.toLocaleDateString("en-GB", { month: "short" })} ${end.getFullYear()}`;
     }
-  } else {
+  } else if (endDate) {
     badgeLabel = `Ends ${endDate.toLocaleDateString("en-GB", { day: "numeric", month: "short" })}`;
+  } else {
+    badgeLabel = "Ongoing";
   }
 
   return (

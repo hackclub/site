@@ -26,7 +26,7 @@ async function readPrograms({ fresh = false }: FetchProgramsOptions = {}): Promi
   }
 
   const params = new URLSearchParams();
-  params.set("filterByFormula", "AND(NOT({Start Date}=''), NOT({End Date}=''))");
+  params.set("filterByFormula", "NOT({Start Date}='')");
   params.append("fields[]", "Name");
   params.append("fields[]", "Start Date");
   params.append("fields[]", "End Date");
@@ -73,7 +73,7 @@ async function readPrograms({ fresh = false }: FetchProgramsOptions = {}): Promi
       id: record.id,
       name,
       startDate: record.fields["Start Date"],
-      endDate: record.fields["End Date"],
+      endDate: record.fields["End Date"] || null,
       websiteUrl: record.fields["Website URL"] ?? null,
       site: siteMap.get(name) ?? null,
     };

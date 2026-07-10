@@ -13,7 +13,8 @@ import { BtnArrowSvg } from "../../components/landing/btn-arrow";
 function ProgramCard({ program }: { program: AirtableProgram }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const now = new Date();
-  const isEnded = parseLocalDate(program.endDate) < now;
+  // If no end date, program runs indefinitely (never ends)
+  const isEnded = program.endDate ? parseLocalDate(program.endDate) < now : false;
   const isDraft = parseLocalDate(program.startDate) > now;
 
   const s = program.site;
@@ -41,7 +42,9 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
     ? "Coming soon"
     : isEnded
       ? "Ended"
-      : `Ends ${parseLocalDate(program.endDate).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}`;
+      : program.endDate
+        ? `Ends ${parseLocalDate(program.endDate).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}`
+        : "Ongoing";
   const badgeEnded = isEnded || isDraft;
 
   // Italic metadata lines
@@ -709,10 +712,13 @@ export default function ProgramsPage({
     const bPinned = Number(Boolean(b.site?.pinned));
     if (aPinned !== bPinned) return bPinned - aPinned;
 
-    if (sort === "deadline-asc")
-      return parseLocalDate(a.endDate).getTime() - parseLocalDate(b.endDate).getTime();
-    if (sort === "deadline-desc")
-      return parseLocalDate(b.endDate).getTime() - parseLocalDate(a.endDate).getTime();
+    // For deadline sorting, treat null endDate as far future (never ends)
+    const FAR_FUTURE = new Date(9999, 11, 31).getTime();
+    const aEndTime = a.endDate ? parseLocalDate(a.endDate).getTime() : FAR_FUTURE;
+    const bEndTime = b.endDate ? parseLocalDate(b.endDate).getTime() : FAR_FUTURE;
+
+    if (sort === "deadline-asc") return aEndTime - bEndTime;
+    if (sort === "deadline-desc") return bEndTime - aEndTime;
     if (sort === "az") return a.name.localeCompare(b.name);
     return b.name.localeCompare(a.name);
   });

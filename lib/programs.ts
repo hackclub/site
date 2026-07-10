@@ -4,7 +4,7 @@ export interface AirtableProgram {
   id: string;
   name: string;
   startDate: string;
-  endDate: string;
+  endDate: string | null;
   websiteUrl: string | null;
   site: SiteProgram | null;
 }
@@ -21,7 +21,8 @@ export function getProgramStatus(
   now = new Date(),
 ): ProgramStatus {
   const started = parseLocalDate(program.startDate) <= now;
-  const ended = parseLocalDate(program.endDate) < now;
+  // If no end date, program runs indefinitely (never ends)
+  const ended = program.endDate ? parseLocalDate(program.endDate) < now : false;
   return !started ? "draft" : ended ? "ended" : "ongoing";
 }
 
