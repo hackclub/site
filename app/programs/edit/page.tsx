@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Navbar } from "../../../components/Navbar";
-import type { AirtableProgram } from "../../../lib/programs";
+import { parseLocalDate, type AirtableProgram } from "../../../lib/programs";
 import type { SiteProgram, ProjectType, ProgramFormat } from "../../../lib/site-programs";
 import { PROJECT_TYPE_OPTIONS, formatInPersonDate } from "../../../lib/site-programs";
 import { BtnArrowSvg } from "../../../components/landing/btn-arrow";
@@ -38,10 +38,6 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
   const logoUrl = site?.logoUrl ?? null;
   const bgImageUrl = draft.bgType === "image" ? (site?.bgImageUrl ?? null) : null;
   const now = new Date();
-  function parseLocalDate(iso: string) {
-    const [y, m, d] = iso.split("-").map(Number);
-    return new Date(y, m - 1, d);
-  }
   // If no end date, program runs indefinitely (never ends)
   const isEnded = ysws.endDate ? parseLocalDate(ysws.endDate) < now : false;
   const isDraft = parseLocalDate(ysws.startDate) > now;
@@ -1719,14 +1715,14 @@ export default function EditPage() {
                           color: "var(--muted)",
                         }}
                       >
-                        {new Date(prog.ysws.startDate).toLocaleDateString("en-GB", {
+                        {parseLocalDate(prog.ysws.startDate).toLocaleDateString("en-GB", {
                           day: "numeric",
                           month: "short",
                           year: "numeric",
                         })}{" "}
                         –{" "}
                         {prog.ysws.endDate
-                          ? new Date(prog.ysws.endDate).toLocaleDateString("en-GB", {
+                          ? parseLocalDate(prog.ysws.endDate).toLocaleDateString("en-GB", {
                               day: "numeric",
                               month: "short",
                               year: "numeric",
