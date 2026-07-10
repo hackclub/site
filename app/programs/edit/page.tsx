@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Navbar } from "../../../components/Navbar";
-import type { AirtableProgram } from "../../../lib/programs";
+import { parseLocalDate, type AirtableProgram } from "../../../lib/programs";
 import type { SiteProgram, ProjectType, ProgramFormat } from "../../../lib/site-programs";
 import { PROJECT_TYPE_OPTIONS, formatInPersonDate } from "../../../lib/site-programs";
 import { BtnArrowSvg } from "../../../components/landing/btn-arrow";
@@ -38,17 +38,16 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
   const logoUrl = site?.logoUrl ?? null;
   const bgImageUrl = draft.bgType === "image" ? (site?.bgImageUrl ?? null) : null;
   const now = new Date();
-  function parseLocalDate(iso: string) {
-    const [y, m, d] = iso.split("-").map(Number);
-    return new Date(y, m - 1, d);
-  }
-  const isEnded = parseLocalDate(ysws.endDate) < now;
+  // If no end date, program runs indefinitely (never ends)
+  const isEnded = ysws.endDate ? parseLocalDate(ysws.endDate) < now : false;
   const isDraft = parseLocalDate(ysws.startDate) > now;
   const badgeLabel = isDraft
     ? "Coming soon"
     : isEnded
       ? "Ended"
-      : `Ends ${parseLocalDate(ysws.endDate).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}`;
+      : ysws.endDate
+        ? `Ends ${parseLocalDate(ysws.endDate).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}`
+        : "Ongoing";
   const badgeEnded = isEnded || isDraft;
   const buttonText = isEnded ? "See the site" : "Start now";
   const buttonColor = draft.buttonColor || "#ec3750";
@@ -1716,17 +1715,19 @@ export default function EditPage() {
                           color: "var(--muted)",
                         }}
                       >
-                        {new Date(prog.ysws.startDate).toLocaleDateString("en-GB", {
+                        {parseLocalDate(prog.ysws.startDate).toLocaleDateString("en-GB", {
                           day: "numeric",
                           month: "short",
                           year: "numeric",
                         })}{" "}
                         –{" "}
-                        {new Date(prog.ysws.endDate).toLocaleDateString("en-GB", {
-                          day: "numeric",
-                          month: "short",
-                          year: "numeric",
-                        })}
+                        {prog.ysws.endDate
+                          ? parseLocalDate(prog.ysws.endDate).toLocaleDateString("en-GB", {
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                            })
+                          : "Ongoing"}
                       </span>
                       <span style={{ color: "var(--red)", fontSize: 14, marginLeft: 8 }}>
                         {expanded === prog.ysws.name ? "▲" : "▼"}
