@@ -26,6 +26,8 @@ const organizationJsonLd = {
     "https://github.com/hackclub",
     "https://www.youtube.com/c/HackClubHQ",
     "https://www.instagram.com/starthackclub",
+    "https://en.wikipedia.org/wiki/Hack_Club",
+    "https://www.wikidata.org/wiki/Q98127305",
   ],
 };
 
