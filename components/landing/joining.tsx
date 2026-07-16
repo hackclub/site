@@ -702,7 +702,7 @@ export function JoiningSection() {
                   height={50}
                   style={{ objectFit: "contain", flexShrink: 0 }}
                 />
-                <h3 style={cardTitleStyle}>HCB &mdash; run your event like a nonprofit</h3>
+                <h3 style={cardTitleStyle}>HCB &mdash; run a nonprofit</h3>
               </div>
               {/* Body text — constrained to leave room for right image */}
               <div className="joining-card2-body" style={{ maxWidth: "calc(100% - 340px)" }}>
