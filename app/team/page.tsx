@@ -20,8 +20,6 @@ const members = [...(teamData as TeamMember[])].sort((left, right) =>
 
 const filterMembers = (predicate: (member: TeamMember) => boolean) => members.filter(predicate);
 
-const isSummerIntern = (member: TeamMember) => member.role === "Summer Intern";
-
 const hqGroups: MemberGroup[] = [
   {
     label: "Staff",
@@ -34,13 +32,8 @@ const hqGroups: MemberGroup[] = [
   {
     label: "Teen Contributors",
     members: filterMembers(
-      (member) =>
-        member.department === "HQ" && !member.staff && !member.gapyear && !isSummerIntern(member),
+      (member) => member.department === "HQ" && !member.staff && !member.gapyear,
     ),
-  },
-  {
-    label: "Summer Interns",
-    members: filterMembers((member) => member.department === "HQ" && isSummerIntern(member)),
   },
 ];
 
