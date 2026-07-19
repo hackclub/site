@@ -1,4 +1,7 @@
-import Link from "next/link";
+"use client";
+
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { YouTubeEmbed } from "../YouTubeEmbed";
 import { EmailSignupInput } from "./email-signup";
 
@@ -25,6 +28,8 @@ const backImgsBase = [
 const backImgs = [...backImgsBase, ...backImgsBase, ...backImgsBase];
 
 export function VideoSection() {
+  const t = useTranslations("Home");
+  const tc = useTranslations("Common");
   return (
     <section
       style={{
@@ -127,7 +132,7 @@ export function VideoSection() {
               maxWidth: 640,
             }}
           >
-            {"Imagine a world where"}
+            {t("videoTitle")}
             <span className="video-headline-break" style={{ display: "inline" }}>
               {" "}
             </span>
@@ -139,7 +144,7 @@ export function VideoSection() {
                 backgroundClip: "text",
               }}
             >
-              you joined Hack Club:
+              {t("videoTitleAccent")}
             </span>
           </h2>
 
@@ -154,7 +159,7 @@ export function VideoSection() {
               marginBottom: 32,
             }}
           >
-            <YouTubeEmbed id="JkSquIVXXds" title="Hack Club introduction for high school teens" />
+            <YouTubeEmbed id="JkSquIVXXds" title={t("videoAria")} />
           </div>
 
           {/* Email signup */}
@@ -180,7 +185,7 @@ export function VideoSection() {
               pointerEvents: "auto",
             }}
           >
-            For all teens aged 13–18. By continuing, you agree to our{" "}
+            {tc("termsAgree")}{" "}
             <Link
               href="/privacy-and-terms"
               className="video-terms-link"
@@ -191,7 +196,7 @@ export function VideoSection() {
                 pointerEvents: "auto",
               }}
             >
-              terms.
+              {tc("terms")}
             </Link>
           </p>
         </div>

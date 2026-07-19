@@ -1,0 +1,137 @@
+{
+  "Arcade": {
+    "metaTitle": "Arcade — Hack Club",
+    "metaDescription": "The ultimate summer hackathon for high schoolers. Make projects. Track your hours. Redeem for prizes.",
+    "comboAlt": "GitHub + Hack Club",
+    "heroTagline": "The summer is yours for the making",
+    "heroNote": "The Arcade closed September 1st, but you can still join the <slack>Hack Club Slack</slack>!",
+    "prizesHeroAlt": "Arcade prizes",
+    "howToPlay": "How to play",
+    "step1Title": "Work on projects",
+    "step1Text": "Hack on something cool. Examples: making your own PCB, building your own site, creating an app.",
+    "step2Title": "Bank your hours",
+    "step2Text": "Join the <slack>Hack Club Slack</slack> and use /hack in #arcade to log your hours. You earn a ticket for each hour spent.",
+    "step3Title": "Redeem your Prizes",
+    "step3Text": "Use your tickets to buy prizes for your next project, like Arduino kits, drawing tablets, and more.",
+    "repeatLine": "Make stuff. Get stuff. Repeat.",
+    "stickerLine": "Get <stickers>free stickers</stickers> and code with other high schoolers!",
+    "buildingPrefix": "You could be building a",
+    "seeMoreProjects": "See more projects",
+    "oneHourAtATime": "One hour at a time,",
+    "whatWillYouMake": "What will <you>you</you> make this summer?",
+    "buildWhateverTitle": "Build whatever you want!",
+    "buildWhateverBody": "Any technical project counts. You could build an AR game, pixel art display, drawing robot, and more. Anytime you work on your project, start the hack hour timer. You earn a ticket for every hour.",
+    "dontKnowWhereToStart": "Don't know where to start?",
+    "notSureWhatToMake": "Not sure what to make?",
+    "clickMeForIdeas": "Click me for ideas!",
+    "arcadeEndedThanks": "Arcade has ended! Thanks for playing.",
+    "needIdeaAlt": "Need an idea?",
+    "prizesTitle": "<prizes>Prizes</prizes> to powerup your next project!",
+    "prizesSubtitle": "Redeem these with your tickets. For high schoolers or younger only.",
+    "sneakPeek": "This is just a <peek>sneak peek</peek>... there were many more prizes that were unlocked as the summer went on!",
+    "limited": "Limited!",
+    "tickets": "{count, plural, one {# ticket} other {# tickets}}",
+    "moreAbout": "More about {name}",
+    "faqTitle": "F.A.Q.",
+    "closeJoin": "Join",
+    "closeBuild": "Build real projects.",
+    "closeShare": "Share it with friends.",
+    "closeDialog": "Close dialog",
+    "projectIdeas": {
+      "drawingRobot": "Drawing robot",
+      "printer3d": "3D printer",
+      "electricSkateboard": "DIY Electric Skateboard",
+      "pixelArtDisplay": "Pixel art display",
+      "smartGarden": "Smart Garden",
+      "cncMachine": "CNC machine",
+      "ledArt": "Interactive LED Art",
+      "vrEscapeRoom": "VR Escape Room",
+      "imageRecognition": "Image Recognition App",
+      "diyCamera": "DIY Camera",
+      "multiplayerAr": "Multiplayer AR Game",
+      "droneSwarm": "Drone Swarm Choreography"
+    },
+    "projectCards": {
+      "elijah": "Finally shipped my personal AI clone and had a ton of fun seeing what other people did with it.",
+      "cupcakes": "Assembling blot robot.",
+      "konstantinos": "A drone build that can follow the biggest object of a chosen color."
+    },
+    "starters": {
+      "bobaName": "Boba drops",
+      "bobaDesc": "Build a website, get boba.",
+      "wizardName": "Wizard Orpheus",
+      "wizardDesc": "Build a text-based game with AI.",
+      "binName": "The Bin",
+      "binDesc": "Build an online circuit, get the parts for free.",
+      "sprigName": "Sprig",
+      "sprigDesc": "Build a JS game, play it on your own console.",
+      "onboardName": "OnBoard",
+      "onboardDesc": "Design a PCB, get a $100 grant.",
+      "hackaccinoName": "Hackaccino",
+      "hackaccinoDesc": "Build a 3D website and get a free frappuccino.",
+      "blotName": "Blot",
+      "blotDesc": "Write code. Make art. Get a drawing machine.",
+      "ciderName": "Cider",
+      "ciderDesc": "Make a mobile app and get an Apple Developer account.",
+      "easelName": "Easel",
+      "easelDesc": "Write a programming language and receive fudge."
+    },
+    "prizeItems": {
+      "yubikey": {
+        "name": "YubiKey",
+        "description": "5C NFC model w/ GitHub logo"
+      },
+      "bambuLab": {
+        "name": "Bambu Lab",
+        "smallName": "A1 mini"
+      },
+      "solderingIron": {
+        "name": "Soldering iron",
+        "smallName": "+ solder"
+      },
+      "framework": {
+        "name": "Framework",
+        "smallName": "16 inch"
+      },
+      "flipper": {
+        "name": "Flipper",
+        "smallName": "Zero"
+      },
+      "macbook": {
+        "name": "MacBook",
+        "smallName": "Air M2"
+      },
+      "wacom": {
+        "name": "Wacom",
+        "smallName": "Intuos S"
+      },
+      "logitech": {
+        "name": "Logitech",
+        "smallName": "MX Mechanical"
+      },
+      "quest3": {
+        "name": "Quest 3"
+      }
+    },
+    "faq": {
+      "eligibleQ": "Who is eligible?",
+      "eligibleA": "You need to be a high schooler or younger. You just need a GitHub account and a Slack account to participate.",
+      "projectsQ": "What types of projects count?",
+      "projectsA": "Projects need to be open source and have a way for people to experience them. Document progress as you go.",
+      "howManyQ": "How many projects can I build?",
+      "howManyA": "You can submit as many projects as you make. We just count the hours.",
+      "costQ": "How much does it cost?",
+      "costA": "It is free. Some shipments may have customs charges depending on your country.",
+      "helpQ": "I need help!",
+      "helpA": "Get help in the #arcade-help channel in the Hack Club Slack.",
+      "hoursQ": "My hours aren't counted!",
+      "hoursA": "Reviews are done by humans and may take a few days to show up.",
+      "teamQ": "Does a team project count?",
+      "teamA": "Yes, but your own work needs to be clearly documented.",
+      "schoolQ": "What about school work or a job?",
+      "schoolA": "If you are building for school or work, it does not count for Arcade.",
+      "scrapQ": "What counts as a scrap?",
+      "scrapA": "Code needs a commit. Share links for projects like Sprig, Blot, or hosted 3D models."
+    }
+  }
+}

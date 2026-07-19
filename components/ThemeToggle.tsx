@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useCallback, useSyncExternalStore } from "react";
+import { useTranslations } from "next-intl";
 
 type Theme = "light" | "dark" | "system";
 
@@ -204,18 +205,28 @@ const useIsMounted = () =>
   );
 
 export function ThemeToggle({ variant = "nav" }: { variant?: "nav" | "footer" }) {
-  const [t, setTheme] = useTheme();
+  const [theme, setTheme] = useTheme();
   const mounted = useIsMounted();
+  const t = useTranslations("Theme");
 
   if (mounted && document.documentElement.dataset.themeLock) return null;
 
-  const isDark = mounted && t === "dark";
-  const _isLight = mounted && t === "light";
-  const isSystem = mounted && t === "system";
+  const isDark = mounted && theme === "dark";
+  const isSystem = mounted && theme === "system";
+
+  const themeLabel = mounted
+    ? theme === "dark"
+      ? t("dark")
+      : theme === "system"
+        ? t("system")
+        : t("light")
+    : null;
+
+  const ariaLabel = mounted && themeLabel ? t("current", { theme: themeLabel }) : t("toggle");
 
   // Single circular toggle that cycles: light -> system -> dark -> light
   const cycle = () => {
-    const next: Theme = t === "light" ? "system" : t === "system" ? "dark" : "light";
+    const next: Theme = theme === "light" ? "system" : theme === "system" ? "dark" : "light";
     setTheme(next);
   };
 
@@ -226,7 +237,7 @@ export function ThemeToggle({ variant = "nav" }: { variant?: "nav" | "footer" })
       strokeLinejoin="round"
       strokeMiterlimit="1.414"
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="contrast"
+      aria-hidden="true"
       viewBox="0 0 32 32"
       preserveAspectRatio="xMidYMid meet"
       fill="currentColor"
@@ -242,8 +253,8 @@ export function ThemeToggle({ variant = "nav" }: { variant?: "nav" | "footer" })
       <button
         type="button"
         onClick={cycle}
-        aria-label={mounted ? `Current theme ${t}` : "Toggle theme"}
-        aria-pressed={mounted ? (t === "dark" ? true : false) : undefined}
+        aria-label={ariaLabel}
+        aria-pressed={mounted ? theme === "dark" : undefined}
         style={{
           display: "inline-flex",
           alignItems: "center",
@@ -265,7 +276,7 @@ export function ThemeToggle({ variant = "nav" }: { variant?: "nav" | "footer" })
           {isDark ? <MoonIcon /> : isSystem ? <SystemIcon /> : <SunIcon />}
         </span>
         <span suppressHydrationWarning>
-          {isSystem ? "System mode" : isDark ? "Dark mode" : "Light mode"}
+          {isSystem ? t("systemMode") : isDark ? t("darkMode") : t("lightMode")}
         </span>
       </button>
     );
@@ -275,8 +286,8 @@ export function ThemeToggle({ variant = "nav" }: { variant?: "nav" | "footer" })
     <button
       type="button"
       onClick={cycle}
-      aria-label={mounted ? `Current theme ${t}` : "Toggle theme"}
-      aria-pressed={mounted ? (t === "dark" ? true : false) : undefined}
+      aria-label={ariaLabel}
+      aria-pressed={mounted ? theme === "dark" : undefined}
       className="grid place-items-center w-10 h-10 rounded-full border border-border bg-surface text-foreground hover:bg-surface-hover transition-colors cursor-pointer"
     >
       <span suppressHydrationWarning aria-hidden="true">

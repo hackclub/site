@@ -19,6 +19,7 @@
     "@vercel/speed-insights": "^2.0.0",
     "botid": "^1.5.11",
     "next": "16.2.10",
+    "next-intl": "^4.13.2",
     "next-plausible": "^4.0.0",
     "prismjs": "^1.30.0",
     "react": "19.2.7",

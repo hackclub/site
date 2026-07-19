@@ -2,36 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import { ThemeToggle } from "./ThemeToggle";
-
-const about = [
-  { label: "Philosophy", href: "/philosophy" },
-  { label: "Philanthropy", href: "/philanthropy" },
-  { label: "Team & Board", href: "/team" },
-  { label: "Jobs", href: "/jobs" },
-  { label: "Branding Guide", href: "/brand" },
-  { label: "Press Inquiries", href: "/press" },
-];
-
-const resources = [
-  { label: "HCB Fiscal Sponsorship", href: "/fiscal-sponsorship" },
-  { label: "Hacker Toolbox", href: "https://toolbox.hackclub.com" },
-  { label: "Code of Conduct", href: "/conduct" },
-  { label: "Privacy & Terms", href: "/privacy-and-terms" },
-  { label: "Safety", href: "/safety" },
-];
-
-const links = [
-  { label: "About", dropdown: about },
-  // { label: "Projects", href: "/projects" },
-  { label: "Programs", href: "/programs" },
-  { label: "Clubs", href: "/clubs" },
-  { label: "Hackathons", href: "https://hackathons.hackclub.com" },
-  { label: "Resources", dropdown: resources },
-  { label: "Donate", href: "/philanthropy" },
-];
 
 const F = "var(--font-phantom)";
 const ddId = (l: string) => `dropdown-${l.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
@@ -140,6 +113,8 @@ function DropdownMenu({ items, menuId }: { items: Item[]; menuId: string }) {
 }
 
 export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
+  const t = useTranslations("Nav");
+  const tc = useTranslations("Common");
   const [menuState, setMenuState] = useState<"closed" | "opening" | "open" | "closing">("closed");
   const [openDd, setOpenDd] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -147,6 +122,32 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const openFrame = useRef<number | null>(null);
   const path = usePathname();
+
+  const about = [
+    { label: t("philosophy"), href: "/philosophy" },
+    { label: t("philanthropy"), href: "/philanthropy" },
+    { label: t("teamBoard"), href: "/team" },
+    { label: t("jobs"), href: "/jobs" },
+    { label: t("brandingGuide"), href: "/brand" },
+    { label: t("pressInquiries"), href: "/press" },
+  ];
+
+  const resources = [
+    { label: t("hcb"), href: "/fiscal-sponsorship" },
+    { label: t("toolbox"), href: "https://toolbox.hackclub.com" },
+    { label: t("conduct"), href: "/conduct" },
+    { label: t("privacy"), href: "/privacy-and-terms" },
+    { label: t("safety"), href: "/safety" },
+  ];
+
+  const links: Array<{ label: string; href?: string; dropdown?: Item[] }> = [
+    { label: t("about"), dropdown: about },
+    { label: t("programs"), href: "/programs" },
+    { label: t("clubs"), href: "/clubs" },
+    { label: t("hackathons"), href: "https://hackathons.hackclub.com" },
+    { label: t("resources"), dropdown: resources },
+    { label: t("donate"), href: "/philanthropy" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -355,7 +356,7 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
               flexShrink: 0,
             }}
           >
-            Join the community
+            {tc("joinCommunity")}
           </a>
         </div>
 
@@ -371,7 +372,7 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
             marginLeft: "auto",
           }}
           onClick={() => (isOpen ? closeMenu() : openMenu())}
-          aria-label="Toggle menu"
+          aria-label={tc("toggleMenu")}
           aria-expanded={isOpen}
           aria-controls="mobile-nav-menu"
         >
@@ -485,7 +486,7 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
                 display: "block",
               }}
             >
-              Join the community
+              {tc("joinCommunity")}
             </a>
             <div className="mobile-nav-item" style={{ display: "flex", justifyContent: "center" }}>
               <ThemeToggle />

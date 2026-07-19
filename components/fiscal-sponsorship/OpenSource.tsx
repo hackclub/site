@@ -1,7 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Icon } from "@/components/Icon";
 import { FISCAL_COLORS, FISCAL_TYPOGRAPHY } from "./constants";
 
@@ -12,6 +13,7 @@ type OpenSourceProps = {
 export function OpenSource({
   announcementHref = "/fiscal-sponsorship/open-source",
 }: OpenSourceProps) {
+  const t = useTranslations("Hcb");
   const isExternal = announcementHref.startsWith("http");
 
   return (
@@ -34,7 +36,6 @@ export function OpenSource({
           alignItems: "center",
         }}
       >
-        {/* Left column: Text and CTAs */}
         <div>
           <h2
             style={{
@@ -47,7 +48,7 @@ export function OpenSource({
               lineHeight: 1.2,
             }}
           >
-            Open source infrastructure for fiscally sponsored organizations.
+            {t("openSourceTitle")}
           </h2>
           <p
             style={{
@@ -59,11 +60,9 @@ export function OpenSource({
               lineHeight: 1.5,
             }}
           >
-            HCB is open source and built in public, like many other Hack Club projects. Join us in
-            building the infrastructure powering fiscally sponsored organizations around the world.
+            {t("openSourceBody")}
           </p>
 
-          {/* Button Group */}
           <div
             style={{
               display: "flex",
@@ -72,7 +71,7 @@ export function OpenSource({
               marginTop: "1.5rem",
             }}
           >
-            <Link
+            <a
               href="https://github.com/hackclub/hcb"
               target="_blank"
               rel="noopener noreferrer"
@@ -103,52 +102,54 @@ export function OpenSource({
                 el.style.color = FISCAL_COLORS.primary;
               }}
             >
-              Star on GitHub
+              {t("starOnGithub")}
               <div style={{ width: "20px", height: "20px" }}>
                 <Icon glyph="github" size={20} />
               </div>
-            </Link>
+            </a>
 
-            <Link
-              href={announcementHref}
-              {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                padding: "12px 24px",
-                paddingLeft: "25px",
-                backgroundColor: FISCAL_COLORS.primary,
-                color: "white",
-                borderRadius: "9999px",
-                fontSize: "16px",
-                fontFamily: FISCAL_TYPOGRAPHY.bodyFont,
-                textDecoration: "none",
-                cursor: "pointer",
-                transition: "all 0.2s ease",
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.opacity = "0.9";
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.opacity = "1";
-              }}
-            >
-              Read the announcement
-              <div style={{ width: "16px", height: "16px" }}>
-                <Icon glyph="view-forward" size={16} />
-              </div>
-            </Link>
+            {isExternal ? (
+              <a
+                href={announcementHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={announcementButtonStyle}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.opacity = "0.9";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.opacity = "1";
+                }}
+              >
+                {t("readAnnouncement")}
+                <div style={{ width: "16px", height: "16px" }}>
+                  <Icon glyph="view-forward" size={16} />
+                </div>
+              </a>
+            ) : (
+              <Link
+                href={announcementHref}
+                style={announcementButtonStyle}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.opacity = "0.9";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.opacity = "1";
+                }}
+              >
+                {t("readAnnouncement")}
+                <div style={{ width: "16px", height: "16px" }}>
+                  <Icon glyph="view-forward" size={16} />
+                </div>
+              </Link>
+            )}
           </div>
         </div>
 
-        {/* Right column: Gource GIF */}
         <div style={{ borderRadius: "12px", overflow: "hidden" }}>
           <Image
             src="https://cdn.hackclub.com/019db0db-c501-72f3-940d-b9fd99013ece/hcb-gource.a2e03707.gif"
-            alt="HCB commit history visualised with Gource"
+            alt={t("gourceAlt")}
             width={640}
             height={360}
             style={{ width: "100%", height: "auto", display: "block" }}
@@ -167,3 +168,19 @@ export function OpenSource({
     </section>
   );
 }
+
+const announcementButtonStyle = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: "0.5rem",
+  padding: "12px 24px",
+  paddingLeft: "25px",
+  backgroundColor: FISCAL_COLORS.primary,
+  color: "white",
+  borderRadius: "9999px",
+  fontSize: "16px",
+  fontFamily: FISCAL_TYPOGRAPHY.bodyFont,
+  textDecoration: "none",
+  cursor: "pointer",
+  transition: "all 0.2s ease",
+} as const;

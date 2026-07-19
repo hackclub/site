@@ -160,17 +160,18 @@ export function formatInPersonDate(
   start: string | null,
   end: string | null,
   location: string | null,
+  locale = "en",
 ): string | null {
   let datePart = "";
   if (start) {
     const s = parseLocalDate(start);
     const e = end ? parseLocalDate(end) : null;
     if (!e || start === end) {
-      datePart = s.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+      datePart = s.toLocaleDateString(locale, { day: "numeric", month: "short", year: "numeric" });
     } else if (s.getMonth() === e.getMonth() && s.getFullYear() === e.getFullYear()) {
-      datePart = `${s.getDate()}–${e.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}`;
+      datePart = `${s.getDate()}–${e.toLocaleDateString(locale, { day: "numeric", month: "short", year: "numeric" })}`;
     } else {
-      datePart = `${s.toLocaleDateString("en-GB", { day: "numeric", month: "short" })} – ${e.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}`;
+      datePart = `${s.toLocaleDateString(locale, { day: "numeric", month: "short" })} – ${e.toLocaleDateString(locale, { day: "numeric", month: "short", year: "numeric" })}`;
     }
   }
   if (location && datePart) return `${datePart}, ${location}`;

@@ -18,53 +18,18 @@ export const FISCAL_TYPOGRAPHY = {
   bodyFont: "var(--font-phantom)",
 };
 
+/** Feature icons only — name/body come from HcbFeatures translations. */
 export const FISCAL_FEATURES = [
-  {
-    icon: "bank-account",
-    name: "Receive foundation grants",
-    body: "with tax-deductible 501(c)(3) status.",
-  },
-  {
-    icon: "card",
-    name: "Issue physical & virtual debit cards",
-    body: "with receipt tracking & Apple Pay.",
-  },
-  {
-    icon: "web",
-    name: "Operate globally",
-    body: "with a U.S. legal entity.",
-  },
-  {
-    icon: "payment-transfer",
-    name: "Send money & reimburse",
-    body: "via check, ACH, bank wire, & more.",
-  },
-  {
-    icon: "explore",
-    name: "Make your finances transparent",
-    body: "to your team and optionally, public.",
-  },
-  {
-    icon: "docs",
-    name: "We file all your taxes",
-    body: "automatically, including Form 990.",
-  },
-  {
-    icon: "admin",
-    name: "Pay team members",
-    body: "with built-in payroll.",
-  },
-  {
-    icon: "support",
-    name: "Accept donations of any size",
-    body: "with a custom, embeddable online form.",
-  },
-  {
-    icon: "leader",
-    name: "Get 24-hour support",
-    body: "on weekdays with a dedicated point of contact.",
-  },
-];
+  { icon: "bank-account" },
+  { icon: "card" },
+  { icon: "web" },
+  { icon: "payment-transfer" },
+  { icon: "explore" },
+  { icon: "docs" },
+  { icon: "admin" },
+  { icon: "support" },
+  { icon: "leader" },
+] as const;
 
 export const FISCAL_CONTACT = {
   email: "hcb@hackclub.com",

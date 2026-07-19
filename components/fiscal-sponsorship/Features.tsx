@@ -1,11 +1,13 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Icon } from "@/components/Icon";
 import { FISCAL_FEATURES, FISCAL_COLORS, FISCAL_TYPOGRAPHY } from "./constants";
 
 export function Features() {
+  const t = useTranslations("HcbFeatures");
+
   return (
     <section
       style={{
@@ -16,7 +18,6 @@ export function Features() {
       }}
     >
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-        {/* Headline */}
         <div style={{ marginBottom: "2rem" }}>
           <h2
             style={{
@@ -30,7 +31,7 @@ export function Features() {
               lineHeight: 1.2,
             }}
           >
-            Powerful financial tools built by our nonprofit, for yours.
+            {t("headline")}
           </h2>
           <p
             style={{
@@ -43,12 +44,10 @@ export function Features() {
               lineHeight: 1.5,
             }}
           >
-            Since day one, we&apos;ve built beautiful, self-serve software to empower you to raise
-            and spend money without administrative hassle. We&apos;re also open source!
+            {t("subtext")}
           </p>
         </div>
 
-        {/* Feature Grid */}
         <div
           style={{
             display: "grid",
@@ -58,9 +57,9 @@ export function Features() {
             marginBottom: "3rem",
           }}
         >
-          {FISCAL_FEATURES.map((feature, idx) => (
+          {FISCAL_FEATURES.map((feature) => (
             <div
-              key={idx}
+              key={feature.icon}
               style={{
                 display: "flex",
                 gap: "1rem",
@@ -89,7 +88,7 @@ export function Features() {
                     lineHeight: 1.375,
                   }}
                 >
-                  <strong>{feature.name}</strong> {feature.body}
+                  <strong>{t(`${feature.icon}.name`)}</strong> {t(`${feature.icon}.body`)}
                 </p>
               </div>
             </div>
@@ -103,14 +102,13 @@ export function Features() {
             textAlign: "center",
           }}
         >
-          <Link
+          <a
             href="https://hcb.hackclub.com/reboot"
-            title="See Reboot's finances in public"
             style={{ display: "block", textDecoration: "none" }}
           >
             <Image
               src="/fiscal-sponsorship/laptop.webp"
-              alt="HCB dashboard shown in a laptop"
+              alt={t("laptopAlt")}
               width={680}
               height={430}
               style={{ width: "100%", height: "auto" }}
@@ -123,10 +121,12 @@ export function Features() {
                 fontFamily: FISCAL_TYPOGRAPHY.bodyFont,
               }}
             >
-              See <em>Reboot</em>&apos;s finances in Transparency Mode
+              {t.rich("transparencyMode", {
+                em: (chunks) => <em>{chunks}</em>,
+              })}
             </p>
-          </Link>
-          <Link href="https://github.com/hackclub/hcb" style={{ textDecoration: "none" }}>
+          </a>
+          <a href="https://github.com/hackclub/hcb" style={{ textDecoration: "none" }}>
             <p
               style={{
                 fontSize: "14px",
@@ -135,9 +135,9 @@ export function Features() {
                 fontFamily: FISCAL_TYPOGRAPHY.bodyFont,
               }}
             >
-              See our open source on GitHub
+              {t("openSourceGithub")}
             </p>
-          </Link>
+          </a>
         </div>
       </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const STICKER_FORM_URL =
   "https://forms.hackclub.com/t/eLhFehpKG6us?utm_campaign=hackclub_com&r=hackclub_com";
@@ -18,13 +19,14 @@ const FLY_STICKERS = [
  * card; on hover the stickers fly in and land around it.
  */
 export function StickerEnvelopeLink() {
+  const t = useTranslations("Home");
   return (
     <a
       href={STICKER_FORM_URL}
       target="_blank"
       rel="noopener"
       className="sticker-envelope"
-      aria-label="Get free Hack Club stickers mailed to you — anywhere in the world"
+      aria-label={t("stickersAria")}
       style={{
         display: "block",
         position: "relative",

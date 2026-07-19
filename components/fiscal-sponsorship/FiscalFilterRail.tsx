@@ -1,7 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useState, type CSSProperties, type ReactNode } from "react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Icon } from "@/components/Icon";
 import { FISCAL_COLORS, FISCAL_TYPOGRAPHY } from "./constants";
 import { DIRECTORY_CATEGORIES, FISCAL_REGIONS } from "@/lib/fiscal-sponsorship-config";
@@ -129,6 +130,8 @@ function CategoryLinks({
   categoryHrefFor?: (categoryId: string) => string;
   compact?: boolean;
 }) {
+  const t = useTranslations("HcbCategories");
+
   return (
     <div style={{ display: "grid", gap: compact ? "0.6rem" : "0.75rem" }}>
       {DIRECTORY_CATEGORIES.map((category) => {
@@ -136,6 +139,10 @@ function CategoryLinks({
         const href = categoryHrefFor
           ? categoryHrefFor(category.id)
           : `/fiscal-sponsorship/directory/${category.id}`;
+        const label =
+          category.id === "organizations"
+            ? t("organizations.miniLabel")
+            : t(`${category.id}.label`);
 
         return (
           <FilterLink key={category.id} href={href} active={active}>
@@ -163,7 +170,7 @@ function CategoryLinks({
                 letterSpacing: "-0.02em",
               }}
             >
-              {category.miniLabel ?? category.label}
+              {label}
             </span>
           </FilterLink>
         );
@@ -181,6 +188,8 @@ function RegionLinks({
   regionHrefFor: (regionSlug: string) => string;
   compact?: boolean;
 }) {
+  const t = useTranslations("HcbRegions");
+
   return (
     <div style={{ display: "grid", gap: compact ? "0.6rem" : "0.75rem" }}>
       {FISCAL_REGIONS.map((region) => {
@@ -210,7 +219,7 @@ function RegionLinks({
                 letterSpacing: "-0.02em",
               }}
             >
-              {region.miniLabel ?? region.label}
+              {t(`${region.slug}.label`)}
             </span>
           </FilterLink>
         );
@@ -226,6 +235,7 @@ export function FiscalFilterRail({
   categoryHrefFor,
   regionHrefFor,
 }: FiscalFilterRailProps) {
+  const t = useTranslations("HcbDirectory");
   const [categoryOpen, setCategoryOpen] = useState(false);
   const [regionOpen, setRegionOpen] = useState(false);
 
@@ -256,7 +266,7 @@ export function FiscalFilterRail({
                 textTransform: "uppercase",
               }}
             >
-              Filter
+              {t("filter")}
             </h2>
             <CategoryLinks activeCategory={activeCategory} categoryHrefFor={categoryHrefFor} />
           </section>
@@ -275,7 +285,7 @@ export function FiscalFilterRail({
               textTransform: "uppercase",
             }}
           >
-            Regions
+            {t("regions")}
           </h2>
           <RegionLinks activeRegion={activeRegion} regionHrefFor={regionHrefFor} />
         </section>
@@ -285,7 +295,7 @@ export function FiscalFilterRail({
         {showCategories && (
           <section style={sectionStyle}>
             <RailTitle open={categoryOpen} onClick={() => setCategoryOpen((current) => !current)}>
-              Filter by category
+              {t("filterByCategory")}
             </RailTitle>
             <div
               style={{
@@ -317,7 +327,7 @@ export function FiscalFilterRail({
 
         <section style={sectionStyle}>
           <RailTitle open={regionOpen} onClick={() => setRegionOpen((current) => !current)}>
-            Filter by region
+            {t("filterByRegion")}
           </RailTitle>
           <div
             style={{

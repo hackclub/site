@@ -1,14 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import type { CSSProperties } from "react";
 import { useEffect, useRef, useState } from "react";
+import { Link } from "@/i18n/navigation";
 import { BtnArrowSvg } from "./btn-arrow";
+
+type SlackStatKey =
+  | "joiningStatOnline"
+  | "joiningStatChannels"
+  | "joiningStatMessages"
+  | "joiningStatMembers";
 
 type SlackStat = {
   value: number;
-  label: string;
+  labelKey: SlackStatKey;
   icon: "online" | "channels" | "messages" | "members";
 };
 
@@ -115,22 +122,22 @@ async function getSlackStats(): Promise<SlackStat[] | null> {
     return [
       {
         value: latest.readers_count_1d,
-        label: "Currently Online",
+        labelKey: "joiningStatOnline" as const,
         icon: "online",
       },
       {
         value: latest.chats_channels_count_1d,
-        label: "Total Channels",
+        labelKey: "joiningStatChannels" as const,
         icon: "channels",
       },
       {
         value: latest.messages_count_1d,
-        label: "Daily Messages",
+        labelKey: "joiningStatMessages" as const,
         icon: "messages",
       },
       {
         value: latest.total_members_count,
-        label: "Total Members",
+        labelKey: "joiningStatMembers" as const,
         icon: "members",
       },
     ];
@@ -149,22 +156,34 @@ function CardBg({ src }: { src: string }) {
 }
 
 function CardCta({ children, href }: { children: React.ReactNode; href: string }) {
+  const content = (
+    <span style={{ display: "inline-flex", alignItems: "center", gap: 8, lineHeight: 1 }}>
+      {children}{" "}
+      <span
+        className="btn-arrow"
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          lineHeight: 1,
+        }}
+      >
+        <BtnArrowSvg />
+      </span>
+    </span>
+  );
+
+  if (href.startsWith("http")) {
+    return (
+      <a href={href} style={cardCtaStyle} className="cta-btn">
+        {content}
+      </a>
+    );
+  }
+
   return (
     <Link href={href} style={cardCtaStyle} className="cta-btn">
-      <span style={{ display: "inline-flex", alignItems: "center", gap: 8, lineHeight: 1 }}>
-        {children}{" "}
-        <span
-          className="btn-arrow"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            lineHeight: 1,
-          }}
-        >
-          <BtnArrowSvg />
-        </span>
-      </span>
+      {content}
     </Link>
   );
 }
@@ -400,6 +419,7 @@ function SlackStatBadge({
 }
 
 function InlineSlackStatsBadges({ stats }: { stats: SlackStat[] }) {
+  const t = useTranslations("Home");
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [hasEnteredView, setHasEnteredView] = useState(
     () =>
@@ -441,9 +461,9 @@ function InlineSlackStatsBadges({ stats }: { stats: SlackStat[] }) {
     >
       {stats.map((stat, idx) => (
         <SlackStatBadge
-          key={stat.label}
+          key={stat.labelKey}
           icon={stat.icon}
-          label={stat.label}
+          label={t(stat.labelKey)}
           value={stat.value}
           animate={hasEnteredView}
           delay={idx * 55}
@@ -454,6 +474,7 @@ function InlineSlackStatsBadges({ stats }: { stats: SlackStat[] }) {
 }
 
 export function JoiningSection() {
+  const t = useTranslations("Home");
   const [slackStats, setSlackStats] = useState<SlackStat[] | null>(null);
 
   useEffect(() => {
@@ -556,7 +577,7 @@ export function JoiningSection() {
             maxWidth: "100%",
           }}
         >
-          Everything that comes with joining.
+          {t("joiningTitle")}
         </h2>
 
         {/* Sub-headline */}
@@ -569,9 +590,7 @@ export function JoiningSection() {
             lineHeight: 1.2,
           }}
         >
-          {
-            "Hack Club isn\u2019t just events \u2014 here\u2019s what you get as part of the community."
-          }
+          {t("joiningSubtext")}
         </p>
 
         {/* Cards stack */}
@@ -624,21 +643,14 @@ export function JoiningSection() {
                     marginRight: 8,
                   }}
                 />
-                <h3 style={cardTitleStyle}>Our online community</h3>
+                <h3 style={cardTitleStyle}>{t("joiningSlackTitle")}</h3>
               </div>
 
               {/* Body text */}
-              <p style={cardBodyStyle}>
-                Chat, collaborate, and hang out with tens of thousands of teen makers from around
-                the world. Find people working on the same weird projects as you, get help when
-                you&rsquo;re stuck, or just #lounge.
-              </p>
-              <p style={cardBodyGapStyle}>
-                We also host AMAs with people like Sal Khan, George Hotz, and Lady Ada &mdash;
-                people we really wanted to talk to, so we just invited them.
-              </p>
+              <p style={cardBodyStyle}>{t("joiningSlackBody1")}</p>
+              <p style={cardBodyGapStyle}>{t("joiningSlackBody2")}</p>
               {/* CTA Button */}
-              <CardCta href="https://slack.hackclub.com/">Join the Slack</CardCta>
+              <CardCta href="https://slack.hackclub.com/">{t("joiningSlackCta")}</CardCta>
             </div>
 
             {/* Slack stats badges — overflow off right edge, hidden on mobile */}
@@ -702,20 +714,16 @@ export function JoiningSection() {
                   height={50}
                   style={{ objectFit: "contain", flexShrink: 0 }}
                 />
-                <h3 style={cardTitleStyle}>HCB &mdash; run a nonprofit</h3>
+                <h3 style={cardTitleStyle}>{t("joiningHcbTitle")}</h3>
               </div>
               {/* Body text — constrained to leave room for right image */}
               <div className="joining-card2-body" style={{ maxWidth: "calc(100% - 340px)" }}>
-                <p style={cardBodyStyle}>
-                  Got an idea for a hackathon, club, or event? HCB gives your team the financial
-                  tools to accept donations, manage money, and operate under a real 501(c)(3)
-                  umbrella &mdash; no paperwork nightmare.
-                </p>
-                <p style={cardBodyGapStyle}>
-                  Already used by 700+ teenager-led teams running world-class events
-                </p>
+                <p style={cardBodyStyle}>{t("joiningHcbBody1")}</p>
+                <p style={cardBodyGapStyle}>{t("joiningHcbBody2")}</p>
               </div>
-              <CardCta href="https://hcb.hackclub.com/applications/new">Start fundraising</CardCta>
+              <CardCta href="https://hcb.hackclub.com/applications/new">
+                {t("joiningHcbCta")}
+              </CardCta>
             </div>
           </div>
 
@@ -743,16 +751,11 @@ export function JoiningSection() {
                   height={48}
                   style={{ objectFit: "contain", flexShrink: 0 }}
                 />
-                <h3 style={cardTitleStyle}>1,500+ in-person clubs</h3>
+                <h3 style={cardTitleStyle}>{t("joiningClubsTitle")}</h3>
               </div>
-              <p style={cardBodyStyle}>
-                There are Hack Clubs at high schools all over the world. Each one is a place where
-                you build real projects from day one &mdash; no boring lectures, no prerequisites.
-              </p>
-              <p style={cardBodyGapStyle}>
-                Find one near you, or start your own and we&rsquo;ll help you get it off the ground.
-              </p>
-              <CardCta href="https://hackclub.com/clubs/">Start or find a club</CardCta>
+              <p style={cardBodyStyle}>{t("joiningClubsBody1")}</p>
+              <p style={cardBodyGapStyle}>{t("joiningClubsBody2")}</p>
+              <CardCta href="/clubs">{t("joiningClubsCta")}</CardCta>
             </div>
           </div>
 
@@ -780,13 +783,10 @@ export function JoiningSection() {
                   height={58}
                   style={{ objectFit: "contain", flexShrink: 0 }}
                 />
-                <h3 style={cardTitleStyle}>Free stuff, just for joining</h3>
+                <h3 style={cardTitleStyle}>{t("joiningPerksTitle")}</h3>
               </div>
-              <p style={cardBodyStyle}>
-                GitHub Education, Brilliant Premium, and a bunch more &mdash; all unlocked just by
-                being part of Hack Club. No catch, no cost.
-              </p>
-              <CardCta href="https://toolbox.hackclub.com/">See all perks</CardCta>
+              <p style={cardBodyStyle}>{t("joiningPerksBody")}</p>
+              <CardCta href="https://toolbox.hackclub.com/">{t("joiningPerksCta")}</CardCta>
             </div>
           </div>
         </div>

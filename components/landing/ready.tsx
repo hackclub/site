@@ -1,8 +1,13 @@
-import Link from "next/link";
+"use client";
+
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { EmailSignupInput } from "./email-signup";
 import { BtnArrow } from "./btn-arrow";
 
 export function ReadySection() {
+  const t = useTranslations("Home");
+  const tc = useTranslations("Common");
   return (
     <section
       style={{
@@ -38,7 +43,7 @@ export function ReadySection() {
             margin: "0 0 24px",
           }}
         >
-          Ready?
+          {t("readyTitle")}
         </h2>
 
         {/* Email pill */}
@@ -55,7 +60,7 @@ export function ReadySection() {
             lineHeight: 1.2,
           }}
         >
-          Get started with building something real.
+          {t("readyBody")}
         </p>
 
         {/* "Explore current programs" button */}
@@ -81,7 +86,7 @@ export function ReadySection() {
             marginTop: 16,
           }}
         >
-          Explore current programs <BtnArrow />
+          {t("readyCta")} <BtnArrow />
         </Link>
 
         {/* Italic subtitle */}
@@ -97,7 +102,7 @@ export function ReadySection() {
             pointerEvents: "auto",
           }}
         >
-          For all teens aged 13–18. By continuing, you agree to our{" "}
+          {tc("termsAgree")}{" "}
           <Link
             href="/privacy-and-terms"
             className="ready-terms-link"
@@ -108,7 +113,7 @@ export function ReadySection() {
               pointerEvents: "auto",
             }}
           >
-            terms.
+            {tc("terms")}
           </Link>
         </p>
       </div>
