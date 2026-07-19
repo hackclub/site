@@ -7,9 +7,9 @@ import {
   FISCAL_REGIONS,
   getClimateRegionParam,
 } from "@/lib/fiscal-sponsorship-config";
+import { getLocaleDomain, routing } from "@/i18n/routing";
 
-const SITE_URL = "https://hackclub.com";
-const APP_DIR = path.join(process.cwd(), "app");
+const APP_DIR = path.join(process.cwd(), "app", "[locale]");
 const EXCLUDED_PAGE_ROUTES = new Set(["/programs/edit"]);
 
 function collectStaticRoutes(dir = APP_DIR, routeSegments: string[] = []): string[] {
@@ -41,31 +41,49 @@ function collectStaticRoutes(dir = APP_DIR, routeSegments: string[] = []): strin
   return routes;
 }
 
+function withLocales(pathName: string): MetadataRoute.Sitemap {
+  const path = pathName === "/" ? "" : pathName;
+  return routing.locales.map((locale) => ({
+    url: `${getLocaleDomain(locale)}${path}`,
+    alternates: {
+      languages: Object.fromEntries(
+        routing.locales.map((loc) => [loc, `${getLocaleDomain(loc)}${path}`]),
+      ),
+    },
+  }));
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   await connection();
 
   const staticRoutes = collectStaticRoutes();
-  const urls = staticRoutes.map((route) => ({
-    url: `${SITE_URL}${route}`,
-  }));
+  const urls: MetadataRoute.Sitemap = [];
+
+  for (const route of staticRoutes) {
+    urls.push(...withLocales(route));
+  }
 
   for (const category of DIRECTORY_CATEGORIES) {
-    urls.push({
-      url: `${SITE_URL}/fiscal-sponsorship/directory/${encodeURIComponent(category.id)}`,
-    });
+    urls.push(
+      ...withLocales(`/fiscal-sponsorship/directory/${encodeURIComponent(category.id)}`),
+    );
   }
 
   for (const region of FISCAL_REGIONS) {
-    urls.push({
-      url: `${SITE_URL}/fiscal-sponsorship/climate/${encodeURIComponent(getClimateRegionParam(region))}`,
-    });
+    urls.push(
+      ...withLocales(
+        `/fiscal-sponsorship/climate/${encodeURIComponent(getClimateRegionParam(region))}`,
+      ),
+    );
   }
 
   for (const category of DIRECTORY_CATEGORIES) {
     for (const region of FISCAL_REGIONS) {
-      urls.push({
-        url: `${SITE_URL}/fiscal-sponsorship/directory/${encodeURIComponent(category.id)}/${encodeURIComponent(region.slug)}`,
-      });
+      urls.push(
+        ...withLocales(
+          `/fiscal-sponsorship/directory/${encodeURIComponent(category.id)}/${encodeURIComponent(region.slug)}`,
+        ),
+      );
     }
   }
 

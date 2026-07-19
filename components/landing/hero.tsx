@@ -1,6 +1,7 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { EmailSignupInput } from "./email-signup";
@@ -271,6 +272,8 @@ function WaveDivider() {
 }
 
 export function HeroSection() {
+  const t = useTranslations("Home");
+  const tc = useTranslations("Common");
   const magazineRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const rafRef = useRef<number | null>(null);
@@ -773,7 +776,7 @@ export function HeroSection() {
             height={222}
             style={{ width: 18, height: "auto", display: "block", flexShrink: 0 }}
           />
-          {"Check out Stardance, the largest free STEM event of the summer"}
+          {t("stardance")}
           <span className="btn-arrow" aria-hidden="true">
             <BtnArrowSvg />
           </span>
@@ -792,7 +795,7 @@ export function HeroSection() {
             textAlign: "center",
           }}
         >
-          {"Where "}
+          {t("headlineWhere")}
           <span
             style={{
               background:
@@ -804,10 +807,10 @@ export function HeroSection() {
               animation: "teens-gradient 6s linear infinite",
             }}
           >
-            teens
+            {t("headlineTeens")}
           </span>
           <br />
-          {"make cool stuff."}
+          {t("headlineRest")}
         </h1>
 
         {/* Subtext */}
@@ -824,8 +827,7 @@ export function HeroSection() {
             maxWidth: "min(600px, calc(100vw - 64px))",
           }}
         >
-          Hack Club is the world&rsquo;s largest nonprofit movement of teenagers making cool
-          projects.
+{t("subtext")}
         </p>
 
         {/* Email signup */}
@@ -861,9 +863,7 @@ export function HeroSection() {
             columnGap: 4,
           }}
         >
-          <span style={{ color: "var(--foreground)" }}>
-            For all teens aged 13–18. By continuing, you agree to our
-          </span>
+          <span style={{ color: "var(--foreground)" }}>{tc("termsAgree")}</span>
           <Link
             href="/privacy-and-terms"
             style={{
@@ -874,7 +874,7 @@ export function HeroSection() {
               whiteSpace: "nowrap",
             }}
           >
-            terms.
+            {tc("terms")}
           </Link>
         </p>
 

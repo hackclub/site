@@ -1,7 +1,10 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { Icon } from "./Icon";
 import { ThemeToggle } from "./ThemeToggle";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 const footerLinkStyles = {
   fontWeight: 400,
@@ -22,28 +25,6 @@ const sectionHeadingStyles = {
 } as const;
 const u = { color: "var(--paper)", textDecoration: "underline", textUnderlineOffset: 2 } as const;
 
-const hcLinks = [
-  { label: "Philosophy", href: "/philosophy" },
-  { label: "Our Team & Board", href: "/team" },
-  { label: "Jobs", href: "/jobs" },
-  { label: "Branding", href: "/brand" },
-  { label: "Press Inquiries", href: "/press" },
-  { label: "Donate", href: "/philanthropy" },
-  { label: "Imprint", href: "/imprint" },
-];
-
-const resLinks = [
-  { label: "Programs", href: "/programs" },
-  { label: "Community Events", href: "https://events.hackclub.com/" },
-  { label: "Hackathons", href: "https://hackathons.hackclub.com/" },
-  { label: "Toolbox", href: "https://toolbox.hackclub.com/" },
-  { label: "Clubs", href: "/clubs" },
-  { label: "HCB", href: "/fiscal-sponsorship" },
-  { label: "Code of Conduct", href: "/conduct" },
-  { label: "Safeguarding Policy", href: "/safeguarding" },
-  { label: "Privacy & Terms", href: "/privacy-and-terms" },
-];
-
 const icons = [
   { label: "GitHub", href: "https://github.com/hackclub", glyph: "github" },
   { label: "YouTube", href: "https://www.youtube.com/c/HackClubHQ", glyph: "youtube" },
@@ -59,7 +40,7 @@ function isExternal(href: string) {
 
 function LinkCol({ title, links }: { title: string; links: { label: string; href: string }[] }) {
   return (
-    <div style={title === "Resources" ? { minWidth: 140 } : undefined}>
+    <div style={title === "Resources" || title === "Ресурсы" ? { minWidth: 140 } : undefined}>
       <p style={sectionHeadingStyles}>{title}</p>
       <ul
         style={{
@@ -96,7 +77,30 @@ function LinkCol({ title, links }: { title: string; links: { label: string; href
 }
 
 export function Footer() {
+  const t = useTranslations("Footer");
   const year = new Date().getFullYear();
+
+  const hcLinks = [
+    { label: t("philosophy"), href: "/philosophy" },
+    { label: t("teamBoard"), href: "/team" },
+    { label: t("jobs"), href: "/jobs" },
+    { label: t("branding"), href: "/brand" },
+    { label: t("press"), href: "/press" },
+    { label: t("donate"), href: "/philanthropy" },
+    { label: t("imprint"), href: "/imprint" },
+  ];
+
+  const resLinks = [
+    { label: t("programs"), href: "/programs" },
+    { label: t("communityEvents"), href: "https://events.hackclub.com/" },
+    { label: t("hackathons"), href: "https://hackathons.hackclub.com/" },
+    { label: t("toolbox"), href: "https://toolbox.hackclub.com/" },
+    { label: t("clubs"), href: "/clubs" },
+    { label: t("hcb"), href: "/fiscal-sponsorship" },
+    { label: t("conduct"), href: "/conduct" },
+    { label: t("safeguarding"), href: "/safeguarding" },
+    { label: t("privacy"), href: "/privacy-and-terms" },
+  ];
 
   return (
     <footer
@@ -168,11 +172,11 @@ export function Footer() {
               lineHeight: 1.2,
             }}
           >
-            For teens, by teens.
+            {t("tagline")}
           </p>
           <a
             href="tel:18556254225"
-            aria-label="Call Hack Club toll-free at 1-855-625-4225"
+            aria-label={t("phoneLabel")}
             style={{
               fontWeight: 400,
               fontSize: 20,
@@ -184,7 +188,7 @@ export function Footer() {
               display: "inline-block",
             }}
           >
-            1-855-625-HACK (call toll-free)
+            {t("phone")}
           </a>
           <div style={{ display: "flex", gap: 12 }}>
             {icons.map((i) => (
@@ -214,8 +218,8 @@ export function Footer() {
           </div>
         </div>
         <div style={{ display: "flex", gap: 48, flexWrap: "wrap" }}>
-          <LinkCol title="Hack Club" links={hcLinks} />
-          <LinkCol title="Resources" links={resLinks} />
+          <LinkCol title={t("hackClub")} links={hcLinks} />
+          <LinkCol title={t("resources")} links={resLinks} />
         </div>
       </div>
 
@@ -241,17 +245,18 @@ export function Footer() {
             lineHeight: 1.5,
           }}
         >
-          © {year} Hack Club. Registered under{" "}
+          {t("copyright", { year })}{" "}
           <a
             href="https://the.hackfoundation.org/"
             target="_blank"
             rel="noopener noreferrer"
             style={u}
           >
-            The Hack Foundation
+            {t("hackFoundation")}
           </a>
-          , a 501(c)(3) nonprofit (EIN: 81-2908499).
-          {` Commit ${sha}`}, open source at{" "}
+          {t("nonprofit")}
+          {` ${t("commit", { sha })}`}
+          {t("openSourceAt")}{" "}
           <a
             href="https://github.com/hackclub/site"
             target="_blank"

@@ -1,36 +1,32 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 
-type SafetyCard = {
-  title: string;
-  description: string;
-  href: string;
-};
-
-const cards: SafetyCard[] = [
-  {
-    title: "Code of Conduct",
-    description:
-      "The standards we hold everyone to across our community spaces, events, and projects.",
-    href: "/conduct",
-  },
-  {
-    title: "Safeguarding Policy",
-    description: "How we protect participants at our in-person events.",
-    href: "/safeguarding",
-  },
-];
-
 export function SafetyPage() {
+  const t = useTranslations("Safety");
+
+  const cards = [
+    {
+      title: t("conductTitle"),
+      description: t("conductDescription"),
+      href: "/conduct",
+    },
+    {
+      title: t("safeguardingTitle"),
+      description: t("safeguardingDescription"),
+      href: "/safeguarding",
+    },
+  ];
+
   return (
     <main id="main" tabIndex={-1} className="safety-page">
       <section className="safety-hero">
         <Navbar invertColors />
         <div className="safety-shell safety-hero__inner">
-          <h1>Hack Club Safety</h1>
+          <h1>{t("title")}</h1>
         </div>
         <div className="safety-hero__grain" aria-hidden="true" />
       </section>
@@ -39,36 +35,36 @@ export function SafetyPage() {
         <div className="safety-help">
           <div className="safety-help__row">
             <div className="safety-help__context">
-              <span className="safety-help__context-title">On Slack or online</span>
+              <span className="safety-help__context-title">{t("onlineTitle")}</span>
               <div className="safety-help__item">
-                <span className="safety-help__label">Report via Slack</span>
+                <span className="safety-help__label">{t("reportSlackLabel")}</span>
                 <a
                   className="safety-help__btn"
                   href="https://hackclub.enterprise.slack.com/team/U07K4TS9HQE"
                 >
-                  DM @Shroud on Slack &rarr;
+                  {t("reportSlackCta")}
                 </a>
               </div>
               <div className="safety-help__item">
-                <span className="safety-help__label">Report via email</span>
+                <span className="safety-help__label">{t("reportEmailLabel")}</span>
                 <a className="safety-help__btn" href="mailto:conduct@hackclub.com">
-                  Email conduct@hackclub.com &rarr;
+                  {t("reportEmailCta")}
                 </a>
               </div>
             </div>
             <div className="safety-help__divider" aria-hidden="true" />
             <div className="safety-help__context">
-              <span className="safety-help__context-title">At an in-person event</span>
+              <span className="safety-help__context-title">{t("eventTitle")}</span>
               <div className="safety-help__item">
-                <span className="safety-help__label">Need urgent help?</span>
+                <span className="safety-help__label">{t("urgentLabel")}</span>
                 <a className="safety-help__btn" href="tel:18556254225">
-                  Call 1-855-625-4225 &rarr;
+                  {t("urgentCta")}
                 </a>
               </div>
               <div className="safety-help__item">
-                <span className="safety-help__label">File an incident report</span>
+                <span className="safety-help__label">{t("incidentLabel")}</span>
                 <a className="safety-help__btn" href="https://hack.club/incident">
-                  hack.club/incident &rarr;
+                  {t("incidentCta")}
                 </a>
               </div>
             </div>
@@ -81,7 +77,7 @@ export function SafetyPage() {
               <h2>{card.title}</h2>
               <p>{card.description}</p>
               <span className="safety-card__arrow" aria-hidden="true">
-                Read more &rarr;
+                {t("readMore")}
               </span>
             </Link>
           ))}

@@ -1,5 +1,8 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { BtnArrowSvg } from "./btn-arrow";
 
 const donors = [
@@ -42,6 +45,7 @@ const donorNames = [
 ];
 
 export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
+  const t = useTranslations("Home");
   return (
     <section
       className="section-padded"
@@ -127,7 +131,7 @@ export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
         }}
         className="donors-headline"
       >
-        Supported by people who believe in teens.
+        {t("donorsTitle")}
       </h2>
 
       {/* Subtext — "free for every teenager" */}
@@ -142,7 +146,7 @@ export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
           lineHeight: 1.2,
         }}
       >
-        Hack Club is free for every teenager, forever.
+        {t("donorsFree")}
       </p>
 
       {/* Donor logo wall — static and larger */}
@@ -249,20 +253,20 @@ export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
         }}
       >
         <p style={{ margin: "0 0 0" }}>
-          {"Hack Club is a 501(c)(3) nonprofit. Our finances are fully open — anyone can "}
+          {t("donorsOpen")}{" "}
           <a
             href="https://hcb.hackclub.com/hq"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "var(--red)", textDecoration: "underline" }}
           >
-            see exactly how money is spent.
+            {t("donorsSeeSpend")}
           </a>
         </p>
         <p style={{ margin: "0.75em 0 0" }}>
-          {"If you believe in what we're building, "}
+          {t("donorsBelieve")}{" "}
           <Link href="/philanthropy" style={{ color: "var(--red)", textDecoration: "underline" }}>
-            {"we'd love your support."}
+            {t("donorsSupport")}
           </Link>
         </p>
       </div>
@@ -294,7 +298,7 @@ export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
           marginBottom: 80,
         }}
       >
-        Learn more &amp; donate
+        {t("donorsCta")}
         <BtnArrowSvg />
       </Link>
 

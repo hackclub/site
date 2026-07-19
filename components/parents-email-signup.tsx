@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { isValidEmail } from "@/lib/email";
 
 const F = "var(--font-phantom)";
@@ -8,6 +9,7 @@ const F = "var(--font-phantom)";
 type Status = "idle" | "loading" | "success" | "error";
 
 export function ParentsEmailSignup() {
+  const t = useTranslations("Parents");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
@@ -15,7 +17,7 @@ export function ParentsEmailSignup() {
   const submit = async () => {
     if (!isValidEmail(email)) {
       setStatus("error");
-      setErrorMsg("Enter a valid email address");
+      setErrorMsg(t("invalidEmail"));
       return;
     }
     setStatus("loading");
@@ -27,7 +29,7 @@ export function ParentsEmailSignup() {
       });
       if (res.status === 403) {
         setStatus("error");
-        setErrorMsg("Unable to verify request — try again");
+        setErrorMsg(t("verifyFailed"));
         return;
       }
       if (!res.ok) throw new Error();
@@ -35,7 +37,7 @@ export function ParentsEmailSignup() {
       setEmail("");
     } catch {
       setStatus("error");
-      setErrorMsg("Something went wrong — try again");
+      setErrorMsg(t("genericError"));
     }
   };
 
@@ -62,7 +64,7 @@ export function ParentsEmailSignup() {
         <input
           id="parents-email"
           type="email"
-          placeholder="email"
+          placeholder={t("emailPlaceholder")}
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
@@ -105,7 +107,7 @@ export function ParentsEmailSignup() {
             flexShrink: 0,
           }}
         >
-          {status === "success" ? "Joined!" : status === "loading" ? "…" : "Sign up!"}
+          {status === "success" ? t("joined") : status === "loading" ? "…" : t("signUp")}
         </button>
       </div>
       {status === "error" && (
