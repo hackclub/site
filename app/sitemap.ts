@@ -64,9 +64,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   for (const category of DIRECTORY_CATEGORIES) {
-    urls.push(
-      ...withLocales(`/fiscal-sponsorship/directory/${encodeURIComponent(category.id)}`),
-    );
+    urls.push(...withLocales(`/fiscal-sponsorship/directory/${encodeURIComponent(category.id)}`));
   }
 
   for (const region of FISCAL_REGIONS) {

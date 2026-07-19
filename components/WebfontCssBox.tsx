@@ -30,8 +30,12 @@ export function WebfontCssBox({ code }: WebfontCssBoxProps) {
       <summary>
         <span className="brand-details__title-wrap">
           <span>{t("webfontTitle")}</span>
-          <span className="brand-details__hint brand-details__hint--closed">{t("webfontExpand")}</span>
-          <span className="brand-details__hint brand-details__hint--open">{t("webfontCollapse")}</span>
+          <span className="brand-details__hint brand-details__hint--closed">
+            {t("webfontExpand")}
+          </span>
+          <span className="brand-details__hint brand-details__hint--open">
+            {t("webfontCollapse")}
+          </span>
         </span>
         <button
           type="button"

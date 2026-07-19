@@ -590,7 +590,7 @@ export function JoiningSection() {
             lineHeight: 1.2,
           }}
         >
-{t("joiningSubtext")}
+          {t("joiningSubtext")}
         </p>
 
         {/* Cards stack */}
@@ -643,7 +643,7 @@ export function JoiningSection() {
                     marginRight: 8,
                   }}
                 />
-<h3 style={cardTitleStyle}>{t("joiningSlackTitle")}</h3>
+                <h3 style={cardTitleStyle}>{t("joiningSlackTitle")}</h3>
               </div>
 
               {/* Body text */}
@@ -714,14 +714,16 @@ export function JoiningSection() {
                   height={50}
                   style={{ objectFit: "contain", flexShrink: 0 }}
                 />
-<h3 style={cardTitleStyle}>{t("joiningHcbTitle")}</h3>
+                <h3 style={cardTitleStyle}>{t("joiningHcbTitle")}</h3>
               </div>
               {/* Body text — constrained to leave room for right image */}
               <div className="joining-card2-body" style={{ maxWidth: "calc(100% - 340px)" }}>
                 <p style={cardBodyStyle}>{t("joiningHcbBody1")}</p>
                 <p style={cardBodyGapStyle}>{t("joiningHcbBody2")}</p>
               </div>
-              <CardCta href="https://hcb.hackclub.com/applications/new">{t("joiningHcbCta")}</CardCta>
+              <CardCta href="https://hcb.hackclub.com/applications/new">
+                {t("joiningHcbCta")}
+              </CardCta>
             </div>
           </div>
 
@@ -749,7 +751,7 @@ export function JoiningSection() {
                   height={48}
                   style={{ objectFit: "contain", flexShrink: 0 }}
                 />
-<h3 style={cardTitleStyle}>{t("joiningClubsTitle")}</h3>
+                <h3 style={cardTitleStyle}>{t("joiningClubsTitle")}</h3>
               </div>
               <p style={cardBodyStyle}>{t("joiningClubsBody1")}</p>
               <p style={cardBodyGapStyle}>{t("joiningClubsBody2")}</p>
@@ -781,7 +783,7 @@ export function JoiningSection() {
                   height={58}
                   style={{ objectFit: "contain", flexShrink: 0 }}
                 />
-<h3 style={cardTitleStyle}>{t("joiningPerksTitle")}</h3>
+                <h3 style={cardTitleStyle}>{t("joiningPerksTitle")}</h3>
               </div>
               <p style={cardBodyStyle}>{t("joiningPerksBody")}</p>
               <CardCta href="https://toolbox.hackclub.com/">{t("joiningPerksCta")}</CardCta>

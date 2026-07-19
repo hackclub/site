@@ -827,7 +827,7 @@ export function HeroSection() {
             maxWidth: "min(600px, calc(100vw - 64px))",
           }}
         >
-{t("subtext")}
+          {t("subtext")}
         </p>
 
         {/* Email signup */}

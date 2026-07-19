@@ -32,8 +32,7 @@ export default async function TeamPage({ params }: Props) {
     left.name.localeCompare(right.name),
   );
 
-  const filterMembers = (predicate: (member: TeamMember) => boolean) =>
-    members.filter(predicate);
+  const filterMembers = (predicate: (member: TeamMember) => boolean) => members.filter(predicate);
 
   const hqGroups: MemberGroup[] = [
     {

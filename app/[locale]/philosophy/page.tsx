@@ -112,8 +112,7 @@ export default async function PhilosophyPage({ params }: Props) {
                 {row.leadText && (row.linkLabel || row.body) ? " " : ""}
                 {"linkHref" in row && row.linkHref && row.linkLabel ? (
                   <>
-                    {row.bodyPrefix}{" "}
-                    <a href={row.linkHref}>{row.linkLabel}</a> {row.bodySuffix}
+                    {row.bodyPrefix} <a href={row.linkHref}>{row.linkLabel}</a> {row.bodySuffix}
                   </>
                 ) : (
                   row.body

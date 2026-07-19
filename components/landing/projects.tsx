@@ -211,7 +211,7 @@ export async function ProjectsSection() {
             margin: 0,
           }}
         >
-{t("projectsSubtext")}
+          {t("projectsSubtext")}
         </p>
       </div>
 
