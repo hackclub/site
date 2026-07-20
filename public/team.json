@@ -259,6 +259,30 @@
     "avatar": "https://cachet.hackclub.com/users/U06859NLY5D/r"
   },
   {
+    "name": "Sierra Bach",
+    "department": "HCB",
+    "staff": true,
+    "role": "Controller",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U0B1WJXBEKT",
+    "email": "sierra",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/019f80ac-5908-7890-8ad0-0313a13a2868/sierra.png"
+  },
+  {
+    "name": "Georgia Wood",
+    "department": "HCB",
+    "staff": true,
+    "role": "Financial Operations",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U0AAWST7XGF",
+    "email": "lucy",
+    "website": "https://cdn.hackclub.com/019f80ae-9606-7394-ae62-f1c92c667af8/georgia.png",
+    "avatar": ""
+  },
+  {
     "name": "Luke Oldenburg",
     "department": "HCB",
     "role": "Engineering Contributor",
