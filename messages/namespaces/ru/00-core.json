@@ -122,7 +122,14 @@
     "joiningPerksCta": "Все предложения",
     "readyTitle": "Поехали?",
     "readyBody": "Начни делать что-то стоящее.",
-    "readyCta": "Смотреть программы"
+    "readyCta": "Смотреть программы",
+    "stickerFirstAddress": "ШТАБ HACK CLUB",
+    "stickerSecondAddress": "БЕРЛИНГТОН, ВЕРМОНТ",
+    "stickerCountryAddress": "США",
+    "stickerTo": "Кому:",
+    "stickerYou": "Вам, ребятам",
+    "stickerWhere": "Со всего света",
+    "stickerGet": "Бесплатные наклейки"
   },
   "NotFound": {
     "title": "Мы не нашли эту страницу.",

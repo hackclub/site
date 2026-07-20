@@ -122,7 +122,14 @@
     "joiningPerksCta": "See all perks",
     "readyTitle": "Ready?",
     "readyBody": "Get started with building something real.",
-    "readyCta": "Explore current programs"
+    "readyCta": "Explore current programs",
+    "stickerFirstAddress": "HACK CLUB HQ",
+    "stickerSecondAddress": "BURLINGTON, VT",
+    "stickerCountryAddress": "",
+    "stickerTo": "TO:",
+    "stickerYou": "you, a teenager",
+    "stickerWhere": "anywhere on Earth",
+    "stickerGet": "Get free stickers"
   },
   "NotFound": {
     "title": "We couldn't find this page.",
