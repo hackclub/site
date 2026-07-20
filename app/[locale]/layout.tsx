@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SkipToMainLink } from "@/components/SkipToMainLink";
 import { routing, getLocaleDomain } from "@/i18n/routing";
-import { phantomSans, zarathustra } from "../fonts";
+import { phantomSans, zarathustra, cormorant, geologica } from "../fonts";
 import "../globals.css";
 
 type Props = {
@@ -68,7 +68,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale}
-      className={`h-full ${phantomSans.variable} ${zarathustra.variable}`}
+      className={`h-full ${locale == "ru" ? geologica.variable : phantomSans.variable} ${locale == "ru" ? cormorant.variable : zarathustra.variable}`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >

@@ -75,9 +75,11 @@ export function StickerEnvelopeLink() {
               whiteSpace: "nowrap",
             }}
           >
-            HACK CLUB HQ
+            {t("stickerFirstAddress")}
             <br />
-            BURLINGTON, VT
+            {t("stickerSecondAddress")}
+            <br />
+            {t("stickerCountryAddress")}
           </div>
 
           {/* Stamp — red with white Hack Club flag */}
@@ -161,17 +163,19 @@ export function StickerEnvelopeLink() {
                 flexShrink: 0,
               }}
             >
-              TO:
+              {t("stickerTo")}
             </span>
             <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ borderBottom: "1.2px solid rgba(23,23,29,0.35)" }}>you, a teenager</div>
+              <div style={{ borderBottom: "1.2px solid rgba(23,23,29,0.35)" }}>
+                {t("stickerYou")}
+              </div>
               <div
                 style={{
                   borderBottom: "1.2px solid rgba(23,23,29,0.35)",
                   marginTop: "6.5%",
                 }}
               >
-                anywhere on Earth
+                {t("stickerWhere")}
               </div>
             </div>
           </div>
@@ -221,7 +225,7 @@ export function StickerEnvelopeLink() {
           boxShadow: "0 5px 16px rgba(236,55,80,0.40), 0 2px 5px rgba(23,23,29,0.14)",
         }}
       >
-        Get free stickers
+        {t("stickerGet")}
         <svg
           className="sticker-envelope-arrow"
           aria-hidden="true"

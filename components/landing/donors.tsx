@@ -36,16 +36,15 @@ const donors = [
   },
 ];
 
-const donorNames = [
-  "Musk Foundation",
-  "Michael Dell (CEO of Dell)",
-  "Dr. Lisa Su (CEO of AMD)",
-  "Tobi Lutke (CEO of Shopify)",
-  "Tom Preston-Werner (Co-founder of GitHub)",
-];
-
 export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
   const t = useTranslations("Home");
+  const donorNames = [
+    t("donorsMusk"),
+    t("donorsDell"),
+    t("donorsAMD"),
+    t("donorsShopify"),
+    t("donorsGithub"),
+  ];
   return (
     <section
       className="section-padded"
