@@ -114,18 +114,17 @@ const additionalSupporters = [
 ];
 
 const additionalSupportersRU = [
-    "Dylan Field, Основатель, Figma",
-    "Guillermo Rauch, Основатель, Vercel",
-    "Taylor Otwell, Создатель Laravel",
-    "Theo Bleier, Технический специалист, Simile",
-    "Kevin Yang, Главный научный сотрудник, Microsoft",
-    "Amjad Masad, Сооснователь, Replit",
-    "Conrad Kramer, Сооснователь, Workflow",
-    "David Cramer, Сооснователь, Sentry",
-    "Mahmoud Abdelkader, Генеральный директор, Very Good Security",
-    "Blake Lieberman, Партнер, Rief Ventures",
+  "Dylan Field, Основатель, Figma",
+  "Guillermo Rauch, Основатель, Vercel",
+  "Taylor Otwell, Создатель Laravel",
+  "Theo Bleier, Технический специалист, Simile",
+  "Kevin Yang, Главный научный сотрудник, Microsoft",
+  "Amjad Masad, Сооснователь, Replit",
+  "Conrad Kramer, Сооснователь, Workflow",
+  "David Cramer, Сооснователь, Sentry",
+  "Mahmoud Abdelkader, Генеральный директор, Very Good Security",
+  "Blake Lieberman, Партнер, Rief Ventures",
 ];
-
 
 const pressLogos = [
   {
@@ -396,7 +395,10 @@ export default async function PhilanthropyPage({ params }: Props) {
 
         <h3 className="philanthropy-supporters-title">{t("supportersTitle")}</h3>
         <div className="philanthropy-pill-grid">
-          {(t("metaTitle") == "Программы — Hack Club" ? additionalSupporters : additionalSupportersRU).map((supporter) => (
+          {(t("metaTitle") == "Программы — Hack Club"
+            ? additionalSupporters
+            : additionalSupportersRU
+          ).map((supporter) => (
             <span key={supporter}>{supporter}</span>
           ))}
         </div>

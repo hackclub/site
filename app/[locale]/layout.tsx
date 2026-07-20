@@ -68,7 +68,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale}
-      className={`h-full ${locale == 'ru' ? geologica.variable : phantomSans.variable} ${locale == 'ru' ? cormorant.variable : zarathustra.variable}`}
+      className={`h-full ${locale == "ru" ? geologica.variable : phantomSans.variable} ${locale == "ru" ? cormorant.variable : zarathustra.variable}`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >

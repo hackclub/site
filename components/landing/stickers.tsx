@@ -166,7 +166,9 @@ export function StickerEnvelopeLink() {
               {t("stickerTo")}
             </span>
             <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ borderBottom: "1.2px solid rgba(23,23,29,0.35)" }}>{t("stickerYou")}</div>
+              <div style={{ borderBottom: "1.2px solid rgba(23,23,29,0.35)" }}>
+                {t("stickerYou")}
+              </div>
               <div
                 style={{
                   borderBottom: "1.2px solid rgba(23,23,29,0.35)",
