@@ -69,12 +69,17 @@ async function readPrograms({ fresh = false }: FetchProgramsOptions = {}): Promi
 
   return (ywswData.records ?? []).map((record: { id: string; fields: Record<string, string> }) => {
     const name = record.fields["Name"] ?? "Unnamed";
+    const websiteUrl = record.fields["Website URL"]?.trim();
     return {
       id: record.id,
       name,
       startDate: record.fields["Start Date"],
       endDate: record.fields["End Date"] || null,
-      websiteUrl: record.fields["Website URL"] ?? null,
+      websiteUrl: websiteUrl
+        ? /^https?:\/\//i.test(websiteUrl)
+          ? websiteUrl
+          : `https://${websiteUrl}`
+        : null,
       site: siteMap.get(name) ?? null,
     };
   });

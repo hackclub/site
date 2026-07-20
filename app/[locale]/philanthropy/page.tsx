@@ -113,6 +113,19 @@ const additionalSupporters = [
   "Blake Lieberman, Partner, Rief Ventures",
 ];
 
+const additionalSupportersRU = [
+  "Dylan Field, Основатель, Figma",
+  "Guillermo Rauch, Основатель, Vercel",
+  "Taylor Otwell, Создатель Laravel",
+  "Theo Bleier, Технический специалист, Simile",
+  "Kevin Yang, Главный научный сотрудник, Microsoft",
+  "Amjad Masad, Сооснователь, Replit",
+  "Conrad Kramer, Сооснователь, Workflow",
+  "David Cramer, Сооснователь, Sentry",
+  "Mahmoud Abdelkader, Генеральный директор, Very Good Security",
+  "Blake Lieberman, Партнер, Rief Ventures",
+];
+
 const pressLogos = [
   {
     href: "https://www.businessinsider.com/zach-lattas-hacker-club-got-him-on-forbes-30-under-30-2016-1",
@@ -382,7 +395,7 @@ export default async function PhilanthropyPage({ params }: Props) {
 
         <h3 className="philanthropy-supporters-title">{t("supportersTitle")}</h3>
         <div className="philanthropy-pill-grid">
-          {additionalSupporters.map((supporter) => (
+          {(locale === "ru" ? additionalSupportersRU : additionalSupporters).map((supporter) => (
             <span key={supporter}>{supporter}</span>
           ))}
         </div>
