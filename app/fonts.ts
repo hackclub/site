@@ -51,6 +51,7 @@ export const geologica = localFont({
   src: "../public/font/Geologica.ttf",
   variable: "--font-phantom-src",
   display: "swap",
+  weight: "100 900",
   fallback: ["system-ui", "sans-serif"],
   adjustFontFallback: "Arial",
   preload: false,
