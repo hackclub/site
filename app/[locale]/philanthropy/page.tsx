@@ -395,10 +395,7 @@ export default async function PhilanthropyPage({ params }: Props) {
 
         <h3 className="philanthropy-supporters-title">{t("supportersTitle")}</h3>
         <div className="philanthropy-pill-grid">
-          {(t("metaTitle") == "Программы — Hack Club"
-            ? additionalSupporters
-            : additionalSupportersRU
-          ).map((supporter) => (
+          {(locale === "ru" ? additionalSupportersRU : additionalSupporters).map((supporter) => (
             <span key={supporter}>{supporter}</span>
           ))}
         </div>
