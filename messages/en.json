@@ -129,7 +129,12 @@
     "stickerTo": "TO:",
     "stickerYou": "you, a teenager",
     "stickerWhere": "anywhere on Earth",
-    "stickerGet": "Get free stickers"
+    "stickerGet": "Get free stickers",
+    "donorsMusk": "Musk Foundation",
+    "donorsDell": "Michael Dell (CEO of Dell)",
+    "donorsAMD": "Dr. Lisa Su (CEO of AMD)",
+    "donorsShopify": "Tobi Lutke (CEO of Shopify)",
+    "donorsGithub": "Tom Preston-Werner (Co-founder of GitHub)"
   },
   "NotFound": {
     "title": "We couldn't find this page.",

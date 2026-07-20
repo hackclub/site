@@ -129,7 +129,12 @@
     "stickerTo": "Кому:",
     "stickerYou": "Вам, ребятам",
     "stickerWhere": "Со всего света",
-    "stickerGet": "Бесплатные наклейки"
+    "stickerGet": "Бесплатные наклейки",
+    "donorsMusk": "Фонд Маска",
+    "donorsDell": "Michael Dell (Исполнительный директор Dell)",
+    "donorsAMD": "Лиза Су (Исполнительный директор AMD)",
+    "donorsShopify": "Тобиас Лютке (Исполнительный директор Shopify)",
+    "donorsGithub": "Том Престон-Вернер (Со-основатель GitHub)"
   },
   "NotFound": {
     "title": "Мы не нашли эту страницу.",
