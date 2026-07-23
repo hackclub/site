@@ -4,7 +4,7 @@
 Пожалуйста, внесите в список разрешённых или разблокируйте следующие домены:
 
 - `*.hackclub.com` — основной домен Hack Club; на нём размещены воркшопы, инструменты и другой контент
-- `hack.af` — сокращатель ссылок для различных ссылок
+- `hack.club`, `hack.af` — сокращатель ссылок для различных ссылок
 - `*.github.com`, `github.dev` — GitHub, отраслевой стандарт размещения кода и совместной работы, принадлежит Microsoft
 - `hackclub.slack.com`, `hackclub.enterprise.slack.com` — основная платформа общения Hack Club
 
@@ -15,6 +15,8 @@
 Если вы не можете разрешить все поддомены, разрешите следующие:
 
 - `hackclub.com`
+- `auth.hackclub.com`
+- `ysws.hackclub.com`
 - `workshops.hackclub.com`
 - `jams.hackclub.com`
 - `sprig.hackclub.com`

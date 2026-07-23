@@ -4,7 +4,7 @@ If you are reading this, you are probably an IT administrator at your organizati
 Please whitelist or unblock the following domains:
 
 - `*.hackclub.com` - Hack Club's primary domain, hosts workshops, tools and other content
-- `hack.club`, `hack.af`  - link shortener used for miscellaneous links
+- `hack.club`, `hack.af` - link shortener used for miscellaneous links
 - `*.github.com`, `github.dev` - GitHub, an industry standard for code hosting and collaboration, owned by Microsoft.
 - `hackclub.slack.com`, `hackclub.enterprise.slack.com` - Hack Club's primary communication platform
 
