@@ -47,7 +47,7 @@ export function SafetyPage() {
               </div>
               <div className="safety-help__item">
                 <span className="safety-help__label">{t("reportEmailLabel")}</span>
-                <a className="safety-help__btn" href="mailto:conduct@hackclub.com">
+                <a className="safety-help__btn" href="mailto:safety@hackclub.com">
                   {t("reportEmailCta")}
                 </a>
               </div>
