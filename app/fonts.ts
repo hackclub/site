@@ -35,3 +35,24 @@ export const zarathustra = localFont({
   adjustFontFallback: "Times New Roman",
   preload: false,
 });
+
+export const cormorant = localFont({
+  src: "../public/font/Remark-Bold.otf",
+  variable: "--font-zarathustra-src",
+  display: "swap",
+  weight: "400",
+  style: "bold",
+  fallback: ["Georgia", "serif"],
+  adjustFontFallback: "Times New Roman",
+  preload: false,
+});
+
+export const geologica = localFont({
+  src: "../public/font/Geologica.ttf",
+  variable: "--font-phantom-src",
+  display: "swap",
+  weight: "100 900",
+  fallback: ["system-ui", "sans-serif"],
+  adjustFontFallback: "Arial",
+  preload: false,
+});

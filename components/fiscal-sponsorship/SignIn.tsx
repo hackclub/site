@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 interface HCBUser {
   name: string;
@@ -9,6 +10,7 @@ interface HCBUser {
 }
 
 export function SignIn() {
+  const t = useTranslations("Hcb");
   const [user, setUser] = useState<HCBUser | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -34,7 +36,7 @@ export function SignIn() {
   }, []);
 
   const hasUser = !isLoading && Boolean(user);
-  const label = hasUser ? "Continue to HCB" : "Sign in";
+  const label = hasUser ? t("continueToHcb") : t("signIn");
 
   return (
     <>
@@ -47,7 +49,7 @@ export function SignIn() {
             <span className="fiscal-signin__avatar-ring">
               <Image
                 src={user.avatar}
-                alt={`${user.name}'s HCB avatar`}
+                alt={t("avatarAlt", { name: user.name })}
                 width={28}
                 height={28}
                 className="fiscal-signin__avatar"

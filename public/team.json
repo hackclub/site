@@ -8,12 +8,12 @@
     "slackId": "",
     "email": "louisa",
     "website": "U06EMBJH71S",
-    "avatar": "https://cachet.dunkirk.sh/users/U06EMBJH71S/r"
+    "avatar": "https://cachet.hackclub.com/users/U06EMBJH71S/r"
   },
   {
     "name": "Eesha",
     "department": "Events",
-    "role": "Virtual Events Lead",
+    "role": "Virtual Events Organizer",
     "acknowledged": false,
     "bio": "Eesha is a 17 year old Hack Clubber from the USA who enjoys robotics, physics, and programming websites. She also likes doing nail art and learning about art history. When working, she likes to listen to Paramore or NF. She has been involved in Hack Club since March 2024, where she manages virtual events.",
     "slackId": "U06QST7V0J2",
@@ -24,7 +24,7 @@
   {
     "name": "Aishaani",
     "department": "Events",
-    "role": "Virtual Event Organizer",
+    "role": "Virtual Events Lead",
     "acknowledged": false,
     "bio": "Aishaani is a 15 year old Hack Clubber from Canada. She focuses on organizing and supporting virtual events through Slack as part of the Special Activities Division and loves organizing hackathons. She revolves around all things tech; hardware, web development, 3D design/CAD... and sometimes helps out with art for Hack Club projects. In her free time, she enjoys listening to music and producing her own songs, writing, rollerblading, and ice skating. She is also working on her podcast series, Orbiting the Future.",
     "slackId": "U097UCZE2BB",
@@ -41,7 +41,7 @@
     "slackId": "U084T4KCZ8Q",
     "email": "",
     "website": "https://www.charlottewoodrum.dev/",
-    "avatar": "https://cachet.dunkirk.sh/users/U084T4KCZ8Q/r"
+    "avatar": "https://cachet.hackclub.com/users/U084T4KCZ8Q/r"
   },
   {
     "name": "Irtaza",
@@ -85,29 +85,29 @@
     "slackId": "U0943NG73PA",
     "email": "",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U0943NG73PA/r"
+    "avatar": "https://cachet.hackclub.com/users/U0943NG73PA/r"
   },
   {
     "name": "Benjamin Graetz",
     "department": "Events",
     "role": "Virtual Event Organizer",
     "acknowledged": false,
-    "bio": "Benjamin Graetz is a 14 year old from Adelaide, Australia. He joined Hack Club during High Seas (via GitHub Education Newspapers) but he has also successfully ran Daydream Adelaide and Campfire Adelaide plus he runs his own Hack Club. He also loves things to do with ICT like management stuff and computers.",
+    "bio": "Benjamin Graetz is a 14 year old from Adelaide, Australia. He joined Hack Club during High Seas (via GitHub Education Newspapers) but he has also successfully run Daydream Adelaide and Campfire Adelaide plus he runs his own Hack Club. He also loves things to do with ICT like management stuff and computers.",
     "slackId": "U0828CN2BL4",
     "email": "",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U0828CN2BL4/r"
+    "avatar": "https://cachet.hackclub.com/users/U0828CN2BL4/r"
   },
   {
     "name": "Tanishq Goyal",
     "department": "Events",
     "role": "Virtual Event Organizer",
     "acknowledged": false,
-    "bio": "Tanishq Goyal is a 15-year-old hacker! He joined Hack Club during Highway, when he fell in love with engineering. He has organized a few AMAs and was a part of the Highway and Blueprint team. He loves to fence, hike, snowboard, and bike. He also loves chess and would love to take you up in a game when you meet!",
+    "bio": "Tanishq Goyal is a 15-year-old from New Jersey who joined Hack Club during [Highway](http://highway.hackclub.com/), where he fell in love with engineering. He's now an intern at Hack Club, part of the Special Activities Department, and he organized [Fallout](https://fallout.hackclub.com/). He was also part of the Blueprint team, where he helped lead the review team. Outside of code, he loves to fence, hike, snowboard, bike, and is a chess fan! He'll happily take you on for a game when you meet.",
     "slackId": "U08R4Q9H8EB",
-    "email": "",
+    "email": "tanishq@hackclub.com",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U08R4Q9H8EB/r"
+    "avatar": "https://cdn.hackclub.com/019f200a-a888-714d-ab07-7975d2adb5fd/frame_1.png"
   },
   {
     "name": "Joel Gallagher",
@@ -118,7 +118,7 @@
     "slackId": "U0829HRSQ76",
     "email": "",
     "website": "pianoman0.com",
-    "avatar": "https://cachet.dunkirk.sh/users/U0829HRSQ76/r"
+    "avatar": "https://cachet.hackclub.com/users/U0829HRSQ76/r"
   },
   {
     "name": "Gary Tou",
@@ -130,7 +130,7 @@
     "slackId": "UN79ZPYMQ",
     "email": "gary",
     "website": "https://garytou.com",
-    "avatar": "https://cachet.dunkirk.sh/users/UN79ZPYMQ/r"
+    "avatar": "https://cachet.hackclub.com/users/UN79ZPYMQ/r"
   },
   {
     "name": "Paul Spitler",
@@ -142,7 +142,7 @@
     "slackId": "U0641CJ2LKZ",
     "email": "paul",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U0641CJ2LKZ/r"
+    "avatar": "https://cachet.hackclub.com/users/U0641CJ2LKZ/r"
   },
   {
     "name": "Melanie Smith",
@@ -166,7 +166,7 @@
     "slackId": "U05TM5A2B46",
     "email": "kris",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U05TM5A2B46/r"
+    "avatar": "https://cachet.hackclub.com/users/U05TM5A2B46/r"
   },
   {
     "name": "Albert C",
@@ -177,7 +177,7 @@
     "slackId": "U03CFAP9ABC",
     "email": "",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U03CFAP9ABC/r"
+    "avatar": "https://cachet.hackclub.com/users/U03CFAP9ABC/r"
   },
   {
     "name": "Alex DeForrest",
@@ -187,7 +187,7 @@
     "acknowledged": false,
     "bio": "",
     "slackId": "U02CWS020SD",
-    "email": "alexd",
+    "email": "alex",
     "website": "",
     "avatar": "https://i.ibb.co/hJqLm5Cn/adf.png"
   },
@@ -200,7 +200,7 @@
     "slackId": "U0401RQMCQ5",
     "email": "alexluo",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U0401RQMCQ5/r"
+    "avatar": "https://cachet.hackclub.com/users/U0401RQMCQ5/r"
   },
   {
     "name": "Anish Anne",
@@ -211,7 +211,7 @@
     "slackId": "UR83LFD36",
     "email": "anish",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/UR83LFD36/r"
+    "avatar": "https://cachet.hackclub.com/users/UR83LFD36/r"
   },
   {
     "name": "Bartosz Budnik",
@@ -233,7 +233,7 @@
     "slackId": "U04FS5WUXL3",
     "email": "briyan",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U04FS5WUXL3/r"
+    "avatar": "https://cachet.hackclub.com/users/U04FS5WUXL3/r"
   },
   {
     "name": "Ian Madden",
@@ -256,7 +256,31 @@
     "slackId": "U06859NLY5D",
     "email": "lucy",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U06859NLY5D/r"
+    "avatar": "https://cachet.hackclub.com/users/U06859NLY5D/r"
+  },
+  {
+    "name": "Sierra Bach",
+    "department": "HCB",
+    "staff": true,
+    "role": "Controller",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U0B1WJXBEKT",
+    "email": "sierra",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/019f80ac-5908-7890-8ad0-0313a13a2868/sierra.png"
+  },
+  {
+    "name": "Georgia Wood",
+    "department": "HCB",
+    "staff": true,
+    "role": "Financial Operations",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U0AAWST7XGF",
+    "email": "georgia",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/019f80ae-9606-7394-ae62-f1c92c667af8/georgia.png"
   },
   {
     "name": "Luke Oldenburg",
@@ -267,7 +291,7 @@
     "slackId": "U06MYDS2LHX",
     "email": "luke",
     "website": "",
-    "avatar": "https://cdn.hackclub.com/019d4b19-8b52-79a8-a564-a80f0aba90fb/img_7726.png"
+    "avatar": "https://cdn.hackclub.com/019eff32-d63a-7b93-8a36-f05e78d0c5de/image%20new%20cropped.JPG"
   },
   {
     "name": "Manu Gurudath",
@@ -278,7 +302,7 @@
     "slackId": "U04C8LLPKS7",
     "email": "manu",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U04C8LLPKS7/r"
+    "avatar": "https://cachet.hackclub.com/users/U04C8LLPKS7/r"
   },
   {
     "name": "Lilia Dostie",
@@ -322,7 +346,7 @@
     "slackId": "U04GECG3H8W",
     "email": "rhys",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U04GECG3H8W/r"
+    "avatar": "https://cachet.hackclub.com/users/U04GECG3H8W/r"
   },
   {
     "name": "Ruien Luo",
@@ -344,7 +368,7 @@
     "slackId": "USNPNJXNX",
     "email": "sam",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/USNPNJXNX/r"
+    "avatar": "https://cachet.hackclub.com/users/USNPNJXNX/r"
   },
   {
     "name": "Samuel Fernandez",
@@ -366,18 +390,18 @@
     "slackId": "U055092HPMZ",
     "email": "sarvesh",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U055092HPMZ/r"
+    "avatar": "https://cachet.hackclub.com/users/U055092HPMZ/r"
   },
   {
     "name": "Sean Outram",
     "department": "HCB",
     "role": "Operations Contributor",
     "acknowledged": false,
-    "bio": "Sean is a hackclubber hailing from the UK, They help with HCB operations and writes the occassional line of code.",
+    "bio": "Sean is a hackclubber hailing from the UK, They help with HCB operations and writes the occasional line of code.",
     "slackId": "U04FATFRE6T",
     "email": "sean",
     "website": "https://sean.cyou",
-    "avatar": "https://cachet.dunkirk.sh/users/U04FATFRE6T/r"
+    "avatar": "https://cachet.hackclub.com/users/U04FATFRE6T/r"
   },
   {
     "name": "Max Wofford",
@@ -401,7 +425,7 @@
     "slackId": "UDK5M9Y13",
     "email": "cwalker",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/UDK5M9Y13/r"
+    "avatar": "https://cachet.hackclub.com/users/UDK5M9Y13/r"
   },
   {
     "name": "Deven Jadhav",
@@ -447,13 +471,17 @@
     "slackId": "U093FC28A82",
     "email": "rebeka",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U093FC28A82/r"
+    "avatar": "https://cachet.hackclub.com/users/U093FC28A82/r"
   },
   {
     "name": "Evan Streams",
     "staff": true,
     "department": "HQ",
     "role": "Community Manager",
+    "acknowledged": false,
+    "bio": " Evan Streams manages the Hack Club Online Community! Before joining Hack Club, he was a taught debate in the US and China. He loves hiking, reading, and thinking about the future of AI and other technology.",
+    "slackId": "U09Q8MLTE58",
+    "email": "eps",
     "avatar": "https://i.ibb.co/PXvjBqF/2026-01-27-0on-Kleki.png"
   },
   {
@@ -462,11 +490,11 @@
     "department": "HQ",
     "role": "Club Operations Lead",
     "acknowledged": false,
-    "bio": "",
+    "bio": "Jared is a 35 year old former teacher from St. Albans, VT. He enjoys golf, reading, riding motorcycles, and eRacing! He is also a cat dad of two gorgeous cats called Toast and Orville. Currently, he is the Club Operations Lead! ",
     "slackId": "U07HEH4N8UV",
     "email": "jared",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U07HEH4N8UV/r"
+    "avatar": "https://cachet.hackclub.com/users/U07HEH4N8UV/r"
   },
   {
     "name": "Nora",
@@ -478,7 +506,7 @@
     "slackId": "U06QK6AG3RD",
     "email": "nora",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U06QK6AG3RD/r"
+    "avatar": "https://cachet.hackclub.com/users/U06QK6AG3RD/r"
   },
   {
     "name": "Rachel Albert",
@@ -502,7 +530,7 @@
     "slackId": "U07L45U4CTX",
     "email": "paolo",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U07L45U4CTX/r"
+    "avatar": "https://cachet.hackclub.com/users/U07L45U4CTX/r"
   },
   {
     "name": "Acon Lin",
@@ -549,7 +577,7 @@
     "slackId": "U0823F39GV8",
     "email": "",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U0823F39GV8/r",
+    "avatar": "https://cachet.hackclub.com/users/U0823F39GV8/r",
     "gapyear": true
   },
   {
@@ -557,29 +585,29 @@
     "department": "HQ",
     "role": "Engineering and Community",
     "acknowledged": false,
-    "bio": "Angad is a 16 year old Hack Clubber from Wisconsin. During his time in the Hack Club community, he's built a peer voting platform for over 2000 students, ran a YSWS providing travel stipends, and build moderation infastructure for Hack Club. In his free time, he enjoys photography, travel, and pondering.",
+    "bio": "Angad is a 16 year old Hack Clubber from Wisconsin. During his time in the Hack Club community, he's built a peer voting platform for over 2000 students, ran a YSWS providing travel stipends, and built moderation infrastructure for Hack Club. In his free time, he enjoys photography, travel, and pondering.",
     "slackId": "U075RTSLDQ8",
     "email": "angad",
     "website": "https://angad.me",
-    "avatar": "https://cachet.dunkirk.sh/users/U075RTSLDQ8/r"
+    "avatar": "https://cachet.hackclub.com/users/U075RTSLDQ8/r"
   },
   {
     "name": "Angad Behl",
     "department": "Moderation",
     "role": "Moderation & Conduct",
     "acknowledged": false,
-    "bio": "Angad is a 16 year old Hack Clubber from Wisconsin. During his time in the Hack Club community, he's built a peer voting platform for over 2000 students, ran a YSWS providing travel stipends, and build moderation infastructure for Hack Club. In his free time, he enjoys photography, travel, and pondering.",
+    "bio": "Angad is a 16 year old Hack Clubber from Wisconsin. During his time in the Hack Club community, he's built a peer voting platform for over 2000 students, ran a YSWS providing travel stipends, and built moderation infrastructure for Hack Club. In his free time, he enjoys photography, travel, and pondering.",
     "slackId": "U075RTSLDQ8",
     "email": "angad",
     "website": "https://angad.me",
-    "avatar": "https://cachet.dunkirk.sh/users/U075RTSLDQ8/r"
+    "avatar": "https://cachet.hackclub.com/users/U075RTSLDQ8/r"
   },
   {
     "name": "Annabel",
     "department": "HQ",
     "role": "Engineering & Community",
     "acknowledged": false,
-    "bio": "Annabel is a 17 year old Hack Clubber from Australia. They're currently gap-yearing for Hack Club and have worked on several programs and the Athena intiative. They're an avid Celeste and Hollow Knight fan and love to play games in their free time. They also love to build things, and have built several tools for Hack Club.",
+    "bio": "Annabel is a 17 year old Hack Clubber from Australia. They're currently gap-yearing for Hack Club and have worked on several programs and the Athena initiative. They're an avid Celeste and Hollow Knight fan and love to play games in their free time. They also love to build things, and have built several tools for Hack Club.",
     "slackId": "U078J6H1XL3",
     "email": "annabel",
     "gapyear": true,
@@ -613,13 +641,13 @@
   {
     "name": "Dhyan",
     "department": "HQ",
-    "role": "Club Engineering & Operations",
+    "role": "Club Engineering & Infrastructure Lead",
     "acknowledged": false,
     "bio": "",
     "slackId": "U0824G9PTFE",
     "email": "dhyan",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U0824G9PTFE/r"
+    "avatar": "https://cachet.hackclub.com/users/U0824G9PTFE/r"
   },
   {
     "name": "Rowan",
@@ -674,7 +702,7 @@
     "role": "Engineering",
     "acknowledged": false,
     "bio": "Euan learned to code to automate a boring job at 16, He realised he loved coding and making so started to teach robotics to younger kids and now is building programs to teach kids all around the world at Hack Club",
-    "bioHackFoundatio": "",
+    "bioHackFoundation": "",
     "slackId": "U06T30DNB3L",
     "email": "euan",
     "website": "",
@@ -690,7 +718,7 @@
     "slackId": "U05D1G4H754",
     "email": "evan",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U05D1G4H754/r"
+    "avatar": "https://cachet.hackclub.com/users/U05D1G4H754/r"
   },
   {
     "name": "Gus Ruben",
@@ -702,7 +730,7 @@
     "slackId": "U07FCRNHS1J",
     "email": "gus",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U07FCRNHS1J/r"
+    "avatar": "https://cachet.hackclub.com/users/U07FCRNHS1J/r"
   },
   {
     "name": "Renran Sun",
@@ -713,14 +741,14 @@
     "bio": "",
     "slackId": "U07ACECRYM6",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U07ACECRYM6/r"
+    "avatar": "https://cachet.hackclub.com/users/U07ACECRYM6/r"
   },
   {
     "name": "Ivie Fonner",
     "department": "HQ",
     "role": "Club Infrastructure and Operations",
     "acknowledged": false,
-    "bio": "Ivie (aka. Charmunk) is a 14 year old Hack Clubber from the DC area. When she is not coding, she enjoys sci-fi novels, and playing card games. At Hack Club, she builds the underlining systems allowing Hack Club Clubs to run smoothly. She joined Hack Club in late 2024 and has been working on various projects since then.",
+    "bio": "Ivie (aka Charmunk) is a 14-year-old Hack Clubber from the DC area. When she is not coding, she enjoys sci-fi novels and playing card games. At Hack Club, she builds the underlying systems allowing Hack Club Clubs to run smoothly. She joined Hack Club in late 2024 and has been working on various projects since then.",
     "slackId": "U04KEK4TS72",
     "email": "ivie",
     "website": "https://ivie.codes",
@@ -729,12 +757,23 @@
   {
     "name": "Jenin Henin",
     "department": "HQ",
-    "role": "Club Operations",
+    "role": "YSWS & Club Operations",
     "acknowledged": false,
     "bio": "Jenin is a 14-year-old Hack Clubber from Canada who got involved with Hack Club in July 2025. He hopes to help Hack Clubbers achieve new things!",
     "slackId": "U0926UASBJ7",
     "email": "jenin",
-    "avatar": "https://cachet.dunkirk.sh/users/U0926UASBJ7/r"
+    "avatar": "https://cachet.hackclub.com/users/U0926UASBJ7/r"
+  },
+  {
+    "name": "Rushil Chopra",
+    "department": "HQ",
+    "role": "YSWS + Club + Philanthropy Ops",
+    "acknowledged": false,
+    "bio": "Rushil is a 16-year-old builder from California running a youth yoga nonprofit and building Agathon, an AI Socratic learning platform. Having started on Hack Club's YSWS & Clubs team, he now works on the philanthropy team to help scale programs and bring more young makers into the community",
+    "slackId": "U020X4GCWSF",
+    "email": "rushil",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U020X4GCWSF/r"
   },
   {
     "name": "Jiang Tongyu",
@@ -790,7 +829,7 @@
     "slackId": "U07ULNFPQ4T",
     "email": "lynn",
     "website": "https://lynn.pt/",
-    "avatar": "https://cachet.dunkirk.sh/users/U07ULNFPQ4T/r"
+    "avatar": "https://cachet.hackclub.com/users/U07ULNFPQ4T/r"
   },
   {
     "name": "Manitej Boorgu",
@@ -813,7 +852,7 @@
     "slackId": "U06P62WGWAV",
     "email": "meghana",
     "website": "https://meghana.co",
-    "avatar": "https://cachet.dunkirk.sh/users/U06P62WGWAV/r"
+    "avatar": "https://cachet.hackclub.com/users/U06P62WGWAV/r"
   },
   {
     "name": "Celeste Roselli",
@@ -838,23 +877,12 @@
     "department": "HQ",
     "role": "Engineering & Community",
     "acknowledged": false,
-    "bio": "Reem is a 17 year old Hack Clubber from New York City. She's currently gap-yearing for Hack Club's Athena Initative, working to increase the number of girls and non-binary teens in tech. In her free time, you can either find her diving into a swimming pool or snuggled in bed reading a book with her cat.",
+    "bio": "Reem is a 17 year old Hack Clubber from New York City. She's currently gap-yearing for Hack Club's Athena Initiative, working to increase the number of girls and non-binary teens in tech. In her free time, you can either find her diving into a swimming pool or snuggled in bed reading a book with her cat.",
     "slackId": "U06U80G86H1",
     "email": "reem",
     "website": "https://reemkhalifa.xyz",
     "avatar": "https://i.ibb.co/CKV0Bvcz/reem.png",
     "gapyear": true
-  },
-  {
-    "name": "Rushil Chopra",
-    "department": "HQ",
-    "role": "YSWS & Club Operations",
-    "acknowledged": false,
-    "bio": "Rushil is a 16-year-old from California who runs a yoga nonprofit and is building a mental health app for teens. He joined the YSWS & Clubs Team to help grow the program and bring more people into Hack Club!",
-    "slackId": "U020X4GCWSF",
-    "email": "rushil",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U020X4GCWSF/r"
   },
   {
     "name": "Sam Liu",
@@ -900,7 +928,7 @@
     "slackId": "U07L45W79E1",
     "website": "https://saahild.com",
     "email": "neon",
-    "avatar": "https://cachet.dunkirk.sh/users/U07L45W79E1/r"
+    "avatar": "https://cachet.hackclub.com/users/U07L45W79E1/r"
   },
   {
     "name": "Mahad Kalam",
@@ -953,7 +981,7 @@
     "acknowledged": false,
     "bio": "Zaid is a 15-year-old Hack Clubber from India who is keen on getting clubs to grow. He is actively involved on the Clubs Team and loves to help out new and upcoming leaders. He also loves to play soccer and cook food in his free time!",
     "email": "zaid@hackclub.com",
-    "avatar": "https://cachet.dunkirk.sh/users/U083VVA9M0W/r"
+    "avatar": "https://cdn.hackclub.com/019f362c-71d2-788d-96fe-999ffb75b3aa/dasi3.png"
   },
   {
     "name": "Will Kitch",
@@ -973,7 +1001,7 @@
     "bio": "David is an 18 year old Hack Clubber from the UK, who got started with Hack Club 3 years ago. He's worked on Fusering, and now helps the Clubs team with operations and onboarding. In his free time, he enjoys 3D modelling and archery!",
     "email": "davidp@hackclub.com",
     "website": "https://fletchworks.dev/",
-    "avatar": "https://cachet.dunkirk.sh/users/U06LWHNLL3B/r"
+    "avatar": "https://cachet.hackclub.com/users/U06LWHNLL3B/r"
   },
   {
     "name": "Wally",
@@ -994,7 +1022,7 @@
     "slackId": "U054VC2KM9P",
     "email": "amber",
     "website": "https://transcental.dev",
-    "avatar": "https://cachet.dunkirk.sh/users/U054VC2KM9P/r"
+    "avatar": "https://cachet.hackclub.com/users/U054VC2KM9P/r"
   },
   {
     "name": "Kat",
@@ -1005,7 +1033,7 @@
     "slackId": "U06SQJ508LF",
     "email": "",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U06SQJ508LF/r"
+    "avatar": "https://cachet.hackclub.com/users/U06SQJ508LF/r"
   },
   {
     "name": "Maadhav",
@@ -1016,7 +1044,7 @@
     "slackId": "U08L7HLBT6V",
     "email": "",
     "website": "https://maadhavbhatt.github.io",
-    "avatar": "https://cachet.dunkirk.sh/users/U08L7HLBT6V/r"
+    "avatar": "https://cachet.hackclub.com/users/U08L7HLBT6V/r"
   },
   {
     "name": "Aishaani",
@@ -1047,7 +1075,7 @@
     "acknowledged": false,
     "bio": "Joel, who goes by PianoMan0 online, is a Hack Clubber who welcomes people into the Slack and helps them settle in.",
     "slackId": "U0829HRSQ76",
-    "avatar": "https://cachet.dunkirk.sh/users/U0829HRSQ76/r"
+    "avatar": "https://cachet.hackclub.com/users/U0829HRSQ76/r"
   },
   {
     "name": "Junya",
@@ -1058,7 +1086,7 @@
     "slackId": "U082PAFDDS5",
     "email": "",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U082PAFDDS5/r"
+    "avatar": "https://cachet.hackclub.com/users/U082PAFDDS5/r"
   },
   {
     "name": "Jeremy",
@@ -1101,7 +1129,7 @@
     "slackId": "U096NGLTF4K",
     "email": "",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U096NGLTF4K/r"
+    "avatar": "https://cachet.hackclub.com/users/U096NGLTF4K/r"
   },
   {
     "name": "Julia Do",
@@ -1112,18 +1140,7 @@
     "slackId": "U0943NG73PA",
     "email": "",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U0943NG73PA/r"
-  },
-  {
-    "name": "Dani",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
-    "acknowledged": false,
-    "bio": "",
-    "slackId": "U07E6TW9DL0",
-    "email": "",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U07E6TW9DL0/r"
+    "avatar": "https://cachet.hackclub.com/users/U0943NG73PA/r"
   },
   {
     "name": "Mahad Kalam",
@@ -1145,7 +1162,7 @@
     "slackId": "U07DEBE2RUL",
     "email": "",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U07DEBE2RUL/r"
+    "avatar": "https://cachet.hackclub.com/users/U07DEBE2RUL/r"
   },
   {
     "name": "Alex Park",
@@ -1156,7 +1173,7 @@
     "slackId": "U01581HFAGZ",
     "email": "alexp",
     "website": "https://parkalex.dev",
-    "avatar": "https://cachet.dunkirk.sh/users/U01581HFAGZ/r"
+    "avatar": "https://cachet.hackclub.com/users/U01581HFAGZ/r"
   },
   {
     "name": "Kyra Ezikeuzor",
@@ -1167,7 +1184,7 @@
     "slackId": "U03RG1Y7HNW",
     "email": "kyra",
     "website": "https://kyraezikeuzor.vercel.app/",
-    "avatar": "https://cachet.dunkirk.sh/users/U03RG1Y7HNW/r"
+    "avatar": "https://cachet.hackclub.com/users/U03RG1Y7HNW/r"
   },
   {
     "name": "Louisa",
@@ -1178,7 +1195,7 @@
     "slackId": "",
     "email": "louisa",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U06EMBJH71S/r"
+    "avatar": "https://cachet.hackclub.com/users/U06EMBJH71S/r"
   },
   {
     "name": "Parneel Bhakhri",
@@ -1189,7 +1206,7 @@
     "slackId": "U07V1ND4H0Q",
     "email": "",
     "website": "https://pbhak.dev/",
-    "avatar": "https://cachet.dunkirk.sh/users/U07V1ND4H0Q/r"
+    "avatar": "https://cachet.hackclub.com/users/U07V1ND4H0Q/r"
   },
   {
     "name": "Samvid",
@@ -1212,5 +1229,16 @@
     "email": "",
     "website": "https://v1c.rocks/",
     "avatar": "https://cdn.hackclub.com/019d8d6d-d38e-7d2c-97ad-ebed21ae3a69/2026_04_14_0ph_Kleki%20(1).png"
+  },
+  {
+    "name": "Spencer McKnight",
+    "department": "HQ",
+    "role": "Safeguarding Associate",
+    "acknowledged": false,
+    "bio": "Spencer is a 19 year old who likes volunteering and tumbling, they are going to university for computing and electronic engineering.",
+    "slackId": "U08U39SCQAE",
+    "email": "spencer@events.hackclub.com",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U08U39SCQAE/r"
   }
 ]

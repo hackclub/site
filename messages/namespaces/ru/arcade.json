@@ -1,0 +1,137 @@
+{
+  "Arcade": {
+    "metaTitle": "ARCADE — Hack Club",
+    "metaDescription": "Главный летний хакатон для школьников. Делай проекты. Считай часы. Меняй на призы.",
+    "comboAlt": "GitHub + Hack Club",
+    "heroTagline": "У тебя всё лето впереди.",
+    "heroNote": "ARCADE закрылся 1 сентября, но ты всё ещё можешь вступить в <slack>Hack Club Slack</slack>!",
+    "prizesHeroAlt": "Призы ARCADE",
+    "howToPlay": "Как играть",
+    "step1Title": "Делай проекты",
+    "step1Text": "Создай что-нибудь крутое. Например: свою плату, свой сайт, своё приложение.",
+    "step2Title": "Копи часы",
+    "step2Text": "Вступи в <slack>Hack Club Slack</slack> и пиши /hack в #arcade, чтобы логировать часы. За каждый час — 1 билет.",
+    "step3Title": "Меняй на призы",
+    "step3Text": "Трать билеты на призы для следующего проекта: Arduino наборы, графические планшеты и многое другое.",
+    "repeatLine": "Создавай. Получай. Повторяй.",
+    "stickerLine": "Получи <stickers>бесплатные стикеры</stickers> и создавай проекты с другими ребятами!",
+    "buildingPrefix": "Ты мог бы собирать",
+    "seeMoreProjects": "Ещё проекты",
+    "oneHourAtATime": "Часики то тикают,",
+    "whatWillYouMake": "А что <you>ты</you> сделаешь этим летом?",
+    "buildWhateverTitle": "Создавай что душе угодно!",
+    "buildWhateverBody": "Любой технический проект считается. AR-игра, пиксельный дисплей, рисующий робот — что угодно. Каждый раз, когда работаешь над проектом, включай таймер hack hour. За каждый час — 1 билет.",
+    "dontKnowWhereToStart": "Не знаешь, с чего начать?",
+    "notSureWhatToMake": "Не знаешь, что делать?",
+    "clickMeForIdeas": "Жми сюда!",
+    "arcadeEndedThanks": "ARCADE закончился! Спасибо, что играли с нами.",
+    "needIdeaAlt": "Нужна идея?",
+    "prizesTitle": "<prizes>Получай призы</prizes>, чтобы прокачать свой следующий проект!",
+    "prizesSubtitle": "Меняй билеты на призы. Только для подростков и младше.",
+    "sneakPeek": "Это лишь <peek>малая часть</peek>... летом открывалось ещё больше призов!",
+    "limited": "Ограничено!",
+    "tickets": "{count, plural, one {# билет} few {# билета} many {# билетов} other {# билета}}",
+    "moreAbout": "Подробнее: {name}",
+    "faqTitle": "ЧаВо",
+    "closeJoin": "Вступай в",
+    "closeBuild": "Делай крутые проекты.",
+    "closeShare": "Делись с друзьями.",
+    "closeDialog": "Закрыть окно",
+    "projectIdeas": {
+      "drawingRobot": "Рисующего робота",
+      "printer3d": "3D-принтер",
+      "electricSkateboard": "Электроскейт",
+      "pixelArtDisplay": "Пиксельный дисплей",
+      "smartGarden": "Умный сад",
+      "cncMachine": "CNC-станок",
+      "ledArt": "Интерактивный LED-арт",
+      "vrEscapeRoom": "VR-квест",
+      "imageRecognition": "Приложение с распознаванием образов",
+      "diyCamera": "Камеру",
+      "multiplayerAr": "Мультиплеерную AR-игру",
+      "droneSwarm": "Рой дронов в танце"
+    },
+    "projectCards": {
+      "elijah": "Наконец зарелизил своего ИИ-клона — было огонь смотреть, что с ним делали другие.",
+      "cupcakes": "Собираю робота Blot.",
+      "konstantinos": "Дрон, который летит за самым большим объектом выбранного цвета."
+    },
+    "starters": {
+      "bobaName": "Boba drops",
+      "bobaDesc": "Собери сайт — получи bubble tea.",
+      "wizardName": "Wizard Orpheus",
+      "wizardDesc": "Текстовая игра с ИИ.",
+      "binName": "The Bin",
+      "binDesc": "Спроектируй схему онлайн — получи детали бесплатно.",
+      "sprigName": "Sprig",
+      "sprigDesc": "JS-игра — и своя консоль, чтобы в неё играть.",
+      "onboardName": "OnBoard",
+      "onboardDesc": "Спроектируй плату — получи $100 грантом.",
+      "hackaccinoName": "Hackaccino",
+      "hackaccinoDesc": "Собери 3D-сайт — получи фраппучино.",
+      "blotName": "Blot",
+      "blotDesc": "Пиши код. Делай искусство. Получи машину для рисования.",
+      "ciderName": "Cider",
+      "ciderDesc": "Сделай мобильное приложение — получи Apple Developer account.",
+      "easelName": "Easel",
+      "easelDesc": "Напиши язык программирования — получи молочных ирисок."
+    },
+    "prizeItems": {
+      "yubikey": {
+        "name": "YubiKey",
+        "description": "Модель 5C NFC с логотипом GitHub"
+      },
+      "bambuLab": {
+        "name": "Bambu Lab",
+        "smallName": "A1 mini"
+      },
+      "solderingIron": {
+        "name": "Паяльник",
+        "smallName": "+ припой"
+      },
+      "framework": {
+        "name": "Framework",
+        "smallName": "16 дюймов"
+      },
+      "flipper": {
+        "name": "Flipper",
+        "smallName": "Zero"
+      },
+      "macbook": {
+        "name": "MacBook",
+        "smallName": "Air M2"
+      },
+      "wacom": {
+        "name": "Wacom",
+        "smallName": "Intuos S"
+      },
+      "logitech": {
+        "name": "Logitech",
+        "smallName": "MX Mechanical"
+      },
+      "quest3": {
+        "name": "Quest 3"
+      }
+    },
+    "faq": {
+      "eligibleQ": "Кто может участвовать?",
+      "eligibleA": "Нужно быть школьником или младше. Достаточно иметь аккаунты GitHub и Slack.",
+      "projectsQ": "Какие проекты считаются?",
+      "projectsA": "Проект должен быть открыт и доступен другим. Документируй свой прогресс по ходу дела.",
+      "howManyQ": "Сколько проектов можно сделать?",
+      "howManyA": "Столько, сколько сделаешь. Мы просто считаем часы.",
+      "costQ": "Сколько это стоит?",
+      "costA": "Бесплатно. В некоторых странах за посылки могут брать пошлину.",
+      "helpQ": "Мне нужна помощь!",
+      "helpA": "Пиши в канал #arcade-help в Hack Club Slack.",
+      "hoursQ": "Мои часы не засчитались!",
+      "hoursA": "Ревью делают люди — иногда это занимает пару дней.",
+      "teamQ": "А если проект в команде?",
+      "teamA": "Да, но твоя часть работы должна быть чётко задокументирована.",
+      "schoolQ": "А школьные или рабочие проекты?",
+      "schoolA": "Если делаешь это для школы или работы — для ARCADE не считается.",
+      "scrapQ": "Что считается черновиком?",
+      "scrapA": "Для кода — коммит. Для Sprig, Blot или 3D-моделей — ссылки на результат."
+    }
+  }
+}

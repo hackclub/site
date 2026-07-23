@@ -1,10 +1,12 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { Icon } from "@/components/Icon";
 import { FISCAL_CONTACT, FISCAL_COLORS, FISCAL_TYPOGRAPHY } from "./constants";
 
 export function ContactBanner() {
+  const t = useTranslations("Hcb");
+
   return (
     <>
       <div
@@ -33,32 +35,36 @@ export function ContactBanner() {
               lineHeight: 1.5,
             }}
           >
-            Questions? Email{" "}
-            <Link
-              href={`mailto:${FISCAL_CONTACT.email}`}
-              style={{
-                color: FISCAL_COLORS.text,
-                textDecoration: "none",
-                borderBottom: `1px solid ${FISCAL_COLORS.text}`,
-                marginLeft: "0.125em",
-                marginRight: "0.125em",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {FISCAL_CONTACT.email}
-            </Link>{" "}
-            or call{" "}
-            <Link
-              href={`tel:${FISCAL_CONTACT.phoneUri}`}
-              style={{
-                color: FISCAL_COLORS.text,
-                textDecoration: "none",
-                borderBottom: `1px solid ${FISCAL_COLORS.text}`,
-                whiteSpace: "nowrap",
-              }}
-            >
-              {FISCAL_CONTACT.phone}
-            </Link>
+            {t.rich("contactQuestions", {
+              email: () => (
+                <a
+                  href={`mailto:${FISCAL_CONTACT.email}`}
+                  style={{
+                    color: FISCAL_COLORS.text,
+                    textDecoration: "none",
+                    borderBottom: `1px solid ${FISCAL_COLORS.text}`,
+                    marginLeft: "0.125em",
+                    marginRight: "0.125em",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {FISCAL_CONTACT.email}
+                </a>
+              ),
+              phone: () => (
+                <a
+                  href={`tel:${FISCAL_CONTACT.phoneUri}`}
+                  style={{
+                    color: FISCAL_COLORS.text,
+                    textDecoration: "none",
+                    borderBottom: `1px solid ${FISCAL_COLORS.text}`,
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {FISCAL_CONTACT.phone}
+                </a>
+              ),
+            })}
           </p>
         </div>
         <p
@@ -71,7 +77,7 @@ export function ContactBanner() {
             color: "#687578",
           }}
         >
-          HCB Visa® Commercial cards are powered by Stripe and issued by Celtic Bank.
+          {t("contactNotice")}
         </p>
       </div>
 

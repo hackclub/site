@@ -25,7 +25,7 @@ function Heading({ level, children }: { level: number; children: React.ReactNode
 
   return (
     <Tag id={id} className="md-heading">
-      <a href={`#${id}`} className="md-heading__anchor" aria-hidden="true">
+      <a href={`#${id}`} className="md-heading__anchor" aria-hidden="true" tabIndex={-1}>
         #
       </a>
       {children}
@@ -40,11 +40,36 @@ const components: Components = {
   h4: ({ children }) => <Heading level={4}>{children}</Heading>,
 };
 
-export function MarkdownPage({ content }: { content: string }) {
+type MarkdownPageProps = {
+  content: string;
+  translationNotice?: string;
+  translationNoticeCta?: string;
+  englishHref?: string;
+};
+
+export function MarkdownPage({
+  content,
+  translationNotice,
+  translationNoticeCta,
+  englishHref,
+}: MarkdownPageProps) {
   return (
     <main id="main" tabIndex={-1} className="markdown-page">
       <Navbar />
       <article className="markdown-page__content">
+        {translationNotice ? (
+          <aside className="markdown-page__notice" role="note">
+            <p>
+              {translationNotice}
+              {englishHref && translationNoticeCta ? (
+                <>
+                  {" "}
+                  <a href={englishHref}>{translationNoticeCta}</a>
+                </>
+              ) : null}
+            </p>
+          </aside>
+        ) : null}
         <Markdown components={components}>{content}</Markdown>
       </article>
       <Footer />
@@ -62,6 +87,20 @@ export function MarkdownPage({ content }: { content: string }) {
           font-family: var(--font-phantom);
           font-size: 1.125rem;
           line-height: 1.7;
+        }
+
+        .markdown-page__notice {
+          margin: 0 0 32px;
+          padding: 14px 16px;
+          border-radius: 10px;
+          border: 1px solid var(--border);
+          background: color-mix(in srgb, var(--red) 8%, var(--background));
+          font-size: 0.95rem;
+          line-height: 1.5;
+        }
+
+        .markdown-page__notice p {
+          margin: 0;
         }
 
         .markdown-page__content h1 {

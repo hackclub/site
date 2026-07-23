@@ -37,6 +37,7 @@ export interface SiteProgram {
   inPersonEnd: string | null; // ISO date YYYY-MM-DD
   inPersonLocation: string | null;
   additionalRequirements: string | null;
+  pinned: boolean;
 }
 
 type RawRecord = {
@@ -63,6 +64,7 @@ type RawRecord = {
     "In-Person End"?: string;
     "In-Person Location"?: string;
     "Additional Requirements"?: string;
+    Pinned?: boolean;
   };
 };
 
@@ -107,6 +109,7 @@ export function parseRecord(r: RawRecord): SiteProgram {
     inPersonEnd: fields["In-Person End"] ?? null,
     inPersonLocation: fields["In-Person Location"] ?? null,
     additionalRequirements: fields["Additional Requirements"] ?? null,
+    pinned: fields["Pinned"] === true,
   };
 }
 
@@ -143,6 +146,7 @@ export const SITE_FIELDS = [
   "In-Person End",
   "In-Person Location",
   "Additional Requirements",
+  "Pinned",
 ];
 
 // Parse a YYYY-MM-DD string as a local calendar date (no timezone shift)
@@ -156,17 +160,18 @@ export function formatInPersonDate(
   start: string | null,
   end: string | null,
   location: string | null,
+  locale = "en",
 ): string | null {
   let datePart = "";
   if (start) {
     const s = parseLocalDate(start);
     const e = end ? parseLocalDate(end) : null;
     if (!e || start === end) {
-      datePart = s.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+      datePart = s.toLocaleDateString(locale, { day: "numeric", month: "short", year: "numeric" });
     } else if (s.getMonth() === e.getMonth() && s.getFullYear() === e.getFullYear()) {
-      datePart = `${s.getDate()}–${e.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}`;
+      datePart = `${s.getDate()}–${e.toLocaleDateString(locale, { day: "numeric", month: "short", year: "numeric" })}`;
     } else {
-      datePart = `${s.toLocaleDateString("en-GB", { day: "numeric", month: "short" })} – ${e.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}`;
+      datePart = `${s.toLocaleDateString(locale, { day: "numeric", month: "short" })} – ${e.toLocaleDateString(locale, { day: "numeric", month: "short", year: "numeric" })}`;
     }
   }
   if (location && datePart) return `${datePart}, ${location}`;

@@ -1,5 +1,9 @@
 import type { NextConfig } from "next";
 import { execSync } from "node:child_process";
+import { withBotId } from "botid/next/config";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const getCommitSha = (): string => {
   const sha =
@@ -205,6 +209,16 @@ const nextConfig: NextConfig = {
         destination: "https://slack.hackclub.com",
         permanent: true,
       },
+      {
+        source: "/events",
+        destination: "https://events.hackclub.com",
+        permanent: true,
+      },
+      {
+        source: "/hackathons",
+        destination: "https://hackathons.hackclub.com",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
@@ -246,10 +260,6 @@ const nextConfig: NextConfig = {
         destination: "/bin/index.html",
       },
       {
-        source: "/bin/:path*",
-        destination: "/bin/:path*",
-      },
-      {
         source: "/bin/selector/",
         destination: "/bin/selector/index.html",
       },
@@ -271,7 +281,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cdn.hackclub.com" },
       { protocol: "https", hostname: "hcb.hackclub.com" },
       { protocol: "https", hostname: "i.ibb.co" },
-      { protocol: "https", hostname: "cachet.dunkirk.sh" },
+      { protocol: "https", hostname: "cachet.hackclub.com" },
       { protocol: "https", hostname: "raw.githubusercontent.com" },
       { protocol: "https", hostname: "github.com" },
       { protocol: "https", hostname: "gravatar.com" },
@@ -282,4 +292,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withBotId(withNextIntl(nextConfig));

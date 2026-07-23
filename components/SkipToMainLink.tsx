@@ -1,6 +1,10 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 export function SkipToMainLink() {
+  const t = useTranslations("Common");
+
   return (
     <a
       href="#main"
@@ -20,7 +24,7 @@ export function SkipToMainLink() {
         window.history.replaceState(null, "", "#main");
       }}
     >
-      Skip to Main Content
+      {t("skipToMain")}
     </a>
   );
 }

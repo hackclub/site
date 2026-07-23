@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { siteAuthHeaders } from "../../../../lib/site-programs";
-import { isValidSlackId } from "../../../../lib/server-auth";
+import { isValidSlackId, isValidAirtableRecordId } from "../../../../lib/server-auth";
 
 export const dynamic = "force-dynamic";
 
@@ -79,7 +79,8 @@ export async function GET(req: NextRequest) {
   }
 
   // 4. Find which programs this person owns
-  const programRecordIds: string[] = authorRecord?.fields?.["Current YSWS Programs"] ?? [];
+  const ids = authorRecord?.fields?.["Current YSWS Programs"];
+  const programRecordIds: string[] = Array.isArray(ids) ? ids.filter(isValidAirtableRecordId) : [];
   if (programRecordIds.length === 0) {
     return NextResponse.json({
       name: authorName,

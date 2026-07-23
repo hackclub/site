@@ -1,8 +1,15 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import { pull, type AirtableProject } from "../../lib/projects";
 import { BtnArrow } from "./btn-arrow";
 
-function ProjectCard({ project }: { project: AirtableProject }) {
+function ProjectCard({
+  project,
+  viewSourceLabel,
+}: {
+  project: AirtableProject;
+  viewSourceLabel: string;
+}) {
   const { projectName, person, age, country, imageUrl, programName, playableUrl, codeUrl } =
     project;
   return (
@@ -91,8 +98,8 @@ function ProjectCard({ project }: { project: AirtableProject }) {
               href={codeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="View source code"
-              title="View source code"
+              aria-label={viewSourceLabel}
+              title={viewSourceLabel}
               style={{
                 color: "var(--foreground)",
                 textDecoration: "none",
@@ -119,6 +126,9 @@ function ProjectCard({ project }: { project: AirtableProject }) {
 const MIN_CARDS = 15;
 
 export async function ProjectsSection() {
+  const t = await getTranslations("Home");
+  const tc = await getTranslations("Common");
+
   let projects: AirtableProject[] = [];
   try {
     projects = await pull(MIN_CARDS);
@@ -128,6 +138,7 @@ export async function ProjectsSection() {
 
   // Carousel needs 3× repetition for seamless loop
   const carouselItems = projects.length ? [...projects, ...projects, ...projects] : [];
+  const viewSourceLabel = tc("viewSource");
 
   return (
     <section
@@ -164,7 +175,7 @@ export async function ProjectsSection() {
             fontWeight: "normal",
           }}
         >
-          Imagine a world where{" "}
+          {t("projectsTitle")}{" "}
           <span
             style={{
               background: "linear-gradient(90deg, #b3203d 0%, #d96b1d 100%)",
@@ -174,7 +185,7 @@ export async function ProjectsSection() {
               display: "inline",
             }}
           >
-            you made this:
+            {t("projectsTitleAccent")}
           </span>
         </h2>
       </div>
@@ -200,8 +211,7 @@ export async function ProjectsSection() {
             margin: 0,
           }}
         >
-          100,000 teens started exactly where you are. We&rsquo;re here to help you build your first
-          crazy thing.
+          {t("projectsSubtext")}
         </p>
       </div>
 
@@ -246,7 +256,11 @@ export async function ProjectsSection() {
           }}
         >
           {carouselItems.map((project, i) => (
-            <ProjectCard key={`${project.id}-${i}`} project={project} />
+            <ProjectCard
+              key={`${project.id}-${i}`}
+              project={project}
+              viewSourceLabel={viewSourceLabel}
+            />
           ))}
         </div>
 
@@ -333,8 +347,8 @@ export async function ProjectsSection() {
             }}
             className="cta-btn dark-btn"
           >
-            <span className="projects-cta-full">See more projects in the 2025 magazine</span>
-            <span className="projects-cta-short">See more in the magazine</span> <BtnArrow />
+            <span className="projects-cta-full">{t("projectsCtaFull")}</span>
+            <span className="projects-cta-short">{t("projectsCtaShort")}</span> <BtnArrow />
           </a>
 
           <label
@@ -358,7 +372,7 @@ export async function ProjectsSection() {
               id="projects-carousel-pause"
               type="checkbox"
               className="carousel-pause-toggle"
-              aria-label="Pause auto-scrolling projects carousel"
+              aria-label={tc("pauseCarousel")}
             />
             <svg
               className="pause-icon"

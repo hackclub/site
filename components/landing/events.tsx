@@ -1,7 +1,9 @@
 "use client";
+import { useTranslations } from "next-intl";
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 import type { AirtableProgram } from "../../lib/programs";
 import { parseLocalDate, selectFeaturedPrograms } from "../../lib/programs";
 import { BtnArrow } from "./btn-arrow";
@@ -23,8 +25,11 @@ function SkeletonCard() {
 
 // ── Dynamic event card ───────────────────────────────────────────────────────
 function EventCard({ program }: { program: AirtableProgram }) {
+  const t = useTranslations("Home");
+  const tc = useTranslations("Common");
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const endDate = parseLocalDate(program.endDate);
+  // endDate may be null for indefinite programs
+  const endDate = program.endDate ? parseLocalDate(program.endDate) : null;
 
   const s = program.site;
   const bgColor = s?.bgColor ?? "var(--surface)";
@@ -59,8 +64,10 @@ function EventCard({ program }: { program: AirtableProgram }) {
     } else {
       badgeLabel = `${start.getDate()} ${start.toLocaleDateString("en-GB", { month: "short" })} – ${end.getDate()} ${end.toLocaleDateString("en-GB", { month: "short" })} ${end.getFullYear()}`;
     }
-  } else {
+  } else if (endDate) {
     badgeLabel = `Ends ${endDate.toLocaleDateString("en-GB", { day: "numeric", month: "short" })}`;
+  } else {
+    badgeLabel = "Ongoing";
   }
 
   return (
@@ -104,6 +111,29 @@ function EventCard({ program }: { program: AirtableProgram }) {
           boxSizing: "border-box",
         }}
       >
+        {/* Pin icon */}
+        {program.site?.pinned && (
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: 36,
+              height: 36,
+              background: "#ec3750",
+              borderBottomRightRadius: 8,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 2,
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+              <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z" />
+            </svg>
+          </div>
+        )}
+
         {/* Background image */}
         {bgImageUrl && (
           <Image
@@ -213,7 +243,7 @@ function EventCard({ program }: { program: AirtableProgram }) {
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
-            Start now <BtnArrow />
+            {tc("startNow")} <BtnArrow />
           </a>
         )}
 
@@ -232,7 +262,7 @@ function EventCard({ program }: { program: AirtableProgram }) {
               paddingRight: 110,
             }}
           >
-            Join the discussion in{" "}
+            {t("eventsSlack")}{" "}
             <a
               href={slackUrl ?? "#"}
               target="_blank"
@@ -287,6 +317,7 @@ export function EventsSection({
 }: {
   initialCards?: AirtableProgram[] | null;
 }) {
+  const t = useTranslations("Home");
   const [cards, setCards] = useState<AirtableProgram[] | null>(initialCards);
 
   useEffect(() => {
@@ -366,7 +397,7 @@ export function EventsSection({
             fontWeight: "normal",
           }}
         >
-          Imagine a world where
+          {t("eventsTitle")}
         </p>
         <p
           style={{
@@ -383,7 +414,7 @@ export function EventsSection({
             paddingBottom: 4,
           }}
         >
-          you were here:
+          {t("eventsTitleAccent")}
         </p>
       </div>
 
@@ -401,7 +432,7 @@ export function EventsSection({
           zIndex: 1,
         }}
       >
-        Every event below is free, open to any teen, and happening right now. Yes, you can go.
+        {t("eventsSubtext")}
       </p>
 
       {/* 2×2 Grid */}
@@ -440,9 +471,9 @@ export function EventsSection({
             marginBottom: 8,
           }}
         >
-          Don&apos;t see something you like?
+          {t("eventsNone")}
         </p>
-        <a
+        <Link
           href="/programs"
           className="cta-btn dark-btn"
           style={{
@@ -463,8 +494,8 @@ export function EventsSection({
             cursor: "pointer",
           }}
         >
-          Explore all programs <BtnArrow />
-        </a>
+          {t("eventsExplore")} <BtnArrow />
+        </Link>
       </div>
 
       {/* Responsive: stack cards on small screens */}

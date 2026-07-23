@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { YouTubeEmbed } from "../YouTubeEmbed";
 
@@ -19,7 +20,7 @@ const photos = [
         />
       </div>
     ),
-    caption: "100 high school game jams in 100 cities around the world, all on the same weekend",
+    captionKey: "photoDaydreamCaption" as const,
   },
   {
     title: "Hack Club Undercity hardware hackathon showcase",
@@ -39,7 +40,7 @@ const photos = [
         }}
       />
     ),
-    caption: "A 4-day hardware hackathon in GitHub HQ, San Francisco.",
+    captionKey: "photoUndercityCaption" as const,
   },
   {
     title: "Hack Club Juice popup games cafe showcase",
@@ -65,11 +66,12 @@ const photos = [
         />
       </div>
     ),
-    caption: "100 teenagers ran a popup games cafe in Shanghai for seven days.",
+    captionKey: "photoJuiceCaption" as const,
   },
 ];
 
-export function HerePhotosSection() {
+export async function HerePhotosSection() {
+  const t = await getTranslations("Home");
   return (
     <section
       className="section-padded"
@@ -93,15 +95,15 @@ export function HerePhotosSection() {
           lineHeight: 1.2,
         }}
       >
-        We&apos;ve done this countless times before.
+        {t("photosTagline")}
         <br />
-        See more on our{" "}
+        {t("photosSeeMore")}{" "}
         <a
           href="https://www.youtube.com/@HackClubHQ"
           className="here-photos-youtube-link"
           style={{ color: "var(--red)", textDecoration: "none" }}
         >
-          Youtube.
+          {t("photosYoutube")}
         </a>
       </p>
 
@@ -149,7 +151,7 @@ export function HerePhotosSection() {
                 textAlign: "center",
               }}
             >
-              {photo.caption}
+              {t(photo.captionKey)}
             </p>
           </div>
         ))}

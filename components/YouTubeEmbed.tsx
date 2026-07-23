@@ -25,16 +25,21 @@ export function YouTubeEmbed({ id, title = "Hack Club video" }: { id: string; ti
     return () => window.clearTimeout(timeout);
   }, [isMounted, isVisible]);
 
-  const handleBackdropClick = useCallback(
-    (e: React.MouseEvent) => {
-      if (e.target === e.currentTarget) requestClose();
-    },
-    [requestClose],
-  );
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") requestClose();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isMounted, requestClose]);
 
   return (
     <>
       <button
+        type="button"
         onClick={open}
         aria-label={`Play ${title}`}
         style={{
@@ -75,26 +80,50 @@ export function YouTubeEmbed({ id, title = "Hack Club video" }: { id: string; ti
       </button>
 
       {isMounted && (
-        <div
-          onClick={handleBackdropClick}
+        <dialog
+          open
+          aria-label="Video player"
+          aria-modal="true"
           style={{
             position: "fixed",
             inset: 0,
+            width: "100vw",
+            height: "100vh",
+            maxWidth: "none",
+            maxHeight: "none",
+            margin: 0,
+            padding: 0,
+            border: "none",
             zIndex: 9999,
             background: "rgba(0,0,0,0.85)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            cursor: "pointer",
             opacity: isVisible ? 1 : 0,
             transition: "opacity 180ms ease-out",
           }}
         >
+          <button
+            type="button"
+            aria-label="Close video"
+            onClick={requestClose}
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              padding: 0,
+              border: "none",
+              background: "transparent",
+              cursor: "pointer",
+            }}
+          />
           <div
             style={{
               width: "min(90vw, 1280px)",
               aspectRatio: "16 / 9",
               position: "relative",
+              zIndex: 1,
             }}
           >
             <button
@@ -129,7 +158,7 @@ export function YouTubeEmbed({ id, title = "Hack Club video" }: { id: string; ti
               }}
             />
           </div>
-        </div>
+        </dialog>
       )}
     </>
   );

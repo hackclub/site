@@ -3,12 +3,14 @@
 import { useMemo, useState } from "react";
 import Prism from "prismjs";
 import "prismjs/components/prism-css";
+import { useTranslations } from "next-intl";
 
 interface WebfontCssBoxProps {
   code: string;
 }
 
 export function WebfontCssBox({ code }: WebfontCssBoxProps) {
+  const t = useTranslations("Brand");
   const [copied, setCopied] = useState(false);
 
   const highlightedCode = useMemo(() => Prism.highlight(code, Prism.languages.css, "css"), [code]);
@@ -27,17 +29,21 @@ export function WebfontCssBox({ code }: WebfontCssBoxProps) {
     <details className="brand-details">
       <summary>
         <span className="brand-details__title-wrap">
-          <span>Webfont CSS</span>
-          <span className="brand-details__hint brand-details__hint--closed">(click to expand)</span>
-          <span className="brand-details__hint brand-details__hint--open">(click to collapse)</span>
+          <span>{t("webfontTitle")}</span>
+          <span className="brand-details__hint brand-details__hint--closed">
+            {t("webfontExpand")}
+          </span>
+          <span className="brand-details__hint brand-details__hint--open">
+            {t("webfontCollapse")}
+          </span>
         </span>
         <button
           type="button"
           className="brand-details__copy"
           onClick={handleCopy}
-          aria-label="Copy webfont CSS"
+          aria-label={t("webfontCopyAria")}
         >
-          {copied ? "Copied" : "Copy"}
+          {copied ? t("copied") : t("copy")}
         </button>
       </summary>
       <pre className="language-css">
