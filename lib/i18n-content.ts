@@ -2,14 +2,21 @@ import fs from "node:fs";
 import path from "node:path";
 import { routing, type AppLocale } from "@/i18n/routing";
 
-export function loadMarkdownContent(slug: string, locale: string): string {
+export type MarkdownContentResult = {
+  content: string;
+  isTranslation: boolean;
+};
+
+export function loadMarkdownContent(slug: string, locale: string): MarkdownContentResult {
   const safeLocale = routing.locales.includes(locale as AppLocale) ? locale : routing.defaultLocale;
-  const localized = path.join(process.cwd(), "content", safeLocale, `${slug}.md`);
-  if (fs.existsSync(localized)) {
-    return fs.readFileSync(localized, "utf-8");
+  const root = path.join(process.cwd(), "content", `${slug}.md`);
+
+  if (safeLocale !== routing.defaultLocale) {
+    const localized = path.join(process.cwd(), "content", safeLocale, `${slug}.md`);
+    if (fs.existsSync(localized)) {
+      return { content: fs.readFileSync(localized, "utf-8"), isTranslation: true };
+    }
   }
-  // fallbacks
-  const en = path.join(process.cwd(), "content", "en", `${slug}.md`);
-  if (fs.existsSync(en)) return fs.readFileSync(en, "utf-8");
-  return fs.readFileSync(path.join(process.cwd(), "content", `${slug}.md`), "utf-8");
+
+  return { content: fs.readFileSync(root, "utf-8"), isTranslation: false };
 }

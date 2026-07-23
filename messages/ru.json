@@ -449,7 +449,9 @@
     "privacyTitle": "Конфиденциальность и условия — Hack Club",
     "privacyDescription": "Уведомление о конфиденциальности и стандартные условия использования Hack Club.",
     "safeguardingTitle": "Политика защиты участников — Hack Club",
-    "safeguardingDescription": "Политика защиты участников очных мероприятий Hack Club (Safeguarding)."
+    "safeguardingDescription": "Политика защиты участников очных мероприятий Hack Club (Safeguarding).",
+    "translationNotice": "Этот перевод приведён для удобства чтения и может быть не самой актуальной версией.",
+    "translationNoticeCta": "Читать английскую версию"
   },
   "Arcade": {
     "metaTitle": "ARCADE — Hack Club",
