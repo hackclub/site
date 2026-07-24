@@ -37,7 +37,7 @@ const nextConfig: NextConfig = {
         }),
       ),
       {
-        source: "/fiscal-sponsorship/apply/",
+        source: "/fiscal-sponsorship/apply",
         destination: "https://hcb.hackclub.com/applications/new",
         permanent: false,
       },
