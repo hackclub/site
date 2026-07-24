@@ -18,12 +18,12 @@
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "botid": "^1.5.11",
-    "next": "16.2.10",
-    "next-intl": "^4.13.2",
+    "next": "16.2.11",
+    "next-intl": "^4.13.4",
     "next-plausible": "^4.0.0",
     "prismjs": "^1.30.0",
-    "react": "19.2.7",
-    "react-dom": "19.2.7",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "react-markdown": "^10.1.0"
   },
   "devDependencies": {
@@ -31,8 +31,8 @@
     "@types/node": "^26.1.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "oxfmt": "^0.59.0",
-    "oxlint": "^1.74.0",
+    "oxfmt": "^0.60.0",
+    "oxlint": "^1.75.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3"
   }
