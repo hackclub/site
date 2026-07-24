@@ -1240,5 +1240,16 @@
     "email": "spencer@events.hackclub.com",
     "website": "",
     "avatar": "https://cachet.hackclub.com/users/U08U39SCQAE/r"
+  },
+  {
+    "name": "Lynn J.",
+    "department": "Moderation",
+    "role": "Conduct and Moderation",
+    "acknowledged": false,
+    "bio": "Lynn is a teenager from New York who runs events and YSWSs, does art, and works on Conduct and Moderation at Hack Club! She loves ferrets and hates New Jersey (both unequivocally).",
+    "slackId": "U08EMT46G3V",
+    "email": "lynnj",
+    "website": "",
+    "avatar": "https://ibb.co/Kj6H4tHD"
   }
 ]
