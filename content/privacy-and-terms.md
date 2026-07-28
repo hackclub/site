@@ -48,7 +48,7 @@ We obtain information about you through the means discussed below when we provid
 Sometimes we have to share information with service providers working on our behalf, such as website hosting, security services, and events logistics. We require that these parties process such information in compliance with this Privacy Notice and authorize them to use the information only for the purposes for which it is provided to them.
 
 Your mobile information will not be sold or shared with third parties for promotional or marketing purposes.
-Text messaging opt-in data and consent will not be shared with any third parties, except service providers that assist us in delivering messages.
+Text messaging opt-in data and consent will not be shared with any third parties, except service providers that assist us in delivering messages or as required by law.
 
 We may disclose information when it's necessary to protect the security and integrity of our platform, prevent fraud or abuse, defend against legal claims, or protect the safety of our users and community.
 
