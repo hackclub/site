@@ -133,7 +133,6 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
   ];
 
   const resources = [
-    { label: t("hcb"), href: "/fiscal-sponsorship" },
     { label: t("toolbox"), href: "https://toolbox.hackclub.com" },
     { label: t("conduct"), href: "/conduct" },
     { label: t("privacy"), href: "/privacy-and-terms" },
@@ -144,6 +143,7 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
     { label: t("about"), dropdown: about },
     { label: t("programs"), href: "/programs" },
     { label: t("clubs"), href: "/clubs" },
+    { label: t("hcb"), href: "/fiscal-sponsorship" },
     { label: t("hackathons"), href: "https://hackathons.hackclub.com" },
     { label: t("resources"), dropdown: resources },
     { label: t("donate"), href: "/philanthropy" },
