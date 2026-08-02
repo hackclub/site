@@ -33,7 +33,12 @@ export default async function Home({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const programs = hasKey() ? selectFeaturedPrograms(await fetchPrograms()) : [];
+  let programs: ReturnType<typeof selectFeaturedPrograms> = [];
+  if (hasKey()) {
+    try {
+      programs = selectFeaturedPrograms(await fetchPrograms());
+    } catch {}
+  }
 
   return (
     <>
