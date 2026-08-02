@@ -3,7 +3,7 @@
 **TL;DR:**
 
 - Hack Club was started by privacy nerds - it's personal and non-negotiable for us. We do not (and never will) sell your personal data.
-- Our code is 100% open source and we have a security bounty program at [https://security.hackclub.com](https://security.hackclub.com).
+- Our code is 100% open source (except for Macondo's codebase) and we have a security bounty program at [https://security.hackclub.com](https://security.hackclub.com).
 - Hack Club's core programs are for middle school and high school students (ages 13-18). Participants out of high school are considered alumni. HCB and Hackatime are available to people of all ages.
 
 **At Hack Club our approach to privacy follows a few fundamental principles:**
