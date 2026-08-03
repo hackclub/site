@@ -86,7 +86,12 @@ async function readPrograms({ fresh = false }: FetchProgramsOptions = {}): Promi
 }
 
 export async function fetchPrograms(): Promise<AirtableProgram[]> {
-  return readPrograms();
+  try {
+    return await readPrograms();
+  } catch (error) {
+    console.error("[programs] fetch failed", error);
+    return [];
+  }
 }
 
 export async function fetchProgramsFresh(): Promise<AirtableProgram[]> {
