@@ -60,7 +60,7 @@ export default async function OpenSourcePage({ params }: Props) {
         <div className="opensource-finance-grid">
           {financeItems.map((item) => (
             <a
-              key={item.text}
+              key={item.url}
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
