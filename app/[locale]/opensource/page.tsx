@@ -25,10 +25,10 @@ export default async function OpenSourcePage({ params }: Props) {
   const t = await getTranslations("OpenSource");
 
   const financeItems = [
-    t("financeHq"),
-    t("financeMail"),
-    t("financeDiscretionary"),
-    t("financeSummer"),
+    { text: t("financeHq"), url: "https://hcb.hackclub.com/hq" },
+    { text: t("financeMail"), url: "https://hcb.hackclub.com/mail-team" },
+    { text: t("financeDiscretionary"), url: "https://hcb.hackclub.com/discretionary-fund" },
+    { text: t("financeSummer"), url: "https://hcb.hackclub.com/summer" },
   ];
 
   return (
@@ -59,9 +59,15 @@ export default async function OpenSourcePage({ params }: Props) {
         </div>
         <div className="opensource-finance-grid">
           {financeItems.map((item) => (
-            <article key={item} className="opensource-card">
-              <h3>{item}</h3>
-            </article>
+            <a
+              key={item.url}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opensource-card"
+            >
+              <h3>{item.text}</h3>
+            </a>
           ))}
         </div>
       </section>
@@ -228,11 +234,20 @@ export default async function OpenSourcePage({ params }: Props) {
         }
 
         .opensource-card {
+          display: block;
           padding: 22px 24px;
           border-radius: 24px;
           background: var(--surface);
           border: 1px solid var(--border);
           box-shadow: 0 14px 36px rgba(91, 52, 18, 0.06);
+          color: inherit;
+          text-decoration: none;
+          transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        .opensource-card:hover {
+          transform: scale(1.02);
+          box-shadow: 0 18px 40px rgba(91, 52, 18, 0.1);
         }
 
         .opensource-card h3 {
