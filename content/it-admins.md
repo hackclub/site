@@ -14,17 +14,26 @@ Feel free to read on for more details and potential alternatives.
 
 If you are unable to whitelist all subdomains, please whitelist the following:
 
-- `hackclub.com`
-- `auth.hackclub.com`
-- `ysws.hackclub.com`
-- `workshops.hackclub.com`
-- `jams.hackclub.com`
-- `sprig.hackclub.com`
+- `hackclub.com` - Main landing website.
+- `auth.hackclub.com` - Central identity vault.
+- `ysws.hackclub.com` - Main landing website.
+- `workshops.hackclub.com` - Beginner project tutorials.
+- `jams.hackclub.com` - Advanced community guides.
+- `clubs.hackclub.com` - All-in-one club dashboard.
+- `leaders.hackclub.com` - Leader management portal.
+- `spaces.hackclub.com` - Browser-based development environment.
+
 
 ## GitHub
+
+GitHub is the industry standard site for open sourcing code. This will allow students to publish their code and develop skills applicable in future careers. Even if it can only be unblocked during certain supervised times, this will greatly benefit students.
 
 Besides the typical HTTP(S) ports, ports 22 and 9418 need to be open for SSH and Git respectively.
 
 ## Inspect Element / Developer Tools
 
 Browser developer tools (e.g. Inspect Element) are required for web development projects, so that sites can be debugged and styled.
+
+## Who are we?
+
+You may be here because a student has requested to start a [Hack Club](https://hackclub.com) at your organization. Clubs are an amazing way to promote coding to teens in your community. You can find out more about our [philosophy](https://hackclub.com) and [philanthropy](https://hackclub.com) via the links above. If you have any more questions, please don't hesitate to reach out to the Clubs Department at [clubs@hackclub.com](mailto:clubs@hackclub.com).
