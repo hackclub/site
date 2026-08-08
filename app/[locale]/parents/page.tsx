@@ -370,9 +370,7 @@ export default async function ParentsPage({ params }: Props) {
                 breakBefore: "island",
               },
             ].map((video) => {
-              const breakIdx = video.breakBefore
-                ? video.caption.indexOf(video.breakBefore)
-                : -1;
+              const breakIdx = video.breakBefore ? video.caption.indexOf(video.breakBefore) : -1;
               return (
                 <div key={video.id}>
                   <div
@@ -419,7 +417,8 @@ export default async function ParentsPage({ params }: Props) {
               left: 0,
               right: 0,
               height: 140,
-              background: "linear-gradient(180deg, transparent 0%, rgba(236,55,80,0.05) 55%, rgba(236,55,80,0.22) 100%)",
+              background:
+                "linear-gradient(180deg, transparent 0%, rgba(236,55,80,0.05) 55%, rgba(236,55,80,0.22) 100%)",
               pointerEvents: "none",
               zIndex: 0,
             }}
@@ -571,12 +570,7 @@ export default async function ParentsPage({ params }: Props) {
                 }}
               >
                 {box.image && (
-                  <Image
-                    src={box.image}
-                    alt=""
-                    fill
-                    style={{ objectFit: "cover", opacity: 0.2 }}
-                  />
+                  <Image src={box.image} alt="" fill style={{ objectFit: "cover", opacity: 0.2 }} />
                 )}
                 <p
                   style={{
@@ -609,7 +603,6 @@ export default async function ParentsPage({ params }: Props) {
               </div>
             ))}
           </div>
-
         </section>
 
         {/* why should my teen join? */}
