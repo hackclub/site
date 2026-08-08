@@ -130,6 +130,7 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
     { label: t("jobs"), href: "/jobs" },
     { label: t("brandingGuide"), href: "/brand" },
     { label: t("pressInquiries"), href: "/press" },
+    { label: t("parents"), href: "/parents" },
   ];
 
   const resources = [
