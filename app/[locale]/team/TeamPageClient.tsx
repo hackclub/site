@@ -299,14 +299,14 @@ export default function TeamPageClient({
               img="https://cdn.hackclub.com/019da8a0-de67-721b-911c-5a4cf1a2ad4a/p.webp"
               name="Tom Preston-Werner"
               boardRole={t("roleBoardMember")}
-              subrole="Co-Founder, GitHub"
+              subrole="Co-founder, GitHub"
               href="https://github.com/mojombo"
             />
             <BoardCard
               img="https://cdn.hackclub.com/019da8a1-7997-71bd-a69c-84970e8a238d/sqs.webp"
               name="Quinn Slack"
               boardRole={t("roleBoardMember")}
-              subrole="Co-Founder and CEO, AMP"
+              subrole="Co-founder and CEO, Amp"
               href="https://github.com/sqs"
             />
             <BoardCard

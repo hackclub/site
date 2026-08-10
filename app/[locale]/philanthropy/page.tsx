@@ -358,7 +358,11 @@ export default async function PhilanthropyPage({ params }: Props) {
           <div>
             <p className="philanthropy-kicker philanthropy-kicker--dark">{t("giftKicker")}</p>
             <h2>{t("giftTitle")}</h2>
-            <p>{t("giftContact")}</p>
+            <p>
+              {t("giftContactName")}
+              <br />
+              {t("giftContactRole")}
+            </p>
             <a href="mailto:christina@hackclub.com">christina@hackclub.com</a>
           </div>
           <div className="philanthropy-checks">
@@ -976,7 +980,7 @@ export default async function PhilanthropyPage({ params }: Props) {
 
         .philanthropy-section--light {
           margin-top: 72px;
-          padding: 72px 0 0;
+          padding: 72px 0;
           border-top: 1px solid var(--border);
           border-bottom: 1px solid var(--border);
         }
