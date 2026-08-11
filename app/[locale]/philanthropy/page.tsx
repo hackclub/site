@@ -24,11 +24,12 @@ const donorTierNames = {
   tier1to5m: [
     "Dr. Lisa Su",
     "Michael Dell (3x)",
-    "McGovern Foundation",
+    "Patrick J. McGovern Foundation (3x)",
     "Craig Newmark (4x)",
     "Tobi Lutke",
     "Advanced Micro Devices",
     "The Libermans",
+    "Lizzy Danhakl and Andrew Reed (4x)",
   ],
   tier500kto1m: [
     "GitHub Education (6x)",
@@ -41,12 +42,15 @@ const donorTierNames = {
     "Ron Conway (6x)",
     "Adam Ross (3x)",
     "Gwynne Shotwell",
+    "Ron Baron",
     "Jack Dorsey",
     "Vitalik Buterin",
   ],
   tier100kto200k: [
     "Quinn Slack (3x)",
+    "Peter Levine",
     "Mitchell Hashimoto",
+    "Chuck and Marna Davis",
     "Proton Foundation",
     "Kellogg Foundation",
     "Pinkerton Foundation",
@@ -173,6 +177,10 @@ const form990 = [
 ];
 
 const annualReports = [
+  {
+    year: "2025",
+    href: "https://cdn.hackclub.com/019ff180-b929-7834-ad99-e263bcdd9a1d/2025%20Hack%20Club%20Annual%20Report.pdf",
+  },
   {
     year: "2024",
     href: "https://cdn.hackclub.com/019c4369-c21c-7436-9669-4ab80d4774a4/2024%20Annual%20Report.pdf",
