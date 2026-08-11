@@ -299,15 +299,21 @@ export default function TeamPageClient({
               img="https://cdn.hackclub.com/019da8a0-de67-721b-911c-5a4cf1a2ad4a/p.webp"
               name="Tom Preston-Werner"
               boardRole={t("roleBoardMember")}
-              subrole="Co-founder, GitHub"
+              subrole="Cofounder, GitHub"
               href="https://github.com/mojombo"
             />
             <BoardCard
               img="https://cdn.hackclub.com/019da8a1-7997-71bd-a69c-84970e8a238d/sqs.webp"
               name="Quinn Slack"
               boardRole={t("roleBoardMember")}
-              subrole="Co-founder and CEO, Amp"
+              subrole="Cofounder and CEO, Amp"
               href="https://github.com/sqs"
+            />
+            <BoardCard
+              img="/assets/ruth-cotter.jpg"
+              name="Ruth Cotter"
+              boardRole={t("roleBoardMember")}
+              subrole="Senior Vice President and Chief Administrative Officer, AMD"
             />
             <BoardCard
               img="https://cdn.hackclub.com/019da8a1-fcce-73eb-9e9e-e7f4ae1d2677/john.webp"
@@ -315,6 +321,12 @@ export default function TeamPageClient({
               boardRole={t("roleBoardAdvisor")}
               subrole="Founder, Boston Scientific"
               href="https://en.wikipedia.org/wiki/John_Abele"
+            />
+            <BoardCard
+              img="/assets/michael-dell.jpg"
+              name="Michael Dell"
+              boardRole={t("roleBoardAdvisor")}
+              subrole="Founder, Chairman and CEO, Dell Technologies"
             />
           </div>
         </div>
@@ -1013,11 +1025,17 @@ export default function TeamPageClient({
 
         .board-grid--leaders {
           grid-template-columns: repeat(2, minmax(0, 1fr));
-          margin-bottom: 18px;
         }
 
         .board-grid--advisors {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .board-grid--advisors > * {
+          flex: 0 1 calc((100% - 36px) / 3);
+          min-width: 220px;
         }
 
         .board-card-anchor {
@@ -1100,8 +1118,8 @@ export default function TeamPageClient({
             grid-template-columns: 1fr;
           }
 
-          .board-grid--advisors {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+          .board-grid--advisors > * {
+            flex-basis: calc((100% - 18px) / 2);
           }
         }
 
@@ -1126,9 +1144,12 @@ export default function TeamPageClient({
             padding: 20px;
           }
 
-          .board-grid--leaders,
-          .board-grid--advisors {
+          .board-grid--leaders {
             grid-template-columns: 1fr;
+          }
+
+          .board-grid--advisors > * {
+            flex-basis: 100%;
           }
 
           .board-section__inner {

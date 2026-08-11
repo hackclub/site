@@ -106,9 +106,9 @@ const additionalSupporters = [
   "Taylor Otwell, Creator of Laravel",
   "Theo Bleier, Technical Staff, Simile",
   "Kevin Yang, Principal Researcher, Microsoft",
-  "Amjad Masad, Co-founder, Replit",
-  "Conrad Kramer, Co-founder, Workflow",
-  "David Cramer, Co-founder, Sentry",
+  "Amjad Masad, Cofounder, Replit",
+  "Conrad Kramer, Cofounder, Workflow",
+  "David Cramer, Cofounder, Sentry",
   "Mahmoud Abdelkader, CEO, Very Good Security",
   "Blake Lieberman, Partner, Rief Ventures",
 ];
@@ -484,6 +484,7 @@ export default async function PhilanthropyPage({ params }: Props) {
         </div>
         <div className="philanthropy-board">
           <div className="philanthropy-board__list">
+            <p className="philanthropy-board__group-title">{t("boardDirectorsLabel")}</p>
             <p>
               <strong>Tom Preston-Werner</strong>
               <span>{t("boardTomRole")}</span>
@@ -493,6 +494,10 @@ export default async function PhilanthropyPage({ params }: Props) {
               <span>{t("boardQuinnRole")}</span>
             </p>
             <p>
+              <strong>Ruth Cotter</strong>
+              <span>{t("boardRuthRole")}</span>
+            </p>
+            <p>
               <strong>Zach Latta</strong>
               <span>{t("boardZachRole")}</span>
             </p>
@@ -500,7 +505,15 @@ export default async function PhilanthropyPage({ params }: Props) {
               <strong>Christina Asquith</strong>
               <span>{t("boardChristinaRole")}</span>
             </p>
-            <small>{t("boardAdvisor")}</small>
+            <p className="philanthropy-board__group-title">{t("boardAdvisorsLabel")}</p>
+            <p>
+              <strong>John Abele</strong>
+              <span>{t("boardAdvisorRole")}</span>
+            </p>
+            <p>
+              <strong>Michael Dell</strong>
+              <span>{t("boardDellRole")}</span>
+            </p>
           </div>
           <div className="philanthropy-board__quote">
             <p>{t("boardQuote1")}</p>
@@ -1220,7 +1233,10 @@ export default async function PhilanthropyPage({ params }: Props) {
           background: var(--surface);
           border: 1px solid var(--border);
           box-shadow: 0 14px 28px rgba(91, 52, 18, 0.08);
-          padding: 22px;
+          padding: 36px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
 
         .philanthropy-board__list p {
@@ -1229,28 +1245,48 @@ export default async function PhilanthropyPage({ params }: Props) {
           gap: 2px;
         }
 
+        .philanthropy-board__group-title {
+          font-family: var(--font-phantom);
+          font-size: 0.8rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          color: var(--muted);
+          margin: 0 0 10px !important;
+        }
+
+        .philanthropy-board__group-title:not(:first-child) {
+          margin-top: 18px !important;
+        }
+
         .philanthropy-board__list strong {
           font-family: var(--font-phantom);
         }
 
-        .philanthropy-board__list span,
-        .philanthropy-board__list small {
+        .philanthropy-board__list span {
           font-family: var(--font-phantom);
           color: var(--muted);
           font-size: 0.9rem;
         }
 
         .philanthropy-board__quote p {
-          margin: 0 0 12px;
+          margin: 0 0 20px;
           font-family: var(--font-phantom);
           color: var(--muted);
-          line-height: 1.6;
+          font-size: 1.15rem;
+          line-height: 1.7;
+        }
+
+        .philanthropy-board__quote p:last-of-type {
+          margin-bottom: 0;
         }
 
         .philanthropy-board__quote span {
+          margin-top: 28px;
           font-family: var(--font-phantom);
-          color: var(--muted);
-          font-size: 0.9rem;
+          color: var(--foreground);
+          font-size: 1.1rem;
+          font-weight: 700;
         }
 
         .philanthropy-list {
