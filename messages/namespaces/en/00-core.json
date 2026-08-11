@@ -31,6 +31,7 @@
     "clubs": "Clubs",
     "hackathons": "Hackathons",
     "resources": "Resources",
+    "shop": "Hack Club Shop",
     "hcb": "HCB",
     "toolbox": "Hacker Toolbox",
     "conduct": "Code of Conduct",
@@ -310,6 +311,13 @@
     "invalidEmail": "Enter a valid email address",
     "verifyFailed": "Unable to verify request — try again",
     "genericError": "Something went wrong — try again"
+  },
+  "Shop": {
+    "wordmarkAlt": "Hack Club Shop",
+    "title": "You raised a <red>Hack Clubber.</red>",
+    "body": "Every item in the Hack Club Shop is our thank-you for a donation, and every donation goes straight to the teenagers who build, ship, and dream at Hack Club.",
+    "cta": "Back a teenager →",
+    "caption": "501(c)(3) nonprofit · tax-deductible above the gift's value"
   },
   "OpenSource": {
     "metaTitle": "Open Source — Hack Club",

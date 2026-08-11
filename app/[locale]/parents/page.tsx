@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 import { buildPageMetadata } from "@/lib/seo";
 import { ParentsEmailSignup } from "@/components/parents-email-signup";
+import { ShopCallout } from "@/components/ShopCallout";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -784,6 +785,18 @@ export default async function ParentsPage({ params }: Props) {
               />
             </svg>
           </div>
+        </section>
+
+        <section
+          style={{
+            background: "var(--background)",
+            paddingTop: 110,
+            paddingBottom: 0,
+            paddingLeft: "clamp(32px, 10vw, 160px)",
+            paddingRight: "clamp(32px, 10vw, 160px)",
+          }}
+        >
+          <ShopCallout campaign="parents_page" />
         </section>
 
         {/* Newsletter heading */}
