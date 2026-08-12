@@ -114,10 +114,10 @@
     "department": "Events",
     "role": "Virtual Event Organizer",
     "acknowledged": false,
-    "bio": "Joel, who goes by PianoMan0 online, is a member of the community team at Hack Club.",
+    "bio": "Joel, who goes by PianoMan0 online, is a member of Special Activities Division. He also runs the Welcome Team.",
     "slackId": "U0829HRSQ76",
     "email": "",
-    "website": "pianoman0.com",
+    "website": "https://pianoman0.com",
     "avatar": "https://cachet.hackclub.com/users/U0829HRSQ76/r"
   },
   {
@@ -307,13 +307,68 @@
   {
     "name": "Lilia Dostie",
     "department": "Welcoming",
-    "role": "Welcome Team Lead",
+    "role": "Welcomer",
     "acknowledged": false,
-    "bio": "Lilia, from Florida, is a Hack Clubber who runs the Gardeners (aka. Welcome Committee), who welcome newcomers to the Slack and help them get settled in!",
+    "bio": "Lilia is a Hack Clubber from Central Florida who welcomes people into the Slack and helps them settle in. In her free time, she enjoys creating art and coding.",
     "slackId": "U07AZFQLPQ8",
     "email": "",
-    "website": "https://kittycat.hackclub.app/",
-    "avatar": "https://i.ibb.co/ZpH8C1pn/785000-D7-213-E-4-D52-9358-939285-EA793-F-1-105-c-2-1.jpg"
+    "website": "https://lilia.rocks",
+    "avatar": "https://user-cdn.hackclub-assets.com/019fdde1-a742-77cd-b406-7a591591071a/aconCatPFP.png"
+  },
+  {
+    "name": "Alexxx",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Alex works on the community side of Hack Club, helping members, moderating spaces, and making sure things stay awesome behind the scenes!!",
+    "slackId": "U0A20HRP4KB",
+    "email": "",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/019fddf6-2ca2-7c60-bd50-06d86116e1ab/8c6e2eb8-71a0-4e64-b623-676e67831308.jpg"
+  },
+  {
+    "name": "Samhith Pola",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Samhith is a Hack Clubber from the SF Bay Area who welcomes and guides people into the Slack. He also organized a hackathon in San Francisco in 2026 called Campfire San Francisco!",
+    "slackId": "U08AP4Z9S9F",
+    "email": "",
+    "website": "https://samhith.dev",
+    "avatar": "https://user-cdn.hackclub-assets.com/019fdddb-63e9-7756-97d2-5ceb72307abb/image.png"
+  },
+  {
+    "name": "Christian",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Christian is a Hack Clubber from Denmark who likes to welcome new Hack Clubbers!",
+    "slackId": "U0938MZG8Q6",
+    "email": "",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/019fddd4-fc8f-7b51-8628-4cfbdb75f7b2/image__6_.png"
+  },
+  {
+    "name": "Fireentity",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Hi! I'm fireentity! A gardener, shipwright, and fulfiller! Apart from my Hack Club work, I enjoy making games and making music!",
+    "slackId": "U07A0D5K3T2",
+    "email": "",
+    "website": "https://www.fireentity.space",
+    "avatar": "https://www.fireentity.space/pfp.png"
+  },
+  {
+    "name": "Kavya",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Kat is a Hack Clubber who welcomes people into the Slack and helps them settle in.",
+    "slackId": "U0B2C9083N3",
+    "email": "",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/019ff7b8-ed95-7bf5-ac8e-c370fa726892/image.png"
   },
   {
     "name": "Matthew Soh",
@@ -1036,17 +1091,6 @@
     "avatar": "https://cachet.hackclub.com/users/U06SQJ508LF/r"
   },
   {
-    "name": "Maadhav",
-    "department": "Welcoming",
-    "role": "Welcomer",
-    "acknowledged": false,
-    "bio": "Maadhav is a Hack Clubber from India who welcomes people into the Slack and helps them settle in.",
-    "slackId": "U08L7HLBT6V",
-    "email": "",
-    "website": "https://maadhavbhatt.github.io",
-    "avatar": "https://cachet.hackclub.com/users/U08L7HLBT6V/r"
-  },
-  {
     "name": "Aishaani",
     "department": "Welcoming",
     "role": "Welcomer",
@@ -1071,11 +1115,12 @@
   {
     "name": "Joel Gallagher",
     "department": "Welcoming",
-    "role": "Welcomer",
+    "role": "Welcome Team Lead",
     "acknowledged": false,
-    "bio": "Joel, who goes by PianoMan0 online, is a Hack Clubber who welcomes people into the Slack and helps them settle in.",
+    "bio": "Joel, who goes by PianoMan0 online, is a Hack Clubber who runs the Welcome Team. He has been on Slack for several years and is thrilled to help new Hack Clubbers feel at home in the community.",
     "slackId": "U0829HRSQ76",
-    "avatar": "https://cachet.hackclub.com/users/U0829HRSQ76/r"
+    "website": "https://pianoman0.com",
+    "avatar": "https://cdn.hackclub.com/019fddc1-c58c-746d-bfe6-9b98a285a403/pianoman0_stardance_profile_pic.png"
   },
   {
     "name": "Junya",
