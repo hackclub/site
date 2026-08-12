@@ -26,13 +26,11 @@ If you are unable to whitelist all subdomains, please whitelist the following:
 
 ## GitHub
 
-GitHub is the industry standard site for open sourcing code. This will allow students to publish their code and develop skills applicable in future careers. Even if it can only be unblocked during certain supervised times, this will greatly benefit students.
-
-Besides the typical HTTP(S) ports, ports 22 and 9418 need to be open for SSH and Git respectively, if possible.
+GitHub is the industry-standard platform for hosting and collaborating on code. Unblocking it allows students to publish their projects and build skills applicable to future careers; even supervised, time-limited access is valuable.
 
 ## Inspect Element / Developer Tools
 
-Browser developer tools (e.g. Inspect Element) are required for web development projects, so that sites can be debugged and styled.
+Browser developer tools (e.g. Inspect Element) are recommended for web development projects, so that sites can be debugged and styled.
 
 ## Who are we?
 
