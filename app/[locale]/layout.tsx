@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: {
         en: "https://hackclub.com",
         ru: "https://ru.hackclub.com",
+        fr: "https://fr.hackclub.com",
         "x-default": "https://hackclub.com",
       },
     },

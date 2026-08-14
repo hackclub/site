@@ -44,7 +44,13 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const requested = await requestLocale;
   const locale = hasLocale(routing.locales, requested) ? requested : routing.defaultLocale;
 
-  let messages: Messages = (await import(`../messages/${locale}.json`)).default;
+  let messages: Messages = (await import("../messages/en.json")).default;
+  if (locale !== "en") {
+    messages = deepMerge(
+      messages,
+      (await import(`../messages/${locale}.json`)).default as Messages,
+    );
+  }
 
   const loaders = NAMESPACE_MODULES[locale as keyof typeof NAMESPACE_MODULES];
   if (loaders) {

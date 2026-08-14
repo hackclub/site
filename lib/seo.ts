@@ -51,7 +51,7 @@ export function buildPageMetadata({
       title,
       description,
       url: absoluteCanonical,
-      locale: locale === "ru" ? "ru_RU" : "en_US",
+      locale: locale === "ru" ? "ru_RU" : locale === "fr" ? "fr_FR" : "en_US",
       images: [
         {
           url: image,
