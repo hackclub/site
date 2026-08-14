@@ -1,5 +1,5 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
@@ -27,6 +27,8 @@ function SkeletonCard() {
 function EventCard({ program }: { program: AirtableProgram }) {
   const t = useTranslations("Home");
   const tc = useTranslations("Common");
+  const tp = useTranslations("Programs");
+  const locale = useLocale();
   const wrapperRef = useRef<HTMLDivElement>(null);
   // endDate may be null for indefinite programs
   const endDate = program.endDate ? parseLocalDate(program.endDate) : null;
@@ -47,7 +49,19 @@ function EventCard({ program }: { program: AirtableProgram }) {
   const slackUrl = slackChannel
     ? `https://hackclub.slack.com/channels/${slackChannel.replace(/^#/, "")}`
     : null;
-  const description = s?.description ?? null;
+  const programKey = program.name
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+  const descriptionKey = `cards.${programKey}.description`;
+  const description =
+    locale === "fr"
+      ? tp.has(descriptionKey)
+        ? tp(descriptionKey)
+        : null
+      : (s?.description ?? null);
 
   const irlStart = s?.inPersonStart ?? null;
   const irlEnd = s?.inPersonEnd ?? null;
@@ -55,19 +69,21 @@ function EventCard({ program }: { program: AirtableProgram }) {
   if (irlStart) {
     const start = parseLocalDate(irlStart);
     const end = irlEnd ? parseLocalDate(irlEnd) : null;
-    const month = start.toLocaleDateString("en-GB", { month: "short" });
+    const month = start.toLocaleDateString(locale, { month: "short" });
     const year = start.getFullYear();
     if (!end || irlStart === irlEnd) {
       badgeLabel = `${start.getDate()} ${month} ${year}`;
     } else if (start.getMonth() === end.getMonth() && start.getFullYear() === end.getFullYear()) {
       badgeLabel = `${start.getDate()}–${end.getDate()} ${month} ${year}`;
     } else {
-      badgeLabel = `${start.getDate()} ${start.toLocaleDateString("en-GB", { month: "short" })} – ${end.getDate()} ${end.toLocaleDateString("en-GB", { month: "short" })} ${end.getFullYear()}`;
+      badgeLabel = `${start.getDate()} ${start.toLocaleDateString(locale, { month: "short" })} – ${end.getDate()} ${end.toLocaleDateString(locale, { month: "short" })} ${end.getFullYear()}`;
     }
   } else if (endDate) {
-    badgeLabel = `Ends ${endDate.toLocaleDateString("en-GB", { day: "numeric", month: "short" })}`;
+    badgeLabel = tp("ends", {
+      date: endDate.toLocaleDateString(locale, { day: "numeric", month: "short" }),
+    });
   } else {
-    badgeLabel = "Ongoing";
+    badgeLabel = tp("statusOngoing");
   }
 
   return (

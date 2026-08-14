@@ -959,7 +959,41 @@
     "footerSlackAfter": ", where new events are being announced all the time.",
     "footerEditBefore": "You can also",
     "footerEditLink": "edit an event here",
-    "footerEditAfter": "."
+    "footerEditAfter": ".",
+    "cards": {
+      "club-shop": {
+        "description": "Don't run your coding club alone, make it a Hack Club! Run workshops, ship projects, get rewards!",
+        "requirements": "Only for Hack Clubs!"
+      },
+      "macondo": {
+        "description": "Get up to $1,000 for hardware projects or make software projects to earn fruits for prizes like sweets, gadgets, or a trip to a hackathon in Bogotá, Colombia, this August."
+      },
+      "beest": {
+        "description": "Fly to the Netherlands to build huge mechanical sculptures and witness the walking of the strandbeests."
+      },
+      "greeble": {
+        "description": "Make a 2D procedural pattern, get it printed on a variety of things!"
+      },
+      "aria": {
+        "description": "Code a 30-second song using algorithmic music tools and get cool music gear!"
+      },
+      "horizons": {
+        "description": "7 hackathons. 7 countries. You're invited—for free!"
+      },
+      "keeb": {
+        "description": "Keeb is a YSWS where you can make a keyboard from scratch. Start with nothing, design everything, add an optional twist, and build it yourself!"
+      },
+      "sunbeam": {
+        "description": "A social coding event for girls 13–18 around the world! 20+ events in 20+ cities.",
+        "requirements": "Girls only"
+      },
+      "stardance": {
+        "description": "The largest STEM event of the summer: make anything you want and earn free prizes. In partnership with NASA, AMD, and GitHub."
+      },
+      "wrangler": {
+        "description": "Make an art tool. Get art supplies!"
+      }
+    }
   },
   "Team": {
     "metaTitle": "Team — Hack Club",

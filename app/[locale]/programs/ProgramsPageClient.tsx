@@ -78,7 +78,16 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
     : null;
   const projectTypes = s?.projectTypes ?? [];
   const format = s?.format ?? null;
-  const description = s?.description ?? null;
+  const programKey = program.name
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+  const descriptionKey = `cards.${programKey}.description`;
+  const requirementsKey = `cards.${programKey}.requirements`;
+  const description =
+    locale === "fr" ? (t.has(descriptionKey) ? t(descriptionKey) : null) : (s?.description ?? null);
 
   const badgeLabel = isDraft
     ? t("comingSoon")
@@ -114,7 +123,12 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
             types: projectTypes.map(projectTypeLabel).join(", "),
           }),
     );
-  const additionalRequirements = s?.additionalRequirements ?? null;
+  const additionalRequirements =
+    locale === "fr"
+      ? t.has(requirementsKey)
+        ? t(requirementsKey)
+        : null
+      : (s?.additionalRequirements ?? null);
   if (additionalRequirements) metaLines.push(additionalRequirements);
 
   return (

@@ -617,6 +617,7 @@ export default function FiscalSponsorshipPage() {
           />
 
           <div
+            className="fiscal-hero-grid"
             style={{
               maxWidth: "1200px",
               margin: "0 auto",
@@ -631,7 +632,7 @@ export default function FiscalSponsorshipPage() {
               alignItems: "center",
             }}
           >
-            <div>
+            <div style={{ minWidth: 0 }}>
               <h1
                 style={{
                   fontFamily: FISCAL_TYPOGRAPHY.headlineFont,
@@ -737,7 +738,10 @@ export default function FiscalSponsorshipPage() {
               </div>
             </div>
 
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <div
+              className="fiscal-hero-art"
+              style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+            >
               <svg
                 viewBox="0 0 32 32"
                 fill="none"
@@ -771,11 +775,11 @@ export default function FiscalSponsorshipPage() {
           </div>
 
           <style jsx>{`
-            @media (max-width: 768px) {
-              header > div:last-child {
+            @media (max-width: 900px) {
+              .fiscal-hero-grid {
                 grid-template-columns: 1fr !important;
               }
-              header > div:last-child > div:last-child {
+              .fiscal-hero-art {
                 display: none;
               }
             }
