@@ -148,19 +148,19 @@ export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
         {t("donorsFree")}
       </p>
 
-      {/* Donor logo wall — static and larger */}
+      {/* Donor logo wall, shrinks to fit the viewport */}
       <div
         className="donor-logos-grid"
         style={{
           display: "flex",
-          flexWrap: minimal ? "nowrap" : "wrap",
+          flexWrap: "nowrap",
           justifyContent: "center",
           alignItems: "center",
-          gap: "clamp(24px, 3.5vw, 52px)",
+          gap: "clamp(10px, 3.5vw, 52px)",
           maxWidth: minimal ? "100%" : 1080,
+          width: "100%",
           margin: "0 auto 24px",
           padding: "8px 0",
-          overflowX: minimal ? "auto" : undefined,
         }}
       >
         {donors.map((donor, i) => (
@@ -168,11 +168,10 @@ export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
             key={i}
             className="donor-logo-item"
             style={{
-              width: donor.width * 0.9,
-              height: donor.height * 0.9,
-              maxWidth: 240,
-              maxHeight: 170,
-              flexShrink: 0,
+              aspectRatio: `${donor.width} / ${donor.height}`,
+              width: `clamp(28px, 7vw, ${Math.min(donor.width * 0.9, 240)}px)`,
+              minWidth: 0,
+              flexShrink: 1,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -246,12 +245,12 @@ export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
           fontSize: 20,
           color: "var(--foreground)",
           margin: "0 auto 36px",
-          maxWidth: 720,
+          maxWidth: 900,
           lineHeight: 1.2,
           textAlign: "center",
         }}
       >
-        <p style={{ margin: "0 0 0" }}>
+        <p className="donors-open-line" style={{ margin: "0 0 0" }}>
           {t("donorsOpen")}{" "}
           <a
             href="https://hcb.hackclub.com/hq"
@@ -307,17 +306,21 @@ export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
         }
 
         @media (max-width: 900px) {
-          .donor-logo-item {
-            width: min(140px, 28vw) !important;
-            height: min(120px, 24vw) !important;
-          }
-        }
-        @media (max-width: 900px) {
           .donors-headline {
             font-size: clamp(26px, 3.2vw, 44px) !important;
             white-space: normal !important;
             padding-left: 24px;
             padding-right: 24px;
+          }
+        }
+
+        .donors-open-line {
+          white-space: nowrap;
+        }
+
+        @media (max-width: 1000px) {
+          .donors-open-line {
+            white-space: normal;
           }
         }
       `}</style>

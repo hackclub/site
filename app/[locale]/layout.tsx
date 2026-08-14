@@ -8,6 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SkipToMainLink } from "@/components/SkipToMainLink";
 import { routing, getLocaleDomain } from "@/i18n/routing";
 import { phantomSans, zarathustra, cormorant, geologica } from "../fonts";
+import { themesrc } from "../theme-script";
 import "../globals.css";
 
 type Props = {
@@ -37,8 +38,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   };
 }
-
-const themesrc = `(function(){try{var s=localStorage.getItem('hc-site-theme'),t=s==='dark'||s==='light'?s:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),r=document.documentElement;if(t==='dark')r.classList.add('dark');r.style.colorScheme=t;}catch(_){}})();`;
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
