@@ -88,9 +88,9 @@ export default async function ParentsPage({ params }: Props) {
 
         {/* Hack Club is: */}
         <section
+          className="hcis-band"
           style={{
             position: "relative",
-            background: "#ec3750",
             marginTop: 40,
             paddingTop: 64,
             paddingBottom: 110,
@@ -98,6 +98,26 @@ export default async function ParentsPage({ params }: Props) {
             paddingRight: "clamp(32px, 10vw, 160px)",
           }}
         >
+          <style>{`
+            .hcis-band {
+              background: #ec3750;
+            }
+            .hcis-wave-stroke {
+              stroke: #ec3750;
+            }
+            .hcis-wave-fill {
+              fill: #ec3750;
+            }
+            html.dark .hcis-band {
+              background: color-mix(in srgb, #ec3750 55%, var(--background) 45%);
+            }
+            html.dark .hcis-wave-stroke {
+              stroke: color-mix(in srgb, #ec3750 55%, var(--background) 45%);
+            }
+            html.dark .hcis-wave-fill {
+              fill: color-mix(in srgb, #ec3750 55%, var(--background) 45%);
+            }
+          `}</style>
           {/* Wavy top border style */}
           <div
             className="wave-container"
@@ -121,7 +141,7 @@ export default async function ParentsPage({ params }: Props) {
               <path
                 d="M0,18 C40,18 40,2 80,2 C120,2 120,18 160,18 C200,18 200,2 240,2 C280,2 280,18 320,18 C360,18 360,2 400,2 C440,2 440,18 480,18 C520,18 520,2 560,2 C600,2 600,18 640,18 C680,18 680,2 720,2 C760,2 760,18 800,18 C840,18 840,2 880,2 C920,2 920,18 960,18 C1000,18 1000,2 1040,2 C1080,2 1080,18 1120,18 C1160,18 1160,2 1200,2 C1240,2 1240,18 1280,18 C1320,18 1320,2 1360,2 C1400,2 1400,18 1440,18 C1480,18 1480,2 1520,2 C1560,2 1560,18 1600,18 C1640,18 1640,2 1680,2 C1720,2 1720,18 1760,18 C1800,18 1800,2 1840,2 C1880,2 1880,18 1920,18"
                 fill="none"
-                style={{ stroke: "#ec3750" }}
+                className="hcis-wave-stroke"
                 strokeWidth="2.5"
                 vectorEffect="non-scaling-stroke"
               />
@@ -135,7 +155,7 @@ export default async function ParentsPage({ params }: Props) {
             >
               <path
                 d="M0,40 L0,27 C40,27 40,8 80,8 C120,8 120,27 160,27 C200,27 200,8 240,8 C280,8 280,27 320,27 C360,27 360,8 400,8 C440,8 440,27 480,27 C520,27 520,8 560,8 C600,8 600,27 640,27 C680,27 680,8 720,8 C760,8 760,27 800,27 C840,27 840,8 880,8 C920,8 920,27 960,27 C1000,27 1000,8 1040,8 C1080,8 1080,27 1120,27 C1160,27 1160,8 1200,8 C1240,8 1240,27 1280,27 C1320,27 1320,8 1360,8 C1400,8 1400,27 1440,27 C1480,27 1480,8 1520,8 C1560,8 1560,27 1600,27 C1640,27 1640,8 1680,8 C1720,8 1720,27 1760,27 C1800,27 1800,8 1840,8 C1880,8 1880,27 1920,27 L1920,40 Z"
-                style={{ fill: "#ec3750" }}
+                className="hcis-wave-fill"
               />
             </svg>
           </div>
@@ -557,16 +577,16 @@ export default async function ParentsPage({ params }: Props) {
                 key={box.label}
                 style={{
                   position: "relative",
-                  aspectRatio: "2 / 1",
                   borderRadius: 16,
                   overflow: "hidden",
                   background: "#000000",
+                  border: "1px solid var(--border)",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   justifyContent: "flex-start",
                   gap: 8,
-                  padding: 20,
+                  padding: "20px 20px 64px",
                 }}
               >
                 {box.image && (
