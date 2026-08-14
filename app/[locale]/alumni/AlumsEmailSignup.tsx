@@ -43,7 +43,6 @@ export function AlumsEmailSignup() {
         transition: "box-shadow 0.2s ease",
       }}
     >
-  
       <input
         id={inputId}
         type="email"
