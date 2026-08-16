@@ -2,7 +2,7 @@
   "Meta": {
     "siteName": "Hack Club",
     "title": "Hack Club — Donde los adolescentes hacen cosas geniales.",
-    "description": "Hack Club es el movimiento sin fines de lucro más grande del mundo de adolescentes que crean proyectos geniales."
+    "description": "Hack Club es la organización sin ánimo de lucro más grande del mundo ayudando a adolescentes a crear proyectos geniales"
   },
   "Common": {
     "skipToMain": "Saltar al contenido principal",
@@ -12,7 +12,7 @@
     "join": "¡Únete!",
     "invalidEmail": "Escribe un correo electrónico válido",
     "termsAgree": "Para adolescentes de 13 a 18 años. Al continuar, aceptas nuestros",
-    "terms": "términos.",
+    "terms": "términos de servicio.",
     "startNow": "Empieza ahora",
     "viewSource": "Ver el código fuente",
     "pauseCarousel": "Pausar el carrusel automático de proyectos",
