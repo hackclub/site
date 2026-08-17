@@ -1,0 +1,267 @@
+{
+  "Hcb": {
+    "metaTitle": "Finanzielle Trägerschaft – Hack Club",
+    "metaDescription": "Starte deine gemeinnützige Organisation mit HCB: 501(c)(3)-Status, Bankkonto, automatische Steuern und Buchhaltung sowie richtig gute Software.",
+    "heroTitleLine1": "Das Fundament",
+    "heroTitleLine2": "für deine gemeinnützige Organisation.",
+    "heroBody": "Starte deine gemeinnützige Organisation mit <strong>HCB, unserem Programm für finanzielle Trägerschaft</strong>: 501(c)(3)-Status, Bankkonto, automatische Steuern und Buchhaltung sowie richtig gute Software.",
+    "referredBy": "Empfohlen von:",
+    "applyNow": "Jetzt bewerben",
+    "mobileAlertNew": "Neu!",
+    "mobileAlertTitle": "HCB Mobile ist da!",
+    "mobileAlertBody": "Verwalte deine HCB-Organisation unterwegs: Karten ausgeben, Transaktionen sehen und mehr.",
+    "appStoreAlt": "Im App Store herunterladen",
+    "googlePlayAlt": "Bei Google Play herunterladen",
+    "pocketTitle": "HCB in deiner <primary>Tasche</primary>",
+    "pocketBody": "Mit der offiziellen App verwaltest du die Finanzen deiner Organisation, gibst Karten aus und vieles mehr.",
+    "pocketFeatureSpendingTitle": "Behalte die Ausgaben deiner Organisation im Blick",
+    "pocketFeatureSpendingBody": "Sieh Kontostand und Transaktionen deiner Organisation jederzeit.",
+    "pocketFeatureTapTitle": "Nimm Tap-to-Pay-Spenden an",
+    "pocketFeatureTapBody": "Keine zusätzliche Hardware nötig! Halte einfach eine beliebige Karte an dein Smartphone.",
+    "pocketFeatureCardsTitle": "Karten ausstellen, verwalten und hinzufügen",
+    "pocketFeatureCardsBody": "Füge Karten direkt zu Apple Wallet und Google Wallet hinzu.",
+    "pocketFeatureReceiptsTitle": "Lade Belege ganz einfach hoch",
+    "pocketFeatureReceiptsBody": "Mach schnell ein Foto oder lade eine Datei hoch.",
+    "readOurStory": "Unsere Geschichte lesen",
+    "installs": "{count} Installationen",
+    "mobileMockupAlt": "Vorschau der HCB-Mobile-App",
+    "orgsTitle": "Gemeinnützige Organisationen jeder Größe unterstützen",
+    "statProcessed": "verarbeitete Transaktionen",
+    "statProjects": "Projekte",
+    "statSince": "im Einsatz für gemeinnützige Organisationen seit",
+    "seeMoreOrgs": "Mehr Organisationen ansehen",
+    "feesTitle": "Eine einfache, transparente Gebühr:",
+    "feesRate": "7 % deiner Einnahmen.",
+    "feesBody": "Diese Gebühr finanziert direkt das HCB-Team – darunter jugendliche Praktikant:innen, die von Mentor:innen lernen. So können wir gute Software und Support bieten, nachhaltig wachsen und jungen Menschen aus unterschiedlichen Hintergründen bezahlte Berufserfahrung ermöglichen.",
+    "noLegalFees": "Keine Anwaltskosten.",
+    "noStartupFees": "Keine Startgebühren.",
+    "noTransactionFees": "Keine Transaktionsgebühren.",
+    "noCardIssuingFees": "Keine Kartenausgabegebühren.",
+    "noSubscriptionFees": "Keine Abonnementgebühren.",
+    "noCheckDepositFees": "Keine Scheckeinzahlungsgebühren.",
+    "noCreditCardProcessingFees": "Keine Gebühren für Kreditkartenabwicklung.",
+    "builtByTitle": "Gebaut von Hack Club",
+    "builtByCollageAlt": "Tausende Teenager besuchen Hack Club-Veranstaltungen wie diese",
+    "builtByP1": "Als <home>Hack Club</home> wuchs, brauchten wir einen Weg, unsere Mitglieder zu stärken. Heute machen über 60.000 Jugendliche in mehr als 400 Clubs weltweit bei Hack Club mit.",
+    "builtByP2": "2018 gründeten wir HCB, um jugendgeführte Clubs und Hackathons zu unterstützen. Als wir es Bildungspartnern zeigten, war klar: Das kann viel größer werden. Heute räumt HCB finanzielle und rechtliche Hürden für Tausende aus dem Weg, die in ihren Communities Gutes tun.",
+    "builtByEnvironment": "Aus Verantwortung für die Umwelt nimmt HCB für Betrieb und Personal niemals Geld aus der <fossil>Industrie für fossile Brennstoffe</fossil> an.",
+    "openSourceTitle": "Open-Source-Infrastruktur für finanziell geförderte Organisationen.",
+    "openSourceBody": "HCB ist Open Source und wird – wie viele Hack-Club-Projekte – öffentlich gebaut. Hilf uns, Infrastruktur für gemeinnützige Organisationen auf der ganzen Welt zu bauen.",
+    "starOnGithub": "Stern auf GitHub",
+    "readAnnouncement": "Ankündigung lesen",
+    "gourceAlt": "Mit Gource visualisierter HCB-Commit-Verlauf",
+    "signIn": "anmelden",
+    "continueToHcb": "Weiter zu HCB",
+    "avatarAlt": "{name}s HCB-Avatar",
+    "contactQuestions": "Fragen? Schreib an <email></email> oder ruf <phone></phone> an",
+    "contactNotice": "HCB Visa® Commercial-Karten werden von Stripe betrieben und von der Celtic Bank ausgestellt."
+  },
+  "HcbDirectory": {
+    "metaTitle": "Organisationsverzeichnis | Hack Club",
+    "metaDescription": "Entdecke die großartigen Organisationen und Projekte, die HCB für finanzielle Trägerschaft nutzen.",
+    "metaBrowseAll": "Durchsuche Organisationen, die mit HCB arbeiten.",
+    "metaBrowseCategory": "Durchsuche HCB-Organisationen in der Kategorie {category}.",
+    "metaInRegion": "{category} in {region} | Hack Club",
+    "metaDirectoryInRegion": "Organisationsverzeichnis in {region} | Hack Club",
+    "metaBrowseRegion": "Durchsuche HCB-Organisationen in {region}.",
+    "metaBrowseCategoryRegion": "Durchsuche HCB-Organisationen in {category} in {region}.",
+    "title": "Organisationsverzeichnis",
+    "titleInRegion": "{category} in {region}",
+    "description": "Entdecke Organisationen und Projekte, die HCB für finanzielle Trägerschaft nutzen.",
+    "searchAria": "Organisationen durchsuchen",
+    "searchPlaceholder": "Suche nach Name, Beschreibung oder Ort",
+    "showing": "Zeigt {start}-{end} von {total}",
+    "pageOf": "Seite {current} von {total}",
+    "pageSlash": "{current} / {total}",
+    "noOrgsTitle": "Keine Organisationen gefunden",
+    "noOrgsBody": "Versuch es mit einem anderen Suchbegriff oder Filter.",
+    "previous": "Vorherige",
+    "next": "Nächste",
+    "filter": "Filter",
+    "regions": "Regionen",
+    "filterByCategory": "Nach Kategorie filtern",
+    "filterByRegion": "Nach Region filtern",
+    "climateMetaTitle": "Klimaorganisationen | Hack Club",
+    "climateMetaDescription": "Klimaorientierte Organisationen nutzen HCB, um Umweltmaßnahmen und Nachhaltigkeitsinitiativen zu beschleunigen.",
+    "climateMetaInRegion": "Klimaorganisationen in {region} | Hack Club",
+    "climateMetaBrowseRegion": "Entdecke klimaorientierte Organisationen in {region}.",
+    "climateTitle": "Klimaorganisationen",
+    "climateTitleInRegion": "Klima in {region}",
+    "climateDescription": "Klimaorientierte Organisationen nutzen HCB, um Umweltmaßnahmen und Nachhaltigkeitsinitiativen zu beschleunigen.",
+    "noClimateTitle": "Keine Klimaorganisationen gefunden",
+    "noClimateBody": "Versuch es mit einem anderen Suchbegriff oder einer anderen Region."
+  },
+  "HcbFirst": {
+    "metaTitle": "Finanzielles Toolkit für FIRST Teams | HCB",
+    "metaDescription": "HCB ist die Finanzzentrale für FRC-, FTC- und FLL-Teams: Zuschüsse bekommen, Spenden sammeln, Einkaufen und mehr.",
+    "heroTitle": "Der ultimative Booster-Club für <highlight>FRC-, FTC- und FLL-Teams</highlight>.",
+    "badgeNonprofit": "Gemeinnütziger Status",
+    "badgeGrants": "Zuschüsse bekommen",
+    "badgeCards": "Debitkarten",
+    "heroBody": "HCB wurde von <first>FIRST</first>-Alumni für <first>FIRST</first>-Teams entwickelt und ist eine umfassende Finanzplattform, die von Hunderten von Clubs, Teams und Hackathons genutzt wird.",
+    "openAccount": "Konto eröffnen",
+    "downloadPage": "Diese Seite herunterladen",
+    "jumpTestimonials": "Zu den Erfahrungsberichten springen",
+    "featuresEyebrow": "Merkmale",
+    "featuresTitle": "Alles, was dein Team braucht.",
+    "featuresBody": "Organisiere die Finanzen deines Teams in Echtzeit, hol dir Zuschüsse, werde gemeinnützig und mehr.<br></br>Nutze die von <first>FIRST</first>-Alumni entwickelten Tools, um dein Team erfolgreich zu führen.",
+    "dashboardAlt": "HCB-Dashboard auf einem Gerät angezeigt",
+    "featureNonprofitName": "Gemeinnütziger Status",
+    "featureNonprofitBody": "Werde Teil der juristischen Person von Hack Club und profitiere vom 501(c)(3)-Steuerstatus.",
+    "featureBalanceName": "Bilanz & Geschichte",
+    "featureBalanceBody": "Halte dein ganzes Team mit Kontostand und Transaktionsverlauf in Echtzeit auf dem Laufenden.",
+    "featureCardsName": "Debitkarten",
+    "featureCardsBody": "Gib allen in deinem Team physische Debitkarten aus.",
+    "featureGrantsName": "Zuschüsse und Spenden",
+    "featureGrantsBody": "Hol dir Geld aus Zuschüssen und Spenden und zahl es auf dein Konto ein. Du bekommst außerdem ein anpassbares Online-Spendenformular zum Teilen mit Freund:innen und Familie.",
+    "featureReimburseName": "Rückerstattungsfluss",
+    "featureReimburseBody": "Erstatte deinem Team Ausgaben mit flexiblen Optionen wie ACH, Schecks per Post und mehr.",
+    "featureSupportName": "Unterstützung jederzeit",
+    "featureSupportBody": "An Werktagen antworten wir innerhalb von 24 Stunden – wir lassen dich nicht hängen.",
+    "testimonialsTitle": "<first>FIRST</first>-Teams im ganzen Land laufen auf HCB.",
+    "testimonialsBody": "Überall von San Jose über Boston bis New York unterstützt HCB Teams jeder Größe.",
+    "teamAlt": "{name}-Team",
+    "logoAlt": "{name}-Logo",
+    "photoOf": "Foto von {name}",
+    "seeFinances": "Finanzen ansehen",
+    "applyTitle": "Melde dein Team bei HCB an.",
+    "applyBody": "Offen für Hack Clubs, Hackathons und Wohltätigkeitsorganisationen in den USA und Kanada.",
+    "soFarEnabled": "Bisher haben wir es aktiviert",
+    "inTransactions": "bei Transaktionen",
+    "applyNow": "Jetzt bewerben",
+    "runHq": "Wir betreiben Hack Club HQ auf HCB!",
+    "seeOurFinances": "Unsere Finanzen ansehen."
+  },
+  "HcbMobile": {
+    "metaTitle": "HCB Mobile ist da! — Hack Club",
+    "metaDescription": "Verwalte deine HCB-Organisation unterwegs: Karten ausgeben, Transaktionen sehen und mehr.",
+    "metaImageAlt": "HCB Mobile ist da!",
+    "heroTitle": "<hcb>HCB</hcb> Mobile ist da!",
+    "heroSubtitle": "Verwalte deine HCB-Organisation unterwegs: Karten ausgeben, Transaktionen sehen und mehr.",
+    "date": "2. Dezember 2025",
+    "p1": "Ich bin Mohamad, 17, aus der SF Bay Area – und ich habe gerade die offizielle HCB-App veröffentlicht.",
+    "p2": "Falls du HCB noch nicht kennst: HCB ist das finanzielle Rückgrat für über <strong>6.500 jugendgeführte gemeinnützige Organisationen</strong>, Clubs und Hackathons. Wir bieten <strong>501(c)(3)-Gemeinnützigkeitsstatus</strong>, Zugang zu einem Bankkonto, eine Plattform zum Sammeln von Spenden und Debitkarten für Tausende junge Menschen, die in ihren Communities Gutes tun wollen.",
+    "p3": "HCB verarbeitet inzwischen durchschnittlich <strong>6 Millionen US-Dollar pro Monat</strong> (über 80 Millionen US-Dollar insgesamt)<fn1>1</fn1>. Im letzten Jahr habe ich das Projekt geleitet, die erste App für die ganze Community zu bauen.",
+    "p4": "<em>Das ganze Projekt ist auf <github>GitHub</github> Open Source (ein ⭐️ freut uns!).</em>",
+    "whyTitle": "Warum habe ich das gebaut?",
+    "whyBody": "Diese Jugendlichen leiten Robotikteams, Hackathons und gemeinnützige Projekte, die ihre Community besser machen. Sie brauchen einen Weg, ihre Finanzen selbst zu verwalten. Mit HCB Mobile können sie:",
+    "whyLi1": "Behalte <strong>Kontostand</strong> und Transaktionen deiner Organisation auch unterwegs im Blick.",
+    "whyLi2": "Nimm persönliche <strong>Tap-to-Pay-Spenden</strong> an – perfekt für Fundraiser oder Events. Keine extra Hardware nötig: Halte einfach eine Kredit- oder Debitkarte ans Smartphone.",
+    "whyLi3": "<strong>Gib neue Debitkarten aus</strong>, füge sie zu <strong>Apple / Google Wallet</strong> hinzu und sperre oder kündige sie direkt vom Smartphone.",
+    "whyLi4": "<strong>Lade Belege</strong> direkt vom Gerät hoch oder ordne vorhandene Belege im Belegkorb mit einem Tipp Transaktionen zu.",
+    "techTitle": "Das technische Zeug",
+    "techP1": "Als ich mit der App anfing, wollte ich für iOS <strong>SwiftUI</strong> und für Android <strong>Kotlin/Jetpack Compose</strong> nutzen. Doch als <strong>Vollzeitschüler</strong> neben dem Unterricht zwei Codebasen zu pflegen, wäre mühsam geworden: Jede Funktion hätte ich doppelt bauen und Integrationsprobleme zweimal lösen müssen. Dann entdeckte ich <strong>Expo</strong>, ein Framework für native React-Apps. Damit konnte ich eine App für mehrere Plattformen schreiben. Dabei lernte ich, eigene Expo-Module zu entwickeln, nativen Code mit TypeScript zu verbinden und mit Techniken wie Memoisierung und Komponenten-Recycling zu optimieren.",
+    "techP2": "Auch alles außerhalb des Codes war <em>kein Witz</em>. Gemeinsam mit den Review-Teams von Apple und Google musste ich <strong>besondere Berechtigungen</strong> für mobiles <strong>Tap to Pay</strong> über Stripe und für das <strong>direkte Hinzufügen von Karten zum Wallet</strong> bekommen. Es dauerte Monate und viele E-Mail-Ketten, bis endlich alle nötigen Freigaben da waren.",
+    "techP3": "Nach über 250 Stunden Entwicklungsarbeit bin ich unglaublich stolz auf HCB Mobile: Die App <strong>wurde von Jugendlichen gebaut</strong>, damit Jugendliche wie ich ihre gemeinnützigen Organisationen und Projekte leichter mit HCB führen können. HCB unterstützt außerdem Hunderte von Erwachsenen geführte Organisationen wie Nachbarschaftshilfen, Open-Source-Projekte und Community-Spaces.",
+    "downloadTitle": "Hol dir die App!",
+    "appStoreAria": "HCB im App Store herunterladen",
+    "appStoreAlt": "Im App Store herunterladen",
+    "googlePlayAria": "HCB bei Google Play herunterladen",
+    "googlePlayAlt": "Bei Google Play herunterladen",
+    "footnote": "Dieser Betrag versteht sich ohne HQ (unser eigenes) <finances>finances</finances>.",
+    "backToRef": "Zurück zur Referenz",
+    "ctaTitle": "Willst du eine gemeinnützige Organisation gründen?",
+    "ctaBody": "Wir nehmen Bewerbungen an! Keine Startgebühren, kein Mindestguthaben und keine lange Wartezeit.",
+    "learnMore": "Mehr erfahren",
+    "applyNow": "Jetzt bewerben"
+  },
+  "HcbOpenSource": {
+    "metaTitle": "HCB ist jetzt Open Source! | Hack Club",
+    "metaDescription": "Die Codebasis unserer Plattform für finanzielle Trägerschaft ist jetzt unter der AGPL-Lizenz öffentlich – für mehr Transparenz bei gemeinnützigen Organisationen.",
+    "metaImageAlt": "HCB ist jetzt Open Source!",
+    "heroTitle": "<hcb>HCB</hcb> ist jetzt Open Source!",
+    "heroSubtitle": "Die <codebase>Codebasis</codebase> unserer Plattform für finanzielle Trägerschaft ist jetzt unter der AGPL-Lizenz öffentlich – ein weiterer Schritt zu mehr Transparenz bei gemeinnützigen Organisationen.",
+    "date": "29. März 2025",
+    "authorsAria": "Beitragsautoren und Datum",
+    "titleSr": "HCB ist jetzt Open Source!",
+    "p1": "Hack Club startete HCB 2018, damit Hackathons über <fs>finanzielle Trägerschaft</fs> Geld sammeln und ausgeben können. Seitdem haben wir HCB für alle gemeinnützigen Projekte geöffnet. Unsere 12.000 Nutzer:innen haben darüber bereits 50 Millionen US-Dollar abgewickelt.",
+    "uiAlt": "Die HCB-Oberfläche zeigt die Transaktionen von Hack Club HQ",
+    "p2": "Lokale, von Jugendlichen organisierte Hackathons, Robotikteams und Community-Gruppen nutzen HCB als gemeinnützige Neobank: Sie sammeln Spenden, senden Zahlungen, geben Debitkarten aus und erhalten 501(c)(3)-Status.",
+    "p3": "Als HCB startete, entwickelten wir es aus Sicherheitsgründen privat. Transparenz war bei Hack Club aber schon immer ein Grundprinzip: Wir <opensource>veröffentlichen unseren Code</opensource> und unsere <finances>Finanzen</finances>, <events>dokumentieren, wie wir Events veranstalten</events>, und haben auf <github>GitHub</github> mehr als 500 öffentliche Repositories.",
+    "p4": "<strong><em><repo>github.com/hackclub/hcb</repo> ist jetzt öffentlich – schau es dir an und gib ihm einen Stern.</em></strong>",
+    "p5": "In Kombination mit unserer technischen Dokumentation ist es eine großartige Ressource für alle, die sich für die Entwicklung von Finanzsoftware oder -anwendungen mit Ruby on Rails interessieren. Auch unsere Ingenieurstätigkeit ist vollständig öffentlich; Die Welt kann aus unseren Erfolgen und Fehlern lernen.",
+    "p6": "Seit 2018 haben über fünfzig Menschen über 10.000 Commits bei HCB getätigt (danke!); Wir können es kaum erwarten, dass sich uns weitere Mitwirkende anschließen:",
+    "videoFallback": "Dein Browser unterstützt das Video-Tag nicht.",
+    "ps": "PS: Du willst eine gemeinnützige Organisation gründen? Wir nehmen Bewerbungen an! Geh zu <nonprofit>nonprofit.new</nonprofit>, dann melden wir uns bei dir.",
+    "photoAlt": "Das Hack Club-Team startet die Ankündigung live aus San Francisco",
+    "photoCaption": "Wir starten dies live aus SF!",
+    "welcomeTitle": "Teenager? Neu hier? Willkommen!",
+    "welcomeBody": "Hack Club ist eine weltweite Community aus jugendlichen Coder:innen und schüler:innengeführten Clubs. Unser Slack ist rund um die Uhr offen für mehr als 104.000 Jugendliche, die Programmieren lernen und coole Projekte bauen – du passt da genau rein.",
+    "learnMore": "Mehr erfahren"
+  },
+  "HcbFeatures": {
+    "headline": "Starke Finanztools – von unserer gemeinnützigen Organisation für dich gebaut.",
+    "subtext": "Seit Tag eins bauen wir einfache, schöne Software, mit der du ohne Verwaltungsstress Geld sammeln und ausgeben kannst. Und wir sind Open Source!",
+    "transparencyMode": "Sieh dir die Finanzen von <em>Reboot</em> im Transparenzmodus an",
+    "openSourceGithub": "Unser Open Source auf GitHub ansehen",
+    "laptopAlt": "HCB-Dashboard auf einem Laptop",
+    "bank-account": {
+      "name": "Hol dir Stiftungszuschüsse",
+      "body": "mit steuerlich absetzbarem 501(c)(3)-Status."
+    },
+    "card": {
+      "name": "Gib physische und virtuelle Debitkarten aus",
+      "body": "mit Quittungsverfolgung & Apple Pay."
+    },
+    "web": {
+      "name": "Global agieren",
+      "body": "mit einer US-amerikanischen juristischen Person."
+    },
+    "payment-transfer": {
+      "name": "Geld senden und erstatten",
+      "body": "per Scheck, ACH, Banküberweisung und mehr."
+    },
+    "explore": {
+      "name": "Mach deine Finanzen transparent",
+      "body": "für dein Team und auf Wunsch öffentlich."
+    },
+    "docs": {
+      "name": "Wir erledigen deine Steuern",
+      "body": "automatisch, einschließlich Formular 990."
+    },
+    "admin": {
+      "name": "Bezahle Teammitglieder",
+      "body": "mit integrierter Gehaltsabrechnung."
+    },
+    "support": {
+      "name": "Nimm Spenden jeder Größe an",
+      "body": "mit einem individuellen, einbettbaren Online-Formular."
+    },
+    "leader": {
+      "name": "Bekomm Support innerhalb von 24 Stunden",
+      "body": "werktags mit einem eigenen Ansprechpartner."
+    }
+  },
+  "HcbCategories": {
+    "organizations": {
+      "label": "Gemeinnützige Organisationen",
+      "miniLabel": "Alle",
+      "description": ""
+    },
+    "first": {
+      "label": "ERSTE Teams",
+      "description": "Überall von San Jose über Boston bis New York unterstützt HCB Teams jeder Größe."
+    },
+    "hackathons": {
+      "label": "Hackathons",
+      "description": "Hacker:innen nutzen HCB für Hackathons, die dich umhauen werden."
+    }
+  },
+  "HcbRegions": {
+    "north-america": {
+      "label": "Nordamerika"
+    },
+    "south-america": {
+      "label": "Südamerika"
+    },
+    "africa": {
+      "label": "Afrika"
+    },
+    "europe": {
+      "label": "Europa"
+    },
+    "asia-oceania": {
+      "label": "Asien und Ozeanien"
+    }
+  }
+}

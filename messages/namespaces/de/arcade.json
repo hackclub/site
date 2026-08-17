@@ -1,0 +1,137 @@
+{
+  "Arcade": {
+    "metaTitle": "Arcade – Hack Club",
+    "metaDescription": "Der ultimative Sommer-Hackathon für Jugendliche. Bau Projekte, tracke deine Stunden und tausch sie gegen Preise ein.",
+    "comboAlt": "GitHub + Hack Club",
+    "heroTagline": "Der Sommer gehört dir",
+    "heroNote": "Arcade ist am 1. September zu Ende gegangen – aber du kannst immer noch dem <slack>Hack Club Slack</slack> beitreten!",
+    "prizesHeroAlt": "Arcade-Preise",
+    "howToPlay": "Wie man spielt",
+    "step1Title": "Arbeite an Projekten",
+    "step1Text": "Hacke etwas Cooles. Zum Beispiel: deine eigene Platine, deine eigene Website oder eine App.",
+    "step2Title": "Sammle deine Stunden",
+    "step2Text": "Tritt dem <slack>Hack Club Slack</slack> bei und nutze /hack in #arcade, um deine Stunden zu loggen. Für jede Stunde bekommst du ein Ticket.",
+    "step3Title": "Tausch Tickets gegen Preise",
+    "step3Text": "Tausch deine Tickets gegen Preise fürs nächste Projekt ein – etwa Arduino-Kits, Zeichentabletts und mehr.",
+    "repeatLine": "Bau Sachen. Hol dir Sachen. Wiederhol.",
+    "stickerLine": "Hol dir <stickers>kostenlose Sticker</stickers> und code mit anderen Jugendlichen!",
+    "buildingPrefix": "Du könntest gerade ein:e",
+    "seeMoreProjects": "Weitere Projekte ansehen",
+    "oneHourAtATime": "Eine Stunde nach der anderen,",
+    "whatWillYouMake": "Was baust <you>du</you> diesen Sommer?",
+    "buildWhateverTitle": "Bau, worauf du Lust hast!",
+    "buildWhateverBody": "Jedes technische Projekt zählt. Du könntest ein AR-Spiel, ein Pixel-Art-Display, einen Zeichenroboter und mehr bauen. Jedes Mal, wenn du daran arbeitest, startest du den Hack-Stunden-Timer. Für jede Stunde bekommst du ein Ticket.",
+    "dontKnowWhereToStart": "Du weißt nicht, wo du anfangen sollst?",
+    "notSureWhatToMake": "Du weißt nicht, was du bauen sollst?",
+    "clickMeForIdeas": "Klick für Ideen!",
+    "arcadeEndedThanks": "Arcade ist beendet! Danke fürs Spielen.",
+    "needIdeaAlt": "Du brauchst eine Idee?",
+    "prizesTitle": "<prizes>Preise</prizes> für dein nächstes Projekt!",
+    "prizesSubtitle": "Tausch sie gegen deine Tickets ein. Nur für Jugendliche an weiterführenden Schulen oder jünger.",
+    "sneakPeek": "Das ist nur ein <peek>kleiner Vorgeschmack</peek> ... im Laufe des Sommers wurden noch viele weitere Preise freigeschaltet!",
+    "limited": "Limitiert!",
+    "tickets": "{count, plural, one {# Ticket} other {# Tickets}}",
+    "moreAbout": "Mehr über {name}",
+    "faqTitle": "FAQ",
+    "closeJoin": "Mach mit",
+    "closeBuild": "Bau echte Projekte.",
+    "closeShare": "Zeig sie deinen Freund:innen.",
+    "closeDialog": "Dialog schließen",
+    "projectIdeas": {
+      "drawingRobot": "Zeichenroboter",
+      "printer3d": "3D-Drucker",
+      "electricSkateboard": "DIY elektrisches Skateboard",
+      "pixelArtDisplay": "Pixel-Art-Anzeige",
+      "smartGarden": "Intelligenter Garten",
+      "cncMachine": "CNC-Maschine",
+      "ledArt": "Interaktive LED-Kunst",
+      "vrEscapeRoom": "VR-Escape-Room",
+      "imageRecognition": "Bilderkennungs-App",
+      "diyCamera": "DIY-Kamera",
+      "multiplayerAr": "Multiplayer-AR-Spiel",
+      "droneSwarm": "Drohnenschwarm-Choreografie"
+    },
+    "projectCards": {
+      "elijah": "Endlich habe ich meinen persönlichen KI-Klon verschickt und es hat großen Spaß gemacht zu sehen, was andere Leute damit gemacht haben.",
+      "cupcakes": "Blot-Roboter zusammenbauen.",
+      "konstantinos": "Eine Drohne, die dem größten Objekt einer gewählten Farbe folgen kann."
+    },
+    "starters": {
+      "bobaName": "Boba Drops",
+      "bobaDesc": "Bau eine Website, hol dir Boba.",
+      "wizardName": "Wizard Orpheus",
+      "wizardDesc": "Bau ein textbasiertes Spiel mit KI.",
+      "binName": "The Bin",
+      "binDesc": "Bau eine Schaltung online – die Teile bekommst du gratis.",
+      "sprigName": "Sprig",
+      "sprigDesc": "Bau ein JS-Spiel und spiel es auf deiner eigenen Konsole.",
+      "onboardName": "OnBoard",
+      "onboardDesc": "Entwirf eine Platine und hol dir 100 $ Zuschuss.",
+      "hackaccinoName": "Hackaccino",
+      "hackaccinoDesc": "Bau eine 3D-Website und hol dir einen kostenlosen Frappuccino.",
+      "blotName": "Blot",
+      "blotDesc": "Schreib Code. Mach Kunst. Hol dir eine Zeichenmaschine.",
+      "ciderName": "Cider",
+      "ciderDesc": "Bau eine App und hol dir einen Apple-Developer-Account.",
+      "easelName": "Easel",
+      "easelDesc": "Schreib eine Programmiersprache und bekomme Fudge."
+    },
+    "prizeItems": {
+      "yubikey": {
+        "name": "YubiKey",
+        "description": "5C NFC-Modell mit GitHub-Logo"
+      },
+      "bambuLab": {
+        "name": "Bambu Lab",
+        "smallName": "A1 mini"
+      },
+      "solderingIron": {
+        "name": "Lötkolben",
+        "smallName": "+ Lötzinn"
+      },
+      "framework": {
+        "name": "Framework",
+        "smallName": "16 Zoll"
+      },
+      "flipper": {
+        "name": "Flipper",
+        "smallName": "Null"
+      },
+      "macbook": {
+        "name": "MacBook",
+        "smallName": "Air M2"
+      },
+      "wacom": {
+        "name": "Wacom",
+        "smallName": "Intuos S"
+      },
+      "logitech": {
+        "name": "Logitech",
+        "smallName": "MX Mechanisch"
+      },
+      "quest3": {
+        "name": "Quest 3"
+      }
+    },
+    "faq": {
+      "eligibleQ": "Wer ist berechtigt?",
+      "eligibleA": "Du musst an einer weiterführenden Schule sein oder jünger. Zum Mitmachen brauchst du nur einen GitHub- und einen Slack-Account.",
+      "projectsQ": "Welche Arten von Projekten zählen?",
+      "projectsA": "Projekte müssen Open Source sein und für andere erlebbar sein. Dokumentiere deinen Fortschritt dabei.",
+      "howManyQ": "Wie viele Projekte kann ich bauen?",
+      "howManyA": "Du kannst so viele Projekte einreichen, wie du baust. Wir zählen einfach die Stunden.",
+      "costQ": "Wie viel kostet es?",
+      "costA": "Es ist kostenlos. Für einige Sendungen können je nach Land Zollgebühren anfallen.",
+      "helpQ": "Ich brauche Hilfe!",
+      "helpA": "Hol dir Hilfe im Kanal #arcade-help im Hack Club Slack.",
+      "hoursQ": "Meine Stunden werden nicht gezählt!",
+      "hoursA": "Echte Menschen prüfen die Einreichungen. Es kann ein paar Tage dauern, bis deine Stunden erscheinen.",
+      "teamQ": "Zählt ein Teamprojekt?",
+      "teamA": "Ja, aber dein eigener Beitrag muss klar dokumentiert sein.",
+      "schoolQ": "Wie wäre es mit einer Schularbeit oder einem Job?",
+      "schoolA": "Wenn du etwas für die Schule oder Arbeit baust, zählt es nicht für Arcade.",
+      "scrapQ": "Was gilt als Schrott?",
+      "scrapA": "Code braucht einen Commit. Teile Links zu Projekten wie Sprig, Blot oder gehosteten 3D-Modellen."
+    }
+  }
+}

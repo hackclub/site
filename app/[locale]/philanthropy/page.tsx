@@ -5,6 +5,8 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ShopCallout } from "@/components/ShopCallout";
 import { buildPageMetadata } from "@/lib/seo";
+import nbc5Logo from "./assets/nbc5-logo.webp";
+import nbc5LogoDark from "./assets/nbc5-logo-dark.webp";
 import insiderLogo from "./assets/insider-logo.svg";
 import wsjLogo from "./assets/wsj-logo.svg";
 import forbesLogo from "./assets/forbes-logo.svg";
@@ -58,53 +60,6 @@ const donorTierNames = {
   ],
 } as const;
 
-const inKindDonors: {
-  src: string;
-  alt: string;
-  href: string;
-  width: number;
-  height: number;
-  invert?: boolean;
-}[] = [
-  {
-    src: "https://cdn.hackclub.com/019e7023-c31a-729a-b024-2c0a10b2e268/vercel.webp",
-    alt: "Vercel",
-    href: "https://vercel.com",
-    width: 2048,
-    height: 407,
-    invert: true,
-  },
-  {
-    src: "https://cdn.hackclub.com/019e7023-ddbd-71b6-8782-0d0233903dd2/google.webp",
-    alt: "Google",
-    href: "https://google.com",
-    width: 1024,
-    height: 310,
-  },
-  {
-    src: "https://cdn.hackclub.com/019e7023-e567-77ee-a345-9a090a32292a/checkly.webp",
-    alt: "Checkly",
-    href: "https://www.checklyhq.com",
-    width: 200,
-    height: 200,
-  },
-  {
-    src: "https://cdn.hackclub.com/019e7023-ed77-7227-8011-e86d253d6635/fastfoward.webp",
-    alt: "Fast Forward",
-    href: "https://www.ffwd.org",
-    width: 128,
-    height: 129,
-  },
-  {
-    src: "https://cdn.hackclub.com/019e702b-11b1-7a26-8a7f-a880ef93cd8c/finintercom.webp",
-    alt: "Intercom + Fin",
-    href: "https://www.intercom.com",
-    width: 692,
-    height: 258,
-    invert: true,
-  },
-];
-
 const additionalSupporters = [
   "Dylan Field, Founder, Figma",
   "Guillermo Rauch, Founder, Vercel",
@@ -132,6 +87,13 @@ const additionalSupportersRU = [
 ];
 
 const pressLogos = [
+  {
+    href: "https://www.mynbc5.com/article/nbc5-in-depth-burlingtons-hack-club-inspires-teens-to-build-with-artificial-intelligence/73375621",
+    src: nbc5Logo,
+    darkSrc: nbc5LogoDark,
+    alt: "NBC5",
+    noInvert: true,
+  },
   {
     href: "https://www.businessinsider.com/zach-lattas-hacker-club-got-him-on-forbes-30-under-30-2016-1",
     src: insiderLogo,
@@ -327,7 +289,7 @@ export default async function PhilanthropyPage({ params }: Props) {
       <section className="philanthropy-shell philanthropy-section">
         <div className="philanthropy-section__header">
           <h2>{t("visionTitle")}</h2>
-          <p>{t("visionIntro")}</p>
+          <p className="philanthropy-vision-intro">{t("visionIntro")}</p>
         </div>
 
         <div className="philanthropy-vision">
@@ -420,32 +382,6 @@ export default async function PhilanthropyPage({ params }: Props) {
 
       <section className="philanthropy-shell philanthropy-section">
         <div className="philanthropy-section__header">
-          <p className="philanthropy-kicker philanthropy-kicker--dark">{t("serviceKicker")}</p>
-          <h2>{t("serviceTitle")}</h2>
-        </div>
-        <div className="philanthropy-inkind">
-          {inKindDonors.map((donor) => (
-            <a
-              key={donor.href}
-              href={donor.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={donor.alt}
-            >
-              <Image
-                src={donor.src}
-                alt={donor.alt}
-                width={donor.width}
-                height={donor.height}
-                className={donor.invert ? "philanthropy-inkind__logo--invert" : undefined}
-              />
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section className="philanthropy-shell philanthropy-section">
-        <div className="philanthropy-section__header">
           <p className="philanthropy-kicker philanthropy-kicker--dark">{t("impactKicker")}</p>
           <h2>{t("impactTitle")}</h2>
         </div>
@@ -484,7 +420,28 @@ export default async function PhilanthropyPage({ params }: Props) {
         <div className="philanthropy-press">
           {pressLogos.map((logo) => (
             <a key={logo.href} href={logo.href} target="_blank" rel="noreferrer">
-              <Image src={logo.src} alt={logo.alt} width={180} height={60} />
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={180}
+                height={60}
+                className={
+                  logo.darkSrc
+                    ? "philanthropy-press__logo--light"
+                    : logo.noInvert
+                      ? "philanthropy-press__logo--no-invert"
+                      : undefined
+                }
+              />
+              {logo.darkSrc && (
+                <Image
+                  src={logo.darkSrc}
+                  alt={logo.alt}
+                  width={180}
+                  height={60}
+                  className="philanthropy-press__logo--dark"
+                />
+              )}
             </a>
           ))}
         </div>
@@ -876,6 +833,10 @@ export default async function PhilanthropyPage({ params }: Props) {
           max-width: 860px;
         }
 
+        .philanthropy-vision-intro {
+          max-width: 690px;
+        }
+
         .philanthropy-vision {
           display: grid;
           grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
@@ -899,6 +860,10 @@ export default async function PhilanthropyPage({ params }: Props) {
           box-shadow: 0 24px 60px rgba(91, 52, 18, 0.12);
           display: grid;
           gap: 12px;
+          max-width: 330px;
+          justify-self: start;
+          align-self: start;
+          margin-top: -20px;
         }
 
         .philanthropy-vision__quote blockquote {
@@ -1167,12 +1132,13 @@ export default async function PhilanthropyPage({ params }: Props) {
         .philanthropy-press {
           margin-top: 28px;
           display: grid;
-          grid-template-columns: repeat(4, minmax(0, 1fr));
+          grid-template-columns: repeat(5, minmax(0, 1fr));
           gap: 18px;
           align-items: center;
         }
 
         .philanthropy-press a {
+          position: relative;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -1196,41 +1162,21 @@ export default async function PhilanthropyPage({ params }: Props) {
           filter: invert(1);
         }
 
-        .philanthropy-inkind {
-          margin-top: 28px;
-          display: grid;
-          grid-template-columns: repeat(5, minmax(0, 1fr));
-          gap: 18px;
-          align-items: center;
+        html.dark .philanthropy-press img.philanthropy-press__logo--no-invert,
+        html.dark .philanthropy-press img.philanthropy-press__logo--dark {
+          filter: none;
         }
 
-        .philanthropy-inkind a {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 18px;
-          padding: 22px;
-          background: var(--surface);
-          border: 1px solid var(--border);
-          box-shadow: 0 14px 30px rgba(91, 52, 18, 0.08);
-          min-height: 120px;
-          transition: transform 0.15s ease;
+        .philanthropy-press img.philanthropy-press__logo--dark {
+          display: none;
         }
 
-        .philanthropy-inkind a:hover {
-          transform: translateY(-2px);
+        html.dark .philanthropy-press img.philanthropy-press__logo--light {
+          display: none;
         }
 
-        .philanthropy-inkind img {
-          max-width: 100%;
-          max-height: 64px;
-          width: auto;
-          height: auto;
-          object-fit: contain;
-        }
-
-        html.dark .philanthropy-inkind__logo--invert {
-          filter: invert(1);
+        html.dark .philanthropy-press img.philanthropy-press__logo--dark {
+          display: block;
         }
 
         .philanthropy-board {
@@ -1440,10 +1386,15 @@ export default async function PhilanthropyPage({ params }: Props) {
             grid-template-columns: 1fr;
           }
 
+          .philanthropy-vision__quote {
+            max-width: none;
+            justify-self: stretch;
+            margin-top: 0;
+          }
+
           .philanthropy-testimonials,
           .philanthropy-donors,
           .philanthropy-press,
-          .philanthropy-inkind,
           .philanthropy-signatures {
             grid-template-columns: repeat(2, minmax(0, 1fr));
           }
@@ -1492,7 +1443,6 @@ export default async function PhilanthropyPage({ params }: Props) {
           .philanthropy-testimonials,
           .philanthropy-donors,
           .philanthropy-press,
-          .philanthropy-inkind,
           .philanthropy-signatures {
             grid-template-columns: 1fr;
           }
