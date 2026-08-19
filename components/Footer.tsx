@@ -124,24 +124,27 @@ export function Footer() {
         overflow: "visible",
       }}
     >
-      <Image
-        className="site-footer-illustration"
-        src="/assets/footer.webp"
-        alt=""
-        width={680}
-        height={558}
-        style={{
-          position: "absolute",
-          right: 0,
-          top: 0,
-          transform: "translateY(-40.5%)",
-          width: "clamp(340px, 48vw, 680px)",
-          height: "auto",
-          display: "block",
-          pointerEvents: "none",
-          zIndex: 2,
-        }}
-      />
+      {(["light", "dark"] as const).map((variant) => (
+        <Image
+          key={variant}
+          className={`site-footer-illustration site-footer-illustration--${variant}`}
+          src={variant === "dark" ? "/assets/footer-dark.webp" : "/assets/footer.webp"}
+          alt=""
+          width={680}
+          height={558}
+          style={{
+            position: "absolute",
+            right: 0,
+            top: 0,
+            transform: "translateY(-40.5%)",
+            width: "clamp(340px, 48vw, 680px)",
+            height: "auto",
+            display: "block",
+            pointerEvents: "none",
+            zIndex: 2,
+          }}
+        />
+      ))}
       <div
         style={{
           maxWidth: 1200,
@@ -279,6 +282,11 @@ export function Footer() {
         .footer-link:hover, .footer-link:focus-visible,
         .footer-social-link:hover, .footer-social-link:focus-visible,
         .footer-theme-toggle:hover, .footer-theme-toggle:focus-visible { opacity: 1 !important; }
+
+        .site-footer-illustration--dark { display: none !important; }
+        html.dark:not([data-theme-lock="light"]) .site-footer-illustration--light { display: none !important; }
+        html.dark:not([data-theme-lock="light"]) .site-footer-illustration--dark { display: block !important; }
+
         @media (max-width: 767px) {
           .site-footer { padding-top: 120px !important; }
           .site-footer-illustration { width: min(320px, 72vw) !important; transform: translateY(-40%) !important; }
