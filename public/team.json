@@ -652,9 +652,9 @@
   {
     "name": "Rowan",
     "department": "HQ",
-    "role": "Engineering & Security",
+    "role": "Engineering",
     "acknowledged": false,
-    "bio": "Rowan (who goes by Echo online) is a full stack programmer from the United States. They helped run Summer of Making and now work on engineering and security for Hack Club HQ. In their free time, they enjoy politics, playing video games, and listening to music.",
+    "bio": "Rowan (who goes by Echo online) is a full stack programmer from the United States. They helped run Summer of Making and now work on fraud prevention, engineering, and security for Hack Club HQ. In their free time, they enjoy politics, playing video games, and listening to music.",
     "slackId": "U080A3QP42C",
     "email": "echo",
     "website": "https://3kh0.net",
