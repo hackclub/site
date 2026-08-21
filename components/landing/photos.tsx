@@ -84,8 +84,7 @@ export async function HerePhotosSection() {
         paddingRight: "clamp(24px, 14.29%, 220px)",
       }}
     >
-      {/* Tagline */}
-      <p
+      <h2
         style={{
           fontFamily: "var(--font-phantom)",
           fontSize: 20,
@@ -106,7 +105,7 @@ export async function HerePhotosSection() {
         >
           {t("photosYoutube")}
         </a>
-      </p>
+      </h2>
 
       {/* 3-column photo + logo + caption grid */}
       <div

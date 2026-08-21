@@ -142,7 +142,13 @@
     "body": "Try heading back to the homepage to find what you are looking for, or explore our programs to discover something new. We recently updated our website, so a few things have moved around. If you think something should be here that isn't, let us know by filing an issue on our",
     "github": "GitHub repo",
     "goHome": "Go home",
-    "explorePrograms": "Explore programs"
+    "explorePrograms": "Explore programs",
+    "agentLinksTitle": "Machine-readable ways to find this page",
+    "agentLinksIntro": "This response is a real HTTP 404. Nothing on this site lives at that path.",
+    "agentLinksLlms": "llms.txt — an index of every page on this site",
+    "agentLinksSitemap": "sitemap.xml — every canonical URL",
+    "agentLinksOpenapi": "openapi.json — the public JSON API",
+    "agentLinksMarkdown": "Any page can be fetched as Markdown with the header Accept: text/markdown"
   },
   "Brand": {
     "metaTitle": "Brand — Hack Club",

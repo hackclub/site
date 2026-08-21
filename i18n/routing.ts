@@ -82,3 +82,26 @@ export function getLocaleDomain(locale: string): string {
   }
   return localeDomains.en;
 }
+
+export function getLocaleFromHost(host: string | null | undefined): AppLocale {
+  if (!host) return routing.defaultLocale;
+  const hostname = host.split(":")[0].toLowerCase();
+  const subdomain = hostname.split(".")[0];
+  return routing.locales.includes(subdomain as AppLocale)
+    ? (subdomain as AppLocale)
+    : routing.defaultLocale;
+}
+
+export function getRequestOrigin(
+  host: string | null | undefined,
+  protocol: string = "https",
+): string {
+  if (!host) return localeDomains[routing.defaultLocale];
+
+  const hostname = host.split(":")[0].toLowerCase();
+  if (hostname === "hackclub.com" || hostname.endsWith(".hackclub.com")) {
+    return getLocaleDomain(getLocaleFromHost(host));
+  }
+
+  return `${protocol.replace(/:$/, "")}://${host}`;
+}

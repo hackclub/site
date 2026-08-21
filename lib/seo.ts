@@ -44,6 +44,9 @@ export function buildPageMetadata({
     alternates: {
       canonical: absoluteCanonical,
       languages,
+      types: {
+        "text/markdown": path === "/" ? `${origin}/index.md` : `${origin}${path}.md`,
+      },
     },
     openGraph: {
       type: "website",

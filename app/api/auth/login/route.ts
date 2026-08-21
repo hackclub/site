@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
+import { apiError } from "@/lib/api-error";
 
 // Redirects the browser to Hack Club OAuth — redirect_uri is inferred from request origin
 export async function GET(req: NextRequest) {
   const clientId = process.env.HACKCLUB_OAUTH_CLIENT_ID;
   if (!clientId) {
-    return NextResponse.json({ error: "HACKCLUB_OAUTH_CLIENT_ID is not set" }, { status: 500 });
+    return apiError({
+      status: 500,
+      code: "server_misconfigured",
+      message: "HACKCLUB_OAUTH_CLIENT_ID is not set",
+    });
   }
 
   const origin = process.env.NEXT_PUBLIC_APP_URL ?? req.nextUrl.origin;
