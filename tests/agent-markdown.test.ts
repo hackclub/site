@@ -121,6 +121,23 @@ describe("renderLlmsTxt", () => {
     expect(md).toContain("## Optional");
   });
 
+  test("link labels escape backslashes as well as brackets", () => {
+    const tricky = renderLlmsTxt({
+      siteName: "Hack Club",
+      summary: "Summary.",
+      origin,
+      sections: [
+        {
+          heading: "Start here",
+          entries: [{ title: "a\\]not-a-link[x", url: `${origin}/x`, description: "d" }],
+        },
+      ],
+    });
+
+    expect(tricky).toContain("- [a\\\\\\]not-a-link\\[x](https://hackclub.com/x): d");
+    expect(tricky).not.toContain("not-a-link](");
+  });
+
   test("skips empty sections", () => {
     expect(md).not.toContain("## Empty");
   });

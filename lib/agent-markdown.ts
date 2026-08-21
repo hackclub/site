@@ -26,7 +26,7 @@ function hasTopLevelHeading(markdown: string): boolean {
 }
 
 function escapeLinkText(value: string): string {
-  return value.replace(/([[\]])/g, "\\$1");
+  return value.replace(/([\\[\]])/g, "\\$1");
 }
 
 function escapeCodeSpan(value: string): string {
