@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { apiError } from "@/lib/api-error";
 
 export async function GET(req: NextRequest) {
   const code = req.nextUrl.searchParams.get("code");
@@ -18,7 +19,11 @@ export async function GET(req: NextRequest) {
   const clientId = process.env.HACKCLUB_OAUTH_CLIENT_ID;
   const clientSecret = process.env.HACKCLUB_OAUTH_CLIENT_SECRET;
   if (!clientId || !clientSecret) {
-    return NextResponse.json({ error: "HCA secrets are not set!" }, { status: 500 });
+    return apiError({
+      status: 500,
+      code: "server_misconfigured",
+      message: "HCA secrets are not set!",
+    });
   }
   const origin = process.env.NEXT_PUBLIC_APP_URL ?? req.nextUrl.origin;
   const redirectUri = `${origin}/api/auth/callback`;

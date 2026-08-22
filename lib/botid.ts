@@ -1,6 +1,6 @@
 import { checkBotId } from "botid/server";
-import { NextResponse } from "next/server";
 import type { BotIdProtectedRoute } from "./botid-protected-routes";
+import { apiError } from "./api-error";
 
 type BotIdCheckLevel = NonNullable<BotIdProtectedRoute["advancedOptions"]>["checkLevel"];
 
@@ -11,5 +11,10 @@ export async function blockBotRequest(checkLevel: BotIdCheckLevel = "basic") {
 
   if (!verification.isBot) return null;
 
-  return NextResponse.json({ error: "Unable to verify request" }, { status: 403 });
+  return apiError({
+    status: 403,
+    code: "forbidden",
+    message: "Unable to verify request",
+    hint: "This request looked automated. Human traffic only on this endpoint.",
+  });
 }

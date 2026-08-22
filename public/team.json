@@ -652,9 +652,9 @@
   {
     "name": "Rowan",
     "department": "HQ",
-    "role": "Engineering & Security",
+    "role": "Engineering",
     "acknowledged": false,
-    "bio": "Rowan (who goes by Echo online) is a full stack programmer from the United States. They helped run Summer of Making and now work on engineering and security for Hack Club HQ. In their free time, they enjoy politics, playing video games, and listening to music.",
+    "bio": "Rowan (who goes by Echo online) is a full stack programmer from the United States. They helped run Summer of Making and now work on fraud prevention, engineering, and security for Hack Club HQ. In their free time, they enjoy politics, playing video games, and listening to music.",
     "slackId": "U080A3QP42C",
     "email": "echo",
     "website": "https://3kh0.net",
@@ -823,12 +823,12 @@
   {
     "name": "Lynn Beato",
     "department": "HQ",
-    "role": "Club Operations and Community Relations",
+    "role": "Clubs Resource Tech",
     "acknowledged": false,
-    "bio": "Lynn is a 14 year old Hack Clubber from Portugal, who got involved with Clubs in November 2024, when she started her club at her school. She's also ran her own Scrapyard event, in Lisbon, as well as a Daydream event in DC. She can't wait to get more clubs up and running with cool resources!",
+    "bio": "Lynn is a Hack Clubber from Portugal, who got involved with Clubs in November 2024, when she started her club at her school. She's also ran her own Hack Club events in Lisbon and DC. She can't wait to get more clubs up and running with cool resources!",
     "slackId": "U07ULNFPQ4T",
     "email": "lynn",
-    "website": "https://lynn.pt/",
+    "website": "https://headpats.you/",
     "avatar": "https://cachet.hackclub.com/users/U07ULNFPQ4T/r"
   },
   {
@@ -1251,5 +1251,16 @@
     "email": "lynnj",
     "website": "",
     "avatar": "https://i.ibb.co/qMBwqHwC/lynn-With-AMysterious-Umbrella-Named-Perry.png"
+  },
+  {
+    "name": "Sahil",
+    "department": "Moderation",
+    "role": "Conduct and Moderation",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U08PUHSMW4V",
+    "email": "sahil@conduct.hackclub.com",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/01a022cb-4489-73bb-9132-5db42f4f857c/sahilsquare%20-%20Copy.png"
   }
 ]

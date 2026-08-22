@@ -23,6 +23,11 @@ const productionDomains = [
     defaultLocale: "de" as const,
     locales: ["de" as const],
   },
+  {
+    domain: "es.hackclub.com",
+    defaultLocale: "es" as const,
+    locales: ["es" as const],
+  },
 ];
 
 const developmentDomains = [
@@ -46,10 +51,15 @@ const developmentDomains = [
     defaultLocale: "de" as const,
     locales: ["de" as const],
   },
+  {
+    domain: "es.localhost:3000",
+    defaultLocale: "es" as const,
+    locales: ["es" as const],
+  },
 ];
 
 export const routing = defineRouting({
-  locales: ["en", "ru", "fr", "de"],
+  locales: ["en", "ru", "fr", "de", "es"],
   defaultLocale: "en",
   localePrefix: "never",
   localeDetection: false,
@@ -63,6 +73,7 @@ export const localeDomains: Record<AppLocale, string> = {
   ru: "https://ru.hackclub.com",
   fr: "https://fr.hackclub.com",
   de: "https://de.hackclub.com",
+  es: "https://es.hackclub.com",
 };
 
 export function getLocaleDomain(locale: string): string {
@@ -70,4 +81,27 @@ export function getLocaleDomain(locale: string): string {
     return localeDomains[locale as AppLocale];
   }
   return localeDomains.en;
+}
+
+export function getLocaleFromHost(host: string | null | undefined): AppLocale {
+  if (!host) return routing.defaultLocale;
+  const hostname = host.split(":")[0].toLowerCase();
+  const subdomain = hostname.split(".")[0];
+  return routing.locales.includes(subdomain as AppLocale)
+    ? (subdomain as AppLocale)
+    : routing.defaultLocale;
+}
+
+export function getRequestOrigin(
+  host: string | null | undefined,
+  protocol: string = "https",
+): string {
+  if (!host) return localeDomains[routing.defaultLocale];
+
+  const hostname = host.split(":")[0].toLowerCase();
+  if (hostname === "hackclub.com" || hostname.endsWith(".hackclub.com")) {
+    return getLocaleDomain(getLocaleFromHost(host));
+  }
+
+  return `${protocol.replace(/:$/, "")}://${host}`;
 }

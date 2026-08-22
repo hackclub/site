@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { siteAuthHeaders } from "../../../../lib/site-programs";
 import { isValidSlackId, isValidAirtableRecordId } from "../../../../lib/server-auth";
+import { apiError } from "@/lib/api-error";
 
 export const dynamic = "force-dynamic";
 
@@ -13,13 +14,13 @@ const ADMINS_TABLE = "Admins";
 export async function GET(req: NextRequest) {
   // 1. Get HC access token from cookie
   const token = req.cookies.get("hc_access_token")?.value;
-  if (!token) return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
+  if (!token) return apiError({ status: 401, code: "unauthorized", message: "Not authenticated" });
 
   // 2. Resolve user's Slack ID
   const meRes = await fetch("https://auth.hackclub.com/api/v1/me", {
     headers: { Authorization: `Bearer ${token}` },
   });
-  if (!meRes.ok) return NextResponse.json({ error: "Invalid token" }, { status: 401 });
+  if (!meRes.ok) return apiError({ status: 401, code: "unauthorized", message: "Invalid token" });
   const me = await meRes.json();
 
   const rawSlackId: string | null = me.identity?.slack_id ?? null;
@@ -35,7 +36,12 @@ export async function GET(req: NextRequest) {
 
   const apiKey = process.env.AIRTABLE_API_KEY;
   const siteKey = process.env.HACK_CLUB_SITE_AIRTABLE_KEY;
-  if (!apiKey) return NextResponse.json({ error: "AIRTABLE_API_KEY not set" }, { status: 500 });
+  if (!apiKey)
+    return apiError({
+      status: 500,
+      code: "server_misconfigured",
+      message: "AIRTABLE_API_KEY not set",
+    });
 
   const ywswHeaders = { Authorization: `Bearer ${apiKey}` };
 

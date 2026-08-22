@@ -153,6 +153,10 @@ export default async function ClubPage({ params }: Props) {
             paddingRight: "clamp(16px, 6vw, 80px)",
             background:
               "radial-gradient(1200px 500px at 50% -15%, rgba(236,55,80,0.45), rgba(236,55,80,0) 70%), linear-gradient(160deg, rgba(19,19,27,0.92) 0%, rgba(13,17,23,0.95) 100%), url('https://cdn.hackclub.com/019db857-6649-7f66-9184-21b9f538728a/joiningCard2Bg.webp') center/cover",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           <div
@@ -178,17 +182,26 @@ export default async function ClubPage({ params }: Props) {
             <h1
               style={{
                 margin: "0 auto 18px",
-                maxWidth: 980,
+                maxWidth: 1500,
                 fontFamily: "var(--font-zarathustra)",
                 fontWeight: 400,
                 fontSize: "clamp(52px, 8.3vw, 114px)",
-                lineHeight: 0.93,
+                lineHeight: 1,
                 color: "var(--paper)",
               }}
             >
               {t("heroTitle1")}
               <br />
-              {t("heroTitle2")}
+              <div
+                style={{
+                  background: "linear-gradient(90deg, #ec3750 0%, #ff8c37 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                {t("heroTitle2")}
+              </div>
             </h1>
             <p
               style={{

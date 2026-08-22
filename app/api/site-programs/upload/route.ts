@@ -6,6 +6,7 @@ import {
   siteAuthHeaders,
 } from "../../../../lib/site-programs";
 import { canEditProgram } from "../../../../lib/server-auth";
+import { apiError } from "@/lib/api-error";
 
 export const dynamic = "force-dynamic";
 
@@ -40,7 +41,11 @@ async function findOrCreate(programName: string, key: string): Promise<string> {
 export async function POST(req: NextRequest) {
   const key = apiKey();
   if (!key) {
-    return NextResponse.json({ error: "HACK_CLUB_SITE_AIRTABLE_KEY is not set" }, { status: 500 });
+    return apiError({
+      status: 500,
+      code: "server_misconfigured",
+      message: "HACK_CLUB_SITE_AIRTABLE_KEY is not set",
+    });
   }
 
   const form = await req.formData();
@@ -49,13 +54,22 @@ export async function POST(req: NextRequest) {
   const file = form.get("file");
 
   if (typeof programName !== "string" || !programName.trim() || programName.length > 200) {
-    return NextResponse.json({ error: "Invalid programName" }, { status: 400 });
+    return apiError({
+      status: 400,
+      code: "bad_request",
+      message: "Invalid programName",
+      hint: "Send the program's exact name in the `programName` form field (1-200 characters).",
+    });
   }
   if (type !== "logo" && type !== "bg") {
-    return NextResponse.json({ error: "Invalid type (expected 'logo' or 'bg')" }, { status: 400 });
+    return apiError({
+      status: 400,
+      code: "bad_request",
+      message: "Invalid type (expected 'logo' or 'bg')",
+    });
   }
   if (!(file instanceof File)) {
-    return NextResponse.json({ error: "Missing file" }, { status: 400 });
+    return apiError({ status: 400, code: "bad_request", message: "Missing file" });
   }
 
   const ALLOWED_MIME: Record<string, string> = {
@@ -69,18 +83,28 @@ export async function POST(req: NextRequest) {
   const mime = file.type;
   const ext = ALLOWED_MIME[mime];
   if (!ext) {
-    return NextResponse.json(
-      { error: "Unsupported file type. Allowed: PNG, JPEG, GIF, WebP." },
-      { status: 415 },
-    );
+    return apiError({
+      status: 415,
+      code: "unsupported_media_type",
+      message: "Unsupported file type. Allowed: PNG, JPEG, GIF, WebP.",
+    });
   }
   if (file.size > MAX_BYTES) {
-    return NextResponse.json({ error: "File too large (max 8 MB)" }, { status: 413 });
+    return apiError({
+      status: 413,
+      code: "payload_too_large",
+      message: "File too large (max 8 MB)",
+    });
   }
 
   // Authorization — must own this program (or be admin)
   if (!(await canEditProgram(req, programName))) {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    return apiError({
+      status: 403,
+      code: "forbidden",
+      message: "Forbidden",
+      hint: "Sign in at /api/auth/login as an owner of this program, or as an admin.",
+    });
   }
 
   const filename = `${type}.${ext}`;
@@ -89,7 +113,11 @@ export async function POST(req: NextRequest) {
   const recordId = await findOrCreate(programName, key);
   if (!/^rec[A-Za-z0-9]{14}$/.test(recordId)) {
     console.error("[upload] unexpected Airtable record id", recordId);
-    return NextResponse.json({ error: "Invalid record id from upstream" }, { status: 502 });
+    return apiError({
+      status: 502,
+      code: "upstream_error",
+      message: "Invalid record id from upstream",
+    });
   }
 
   const bytes = await file.arrayBuffer();
@@ -113,10 +141,11 @@ export async function POST(req: NextRequest) {
 
   if (!uploadRes.ok) {
     console.error("[upload] Airtable content API error", uploadRes.status, await uploadRes.text());
-    return NextResponse.json(
-      { error: `Upload failed (${uploadRes.status})` },
-      { status: uploadRes.status },
-    );
+    return apiError({
+      status: uploadRes.status,
+      code: "upstream_error",
+      message: `Upload failed (${uploadRes.status})`,
+    });
   }
 
   // Fetch the updated record to return fresh data
@@ -125,10 +154,11 @@ export async function POST(req: NextRequest) {
     cache: "no-store",
   });
   if (!fetchRes.ok) {
-    return NextResponse.json(
-      { error: "Upload succeeded but failed to fetch updated record" },
-      { status: 500 },
-    );
+    return apiError({
+      status: 500,
+      code: "upstream_error",
+      message: "Upload succeeded but failed to fetch updated record",
+    });
   }
 
   return NextResponse.json(parseRecord(await fetchRes.json()));

@@ -27,6 +27,14 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_COMMIT_SHA: getCommitSha(),
   },
+  async headers() {
+    return [
+      {
+        source: "/:path([^.]*)",
+        headers: [{ key: "Vary", value: "Accept" }],
+      },
+    ];
+  },
   async redirects() {
     return [
       ...["minecraft", "onboard", "replit", "sponsorship", "amas", "ship", "pizza"].map(
@@ -223,6 +231,14 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return [
+      {
+        source: "/index.md",
+        destination: "/api/markdown",
+      },
+      {
+        source: "/:path(.*)\\.md",
+        destination: "/api/markdown/:path",
+      },
       {
         source: "/fiscal-sponsorship/mobile-app/",
         destination: "/fiscal-sponsorship/mobile/",

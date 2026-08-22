@@ -44,6 +44,9 @@ export function buildPageMetadata({
     alternates: {
       canonical: absoluteCanonical,
       languages,
+      types: {
+        "text/markdown": path === "/" ? `${origin}/index.md` : `${origin}${path}.md`,
+      },
     },
     openGraph: {
       type: "website",
@@ -52,7 +55,15 @@ export function buildPageMetadata({
       description,
       url: absoluteCanonical,
       locale:
-        locale === "ru" ? "ru_RU" : locale === "fr" ? "fr_FR" : locale === "de" ? "de_DE" : "en_US",
+        locale === "ru"
+          ? "ru_RU"
+          : locale === "fr"
+            ? "fr_FR"
+            : locale === "de"
+              ? "de_DE"
+              : locale === "es"
+                ? "es_ES"
+                : "en_US",
       images: [
         {
           url: image,

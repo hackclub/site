@@ -189,7 +189,7 @@ function EventCard({ program }: { program: AirtableProgram }) {
             unoptimized
           />
         ) : (
-          <h2
+          <h3
             style={{
               position: "relative",
               zIndex: 1,
@@ -204,7 +204,7 @@ function EventCard({ program }: { program: AirtableProgram }) {
             }}
           >
             {program.name}
-          </h2>
+          </h3>
         )}
 
         {/* Description */}
@@ -393,8 +393,7 @@ export function EventsSection({
         }}
       />
 
-      {/* Headline — right-aligned */}
-      <div
+      <h2
         style={{
           textAlign: "right",
           marginBottom: 4,
@@ -403,8 +402,9 @@ export function EventsSection({
           zIndex: 1,
         }}
       >
-        <p
+        <span
           style={{
+            display: "block",
             fontFamily: "var(--font-zarathustra)",
             fontSize: 40,
             lineHeight: 1,
@@ -414,8 +414,8 @@ export function EventsSection({
           }}
         >
           {t("eventsTitle")}
-        </p>
-        <p
+        </span>
+        <span
           style={{
             fontFamily: "var(--font-zarathustra)",
             fontSize: 40,
@@ -431,8 +431,8 @@ export function EventsSection({
           }}
         >
           {t("eventsTitleAccent")}
-        </p>
-      </div>
+        </span>
+      </h2>
 
       {/* Subtext — right-aligned */}
       <p
