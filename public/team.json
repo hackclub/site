@@ -285,9 +285,10 @@
   {
     "name": "Luke Oldenburg",
     "department": "HCB",
-    "role": "Engineering Contributor",
+    "staff": true,
+    "role": "Engineering Gap Year",
     "acknowledged": false,
-    "bio": " ",
+    "bio": "",
     "slackId": "U06MYDS2LHX",
     "email": "luke",
     "website": "",
