@@ -49,7 +49,11 @@ export async function POST(req: NextRequest) {
   }
 
   const firstName = (body as { firstName?: unknown })?.firstName;
-  if (typeof firstName !== "string" || firstName.trim().length === 0 || firstName.trim().length > 200) {
+  if (
+    typeof firstName !== "string" ||
+    firstName.trim().length === 0 ||
+    firstName.trim().length > 200
+  ) {
     return apiError({
       status: 400,
       code: "bad_request",
@@ -59,7 +63,11 @@ export async function POST(req: NextRequest) {
   }
 
   const lastName = (body as { lastName?: unknown })?.lastName;
-  if (typeof lastName !== "string" || lastName.trim().length === 0 || lastName.trim().length > 200) {
+  if (
+    typeof lastName !== "string" ||
+    lastName.trim().length === 0 ||
+    lastName.trim().length > 200
+  ) {
     return apiError({
       status: 400,
       code: "bad_request",
