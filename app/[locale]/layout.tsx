@@ -3,8 +3,6 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import PlausibleProvider from "next-plausible";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SkipToMainLink } from "@/components/SkipToMainLink";
 import { routing, getLocaleDomain } from "@/i18n/routing";
 import { phantomSans, zarathustra, cormorant, geologica } from "../fonts";
@@ -114,8 +112,6 @@ export default async function LocaleLayout({ children, params }: Props) {
           <PlausibleProvider src="https://plausible.io/js/pa-Fxh-6GHJlpUS4AXISXi-C.js">
             <SkipToMainLink />
             {children}
-            <Analytics />
-            <SpeedInsights />
           </PlausibleProvider>
         </NextIntlClientProvider>
       </body>

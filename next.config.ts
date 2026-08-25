@@ -21,6 +21,7 @@ const getCommitSha = (): string => {
 };
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   trailingSlash: false,
   productionBrowserSourceMaps: true, // source maps are great for oss :)
   env: {
