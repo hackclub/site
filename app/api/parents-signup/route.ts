@@ -4,17 +4,8 @@ import { apiError } from "@/lib/api-error";
 
 export const dynamic = "force-dynamic";
 
-const BASE_ID = "applbij4WGNtixmE4";
-const TABLE_NAME = "signup";
-
 function apiKey() {
   return process.env.PARENTS_AIRTABLE_KEY;
-}
-
-function clientIp(req: NextRequest) {
-  const forwardedFor = req.headers.get("x-forwarded-for");
-  if (forwardedFor) return forwardedFor.split(",")[0].trim();
-  return req.headers.get("x-real-ip") ?? undefined;
 }
 
 export async function POST(req: NextRequest) {
@@ -24,6 +15,24 @@ export async function POST(req: NextRequest) {
       status: 500,
       code: "server_misconfigured",
       message: "PARENTS_AIRTABLE_KEY is not set",
+    });
+  }
+
+  const BASE_ID = process.env.PARENTS_AIRTABLE_BASE_ID;
+  if (!BASE_ID) {
+    return apiError({
+      status: 500,
+      code: "server_misconfigured",
+      message: "PARENTS_AIRTABLE_BASE_ID is not set",
+    });
+  }
+
+  const TABLE_NAME = process.env.PARENTS_AIRTABLE_TABLE_ID;
+  if (!TABLE_NAME) {
+    return apiError({
+      status: 500,
+      code: "server_misconfigured",
+      message: "PARENTS_AIRTABLE_TABLE_ID is not set",
     });
   }
 
@@ -39,6 +48,26 @@ export async function POST(req: NextRequest) {
     });
   }
 
+  const firstName = (body as { firstName?: unknown })?.firstName;
+  if (typeof firstName !== "string" || firstName.trim().length === 0 || firstName.trim().length > 200) {
+    return apiError({
+      status: 400,
+      code: "bad_request",
+      message: "Invalid first name",
+      hint: "Send a non-empty string in the `firstName` field.",
+    });
+  }
+
+  const lastName = (body as { lastName?: unknown })?.lastName;
+  if (typeof lastName !== "string" || lastName.trim().length === 0 || lastName.trim().length > 200) {
+    return apiError({
+      status: 400,
+      code: "bad_request",
+      message: "Invalid last name",
+      hint: "Send a non-empty string in the `lastName` field.",
+    });
+  }
+
   const email = (body as { email?: unknown })?.email;
   if (!isValidEmail(email)) {
     return apiError({
@@ -49,8 +78,6 @@ export async function POST(req: NextRequest) {
     });
   }
 
-  const ip = clientIp(req);
-
   const res = await fetch(
     `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(TABLE_NAME)}`,
     {
@@ -60,7 +87,15 @@ export async function POST(req: NextRequest) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        records: [{ fields: { email: email.trim(), ...(ip ? { ip } : {}) } }],
+        records: [
+          {
+            fields: {
+              "First name": firstName.trim(),
+              "Last name": lastName.trim(),
+              Email: email.trim(),
+            },
+          },
+        ],
       }),
     },
   );
