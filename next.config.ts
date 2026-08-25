@@ -21,7 +21,7 @@ const getCommitSha = (): string => {
 };
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  output: process.env.VERCEL ? undefined : "standalone",
   trailingSlash: false,
   productionBrowserSourceMaps: true, // source maps are great for oss :)
   env: {
