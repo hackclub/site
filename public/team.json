@@ -1322,5 +1322,17 @@
     "website": "https://sundial.city",
     "avatar": "https://cdn.hackclub.com/01a043ae-0ba9-7948-a0fb-d3a095abaf9b/08-27-2026-1033-1.png",
     "gapyear": true
+  },
+  {
+    "name": "Afia Ava",
+    "department": "HQ",
+    "role": "Philanthropy & Engineering",
+    "acknowledged": false,
+    "bio": "Afia is an 18-year-old helping raise funds for Hack Club. She also runs Athena, Hack Club’s girls-only community. In her free time, she enjoys building hardware projects and reading fiction books.",
+    "slackId": "U07RMG2DPQC",
+    "email": "afiaava@hackclub.com",
+    "website": "afiaava.com",
+    "avatar": "https://cdn.hackclub.com/01a0454b-d134-74aa-a4fa-1309ba183701/Headshot%20Afia(1).jpg",
+    "gapyear": true
   }
 ]
