@@ -1263,5 +1263,17 @@
     "email": "sahil@conduct.hackclub.com",
     "website": "",
     "avatar": "https://cdn.hackclub.com/01a022cb-4489-73bb-9132-5db42f4f857c/sahilsquare%20-%20Copy.png"
+  },
+  {
+    "name": "Nick Do",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Nick is an 18-year-old tinkering artist from Texas, USA! It helps run art and hardware programs as a gap year, and in its free time, can be found sewing or drawing.",
+    "slackId": "U06FMCCDS1K",
+    "email": "nick@hackclub.com",
+    "website": "https://sundial.city",
+    "avatar": "https://cdn.hackclub.com/01a043ae-0ba9-7948-a0fb-d3a095abaf9b/08-27-2026-1033-1.png",
+    "gapyear": true
   }
 ]
