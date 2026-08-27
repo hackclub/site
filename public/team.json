@@ -849,11 +849,58 @@
     "department": "HQ",
     "role": "Engineering & Event Operations",
     "acknowledged": false,
-    "bio": "Hey, I'm Meghana. I'm a 16 year old that spends her free time messing around with robots and making PCBs. I made Pathfinder and Hermes, and ran global operations for Daydream",
+    "bio": "Hey, I'm Meghana. I'm a 17 year old that spends her free time messing around with robots and making PCBs. Now, I'm trying to get every teenager in the world to make their first printed circuit board.",
     "slackId": "U06P62WGWAV",
     "email": "meghana",
     "website": "https://meghana.co",
-    "avatar": "https://cachet.hackclub.com/users/U06P62WGWAV/r"
+    "avatar": "https://cachet.hackclub.com/users/U06P62WGWAV/r",
+    "gapyear": true
+  },
+  {
+    "name": "Brendan Reynard",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Brendan is a a 17 year old from the east coast of Canada (PEI!) who likes lower level software and embedded systems. When he's not working on programs for Hack Club, he's cycling, skating, or working on other personal projects.",
+    "slackId": "U08LEHUPSCR",
+    "email": "brendan",
+    "website": "https://breynard.net",
+    "avatar": "https://cdn.hackclub.com/01a04383-f2f2-73cb-8972-58e0b9292dda/beach_pfp.jpeg",
+    "gapyear": true
+  },
+  {
+    "name": "Selena Nguyen",
+    "department": "HQ",
+    "role": "Events & Engineering",
+    "acknowledged": false,
+    "bio": "Selena is a student from Hamilton, Ontario and joined Hack Club through attending Apocalypse in 2024. She loves running events in her community including various hackathons and robotics competitions. In the meantime, she wants to keep learning and teaching others through workshops and programs!",
+    "slackId": "U06U1CBK589",
+    "email": "selena",
+    "avatar": "https://cdn.hackclub.com/01a04385-5835-7a60-86f4-9ccd15151229/image%20(5).png",
+    "gapyear": true
+  },
+  {
+    "name": "Lewin Kelly",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U07JH9LU1NC",
+    "email": "lewin",
+    "website": "https://heliodex.cf",
+    "avatar": "https://cdn.hackclub.com/01a04386-fbf6-7efc-92ce-0ccf9583b50c/me-square.jpg",
+    "gapyear": true
+  },
+  {
+    "name": "Jolly Wang",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U08CJCZ2Z9S",
+    "email": "jolly",
+    "avatar": "https://cdn.hackclub.com/01a043a9-1199-7c41-b938-fba1fbedf586/picrew.png",
+    "gapyear": true
   },
   {
     "name": "Celeste Roselli",
