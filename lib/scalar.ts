@@ -21,8 +21,8 @@ export const SCALAR_DOCS_HTML = `<!doctype html>
     <meta name="description" content="Reference for the Hack Club Events API." />
     <meta name="robots" content="noindex" />
     <link rel="icon" href="/favicon.png" />
-    <link rel="alternate" type="application/json" href="/api/v1/openapi.json" title="OpenAPI 3.1 (JSON)" />
-    <link rel="alternate" type="application/yaml" href="/api/v1/openapi.yaml" title="OpenAPI 3.1 (YAML)" />
+    <link rel="alternate" type="application/json" href="/api/v1/openapi.json" title="OpenAPI 3.2 (JSON)" />
+    <link rel="alternate" type="application/yaml" href="/api/v1/openapi.yaml" title="OpenAPI 3.2 (YAML)" />
     <link rel="alternate" type="application/rss+xml" href="/api/v1/events/rss" title="Hack Club events" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <style>
@@ -42,7 +42,7 @@ export const SCALAR_DOCS_HTML = `<!doctype html>
       <ul>
         <li><a href="/api/v1/events">/api/v1/events</a> — every event</li>
         <li><a href="/api/v1/events/rss">/api/v1/events/rss</a> — newly announced events, as RSS</li>
-        <li><a href="/api/v1/openapi.json">/api/v1/openapi.json</a> — OpenAPI 3.1 description</li>
+        <li><a href="/api/v1/openapi.json">/api/v1/openapi.json</a> — OpenAPI 3.2 description</li>
         <li><a href="/api/v1/openapi.yaml">/api/v1/openapi.yaml</a> — the same document as YAML</li>
       </ul>
     </div>

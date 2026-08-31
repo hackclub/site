@@ -2,6 +2,7 @@ import { type NextRequest, NextResponse } from "next/server";
 import { buildOpenApiDocument } from "@/lib/openapi";
 import { mergeVary } from "@/lib/content-negotiation";
 import { requestOrigin } from "@/lib/request-context";
+import { V1_CORS_HEADERS, v1Options } from "@/lib/api-v1";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +14,9 @@ export async function GET(request: NextRequest) {
       "Content-Type": "application/json; charset=utf-8",
       Vary: mergeVary(null, "Accept", "Accept-Encoding"),
       "Cache-Control": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
-      "Access-Control-Allow-Origin": "*",
+      ...V1_CORS_HEADERS,
     },
   });
 }
+
+export const OPTIONS = v1Options;

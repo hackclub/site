@@ -20,6 +20,7 @@ export const V1_DOCS_PATH = "/api/v1/docs";
  * outliving the image URLs inside it.
  */
 export const V1_CACHE_CONTROL = "public, max-age=0, s-maxage=60, stale-while-revalidate=300";
+export const V1_ALLOWED_METHODS = "GET, HEAD, OPTIONS";
 
 /**
  * No `Vary: Origin` — the allowed origin is the constant `*`, so varying on it
@@ -27,8 +28,9 @@ export const V1_CACHE_CONTROL = "public, max-age=0, s-maxage=60, stale-while-rev
  */
 export const V1_CORS_HEADERS: Record<string, string> = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+  "Access-Control-Allow-Methods": V1_ALLOWED_METHODS,
   "Access-Control-Allow-Headers": "Accept, Content-Type",
+  "Access-Control-Expose-Headers": "Link",
   "Access-Control-Max-Age": "86400",
 };
 
@@ -70,7 +72,10 @@ export function v1Error(input: {
  * never preflights, but one custom header from an SDK is enough to trigger it.
  */
 export function v1Options(): NextResponse {
-  return new NextResponse(null, { status: 204, headers: V1_CORS_HEADERS });
+  return new NextResponse(null, {
+    status: 204,
+    headers: { ...V1_CORS_HEADERS, Allow: V1_ALLOWED_METHODS },
+  });
 }
 
 export const API_DEPRECATED_AT = "2026-09-01T00:00:00Z";

@@ -285,11 +285,11 @@ export function buildOpenApiDocument(origin: string = SITE_URL): Json {
     info: {
       title: "Hack Club Events API",
       version: "1.0.0",
-      summary: "The offical public API for all Hack Club events.",
+      summary: "The official public API for all Hack Club events.",
       description: [
-        "In the past we used to have issues where we would have many different APIs claiming to be the source of truth for Hack Club events, however each would be somehow outdated or incomplete. This API is now supposed to tbe single the source of truth. It fetches directly from our internal Airtables (specifically the Unified YSWS table) and is the only API that is guaranteed to be most up to date.",
+        "In the past we used to have issues where we would have many different APIs claiming to be the source of truth for Hack Club events, however each would be somehow outdated or incomplete. This API is now supposed to be the single source of truth. It fetches directly from our internal Airtables (specifically the Unified YSWS table) and is the only API that is guaranteed to be most up to date.",
         "",
-        "Due to Airtable ratelimits, we cache for 5 minutes maximum. Any image URLs signed by Airtable only last for about 2 hours, so don't hotlink them, but cache them heavily or just store them. These are unlikely to change frequently.",
+        "Due to Airtable ratelimits, we cache for 5 minutes maximum. Any image URLs signed by Airtable only last for about 2 hours, so don't hotlink them, but cache them heavily or just store the raw image. These are unlikely to change frequently.",
         "",
         "Every error is JSON with a stable `code`, a `message`, a `hint`, and the HTTP `status` repeated in the body for your convenience. This API and documentation is made with AI agents in mind, so point them here if you want them to understand the API. Pages on this site answer `Accept: text/markdown`; see /llms.txt for the page index.",
         "",
