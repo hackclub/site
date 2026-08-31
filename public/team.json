@@ -814,7 +814,7 @@
     "name": "Ivie Fonner",
     "department": "HQ",
     "role": "Club Infrastructure and Operations",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Ivie (aka Charmunk) is a 14-year-old Hack Clubber from the DC area. When she is not coding, she enjoys sci-fi novels and playing card games. At Hack Club, she builds the underlying systems allowing Hack Club Clubs to run smoothly. She joined Hack Club in late 2024 and has been working on various projects since then.",
     "slackId": "U04KEK4TS72",
     "email": "ivie",
