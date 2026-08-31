@@ -912,6 +912,18 @@
     "gapyear": true
   },
   {
+    "name": "Kai Pereira",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Kai's an 18 year old hacker from west coast Canada who loves hacking on intricate hardware and software projects. You'll also find him hitting up every bubble tea shop, exploring the world aimlessly and going down every rabbit hole imaginable.",
+    "slackId": "U04HJGA76H2",
+    "email": "kaipereira",
+    "website": "https://kaipereira.com/",
+    "avatar": "https://cdn.hackclub.com/01a05528-875e-7fc5-8a3d-143cdd8e1216/image_1.png",
+    "gapyear": true
+  },
+  {
     "name": "Brendan Reynard",
     "department": "HQ",
     "role": "Engineering",
