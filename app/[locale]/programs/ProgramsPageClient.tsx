@@ -5,10 +5,11 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import type { ProgramFormat, ProjectType } from "@/lib/site-programs";
+import type { ProjectType } from "@/lib/site-programs";
 import { PROJECT_TYPE_OPTIONS, formatInPersonDate } from "@/lib/site-programs";
-import type { AirtableProgram } from "@/lib/programs";
-import { getProgramStatus, hasProgramArtwork, parseLocalDate } from "@/lib/programs";
+import type { Event, EventFormat, EventStatus } from "@/lib/events";
+import { hasEventArtwork } from "@/lib/events";
+import { parseLocalDate } from "@/lib/programs";
 import { BtnArrowSvg } from "@/components/landing/btn-arrow";
 
 function useProjectTypeLabel() {
@@ -35,13 +36,13 @@ function useProjectTypeLabel() {
 
 function useFormatLabel() {
   const t = useTranslations("Programs");
-  return (format: ProgramFormat) => {
+  return (format: EventFormat) => {
     switch (format) {
-      case "In-Person Only":
+      case "in-person":
         return t("formatInPersonOnly");
-      case "Online Only":
+      case "online":
         return t("formatOnlineOnly");
-      case "Both":
+      case "both":
         return t("formatBoth");
       default:
         return format;
@@ -49,44 +50,43 @@ function useFormatLabel() {
   };
 }
 
-function ProgramCard({ program }: { program: AirtableProgram }) {
+function ProgramCard({ event }: { event: Event }) {
   const t = useTranslations("Programs");
   const locale = useLocale();
   const projectTypeLabel = useProjectTypeLabel();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const now = new Date();
   // If no end date, program runs indefinitely (never ends)
-  const isEnded = program.endDate ? parseLocalDate(program.endDate) < now : false;
-  const isDraft = parseLocalDate(program.startDate) > now;
+  const isEnded = event.endDate ? parseLocalDate(event.endDate) < now : false;
+  const isDraft = parseLocalDate(event.startDate) > now;
 
-  const s = program.site;
-  const bgColor = s?.bgColor ?? "var(--surface)";
-  const textColor = s?.textColor ?? "var(--foreground)";
-  const accentColor = s?.accentColor ?? "#ec3750";
-  const logoUrl = s?.logoUrl ?? null;
-  const logoSize = s?.logoSize ?? 48;
-  const bgImageUrl = s?.bgType === "image" ? (s?.bgImageUrl ?? null) : null;
+  const theme = event.theme;
+  const background = event.background;
+  const bgColor = background?.color ?? "var(--surface)";
+  const textColor = theme?.text ?? "var(--foreground)";
+  const accentColor = theme?.accent ?? "#ec3750";
+  const logoUrl = event.logoUrl;
+  const logoSize = theme?.logoSize ?? 48;
+  const bgImageUrl = background?.type === "image" ? background.imageUrl : null;
   const buttonLabel = isEnded ? t("seeTheSite") : t("startNow");
-  const buttonColor = s?.buttonColor ?? "#ec3750";
-  const buttonTextColor = s?.buttonTextColor ?? "#ffffff";
-  const buttonRadius = s?.buttonBorderRadius ?? 44;
-  const buttonBorderWidth = s?.buttonBorderWidth ?? 0;
-  const buttonBorderColor = s?.buttonBorderColor ?? "var(--foreground)";
-  const slackChannel = s?.slackChannel ?? null;
-  const slackUrl = slackChannel
-    ? `https://hackclub.slack.com/channels/${slackChannel.replace(/^#/, "")}`
-    : null;
-  const projectTypes = s?.projectTypes ?? [];
-  const format = s?.format ?? null;
-  const description = s?.description ?? null;
+  const buttonColor = theme?.button.color ?? "#ec3750";
+  const buttonTextColor = theme?.button.textColor ?? "#ffffff";
+  const buttonRadius = theme?.button.borderRadius ?? 44;
+  const buttonBorderWidth = theme?.button.borderWidth ?? 0;
+  const buttonBorderColor = theme?.button.borderColor ?? "var(--foreground)";
+  const slackChannel = event.slackChannel;
+  const slackUrl = event.slackUrl;
+  const projectTypes = event.projectTypes;
+  const format = event.format;
+  const description = event.description;
 
   const badgeLabel = isDraft
     ? t("comingSoon")
     : isEnded
       ? t("statusEnded")
-      : program.endDate
+      : event.endDate
         ? t("ends", {
-            date: parseLocalDate(program.endDate).toLocaleDateString(locale, {
+            date: parseLocalDate(event.endDate).toLocaleDateString(locale, {
               day: "numeric",
               month: "short",
             }),
@@ -97,15 +97,15 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
   // Italic metadata lines
   const metaLines: string[] = [];
   const inPersonStr = formatInPersonDate(
-    s?.inPersonStart ?? null,
-    s?.inPersonEnd ?? null,
-    s?.inPersonLocation ?? null,
+    event.inPerson?.start ?? null,
+    event.inPerson?.end ?? null,
+    event.inPerson?.location ?? null,
     locale,
   );
-  if ((format === "In-Person Only" || format === "Both") && inPersonStr)
+  if ((format === "in-person" || format === "both") && inPersonStr)
     metaLines.push(t("metaInPerson", { details: inPersonStr }));
-  if (format === "Online Only") metaLines.push(t("metaOnlineOnly"));
-  if (format === "Both" && !inPersonStr) metaLines.push(t("metaInPersonAndOnline"));
+  if (format === "online") metaLines.push(t("metaOnlineOnly"));
+  if (format === "both" && !inPersonStr) metaLines.push(t("metaInPersonAndOnline"));
   if (projectTypes.length > 0)
     metaLines.push(
       projectTypes.length === PROJECT_TYPE_OPTIONS.length
@@ -114,8 +114,7 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
             types: projectTypes.map(projectTypeLabel).join(", "),
           }),
     );
-  const additionalRequirements = s?.additionalRequirements ?? null;
-  if (additionalRequirements) metaLines.push(additionalRequirements);
+  if (event.requirements) metaLines.push(event.requirements);
 
   return (
     <div
@@ -159,7 +158,7 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
         }}
       >
         {/* Pin icon */}
-        {program.site?.pinned && (
+        {event.pinned && (
           <div
             style={{
               position: "absolute",
@@ -203,7 +202,7 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={logoUrl}
-            alt={program.name}
+            alt={event.name}
             style={{
               height: logoSize,
               width: "auto",
@@ -230,7 +229,7 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
               width: "100%",
             }}
           >
-            {program.name}
+            {event.name}
           </h2>
         )}
 
@@ -280,9 +279,9 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
         <div style={{ flex: "1 0 12px" }} />
 
         {/* CTA button */}
-        {program.websiteUrl && (
+        {event.url && (
           <a
-            href={program.websiteUrl}
+            href={event.url}
             target="_blank"
             rel="noopener noreferrer"
             className="cta-btn"
@@ -344,7 +343,7 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
                 whiteSpace: "nowrap",
               }}
             >
-              #{slackChannel.replace(/^#/, "")}
+              #{slackChannel}
             </a>
           </p>
         )}
@@ -617,26 +616,21 @@ function CheckItem({
   );
 }
 
-type StatusOption = "ongoing" | "ended" | "draft";
 type SortOption = "deadline-asc" | "deadline-desc" | "az" | "za";
-const FORMAT_OPTIONS: ProgramFormat[] = ["In-Person Only", "Online Only", "Both"];
+const FORMAT_OPTIONS: EventFormat[] = ["in-person", "online", "both"];
 
 // ── Page ──────────────────────────────────────────────────────────────────────
-export default function ProgramsPage({
-  initialPrograms = null,
-}: {
-  initialPrograms?: AirtableProgram[] | null;
-}) {
+export default function ProgramsPage({ initialEvents = null }: { initialEvents?: Event[] | null }) {
   const t = useTranslations("Programs");
   const locale = useLocale();
   const projectTypeLabel = useProjectTypeLabel();
   const formatLabelFn = useFormatLabel();
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<SortOption>("deadline-asc");
-  const [statusFilter, setStatusFilter] = useState<Set<StatusOption>>(new Set(["ongoing"]));
-  const [formatFilter, setFormatFilter] = useState<Set<ProgramFormat>>(new Set());
+  const [statusFilter, setStatusFilter] = useState<Set<EventStatus>>(new Set(["ongoing"]));
+  const [formatFilter, setFormatFilter] = useState<Set<EventFormat>>(new Set());
   const [typeFilter, setTypeFilter] = useState<Set<ProjectType>>(new Set());
-  const [programs, setPrograms] = useState<AirtableProgram[] | null>(initialPrograms);
+  const [events, setEvents] = useState<Event[] | null>(initialEvents);
   const [error, setError] = useState<string | null>(null);
   const sortRef = useRef<HTMLDivElement>(null);
   const [sortOpen, setSortOpen] = useState(false);
@@ -646,10 +640,10 @@ export default function ProgramsPage({
   const sortOpenRafRef = useRef<number | null>(null);
   const sortCloseTimeoutRef = useRef<number | null>(null);
 
-  const STATUS_LABELS: Record<StatusOption, string> = {
+  const STATUS_LABELS: Record<EventStatus, string> = {
     ongoing: t("statusOngoing"),
     ended: t("statusEnded"),
-    draft: t("statusDraft"),
+    upcoming: t("statusDraft"),
   };
 
   const SORT_LABELS: Record<SortOption, ReactNode> = {
@@ -715,40 +709,40 @@ export default function ProgramsPage({
   }, [clearSortTimers, closeSortPanel]);
 
   useEffect(() => {
-    fetch("/api/programs", { cache: "no-store" })
+    // No `cache: "no-store"`: the response already carries `max-age=0`, so the
+    // browser revalidates against the edge, and an organiser's save busts the
+    // cache tag behind it immediately.
+    fetch("/api/v1/events")
       .then((r) => r.json())
-      .then((data) => {
-        if (Array.isArray(data)) setPrograms(data);
-        else setError(data.error ?? t("errorLoad"));
+      .then((json) => {
+        if (Array.isArray(json?.data)) setEvents(json.data);
+        else setError(json?.message ?? t("errorLoad"));
       })
       .catch(() => setError(t("errorNetwork")));
   }, [t]);
 
-  const filtered = (programs ?? []).filter((p) => {
-    if (!hasProgramArtwork(p)) return false;
+  const filtered = (events ?? []).filter((p) => {
+    if (!hasEventArtwork(p)) return false;
     const q = search.toLowerCase();
     const matchesSearch =
       !q ||
       p.name.toLowerCase().includes(q) ||
-      (p.site?.description ?? "").toLowerCase().includes(q) ||
-      (p.site?.inPersonLocation ?? "").toLowerCase().includes(q);
+      (p.description ?? "").toLowerCase().includes(q) ||
+      (p.inPerson?.location ?? "").toLowerCase().includes(q);
     if (!matchesSearch) return false;
-    const programStatus = getProgramStatus(p);
-    if (statusFilter.size > 0 && !statusFilter.has(programStatus)) return false;
+    if (statusFilter.size > 0 && !statusFilter.has(p.status)) return false;
     if (formatFilter.size > 0) {
-      const pFormat = p.site?.format ?? null;
-      if (!pFormat || !formatFilter.has(pFormat)) return false;
+      if (!p.format || !formatFilter.has(p.format)) return false;
     }
     if (typeFilter.size > 0) {
-      const pTypes = p.site?.projectTypes ?? [];
-      if (![...typeFilter].some((type) => pTypes.includes(type))) return false;
+      if (![...typeFilter].some((type) => p.projectTypes.includes(type))) return false;
     }
     return true;
   });
 
   const sorted = [...filtered].sort((a, b) => {
-    const aPinned = Number(Boolean(a.site?.pinned));
-    const bPinned = Number(Boolean(b.site?.pinned));
+    const aPinned = Number(a.pinned);
+    const bPinned = Number(b.pinned);
     if (aPinned !== bPinned) return bPinned - aPinned;
 
     // For deadline sorting, treat null endDate as far future (never ends)
@@ -762,7 +756,7 @@ export default function ProgramsPage({
     return b.name.localeCompare(a.name, locale);
   });
 
-  function toggleStatus(s: StatusOption) {
+  function toggleStatus(s: EventStatus) {
     setStatusFilter((prev) => {
       const next = new Set(prev);
       if (next.has(s)) next.delete(s);
@@ -771,7 +765,7 @@ export default function ProgramsPage({
     });
   }
 
-  function toggleFormat(f: ProgramFormat) {
+  function toggleFormat(f: EventFormat) {
     setFormatFilter((prev) => {
       const next = new Set(prev);
       if (next.has(f)) next.delete(f);
@@ -793,7 +787,7 @@ export default function ProgramsPage({
     statusFilter.size === 0
       ? t("status")
       : t("statusWith", {
-          values: (["ongoing", "ended", "draft"] as StatusOption[])
+          values: (["ongoing", "ended", "draft"] as EventStatus[])
             .filter((s) => statusFilter.has(s))
             .map((s) => STATUS_LABELS[s])
             .join(", "),
@@ -1095,7 +1089,7 @@ export default function ProgramsPage({
             active={statusFilter.size > 0}
             onClear={() => setStatusFilter(new Set())}
           >
-            {(["ongoing", "ended", "draft"] as StatusOption[]).map((s) => (
+            {(["ongoing", "ended", "draft"] as EventStatus[]).map((s) => (
               <CheckItem
                 key={s}
                 label={STATUS_LABELS[s]}
@@ -1156,12 +1150,12 @@ export default function ProgramsPage({
           className="programs-grid"
           style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28 }}
         >
-          {programs === null
+          {events === null
             ? Array.from({ length: 4 }).map((_, i) => <CardSkeleton key={i} />)
-            : sorted.map((p) => <ProgramCard key={p.id} program={p} />)}
+            : sorted.map((p) => <ProgramCard key={p.id} event={p} />)}
         </div>
 
-        {programs !== null && sorted.length === 0 && (
+        {events !== null && sorted.length === 0 && (
           <p
             style={{
               fontFamily: "var(--font-phantom)",

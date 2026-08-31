@@ -39,7 +39,9 @@ The site publishes a machine-readable surface alongside the HTML:
 | URL | What it is |
 | --- | --- |
 | `/llms.txt` | Index of every page, in the [llmstxt.org](https://llmstxt.org) format |
-| `/openapi.json`, `/api/openapi.yaml` | OpenAPI 3.1 description of the public read-only JSON endpoints |
+| `/api/v1/docs` | Browsable reference for the Events API |
+| `/openapi.json`, `/api/openapi.yaml` | OpenAPI 3.2 description of the Events API — the same document is served at `/api/v1/openapi.json` and `/api/v1/openapi.yaml` |
+| `/api/v1/events/rss` | RSS 2.0 feed of newly announced events |
 | `/sitemap.xml`, `/robots.txt` | Canonical URLs and crawl rules |
 | `<page>.md` | Markdown representation of any page (`/index.md` for the homepage) |
 

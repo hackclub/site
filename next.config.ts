@@ -33,6 +33,10 @@ const nextConfig: NextConfig = {
         source: "/:path([^.]*)",
         headers: [{ key: "Vary", value: "Accept" }],
       },
+      {
+        source: "/api/v1/:path*",
+        headers: [{ key: "Vary", value: "Accept-Encoding" }],
+      },
     ];
   },
   async redirects() {

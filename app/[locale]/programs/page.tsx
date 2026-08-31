@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import ProgramsPageClient from "./ProgramsPageClient";
 import { buildPageMetadata } from "@/lib/seo";
-import { fetchPrograms, hasKey } from "@/lib/programs-data";
+import { fetchEventsSafe } from "@/lib/events-data";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -16,6 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t("metaDescription"),
     canonical: "/programs",
     locale,
+    feed: true,
   });
 }
 
@@ -23,7 +24,5 @@ export default async function ProgramsPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const programs = hasKey() ? await fetchPrograms() : [];
-
-  return <ProgramsPageClient initialPrograms={programs} />;
+  return <ProgramsPageClient initialEvents={await fetchEventsSafe()} />;
 }

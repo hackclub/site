@@ -37,7 +37,8 @@ function machineReadableList(origin: string): string {
   return [
     `- [llms.txt](${origin}/llms.txt) — index of every page on this site`,
     `- [sitemap.xml](${origin}/sitemap.xml) — every canonical URL`,
-    `- [openapi.json](${origin}/openapi.json) — the public JSON API`,
+    `- [openapi.json](${origin}/openapi.json) — the Events API, described`,
+    `- [api/v1/events/rss](${origin}/api/v1/events/rss) — newly announced events, as RSS`,
   ].join("\n");
 }
 
@@ -157,8 +158,10 @@ export function renderLlmsTxt({
     [
       "## Optional",
       "",
-      `- [OpenAPI specification](${origin}/openapi.json): the public read-only JSON endpoints, their responses, and the shared error shape`,
-      `- [OpenAPI specification (YAML)](${origin}/api/openapi.yaml): the same document as YAML`,
+      `- [Events API (OpenAPI)](${origin}/openapi.json): the public API for Hack Club events, and the shared error shape — also served at ${origin}/api/v1/openapi.json`,
+      `- [Events API (YAML)](${origin}/api/openapi.yaml): the same document as YAML — also at ${origin}/api/v1/openapi.yaml`,
+      `- [API reference](${origin}/api/v1/docs): browsable documentation for the Events API`,
+      `- [Events RSS feed](${origin}/api/v1/events/rss): newly announced events, newest first`,
       `- [sitemap.xml](${origin}/sitemap.xml): canonical URLs for every locale`,
       `- [Source code](https://github.com/hackclub/site): this website, on GitHub`,
     ].join("\n"),

@@ -14,6 +14,7 @@ type PageMetadataInput = {
   locale?: string;
   image?: string;
   imageAlt?: string;
+  feed?: boolean;
 };
 
 export function buildPageMetadata({
@@ -23,6 +24,7 @@ export function buildPageMetadata({
   locale = routing.defaultLocale,
   image = "https://cdn.hackclub.com/019db4df-dc7a-7270-94b5-df621a60c7ca/splash.png",
   imageAlt = SITE_NAME,
+  feed = false,
 }: PageMetadataInput): Metadata {
   const origin = getLocaleDomain(locale);
   const path = canonical.startsWith("http")
@@ -46,6 +48,13 @@ export function buildPageMetadata({
       languages,
       types: {
         "text/markdown": path === "/" ? `${origin}/index.md` : `${origin}${path}.md`,
+        ...(feed
+          ? {
+              "application/rss+xml": [
+                { url: `${origin}/api/v1/events/rss`, title: "Hack Club events" },
+              ],
+            }
+          : {}),
       },
     },
     openGraph: {

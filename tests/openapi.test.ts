@@ -3,18 +3,45 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { buildOpenApiDocument } from "@/lib/openapi";
 import { API_ERROR_CODES } from "@/lib/api-error";
+import { PROJECT_TYPE_OPTIONS } from "@/lib/site-programs";
+import { EVENT_STATUSES } from "@/lib/events";
 import { toYaml, yamlScalar } from "@/lib/yaml";
 
 type AnyRecord = Record<string, any>;
 
 const doc = buildOpenApiDocument("https://hackclub.com") as AnyRecord;
 
+const EVENT_PATHS = ["/api/v1/events", "/api/v1/events/rss", "/api/v1/events/{idOrSlug}"];
+
+const UNDOCUMENTED = [
+  "/api/team",
+  "/api/acknowledged",
+  "/api/programs",
+  "/api/projects",
+  "/api/site-programs",
+  "/api/programs/editable",
+  "/api/site-programs/upload",
+  "/api/parents-signup",
+  "/api/auth/login",
+  "/api/auth/callback",
+  "/api/auth/logout",
+];
+
+function routeFile(route: string): string {
+  const segments = route
+    .split("/")
+    .filter(Boolean)
+    .map((segment) => segment.replace(/^\{(.+)\}$/, "[$1]"));
+  return path.join(process.cwd(), "app", ...segments, "route.ts");
+}
+
 describe("OpenAPI document", () => {
-  test("is a valid-looking OpenAPI 3.1 document", () => {
-    expect(doc.openapi).toBe("3.1.0");
-    expect(doc.info.title).toBe("Hack Club site API");
+  test("is a valid-looking OpenAPI 3.2.0 document", () => {
+    expect(doc.openapi).toBe("3.2.0");
+    expect(doc.info.title).toBe("Hack Club Events API");
     expect(doc.info.version).toMatch(/^\d+\.\d+\.\d+$/);
     expect(doc.servers[0].url).toBe("https://hackclub.com");
+    expect(doc.externalDocs.url).toBe("https://hackclub.com/api/v1/docs");
   });
 
   test("uses the origin it is given", () => {
@@ -27,35 +54,54 @@ describe("OpenAPI document", () => {
     expect(doc.security).toEqual([{}]);
   });
 
-  test("documents exactly the public read-only endpoints", () => {
-    expect(Object.keys(doc.paths).sort()).toEqual([
-      "/api/acknowledged",
-      "/api/programs",
-      "/api/projects",
-      "/api/site-programs",
-      "/api/team",
-    ]);
+  test("documents the events API and only the events API", () => {
+    expect(Object.keys(doc.paths).sort()).toEqual(EVENT_PATHS);
+    for (const route of Object.keys(doc.paths)) {
+      expect(route.startsWith("/api/v1/events")).toBe(true);
+    }
   });
 
   test("every documented path is a route that really exists", () => {
     for (const route of Object.keys(doc.paths)) {
-      const file = path.join(process.cwd(), "app", ...route.split("/").filter(Boolean), "route.ts");
-      expect(existsSync(file)).toBe(true);
+      expect(existsSync(routeFile(route))).toBe(true);
     }
   });
 
-  test("leaves the program editor's own endpoints out", () => {
-    // These exist, but they are internal plumbing for /programs/edit and the
-    // OAuth flow behind it — not a public API for agents to call.
-    for (const internal of [
-      "/api/programs/editable",
-      "/api/site-programs/upload",
-      "/api/parents-signup",
-      "/api/auth/login",
-      "/api/auth/callback",
-      "/api/auth/logout",
-    ]) {
-      expect(doc.paths[internal]).toBeUndefined();
+  test("nothing documented is deprecated", () => {
+    // Deprecated endpoints are undocumented rather than flagged: there is no
+    // reason to show a reader something they should not use.
+    for (const route of Object.keys(doc.paths)) {
+      expect(doc.paths[route].get.deprecated).toBeUndefined();
+    }
+  });
+
+  test("serves the feed as RSS, not JSON", () => {
+    const responses = doc.paths["/api/v1/events/rss"].get.responses;
+    expect(Object.keys(responses["200"].content)).toEqual(["application/rss+xml"]);
+    // Errors still come from apiError, so they stay JSON.
+    expect(Object.keys(responses["400"].content)).toEqual(["application/json"]);
+  });
+
+  test("the Event schema stays in step with the code", () => {
+    const event = doc.components.schemas.Event;
+    expect(event.properties.projectTypes.items.enum).toEqual([...PROJECT_TYPE_OPTIONS]);
+    expect(event.properties.status.enum).toEqual([...EVENT_STATUSES]);
+    for (const key of ["id", "slug", "name", "status", "startDate", "announcedAt"]) {
+      expect(event.required).toContain(key);
+    }
+  });
+
+  test("leaves every undocumented endpoint out, and mentions none of them", () => {
+    const serialised = JSON.stringify(doc);
+    for (const route of UNDOCUMENTED) {
+      expect(doc.paths[route]).toBeUndefined();
+      expect(serialised).not.toContain(`"${route}"`);
+    }
+  });
+
+  test("carries no schemas left over from the endpoints it no longer documents", () => {
+    for (const schema of ["Program", "SiteProgram", "Project", "TeamMember"]) {
+      expect(doc.components.schemas[schema]).toBeUndefined();
     }
   });
 
@@ -133,7 +179,7 @@ describe("OpenAPI document", () => {
   test("serialises to JSON without cycles or undefined", () => {
     const json = JSON.stringify(doc);
     expect(json).not.toContain("undefined");
-    expect(JSON.parse(json).openapi).toBe("3.1.0");
+    expect(JSON.parse(json).openapi).toBe("3.2.0");
   });
 });
 
@@ -141,7 +187,7 @@ describe("YAML serialisation", () => {
   test("quotes scalars that would otherwise change meaning", () => {
     expect(yamlScalar("plain-value")).toBe("plain-value");
     expect(yamlScalar("yes")).toBe('"yes"');
-    expect(yamlScalar("3.1.0")).toBe('"3.1.0"');
+    expect(yamlScalar("3.2.0")).toBe('"3.2.0"');
     expect(yamlScalar("a: b")).toBe('"a: b"');
     expect(yamlScalar("")).toBe('""');
     expect(yamlScalar(true)).toBe("true");

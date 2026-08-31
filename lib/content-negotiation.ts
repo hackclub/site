@@ -173,6 +173,7 @@ export function agentDiscoveryLinks(origin: string): string[] {
   return [
     `<${origin}/llms.txt>; rel="index"; type="text/plain"`,
     `<${origin}/openapi.json>; rel="service-desc"; type="application/json"`,
+    `<${origin}/api/v1/docs>; rel="service-doc"; type="text/html"`,
     `<${origin}/sitemap.xml>; rel="sitemap"; type="application/xml"`,
   ];
 }

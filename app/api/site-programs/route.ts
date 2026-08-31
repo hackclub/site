@@ -11,6 +11,7 @@ import {
 } from "../../../lib/site-programs";
 import { getEditAuth } from "../../../lib/server-auth";
 import { apiError } from "@/lib/api-error";
+import { deprecationHeaders } from "@/lib/api-v1";
 import { PROGRAMS_CACHE_TAG } from "@/lib/programs-data";
 
 export const dynamic = "force-dynamic";
@@ -151,7 +152,9 @@ export async function GET() {
   }
   try {
     const records = await getAllRecords(key);
-    return NextResponse.json(records.map(parseRecord));
+    return NextResponse.json(records.map(parseRecord), {
+      headers: deprecationHeaders("/api/v1/events"),
+    });
   } catch (e) {
     console.error("[site-programs] GET failed", e);
     return apiError({ status: 500, code: "upstream_error", message: "Failed to fetch programs" });

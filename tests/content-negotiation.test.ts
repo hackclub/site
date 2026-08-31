@@ -123,6 +123,7 @@ test("agentDiscoveryLinks advertises the machine-readable surfaces", () => {
   expect(agentDiscoveryLinks("https://hackclub.com")).toEqual([
     '<https://hackclub.com/llms.txt>; rel="index"; type="text/plain"',
     '<https://hackclub.com/openapi.json>; rel="service-desc"; type="application/json"',
+    '<https://hackclub.com/api/v1/docs>; rel="service-doc"; type="text/html"',
     '<https://hackclub.com/sitemap.xml>; rel="sitemap"; type="application/xml"',
   ]);
 });
