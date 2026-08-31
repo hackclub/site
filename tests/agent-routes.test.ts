@@ -55,7 +55,7 @@ describe("isMarkdownEligiblePath", () => {
   });
 
   test("assets and proxied routes are never rewritten", () => {
-    for (const path of ["/api/programs", "/_next/static/chunk.js"]) {
+    for (const path of ["/api/v1/events", "/_next/static/chunk.js"]) {
       expect(isMarkdownEligiblePath(path)).toBe(false);
     }
   });

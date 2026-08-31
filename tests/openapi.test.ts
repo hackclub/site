@@ -13,11 +13,11 @@ const doc = buildOpenApiDocument("https://hackclub.com") as AnyRecord;
 
 const EVENT_PATHS = ["/api/v1/events", "/api/v1/events/rss", "/api/v1/events/{idOrSlug}"];
 
+// Retired with the unversioned API. Their route files are gone; /api/v1/events is
+// the only public read surface.
+const RETIRED = ["/api/team", "/api/acknowledged", "/api/programs", "/api/projects"];
+
 const UNDOCUMENTED = [
-  "/api/team",
-  "/api/acknowledged",
-  "/api/programs",
-  "/api/projects",
   "/api/site-programs",
   "/api/programs/editable",
   "/api/site-programs/upload",
@@ -95,6 +95,14 @@ describe("OpenAPI document", () => {
     const serialised = JSON.stringify(doc);
     for (const route of UNDOCUMENTED) {
       expect(doc.paths[route]).toBeUndefined();
+      expect(serialised).not.toContain(`"${route}"`);
+    }
+  });
+
+  test("the retired endpoints are gone, not merely undocumented", () => {
+    const serialised = JSON.stringify(doc);
+    for (const route of RETIRED) {
+      expect(existsSync(routeFile(route))).toBe(false);
       expect(serialised).not.toContain(`"${route}"`);
     }
   });

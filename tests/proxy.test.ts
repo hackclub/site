@@ -85,7 +85,7 @@ describe("proxy content negotiation", () => {
 
   test("the API is never negotiated as a page", () => {
     const response = proxy(
-      request("https://hackclub.com/api/programs", { accept: "text/markdown" }),
+      request("https://hackclub.com/api/v1/events", { accept: "text/markdown" }),
     );
     expect(response.headers.get("x-middleware-rewrite")).not.toContain("/api/markdown");
     expect(response.status).not.toBe(406);

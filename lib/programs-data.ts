@@ -1,20 +1,11 @@
 import { unstable_cache } from "next/cache";
-import { parseRecord, siteBaseUrl, siteAuthHeaders, SITE_FIELDS } from "./site-programs";
-import type { AirtableProgram } from "./programs";
+import { siteBaseUrl, siteAuthHeaders, SITE_FIELDS } from "./site-programs";
 
 export const YSWS_BASE_ID = "app3A5kJwYqxMLOgh";
 export const YSWS_TABLE_NAME = "YSWS Programs";
 export const YSWS_FIELDS = ["Name", "Start Date", "End Date", "Website URL"];
 export const PROGRAMS_REVALIDATE_SECONDS = 300;
 export const PROGRAMS_CACHE_TAG = "programs";
-
-type FetchProgramsOptions = {
-  fresh?: boolean;
-};
-
-export function hasKey(): boolean {
-  return Boolean(process.env.AIRTABLE_API_KEY?.trim());
-}
 
 export function yswsListUrl(): string {
   const params = new URLSearchParams();
@@ -74,8 +65,15 @@ export async function fetchAllPages(
   return records;
 }
 
+/** Which of the two bases to read. */
 export type AirtableTable = "ysws" | "site";
 
+/**
+ * One table's records, credentials resolved here rather than passed in.
+ *
+ * The API keys stay out of the arguments on purpose: `unstable_cache` builds its
+ * key from them, and a secret does not belong in a cache key.
+ */
 async function readTable(table: AirtableTable): Promise<unknown[]> {
   if (table === "ysws") {
     const apiKey = process.env.AIRTABLE_API_KEY;
@@ -88,63 +86,19 @@ async function readTable(table: AirtableTable): Promise<unknown[]> {
   return fetchAllPages(siteListUrl(), siteAuthHeaders(siteKey));
 }
 
+/**
+ * The cached form: one entry per table, holding the completed record list.
+ *
+ * Carries the same `programs` tag the editor's write paths already revalidate,
+ * so a save still busts this immediately. Every reader — the server render of
+ * `/` and `/programs`, and the public events API — shares these two entries, so
+ * a warm request makes no Airtable call at all.
+ */
 const cachedTable = unstable_cache(readTable, ["airtable-programs"], {
   revalidate: PROGRAMS_REVALIDATE_SECONDS,
   tags: [PROGRAMS_CACHE_TAG],
 });
 
-export function fetchAirtableRecords(table: AirtableTable, fresh = false): Promise<unknown[]> {
-  return fresh ? readTable(table) : cachedTable(table);
-}
-
-async function readPrograms({ fresh = false }: FetchProgramsOptions = {}): Promise<
-  AirtableProgram[]
-> {
-  if (!hasKey()) {
-    return [];
-  }
-
-  const [ywswRecords, siteRecords] = await Promise.all([
-    fetchAirtableRecords("ysws", fresh),
-    process.env.HACK_CLUB_SITE_AIRTABLE_KEY
-      ? fetchAirtableRecords("site", fresh).catch(() => [] as unknown[])
-      : Promise.resolve([] as unknown[]),
-  ]);
-  const siteMap = new Map(
-    siteRecords.map((record) => {
-      const parsed = parseRecord(record as Parameters<typeof parseRecord>[0]);
-      return [parsed.programName, parsed] as const;
-    }),
-  );
-
-  return ywswRecords.map((rawRecord) => {
-    const record = rawRecord as { id: string; fields: Record<string, string> };
-    const name = record.fields["Name"] ?? "Unnamed";
-    const websiteUrl = record.fields["Website URL"]?.trim();
-    return {
-      id: record.id,
-      name,
-      startDate: record.fields["Start Date"],
-      endDate: record.fields["End Date"] || null,
-      websiteUrl: websiteUrl
-        ? /^https?:\/\//i.test(websiteUrl)
-          ? websiteUrl
-          : `https://${websiteUrl}`
-        : null,
-      site: siteMap.get(name) ?? null,
-    };
-  });
-}
-
-export async function fetchPrograms(): Promise<AirtableProgram[]> {
-  try {
-    return await readPrograms();
-  } catch (error) {
-    console.error("[programs] fetch failed", error);
-    return [];
-  }
-}
-
-export async function fetchProgramsFresh(): Promise<AirtableProgram[]> {
-  return readPrograms({ fresh: true });
+export function fetchAirtableRecords(table: AirtableTable): Promise<unknown[]> {
+  return cachedTable(table);
 }
