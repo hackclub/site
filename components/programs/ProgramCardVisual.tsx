@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { BtnArrowSvg } from "@/components/landing/btn-arrow";
 
 export type ProgramCardVisualProps = {
@@ -83,20 +84,27 @@ export function ProgramCardVisual({
 
   return (
     <div
-      style={{
-        position: "relative",
-        background: bgImageUrl ? "transparent" : bgColor,
-        borderRadius: 16,
-        boxShadow: "2px 4px 6px rgba(0,0,0,0.25)",
-        overflow: "hidden",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        padding: "28px 32px 16px",
-        minHeight: 260,
-        height: fillHeight ? "100%" : "auto",
-        boxSizing: "border-box",
-      }}
+      style={
+        {
+          position: "relative",
+          background: bgImageUrl ? "transparent" : bgColor,
+          borderRadius: 16,
+          boxShadow: "2px 4px 6px rgba(0,0,0,0.25)",
+          overflow: "hidden",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          padding: "28px 32px 16px",
+          minHeight: 260,
+          height: fillHeight ? "100%" : "auto",
+          boxSizing: "border-box",
+          colorScheme: "light",
+          "--foreground": "#17171d",
+          "--surface": "#f9fafc",
+          "--surface-hover": "#f1f2f5",
+          "--paper": "#ffffff",
+        } as CSSProperties
+      }
     >
       {pinned && (
         <div
