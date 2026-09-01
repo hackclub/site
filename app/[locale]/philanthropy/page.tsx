@@ -52,11 +52,12 @@ const donorTierNames = {
   tier100kto200k: [
     "Quinn Slack (3x)",
     "Peter Levine",
-    "Mitchell Hashimoto",
+    "Mitchell and Amy Hashimoto",
     "Chuck and Marna Davis",
     "Proton Foundation",
     "Kellogg Foundation",
     "Pinkerton Foundation",
+    "Gates Foundation",
   ],
 } as const;
 
