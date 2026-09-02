@@ -1227,17 +1227,6 @@
   },
   {
     "name": "Felix Gao",
-    "department": "Newspaper",
-    "role": "Newspaper Team Lead",
-    "acknowledged": false,
-    "bio": "Felix, a teen Hack Clubber from Toronto, Canada, leads a team that writes various newsletters, ensuring Hack Clubbers know what's going on in the Slack and beyond. You'll often find him writing code or drowning two metres deep in homework. He has an absurd variety of niche interests and loves learning more about them, one of the biggest being urban planning/design.",
-    "slackId": "U07BU2HS17Z",
-    "email": "felix",
-    "website": "https://felixgao.dev/",
-    "avatar": "https://i.ibb.co/3mCMrhZ2/Felix.png"
-  },
-  {
-    "name": "Felix Gao",
     "department": "Moderation",
     "role": "Moderation & Conduct",
     "acknowledged": false,
@@ -1270,15 +1259,59 @@
     "avatar": "https://cachet.hackclub.com/users/U0943NG73PA/r"
   },
   {
+    "name": "Felix Gao",
+    "department": "Newspaper",
+    "role": "Newspaper Team Lead",
+    "acknowledged": false,
+    "bio": "Felix, a teen Hack Clubber from Toronto, Canada, leads a team that writes various newsletters, ensuring Hack Clubbers know what's going on in the Slack and beyond. You'll often find him writing code or drowning two metres deep in homework. He has an absurd variety of niche interests and loves learning more about them, one of the biggest being urban planning/design.",
+    "slackId": "U07BU2HS17Z",
+    "email": "felix",
+    "website": "https://felixgao.dev/",
+    "avatar": "https://cachet.hackclub.com/users/U07BU2HS17Z/r"
+  },
+  {
     "name": "Mahad Kalam",
     "department": "Newspaper",
     "role": "Infra Lead",
     "acknowledged": false,
-    "bio": "Mahad is a 16-year-old developer from the UK who builds tools to simplify teamwork. Right now, he's building infra and automation systems to help the Newspaper Team collaborate more efficiently and focus on actually writing content.",
+    "bio": "Mahad is a 17-year-old developer from the UK who builds tools to simplify teamwork. Right now, he's building infra and automation systems to help the Newspaper Team collaborate more efficiently and focus on actually writing content.",
     "slackId": "U059VC0UDEU",
     "email": "mahad",
     "website": "https://mahadk.com",
     "avatar": "https://cdn.hackclub.com/019d8d6c-37ce-7370-93a3-4125be4a3a52/2026_04_14_0pf_Kleki%20(1).png"
+  },
+  {
+    "name": "Azzy",
+    "department": "Newspaper",
+    "role": "Reporter",
+    "acknowledged": false,
+    "bio": "Azzy is a teen Hack Clubber from the Midwest United States who works to empower STEM education and awareness among the next generation of engineers. Passionate about making fields of interest like chemical engineering and computer science accessible to the layperson, she works on the Newspaper Team to keep fellow hackers up to date on happenings in the Slack community. While Azzy isn't working on a building project or chemistry research, you'll find her drawing, writing creative stories, studying at a local cafe, or mentoring students at her conservation lab, Bird2Branch.",
+    "slackId": "U08PLHD4L2J",
+    "email": "",
+    "website": "http://azzyx.bird2branch.org/",
+    "avatar": "https://cachet.hackclub.com/users/U08PLHD4L2J/r"
+  },
+  {
+    "name": "Valentino Carignano",
+    "department": "Newspaper",
+    "role": "Reporter",
+    "acknowledged": false,
+    "bio": "Valentino (who goes by Valen) is a 17 year old teenager from Argentina. He’s part of the newspaper team, keeping Hack Clubbers up to date with everything going on in the community. Whenever he’s not procrastinating on his schoolwork, you can usually find him playing videogames, listening to music, yapping with friends or going down Wikipedia rabbit holes, among other things.",
+    "slackId": "U08U6JVE77Z",
+    "email": "",
+    "website": "https://valen.zip",
+    "avatar": "https://cachet.hackclub.com/users/U08U6JVE77Z/r"
+  },
+  {
+    "name": "Neven",
+    "department": "Newspaper",
+    "role": "Reporter",
+    "acknowledged": false,
+    "bio": "Neven, 13 from snowy Edmonton, helps write Hack Club's Happenings newsletter. He fell in love with computers and the internet as tools for self-expression ever since tinkering with a Raspberry Pi at 10 years old. Aside from writing Happenings, he codes and designs useless but fun apps, games, and online toys. When not rotting away in his chair, he's doodling, reading, snowboarding, and avoiding his pile of forgotten hobbies.",
+    "slackId": "U071JHBEJ7R",
+    "email": "",
+    "website": "https://hex4.xyz/",
+    "avatar": "https://cdn.hackclub.com/01a05f9e-2bd0-7e28-85fa-7e9a1a2a4070/image.png"
   },
   {
     "name": "Adishree Das",
