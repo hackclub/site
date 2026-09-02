@@ -1446,5 +1446,17 @@
     "website": "afiaava.com",
     "avatar": "https://cdn.hackclub.com/01a0454b-d134-74aa-a4fa-1309ba183701/Headshot%20Afia(1).jpg",
     "gapyear": true
+  },
+  {
+    "name": "Barnav Mitra",
+    "department": "HQ",
+    "role": "Engineering & Event Operations",
+    "acknowledged": false,
+    "bio": "Barnav is an 18-year-old engineer from New Jersey. At Hack Club, he focuses primarily on creating some of Hack Club's largest programs and satellites. Outside of Hack Club, he likes to create games at his studio, climb, and read comics.",
+    "slackId": "U08RVF1BAN4",
+    "email": "barnav@hackclub.com",
+    "website": "jos.gg",
+    "avatar": "https://cdn.hackclub.com/01a06000-d169-753d-9f98-c9629c8cb82c/FD781D00-7BD4-4275-B39A-9AF46FC4C54E_1_201_a.jpeg",
+    "gapyear": true
   }
 ]
