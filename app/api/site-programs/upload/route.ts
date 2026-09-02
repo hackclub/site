@@ -25,10 +25,10 @@ function apiKey() {
  * list must throw rather than read as an empty table, for the same reason.
  */
 async function findOrCreate(programName: string, key: string): Promise<string> {
-  const records = (await fetchAllPages(
-    `${siteBaseUrl()}?fields[]=Name`,
-    siteAuthHeaders(key),
-  )) as { id: string; fields: { Name?: string } }[];
+  const records = (await fetchAllPages(`${siteBaseUrl()}?fields[]=Name`, siteAuthHeaders(key))) as {
+    id: string;
+    fields: { Name?: string };
+  }[];
   const existing = records.find((r) => r.fields.Name === programName);
   if (existing) return existing.id;
 

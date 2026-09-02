@@ -63,7 +63,9 @@ function getRecommendedFields(prog: EditorProgram): string[] {
   return fields;
 }
 
-function getProgramState(prog: EditorProgram): "blocked" | "visible" | "upcoming" | "ended" {
+type ProgramState = "blocked" | "visible" | "upcoming" | "ended";
+
+function getProgramState(prog: EditorProgram): ProgramState {
   if (getListingIssues(prog).length > 0) return "blocked";
   const now = new Date();
   if (prog.draft.endDate && parseLocalDate(prog.draft.endDate) < now) return "ended";
@@ -692,12 +694,14 @@ function ProgramEditor({
   onChange,
   onSiteUpdate,
   onSourceUpdate,
+  onSaved,
   isAdmin,
 }: {
   prog: EditorProgram;
   onChange: (d: EditorProgram["draft"]) => void;
   onSiteUpdate: (s: SiteProgram) => void;
   onSourceUpdate: (source: ManagedProgram) => void;
+  onSaved: (state: ProgramState) => void;
   isAdmin: boolean;
 }) {
   const [saving, setSaving] = useState(false);
@@ -785,7 +789,9 @@ function ProgramEditor({
         });
         setError([data.error ?? "Save failed", data.hint].filter(Boolean).join(" "));
       } else {
-        onSiteUpdate(data as SiteProgram);
+        const saved = data as SiteProgram;
+        onSiteUpdate(saved);
+        onSaved(getProgramState({ ...prog, site: saved }));
         setSaved(true);
         setTimeout(() => setSaved(false), 2000);
       }
@@ -1419,6 +1425,13 @@ export default function EditPage() {
   const [dashboardFilter, setDashboardFilter] = useState<DashboardFilter>("all");
   const [search, setSearch] = useState("");
 
+  const [listOrder, setListOrder] = useState<Record<string, ProgramState>>({});
+
+  const snapshotOrder = (list: EditorProgram[]) =>
+    setListOrder(Object.fromEntries(list.map((p) => [p.ysws.name, getProgramState(p)])));
+
+  const orderStateOf = (prog: EditorProgram) => listOrder[prog.ysws.name] ?? getProgramState(prog);
+
   // Check auth and load editable programs
   useEffect(() => {
     const authError =
@@ -1457,38 +1470,38 @@ export default function EditPage() {
         const siteMap = new Map<string, SiteProgram>(
           (Array.isArray(site) ? site : []).map((s: SiteProgram) => [s.programName, s]),
         );
-        setPrograms(
-          auth.managedPrograms.map((p) => {
-            const s = siteMap.get(p.name) ?? null;
-            return {
-              ysws: p,
-              site: s,
-              draft: {
-                startDate: p.startDate ?? "",
-                endDate: p.endDate ?? "",
-                websiteUrl: p.websiteUrl ?? "",
-                description: s?.description ?? "",
-                bgType: s?.bgType ?? "color",
-                bgColor: s?.bgColor ?? "var(--surface)",
-                textColor: s?.textColor ?? "var(--foreground)",
-                accentColor: s?.accentColor ?? "#ec3750",
-                logoSize: s?.logoSize ?? 48,
-                buttonColor: s?.buttonColor ?? "",
-                buttonTextColor: s?.buttonTextColor ?? "",
-                buttonBorderRadius: s?.buttonBorderRadius ?? 44,
-                buttonBorderWidth: s?.buttonBorderWidth ?? 0,
-                buttonBorderColor: s?.buttonBorderColor ?? "",
-                slackChannel: s?.slackChannel ?? "",
-                projectTypes: s?.projectTypes ?? [],
-                format: s?.format ?? "",
-                inPersonStart: s?.inPersonStart ?? "",
-                inPersonEnd: s?.inPersonEnd ?? "",
-                inPersonLocation: s?.inPersonLocation ?? "",
-                additionalRequirements: s?.additionalRequirements ?? "",
-              },
-            };
-          }),
-        );
+        const built: EditorProgram[] = auth.managedPrograms.map((p) => {
+          const s = siteMap.get(p.name) ?? null;
+          return {
+            ysws: p,
+            site: s,
+            draft: {
+              startDate: p.startDate ?? "",
+              endDate: p.endDate ?? "",
+              websiteUrl: p.websiteUrl ?? "",
+              description: s?.description ?? "",
+              bgType: s?.bgType ?? "color",
+              bgColor: s?.bgColor ?? "var(--surface)",
+              textColor: s?.textColor ?? "var(--foreground)",
+              accentColor: s?.accentColor ?? "#ec3750",
+              logoSize: s?.logoSize ?? 48,
+              buttonColor: s?.buttonColor ?? "",
+              buttonTextColor: s?.buttonTextColor ?? "",
+              buttonBorderRadius: s?.buttonBorderRadius ?? 44,
+              buttonBorderWidth: s?.buttonBorderWidth ?? 0,
+              buttonBorderColor: s?.buttonBorderColor ?? "",
+              slackChannel: s?.slackChannel ?? "",
+              projectTypes: s?.projectTypes ?? [],
+              format: s?.format ?? "",
+              inPersonStart: s?.inPersonStart ?? "",
+              inPersonEnd: s?.inPersonEnd ?? "",
+              inPersonLocation: s?.inPersonLocation ?? "",
+              additionalRequirements: s?.additionalRequirements ?? "",
+            },
+          };
+        });
+        setPrograms(built);
+        snapshotOrder(built);
       })
       .catch(() => setLoadError("Network error"));
   }, [auth]);
@@ -1537,14 +1550,14 @@ export default function EditPage() {
   ).length;
   const displayedPrograms = accessiblePrograms
     .filter((prog) => {
-      const state = getProgramState(prog);
+      const state = orderStateOf(prog);
       if (dashboardFilter === "visible" && state !== "visible") return false;
       if (dashboardFilter === "needs-attention" && state !== "blocked") return false;
       return prog.ysws.name.toLowerCase().includes(search.trim().toLowerCase());
     })
     .sort((a, b) => {
-      const aBlocked = Number(getProgramState(a) === "blocked");
-      const bBlocked = Number(getProgramState(b) === "blocked");
+      const aBlocked = Number(orderStateOf(a) === "blocked");
+      const bBlocked = Number(orderStateOf(b) === "blocked");
       return bBlocked - aBlocked || a.ysws.name.localeCompare(b.ysws.name);
     });
 
@@ -1735,7 +1748,10 @@ export default function EditPage() {
                     <button
                       key={item.filter}
                       type="button"
-                      onClick={() => setDashboardFilter(item.filter)}
+                      onClick={() => {
+                        setDashboardFilter(item.filter);
+                        snapshotOrder(accessiblePrograms);
+                      }}
                       aria-pressed={dashboardFilter === item.filter}
                       style={{
                         padding: "18px 20px",
@@ -2101,6 +2117,9 @@ export default function EditPage() {
                             onChange={(draft) => updateDraft(prog.ysws.name, draft)}
                             onSiteUpdate={(site) => updateSite(prog.ysws.name, site)}
                             onSourceUpdate={(source) => updateSource(prog.ysws.name, source)}
+                            onSaved={(state) =>
+                              setListOrder((prev) => ({ ...prev, [prog.ysws.name]: state }))
+                            }
                             isAdmin={auth.isAdmin}
                           />
                         </div>
