@@ -4,7 +4,6 @@ import {
   parseRecord,
   siteBaseUrl,
   siteAuthHeaders,
-  SITE_FIELDS,
   PROJECT_TYPE_OPTIONS,
   type SiteProgram,
   type ProjectType,
@@ -12,7 +11,7 @@ import {
 import { getEditAuth } from "../../../lib/server-auth";
 import { apiError } from "@/lib/api-error";
 import { deprecationHeaders } from "@/lib/api-v1";
-import { PROGRAMS_CACHE_TAG } from "@/lib/programs-data";
+import { PROGRAMS_CACHE_TAG, fetchAllPages, siteListUrl } from "@/lib/programs-data";
 
 export const dynamic = "force-dynamic";
 
@@ -126,18 +125,11 @@ function validateBody(
   return { ok: true, body: r as ValidatedBody };
 }
 
-function fieldParams() {
-  return SITE_FIELDS.map((f) => `fields[]=${encodeURIComponent(f)}`).join("&");
-}
-
 async function getAllRecords(key: string) {
-  const res = await fetch(`${siteBaseUrl()}?${fieldParams()}`, {
-    headers: siteAuthHeaders(key),
-    cache: "no-store",
-  });
-  if (!res.ok) throw new Error(`Airtable ${res.status}: ${await res.text()}`);
-  const data = await res.json();
-  return (data.records ?? []) as { id: string; fields: Record<string, unknown> }[];
+  return (await fetchAllPages(siteListUrl(), siteAuthHeaders(key))) as {
+    id: string;
+    fields: Record<string, unknown>;
+  }[];
 }
 
 // GET — list all site program customizations

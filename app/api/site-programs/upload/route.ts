@@ -8,7 +8,7 @@ import {
 } from "../../../../lib/site-programs";
 import { canEditProgram } from "../../../../lib/server-auth";
 import { apiError } from "@/lib/api-error";
-import { PROGRAMS_CACHE_TAG } from "@/lib/programs-data";
+import { PROGRAMS_CACHE_TAG, fetchAllPages } from "@/lib/programs-data";
 
 export const dynamic = "force-dynamic";
 
@@ -16,14 +16,19 @@ function apiKey() {
   return process.env.HACK_CLUB_SITE_AIRTABLE_KEY;
 }
 
-// Find or create a record by program name
+/**
+ * Find or create a record by program name.
+ *
+ * The lookup walks every page: Airtable stops a list response at 100 records,
+ * and a truncated one that happens to omit `programName` sends this straight to
+ * the create branch, duplicating a program that already has a record. A failed
+ * list must throw rather than read as an empty table, for the same reason.
+ */
 async function findOrCreate(programName: string, key: string): Promise<string> {
-  const listRes = await fetch(`${siteBaseUrl()}?fields[]=Name`, {
-    headers: siteAuthHeaders(key),
-    cache: "no-store",
-  });
-  const listData = await listRes.json();
-  const records = (listData.records ?? []) as { id: string; fields: { Name?: string } }[];
+  const records = (await fetchAllPages(
+    `${siteBaseUrl()}?fields[]=Name`,
+    siteAuthHeaders(key),
+  )) as { id: string; fields: { Name?: string } }[];
   const existing = records.find((r) => r.fields.Name === programName);
   if (existing) return existing.id;
 
@@ -112,7 +117,17 @@ export async function POST(req: NextRequest) {
   const filename = `${type}.${ext}`;
   const fieldName = type === "logo" ? "Logo" : "BG Image";
 
-  const recordId = await findOrCreate(programName, key);
+  let recordId: string;
+  try {
+    recordId = await findOrCreate(programName, key);
+  } catch (e) {
+    console.error("[upload] record lookup failed", e);
+    return apiError({
+      status: 502,
+      code: "upstream_error",
+      message: "Failed to look up program",
+    });
+  }
   if (!/^rec[A-Za-z0-9]{14}$/.test(recordId)) {
     console.error("[upload] unexpected Airtable record id", recordId);
     return apiError({
