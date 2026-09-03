@@ -19,7 +19,7 @@ Diese Hack Club-Datenschutzerklärung gilt für Ihre Nutzung von hackclub.com un
 
 Wenn Hack Club an einer Fusion, Konsolidierung, Umstrukturierung oder einer ähnlichen gemeinnützigen Kontrollwechseltransaktion beteiligt ist, behalten wir uns unter allen diesen Umständen das Recht vor, die Informationen, die wir im Rahmen dieser Transaktion von Benutzern gesammelt haben, zu übertragen oder abzutreten, auch im Rahmen unserer Sorgfaltspflicht.
 
-Im Sinne der Datenschutzgesetze hat Hack Club seinen Sitz in 15 Falls Rd., Shelburne, VT 05482, USA und ist der „Datenverantwortliche“ Ihrer im Zusammenhang mit den Hack Club-Diensten erfassten Daten.
+Im Sinne der Datenschutzgesetze hat Hack Club seinen Sitz in 212 Battery St., Shelburne, VT 05401, USA und ist der „Datenverantwortliche“ Ihrer im Zusammenhang mit den Hack Club-Diensten erfassten Daten.
 
 ### Was wir sammeln
 
