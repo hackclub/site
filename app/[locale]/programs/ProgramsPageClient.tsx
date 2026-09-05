@@ -1010,12 +1010,17 @@ export default function ProgramsPage({ initialEvents = null }: { initialEvents?:
               Event editor
             </Link>
             {" · "}
-            <NextLink href="/api/v1/docs" style={{ color: "#ec3750", textDecoration: "none" }}>
+            <NextLink
+              href="/api/v1/docs"
+              prefetch={false}
+              style={{ color: "#ec3750", textDecoration: "none" }}
+            >
               Events API
             </NextLink>
             {" · "}
             <NextLink
               href="/api/v1/events/rss"
+              prefetch={false}
               style={{ color: "#ec3750", textDecoration: "none" }}
             >
               RSS feed

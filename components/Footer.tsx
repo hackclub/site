@@ -167,6 +167,7 @@ export function Footer() {
                 alt="Hack Club"
                 width={200}
                 height={70}
+                unoptimized
                 style={{ display: "block", objectFit: "contain" }}
               />
             </Link>

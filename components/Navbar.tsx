@@ -262,6 +262,7 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
             height={184}
             width={526}
             priority
+            unoptimized
             style={{ height: 48, width: "auto", display: "block", objectFit: "contain" }}
           />
         </Link>
