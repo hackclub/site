@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback, type ReactNode } from "react";
 import NextLink from "next/link";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Navbar } from "@/components/Navbar";
@@ -667,11 +668,13 @@ export default function ProgramsPage({ initialEvents = null }: { initialEvents?:
           transform: "scaleY(-1)",
         }}
       />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         ref={magazineBgRef}
         src="/assets/background.webp"
         alt=""
+        width={1920}
+        height={840}
+        sizes="100vw"
         style={{
           position: "absolute",
           top: -60,
