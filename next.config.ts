@@ -301,6 +301,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cdn.hackclub.com" },
       { protocol: "https", hostname: "hcb.hackclub.com" },
       { protocol: "https", hostname: "i.ibb.co" },
+      { protocol: "https", hostname: "v5.airtableusercontent.com" },
       { protocol: "https", hostname: "cachet.hackclub.com", pathname: "/users/**" },
       { protocol: "https", hostname: "raw.githubusercontent.com" },
       { protocol: "https", hostname: "github.com" },

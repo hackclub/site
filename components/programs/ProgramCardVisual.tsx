@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Image from "next/image";
 import { BtnArrowSvg } from "@/components/landing/btn-arrow";
 
 export type ProgramCardVisualProps = {
@@ -129,15 +130,12 @@ export function ProgramCardVisual({
       )}
 
       {bgImageUrl && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <Image
           src={bgImageUrl}
           alt=""
+          fill
+          sizes="(max-width: 700px) 100vw, 500px"
           style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
             objectFit: "cover",
             pointerEvents: "none",
           }}
@@ -145,10 +143,12 @@ export function ProgramCardVisual({
       )}
 
       {logoUrl ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <Image
           src={logoUrl}
           alt={name}
+          width={0}
+          height={0}
+          sizes="(max-width: 700px) 60vw, 300px"
           style={{
             height: logoSize,
             width: "auto",

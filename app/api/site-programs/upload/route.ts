@@ -16,6 +16,73 @@ function apiKey() {
   return process.env.HACK_CLUB_SITE_AIRTABLE_KEY;
 }
 
+const ALLOWED_MIME: Record<string, string> = {
+  "image/png": "png",
+  "image/jpeg": "jpg",
+  "image/gif": "gif",
+  "image/webp": "webp",
+};
+
+async function compressToWebp(
+  input: Buffer,
+): Promise<{ buffer: Buffer; mime: string; ext: string } | null> {
+  const tinifyKey = process.env.TINIFY_API_KEY;
+  if (!tinifyKey) {
+    console.error("[upload] TINIFY_API_KEY is not set — uploading original bytes");
+    return null;
+  }
+  const auth = `Basic ${Buffer.from(`api:${tinifyKey}`).toString("base64")}`;
+
+  try {
+    const shrinkRes = await fetch("https://api.tinify.com/shrink", {
+      method: "POST",
+      headers: { Authorization: auth },
+      body: new Uint8Array(input),
+      signal: AbortSignal.timeout(15_000),
+    });
+    if (!shrinkRes.ok) {
+      console.error("[upload] Tinify shrink failed", shrinkRes.status, await shrinkRes.text());
+      return null;
+    }
+    const location = shrinkRes.headers.get("location");
+    if (!location) {
+      console.error("[upload] Tinify shrink returned no Location header");
+      return null;
+    }
+
+    const convertRes = await fetch(location, {
+      method: "POST",
+      headers: { Authorization: auth, "Content-Type": "application/json" },
+      body: JSON.stringify({ convert: { type: ["image/webp"] } }),
+      signal: AbortSignal.timeout(15_000),
+    });
+    if (!convertRes.ok) {
+      console.error("[upload] Tinify convert failed", convertRes.status, await convertRes.text());
+      return null;
+    }
+
+    const outMime = (convertRes.headers.get("content-type") ?? "").split(";")[0].trim();
+    const outExt = ALLOWED_MIME[outMime];
+    if (!outExt) {
+      console.error("[upload] Tinify returned unexpected content type", outMime);
+      return null;
+    }
+
+    const buffer = Buffer.from(await convertRes.arrayBuffer());
+    if (buffer.byteLength >= input.byteLength) {
+      console.error(
+        "[upload] Tinify output was not smaller — uploading original bytes",
+        `${input.byteLength} -> ${buffer.byteLength}`,
+      );
+      return null;
+    }
+    return { buffer, mime: outMime, ext: outExt };
+  } catch (e) {
+    console.error("[upload] Tinify compression failed", e);
+    return null;
+  }
+}
+
 /**
  * Find or create a record by program name.
  *
@@ -79,14 +146,6 @@ export async function POST(req: NextRequest) {
     return apiError({ status: 400, code: "bad_request", message: "Missing file" });
   }
 
-  const ALLOWED_MIME: Record<string, string> = {
-    "image/png": "png",
-    "image/jpeg": "jpg",
-    "image/gif": "gif",
-    "image/webp": "webp",
-  };
-  const MAX_BYTES = 8 * 1024 * 1024;
-
   const mime = file.type;
   const ext = ALLOWED_MIME[mime];
   if (!ext) {
@@ -96,7 +155,7 @@ export async function POST(req: NextRequest) {
       message: "Unsupported file type. Allowed: PNG, JPEG, GIF, WebP.",
     });
   }
-  if (file.size > MAX_BYTES) {
+  if (file.size > 8 * 1024 * 1024) {
     return apiError({
       status: 413,
       code: "payload_too_large",
@@ -104,7 +163,6 @@ export async function POST(req: NextRequest) {
     });
   }
 
-  // Authorization — must own this program (or be admin)
   if (!(await canEditProgram(req, programName))) {
     return apiError({
       status: 403,
@@ -114,7 +172,6 @@ export async function POST(req: NextRequest) {
     });
   }
 
-  const filename = `${type}.${ext}`;
   const fieldName = type === "logo" ? "Logo" : "BG Image";
 
   let recordId: string;
@@ -137,8 +194,11 @@ export async function POST(req: NextRequest) {
     });
   }
 
-  const bytes = await file.arrayBuffer();
-  const base64 = Buffer.from(bytes).toString("base64");
+  const original = Buffer.from(await file.arrayBuffer());
+  const compressed = mime === "image/gif" ? null : await compressToWebp(original);
+  const uploadMime = compressed?.mime ?? mime;
+  const filename = `${type}.${compressed?.ext ?? ext}`;
+  const base64 = (compressed?.buffer ?? original).toString("base64");
 
   const uploadRes = await fetch(
     `https://content.airtable.com/v0/${SITE_BASE_ID}/${encodeURIComponent(recordId)}/${encodeURIComponent(fieldName)}/uploadAttachment`,
@@ -149,7 +209,7 @@ export async function POST(req: NextRequest) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        contentType: mime,
+        contentType: uploadMime,
         filename,
         file: base64,
       }),
