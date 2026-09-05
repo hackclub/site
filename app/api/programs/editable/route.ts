@@ -123,6 +123,14 @@ async function fetchEditablePrograms(
   return programs;
 }
 
+/**
+ * Everything the GET returns is scoped to the caller's session cookie, so it
+ * must never land in a shared cache.
+ */
+function sessionJson(body: unknown): NextResponse {
+  return NextResponse.json(body, { headers: { "Cache-Control": "no-store" } });
+}
+
 export async function GET(req: NextRequest) {
   const requestId = crypto.randomUUID();
   // 1. Get HC access token from cookie
@@ -139,7 +147,7 @@ export async function GET(req: NextRequest) {
   const rawSlackId: string | null = me.identity?.slack_id ?? null;
   const slackId = isValidSlackId(rawSlackId) ? rawSlackId : null;
   if (!slackId) {
-    return NextResponse.json({
+    return sessionJson({
       name: me.identity?.id ?? "Unknown",
       slack_id: null,
       isAdmin: false,
@@ -233,7 +241,7 @@ export async function GET(req: NextRequest) {
         headers: { "X-Request-ID": requestId },
       });
     }
-    return NextResponse.json({
+    return sessionJson({
       name: authorName,
       slack_id: slackId,
       isAdmin: true,
@@ -246,7 +254,7 @@ export async function GET(req: NextRequest) {
   const ids = authorRecord?.fields?.["Current YSWS Programs"];
   const programRecordIds: string[] = Array.isArray(ids) ? ids.filter(isValidAirtableRecordId) : [];
   if (programRecordIds.length === 0) {
-    return NextResponse.json({
+    return sessionJson({
       name: authorName,
       slack_id: slackId,
       isAdmin: false,
@@ -269,7 +277,7 @@ export async function GET(req: NextRequest) {
   }
   const editablePrograms = programs.map((program) => program.name).filter(Boolean);
 
-  return NextResponse.json({
+  return sessionJson({
     name: authorName,
     slack_id: slackId,
     isAdmin: false,

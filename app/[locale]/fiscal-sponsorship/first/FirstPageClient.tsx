@@ -838,6 +838,7 @@ export function FirstPageClient() {
                   alt=""
                   width={240}
                   height={120}
+                  unoptimized
                   style={{ width: "100%", height: "auto" }}
                 />
               </a>

@@ -8,6 +8,14 @@ import { buildEvents, type Event, type RawEventRecord } from "@/lib/events";
 
 export { PROGRAMS_CACHE_TAG, PROGRAMS_REVALIDATE_SECONDS };
 
+function isDynamicBailout(error: unknown): boolean {
+  return (
+    typeof error === "object" &&
+    error !== null &&
+    (error as { digest?: unknown }).digest === "DYNAMIC_SERVER_USAGE"
+  );
+}
+
 export class MissingCredentialsError extends Error {
   constructor(variable: string) {
     super(`${variable} is not set`);
@@ -24,6 +32,7 @@ export async function fetchEvents(now = new Date()): Promise<Event[]> {
     fetchAirtableRecords("ysws"),
     process.env.HACK_CLUB_SITE_AIRTABLE_KEY?.trim()
       ? fetchAirtableRecords("site").catch((error) => {
+          if (isDynamicBailout(error)) throw error;
           console.error("[events] site customisation fetch failed", error);
           return [] as unknown[];
         })
@@ -44,6 +53,7 @@ export async function fetchEventsSafe(now = new Date()): Promise<Event[]> {
   try {
     return await fetchEvents(now);
   } catch (error) {
+    if (isDynamicBailout(error)) throw error;
     console.error("[events] fetch failed", error);
     return [];
   }

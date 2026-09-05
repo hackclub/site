@@ -27,6 +27,7 @@ export async function GET(req: NextRequest) {
   const authUrl = `https://auth.hackclub.com/oauth/authorize?${params.toString()}&scope=openid%20profile%20slack_id`;
 
   const response = NextResponse.redirect(authUrl);
+  response.headers.set("Cache-Control", "no-store");
   response.cookies.set("oauth_state", state, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",

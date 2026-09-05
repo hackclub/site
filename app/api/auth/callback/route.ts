@@ -1,19 +1,30 @@
 import { NextRequest, NextResponse } from "next/server";
 import { apiError } from "@/lib/api-error";
 
+/**
+ * Every branch here either sets or clears a session cookie, so none of it may
+ * sit in a shared cache. `Set-Cookie` already keeps the CDN off these, but the
+ * header states the intent for intermediaries that do not apply that rule.
+ */
+function noStoreRedirect(url: URL): NextResponse {
+  const response = NextResponse.redirect(url);
+  response.headers.set("Cache-Control", "no-store");
+  return response;
+}
+
 export async function GET(req: NextRequest) {
   const code = req.nextUrl.searchParams.get("code");
   const state = req.nextUrl.searchParams.get("state");
   const error = req.nextUrl.searchParams.get("error");
 
   if (error || !code) {
-    return NextResponse.redirect(new URL("/programs/edit?auth_error=1", req.url));
+    return noStoreRedirect(new URL("/programs/edit?auth_error=1", req.url));
   }
 
   // Verify CSRF state
   const expectedState = req.cookies.get("oauth_state")?.value;
   if (!expectedState || state !== expectedState) {
-    return NextResponse.redirect(new URL("/programs/edit?auth_error=1", req.url));
+    return noStoreRedirect(new URL("/programs/edit?auth_error=1", req.url));
   }
 
   const clientId = process.env.HACKCLUB_OAUTH_CLIENT_ID;
@@ -41,12 +52,12 @@ export async function GET(req: NextRequest) {
   });
 
   if (!tokenRes.ok) {
-    return NextResponse.redirect(new URL("/programs/edit?auth_error=1", req.url));
+    return noStoreRedirect(new URL("/programs/edit?auth_error=1", req.url));
   }
 
   const { access_token } = await tokenRes.json();
 
-  const response = NextResponse.redirect(new URL("/programs/edit", req.url));
+  const response = noStoreRedirect(new URL("/programs/edit", req.url));
   // Clear the one-time state cookie
   response.cookies.set("oauth_state", "", { maxAge: 0, path: "/" });
   response.cookies.set("hc_access_token", access_token, {

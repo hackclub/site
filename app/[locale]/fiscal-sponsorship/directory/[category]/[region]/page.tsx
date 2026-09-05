@@ -38,9 +38,11 @@ export async function generateMetadata({ params }: RegionPageProps): Promise<Met
   const region = decodeURIComponent(rawRegion);
   const categoryConfig = getDirectoryCategoryById(category);
   const regionConfig = getRegionBySlug(region);
-  const t = await getTranslations({ locale, namespace: "HcbDirectory" });
-  const tCat = await getTranslations({ locale, namespace: "HcbCategories" });
-  const tReg = await getTranslations({ locale, namespace: "HcbRegions" });
+  const [t, tCat, tReg] = await Promise.all([
+    getTranslations({ locale, namespace: "HcbDirectory" }),
+    getTranslations({ locale, namespace: "HcbCategories" }),
+    getTranslations({ locale, namespace: "HcbRegions" }),
+  ]);
 
   if (!categoryConfig || !regionConfig) {
     return buildPageMetadata({

@@ -591,7 +591,13 @@ export default async function ParentsPage({ params }: Props) {
                 }}
               >
                 {box.image && (
-                  <Image src={box.image} alt="" fill style={{ objectFit: "cover", opacity: 0.2 }} />
+                  <Image
+                    src={box.image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"
+                    style={{ objectFit: "cover", opacity: 0.2 }}
+                  />
                 )}
                 <p
                   style={{
@@ -899,6 +905,7 @@ export default async function ParentsPage({ params }: Props) {
               src="https://cdn.hackclub.com/019e6ae0-7bb2-7290-9114-83e25b7bdc28/image.png"
               alt={t("hackerGenImageAlt")}
               fill
+              sizes="(max-width: 900px) 100vw, 900px"
               style={{ objectFit: "cover", objectPosition: "center 30%" }}
             />
             {/* Overlay for readability */}

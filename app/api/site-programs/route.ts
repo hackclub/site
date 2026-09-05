@@ -145,10 +145,20 @@ export async function GET() {
   try {
     const records = await getAllRecords(key);
     return NextResponse.json(records.map(parseRecord), {
-      headers: deprecationHeaders({
-        deprecatedAt: "2026-09-01T00:00:00Z",
-        successorPath: "/api/v1/events",
-      }),
+      headers: {
+        /**
+         * Not cacheable, unlike `/api/v1/events`. The editor reads this
+         * endpoint straight after a save, and site customizations deliberately
+         * bypass the data cache for exactly that reason (see
+         * `lib/programs-data.ts`), so an `s-maxage` here would reintroduce the
+         * stale-read it exists to avoid.
+         */
+        "Cache-Control": "no-store",
+        ...deprecationHeaders({
+          deprecatedAt: "2026-09-01T00:00:00Z",
+          successorPath: "/api/v1/events",
+        }),
+      },
     });
   } catch (e) {
     console.error("[site-programs] GET failed", e);
