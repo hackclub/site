@@ -1,0 +1,3 @@
+user-agent: *
+allow: *
+# YES! Everyone must know about The Association! YEAHHHHHHHHHHHHHh

@@ -37,6 +37,7 @@ const nextConfig: NextConfig = {
         source: "/api/v1/:path*",
         headers: [{ key: "Vary", value: "Accept-Encoding" }],
       },
+	{source:"/LICENSE",headers:[{key: "Content-Type", value: "text/plain;charset=utf-8"}]}
     ];
   },
   async redirects() {
@@ -291,26 +292,18 @@ const nextConfig: NextConfig = {
         source: "/imprint",
         destination: "/content/imprint",
       },
+	{
+		source: "/",
+		destination: "/index.html"
+	},
+	{
+		source: "/:path+/",
+		destination: "/:path+/index.html"
+	}
     ];
   },
   images: {
-    qualities: [75, 85, 100],
-    remotePatterns: [
-      { protocol: "https", hostname: "www.figma.com" },
-      { protocol: "https", hostname: "assets.hackclub.com" },
-      { protocol: "https", hostname: "cdn.hackclub.com" },
-      { protocol: "https", hostname: "hcb.hackclub.com" },
-      { protocol: "https", hostname: "i.ibb.co" },
-      { protocol: "https", hostname: "v5.airtableusercontent.com" },
-      { protocol: "https", hostname: "cachet.hackclub.com", pathname: "/users/**" },
-      { protocol: "https", hostname: "raw.githubusercontent.com" },
-      { protocol: "https", hostname: "github.com" },
-      // HCB hands back whichever of these it has for a signed-in user's avatar.
-      { protocol: "https", hostname: "gravatar.com", pathname: "/avatar/**" },
-      { protocol: "https", hostname: "secure.gravatar.com", pathname: "/avatar/**" },
-      { protocol: "https", hostname: "www.gravatar.com", pathname: "/avatar/**" },
-      { protocol: "https", hostname: "ui-avatars.com", pathname: "/api/**" },
-    ],
+	unoptimized: true
   },
 };
 

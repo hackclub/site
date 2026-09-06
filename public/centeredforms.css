@@ -1,0 +1,36 @@
+* {/*copy paste from mail/start since i am tired and have been doing this for too long and don't give a fuck*/
+	text-align: center;
+	vertical-align: center;
+	border-radius: 16px;/*pointlessly*/
+}
+table, tr {
+	height: 100%;
+}
+html, body {
+	height: 99%; /*no scrollwheel plz*/
+}
+td {
+	position: relative;
+	top: 50%; /* fallback for broken valign, still broken in dillo but whatever, there's no JS (or the animated GIF) anyway*/
+}
+input, select {
+	background: #000;
+	color: #fff;
+	min-width: 25%;
+	overflow: visible;
+	min-height:2em;
+	text-align:left !important;
+}
+input[type="submit"] {text-align:center !important;}
+input[type="checkbox"] {
+	min-width:revert !important;
+	min-height: 1em;
+}
+center {
+	border: 2px outset;
+	background-color: #252923;/*ugly but Our Great and Respected Leader Dictator Zachary the 87-th said so*/
+	background-image: linear-gradient(165deg,#252932,#1f2329);
+}
+input:invalid, select:invalid {
+	color: #f00;
+}

@@ -1,0 +1,23 @@
+.um {
+	background-image: url("./untitled hackclub meme dimmed.jpg");
+	background-size: cover;
+}
+
+.ib {border: 2px dotted #f00; font-size: 2vh;}
+.ibf {height: 47vh;}/*intentionally less*/
+.sp {background-image: url("./sparkle.gif");}
+
+.c {border-radius: 12px; background-position: center; height: 342px;}
+.c0, .c1, .c2, .c5, .c8 {background-size: 100% 100%;}
+.c0 {background-image:url("./powerday gambling dimmed.jpg");}
+.c1 {background-image:url("./Toll Road to AirTown.jpg");}
+.c2 {background-image:url("./ok sponsor.jpg");}
+.c3 {background-image:url("./graffiti.jpg");background-size:cover;}
+.c4 {background-image:url("./troll.gif");background-position:right !important;background-size:auto;}
+.c5 {background-image:url("./gaming.jpg")}
+.c6 {background-image:radial-gradient(ellipse farthest-corner at top left, #ff8c37, #ec3750);}
+/*yes, that is the same gradient as the buttons, copy paste goes brrr*/
+.c7 {background-image:url("./undefined.gif"); background-position: top left !important; background-repeat: no-repeat;}
+.c8 {background-image:url("./business.jpg");}
+
+.x2:hover {min-width: 200%;}

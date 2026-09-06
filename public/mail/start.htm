@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Mail-inator 7000</title>
+		<style type="text/css">
+		* {
+			text-shadow: 0 0 4px #fff, 0 0 8px red, 0 0 16px red, 0 0 32px red, 0 0 64px red;
+			text-align: center;
+			vertical-align: *;
+		}
+		table, tr {
+			height: 100%;
+		}
+		html, body {
+			height: 99%; /*no scrollwheel plz*/
+		}
+		td {
+			position: relative;
+			top: 50%; /* fallback for broken valign, still broken in dillo but whatever, there's no JS (or the animated GIF) anyway*/
+		}
+		input {
+			background: #000;
+			color: #fff;
+			width: 50%;
+			overflow: visible;
+			text-align: center;
+		}
+		</style>
+	</head>
+	<body topmargin="0" leftmargin="0" rightmargin="0" text="#DDDDDD" bgcolor="black">
+		<table width="100%"><tr><td valign="middle"><center>
+			<img src="../3dgifmaker.com.gif">
+			<br><audio src="./STARTING_TUNE.wav" preload="1" autoplay="1"><embed type="audio/wav" src="../STARTING_TUNE.wav"></audio>
+			<br>
+			<form name="myForm" action="."><input readonly="1" id="i" name="i" value="BLYAT' enable scripting suka broke boiii "></form>
+			<br>
+			<script>
+			var msgs = Array("Preloading constants for 30 framew*rks...",
+			"Banning funny onion net users...",
+			"Starting GutHib reactor...",
+			"Connecting to Krasnoyarsk servers of Nest...",
+			"Welcome home, you have 4 pings in #meta.");
+			var index = 0;
+			function changeString() {
+				setTimeout(changeString, 2850);
+				if (typeof document.getElementById != "undefined") {
+					document.getElementById("i").value = msgs[index]; // netsurf git supports this but not form names amazingly
+				} else {
+					document.myForm.i.value = msgs[index];
+				}
+				if (typeof msgs[index++] == "undefined") { // intentionally flash undefined
+					location = "./mail.htm"
+				}
+			}
+			changeString();
+			</script>
+		</center></td></tr></table>
+	</body>
+</html>

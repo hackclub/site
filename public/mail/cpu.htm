@@ -1,0 +1,13 @@
+<script>var stopCPUheaterForPermissionAvoidInatorInator = 0;
+function a() {
+	if (stopCPUheaterForPermissionAvoidInatorInator == 0) {
+		setTimeout(a, 0);
+		if (typeof Audio !== 'undefined') { /* f3.5+ era (script won't hang) */
+			setTimeout(a, 0);
+			/* tho this loop is basically worthless when linear but oh welp */
+		}
+	}
+	console.log('CPU heater tick');
+}
+setTimeout(a, 0);
+function s() {stopCPUheaterForPermissionAvoidInatorInator = 1;}</script>

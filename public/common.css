@@ -1,0 +1,44 @@
+* {max-width: 100%; font-family: sans-serif;}
+code, var, kbd, samp, pre, tt {font-family: monospace;}
+hr {margin: 0 1%;;}
+button, .button, input[type="submit"] {
+	background-color: #ec3750;
+	background-image: radial-gradient(ellipse farthest-corner at top left, #ff8c37, #ec3750);
+	padding: 16px 32px;
+	color: #fff;
+}
+ul, ol, dl {text-align: start; display: inline-block;}
+/*seemengly pointless acronyms because fuck you, that's why*/
+.np {padding: revert;}
+.b {vertical-align: bottom;}
+.rbg {background-color: #ec3750;}
+.r {color: #ec3750;}
+.tt {
+	transform: rotate(-2deg);
+	position: relative;
+	display: inline-block;
+}
+.of {overflow-x: scroll;}
+.inbl {display: inline-block;/*text-align: initial; text-align-last: initial;*/}
+/*.just {text-align: justify; text-align-last: justify;}*/
+.bs {overflow-y: visible;}
+.bs0 {
+	min-height: 80vh;
+	height: 80vh;
+}
+.bs1 {
+	min-height: 10vh;
+	height: 10vh;
+}/*see tollroad page for usage*/
+.col0{color:#ec3750;}
+.col1{color:#ff8c37;}
+.col2{color:#f1c40f;}
+.col3{color:#33d6a6;}/*twice because reasons, thx netsurf*/
+li:nth-child(1)::marker{color:#ec3750;}
+li:nth-child(2)::marker{color:#ff8c37;}
+li:nth-child(3)::marker{color:#f1c40f;}
+li:nth-child(4)::marker{color:#33d6a6;}
+li:nth-child(5)::marker{color:#5bc0de;}
+li:nth-child(6)::marker{color:#338eda;}
+li:nth-child(7)::marker{color:#a633d6;}
+li:nth-child(8)::marker{color:#8492a6;}

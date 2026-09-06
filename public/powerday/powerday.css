@@ -1,0 +1,49 @@
+html, body {
+	background-image: url("./bg.gif");	
+}
+.pagehigh {height: 100vh;}
+.headcard {
+	background-color: #0000007f;
+	border-radius: 16px;
+	padding: 2em 0;
+}
+.content {
+	max-width: 70em;
+	margin: auto;
+	overflow: visible;
+}
+input[type="submit"], .button {
+	background-color: #fbce60!important;
+	background-image: linear-gradient(#FC867D, #FBCE60)!important;
+}
+textarea {font-family:monospace;}
+h1,h2,h3,h4,h5,h6 {
+	color: #fbce60
+}
+@supports (background-clip: text) {
+	h1,h2,h3,h4,h5,h6 {
+		color: #00000000;
+		background: scroll text linear-gradient(#FC867D, #FBCE60)!important;
+	}
+}
+tt {border: 2px solid #000;}
+@keyframes the {
+	0% {
+		transform: scaleY(200%);
+		-moz-transform: scaleY(200%);
+	}
+	50% {
+		transform: scaleY(0%);
+		-moz-transform: scaleY(0%);
+	}
+	100% {
+		transform: scaleY(200%);
+		-moz-transform: scaleY(-200%);
+	}
+}
+body:has(textarea[aria-busy="true"]) {
+	--img-anim: the 3s linear 0s infinite !important;
+}/*no reduced motion, fuck you, that's why*/
+.heid {
+	animation: var(--img-anim,);
+}

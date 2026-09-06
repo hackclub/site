@@ -1,0 +1,18 @@
+textarea, pre, font, code {
+	font-family: "Unscii 16", monospace;
+	font-size: 16px;
+	line-height: 1ic;
+	font-kerning: none;
+	font-smooth: never;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: none;
+	text-rendering: optimizeSpeed;
+	letter-spacing: 0px;
+}
+@font-face {
+	font-family: "Unscii 16";
+	src: local("Unscii 16"),url(./unscii-16.ttf) format("opentype");
+	font-weight: normal;
+	font-style: normal;
+	line-gap-override: 0%;
+}

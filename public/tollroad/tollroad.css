@@ -1,0 +1,17 @@
+html, body {
+	background-image: url("./jeremy-thomas-unsplash.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
+body {background-color: #0000; z-index: 1;}
+.bs {
+	background-color: #000;
+	background-image: url("./tollroad bg.gif");
+	background-size: contain;
+	background-position: top right;
+	background-repeat: no-repeat;
+}
+.inbl {background-color: #000; margin: 0 1%;}
+.wh {max-width: 100%; width: 50%;}
+hr {background:#fff url("./pan.gif") 0% 0% / 100% 100%}
+hr:after {content:"TheAss";}

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env NODE_OPTIONS=--max-http-header-size=694200 next dev",
     "build": "next build",
     "start": "next start",
     "test": "bun test",
@@ -30,6 +30,7 @@
     "@types/node": "^26.4.1",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
+    "cross-env": "^10.1.0",
     "oxfmt": "^0.66.0",
     "oxlint": "^1.81.0",
     "tailwindcss": "^4.3.3",
