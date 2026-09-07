@@ -17,7 +17,7 @@
     "@hackclub/meta": "^1.2.1",
     "@types/prismjs": "^1.26.6",
     "next": "^16.3.4",
-    "next-intl": "^4.14.1",
+    "next-intl": "^4.14.2",
     "next-plausible": "^4.0.0",
     "prismjs": "^1.30.0",
     "react": "19.2.8",
@@ -33,6 +33,6 @@
     "oxfmt": "^0.66.0",
     "oxlint": "^1.81.0",
     "tailwindcss": "^4.3.3",
-    "typescript": "^7"
+    "typescript": "^7.0.2"
   }
 }
