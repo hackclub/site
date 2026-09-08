@@ -118,6 +118,14 @@ export default async function BrandPage({ params }: Props) {
         <div className="brand-hero__grain" aria-hidden="true" />
       </section>
 
+      <section className="brand-shell brand-section" id="rules">
+        <div className="brand-section__header">
+          <p className="brand-section__lede">{t("rulesNaming")}</p>
+          <p className="brand-section__lede">{t("rulesClubber")}</p>
+          <p className="brand-section__lede">{t("rulesSticker")}</p>
+        </div>
+      </section>
+
       <section className="brand-shell brand-section" id="logos">
         <div className="brand-section__header">
           <h2 className="brand-section__title">{t("logosTitle")}</h2>
