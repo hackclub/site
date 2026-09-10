@@ -734,6 +734,32 @@ export default function FiscalSponsorshipPage() {
                 >
                   {t("applyNow")}
                 </a>
+                <a
+                  href="https://hcb.hackclub.com/for/funders"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxSizing: "border-box",
+                    minWidth: "160px",
+                    minHeight: "50px",
+                    padding: "0 22px",
+                    background: "rgba(255, 255, 255, 0.08)",
+                    border: "1.5px solid rgba(255, 255, 255, 0.8)",
+                    color: "white",
+                    borderRadius: "9999px",
+                    fontSize: "16px",
+                    fontFamily: FISCAL_TYPOGRAPHY.bodyFont,
+                    textDecoration: "none",
+                    fontWeight: 700,
+                    lineHeight: 1,
+                    letterSpacing: "0.02em",
+                    textTransform: "uppercase",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {t("forFunders")}
+                </a>
                 <SignIn />
               </div>
             </div>

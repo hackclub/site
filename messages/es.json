@@ -694,6 +694,7 @@
     "readAnnouncement": "Lee el anuncio",
     "gourceAlt": "Historial de commits de HCB visualizado con Gource",
     "signIn": "Iniciar sesión",
+    "forFunders": "Para financiadores",
     "continueToHcb": "Continuar a HCB",
     "avatarAlt": "Avatar de HCB de {name}",
     "contactQuestions": "¿Preguntas? Escribe a <email></email> o llama al <phone></phone>",
