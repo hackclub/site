@@ -213,6 +213,14 @@ export const AGENT_ROUTES: AgentRoute[] = [
   },
 ];
 
+export const README_SITE = {
+  url: "https://readme.hackclub.com",
+  llmsTxtUrl: "https://readme.hackclub.com/llms.txt",
+  title: "README — an introduction to Hack Club",
+  description:
+    "The community's own guide for new Hack Clubbers: the culture, how clubs and HQ work, how to use the Slack, how You Ship We Ship programs run, the services worth knowing about, and the lore. Has its own llms.txt.",
+} as const;
+
 const ROUTES_BY_PATH = new Map(AGENT_ROUTES.map((route) => [route.path, route]));
 
 const PASSTHROUGH_PREFIXES = ["/api", "/_next", "/_vercel", "/monitoring"];

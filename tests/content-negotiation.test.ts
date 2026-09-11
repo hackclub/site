@@ -125,5 +125,12 @@ test("agentDiscoveryLinks advertises the machine-readable surfaces", () => {
     '<https://hackclub.com/openapi.json>; rel="service-desc"; type="application/json"',
     '<https://hackclub.com/api/v1/docs>; rel="service-doc"; type="text/html"',
     '<https://hackclub.com/sitemap.xml>; rel="sitemap"; type="application/xml"',
+    '<https://readme.hackclub.com/llms.txt>; rel="related"; type="text/plain"; title="README: an introduction to Hack Club"',
   ]);
+});
+
+test("discovery links stay ASCII, because they ship as Link header values", () => {
+  for (const link of agentDiscoveryLinks("https://hackclub.com")) {
+    expect(link).toMatch(/^[\x20-\x7e]+$/);
+  }
 });

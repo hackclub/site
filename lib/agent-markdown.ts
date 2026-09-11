@@ -1,4 +1,4 @@
-import type { AgentRouteGroup } from "@/lib/agent-routes";
+import { type AgentRouteGroup, README_SITE } from "@/lib/agent-routes";
 
 export type MarkdownPageInput = {
   title: string;
@@ -39,6 +39,7 @@ function machineReadableList(origin: string): string {
     `- [sitemap.xml](${origin}/sitemap.xml) — every canonical URL`,
     `- [openapi.json](${origin}/openapi.json) — the Events API, described`,
     `- [api/v1/events/rss](${origin}/api/v1/events/rss) — newly announced events, as RSS`,
+    `- [README llms.txt](${README_SITE.llmsTxtUrl}) — the same index for ${README_SITE.url}, the community guide to Hack Club`,
   ].join("\n");
 }
 
@@ -114,6 +115,7 @@ export function renderNotFoundMarkdown({
       machineReadableList(origin),
       `- [Homepage](${origin}/) — what Hack Club is`,
       `- [Programs](${origin}/programs) — things to join or ship right now`,
+      `- [README](${README_SITE.url}) — ${README_SITE.description}`,
     ].join("\n"),
   );
 
@@ -138,6 +140,8 @@ export function renderLlmsTxt({
     `> ${summary}`,
     [
       `Every page listed below is also available as Markdown from the same URL — send \`Accept: text/markdown\`. Responses carry \`Vary: Accept\`, and paths that do not exist answer with a real HTTP 404 and a Markdown body explaining where to go instead.`,
+      ``,
+      `If you are trying to understand what Hack Club *is* — the community, the Slack, how the programs actually work — start with README at ${README_SITE.url}, which has its own index at ${README_SITE.llmsTxtUrl}.`,
     ].join("\n"),
   ];
 
@@ -153,6 +157,16 @@ export function renderLlmsTxt({
       ].join("\n"),
     );
   }
+
+  parts.push(
+    [
+      "## Elsewhere at Hack Club",
+      "",
+      `- [${README_SITE.title}](${README_SITE.url}): ${README_SITE.description}`,
+      `- [README llms.txt](${README_SITE.llmsTxtUrl}): that site's own index, in this format`,
+      `- [Hack Club Slack](https://slack.hackclub.com/): where the community lives`,
+    ].join("\n"),
+  );
 
   parts.push(
     [

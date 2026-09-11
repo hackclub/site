@@ -5,7 +5,7 @@ import {
   renderNotFoundMarkdown,
   renderPageMarkdown,
 } from "@/lib/agent-markdown";
-import { AGENT_ROUTE_GROUP_LABELS } from "@/lib/agent-routes";
+import { AGENT_ROUTE_GROUP_LABELS, README_SITE } from "@/lib/agent-routes";
 
 const origin = "https://hackclub.com";
 
@@ -26,6 +26,7 @@ describe("renderPageMarkdown", () => {
     expect(md).toContain("- Language: en");
     expect(md).toContain(`[llms.txt](${origin}/llms.txt)`);
     expect(md).toContain(`[openapi.json](${origin}/openapi.json)`);
+    expect(md).toContain("[README llms.txt](https://readme.hackclub.com/llms.txt)");
     expect(md.endsWith("\n")).toBe(true);
   });
 
@@ -80,6 +81,7 @@ describe("renderNotFoundMarkdown", () => {
     expect(md).toContain(`${origin}/sitemap.xml`);
     expect(md).toContain(`${origin}/openapi.json`);
     expect(md).toContain(`[Homepage](${origin}/)`);
+    expect(md).toContain("[README](https://readme.hackclub.com)");
   });
 
   test("a hostile path cannot break out of the code span", () => {
@@ -145,6 +147,13 @@ describe("renderLlmsTxt", () => {
   test("documents how to get Markdown and how the API is versioned", () => {
     expect(md).toContain("Accept: text/markdown");
     expect(md).toContain(`[API versioning policy](${origin}/api/versioning)`);
+  });
+
+  test("points agents at README, the community's own guide to Hack Club", () => {
+    expect(md).toContain("## Elsewhere at Hack Club");
+    expect(md).toContain(`[${README_SITE.title}](${README_SITE.url})`);
+    expect(md).toContain(`[README llms.txt](${README_SITE.llmsTxtUrl})`);
+    expect(md.indexOf(README_SITE.url)).toBeLessThan(md.indexOf("## Optional"));
   });
 });
 

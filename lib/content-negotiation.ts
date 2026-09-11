@@ -1,3 +1,5 @@
+import { README_SITE } from "@/lib/agent-routes";
+
 export type MediaRange = {
   type: string;
   subtype: string;
@@ -175,5 +177,6 @@ export function agentDiscoveryLinks(origin: string): string[] {
     `<${origin}/openapi.json>; rel="service-desc"; type="application/json"`,
     `<${origin}/api/v1/docs>; rel="service-doc"; type="text/html"`,
     `<${origin}/sitemap.xml>; rel="sitemap"; type="application/xml"`,
+    `<${README_SITE.llmsTxtUrl}>; rel="related"; type="text/plain"; title="README: an introduction to Hack Club"`,
   ];
 }
