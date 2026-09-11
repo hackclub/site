@@ -33,14 +33,9 @@ const donorTierNames = {
     "Advanced Micro Devices",
     "The Libermans",
     "Lizzy Danhakl and Andrew Reed (4x)",
+    "Endless Network (5x)",
   ],
-  tier500kto1m: [
-    "GitHub Education (6x)",
-    "Argosy Foundation (5x)",
-    "Endless Network (4x)",
-    "FUTO (3x)",
-    "Joe Liemandt",
-  ],
+  tier500kto1m: ["GitHub Education (6x)", "Argosy Foundation (5x)", "FUTO (3x)", "Joe Liemandt"],
   tier200kto500k: [
     "Ron Conway (6x)",
     "Adam Ross (3x)",
