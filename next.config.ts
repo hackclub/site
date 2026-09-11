@@ -49,6 +49,11 @@ const nextConfig: NextConfig = {
         }),
       ),
       {
+        source: "/congressional-app-challenge",
+        destination: "https://forms.hackclub.com/congressional-app-challenge",
+        permanent: false,
+      },
+      {
         source: "/fiscal-sponsorship/apply",
         destination: "https://hcb.hackclub.com/applications/new",
         permanent: false,
