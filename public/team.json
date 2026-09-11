@@ -1458,5 +1458,17 @@
     "website": "jos.gg",
     "avatar": "https://cdn.hackclub.com/01a06000-d169-753d-9f98-c9629c8cb82c/FD781D00-7BD4-4275-B39A-9AF46FC4C54E_1_201_a.jpeg",
     "gapyear": true
+  },
+  {
+    "name": "Sarah Boston Andriano",
+    "staff": true,
+    "department": "HQ",
+    "role": "VP, Philanthropy",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U0BUBBG8PA9",
+    "email": "saraha",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/01a0910a-7e3c-785b-8bc5-918cb1d643dc/36F2D498-14D9-4E09-A149-2F51C030CFE5.webp"
   }
 ]
