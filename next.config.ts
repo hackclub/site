@@ -212,11 +212,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/congressional-app-challenge",
-        destination: "https://finalist.hackclub.com",
-        permanent: true,
-      },
-      {
         source: "/hardware",
         destination: "https://blueprint.hackclub.com",
         permanent: true,
