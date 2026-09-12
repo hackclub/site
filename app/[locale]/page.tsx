@@ -11,8 +11,6 @@ import { ReadySection } from "@/components/landing/ready";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { buildPageMetadata } from "@/lib/seo";
-import { fetchEventsSafe } from "@/lib/events-data";
-import { selectFeaturedEvents } from "@/lib/events";
 import { getLocaleDomain } from "@/i18n/routing";
 
 type Props = {
@@ -35,10 +33,7 @@ export default async function Home({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const [events, t] = await Promise.all([
-    fetchEventsSafe().then(selectFeaturedEvents),
-    getTranslations({ locale, namespace: "Meta" }),
-  ]);
+  const t = await getTranslations({ locale, namespace: "Meta" });
   const organizationJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -83,7 +78,7 @@ export default async function Home({ params }: Props) {
       <main id="main" tabIndex={-1}>
         <HeroSection />
         <ProjectsSection />
-        {events.length > 0 && <EventsSection initialCards={events} />}
+        <EventsSection />
         <HerePhotosSection />
         <VideoSection />
         <DonorsSection />

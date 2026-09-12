@@ -319,18 +319,16 @@ function EventCard({ event }: { event: Event }) {
 }
 
 // ── Section ──────────────────────────────────────────────────────────────────
-export function EventsSection({ initialCards = null }: { initialCards?: Event[] | null }) {
+export function EventsSection() {
   const t = useTranslations("Home");
-  const [cards, setCards] = useState<Event[] | null>(initialCards);
+  const [cards, setCards] = useState<Event[] | null>(null);
 
   useEffect(() => {
-    if (initialCards !== null) return;
-
     fetch("/api/v1/events?status=ongoing")
       .then((r) => r.json())
       .then((json: { data: Event[] }) => setCards(selectFeaturedEvents(json.data)))
       .catch(() => setCards([]));
-  }, [initialCards]);
+  }, []);
 
   const loading = cards === null;
   const displayCards = cards ?? [null, null, null, null];
