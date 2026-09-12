@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { notFound } from "next/navigation";
 import PlausibleProvider from "next-plausible";
 import { SkipToMainLink } from "@/components/SkipToMainLink";
@@ -68,6 +69,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             {children}
           </PlausibleProvider>
         </NextIntlClientProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
