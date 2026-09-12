@@ -415,7 +415,7 @@ type SortOption = "deadline-asc" | "deadline-desc" | "az" | "za";
 const FORMAT_OPTIONS: EventFormat[] = ["in-person", "online", "both"];
 
 // ── Page ──────────────────────────────────────────────────────────────────────
-export default function ProgramsPage({ initialEvents = null }: { initialEvents?: Event[] | null }) {
+export default function ProgramsPage() {
   const t = useTranslations("Programs");
   const locale = useLocale();
   const projectTypeLabel = useProjectTypeLabel();
@@ -425,7 +425,7 @@ export default function ProgramsPage({ initialEvents = null }: { initialEvents?:
   const [statusFilter, setStatusFilter] = useState<Set<EventStatus>>(new Set(["ongoing"]));
   const [formatFilter, setFormatFilter] = useState<Set<EventFormat>>(new Set());
   const [typeFilter, setTypeFilter] = useState<Set<ProjectType>>(new Set());
-  const [events, setEvents] = useState<Event[] | null>(initialEvents);
+  const [events, setEvents] = useState<Event[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const sortRef = useRef<HTMLDivElement>(null);
   const [sortOpen, setSortOpen] = useState(false);
@@ -504,20 +504,14 @@ export default function ProgramsPage({ initialEvents = null }: { initialEvents?:
   }, [clearSortTimers, closeSortPanel]);
 
   useEffect(() => {
-    // The server-rendered events depend directly on the tag-invalidated Airtable
-    // cache and are therefore fresher after an editor save than the public API's
-    // CDN response. Never replace them on mount with an API response that may be
-    // inside its stale-while-revalidate window; fetch only for client-only uses.
-    if (initialEvents !== null) return;
-
-    fetch("/api/v1/events", { cache: "no-store" })
+    fetch("/api/v1/events")
       .then((r) => r.json())
       .then((json) => {
         if (Array.isArray(json?.data)) setEvents(json.data);
         else setError(json?.message ?? t("errorLoad"));
       })
       .catch(() => setError(t("errorNetwork")));
-  }, [initialEvents, t]);
+  }, [t]);
 
   const filtered = (events ?? []).filter((p) => {
     if (!hasEventArtwork(p)) return false;
