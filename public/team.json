@@ -981,6 +981,18 @@
     "gapyear": true
   },
   {
+    "name": "Sophia Duan",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Hi, I'm Sophia! I'm an 18-year-old maker from Ottawa, Canada who builds hardware projects and websites. I'm often rock climbing, reading sci-fi, or learning geography!",
+    "slackId": "U083PK90X4G",
+    "email": "sophia",
+    "website": "https://sophiaduan.dev",
+    "avatar": "https://cdn.hackclub.com/01a09965-b262-774b-9cd9-4ce9d99b7655/E09V59WQY1E-U083PK90X4G-a1104eff0219-512.jpg",
+    "gapyear": true
+  },
+  {
     "name": "Celeste Roselli",
     "department": "HQ",
     "role": "Engineering, Athena Initiative",
