@@ -1472,6 +1472,18 @@
     "gapyear": true
   },
   {
+    "name": "Sebastian Hernandez-Tavares",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Sebastian is an 18-year-old engineer from Bethesda, Maryland. At Hack Club, he focuses on running unique programs that brings people into Hack Club's ecosystem. Outside of Hack Club, he likes to go to the gym, play the guitar, and just chill.",
+    "slackId": "",
+    "email": "sebh@hackclub.com",
+    "website": "plastuchino.xyz",
+    "avatar": "https://user-cdn.hackclub-assets.com/01a0ac8f-0eac-7721-ae30-8c7ab4efffd4/Screenshot_20260916_193027_Gallery.jpg",
+    "gapyear": true
+  },
+  {
     "name": "Sarah Boston Andriano",
     "staff": true,
     "department": "HQ",

@@ -299,6 +299,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "www.figma.com" },
       { protocol: "https", hostname: "assets.hackclub.com" },
       { protocol: "https", hostname: "cdn.hackclub.com" },
+      { protocol: "https", hostname: "user-cdn.hackclub-assets.com"},
       { protocol: "https", hostname: "hcb.hackclub.com" },
       { protocol: "https", hostname: "i.ibb.co" },
       { protocol: "https", hostname: "v5.airtableusercontent.com" },
