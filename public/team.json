@@ -1482,5 +1482,16 @@
     "email": "saraha",
     "website": "",
     "avatar": "https://cdn.hackclub.com/01a0910a-7e3c-785b-8bc5-918cb1d643dc/36F2D498-14D9-4E09-A149-2F51C030CFE5.webp"
+  },
+  {
+    "name": "Logan Peterson",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Logan is a builder from Georgia who loves robotics, electronics, and embedded systems. He especially enjoys projects that bring together CAD, electronics, and programming. At Hack Club, he works on Waypoint and helps out with other events and projects across the community. Outside of engineering, he enjoys reading and making video games.",
+    "slackId": "U079WLY0HLY",
+    "email": "logan@hackclub.com",
+    "website": "https://loganpeterson.org",
+    "avatar": "https://cdn.hackclub.com/01a0b11f-bc34-710b-9e98-4467c8f4734b/irl_pfp_professional.png"
   }
 ]
