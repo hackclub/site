@@ -584,7 +584,7 @@ export default async function PhilanthropyPage({ params }: Props) {
 
       <div style={{ textAlign: "center", margin: "56px 0" }}>
         <a
-          href="https://cdn.hackclub.com/019d9ddf-c03d-76de-8ff1-64edd1bdcb16/hackclub_philanthropy.pdf"
+          href="https://cdn.hackclub.com/01a0b07d-cc54-72c9-8ada-e534cbbd85b5/hack-club-philanthropy.pdf"
           className="philanthropy-btn philanthropy-btn--red"
           download
           target="_blank"
