@@ -322,6 +322,27 @@
     "verifyFailed": "Unable to verify request — try again",
     "genericError": "Something went wrong — try again"
   },
+  "CollegeCredit": {
+    "metaTitle": "School & College Credit — Hack Club",
+    "metaDescription": "How schools and students have worked with Hack Club to receive official credit in high school or college for the projects they built.",
+    "heroTitle": "School & College Credit",
+    "heroLede": "Hack Club is the largest nonprofit, teen-led community for engineering, AI and computer science skills.",
+    "askEducators": "Are you an educator, official or teacher looking to provide a free opportunity to your students in which they can get school credit for computer science, math or otherwise?",
+    "askStudents": "Are you a student in Hack Club, or interested in Hack Club, who would like to know how to get school credit for your work?",
+    "isTitle": "Hack Club is:",
+    "isItem1": "The largest provider of free engineering education to 13 to 18-year-olds in the US",
+    "isItem2": "Meeting or exceeding all standards related to computer science and artificial intelligence as laid out by the Computer Science Teachers Association (CSTA)",
+    "isItem3": "Meeting or exceeding state standards for computer science in all 50 states",
+    "isItem4": "Where teenagers receive training in the most up-to-date, relevant technologies, and build projects to showcase in their college or job applications",
+    "isItem5": "Going beyond technical skills to support them in learning entrepreneurship, initiative, creativity, ethics, and design",
+    "contactLede": "To learn more about how schools and students have worked with Hack Club to receive official credit in high school or college for the projects they built, get in touch:",
+    "contactHighSchool": "High school credit",
+    "contactHighSchoolName": "Christina Asquith",
+    "contactCollege": "College credit",
+    "contactCollegeName": "Deven Jadhav",
+    "getInTouch": "Get in touch",
+    "contactEither": "High school or college credit"
+  },
   "Shop": {
     "wordmarkAlt": "Hack Club Shop",
     "title": "You raised a <red>Hack Clubber.</red>",
