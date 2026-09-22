@@ -50,7 +50,7 @@ const FEATURE_KEYS = [
 const TESTIMONIALS = [
   {
     name: "Poseidon Robotics",
-    teamNum: "FTC Team #27497 (prev.16898)",
+    teamNum: "FTC Team #27497 (prev. #16898)",
     teamLocation: "San Jose, CA",
     website: "ftcposeidon.com",
     url: "https://ftcposeidon.com",
@@ -59,7 +59,7 @@ const TESTIMONIALS = [
     quote:
       "Overall, [HCB] has opened more opportunities for Poseidon, allowing us to undertake larger projects, both on the playing field and in our community.",
     hackerName: "Ian Marwong",
-    hackerRole: "Alumni/Mentor",
+    hackerRole: "Alum & Mentor",
     hackerAvatarUrl: "https://cdn.hackclub.com/019db183-cff2-7c82-9d56-166bddc84d94/1.webp",
     transparency: "poseidon-robotics",
   },
