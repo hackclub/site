@@ -229,7 +229,7 @@
     "department": "HCB",
     "role": "Operations Contributor",
     "acknowledged": false,
-    "bio": "Briyan is a 16-year-old Indian Hack Clubber born and raised in Dubai. He has a passion for jailbreaking and modding any device that lands in his hands. He handles the day-to-day operations at HCB, so if you mail them, there's a slight chance he's the one who might reply. If he is not doing either of these things, you'll probably find him kicking a soccer ball somewhere.",
+    "bio": "Briyan is an NRI raised in Dubai. He has a passion for jailbreaking and modding any device that lands in his hands. He handles the day-to-day operations at HCB, so if you mail them, there's a slight chance he's the one who might reply. If he is not doing either of these things, you'll probably find him kicking a soccer ball somewhere.",
     "slackId": "U04FS5WUXL3",
     "email": "briyan",
     "website": "",
@@ -1493,5 +1493,61 @@
     "email": "logan@hackclub.com",
     "website": "https://loganpeterson.org",
     "avatar": "https://cdn.hackclub.com/01a0b11f-bc34-710b-9e98-4467c8f4734b/irl_pfp_professional.png"
+  },
+  {
+    "name": "Alfie Barlow",
+    "department": "HCB",
+    "role": "Operations Contributor",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U093AJCBP0C",
+    "email": "alfie",
+    "website": "",
+    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U093AJCBP0C-0a5823bf9345-512"
+  },
+  {
+    "name": "Manan Sharma",
+    "department": "HCB",
+    "role": "Operations Contributor",
+    "acknowledged": false,
+    "bio": "Manan is a Hack Clubber from India. He loves running hackathons, making hardware, and building games and web apps. He currently helps with operations at HCB. In his free time you'll find him biking around or playing tetris.",
+    "slackId": "U0807ADEC6L",
+    "email": "manan",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/01a0c56c-9df8-7a69-b073-ec26e1a55560/WhatsApp%20Image%202026-09-21%20at%2017.48.38.jpeg"
+  },
+  {
+    "name": "Haeun Vivian Choi",
+    "department": "HCB",
+    "role": "Operations Contributor",
+    "acknowledged": false,
+    "bio": "Vivian is a Hack Clubber from Busan, Korea, whose Hack Club journey started at Counterspell and eventually led her to organizing her own events and now working at HCB. She knows a plethora of languages, from English, Korean, Spanish, and Chinese to Python, Java, and JavaScript, and loves using them to build things and help people. At HCB, she’ll bring that same love of helping to Operations and onboarding. Outside of Hack Club, you’ll probably find her feeding stray cats.",
+    "slackId": "U087MKMSMSB",
+    "email": "vivianhaeun",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/01a0c573-4844-7272-997a-7b2327ed3f09/image%20(1).png"
+  },
+  {
+    "name": "Meagan Moscato",
+    "staff": true,
+    "department": "HCB",
+    "role": "Jr. Account Manager",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U0C1KUF1EBH",
+    "email": "meagan",
+    "website": "",
+    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U0C1KUF1EBH-623a32329b3f-512"
+  },
+  {
+    "name": "Shreya Todi",
+    "department": "HCB",
+    "role": "Operations Contributor",
+    "acknowledged": false,
+    "bio": "Shreya is a Hack Clubber from the USA who works for HCB! She's been involved in a lot of Hack Club events too. She likes pixel art, crafting, and doing cool stuff!",
+    "slackId": "U0A1CJ987EH",
+    "email": "shreya",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/01a0c81b-96d6-7a24-ba0a-fff67b8d3ec8/0bedabd4416dd541648ed32127ce1861.jpg"
   }
 ]
