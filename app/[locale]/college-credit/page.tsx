@@ -37,7 +37,7 @@ export default async function CollegeCreditPage({ params }: Props) {
       kind: t("contactCollege"),
       name: t("contactCollegeName"),
       email: "dev@hackclub.com",
-      avatar: "https://github.com/devenjadhav.png",
+      avatar: "https://cdn.hackclub.com/01a0ca5e-957d-7662-ba7c-8b0f5f55eca7/deven-jadhav.webp",
     },
   ];
 
