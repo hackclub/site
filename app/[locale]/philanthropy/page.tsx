@@ -11,11 +11,11 @@ import insiderLogo from "./assets/insider-logo.svg";
 import wsjLogo from "./assets/wsj-logo.svg";
 import forbesLogo from "./assets/forbes-logo.svg";
 import copLogo from "./assets/cop.webp";
-import ariannaPhoto from "./assets/arianna.webp";
-import jasonPhoto from "./assets/jason.webp";
-import samPhoto from "./assets/sam.webp";
-import abbyPhoto from "./assets/abby.webp";
-import adrianoPhoto from "./assets/adriano.webp";
+import nityaPhoto from "./assets/nitya.webp";
+import joshPhoto from "./assets/josh.webp";
+import augiePhoto from "./assets/augie.webp";
+import adrianaPhoto from "./assets/adriana.webp";
+import rhysPhoto from "./assets/rhys.webp";
 import bellePhoto from "./assets/belle.webp";
 import obreyPhoto from "./assets/obrey.webp";
 import maggiePhoto from "./assets/maggie.webp";
@@ -176,29 +176,29 @@ export default async function PhilanthropyPage({ params }: Props) {
 
   const testimonials = [
     {
-      photo: ariannaPhoto,
-      quote: t("testimonialArianna"),
-      info: t("testimonialAriannaInfo"),
+      photo: nityaPhoto,
+      quote: t("testimonialNitya"),
+      info: t("testimonialNityaInfo"),
     },
     {
-      photo: jasonPhoto,
-      quote: t("testimonialJason"),
-      info: t("testimonialJasonInfo"),
+      photo: joshPhoto,
+      quote: t("testimonialJosh"),
+      info: t("testimonialJoshInfo"),
     },
     {
-      photo: samPhoto,
-      quote: t("testimonialSam"),
-      info: t("testimonialSamInfo"),
+      photo: augiePhoto,
+      quote: t("testimonialAugie"),
+      info: t("testimonialAugieInfo"),
     },
     {
-      photo: abbyPhoto,
-      quote: t("testimonialAbby"),
-      info: t("testimonialAbbyInfo"),
+      photo: adrianaPhoto,
+      quote: t("testimonialAdriana"),
+      info: t("testimonialAdrianaInfo"),
     },
     {
-      photo: adrianoPhoto,
-      quote: t("testimonialAdriano"),
-      info: t("testimonialAdrianoInfo"),
+      photo: rhysPhoto,
+      quote: t("testimonialRhys"),
+      info: t("testimonialRhysInfo"),
     },
   ];
 
@@ -903,7 +903,7 @@ export default async function PhilanthropyPage({ params }: Props) {
         .philanthropy-testimonial-card div {
           position: absolute;
           inset: auto 0 0;
-          background: linear-gradient(180deg, rgba(23, 23, 29, 0), rgba(23, 23, 29, 0.94));
+          background: linear-gradient(180deg, rgba(10, 10, 14, 0), rgba(10, 10, 14, 0.98) 70%);
           padding: 12px;
           color: #fff6eb;
           display: grid;
@@ -914,7 +914,9 @@ export default async function PhilanthropyPage({ params }: Props) {
           margin: 0;
           font-family: var(--font-phantom);
           font-size: 0.9rem;
+          font-weight: 700;
           line-height: 1.25;
+          white-space: pre-line;
         }
 
         .philanthropy-testimonial-card span {
