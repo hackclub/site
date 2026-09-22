@@ -50,16 +50,16 @@ const FEATURE_KEYS = [
 const TESTIMONIALS = [
   {
     name: "Poseidon Robotics",
-    teamNum: "FTC Team #16898",
+    teamNum: "FTC Team #27497 (prev. #16898)",
     teamLocation: "San Jose, CA",
-    website: "evposeidon.wixsite.com",
-    url: "https://evposeidon.wixsite.com/robo/home",
+    website: "ftcposeidon.com",
+    url: "https://ftcposeidon.com",
     imgSrc: "https://cloud-qtng6088u-hack-club-bot.vercel.app/0image.png",
     logo: "https://cloud-ab81zjlm9-hack-club-bot.vercel.app/0image.png",
     quote:
       "Overall, [HCB] has opened more opportunities for Poseidon, allowing us to undertake larger projects, both on the playing field and in our community.",
     hackerName: "Ian Marwong",
-    hackerRole: "Team Lead",
+    hackerRole: "Alum & Mentor",
     hackerAvatarUrl: "https://cdn.hackclub.com/019db183-cff2-7c82-9d56-166bddc84d94/1.webp",
     transparency: "poseidon-robotics",
   },
