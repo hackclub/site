@@ -72,7 +72,9 @@ export function buildPageMetadata({
               ? "de_DE"
               : locale === "es"
                 ? "es_ES"
-                : "en_US",
+                : locale === "az"
+                  ? "az_AZ"
+                  : "en_US",
       images: [
         {
           url: image,
