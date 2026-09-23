@@ -69,6 +69,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/arcade/power-hour",
+        destination: "/arcade/power-hour/index.html",
+        permanent: false,
+      },
+      {
         source: "/privacy",
         destination: "/privacy-and-terms",
         permanent: true,
@@ -282,10 +287,6 @@ const nextConfig: NextConfig = {
       {
         source: "/bin/selector/",
         destination: "/bin/selector/index.html",
-      },
-      {
-        source: "/arcade/:path+",
-        destination: "/arcade",
       },
       {
         source: "/imprint",
