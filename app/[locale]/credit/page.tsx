@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildPageMetadata({
     title: t("metaTitle"),
     description: t("metaDescription"),
-    canonical: "/college-credit",
+    canonical: "/credit",
     locale,
   });
 }
