@@ -29,6 +29,7 @@ export default async function CollegeCreditPage({ params }: Props) {
     {
       kind: t("contactHighSchool"),
       name: t("contactHighSchoolName"),
+      title: t("contactHighSchoolTitle"),
       email: "christina@hackclub.com",
       avatar:
         "https://cdn.hackclub.com/019d8d79-0da7-7b99-a8fe-ee6412aca976/2026_04_14_0pu_Kleki%20(1).png",
@@ -36,6 +37,7 @@ export default async function CollegeCreditPage({ params }: Props) {
     {
       kind: t("contactCollege"),
       name: t("contactCollegeName"),
+      title: t("contactCollegeTitle"),
       email: "dev@hackclub.com",
       avatar: "https://cdn.hackclub.com/01a0ca5e-957d-7662-ba7c-8b0f5f55eca7/deven-jadhav.webp",
     },
@@ -47,7 +49,7 @@ export default async function CollegeCreditPage({ params }: Props) {
     <main id="main" tabIndex={-1} className="credit-page">
       <section className="credit-hero">
         <Navbar invertColors />
-        <div className="credit-shell credit-hero__inner">
+        <div className="credit-shell credit-hero__inner credit-hero__grid">
           <div className="credit-hero__copy">
             <h1 className="credit-hero__title">{t("heroTitle")}</h1>
             <p className="credit-hero__lede">{t("heroLede")}</p>
@@ -55,6 +57,36 @@ export default async function CollegeCreditPage({ params }: Props) {
               <a className="credit-btn credit-btn--ghost" href="#contact">
                 {t("getInTouch")}
               </a>
+            </div>
+          </div>
+
+          <div className="credit-hero__collage" aria-hidden="true">
+            <div className="credit-collage__frame credit-collage__frame--lg">
+              <Image
+                src="/assets/hero_photo8.webp"
+                alt=""
+                fill
+                sizes="(max-width: 767px) 260px, 360px"
+              />
+            </div>
+            <div className="credit-collage__frame credit-collage__frame--md">
+              <Image
+                src="/assets/hero_photo3.webp"
+                alt=""
+                fill
+                sizes="(max-width: 767px) 200px, 260px"
+              />
+            </div>
+            <div className="credit-collage__frame credit-collage__frame--sm">
+              <Image
+                src="/assets/hero_photo12.webp"
+                alt=""
+                fill
+                sizes="(max-width: 767px) 140px, 180px"
+              />
+            </div>
+            <div className="credit-collage__frame credit-collage__frame--sticker">
+              <Image src="/assets/hero_sticker3.webp" alt="" fill sizes="88px" />
             </div>
           </div>
         </div>
@@ -75,11 +107,15 @@ export default async function CollegeCreditPage({ params }: Props) {
       <section className="credit-shell credit-section">
         <div className="credit-questions">
           <a className="credit-question" href="#contact">
-            <span className="credit-kicker">{t("contactHighSchool")}</span>
+            <span className="credit-kicker">{t("audienceTeachers")}</span>
             <p>{t("askEducators")}</p>
           </a>
           <a className="credit-question" href="#contact">
-            <span className="credit-kicker">{t("contactEither")}</span>
+            <span className="credit-kicker">{t("audienceParents")}</span>
+            <p>{t("askParents")}</p>
+          </a>
+          <a className="credit-question" href="#contact">
+            <span className="credit-kicker">{t("audienceStudents")}</span>
             <p>{t("askStudents")}</p>
           </a>
         </div>
@@ -101,6 +137,7 @@ export default async function CollegeCreditPage({ params }: Props) {
                 <span className="credit-contact__body">
                   <span className="credit-kicker">{c.kind}</span>
                   <span className="credit-contact__name">{c.name}</span>
+                  <span className="credit-contact__title">{c.title}</span>
                   <span className="credit-contact__email">{c.email}</span>
                 </span>
               </a>
@@ -140,9 +177,69 @@ export default async function CollegeCreditPage({ params }: Props) {
           z-index: 2;
         }
 
+        .credit-hero__grid {
+          display: grid;
+          grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+          gap: 48px;
+          align-items: center;
+        }
+
         .credit-hero__copy {
           max-width: 720px;
           color: var(--cream);
+        }
+
+        .credit-hero__collage {
+          position: relative;
+          min-height: 430px;
+        }
+
+        .credit-collage__frame {
+          position: absolute;
+          border-radius: 22px;
+          overflow: hidden;
+          border: 4px solid var(--paper);
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .credit-collage__frame img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+
+        .credit-collage__frame--lg {
+          width: 360px;
+          height: 280px;
+          right: 40px;
+          top: 0;
+          transform: rotate(2deg);
+        }
+
+        .credit-collage__frame--md {
+          width: 260px;
+          height: 200px;
+          left: 10px;
+          top: 160px;
+          transform: rotate(-6deg);
+        }
+
+        .credit-collage__frame--sm {
+          width: 180px;
+          height: 140px;
+          right: 120px;
+          bottom: 0;
+          transform: rotate(-10deg);
+        }
+
+        .credit-collage__frame--sticker {
+          width: 88px;
+          height: 88px;
+          left: 160px;
+          top: 40px;
+          border: none;
+          box-shadow: none;
         }
 
         .credit-hero__title {
@@ -235,7 +332,7 @@ export default async function CollegeCreditPage({ params }: Props) {
 
         .credit-questions {
           display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-columns: repeat(3, minmax(0, 1fr));
           gap: 18px;
         }
 
@@ -362,6 +459,13 @@ export default async function CollegeCreditPage({ params }: Props) {
           line-height: 1.1;
         }
 
+        .credit-contact__title {
+          font-family: var(--font-phantom);
+          font-size: 0.95rem;
+          font-weight: 500;
+          color: var(--muted);
+        }
+
         .credit-contact__email {
           font-family: var(--font-phantom);
           font-size: 0.95rem;
@@ -373,9 +477,44 @@ export default async function CollegeCreditPage({ params }: Props) {
           margin-top: 140px;
         }
 
+        @media (max-width: 1100px) {
+          .credit-hero__grid {
+            grid-template-columns: 1fr;
+          }
+
+          .credit-hero__collage {
+            min-height: 360px;
+          }
+
+          .credit-collage__frame--lg {
+            right: 0;
+          }
+        }
+
         @media (max-width: 767px) {
           .credit-shell {
             width: calc(100vw - 32px);
+          }
+
+          .credit-hero__collage {
+            min-height: 280px;
+          }
+
+          .credit-collage__frame--lg {
+            width: 260px;
+            height: 200px;
+          }
+
+          .credit-collage__frame--md {
+            width: 200px;
+            height: 150px;
+            left: 0;
+          }
+
+          .credit-collage__frame--sm {
+            width: 140px;
+            height: 110px;
+            right: 20px;
           }
 
           .credit-hero {
