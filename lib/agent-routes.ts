@@ -116,7 +116,7 @@ export const AGENT_ROUTES: AgentRoute[] = [
     group: "about",
   },
   {
-    path: "/college-credit",
+    path: "/credit",
     namespace: "CollegeCredit",
     titleKey: "metaTitle",
     descriptionKey: "metaDescription",

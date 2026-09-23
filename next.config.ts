@@ -48,6 +48,7 @@ const nextConfig: NextConfig = {
           permanent: true,
         }),
       ),
+      { source: "/college-credit", destination: "/credit", permanent: true },
       {
         source: "/congressional-app-challenge",
         destination: "https://forms.hackclub.com/congressional-app-challenge",
