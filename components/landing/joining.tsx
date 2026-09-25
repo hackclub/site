@@ -749,6 +749,7 @@ export function JoiningSection() {
                   alt=""
                   width={48}
                   height={48}
+                  unoptimized
                   style={{ objectFit: "contain", flexShrink: 0 }}
                 />
                 <h3 style={cardTitleStyle}>{t("joiningClubsTitle")}</h3>
@@ -781,6 +782,7 @@ export function JoiningSection() {
                   alt=""
                   width={58}
                   height={58}
+                  unoptimized
                   style={{ objectFit: "contain", flexShrink: 0 }}
                 />
                 <h3 style={cardTitleStyle}>{t("joiningPerksTitle")}</h3>

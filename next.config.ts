@@ -1,6 +1,5 @@
 import type { NextConfig } from "next";
 import { execSync } from "node:child_process";
-import { withBotId } from "botid/next/config";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
@@ -22,10 +21,23 @@ const getCommitSha = (): string => {
 };
 
 const nextConfig: NextConfig = {
+  output: process.env.VERCEL ? undefined : "standalone",
   trailingSlash: false,
   productionBrowserSourceMaps: true, // source maps are great for oss :)
   env: {
     NEXT_PUBLIC_COMMIT_SHA: getCommitSha(),
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path([^.]*)",
+        headers: [{ key: "Vary", value: "Accept" }],
+      },
+      {
+        source: "/api/v1/:path*",
+        headers: [{ key: "Vary", value: "Accept-Encoding" }],
+      },
+    ];
   },
   async redirects() {
     return [
@@ -36,6 +48,12 @@ const nextConfig: NextConfig = {
           permanent: true,
         }),
       ),
+      { source: "/college-credit", destination: "/credit", permanent: true },
+      {
+        source: "/congressional-app-challenge",
+        destination: "https://forms.hackclub.com/congressional-app-challenge",
+        permanent: false,
+      },
       {
         source: "/fiscal-sponsorship/apply",
         destination: "https://hcb.hackclub.com/applications/new",
@@ -50,6 +68,11 @@ const nextConfig: NextConfig = {
         source: "/hcb/:path*",
         destination: "/fiscal-sponsorship/:path*",
         permanent: true,
+      },
+      {
+        source: "/arcade/power-hour",
+        destination: "/arcade/power-hour/index.html",
+        permanent: false,
       },
       {
         source: "/privacy",
@@ -195,11 +218,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/congressional-app-challenge",
-        destination: "https://finalist.hackclub.com",
-        permanent: true,
-      },
-      {
         source: "/hardware",
         destination: "https://blueprint.hackclub.com",
         permanent: true,
@@ -223,6 +241,14 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return [
+      {
+        source: "/index.md",
+        destination: "/api/markdown",
+      },
+      {
+        source: "/:path(.*)\\.md",
+        destination: "/api/markdown/:path",
+      },
       {
         source: "/fiscal-sponsorship/mobile-app/",
         destination: "/fiscal-sponsorship/mobile/",
@@ -264,10 +290,6 @@ const nextConfig: NextConfig = {
         destination: "/bin/selector/index.html",
       },
       {
-        source: "/arcade/:path+",
-        destination: "/arcade",
-      },
-      {
         source: "/imprint",
         destination: "/content/imprint",
       },
@@ -281,15 +303,17 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cdn.hackclub.com" },
       { protocol: "https", hostname: "hcb.hackclub.com" },
       { protocol: "https", hostname: "i.ibb.co" },
-      { protocol: "https", hostname: "cachet.hackclub.com" },
+      { protocol: "https", hostname: "v5.airtableusercontent.com" },
+      { protocol: "https", hostname: "cachet.hackclub.com", pathname: "/users/**" },
       { protocol: "https", hostname: "raw.githubusercontent.com" },
       { protocol: "https", hostname: "github.com" },
-      { protocol: "https", hostname: "gravatar.com" },
-      { protocol: "https", hostname: "secure.gravatar.com" },
-      { protocol: "https", hostname: "www.gravatar.com" },
-      { protocol: "https", hostname: "ui-avatars.com" },
+      // HCB hands back whichever of these it has for a signed-in user's avatar.
+      { protocol: "https", hostname: "gravatar.com", pathname: "/avatar/**" },
+      { protocol: "https", hostname: "secure.gravatar.com", pathname: "/avatar/**" },
+      { protocol: "https", hostname: "www.gravatar.com", pathname: "/avatar/**" },
+      { protocol: "https", hostname: "ui-avatars.com", pathname: "/api/**" },
     ],
   },
 };
 
-export default withBotId(withNextIntl(nextConfig));
+export default withNextIntl(nextConfig);

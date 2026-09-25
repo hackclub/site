@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { blockBotRequest } from "@/lib/botid";
 import { isValidEmail } from "@/lib/email";
 
 export const dynamic = "force-dynamic";
@@ -17,12 +16,6 @@ function isNonEmptyString(value: unknown): value is string {
 
 export async function POST(req: NextRequest) {
   try {
-    const blocked = await blockBotRequest();
-    if (blocked) {
-      console.error("[teachers-signup] blocked by bot check");
-      return blocked;
-    }
-
     const key = apiKey();
     if (!key) {
       console.error("[teachers-signup] TEACHERS_AIRTABLE_KEY is not set");

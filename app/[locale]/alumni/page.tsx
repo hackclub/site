@@ -70,6 +70,7 @@ export default async function AlumsPage({ params }: Props) {
                   src={card.image}
                   alt=""
                   fill
+                  sizes="(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 280px"
                   style={{ objectFit: "cover", objectPosition: card.objectPosition ?? "center" }}
                 />
               </div>

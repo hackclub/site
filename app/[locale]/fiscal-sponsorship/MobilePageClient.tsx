@@ -148,6 +148,7 @@ export default function MobilePageClient() {
                     alt={t("appStoreAlt")}
                     width={120}
                     height={40}
+                    unoptimized
                   />
                 </a>
                 <a

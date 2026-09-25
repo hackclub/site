@@ -134,6 +134,7 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
   ];
 
   const resources = [
+    { label: t("shop"), href: "https://shop.hackclub.com" },
     { label: t("toolbox"), href: "https://toolbox.hackclub.com" },
     { label: t("conduct"), href: "/conduct" },
     { label: t("privacy"), href: "/privacy-and-terms" },
@@ -261,6 +262,7 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
             height={184}
             width={526}
             priority
+            unoptimized
             style={{ height: 48, width: "auto", display: "block", objectFit: "contain" }}
           />
         </Link>

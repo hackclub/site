@@ -121,12 +121,13 @@ export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
       <h2
         style={{
           fontFamily: "var(--font-zarathustra)",
-          fontSize: 40,
+          fontSize: "clamp(26px, 2.4vw, 40px)",
           fontWeight: "normal",
-          lineHeight: 0.9,
+          lineHeight: 1,
           color: "var(--foreground)",
           margin: "48px auto 32px",
-          whiteSpace: "nowrap",
+          maxWidth: 1200,
+          textAlign: "center",
         }}
         className="donors-headline"
       >

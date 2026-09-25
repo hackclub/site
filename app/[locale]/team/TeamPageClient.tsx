@@ -271,6 +271,7 @@ export default function TeamPageClient({
           aria-hidden="true"
           fill
           sizes="100vw"
+          unoptimized
           className="team-hero__texture"
         />
       </section>

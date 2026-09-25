@@ -10,3 +10,4 @@ tsconfig.tsbuildinfo
 .vscode/
 .vercel
 .env*.local
+next-env.d.ts

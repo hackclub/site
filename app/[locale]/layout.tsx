@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { notFound } from "next/navigation";
 import PlausibleProvider from "next-plausible";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SkipToMainLink } from "@/components/SkipToMainLink";
 import { routing, getLocaleDomain } from "@/i18n/routing";
 import { phantomSans, zarathustra, cormorant, geologica } from "../fonts";
@@ -35,27 +34,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ru: "https://ru.hackclub.com",
         fr: "https://fr.hackclub.com",
         de: "https://de.hackclub.com",
+        es: "https://es.hackclub.com",
+        az: "https://az.hackclub.com",
         "x-default": "https://hackclub.com",
       },
     },
   };
 }
-
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Hack Club",
-  url: "https://hackclub.com",
-  logo: "https://assets.hackclub.com/flag-standalone.png",
-  sameAs: [
-    "https://twitter.com/hackclub",
-    "https://github.com/hackclub",
-    "https://www.youtube.com/c/HackClubHQ",
-    "https://www.instagram.com/starthackclub",
-    "https://en.wikipedia.org/wiki/Hack_Club",
-    "https://www.wikidata.org/wiki/Q98127305",
-  ],
-};
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
@@ -77,20 +62,15 @@ export default async function LocaleLayout({ children, params }: Props) {
         <script dangerouslySetInnerHTML={{ __html: themesrc }} />
         <link rel="icon" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon.png" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
       </head>
       <body className="min-h-full">
         <NextIntlClientProvider messages={messages}>
           <PlausibleProvider src="https://plausible.io/js/pa-Fxh-6GHJlpUS4AXISXi-C.js">
             <SkipToMainLink />
             {children}
-            <Analytics />
-            <SpeedInsights />
           </PlausibleProvider>
         </NextIntlClientProvider>
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -4,8 +4,9 @@ import { useLocale, useTranslations } from "next-intl";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import type { AirtableProgram } from "../../lib/programs";
-import { parseLocalDate, selectFeaturedPrograms } from "../../lib/programs";
+import type { Event } from "../../lib/events";
+import { selectFeaturedEvents } from "../../lib/events";
+import { parseLocalDate } from "../../lib/programs";
 import { BtnArrow } from "./btn-arrow";
 
 // ── Skeleton card ────────────────────────────────────────────────────────────
@@ -24,49 +25,39 @@ function SkeletonCard() {
 }
 
 // ── Dynamic event card ───────────────────────────────────────────────────────
-function EventCard({ program }: { program: AirtableProgram }) {
+function EventCard({ event }: { event: Event }) {
   const t = useTranslations("Home");
   const tc = useTranslations("Common");
   const tp = useTranslations("Programs");
   const locale = useLocale();
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const now = new Date();
+  const isUpcoming = parseLocalDate(event.startDate) > now;
   // endDate may be null for indefinite programs
-  const endDate = program.endDate ? parseLocalDate(program.endDate) : null;
+  const endDate = event.endDate ? parseLocalDate(event.endDate) : null;
+  const theme = event.theme;
+  const background = event.background;
+  const bgColor = background?.color ?? "var(--surface)";
+  const textColor = theme?.text ?? "var(--foreground)";
+  const accentColor = theme?.accent ?? "#ec3750";
+  const logoUrl = event.logoUrl;
+  const logoSize = theme?.logoSize ?? 48;
+  const bgImageUrl = background?.type === "image" ? background.imageUrl : null;
+  const buttonColor = theme?.button.color ?? "#ec3750";
+  const buttonTextColor = theme?.button.textColor ?? "#ffffff";
+  const buttonRadius = theme?.button.borderRadius ?? 44;
+  const buttonBorderWidth = theme?.button.borderWidth ?? 0;
+  const buttonBorderColor = theme?.button.borderColor ?? "var(--foreground)";
+  const slackChannel = event.slackChannel;
+  const slackUrl = event.slackUrl;
+  const description = event.description;
 
-  const s = program.site;
-  const bgColor = s?.bgColor ?? "var(--surface)";
-  const textColor = s?.textColor ?? "var(--foreground)";
-  const accentColor = s?.accentColor ?? "#ec3750";
-  const logoUrl = s?.logoUrl ?? null;
-  const logoSize = s?.logoSize ?? 48;
-  const bgImageUrl = s?.bgType === "image" ? (s?.bgImageUrl ?? null) : null;
-  const buttonColor = s?.buttonColor ?? "#ec3750";
-  const buttonTextColor = s?.buttonTextColor ?? "#ffffff";
-  const buttonRadius = s?.buttonBorderRadius ?? 44;
-  const buttonBorderWidth = s?.buttonBorderWidth ?? 0;
-  const buttonBorderColor = s?.buttonBorderColor ?? "var(--foreground)";
-  const slackChannel = s?.slackChannel ?? null;
-  const slackUrl = slackChannel
-    ? `https://hackclub.slack.com/channels/${slackChannel.replace(/^#/, "")}`
-    : null;
-  const programKey = program.name
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-  const descriptionKey = `cards.${programKey}.description`;
-  const description =
-    locale === "fr"
-      ? tp.has(descriptionKey)
-        ? tp(descriptionKey)
-        : null
-      : (s?.description ?? null);
-
-  const irlStart = s?.inPersonStart ?? null;
-  const irlEnd = s?.inPersonEnd ?? null;
+  const irlStart = event.inPerson?.start ?? null;
+  const irlEnd = event.inPerson?.end ?? null;
   let badgeLabel: string;
-  if (irlStart) {
+  if (isUpcoming) {
+    badgeLabel = tp("statusUpcoming");
+  } else if (irlStart) {
     const start = parseLocalDate(irlStart);
     const end = irlEnd ? parseLocalDate(irlEnd) : null;
     const month = start.toLocaleDateString(locale, { month: "short" });
@@ -128,7 +119,7 @@ function EventCard({ program }: { program: AirtableProgram }) {
         }}
       >
         {/* Pin icon */}
-        {program.site?.pinned && (
+        {event.pinned && (
           <div
             style={{
               position: "absolute",
@@ -173,7 +164,7 @@ function EventCard({ program }: { program: AirtableProgram }) {
         {logoUrl ? (
           <Image
             src={logoUrl}
-            alt={program.name}
+            alt={event.name}
             width={logoSize}
             height={logoSize}
             style={{
@@ -189,7 +180,7 @@ function EventCard({ program }: { program: AirtableProgram }) {
             unoptimized
           />
         ) : (
-          <h2
+          <h3
             style={{
               position: "relative",
               zIndex: 1,
@@ -203,8 +194,8 @@ function EventCard({ program }: { program: AirtableProgram }) {
               width: "100%",
             }}
           >
-            {program.name}
-          </h2>
+            {event.name}
+          </h3>
         )}
 
         {/* Description */}
@@ -229,9 +220,9 @@ function EventCard({ program }: { program: AirtableProgram }) {
         <div style={{ flex: "1 0 12px" }} />
 
         {/* CTA button */}
-        {program.websiteUrl && (
+        {event.url && (
           <a
-            href={program.websiteUrl}
+            href={event.url}
             target="_blank"
             rel="noopener noreferrer"
             className="cta-btn"
@@ -328,22 +319,16 @@ function EventCard({ program }: { program: AirtableProgram }) {
 }
 
 // ── Section ──────────────────────────────────────────────────────────────────
-export function EventsSection({
-  initialCards = null,
-}: {
-  initialCards?: AirtableProgram[] | null;
-}) {
+export function EventsSection() {
   const t = useTranslations("Home");
-  const [cards, setCards] = useState<AirtableProgram[] | null>(initialCards);
+  const [cards, setCards] = useState<Event[] | null>(null);
 
   useEffect(() => {
-    if (initialCards !== null) return;
-
-    fetch("/api/programs")
+    fetch("/api/v1/events?status=ongoing")
       .then((r) => r.json())
-      .then((all: AirtableProgram[]) => setCards(selectFeaturedPrograms(all)))
+      .then((json: { data: Event[] }) => setCards(selectFeaturedEvents(json.data)))
       .catch(() => setCards([]));
-  }, [initialCards]);
+  }, []);
 
   const loading = cards === null;
   const displayCards = cards ?? [null, null, null, null];
@@ -393,8 +378,7 @@ export function EventsSection({
         }}
       />
 
-      {/* Headline — right-aligned */}
-      <div
+      <h2
         style={{
           textAlign: "right",
           marginBottom: 4,
@@ -403,8 +387,9 @@ export function EventsSection({
           zIndex: 1,
         }}
       >
-        <p
+        <span
           style={{
+            display: "block",
             fontFamily: "var(--font-zarathustra)",
             fontSize: 40,
             lineHeight: 1,
@@ -414,8 +399,8 @@ export function EventsSection({
           }}
         >
           {t("eventsTitle")}
-        </p>
-        <p
+        </span>
+        <span
           style={{
             fontFamily: "var(--font-zarathustra)",
             fontSize: 40,
@@ -431,8 +416,8 @@ export function EventsSection({
           }}
         >
           {t("eventsTitleAccent")}
-        </p>
-      </div>
+        </span>
+      </h2>
 
       {/* Subtext — right-aligned */}
       <p
@@ -464,7 +449,7 @@ export function EventsSection({
         className="events-grid"
       >
         {displayCards.map((p, i) =>
-          loading || p === null ? <SkeletonCard key={i} /> : <EventCard key={p.id} program={p} />,
+          loading || p === null ? <SkeletonCard key={i} /> : <EventCard key={p.id} event={p} />,
         )}
       </div>
 

@@ -114,10 +114,10 @@
     "department": "Events",
     "role": "Virtual Event Organizer",
     "acknowledged": false,
-    "bio": "Joel, who goes by PianoMan0 online, is a member of the community team at Hack Club.",
+    "bio": "Joel, who goes by PianoMan0 online, is a member of Special Activities Division. He also runs the Welcome Team.",
     "slackId": "U0829HRSQ76",
     "email": "",
-    "website": "pianoman0.com",
+    "website": "https://pianoman0.com",
     "avatar": "https://cachet.hackclub.com/users/U0829HRSQ76/r"
   },
   {
@@ -229,11 +229,22 @@
     "department": "HCB",
     "role": "Operations Contributor",
     "acknowledged": false,
-    "bio": "Briyan is a 16-year-old Indian Hack Clubber born and raised in Dubai. He has a passion for jailbreaking and modding any device that lands in his hands. He handles the day-to-day operations at HCB, so if you mail them, there's a slight chance he's the one who might reply. If he is not doing either of these things, you'll probably find him kicking a soccer ball somewhere.",
+    "bio": "Briyan is an NRI raised in Dubai. He has a passion for jailbreaking and modding any device that lands in his hands. He handles the day-to-day operations at HCB, so if you mail them, there's a slight chance he's the one who might reply. If he is not doing either of these things, you'll probably find him kicking a soccer ball somewhere.",
     "slackId": "U04FS5WUXL3",
     "email": "briyan",
     "website": "",
     "avatar": "https://cachet.hackclub.com/users/U04FS5WUXL3/r"
+  },
+  {
+    "name": "Daamin Ashai",
+    "department": "HCB",
+    "role": "Operations Contributor",
+    "acknowledged": false,
+    "bio": "Daamin is a 15 y/o from India who fell in love with tech at the age of 11. He joined Hack Club in 2024 and ever since has attended and hosted Hack Club events all around the world. He also has a bunch of experience tracking down financial misconduct and fraud. When he's not working on HCB, he enjoys dabbling in engineering for other Hack Club programs. If he’s unavailable, he’s probably traveling to a cool new place.",
+    "slackId": "U07GLQY6UN4",
+    "email": "daamin",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U07GLQY6UN4/r"
   },
   {
     "name": "Ian Madden",
@@ -285,9 +296,10 @@
   {
     "name": "Luke Oldenburg",
     "department": "HCB",
-    "role": "Engineering Contributor",
+    "staff": true,
+    "role": "Engineering Gap Year",
     "acknowledged": false,
-    "bio": " ",
+    "bio": "",
     "slackId": "U06MYDS2LHX",
     "email": "luke",
     "website": "",
@@ -307,13 +319,68 @@
   {
     "name": "Lilia Dostie",
     "department": "Welcoming",
-    "role": "Welcome Team Lead",
+    "role": "Welcomer",
     "acknowledged": false,
-    "bio": "Lilia, from Florida, is a Hack Clubber who runs the Gardeners (aka. Welcome Committee), who welcome newcomers to the Slack and help them get settled in!",
+    "bio": "Lilia is a Hack Clubber from Central Florida who welcomes people into the Slack and helps them settle in. In her free time, she enjoys creating art and coding.",
     "slackId": "U07AZFQLPQ8",
     "email": "",
     "website": "https://kittycat.hackclub.app/",
     "avatar": "https://i.ibb.co/ZpH8C1pn/785000-D7-213-E-4-D52-9358-939285-EA793-F-1-105-c-2-1.jpg"
+  },
+  {
+    "name": "Alexxx",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Alex works on the community side of Hack Club, helping members, moderating spaces, and making sure things stay awesome behind the scenes!!",
+    "slackId": "U0A20HRP4KB",
+    "email": "",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/019fddf6-2ca2-7c60-bd50-06d86116e1ab/8c6e2eb8-71a0-4e64-b623-676e67831308.jpg"
+  },
+  {
+    "name": "Samhith Pola",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Samhith is a Hack Clubber from the SF Bay Area who welcomes and guides people into the Slack. He also organized a hackathon in San Francisco in 2026 called Campfire San Francisco!",
+    "slackId": "U08AP4Z9S9F",
+    "email": "",
+    "website": "https://samhith.dev",
+    "avatar": "https://cdn.hackclub.com/019fdddb-63e9-7756-97d2-5ceb72307abb/image.png"
+  },
+  {
+    "name": "Christian",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Christian is a Hack Clubber from Denmark who likes to welcome new Hack Clubbers!",
+    "slackId": "U0938MZG8Q6",
+    "email": "",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/019fddd4-fc8f-7b51-8628-4cfbdb75f7b2/image__6_.png"
+  },
+  {
+    "name": "Fireentity",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Hi! I'm fireentity! A gardener, shipwright, and fulfiller! Apart from my Hack Club work, I enjoy making games and making music!",
+    "slackId": "U07A0D5K3T2",
+    "email": "",
+    "website": "https://www.fireentity.space",
+    "avatar": "https://cdn.hackclub.com/01a05463-d1ea-7432-8f32-adeca1d8860c/image.png"
+  },
+  {
+    "name": "Kavya",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Kavya is a Hack Clubber from the Bay Area, California who welcomes people into the Slack and helps them settle in. In her free time, she enjoys doing art, coding, and reading.",
+    "slackId": "U0B2C9083N3",
+    "email": "",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/019ff7b8-ed95-7bf5-ac8e-c370fa726892/image.png"
   },
   {
     "name": "Matthew Soh",
@@ -353,7 +420,7 @@
     "department": "HCB",
     "role": "Operations & Engineering Contributor",
     "acknowledged": false,
-    "bio": "Ruien is a Hack Clubber in California. Having first found Hack Club and HCB when he was looking for a financial solution for hosting his hackathon, he now helps fellow hackclubbers and hackathon organizers get started with hackathons and other projects on HCB.",
+    "bio": "Ruien is a Hack Clubber in California. Having first found Hack Club and HCB when he was looking for a financial solution for hosting his hackathon, he now helps fellow Hack Clubbers and hackathon organizers get started with hackathons and other projects on HCB.",
     "slackId": "U04JRBGPH5G",
     "email": "ruien",
     "website": "",
@@ -397,7 +464,7 @@
     "department": "HCB",
     "role": "Operations Contributor",
     "acknowledged": false,
-    "bio": "Sean is a hackclubber hailing from the UK, They help with HCB operations and writes the occasional line of code.",
+    "bio": "Sean is a Hack Clubber hailing from the UK, They help with HCB operations and writes the occasional line of code.",
     "slackId": "U04FATFRE6T",
     "email": "sean",
     "website": "https://sean.cyou",
@@ -437,7 +504,7 @@
     "slackId": "U0261EB1EG7",
     "email": "dev",
     "website": "",
-    "avatar": "https://github.com/devenjadhav.png"
+    "avatar": "https://cdn.hackclub.com/01a0ca5e-957d-7662-ba7c-8b0f5f55eca7/deven-jadhav.webp"
   },
   {
     "name": "Leo Wilkin",
@@ -652,9 +719,9 @@
   {
     "name": "Rowan",
     "department": "HQ",
-    "role": "Engineering & Security",
+    "role": "Engineering",
     "acknowledged": false,
-    "bio": "Rowan (who goes by Echo online) is a full stack programmer from the United States. They helped run Summer of Making and now work on engineering and security for Hack Club HQ. In their free time, they enjoy politics, playing video games, and listening to music.",
+    "bio": "Rowan (who goes by Echo online) is a full stack programmer from the United States. They helped run Summer of Making and now work on fraud prevention, engineering, and security for Hack Club HQ. In their free time, they enjoy politics, playing video games, and listening to music.",
     "slackId": "U080A3QP42C",
     "email": "echo",
     "website": "https://3kh0.net",
@@ -747,7 +814,7 @@
     "name": "Ivie Fonner",
     "department": "HQ",
     "role": "Club Infrastructure and Operations",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Ivie (aka Charmunk) is a 14-year-old Hack Clubber from the DC area. When she is not coding, she enjoys sci-fi novels and playing card games. At Hack Club, she builds the underlying systems allowing Hack Club Clubs to run smoothly. She joined Hack Club in late 2024 and has been working on various projects since then.",
     "slackId": "U04KEK4TS72",
     "email": "ivie",
@@ -848,11 +915,82 @@
     "department": "HQ",
     "role": "Engineering & Event Operations",
     "acknowledged": false,
-    "bio": "Hey, I'm Meghana. I'm a 16 year old that spends her free time messing around with robots and making PCBs. I made Pathfinder and Hermes, and ran global operations for Daydream",
+    "bio": "Hey, I'm Meghana. I'm a 17 year old that spends her free time messing around with robots and making PCBs. Now, I'm trying to get every teenager in the world to make their first printed circuit board.",
     "slackId": "U06P62WGWAV",
     "email": "meghana",
     "website": "https://meghana.co",
-    "avatar": "https://cachet.hackclub.com/users/U06P62WGWAV/r"
+    "avatar": "https://cachet.hackclub.com/users/U06P62WGWAV/r",
+    "gapyear": true
+  },
+  {
+    "name": "Kai Pereira",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Kai's an 18 year old hacker from west coast Canada who loves hacking on intricate hardware and software projects. You'll also find him hitting up every bubble tea shop, exploring the world aimlessly and going down every rabbit hole imaginable.",
+    "slackId": "U04HJGA76H2",
+    "email": "kaipereira",
+    "website": "https://kaipereira.com/",
+    "avatar": "https://cdn.hackclub.com/01a05528-875e-7fc5-8a3d-143cdd8e1216/image_1.png",
+    "gapyear": true
+  },
+  {
+    "name": "Brendan Reynard",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Brendan is a a 17 year old from the east coast of Canada (PEI!) who likes lower level software and embedded systems. When he's not working on programs for Hack Club, he's cycling, skating, or working on other personal projects.",
+    "slackId": "U08LEHUPSCR",
+    "email": "brendan",
+    "website": "https://breynard.net",
+    "avatar": "https://cdn.hackclub.com/01a04383-f2f2-73cb-8972-58e0b9292dda/beach_pfp.jpeg",
+    "gapyear": true
+  },
+  {
+    "name": "Selena Nguyen",
+    "department": "HQ",
+    "role": "Events & Engineering",
+    "acknowledged": false,
+    "bio": "Selena is a student from Hamilton, Ontario and joined Hack Club through attending Apocalypse in 2024. She loves running events in her community including various hackathons and robotics competitions. In the meantime, she wants to keep learning and teaching others through workshops and programs!",
+    "slackId": "U06U1CBK589",
+    "email": "selena",
+    "avatar": "https://cdn.hackclub.com/01a04385-5835-7a60-86f4-9ccd15151229/image%20(5).png",
+    "gapyear": true
+  },
+  {
+    "name": "Lewin Kelly",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U07JH9LU1NC",
+    "email": "lewin",
+    "website": "https://heliodex.cf",
+    "avatar": "https://cdn.hackclub.com/01a04386-fbf6-7efc-92ce-0ccf9583b50c/me-square.jpg",
+    "gapyear": true
+  },
+  {
+    "name": "Jolly Wang",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U08CJCZ2Z9S",
+    "email": "jolly",
+    "avatar": "https://cdn.hackclub.com/01a043a9-1199-7c41-b938-fba1fbedf586/picrew.png",
+    "gapyear": true
+  },
+  {
+    "name": "Sophia Duan",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Hi, I'm Sophia! I'm an 18-year-old maker from Ottawa, Canada who builds hardware projects and websites. I'm often rock climbing, reading sci-fi, or learning geography!",
+    "slackId": "U083PK90X4G",
+    "email": "sophia",
+    "website": "https://sophiaduan.dev",
+    "avatar": "https://cdn.hackclub.com/01a09965-b262-774b-9cd9-4ce9d99b7655/E09V59WQY1E-U083PK90X4G-a1104eff0219-512.jpg",
+    "gapyear": true
   },
   {
     "name": "Celeste Roselli",
@@ -972,7 +1110,7 @@
     "bio": "Freddie is a 14-year-old Hack Clubber from London who is part of the Clubs Team. He's been a member of Hack Club since June 2024 and is excited to help clubs get started. When he's not coding or working with clubs, he enjoys reading, boating, and walking his dog!",
     "email": "freddie",
     "website": "https://freddieyershon.co.uk",
-    "avatar": "https://cdn.hackclub.com/019e26bd-157e-7802-a899-1cec0f58b24c/campfire-pic.jpeg"
+    "avatar": "https://cachet.hackclub.com/users/U078VN0UU2K/r"
   },
   {
     "name": "Mohammed Zaid",
@@ -1071,11 +1209,12 @@
   {
     "name": "Joel Gallagher",
     "department": "Welcoming",
-    "role": "Welcomer",
+    "role": "Welcome Team Lead",
     "acknowledged": false,
-    "bio": "Joel, who goes by PianoMan0 online, is a Hack Clubber who welcomes people into the Slack and helps them settle in.",
+    "bio": "Joel, who goes by PianoMan0 online, is a Hack Clubber who runs the Welcome Team. He has been on Slack for several years and is thrilled to help new Hack Clubbers feel at home in the community.",
     "slackId": "U0829HRSQ76",
-    "avatar": "https://cachet.hackclub.com/users/U0829HRSQ76/r"
+    "avatar": "https://cdn.hackclub.com/019fddc1-c58c-746d-bfe6-9b98a285a403/pianoman0_stardance_profile_pic.png",
+    "website": "https://pianoman0.com"
   },
   {
     "name": "Junya",
@@ -1097,17 +1236,6 @@
     "slackId": "U06UYA5GMB5",
     "website": "https://jeremywoolley.com",
     "avatar": "https://cdn.hackclub.com/019e4064-705b-71fd-95e8-4995c3690195/2026_05_19_0fj_Kleki%20(1).png"
-  },
-  {
-    "name": "Felix Gao",
-    "department": "Newspaper",
-    "role": "Newspaper Team Lead",
-    "acknowledged": false,
-    "bio": "Felix, a teen Hack Clubber from Toronto, Canada, leads a team that writes various newsletters, ensuring Hack Clubbers know what's going on in the Slack and beyond. You'll often find him writing code or drowning two metres deep in homework. He has an absurd variety of niche interests and loves learning more about them, one of the biggest being urban planning/design.",
-    "slackId": "U07BU2HS17Z",
-    "email": "felix",
-    "website": "https://felixgao.dev/",
-    "avatar": "https://i.ibb.co/3mCMrhZ2/Felix.png"
   },
   {
     "name": "Felix Gao",
@@ -1143,15 +1271,59 @@
     "avatar": "https://cachet.hackclub.com/users/U0943NG73PA/r"
   },
   {
+    "name": "Felix Gao",
+    "department": "Newspaper",
+    "role": "Newspaper Team Lead",
+    "acknowledged": false,
+    "bio": "Felix, a teen Hack Clubber from Toronto, Canada, leads a team that writes various newsletters, ensuring Hack Clubbers know what's going on in the Slack and beyond. You'll often find him writing code or drowning two metres deep in homework. He has an absurd variety of niche interests and loves learning more about them, one of the biggest being urban planning/design.",
+    "slackId": "U07BU2HS17Z",
+    "email": "felix",
+    "website": "https://felixgao.dev/",
+    "avatar": "https://cachet.hackclub.com/users/U07BU2HS17Z/r"
+  },
+  {
     "name": "Mahad Kalam",
     "department": "Newspaper",
     "role": "Infra Lead",
     "acknowledged": false,
-    "bio": "Mahad is a 16-year-old developer from the UK who builds tools to simplify teamwork. Right now, he's building infra and automation systems to help the Newspaper Team collaborate more efficiently and focus on actually writing content.",
+    "bio": "Mahad is a 17-year-old developer from the UK who builds tools to simplify teamwork. Right now, he's building infra and automation systems to help the Newspaper Team collaborate more efficiently and focus on actually writing content.",
     "slackId": "U059VC0UDEU",
     "email": "mahad",
     "website": "https://mahadk.com",
     "avatar": "https://cdn.hackclub.com/019d8d6c-37ce-7370-93a3-4125be4a3a52/2026_04_14_0pf_Kleki%20(1).png"
+  },
+  {
+    "name": "Azzy",
+    "department": "Newspaper",
+    "role": "Reporter",
+    "acknowledged": false,
+    "bio": "Azzy is a teen Hack Clubber from the Midwest United States who works to empower STEM education and awareness among the next generation of engineers. Passionate about making fields of interest like chemical engineering and computer science accessible to the layperson, she works on the Newspaper Team to keep fellow hackers up to date on happenings in the Slack community. While Azzy isn't working on a building project or chemistry research, you'll find her drawing, writing creative stories, studying at a local cafe, or mentoring students at her conservation lab, Bird2Branch.",
+    "slackId": "U08PLHD4L2J",
+    "email": "",
+    "website": "http://azzyx.bird2branch.org/",
+    "avatar": "https://cachet.hackclub.com/users/U08PLHD4L2J/r"
+  },
+  {
+    "name": "Valentino Carignano",
+    "department": "Newspaper",
+    "role": "Reporter",
+    "acknowledged": false,
+    "bio": "Valentino (who goes by Valen) is a 17 year old teenager from Argentina. He’s part of the newspaper team, keeping Hack Clubbers up to date with everything going on in the community. Whenever he’s not procrastinating on his schoolwork, you can usually find him playing videogames, listening to music, yapping with friends or going down Wikipedia rabbit holes, among other things.",
+    "slackId": "U08U6JVE77Z",
+    "email": "",
+    "website": "https://valen.zip",
+    "avatar": "https://cachet.hackclub.com/users/U08U6JVE77Z/r"
+  },
+  {
+    "name": "Neven",
+    "department": "Newspaper",
+    "role": "Reporter",
+    "acknowledged": false,
+    "bio": "Neven, 13 from snowy Edmonton, helps write Hack Club's Happenings newsletter. He fell in love with computers and the internet as tools for self-expression ever since tinkering with a Raspberry Pi at 10 years old. Aside from writing Happenings, he codes and designs useless but fun apps, games, and online toys. When not rotting away in his chair, he's doodling, reading, snowboarding, and avoiding his pile of forgotten hobbies.",
+    "slackId": "U071JHBEJ7R",
+    "email": "",
+    "website": "https://hex4.xyz/",
+    "avatar": "https://cdn.hackclub.com/01a05f9e-2bd0-7e28-85fa-7e9a1a2a4070/image.png"
   },
   {
     "name": "Adishree Das",
@@ -1233,7 +1405,7 @@
   {
     "name": "Spencer McKnight",
     "department": "HQ",
-    "role": "Safeguarding Associate",
+    "role": "Safeguarding",
     "acknowledged": false,
     "bio": "Spencer is a 19 year old who likes volunteering and tumbling, they are going to university for computing and electronic engineering.",
     "slackId": "U08U39SCQAE",
@@ -1251,5 +1423,131 @@
     "email": "lynnj",
     "website": "",
     "avatar": "https://i.ibb.co/qMBwqHwC/lynn-With-AMysterious-Umbrella-Named-Perry.png"
+  },
+  {
+    "name": "Sahil",
+    "department": "Moderation",
+    "role": "Conduct and Moderation",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U08PUHSMW4V",
+    "email": "sahil@conduct.hackclub.com",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/01a022cb-4489-73bb-9132-5db42f4f857c/sahilsquare%20-%20Copy.png"
+  },
+  {
+    "name": "Nick Do",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Nick is an 18-year-old tinkering artist from Texas, USA! It helps run art and hardware programs as a gap year, and in its free time, can be found sewing or drawing.",
+    "slackId": "U06FMCCDS1K",
+    "email": "nick@hackclub.com",
+    "website": "https://sundial.city",
+    "avatar": "https://cdn.hackclub.com/01a043ae-0ba9-7948-a0fb-d3a095abaf9b/08-27-2026-1033-1.png",
+    "gapyear": true
+  },
+  {
+    "name": "Afia Ava",
+    "department": "HQ",
+    "role": "Philanthropy & Engineering",
+    "acknowledged": false,
+    "bio": "Afia is an 18-year-old helping raise funds for Hack Club. She also runs Athena, Hack Club’s girls-only community. In her free time, she enjoys building hardware projects and reading fiction books.",
+    "slackId": "U07RMG2DPQC",
+    "email": "afiaava@hackclub.com",
+    "website": "afiaava.com",
+    "avatar": "https://cdn.hackclub.com/01a0454b-d134-74aa-a4fa-1309ba183701/Headshot%20Afia(1).jpg",
+    "gapyear": true
+  },
+  {
+    "name": "Barnav Mitra",
+    "department": "HQ",
+    "role": "Engineering & Event Operations",
+    "acknowledged": false,
+    "bio": "Barnav is an 18-year-old engineer from New Jersey. At Hack Club, he focuses primarily on creating some of Hack Club's largest programs and satellites. Outside of Hack Club, he likes to create games at his studio, climb, and read comics.",
+    "slackId": "U08RVF1BAN4",
+    "email": "barnav@hackclub.com",
+    "website": "jos.gg",
+    "avatar": "https://cdn.hackclub.com/01a06000-d169-753d-9f98-c9629c8cb82c/FD781D00-7BD4-4275-B39A-9AF46FC4C54E_1_201_a.jpeg",
+    "gapyear": true
+  },
+  {
+    "name": "Sarah Boston Andriano",
+    "staff": true,
+    "department": "HQ",
+    "role": "VP, Philanthropy",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U0BUBBG8PA9",
+    "email": "saraha",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/01a0910a-7e3c-785b-8bc5-918cb1d643dc/36F2D498-14D9-4E09-A149-2F51C030CFE5.webp"
+  },
+  {
+    "name": "Logan Peterson",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Logan is a builder from Georgia who loves robotics, electronics, and embedded systems. He especially enjoys projects that bring together CAD, electronics, and programming. At Hack Club, he works on Waypoint and helps out with other events and projects across the community. Outside of engineering, he enjoys reading and making video games.",
+    "slackId": "U079WLY0HLY",
+    "email": "logan@hackclub.com",
+    "website": "https://loganpeterson.org",
+    "avatar": "https://cdn.hackclub.com/01a0b11f-bc34-710b-9e98-4467c8f4734b/irl_pfp_professional.png"
+  },
+  {
+    "name": "Alfie Barlow",
+    "department": "HCB",
+    "role": "Operations Contributor",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U093AJCBP0C",
+    "email": "alfie",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/01a0c922-4bb4-74d3-868d-488cf819a993/image%20(3).png"
+  },
+  {
+    "name": "Manan Sharma",
+    "department": "HCB",
+    "role": "Operations Contributor",
+    "acknowledged": false,
+    "bio": "Manan is a Hack Clubber from India. He loves running hackathons, making hardware, and building games and web apps. He currently helps with operations at HCB. In his free time you'll find him biking around or playing tetris.",
+    "slackId": "U0807ADEC6L",
+    "email": "manan",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/01a0c56c-9df8-7a69-b073-ec26e1a55560/WhatsApp%20Image%202026-09-21%20at%2017.48.38.jpeg"
+  },
+  {
+    "name": "Haeun Vivian Choi",
+    "department": "HCB",
+    "role": "Operations Contributor",
+    "acknowledged": false,
+    "bio": "Vivian is a Hack Clubber from Busan, Korea, whose Hack Club journey started at Counterspell and eventually led her to organizing her own events and now working at HCB. She knows a plethora of languages, from English, Korean, Spanish, and Chinese to Python, Java, and JavaScript, and loves using them to build things and help people. At HCB, she’ll bring that same love of helping to Operations and onboarding. Outside of Hack Club, you’ll probably find her feeding stray cats.",
+    "slackId": "U087MKMSMSB",
+    "email": "vivianhaeun",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/01a0c573-4844-7272-997a-7b2327ed3f09/image%20(1).png"
+  },
+  {
+    "name": "Meagan Moscato",
+    "staff": true,
+    "department": "HCB",
+    "role": "Jr. Account Manager",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U0C1KUF1EBH",
+    "email": "meagan",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/01a0c921-9105-760d-8f32-f6e195379adf/image%20(2).png"
+  },
+  {
+    "name": "Shreya T",
+    "department": "HCB",
+    "role": "Operations Contributor",
+    "acknowledged": false,
+    "bio": "Shreya is a Hack Clubber from the USA who works for HCB! She's been involved in a lot of Hack Club events too. She likes pixel art, crafting, and doing cool stuff!",
+    "slackId": "U0A1CJ987EH",
+    "email": "shreya",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/01a0c81b-96d6-7a24-ba0a-fff67b8d3ec8/0bedabd4416dd541648ed32127ce1861.jpg"
   }
 ]

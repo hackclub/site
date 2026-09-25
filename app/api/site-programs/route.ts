@@ -1,14 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import {
   parseRecord,
   siteBaseUrl,
   siteAuthHeaders,
-  SITE_FIELDS,
   PROJECT_TYPE_OPTIONS,
   type SiteProgram,
   type ProjectType,
 } from "../../../lib/site-programs";
 import { getEditAuth } from "../../../lib/server-auth";
+import { apiError } from "@/lib/api-error";
+import { deprecationHeaders } from "@/lib/api-v1";
+import { PROGRAMS_CACHE_TAG, fetchAllPages, siteListUrl } from "@/lib/programs-data";
 
 export const dynamic = "force-dynamic";
 
@@ -122,32 +125,44 @@ function validateBody(
   return { ok: true, body: r as ValidatedBody };
 }
 
-function fieldParams() {
-  return SITE_FIELDS.map((f) => `fields[]=${encodeURIComponent(f)}`).join("&");
-}
-
 async function getAllRecords(key: string) {
-  const res = await fetch(`${siteBaseUrl()}?${fieldParams()}`, {
-    headers: siteAuthHeaders(key),
-    cache: "no-store",
-  });
-  if (!res.ok) throw new Error(`Airtable ${res.status}: ${await res.text()}`);
-  const data = await res.json();
-  return (data.records ?? []) as { id: string; fields: Record<string, unknown> }[];
+  return (await fetchAllPages(siteListUrl(), siteAuthHeaders(key))) as {
+    id: string;
+    fields: Record<string, unknown>;
+  }[];
 }
 
 // GET — list all site program customizations
 export async function GET() {
   const key = apiKey();
   if (!key) {
-    return NextResponse.json({ error: "HACK_CLUB_SITE_AIRTABLE_KEY is not set" }, { status: 500 });
+    return apiError({
+      status: 500,
+      code: "server_misconfigured",
+      message: "HACK_CLUB_SITE_AIRTABLE_KEY is not set",
+    });
   }
   try {
     const records = await getAllRecords(key);
-    return NextResponse.json(records.map(parseRecord));
+    return NextResponse.json(records.map(parseRecord), {
+      headers: {
+        /**
+         * Not cacheable, unlike `/api/v1/events`. The editor reads this
+         * endpoint straight after a save, and site customizations deliberately
+         * bypass the data cache for exactly that reason (see
+         * `lib/programs-data.ts`), so an `s-maxage` here would reintroduce the
+         * stale-read it exists to avoid.
+         */
+        "Cache-Control": "no-store",
+        ...deprecationHeaders({
+          deprecatedAt: "2026-09-01T00:00:00Z",
+          successorPath: "/api/v1/events",
+        }),
+      },
+    });
   } catch (e) {
     console.error("[site-programs] GET failed", e);
-    return NextResponse.json({ error: "Failed to fetch programs" }, { status: 500 });
+    return apiError({ status: 500, code: "upstream_error", message: "Failed to fetch programs" });
   }
 }
 
@@ -155,20 +170,29 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   const key = apiKey();
   if (!key) {
-    return NextResponse.json({ error: "HACK_CLUB_SITE_AIRTABLE_KEY is not set" }, { status: 500 });
+    return apiError({
+      status: 500,
+      code: "server_misconfigured",
+      message: "HACK_CLUB_SITE_AIRTABLE_KEY is not set",
+    });
   }
 
   const v = await req
     .json()
     .then((raw) => validateBody(raw))
     .catch(() => ({ ok: false as const, error: "Invalid JSON" }));
-  if (!v.ok) return NextResponse.json({ error: v.error }, { status: 400 });
+  if (!v.ok) return apiError({ status: 400, code: "bad_request", message: v.error });
   const body = v.body;
 
   // Authorization — must own this program (or be admin)
   const { canEdit, isAdmin } = await getEditAuth(req, body.programName);
   if (!canEdit) {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    return apiError({
+      status: 403,
+      code: "forbidden",
+      message: "Forbidden",
+      hint: "Sign in at /api/auth/login as an owner of this program, or as an admin.",
+    });
   }
 
   const fields: Record<string, unknown> = { Name: body.programName };
@@ -205,7 +229,7 @@ export async function POST(req: NextRequest) {
 
   if (body.pinned !== undefined) {
     if (!isAdmin) {
-      return NextResponse.json({ error: "Only admins can pin events" }, { status: 403 });
+      return apiError({ status: 403, code: "forbidden", message: "Only admins can pin events" });
     }
     fields["Pinned"] = body.pinned;
   }
@@ -224,14 +248,14 @@ export async function POST(req: NextRequest) {
     if (match) recordId = match.id;
   } catch (e) {
     console.error("[site-programs] record lookup failed", e);
-    return NextResponse.json({ error: "Failed to look up program" }, { status: 500 });
+    return apiError({ status: 500, code: "upstream_error", message: "Failed to look up program" });
   }
 
   let res: Response;
   let savedRecordId: string | undefined = recordId;
   if (recordId) {
     if (!/^rec[A-Za-z0-9]{14}$/.test(recordId)) {
-      return NextResponse.json({ error: "Invalid record id" }, { status: 400 });
+      return apiError({ status: 400, code: "bad_request", message: "Invalid record id" });
     }
 
     // Update existing record
@@ -251,21 +275,29 @@ export async function POST(req: NextRequest) {
     if (res.ok) {
       const data = await res.json();
       const record = data.records?.[0];
-      if (!record) return NextResponse.json({ error: "No record returned" }, { status: 500 });
+      if (!record)
+        return apiError({ status: 500, code: "upstream_error", message: "No record returned" });
       savedRecordId = record.id;
       if (body.pinned === true) await unpinOthers(key, allRecords, savedRecordId);
+      revalidateTag(PROGRAMS_CACHE_TAG, { expire: 0 });
       return NextResponse.json(parseRecord(record) as SiteProgram);
     }
   }
 
   if (!res.ok) {
     console.error("[site-programs] Airtable error", res.status, await res.text());
-    return NextResponse.json({ error: `Upstream error ${res.status}` }, { status: res.status });
+    return apiError({
+      status: res.status,
+      code: "upstream_error",
+      message: `Upstream error ${res.status}`,
+    });
   }
 
   if (body.pinned === true) await unpinOthers(key, allRecords, savedRecordId);
 
-  return NextResponse.json(parseRecord(await res.json()) as SiteProgram);
+  const savedProgram = parseRecord(await res.json()) as SiteProgram;
+  revalidateTag(PROGRAMS_CACHE_TAG, { expire: 0 });
+  return NextResponse.json(savedProgram);
 }
 
 async function unpinOthers(

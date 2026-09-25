@@ -1,15 +1,19 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback, type ReactNode } from "react";
+import NextLink from "next/link";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import type { ProgramFormat, ProjectType } from "@/lib/site-programs";
+import type { ProjectType } from "@/lib/site-programs";
 import { PROJECT_TYPE_OPTIONS, formatInPersonDate } from "@/lib/site-programs";
-import type { AirtableProgram } from "@/lib/programs";
-import { getProgramStatus, parseLocalDate } from "@/lib/programs";
+import type { Event, EventFormat, EventStatus } from "@/lib/events";
+import { hasEventArtwork } from "@/lib/events";
+import { parseLocalDate } from "@/lib/programs";
 import { BtnArrowSvg } from "@/components/landing/btn-arrow";
+import { ProgramCardVisual } from "@/components/programs/ProgramCardVisual";
 
 function useProjectTypeLabel() {
   const t = useTranslations("Programs");
@@ -35,13 +39,13 @@ function useProjectTypeLabel() {
 
 function useFormatLabel() {
   const t = useTranslations("Programs");
-  return (format: ProgramFormat) => {
+  return (format: EventFormat) => {
     switch (format) {
-      case "In-Person Only":
+      case "in-person":
         return t("formatInPersonOnly");
-      case "Online Only":
+      case "online":
         return t("formatOnlineOnly");
-      case "Both":
+      case "both":
         return t("formatBoth");
       default:
         return format;
@@ -49,72 +53,64 @@ function useFormatLabel() {
   };
 }
 
-function ProgramCard({ program }: { program: AirtableProgram }) {
+function ProgramCard({ event }: { event: Event }) {
   const t = useTranslations("Programs");
   const locale = useLocale();
   const projectTypeLabel = useProjectTypeLabel();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const now = new Date();
   // If no end date, program runs indefinitely (never ends)
-  const isEnded = program.endDate ? parseLocalDate(program.endDate) < now : false;
-  const isDraft = parseLocalDate(program.startDate) > now;
+  const isEnded = event.endDate ? parseLocalDate(event.endDate) < now : false;
+  const isUpcoming =
+    parseLocalDate(event.startDate) > now ||
+    (event.inPerson?.start ? parseLocalDate(event.inPerson.start) > now : false);
 
-  const s = program.site;
-  const bgColor = s?.bgColor ?? "var(--surface)";
-  const textColor = s?.textColor ?? "var(--foreground)";
-  const accentColor = s?.accentColor ?? "#ec3750";
-  const logoUrl = s?.logoUrl ?? null;
-  const logoSize = s?.logoSize ?? 48;
-  const bgImageUrl = s?.bgType === "image" ? (s?.bgImageUrl ?? null) : null;
+  const theme = event.theme;
+  const background = event.background;
+  const bgColor = background?.color ?? "var(--surface)";
+  const textColor = theme?.text ?? "var(--foreground)";
+  const accentColor = theme?.accent ?? "#ec3750";
+  const logoUrl = event.logoUrl;
+  const logoSize = theme?.logoSize ?? 48;
+  const bgImageUrl = background?.type === "image" ? background.imageUrl : null;
   const buttonLabel = isEnded ? t("seeTheSite") : t("startNow");
-  const buttonColor = s?.buttonColor ?? "#ec3750";
-  const buttonTextColor = s?.buttonTextColor ?? "#ffffff";
-  const buttonRadius = s?.buttonBorderRadius ?? 44;
-  const buttonBorderWidth = s?.buttonBorderWidth ?? 0;
-  const buttonBorderColor = s?.buttonBorderColor ?? "var(--foreground)";
-  const slackChannel = s?.slackChannel ?? null;
-  const slackUrl = slackChannel
-    ? `https://hackclub.slack.com/channels/${slackChannel.replace(/^#/, "")}`
-    : null;
-  const projectTypes = s?.projectTypes ?? [];
-  const format = s?.format ?? null;
-  const programKey = program.name
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-  const descriptionKey = `cards.${programKey}.description`;
-  const requirementsKey = `cards.${programKey}.requirements`;
-  const description =
-    locale === "fr" ? (t.has(descriptionKey) ? t(descriptionKey) : null) : (s?.description ?? null);
+  const buttonColor = theme?.button.color ?? "#ec3750";
+  const buttonTextColor = theme?.button.textColor ?? "#ffffff";
+  const buttonRadius = theme?.button.borderRadius ?? 44;
+  const buttonBorderWidth = theme?.button.borderWidth ?? 0;
+  const buttonBorderColor = theme?.button.borderColor ?? "var(--foreground)";
+  const slackChannel = event.slackChannel;
+  const slackUrl = event.slackUrl;
+  const projectTypes = event.projectTypes;
+  const format = event.format;
+  const description = event.description;
 
-  const badgeLabel = isDraft
-    ? t("comingSoon")
+  const badgeLabel = isUpcoming
+    ? t("statusUpcoming")
     : isEnded
       ? t("statusEnded")
-      : program.endDate
+      : event.endDate
         ? t("ends", {
-            date: parseLocalDate(program.endDate).toLocaleDateString(locale, {
+            date: parseLocalDate(event.endDate).toLocaleDateString(locale, {
               day: "numeric",
               month: "short",
             }),
           })
         : t("statusOngoing");
-  const badgeEnded = isEnded || isDraft;
+  const badgeEnded = isEnded || isUpcoming;
 
   // Italic metadata lines
   const metaLines: string[] = [];
   const inPersonStr = formatInPersonDate(
-    s?.inPersonStart ?? null,
-    s?.inPersonEnd ?? null,
-    s?.inPersonLocation ?? null,
+    event.inPerson?.start ?? null,
+    event.inPerson?.end ?? null,
+    event.inPerson?.location ?? null,
     locale,
   );
-  if ((format === "In-Person Only" || format === "Both") && inPersonStr)
+  if ((format === "in-person" || format === "both") && inPersonStr)
     metaLines.push(t("metaInPerson", { details: inPersonStr }));
-  if (format === "Online Only") metaLines.push(t("metaOnlineOnly"));
-  if (format === "Both" && !inPersonStr) metaLines.push(t("metaInPersonAndOnline"));
+  if (format === "online") metaLines.push(t("metaOnlineOnly"));
+  if (format === "both" && !inPersonStr) metaLines.push(t("metaInPersonAndOnline"));
   if (projectTypes.length > 0)
     metaLines.push(
       projectTypes.length === PROJECT_TYPE_OPTIONS.length
@@ -123,13 +119,7 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
             types: projectTypes.map(projectTypeLabel).join(", "),
           }),
     );
-  const additionalRequirements =
-    locale === "fr"
-      ? t.has(requirementsKey)
-        ? t(requirementsKey)
-        : null
-      : (s?.additionalRequirements ?? null);
-  if (additionalRequirements) metaLines.push(additionalRequirements);
+  if (event.requirements) metaLines.push(event.requirements);
 
   return (
     <div
@@ -156,241 +146,31 @@ function ProgramCard({ program }: { program: AirtableProgram }) {
       }}
       style={{ position: "relative", transition: "transform 0.06s ease", willChange: "transform" }}
     >
-      <div
-        style={{
-          position: "relative",
-          background: bgImageUrl ? "transparent" : bgColor,
-          borderRadius: 16,
-          boxShadow: "2px 4px 6px rgba(0,0,0,0.25)",
-          overflow: "hidden",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          padding: "28px 32px 16px",
-          minHeight: 260,
-          height: "100%",
-          boxSizing: "border-box",
-        }}
-      >
-        {/* Pin icon */}
-        {program.site?.pinned && (
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: 36,
-              height: 36,
-              background: "#ec3750",
-              borderBottomRightRadius: 8,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              zIndex: 2,
-            }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
-              <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z" />
-            </svg>
-          </div>
-        )}
-
-        {/* Background image */}
-        {bgImageUrl && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={bgImageUrl}
-            alt=""
-            style={{
-              position: "absolute",
-              inset: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              pointerEvents: "none",
-            }}
-          />
-        )}
-
-        {/* Logo or title */}
-        {logoUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={logoUrl}
-            alt={program.name}
-            style={{
-              height: logoSize,
-              width: "auto",
-              maxWidth: "100%",
-              objectFit: "contain",
-              marginBottom: 12,
-              position: "relative",
-              zIndex: 1,
-              alignSelf: "center",
-            }}
-          />
-        ) : (
-          <h2
-            style={{
-              position: "relative",
-              zIndex: 1,
-              fontFamily: "var(--font-zarathustra)",
-              fontSize: 40,
-              fontWeight: "normal",
-              color: textColor,
-              margin: "0 0 8px",
-              lineHeight: 1,
-              textAlign: "center",
-              width: "100%",
-            }}
-          >
-            {program.name}
-          </h2>
-        )}
-
-        {/* Description */}
-        {description && (
-          <p
-            style={{
-              position: "relative",
-              zIndex: 1,
-              fontFamily: "var(--font-phantom)",
-              fontSize: 20,
-              color: textColor,
-              opacity: 0.9,
-              margin: "0 0 4px",
-              lineHeight: 1.2,
-            }}
-          >
-            {description}
-          </p>
-        )}
-
-        {/* Italic metadata */}
-        {metaLines.length > 0 && (
-          <p
-            style={{
-              position: "relative",
-              zIndex: 1,
-              fontFamily: "var(--font-phantom)",
-              fontStyle: "italic",
-              fontSize: 20,
-              color: textColor,
-              opacity: 0.55,
-              margin: "0 0 4px",
-              lineHeight: 1.2,
-            }}
-          >
-            {metaLines.map((line, i) => (
-              <span key={i}>
-                {line}
-                {i < metaLines.length - 1 && <br />}
-              </span>
-            ))}
-          </p>
-        )}
-
-        {/* Spacer — min 12px, grows to push button toward bottom */}
-        <div style={{ flex: "1 0 12px" }} />
-
-        {/* CTA button */}
-        {program.websiteUrl && (
-          <a
-            href={program.websiteUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cta-btn"
-            style={{
-              position: "relative",
-              zIndex: 1,
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              paddingTop: 6,
-              paddingBottom: 6,
-              paddingLeft: 20,
-              paddingRight: 20,
-              background: buttonColor,
-              borderRadius: buttonRadius,
-              border: `${buttonBorderWidth}px solid ${buttonBorderColor}`,
-              fontFamily: "var(--font-phantom)",
-              fontWeight: "bold",
-              fontSize: 20,
-              color: buttonTextColor,
-              textDecoration: "none",
-              whiteSpace: "nowrap",
-              marginBottom: slackChannel ? 6 : 0,
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-          >
-            {buttonLabel}
-            <span className="btn-arrow" aria-hidden="true">
-              <BtnArrowSvg />
-            </span>
-          </a>
-        )}
-
-        {/* Slack channel */}
-        {slackChannel && (
-          <p
-            style={{
-              position: "relative",
-              zIndex: 1,
-              fontFamily: "var(--font-phantom)",
-              fontStyle: "italic",
-              fontSize: 16,
-              color: textColor,
-              margin: 0,
-              lineHeight: 1.2,
-              paddingRight: 110,
-            }}
-          >
-            {t("joinDiscussion")}{" "}
-            <a
-              href={slackUrl ?? "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: accentColor,
-                textDecoration: "none",
-                display: "inline-block",
-                whiteSpace: "nowrap",
-              }}
-            >
-              #{slackChannel.replace(/^#/, "")}
-            </a>
-          </p>
-        )}
-
-        {/* Badge */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            right: 0,
-            height: 36,
-            width: 130,
-            background: badgeEnded ? "var(--surface-hover)" : "var(--red)",
-            borderTopLeftRadius: 8,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "var(--font-phantom)",
-              fontWeight: "bold",
-              fontSize: 16,
-              color: badgeEnded ? "var(--foreground)" : "var(--paper)",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {badgeLabel}
-          </span>
-        </div>
-      </div>
+      <ProgramCardVisual
+        name={event.name}
+        logoUrl={logoUrl}
+        logoSize={logoSize}
+        bgColor={bgColor}
+        bgImageUrl={bgImageUrl}
+        textColor={textColor}
+        accentColor={accentColor}
+        description={description}
+        metaLines={metaLines}
+        buttonLabel={buttonLabel}
+        buttonHref={event.url}
+        buttonColor={buttonColor}
+        buttonTextColor={buttonTextColor}
+        buttonRadius={buttonRadius}
+        buttonBorderWidth={buttonBorderWidth}
+        buttonBorderColor={buttonBorderColor}
+        slackIntro={t("joinDiscussion")}
+        slackChannel={slackChannel}
+        slackUrl={slackUrl}
+        badgeLabel={badgeLabel}
+        badgeMuted={badgeEnded}
+        pinned={event.pinned}
+        interactive
+      />
     </div>
   );
 }
@@ -631,26 +411,21 @@ function CheckItem({
   );
 }
 
-type StatusOption = "ongoing" | "ended" | "draft";
 type SortOption = "deadline-asc" | "deadline-desc" | "az" | "za";
-const FORMAT_OPTIONS: ProgramFormat[] = ["In-Person Only", "Online Only", "Both"];
+const FORMAT_OPTIONS: EventFormat[] = ["in-person", "online", "both"];
 
 // ── Page ──────────────────────────────────────────────────────────────────────
-export default function ProgramsPage({
-  initialPrograms = null,
-}: {
-  initialPrograms?: AirtableProgram[] | null;
-}) {
+export default function ProgramsPage() {
   const t = useTranslations("Programs");
   const locale = useLocale();
   const projectTypeLabel = useProjectTypeLabel();
   const formatLabelFn = useFormatLabel();
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<SortOption>("deadline-asc");
-  const [statusFilter, setStatusFilter] = useState<Set<StatusOption>>(new Set(["ongoing"]));
-  const [formatFilter, setFormatFilter] = useState<Set<ProgramFormat>>(new Set());
+  const [statusFilter, setStatusFilter] = useState<Set<EventStatus>>(new Set(["ongoing"]));
+  const [formatFilter, setFormatFilter] = useState<Set<EventFormat>>(new Set());
   const [typeFilter, setTypeFilter] = useState<Set<ProjectType>>(new Set());
-  const [programs, setPrograms] = useState<AirtableProgram[] | null>(initialPrograms);
+  const [events, setEvents] = useState<Event[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const sortRef = useRef<HTMLDivElement>(null);
   const [sortOpen, setSortOpen] = useState(false);
@@ -660,10 +435,10 @@ export default function ProgramsPage({
   const sortOpenRafRef = useRef<number | null>(null);
   const sortCloseTimeoutRef = useRef<number | null>(null);
 
-  const STATUS_LABELS: Record<StatusOption, string> = {
+  const STATUS_LABELS: Record<EventStatus, string> = {
     ongoing: t("statusOngoing"),
     ended: t("statusEnded"),
-    draft: t("statusDraft"),
+    upcoming: t("statusUpcoming"),
   };
 
   const SORT_LABELS: Record<SortOption, ReactNode> = {
@@ -729,41 +504,37 @@ export default function ProgramsPage({
   }, [clearSortTimers, closeSortPanel]);
 
   useEffect(() => {
-    if (initialPrograms !== null) return;
-
-    fetch("/api/programs")
+    fetch("/api/v1/events")
       .then((r) => r.json())
-      .then((data) => {
-        if (Array.isArray(data)) setPrograms(data);
-        else setError(data.error ?? t("errorLoad"));
+      .then((json) => {
+        if (Array.isArray(json?.data)) setEvents(json.data);
+        else setError(json?.message ?? t("errorLoad"));
       })
       .catch(() => setError(t("errorNetwork")));
-  }, [initialPrograms, t]);
+  }, [t]);
 
-  const filtered = (programs ?? []).filter((p) => {
+  const filtered = (events ?? []).filter((p) => {
+    if (!hasEventArtwork(p)) return false;
     const q = search.toLowerCase();
     const matchesSearch =
       !q ||
       p.name.toLowerCase().includes(q) ||
-      (p.site?.description ?? "").toLowerCase().includes(q) ||
-      (p.site?.inPersonLocation ?? "").toLowerCase().includes(q);
+      (p.description ?? "").toLowerCase().includes(q) ||
+      (p.inPerson?.location ?? "").toLowerCase().includes(q);
     if (!matchesSearch) return false;
-    const programStatus = getProgramStatus(p);
-    if (statusFilter.size > 0 && !statusFilter.has(programStatus)) return false;
+    if (statusFilter.size > 0 && !statusFilter.has(p.status)) return false;
     if (formatFilter.size > 0) {
-      const pFormat = p.site?.format ?? null;
-      if (!pFormat || !formatFilter.has(pFormat)) return false;
+      if (!p.format || !formatFilter.has(p.format)) return false;
     }
     if (typeFilter.size > 0) {
-      const pTypes = p.site?.projectTypes ?? [];
-      if (![...typeFilter].some((type) => pTypes.includes(type))) return false;
+      if (![...typeFilter].some((type) => p.projectTypes.includes(type))) return false;
     }
     return true;
   });
 
   const sorted = [...filtered].sort((a, b) => {
-    const aPinned = Number(Boolean(a.site?.pinned));
-    const bPinned = Number(Boolean(b.site?.pinned));
+    const aPinned = Number(a.pinned);
+    const bPinned = Number(b.pinned);
     if (aPinned !== bPinned) return bPinned - aPinned;
 
     // For deadline sorting, treat null endDate as far future (never ends)
@@ -777,7 +548,7 @@ export default function ProgramsPage({
     return b.name.localeCompare(a.name, locale);
   });
 
-  function toggleStatus(s: StatusOption) {
+  function toggleStatus(s: EventStatus) {
     setStatusFilter((prev) => {
       const next = new Set(prev);
       if (next.has(s)) next.delete(s);
@@ -786,7 +557,7 @@ export default function ProgramsPage({
     });
   }
 
-  function toggleFormat(f: ProgramFormat) {
+  function toggleFormat(f: EventFormat) {
     setFormatFilter((prev) => {
       const next = new Set(prev);
       if (next.has(f)) next.delete(f);
@@ -808,7 +579,7 @@ export default function ProgramsPage({
     statusFilter.size === 0
       ? t("status")
       : t("statusWith", {
-          values: (["ongoing", "ended", "draft"] as StatusOption[])
+          values: (["ongoing", "ended", "upcoming"] as EventStatus[])
             .filter((s) => statusFilter.has(s))
             .map((s) => STATUS_LABELS[s])
             .join(", "),
@@ -891,11 +662,13 @@ export default function ProgramsPage({
           transform: "scaleY(-1)",
         }}
       />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         ref={magazineBgRef}
         src="/assets/background.webp"
         alt=""
+        width={1920}
+        height={840}
+        sizes="100vw"
         style={{
           position: "absolute",
           top: -60,
@@ -1110,7 +883,7 @@ export default function ProgramsPage({
             active={statusFilter.size > 0}
             onClear={() => setStatusFilter(new Set())}
           >
-            {(["ongoing", "ended", "draft"] as StatusOption[]).map((s) => (
+            {(["ongoing", "ended", "upcoming"] as EventStatus[]).map((s) => (
               <CheckItem
                 key={s}
                 label={STATUS_LABELS[s]}
@@ -1171,12 +944,12 @@ export default function ProgramsPage({
           className="programs-grid"
           style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28 }}
         >
-          {programs === null
+          {events === null
             ? Array.from({ length: 4 }).map((_, i) => <CardSkeleton key={i} />)
-            : sorted.map((p) => <ProgramCard key={p.id} program={p} />)}
+            : sorted.map((p) => <ProgramCard key={p.id} event={p} />)}
         </div>
 
-        {programs !== null && sorted.length === 0 && (
+        {events !== null && sorted.length === 0 && (
           <p
             style={{
               fontFamily: "var(--font-phantom)",
@@ -1230,11 +1003,25 @@ export default function ProgramsPage({
               margin: 0,
             }}
           >
-            {t("footerEditBefore")}{" "}
             <Link href="/programs/edit" style={{ color: "#ec3750", textDecoration: "none" }}>
-              {t("footerEditLink")}
+              Event editor
             </Link>
-            {t("footerEditAfter")}
+            {" · "}
+            <NextLink
+              href="/api/v1/docs"
+              prefetch={false}
+              style={{ color: "#ec3750", textDecoration: "none" }}
+            >
+              Events API
+            </NextLink>
+            {" · "}
+            <NextLink
+              href="/api/v1/events/rss"
+              prefetch={false}
+              style={{ color: "#ec3750", textDecoration: "none" }}
+            >
+              RSS feed
+            </NextLink>
           </p>
         </div>
       </div>

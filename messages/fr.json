@@ -148,6 +148,9 @@
     "metaTitle": "Marque — Hack Club",
     "metaDescription": "Guide de marque Hack Club, logos, couleurs et typographie pour un usage officiel.",
     "heroTitle": "La marque Hack Club",
+    "rulesNaming": "Hack Club doit toujours s’écrire Hack Club, jamais hackclub / Hackclub / HackClub / hackClub",
+    "rulesClubber": "Il en va de même pour Hack Clubber ou Hack Clubbers. Jamais hackclubbers ni Hackclubbers",
+    "rulesSticker": "Important / cela ne doit échapper à personne qui conçoit un sticker : tous les designs de stickers doivent comporter le texte Hack Club quelque part. Il peut être discret, mais « Hack Club » doit apparaître quelque part dans le design",
     "logosTitle": "Logos",
     "logosLede": "Voici les fichiers officiels des logos Hack Club. Ils sont disponibles aux formats SVG, PNG et PDF. Ne les étirez pas, ne les contournez pas et ne les recolorez pas.",
     "downloadAllLogos": "Télécharger tous les logos",
@@ -694,6 +697,7 @@
     "readAnnouncement": "Lire l’annonce",
     "gourceAlt": "L’historique des commits HCB visualisé avec Gource",
     "signIn": "Se connecter",
+    "forFunders": "Pour les financeurs",
     "continueToHcb": "Continuer vers HCB",
     "avatarAlt": "Avatar HCB de {name}",
     "contactQuestions": "Des questions ? Écris à <email></email> ou appelle le <phone></phone>",
@@ -930,7 +934,7 @@
     "typeWith": "Type | {values}",
     "statusOngoing": "En cours",
     "statusEnded": "Terminé",
-    "statusDraft": "Brouillon",
+    "statusUpcoming": "À venir",
     "comingSoon": "Bientôt",
     "ends": "Se termine le {date}",
     "startNow": "Commencer maintenant",
@@ -959,41 +963,7 @@
     "footerSlackAfter": ". C’est aussi là qu’on annonce les prochains événements.",
     "footerEditBefore": "Tu peux aussi",
     "footerEditLink": "modifier un événement ici",
-    "footerEditAfter": ".",
-    "cards": {
-      "club-shop": {
-        "description": "Ne fais pas tourner ton club de code tout seul : fais-en un Hack Club ! Anime des ateliers, publie des projets et gagne des récompenses !",
-        "requirements": "Réservé aux Hack Clubs !"
-      },
-      "macondo": {
-        "description": "Obtiens jusqu’à 1 000 $ pour tes projets de matériel, ou crée des projets logiciels pour gagner des fruits à échanger contre des bonbons, des gadgets ou un voyage à un hackathon à Bogotá, en Colombie, au mois d’août."
-      },
-      "beest": {
-        "description": "Envole-toi pour les Pays-Bas, construis d’immenses sculptures mécaniques et assiste à la marche des Strandbeests."
-      },
-      "greeble": {
-        "description": "Crée un motif procédural en 2D et fais-le imprimer sur toutes sortes d’objets !"
-      },
-      "aria": {
-        "description": "Code un morceau de 30 secondes avec des outils de musique algorithmique et gagne du super matériel musical !"
-      },
-      "horizons": {
-        "description": "7 hackathons. 7 pays. Tu es invité·e — gratuitement !"
-      },
-      "keeb": {
-        "description": "Keeb est un programme où tu peux fabriquer un clavier de A à Z. Pars de rien, conçois tout, ajoute une touche personnelle si tu veux, puis construis-le toi-même !"
-      },
-      "sunbeam": {
-        "description": "Un événement de code convivial pour les filles de 13 à 18 ans du monde entier ! Plus de 20 événements dans plus de 20 villes.",
-        "requirements": "Réservé aux filles"
-      },
-      "stardance": {
-        "description": "Le plus grand événement STEM de l’été : crée ce que tu veux et gagne des prix. En partenariat avec la NASA, AMD et GitHub."
-      },
-      "wrangler": {
-        "description": "Crée un outil artistique et gagne du matériel de création !"
-      }
-    }
+    "footerEditAfter": "."
   },
   "Team": {
     "metaTitle": "Équipe — Hack Club",
@@ -1048,16 +1018,16 @@
     "visionConclusion": "Pour y arriver, on a besoin de toi.",
     "visionQuote": "« Avec un soutien majeur, je suis convaincu que Hack Club changera le monde. »",
     "visionQuoteAttr": "— Tom Preston-Werner, cofondateur de GitHub",
-    "testimonialArianna": "Toujours une source de nouveaux projets inspirants",
-    "testimonialAriannaInfo": "Arianna, 16 ans, Kentucky",
-    "testimonialJason": "J’y ai rencontré des personnes extraordinaires",
-    "testimonialJasonInfo": "Jason, 16 ans, Texas",
-    "testimonialSam": "Chez Hack Club, j’ai trouvé une maison",
-    "testimonialSamInfo": "Sam, 17 ans, Singapour",
-    "testimonialAbby": "M’a aidée à construire de solides bases en code",
-    "testimonialAbbyInfo": "Abby, 15 ans, Los Angeles",
-    "testimonialAdriano": "Totalement différent des cours de code à l’école",
-    "testimonialAdrianoInfo": "Adriano, 19 ans, Brésil",
+    "testimonialNitya": "Toujours une source de nouveaux projets inspirants",
+    "testimonialNityaInfo": "Arianna, 16 ans, Kentucky",
+    "testimonialJosh": "J’y ai rencontré des personnes extraordinaires",
+    "testimonialJoshInfo": "Jason, 16 ans, Texas",
+    "testimonialAugie": "Chez Hack Club, j’ai trouvé une maison",
+    "testimonialAugieInfo": "Sam, 17 ans, Singapour",
+    "testimonialAdriana": "M’a aidée à construire de solides bases en code",
+    "testimonialAdrianaInfo": "Abby, 15 ans, Los Angeles",
+    "testimonialRhys": "Totalement différent des cours de code à l’école",
+    "testimonialRhysInfo": "Adriano, 19 ans, Brésil",
     "giftKicker": "Pour parler d’un don",
     "giftTitle": "Écris-nous directement.",
     "giftContactName": "Christina Asquith",

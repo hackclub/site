@@ -1,0 +1,23 @@
+import { type NextRequest, NextResponse } from "next/server";
+import { buildOpenApiDocument } from "@/lib/openapi";
+import { mergeVary } from "@/lib/content-negotiation";
+import { toYaml } from "@/lib/yaml";
+import { requestOrigin } from "@/lib/request-context";
+import { V1_CORS_HEADERS, v1Options } from "@/lib/api-v1";
+
+export const dynamic = "force-dynamic";
+
+export async function GET(request: NextRequest) {
+  const origin = requestOrigin(request);
+
+  return new NextResponse(toYaml(buildOpenApiDocument(origin)), {
+    headers: {
+      "Content-Type": "application/yaml; charset=utf-8",
+      Vary: mergeVary(null, "Accept", "Accept-Encoding"),
+      "Cache-Control": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
+      ...V1_CORS_HEADERS,
+    },
+  });
+}
+
+export const OPTIONS = v1Options;

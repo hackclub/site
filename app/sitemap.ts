@@ -8,6 +8,7 @@ import {
   getClimateRegionParam,
 } from "@/lib/fiscal-sponsorship-config";
 import { getLocaleDomain, routing } from "@/i18n/routing";
+import { SITE_URL } from "@/lib/seo";
 
 const APP_DIR = path.join(process.cwd(), "app", "[locale]");
 const EXCLUDED_PAGE_ROUTES = new Set(["/programs/edit"]);
@@ -57,7 +58,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   await connection();
 
   const staticRoutes = collectStaticRoutes();
-  const urls: MetadataRoute.Sitemap = [];
+  const urls: MetadataRoute.Sitemap = [{ url: `${SITE_URL}/api/versioning` }];
 
   for (const route of staticRoutes) {
     urls.push(...withLocales(route));

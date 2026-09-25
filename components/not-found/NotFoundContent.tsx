@@ -185,9 +185,39 @@ export async function NotFoundContent({ locale }: { locale: string }) {
               {t("explorePrograms")}
             </Link>
           </div>
+          <nav className="not-found-machine-links" aria-label={t("agentLinksTitle")}>
+            <h2>{t("agentLinksTitle")}</h2>
+            <p>{t("agentLinksIntro")}</p>
+            <ul>
+              {/* eslint-disable nextjs/no-html-link-for-pages */}
+              <li>
+                <a href="/llms.txt">{t("agentLinksLlms")}</a>
+              </li>
+              <li>
+                <a href="/sitemap.xml">{t("agentLinksSitemap")}</a>
+              </li>
+              <li>
+                <a href="/openapi.json">{t("agentLinksOpenapi")}</a>
+              </li>
+              {/* eslint-enable nextjs/no-html-link-for-pages */}
+              <li>{t("agentLinksMarkdown")}</li>
+            </ul>
+          </nav>
         </div>
 
         <style>{`
+          .not-found-machine-links {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip-path: inset(50%);
+            white-space: nowrap;
+            border: 0;
+          }
+
           .floating-field {
             position: absolute;
             inset: 92px 0 0;

@@ -31,6 +31,7 @@
     "clubs": "Clubs",
     "hackathons": "Hackathons",
     "resources": "Resources",
+    "shop": "Hack Club Shop",
     "hcb": "HCB",
     "toolbox": "Hacker Toolbox",
     "conduct": "Code of Conduct",
@@ -47,7 +48,7 @@
     "philosophy": "Philosophy",
     "teamBoard": "Our Team & Board",
     "jobs": "Jobs",
-    "branding": "Branding",
+    "branding": "Brand guide",
     "press": "Press Inquiries",
     "donate": "Donate",
     "imprint": "Imprint",
@@ -142,12 +143,21 @@
     "body": "Try heading back to the homepage to find what you are looking for, or explore our programs to discover something new. We recently updated our website, so a few things have moved around. If you think something should be here that isn't, let us know by filing an issue on our",
     "github": "GitHub repo",
     "goHome": "Go home",
-    "explorePrograms": "Explore programs"
+    "explorePrograms": "Explore programs",
+    "agentLinksTitle": "Machine-readable ways to find this page",
+    "agentLinksIntro": "This response is a real HTTP 404. Nothing on this site lives at that path.",
+    "agentLinksLlms": "llms.txt — an index of every page on this site",
+    "agentLinksSitemap": "sitemap.xml — every canonical URL",
+    "agentLinksOpenapi": "openapi.json — the public JSON API",
+    "agentLinksMarkdown": "Any page can be fetched as Markdown with the header Accept: text/markdown"
   },
   "Brand": {
     "metaTitle": "Brand — Hack Club",
     "metaDescription": "Hack Club brand guidelines, logos, colors, and typography for official use.",
     "heroTitle": "Hack Club Brand",
+    "rulesNaming": "Hack Club must always be written as Hack Club, not hackclub / Hackclub / HackClub / hackClub",
+    "rulesClubber": "Same with Hack Clubber or Hack Clubbers. It's never hackclubbers or Hackclubbers",
+    "rulesSticker": "Important / should not be missable by anyone who is designing a sticker: All sticker designs must have the text Hack Club somewhere on the design. It can be subtle, but \"Hack Club\" must appear somewhere on the design",
     "logosTitle": "Logos",
     "logosLede": "Here are the official logo files for Hack Club. We offer SVG, PNG, or PDF formats. Avoid stretching, outlining, or recoloring.",
     "downloadAllLogos": "Download all logos",
@@ -268,7 +278,7 @@
     "heroSubtitle": "Teachers and Grown-ups:",
     "heroLede": "Hack Club is a supportive space where teens 13 - 18 year olds can explore technology, make friends, and build things they're proud of — all with independence and agency.",
     "newsletterTitle": "Newsletter",
-    "updatesLine": "Get monthly updates on coding opportunities, events, and new editions of the Hacker Generation",
+    "updatesLine": "Get updates on coding opportunities, events, and new editions of the Hacker Generation",
     "hackerGenTitle": "The Hacker Generation",
     "hackerGenByline": "by Christina Asquith, Cofounder and President of Hack Club",
     "hackerGenImageAlt": "Hack Club members at a hackathon",
@@ -304,12 +314,50 @@
     "videoRobotArmsCaption": "Teens flew out to San Jose to build projects using Robot Arms (provided by AMD)",
     "videoParthenonCaption": "Largest all-girls high school hackathon in NYC with over 140 girls from 14 different countries",
     "videoShipwreckedCaption": "4-day hackathon with 130 teens on a private island off the coast of Boston",
-    "emailPlaceholder": "email",
+    "firstNamePlaceholder": "First name",
+    "lastNamePlaceholder": "Last name",
+    "emailPlaceholder": "Email",
     "signUp": "Sign up!",
     "joined": "Joined!",
+    "invalidFirstName": "Enter your first name",
+    "invalidLastName": "Enter your last name",
     "invalidEmail": "Enter a valid email address",
     "verifyFailed": "Unable to verify request — try again",
     "genericError": "Something went wrong — try again"
+  },
+  "CollegeCredit": {
+    "metaTitle": "School & College Credit — Hack Club",
+    "metaDescription": "How schools and students have worked with Hack Club to receive official credit in high school or college for the projects they built.",
+    "heroTitle": "School & College Credit",
+    "heroLede": "Hack Club is the largest nonprofit, teen-led community for engineering, AI and computer science skills. Now, students can get high school or college credit for building technical projects at Hack Club.",
+    "audienceTeachers": "Teachers and schools",
+    "askEducators": "Want to offer your students a free way to earn credit for computer science, engineering or math? We'll show you how other schools have set it up.",
+    "audienceParents": "Parents",
+    "askParents": "Is your teen building things at Hack Club or interested in joining? Reach out to us to find out how their projects can count towards their school credit.",
+    "audienceStudents": "Students",
+    "askStudents": "Have you built a project in Hack Club in the last 6 months? Reach out to us to find out how you can get high school or college credit for the projects you build.",
+    "isTitle": "Hack Club is:",
+    "isItem1": "The largest provider of free engineering education to 13 to 18-year-olds in the US.",
+    "isItem2": "A program that meets or exceeds all standards related to computer science and artificial intelligence as laid out by the Computer Science Teachers Association (CSTA).",
+    "isItem3": "A program that meets or exceeds state standards for computer science in all 50 states.",
+    "isItem4": "A place where teenagers receive training in the most up-to-date, relevant technologies and build projects to showcase in their college or job applications.",
+    "isItem5": "A community that goes beyond technical skills to support teenagers in learning entrepreneurship, initiative, creativity, ethics, and design.",
+    "contactLede": "To learn more about how schools and students have worked with Hack Club to receive official credit in high school or college for the projects they built, get in touch:",
+    "contactHighSchool": "High school credit",
+    "contactHighSchoolName": "Christina Asquith",
+    "contactHighSchoolTitle": "Co-Founder",
+    "contactCollege": "College credit",
+    "contactCollegeName": "Deven Jadhav",
+    "contactCollegeTitle": "Chief of Staff, Programs",
+    "getInTouch": "Get in touch",
+    "contactEither": "High school or college credit"
+  },
+  "Shop": {
+    "wordmarkAlt": "Hack Club Shop",
+    "title": "You raised a <red>Hack Clubber.</red>",
+    "body": "Every item in the Hack Club Shop is our thank-you for a donation, and every donation goes straight to the teenagers who build, ship, and dream at Hack Club.",
+    "cta": "Back a teenager →",
+    "caption": "501(c)(3) nonprofit · tax-deductible above the gift's value"
   },
   "OpenSource": {
     "metaTitle": "Open Source — Hack Club",
@@ -694,6 +742,7 @@
     "readAnnouncement": "Read the announcement",
     "gourceAlt": "HCB commit history visualised with Gource",
     "signIn": "Sign in",
+    "forFunders": "For funders",
     "continueToHcb": "Continue to HCB",
     "avatarAlt": "{name}'s HCB avatar",
     "contactQuestions": "Questions? Email <email></email> or call <phone></phone>",
@@ -930,7 +979,7 @@
     "typeWith": "Type | {values}",
     "statusOngoing": "Ongoing",
     "statusEnded": "Ended",
-    "statusDraft": "Draft",
+    "statusUpcoming": "Upcoming",
     "comingSoon": "Coming soon",
     "ends": "Ends {date}",
     "startNow": "Start now",
@@ -959,41 +1008,7 @@
     "footerSlackAfter": ", where new events are being announced all the time.",
     "footerEditBefore": "You can also",
     "footerEditLink": "edit an event here",
-    "footerEditAfter": ".",
-    "cards": {
-      "club-shop": {
-        "description": "Don't run your coding club alone, make it a Hack Club! Run workshops, ship projects, get rewards!",
-        "requirements": "Only for Hack Clubs!"
-      },
-      "macondo": {
-        "description": "Get up to $1,000 for hardware projects or make software projects to earn fruits for prizes like sweets, gadgets, or a trip to a hackathon in Bogotá, Colombia, this August."
-      },
-      "beest": {
-        "description": "Fly to the Netherlands to build huge mechanical sculptures and witness the walking of the strandbeests."
-      },
-      "greeble": {
-        "description": "Make a 2D procedural pattern, get it printed on a variety of things!"
-      },
-      "aria": {
-        "description": "Code a 30-second song using algorithmic music tools and get cool music gear!"
-      },
-      "horizons": {
-        "description": "7 hackathons. 7 countries. You're invited—for free!"
-      },
-      "keeb": {
-        "description": "Keeb is a YSWS where you can make a keyboard from scratch. Start with nothing, design everything, add an optional twist, and build it yourself!"
-      },
-      "sunbeam": {
-        "description": "A social coding event for girls 13–18 around the world! 20+ events in 20+ cities.",
-        "requirements": "Girls only"
-      },
-      "stardance": {
-        "description": "The largest STEM event of the summer: make anything you want and earn free prizes. In partnership with NASA, AMD, and GitHub."
-      },
-      "wrangler": {
-        "description": "Make an art tool. Get art supplies!"
-      }
-    }
+    "footerEditAfter": "."
   },
   "Team": {
     "metaTitle": "Team — Hack Club",
@@ -1048,16 +1063,16 @@
     "visionConclusion": "We need your support to make this vision a reality.",
     "visionQuote": "“With major support, I am confident Hack Club will change the world.”",
     "visionQuoteAttr": "— Tom Preston-Werner, GitHub Cofounder",
-    "testimonialArianna": "Always inspiring interesting new projects",
-    "testimonialAriannaInfo": "Arianna, 16, Kentucky",
-    "testimonialJason": "I've met some of the best people",
-    "testimonialJasonInfo": "Jason, 16, Texas",
-    "testimonialSam": "In Hack Club I've found a home",
-    "testimonialSamInfo": "Sam, 17, Singapore",
-    "testimonialAbby": "Helped build me a strong coding foundation",
-    "testimonialAbbyInfo": "Abby, 15, Los Angeles",
-    "testimonialAdriano": "Totally different from coding classes at school",
-    "testimonialAdrianoInfo": "Adriano, 19, Brazil",
+    "testimonialNitya": "Gave me a supportive community to learn tech",
+    "testimonialNityaInfo": "Nitya, 17, Texas",
+    "testimonialJosh": "Leading a Hack Club has\nbeen very fulfilling",
+    "testimonialJoshInfo": "Josh, 17, Florida",
+    "testimonialAugie": "In Hack Club, I've made all of my closest friends",
+    "testimonialAugieInfo": "Augie, 17, Washington DC",
+    "testimonialAdriana": "Helped realize the true value of building things",
+    "testimonialAdrianaInfo": "Adriana, 16, Houston",
+    "testimonialRhys": "Most magical part of my high school years",
+    "testimonialRhysInfo": "Rhys, 18, Los Angeles",
     "giftKicker": "To discuss a gift",
     "giftTitle": "Reach out directly.",
     "giftContactName": "Christina Asquith",

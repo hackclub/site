@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import {
   SITE_BASE_ID,
   parseRecord,
@@ -6,6 +7,8 @@ import {
   siteAuthHeaders,
 } from "../../../../lib/site-programs";
 import { canEditProgram } from "../../../../lib/server-auth";
+import { apiError } from "@/lib/api-error";
+import { PROGRAMS_CACHE_TAG, fetchAllPages } from "@/lib/programs-data";
 
 export const dynamic = "force-dynamic";
 
@@ -13,14 +16,86 @@ function apiKey() {
   return process.env.HACK_CLUB_SITE_AIRTABLE_KEY;
 }
 
-// Find or create a record by program name
+const ALLOWED_MIME: Record<string, string> = {
+  "image/png": "png",
+  "image/jpeg": "jpg",
+  "image/gif": "gif",
+  "image/webp": "webp",
+};
+
+async function compressToWebp(
+  input: Buffer,
+): Promise<{ buffer: Buffer; mime: string; ext: string } | null> {
+  const tinifyKey = process.env.TINIFY_API_KEY;
+  if (!tinifyKey) {
+    console.error("[upload] TINIFY_API_KEY is not set — uploading original bytes");
+    return null;
+  }
+  const auth = `Basic ${Buffer.from(`api:${tinifyKey}`).toString("base64")}`;
+
+  try {
+    const shrinkRes = await fetch("https://api.tinify.com/shrink", {
+      method: "POST",
+      headers: { Authorization: auth },
+      body: new Uint8Array(input),
+      signal: AbortSignal.timeout(15_000),
+    });
+    if (!shrinkRes.ok) {
+      console.error("[upload] Tinify shrink failed", shrinkRes.status, await shrinkRes.text());
+      return null;
+    }
+    const location = shrinkRes.headers.get("location");
+    if (!location) {
+      console.error("[upload] Tinify shrink returned no Location header");
+      return null;
+    }
+
+    const convertRes = await fetch(location, {
+      method: "POST",
+      headers: { Authorization: auth, "Content-Type": "application/json" },
+      body: JSON.stringify({ convert: { type: ["image/webp"] } }),
+      signal: AbortSignal.timeout(15_000),
+    });
+    if (!convertRes.ok) {
+      console.error("[upload] Tinify convert failed", convertRes.status, await convertRes.text());
+      return null;
+    }
+
+    const outMime = (convertRes.headers.get("content-type") ?? "").split(";")[0].trim();
+    const outExt = ALLOWED_MIME[outMime];
+    if (!outExt) {
+      console.error("[upload] Tinify returned unexpected content type", outMime);
+      return null;
+    }
+
+    const buffer = Buffer.from(await convertRes.arrayBuffer());
+    if (buffer.byteLength >= input.byteLength) {
+      console.error(
+        "[upload] Tinify output was not smaller — uploading original bytes",
+        `${input.byteLength} -> ${buffer.byteLength}`,
+      );
+      return null;
+    }
+    return { buffer, mime: outMime, ext: outExt };
+  } catch (e) {
+    console.error("[upload] Tinify compression failed", e);
+    return null;
+  }
+}
+
+/**
+ * Find or create a record by program name.
+ *
+ * The lookup walks every page: Airtable stops a list response at 100 records,
+ * and a truncated one that happens to omit `programName` sends this straight to
+ * the create branch, duplicating a program that already has a record. A failed
+ * list must throw rather than read as an empty table, for the same reason.
+ */
 async function findOrCreate(programName: string, key: string): Promise<string> {
-  const listRes = await fetch(`${siteBaseUrl()}?fields[]=Name`, {
-    headers: siteAuthHeaders(key),
-    cache: "no-store",
-  });
-  const listData = await listRes.json();
-  const records = (listData.records ?? []) as { id: string; fields: { Name?: string } }[];
+  const records = (await fetchAllPages(`${siteBaseUrl()}?fields[]=Name`, siteAuthHeaders(key))) as {
+    id: string;
+    fields: { Name?: string };
+  }[];
   const existing = records.find((r) => r.fields.Name === programName);
   if (existing) return existing.id;
 
@@ -40,7 +115,11 @@ async function findOrCreate(programName: string, key: string): Promise<string> {
 export async function POST(req: NextRequest) {
   const key = apiKey();
   if (!key) {
-    return NextResponse.json({ error: "HACK_CLUB_SITE_AIRTABLE_KEY is not set" }, { status: 500 });
+    return apiError({
+      status: 500,
+      code: "server_misconfigured",
+      message: "HACK_CLUB_SITE_AIRTABLE_KEY is not set",
+    });
   }
 
   const form = await req.formData();
@@ -49,51 +128,77 @@ export async function POST(req: NextRequest) {
   const file = form.get("file");
 
   if (typeof programName !== "string" || !programName.trim() || programName.length > 200) {
-    return NextResponse.json({ error: "Invalid programName" }, { status: 400 });
+    return apiError({
+      status: 400,
+      code: "bad_request",
+      message: "Invalid programName",
+      hint: "Send the program's exact name in the `programName` form field (1-200 characters).",
+    });
   }
   if (type !== "logo" && type !== "bg") {
-    return NextResponse.json({ error: "Invalid type (expected 'logo' or 'bg')" }, { status: 400 });
+    return apiError({
+      status: 400,
+      code: "bad_request",
+      message: "Invalid type (expected 'logo' or 'bg')",
+    });
   }
   if (!(file instanceof File)) {
-    return NextResponse.json({ error: "Missing file" }, { status: 400 });
+    return apiError({ status: 400, code: "bad_request", message: "Missing file" });
   }
-
-  const ALLOWED_MIME: Record<string, string> = {
-    "image/png": "png",
-    "image/jpeg": "jpg",
-    "image/gif": "gif",
-    "image/webp": "webp",
-  };
-  const MAX_BYTES = 8 * 1024 * 1024;
 
   const mime = file.type;
   const ext = ALLOWED_MIME[mime];
   if (!ext) {
-    return NextResponse.json(
-      { error: "Unsupported file type. Allowed: PNG, JPEG, GIF, WebP." },
-      { status: 415 },
-    );
+    return apiError({
+      status: 415,
+      code: "unsupported_media_type",
+      message: "Unsupported file type. Allowed: PNG, JPEG, GIF, WebP.",
+    });
   }
-  if (file.size > MAX_BYTES) {
-    return NextResponse.json({ error: "File too large (max 8 MB)" }, { status: 413 });
+  if (file.size > 8 * 1024 * 1024) {
+    return apiError({
+      status: 413,
+      code: "payload_too_large",
+      message: "File too large (max 8 MB)",
+    });
   }
 
-  // Authorization — must own this program (or be admin)
   if (!(await canEditProgram(req, programName))) {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    return apiError({
+      status: 403,
+      code: "forbidden",
+      message: "Forbidden",
+      hint: "Sign in at /api/auth/login as an owner of this program, or as an admin.",
+    });
   }
 
-  const filename = `${type}.${ext}`;
   const fieldName = type === "logo" ? "Logo" : "BG Image";
 
-  const recordId = await findOrCreate(programName, key);
+  let recordId: string;
+  try {
+    recordId = await findOrCreate(programName, key);
+  } catch (e) {
+    console.error("[upload] record lookup failed", e);
+    return apiError({
+      status: 502,
+      code: "upstream_error",
+      message: "Failed to look up program",
+    });
+  }
   if (!/^rec[A-Za-z0-9]{14}$/.test(recordId)) {
     console.error("[upload] unexpected Airtable record id", recordId);
-    return NextResponse.json({ error: "Invalid record id from upstream" }, { status: 502 });
+    return apiError({
+      status: 502,
+      code: "upstream_error",
+      message: "Invalid record id from upstream",
+    });
   }
 
-  const bytes = await file.arrayBuffer();
-  const base64 = Buffer.from(bytes).toString("base64");
+  const original = Buffer.from(await file.arrayBuffer());
+  const compressed = mime === "image/gif" ? null : await compressToWebp(original);
+  const uploadMime = compressed?.mime ?? mime;
+  const filename = `${type}.${compressed?.ext ?? ext}`;
+  const base64 = (compressed?.buffer ?? original).toString("base64");
 
   const uploadRes = await fetch(
     `https://content.airtable.com/v0/${SITE_BASE_ID}/${encodeURIComponent(recordId)}/${encodeURIComponent(fieldName)}/uploadAttachment`,
@@ -104,7 +209,7 @@ export async function POST(req: NextRequest) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        contentType: mime,
+        contentType: uploadMime,
         filename,
         file: base64,
       }),
@@ -113,10 +218,11 @@ export async function POST(req: NextRequest) {
 
   if (!uploadRes.ok) {
     console.error("[upload] Airtable content API error", uploadRes.status, await uploadRes.text());
-    return NextResponse.json(
-      { error: `Upload failed (${uploadRes.status})` },
-      { status: uploadRes.status },
-    );
+    return apiError({
+      status: uploadRes.status,
+      code: "upstream_error",
+      message: `Upload failed (${uploadRes.status})`,
+    });
   }
 
   // Fetch the updated record to return fresh data
@@ -125,11 +231,14 @@ export async function POST(req: NextRequest) {
     cache: "no-store",
   });
   if (!fetchRes.ok) {
-    return NextResponse.json(
-      { error: "Upload succeeded but failed to fetch updated record" },
-      { status: 500 },
-    );
+    return apiError({
+      status: 500,
+      code: "upstream_error",
+      message: "Upload succeeded but failed to fetch updated record",
+    });
   }
 
-  return NextResponse.json(parseRecord(await fetchRes.json()));
+  const updatedProgram = parseRecord(await fetchRes.json());
+  revalidateTag(PROGRAMS_CACHE_TAG, { expire: 0 });
+  return NextResponse.json(updatedProgram);
 }

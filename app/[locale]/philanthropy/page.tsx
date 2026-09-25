@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ShopCallout } from "@/components/ShopCallout";
 import { buildPageMetadata } from "@/lib/seo";
 import nbc5Logo from "./assets/nbc5-logo.webp";
 import nbc5LogoDark from "./assets/nbc5-logo-dark.webp";
@@ -10,11 +11,11 @@ import insiderLogo from "./assets/insider-logo.svg";
 import wsjLogo from "./assets/wsj-logo.svg";
 import forbesLogo from "./assets/forbes-logo.svg";
 import copLogo from "./assets/cop.webp";
-import ariannaPhoto from "./assets/arianna.webp";
-import jasonPhoto from "./assets/jason.webp";
-import samPhoto from "./assets/sam.webp";
-import abbyPhoto from "./assets/abby.webp";
-import adrianoPhoto from "./assets/adriano.webp";
+import nityaPhoto from "./assets/nitya.webp";
+import joshPhoto from "./assets/josh.webp";
+import augiePhoto from "./assets/augie.webp";
+import adrianaPhoto from "./assets/adriana.webp";
+import rhysPhoto from "./assets/rhys.webp";
 import bellePhoto from "./assets/belle.webp";
 import obreyPhoto from "./assets/obrey.webp";
 import maggiePhoto from "./assets/maggie.webp";
@@ -32,14 +33,9 @@ const donorTierNames = {
     "Advanced Micro Devices",
     "The Libermans",
     "Lizzy Danhakl and Andrew Reed (4x)",
+    "Endless Network (5x)",
   ],
-  tier500kto1m: [
-    "GitHub Education (6x)",
-    "Argosy Foundation (5x)",
-    "Endless Network (4x)",
-    "FUTO (3x)",
-    "Joe Liemandt",
-  ],
+  tier500kto1m: ["GitHub Education (6x)", "Argosy Foundation (5x)", "FUTO (3x)", "Joe Liemandt"],
   tier200kto500k: [
     "Ron Conway (6x)",
     "Adam Ross (3x)",
@@ -51,11 +47,12 @@ const donorTierNames = {
   tier100kto200k: [
     "Quinn Slack (3x)",
     "Peter Levine",
-    "Mitchell Hashimoto",
+    "Mitchell and Amy Hashimoto",
     "Chuck and Marna Davis",
     "Proton Foundation",
     "Kellogg Foundation",
     "Pinkerton Foundation",
+    "Gates Foundation",
   ],
 } as const;
 
@@ -179,29 +176,29 @@ export default async function PhilanthropyPage({ params }: Props) {
 
   const testimonials = [
     {
-      photo: ariannaPhoto,
-      quote: t("testimonialArianna"),
-      info: t("testimonialAriannaInfo"),
+      photo: nityaPhoto,
+      quote: t("testimonialNitya"),
+      info: t("testimonialNityaInfo"),
     },
     {
-      photo: jasonPhoto,
-      quote: t("testimonialJason"),
-      info: t("testimonialJasonInfo"),
+      photo: joshPhoto,
+      quote: t("testimonialJosh"),
+      info: t("testimonialJoshInfo"),
     },
     {
-      photo: samPhoto,
-      quote: t("testimonialSam"),
-      info: t("testimonialSamInfo"),
+      photo: augiePhoto,
+      quote: t("testimonialAugie"),
+      info: t("testimonialAugieInfo"),
     },
     {
-      photo: abbyPhoto,
-      quote: t("testimonialAbby"),
-      info: t("testimonialAbbyInfo"),
+      photo: adrianaPhoto,
+      quote: t("testimonialAdriana"),
+      info: t("testimonialAdrianaInfo"),
     },
     {
-      photo: adrianoPhoto,
-      quote: t("testimonialAdriano"),
-      info: t("testimonialAdrianoInfo"),
+      photo: rhysPhoto,
+      quote: t("testimonialRhys"),
+      info: t("testimonialRhysInfo"),
     },
   ];
 
@@ -346,6 +343,10 @@ export default async function PhilanthropyPage({ params }: Props) {
             <p>{t("acceptOther")}</p>
           </div>
         </div>
+      </section>
+
+      <section className="philanthropy-shell philanthropy-section">
+        <ShopCallout campaign="philanthropy_page" />
       </section>
 
       <section className="philanthropy-shell philanthropy-section philanthropy-section--light">
@@ -583,7 +584,7 @@ export default async function PhilanthropyPage({ params }: Props) {
 
       <div style={{ textAlign: "center", margin: "56px 0" }}>
         <a
-          href="https://cdn.hackclub.com/019d9ddf-c03d-76de-8ff1-64edd1bdcb16/hackclub_philanthropy.pdf"
+          href="https://cdn.hackclub.com/01a0b07d-cc54-72c9-8ada-e534cbbd85b5/hack-club-philanthropy.pdf"
           className="philanthropy-btn philanthropy-btn--red"
           download
           target="_blank"
@@ -902,7 +903,7 @@ export default async function PhilanthropyPage({ params }: Props) {
         .philanthropy-testimonial-card div {
           position: absolute;
           inset: auto 0 0;
-          background: linear-gradient(180deg, rgba(23, 23, 29, 0), rgba(23, 23, 29, 0.94));
+          background: linear-gradient(180deg, rgba(10, 10, 14, 0), rgba(10, 10, 14, 0.98) 70%);
           padding: 12px;
           color: #fff6eb;
           display: grid;
@@ -913,7 +914,9 @@ export default async function PhilanthropyPage({ params }: Props) {
           margin: 0;
           font-family: var(--font-phantom);
           font-size: 0.9rem;
+          font-weight: 700;
           line-height: 1.25;
+          white-space: pre-line;
         }
 
         .philanthropy-testimonial-card span {

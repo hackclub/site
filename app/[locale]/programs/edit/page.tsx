@@ -2,15 +2,26 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Navbar } from "@/components/Navbar";
-import { parseLocalDate, type AirtableProgram } from "@/lib/programs";
+import { parseLocalDate } from "@/lib/programs";
 import type { SiteProgram, ProjectType, ProgramFormat } from "@/lib/site-programs";
 import { PROJECT_TYPE_OPTIONS, formatInPersonDate } from "@/lib/site-programs";
-import { BtnArrowSvg } from "@/components/landing/btn-arrow";
+import { ProgramCardVisual } from "@/components/programs/ProgramCardVisual";
+
+interface ManagedProgram {
+  id: string;
+  name: string;
+  startDate: string | null;
+  endDate: string | null;
+  websiteUrl: string | null;
+}
 
 interface EditorProgram {
-  ysws: AirtableProgram;
+  ysws: ManagedProgram;
   site: SiteProgram | null;
   draft: {
+    startDate: string;
+    endDate: string;
+    websiteUrl: string;
     description: string;
     bgType: "color" | "image";
     bgColor: string;
@@ -32,6 +43,36 @@ interface EditorProgram {
   };
 }
 
+type DashboardFilter = "all" | "visible" | "needs-attention";
+
+function getListingIssues(prog: EditorProgram): string[] {
+  const issues: string[] = [];
+  if (!prog.draft.startDate) issues.push("Start date");
+  if (!prog.site?.logoUrl) issues.push("Logo");
+  if (prog.draft.bgType === "image" && !prog.site?.bgImageUrl) issues.push("Banner image");
+  if (prog.draft.bgType === "color" && !prog.draft.bgColor) issues.push("Background color");
+  return issues;
+}
+
+function getRecommendedFields(prog: EditorProgram): string[] {
+  const fields: string[] = [];
+  if (!prog.draft.description.trim()) fields.push("Description");
+  if (!prog.draft.websiteUrl.trim()) fields.push("Website URL");
+  if (!prog.draft.format) fields.push("Format");
+  if (prog.draft.projectTypes.length === 0) fields.push("Project types");
+  return fields;
+}
+
+type ProgramState = "blocked" | "visible" | "upcoming" | "ended";
+
+function getProgramState(prog: EditorProgram): ProgramState {
+  if (getListingIssues(prog).length > 0) return "blocked";
+  const now = new Date();
+  if (prog.draft.endDate && parseLocalDate(prog.draft.endDate) < now) return "ended";
+  if (prog.draft.startDate && parseLocalDate(prog.draft.startDate) > now) return "upcoming";
+  return "visible";
+}
+
 // ── Card preview — exactly matches /programs ProgramCard ─────────────────────
 function CardPreview({ prog }: { prog: EditorProgram }) {
   const { draft, site, ysws } = prog;
@@ -39,16 +80,18 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
   const bgImageUrl = draft.bgType === "image" ? (site?.bgImageUrl ?? null) : null;
   const now = new Date();
   // If no end date, program runs indefinitely (never ends)
-  const isEnded = ysws.endDate ? parseLocalDate(ysws.endDate) < now : false;
-  const isDraft = parseLocalDate(ysws.startDate) > now;
-  const badgeLabel = isDraft
-    ? "Coming soon"
+  const isEnded = draft.endDate ? parseLocalDate(draft.endDate) < now : false;
+  const isUpcoming =
+    (draft.startDate ? parseLocalDate(draft.startDate) > now : true) ||
+    (draft.inPersonStart ? parseLocalDate(draft.inPersonStart) > now : false);
+  const badgeLabel = isUpcoming
+    ? "Upcoming"
     : isEnded
       ? "Ended"
-      : ysws.endDate
-        ? `Ends ${parseLocalDate(ysws.endDate).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}`
+      : draft.endDate
+        ? `Ends ${parseLocalDate(draft.endDate).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}`
         : "Ongoing";
-  const badgeEnded = isEnded || isDraft;
+  const badgeEnded = isEnded || isUpcoming;
   const buttonText = isEnded ? "See the site" : "Start now";
   const buttonColor = draft.buttonColor || "#ec3750";
 
@@ -71,189 +114,30 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
   if (draft.additionalRequirements) metaLines.push(draft.additionalRequirements);
 
   return (
-    <div
-      style={{
-        position: "relative",
-        background: bgImageUrl ? "transparent" : draft.bgColor,
-        borderRadius: 16,
-        boxShadow: "2px 4px 6px rgba(0,0,0,0.25)",
-        overflow: "hidden",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        padding: "28px 32px 16px",
-        minHeight: 260,
-        boxSizing: "border-box",
-      }}
-    >
-      {bgImageUrl && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={bgImageUrl}
-          alt=""
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            pointerEvents: "none",
-          }}
-        />
-      )}
-
-      {logoUrl ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={logoUrl}
-          alt={ysws.name}
-          style={{
-            height: draft.logoSize,
-            width: "auto",
-            maxWidth: "100%",
-            objectFit: "contain",
-            marginBottom: 12,
-            position: "relative",
-            zIndex: 1,
-            alignSelf: "center",
-          }}
-        />
-      ) : (
-        <h2
-          style={{
-            position: "relative",
-            zIndex: 1,
-            fontFamily: "var(--font-zarathustra)",
-            fontSize: "clamp(28px, 3vw, 40px)",
-            fontWeight: "normal",
-            color: draft.textColor,
-            margin: "0 0 8px",
-            lineHeight: 1,
-            textAlign: "center",
-            width: "100%",
-          }}
-        >
-          {ysws.name}
-        </h2>
-      )}
-
-      {draft.description && (
-        <p
-          style={{
-            position: "relative",
-            zIndex: 1,
-            fontFamily: "var(--font-phantom)",
-            fontSize: "clamp(15px, 1.6vw, 20px)",
-            color: draft.textColor,
-            opacity: 0.9,
-            margin: "0 0 4px",
-            lineHeight: 1.2,
-          }}
-        >
-          {draft.description}
-        </p>
-      )}
-
-      {metaLines.length > 0 && (
-        <p
-          style={{
-            position: "relative",
-            zIndex: 1,
-            fontFamily: "var(--font-phantom)",
-            fontStyle: "italic",
-            fontSize: "clamp(15px, 1.6vw, 20px)",
-            color: draft.textColor,
-            opacity: 0.55,
-            margin: "0 0 4px",
-            lineHeight: 1.2,
-          }}
-        >
-          {metaLines.map((line, i) => (
-            <span key={i}>
-              {line}
-              {i < metaLines.length - 1 && <br />}
-            </span>
-          ))}
-        </p>
-      )}
-
-      <div style={{ flex: "1 0 12px" }} />
-
-      {ysws.websiteUrl && (
-        <div
-          style={{
-            position: "relative",
-            zIndex: 1,
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 6,
-            paddingTop: 6,
-            paddingBottom: 6,
-            paddingLeft: 20,
-            paddingRight: 20,
-            background: buttonColor,
-            borderRadius: draft.buttonBorderRadius,
-            border: `${draft.buttonBorderWidth}px solid ${draft.buttonBorderColor || "#17171d"}`,
-            fontFamily: "var(--font-phantom)",
-            fontWeight: "bold",
-            fontSize: "clamp(15px, 1.6vw, 20px)",
-            color: draft.buttonTextColor || "#ffffff",
-            marginBottom: draft.slackChannel ? 6 : 0,
-          }}
-        >
-          {buttonText}
-          <BtnArrowSvg />
-        </div>
-      )}
-
-      {draft.slackChannel && (
-        <p
-          style={{
-            position: "relative",
-            zIndex: 1,
-            fontFamily: "var(--font-phantom)",
-            fontStyle: "italic",
-            fontSize: "clamp(13px, 1.2vw, 16px)",
-            color: draft.textColor,
-            margin: 0,
-            lineHeight: 1.2,
-            paddingRight: 110,
-          }}
-        >
-          Join the discussion in{" "}
-          <span style={{ color: draft.accentColor, display: "inline-block", whiteSpace: "nowrap" }}>
-            #{draft.slackChannel.replace(/^#/, "")}
-          </span>
-        </p>
-      )}
-
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          right: 0,
-          height: 36,
-          width: 130,
-          background: badgeEnded ? "var(--surface-hover)" : "var(--red)",
-          borderTopLeftRadius: 8,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <span
-          style={{
-            fontFamily: "var(--font-phantom)",
-            fontWeight: "bold",
-            fontSize: "clamp(13px, 1.2vw, 16px)",
-            color: badgeEnded ? "var(--foreground)" : "var(--paper)",
-            whiteSpace: "nowrap",
-          }}
-        >
-          {badgeLabel}
-        </span>
-      </div>
-    </div>
+    <ProgramCardVisual
+      name={ysws.name}
+      logoUrl={logoUrl}
+      logoSize={draft.logoSize}
+      bgColor={draft.bgColor}
+      bgImageUrl={bgImageUrl}
+      textColor={draft.textColor}
+      accentColor={draft.accentColor}
+      description={draft.description || null}
+      metaLines={metaLines}
+      buttonLabel={buttonText}
+      buttonHref={draft.websiteUrl || null}
+      buttonColor={buttonColor}
+      buttonTextColor={draft.buttonTextColor || "#ffffff"}
+      buttonRadius={draft.buttonBorderRadius}
+      buttonBorderWidth={draft.buttonBorderWidth}
+      buttonBorderColor={draft.buttonBorderColor || "#17171d"}
+      slackIntro="Join the discussion in"
+      slackChannel={draft.slackChannel.replace(/^#/, "") || null}
+      badgeLabel={badgeLabel}
+      badgeMuted={badgeEnded}
+      pinned={site?.pinned ?? false}
+      fillHeight={false}
+    />
   );
 }
 
@@ -809,11 +693,15 @@ function ProgramEditor({
   prog,
   onChange,
   onSiteUpdate,
+  onSourceUpdate,
+  onSaved,
   isAdmin,
 }: {
   prog: EditorProgram;
   onChange: (d: EditorProgram["draft"]) => void;
   onSiteUpdate: (s: SiteProgram) => void;
+  onSourceUpdate: (source: ManagedProgram) => void;
+  onSaved: (state: ProgramState) => void;
   isAdmin: boolean;
 }) {
   const [saving, setSaving] = useState(false);
@@ -821,10 +709,49 @@ function ProgramEditor({
   const [error, setError] = useState<string | null>(null);
 
   async function save() {
+    if (prog.draft.startDate && prog.draft.endDate && prog.draft.endDate < prog.draft.startDate) {
+      setSaved(false);
+      setError(
+        `The end date (${prog.draft.endDate}) cannot be before the start date (${prog.draft.startDate}). Correct the start date or choose a later end date.`,
+      );
+      return;
+    }
+
     setSaving(true);
     setSaved(false);
     setError(null);
     try {
+      const sourceRes = await fetch("/api/programs/editable", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          programId: prog.ysws.id,
+          programName: prog.ysws.name,
+          startDate: prog.draft.startDate || null,
+          endDate: prog.draft.endDate || null,
+          websiteUrl: prog.draft.websiteUrl.trim() || null,
+        }),
+      });
+      const sourceData = await sourceRes.json();
+      if (!sourceRes.ok) {
+        const requestId = sourceRes.headers.get("x-request-id");
+        console.error("[program-manager] source save failed", {
+          status: sourceRes.status,
+          code: sourceData.code,
+          error: sourceData.error,
+          hint: sourceData.hint,
+          requestId,
+          programName: prog.ysws.name,
+        });
+        setError(
+          [sourceData.error ?? "Program details could not be saved", sourceData.hint]
+            .filter(Boolean)
+            .join(" "),
+        );
+        return;
+      }
+      onSourceUpdate(sourceData as ManagedProgram);
+
       const res = await fetch("/api/site-programs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -851,14 +778,29 @@ function ProgramEditor({
         }),
       });
       const data = await res.json();
-      if (!res.ok) setError(data.error ?? "Save failed");
-      else {
-        onSiteUpdate(data as SiteProgram);
+      if (!res.ok) {
+        console.error("[program-manager] site details save failed", {
+          status: res.status,
+          code: data.code,
+          error: data.error,
+          hint: data.hint,
+          requestId: res.headers.get("x-request-id"),
+          programName: prog.ysws.name,
+        });
+        setError([data.error ?? "Save failed", data.hint].filter(Boolean).join(" "));
+      } else {
+        const saved = data as SiteProgram;
+        onSiteUpdate(saved);
+        onSaved(getProgramState({ ...prog, site: saved }));
         setSaved(true);
         setTimeout(() => setSaved(false), 2000);
       }
-    } catch {
-      setError("Network error");
+    } catch (saveError) {
+      console.error("[program-manager] save request failed", {
+        programName: prog.ysws.name,
+        error: saveError instanceof Error ? saveError.message : String(saveError),
+      });
+      setError("Network error while saving. Check the browser console for details.");
     } finally {
       setSaving(false);
     }
@@ -871,6 +813,116 @@ function ProgramEditor({
     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
       {/* Left: controls */}
       <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+        {/* ── Listing basics ── */}
+        <div
+          style={{
+            padding: 16,
+            border: "2px solid var(--border)",
+            borderRadius: 12,
+            background: "var(--background)",
+          }}
+        >
+          <div
+            style={{
+              fontFamily: "var(--font-phantom)",
+              fontSize: 14,
+              fontWeight: "bold",
+              color: "var(--foreground)",
+              marginBottom: 4,
+            }}
+          >
+            Listing basics
+          </div>
+          <div
+            style={{
+              fontFamily: "var(--font-phantom)",
+              fontSize: 11,
+              color: "var(--muted)",
+              marginBottom: 12,
+            }}
+          >
+            These fields update the Unified YSWS database.
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <TextField
+              label="Website URL"
+              value={d.websiteUrl}
+              onChange={(value) => set({ websiteUrl: value })}
+              placeholder="https://example.com"
+            />
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+                gap: 10,
+              }}
+            >
+              <div>
+                <div
+                  style={{
+                    fontSize: 12,
+                    fontWeight: "bold",
+                    color: "var(--foreground)",
+                    marginBottom: 6,
+                    fontFamily: "var(--font-phantom)",
+                  }}
+                >
+                  Program start date
+                </div>
+                <input
+                  type="date"
+                  aria-label="Program start date"
+                  value={d.startDate}
+                  max={d.endDate || undefined}
+                  onChange={(event) => set({ startDate: event.target.value })}
+                  style={{
+                    width: "100%",
+                    border: "2px solid var(--border)",
+                    borderRadius: 8,
+                    padding: "8px 10px",
+                    background: "var(--surface)",
+                    color: "var(--foreground)",
+                    fontFamily: "var(--font-phantom)",
+                    fontSize: 13,
+                    boxSizing: "border-box",
+                  }}
+                />
+              </div>
+              <div>
+                <div
+                  style={{
+                    fontSize: 12,
+                    fontWeight: "bold",
+                    color: "var(--foreground)",
+                    marginBottom: 6,
+                    fontFamily: "var(--font-phantom)",
+                  }}
+                >
+                  Program end date
+                </div>
+                <input
+                  type="date"
+                  aria-label="Program end date"
+                  value={d.endDate}
+                  min={d.startDate || undefined}
+                  onChange={(event) => set({ endDate: event.target.value })}
+                  style={{
+                    width: "100%",
+                    border: "2px solid var(--border)",
+                    borderRadius: 8,
+                    padding: "8px 10px",
+                    background: "var(--surface)",
+                    color: "var(--foreground)",
+                    fontFamily: "var(--font-phantom)",
+                    fontSize: 13,
+                    boxSizing: "border-box",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* ── Images ── */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
           <div>
@@ -906,7 +958,7 @@ function ProgramEditor({
                   fontFamily: "var(--font-phantom)",
                 }}
               >
-                Background
+                Card banner
               </span>
               <div
                 style={{
@@ -936,9 +988,19 @@ function ProgramEditor({
                 ))}
               </div>
             </div>
+            <div
+              style={{
+                fontSize: 11,
+                color: "var(--muted)",
+                fontFamily: "var(--font-phantom)",
+                marginBottom: 8,
+              }}
+            >
+              Choose Image to upload a banner, or use a solid color.
+            </div>
             {d.bgType === "image" ? (
               <UploadButton
-                label=""
+                label="Banner image"
                 type="bg"
                 programName={prog.ysws.name}
                 currentUrl={prog.site?.bgImageUrl ?? null}
@@ -1324,7 +1386,7 @@ function ProgramEditor({
       </div>
 
       {/* Right: preview */}
-      <div>
+      <div style={{ alignSelf: "start" }}>
         <div
           style={{
             fontSize: 12,
@@ -1351,6 +1413,7 @@ type AuthState =
       slack_id: string | null;
       isAdmin: boolean;
       editablePrograms: string[];
+      managedPrograms: ManagedProgram[];
     };
 
 // ── Page ──────────────────────────────────────────────────────────────────────
@@ -1359,6 +1422,15 @@ export default function EditPage() {
   const [programs, setPrograms] = useState<EditorProgram[] | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
+  const [dashboardFilter, setDashboardFilter] = useState<DashboardFilter>("all");
+  const [search, setSearch] = useState("");
+
+  const [listOrder, setListOrder] = useState<Record<string, ProgramState>>({});
+
+  const snapshotOrder = (list: EditorProgram[]) =>
+    setListOrder(Object.fromEntries(list.map((p) => [p.ysws.name, getProgramState(p)])));
+
+  const orderStateOf = (prog: EditorProgram) => listOrder[prog.ysws.name] ?? getProgramState(prog);
 
   // Check auth and load editable programs
   useEffect(() => {
@@ -1383,6 +1455,7 @@ export default function EditPage() {
           slack_id: data.slack_id,
           isAdmin: data.isAdmin ?? false,
           editablePrograms: data.editablePrograms ?? [],
+          managedPrograms: Array.isArray(data.programs) ? data.programs : [],
         });
       })
       .catch(() => setAuth({ status: "unauthenticated", error: "Network error" }));
@@ -1391,50 +1464,47 @@ export default function EditPage() {
   // Load programs once authenticated
   useEffect(() => {
     if (auth.status !== "authenticated") return;
-    Promise.all([
-      fetch("/api/programs").then((r) => r.json()),
-      fetch("/api/site-programs").then((r) => r.json()),
-    ])
-      .then(([ysws, site]) => {
-        if (!Array.isArray(ysws)) {
-          setLoadError(ysws.error ?? "Failed to load programs");
-          return;
-        }
+    fetch("/api/site-programs")
+      .then((r) => r.json())
+      .then((site) => {
         const siteMap = new Map<string, SiteProgram>(
           (Array.isArray(site) ? site : []).map((s: SiteProgram) => [s.programName, s]),
         );
-        setPrograms(
-          (ysws as AirtableProgram[]).map((p) => {
-            const s = siteMap.get(p.name) ?? null;
-            return {
-              ysws: p,
-              site: s,
-              draft: {
-                description: s?.description ?? "",
-                bgType: s?.bgType ?? "color",
-                bgColor: s?.bgColor ?? "var(--surface)",
-                textColor: s?.textColor ?? "var(--foreground)",
-                accentColor: s?.accentColor ?? "#ec3750",
-                logoSize: s?.logoSize ?? 48,
-                buttonColor: s?.buttonColor ?? "",
-                buttonTextColor: s?.buttonTextColor ?? "",
-                buttonBorderRadius: s?.buttonBorderRadius ?? 44,
-                buttonBorderWidth: s?.buttonBorderWidth ?? 0,
-                buttonBorderColor: s?.buttonBorderColor ?? "",
-                slackChannel: s?.slackChannel ?? "",
-                projectTypes: s?.projectTypes ?? [],
-                format: s?.format ?? "",
-                inPersonStart: s?.inPersonStart ?? "",
-                inPersonEnd: s?.inPersonEnd ?? "",
-                inPersonLocation: s?.inPersonLocation ?? "",
-                additionalRequirements: s?.additionalRequirements ?? "",
-              },
-            };
-          }),
-        );
+        const built: EditorProgram[] = auth.managedPrograms.map((p) => {
+          const s = siteMap.get(p.name) ?? null;
+          return {
+            ysws: p,
+            site: s,
+            draft: {
+              startDate: p.startDate ?? "",
+              endDate: p.endDate ?? "",
+              websiteUrl: p.websiteUrl ?? "",
+              description: s?.description ?? "",
+              bgType: s?.bgType ?? "color",
+              bgColor: s?.bgColor ?? "var(--surface)",
+              textColor: s?.textColor ?? "var(--foreground)",
+              accentColor: s?.accentColor ?? "#ec3750",
+              logoSize: s?.logoSize ?? 48,
+              buttonColor: s?.buttonColor ?? "",
+              buttonTextColor: s?.buttonTextColor ?? "",
+              buttonBorderRadius: s?.buttonBorderRadius ?? 44,
+              buttonBorderWidth: s?.buttonBorderWidth ?? 0,
+              buttonBorderColor: s?.buttonBorderColor ?? "",
+              slackChannel: s?.slackChannel ?? "",
+              projectTypes: s?.projectTypes ?? [],
+              format: s?.format ?? "",
+              inPersonStart: s?.inPersonStart ?? "",
+              inPersonEnd: s?.inPersonEnd ?? "",
+              inPersonLocation: s?.inPersonLocation ?? "",
+              additionalRequirements: s?.additionalRequirements ?? "",
+            },
+          };
+        });
+        setPrograms(built);
+        snapshotOrder(built);
       })
       .catch(() => setLoadError("Network error"));
-  }, [auth.status]);
+  }, [auth]);
 
   function updateDraft(name: string, draft: EditorProgram["draft"]) {
     setPrograms((prev) => prev?.map((p) => (p.ysws.name === name ? { ...p, draft } : p)) ?? null);
@@ -1451,11 +1521,45 @@ export default function EditPage() {
     );
   }
 
+  function updateSource(name: string, source: ManagedProgram) {
+    setPrograms(
+      (prev) =>
+        prev?.map((program) =>
+          program.ysws.name === name ? { ...program, ysws: source } : program,
+        ) ?? null,
+    );
+  }
+
   async function logout() {
     await fetch("/api/auth/logout", { method: "POST" });
     setAuth({ status: "unauthenticated" });
     setPrograms(null);
   }
+
+  const accessiblePrograms =
+    auth.status === "authenticated"
+      ? (programs ?? []).filter(
+          (prog) => auth.isAdmin || auth.editablePrograms.includes(prog.ysws.name),
+        )
+      : [];
+  const visibleCount = accessiblePrograms.filter(
+    (prog) => getProgramState(prog) === "visible",
+  ).length;
+  const needsAttentionCount = accessiblePrograms.filter(
+    (prog) => getProgramState(prog) === "blocked",
+  ).length;
+  const displayedPrograms = accessiblePrograms
+    .filter((prog) => {
+      const state = orderStateOf(prog);
+      if (dashboardFilter === "visible" && state !== "visible") return false;
+      if (dashboardFilter === "needs-attention" && state !== "blocked") return false;
+      return prog.ysws.name.toLowerCase().includes(search.trim().toLowerCase());
+    })
+    .sort((a, b) => {
+      const aBlocked = Number(orderStateOf(a) === "blocked");
+      const bBlocked = Number(orderStateOf(b) === "blocked");
+      return bBlocked - aBlocked || a.ysws.name.localeCompare(b.ysws.name);
+    });
 
   return (
     <main id="main" tabIndex={-1} style={{ background: "var(--background)", minHeight: "100vh" }}>
@@ -1482,7 +1586,7 @@ export default function EditPage() {
                 margin: 0,
               }}
             >
-              Program Editor
+              Program Manager
             </h1>
             <p
               style={{
@@ -1544,9 +1648,22 @@ export default function EditPage() {
                   margin: 0,
                 }}
               >
-                Program Editor
+                Program Manager
               </h1>
             </div>
+            <p
+              style={{
+                maxWidth: 720,
+                fontFamily: "var(--font-phantom)",
+                fontSize: 17,
+                lineHeight: 1.45,
+                color: "var(--muted)",
+                margin: "0 0 18px",
+              }}
+            >
+              See exactly what appears on the programs page, fix anything blocking a listing, and
+              edit each program&apos;s artwork and details.
+            </p>
             <div
               style={{
                 display: "flex",
@@ -1596,6 +1713,139 @@ export default function EditPage() {
               </button>
             </div>
 
+            {programs !== null && accessiblePrograms.length > 0 && (
+              <>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
+                    gap: 12,
+                    margin: "24px 0 20px",
+                  }}
+                >
+                  {(
+                    [
+                      {
+                        filter: "all",
+                        label: "All programs",
+                        count: accessiblePrograms.length,
+                        color: "var(--foreground)",
+                      },
+                      {
+                        filter: "visible",
+                        label: "Visible now",
+                        count: visibleCount,
+                        color: "#198754",
+                      },
+                      {
+                        filter: "needs-attention",
+                        label: "Needs attention",
+                        count: needsAttentionCount,
+                        color: "var(--red)",
+                      },
+                    ] as const
+                  ).map((item) => (
+                    <button
+                      key={item.filter}
+                      type="button"
+                      onClick={() => {
+                        setDashboardFilter(item.filter);
+                        snapshotOrder(accessiblePrograms);
+                      }}
+                      aria-pressed={dashboardFilter === item.filter}
+                      style={{
+                        padding: "18px 20px",
+                        borderRadius: 14,
+                        border:
+                          dashboardFilter === item.filter
+                            ? `2px solid ${item.color}`
+                            : "2px solid var(--border)",
+                        background: "var(--surface)",
+                        textAlign: "left",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <span
+                        style={{
+                          display: "block",
+                          fontFamily: "var(--font-zarathustra)",
+                          fontSize: 34,
+                          lineHeight: 1,
+                          color: item.color,
+                        }}
+                      >
+                        {item.count}
+                      </span>
+                      <span
+                        style={{
+                          display: "block",
+                          marginTop: 6,
+                          fontFamily: "var(--font-phantom)",
+                          fontSize: 13,
+                          fontWeight: "bold",
+                          color: "var(--foreground)",
+                        }}
+                      >
+                        {item.label}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: 12,
+                    marginBottom: 12,
+                  }}
+                >
+                  <div>
+                    <h2
+                      style={{
+                        fontFamily: "var(--font-zarathustra)",
+                        fontSize: 28,
+                        fontWeight: "normal",
+                        margin: 0,
+                        color: "var(--foreground)",
+                      }}
+                    >
+                      Program listings
+                    </h2>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-phantom)",
+                        fontSize: 13,
+                        color: "var(--muted)",
+                        margin: "3px 0 0",
+                      }}
+                    >
+                      A start date, logo, and the selected background are required to appear.
+                    </p>
+                  </div>
+                  <input
+                    type="search"
+                    aria-label="Search programs"
+                    placeholder="Search programs…"
+                    value={search}
+                    onChange={(event) => setSearch(event.target.value)}
+                    style={{
+                      width: "min(100%, 280px)",
+                      border: "2px solid var(--border)",
+                      borderRadius: 9999,
+                      padding: "10px 16px",
+                      background: "var(--surface)",
+                      color: "var(--foreground)",
+                      fontFamily: "var(--font-phantom)",
+                      fontSize: 14,
+                      outline: "none",
+                    }}
+                  />
+                </div>
+              </>
+            )}
+
             {loadError && (
               <p style={{ color: "var(--red)", fontFamily: "var(--font-phantom)" }}>{loadError}</p>
             )}
@@ -1632,9 +1882,45 @@ export default function EditPage() {
             )}
 
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-              {programs
-                ?.filter((prog) => auth.isAdmin || auth.editablePrograms.includes(prog.ysws.name))
-                .map((prog) => (
+              {displayedPrograms.length === 0 && accessiblePrograms.length > 0 && (
+                <div
+                  style={{
+                    padding: 28,
+                    border: "2px dashed var(--border)",
+                    borderRadius: 16,
+                    textAlign: "center",
+                    fontFamily: "var(--font-phantom)",
+                    color: "var(--muted)",
+                  }}
+                >
+                  No programs match this view.
+                </div>
+              )}
+              {displayedPrograms.map((prog) => {
+                const listingIssues = getListingIssues(prog);
+                const recommendedFields = getRecommendedFields(prog);
+                const programState = getProgramState(prog);
+                const status =
+                  programState === "blocked"
+                    ? { label: "Not listed", color: "var(--red)", background: "rgba(236,55,80,.1)" }
+                    : programState === "visible"
+                      ? {
+                          label: "Visible now",
+                          color: "#198754",
+                          background: "rgba(25,135,84,.12)",
+                        }
+                      : programState === "upcoming"
+                        ? {
+                            label: "Coming soon",
+                            color: "#966400",
+                            background: "rgba(255,193,7,.16)",
+                          }
+                        : {
+                            label: "Ended",
+                            color: "var(--muted)",
+                            background: "var(--surface-hover)",
+                          };
+                return (
                   <div
                     key={prog.ysws.id}
                     style={{
@@ -1651,6 +1937,7 @@ export default function EditPage() {
                       style={{
                         width: "100%",
                         display: "flex",
+                        flexWrap: "wrap",
                         alignItems: "center",
                         gap: 16,
                         padding: "18px 24px",
@@ -1673,56 +1960,97 @@ export default function EditPage() {
                           }}
                         />
                       )}
-                      <span
+                      <div
                         style={{
-                          fontFamily: "var(--font-zarathustra)",
-                          fontSize: 22,
-                          color: "var(--foreground)",
                           flex: 1,
                           display: "flex",
-                          alignItems: "center",
-                          gap: 8,
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: 5,
+                          minWidth: 180,
                         }}
                       >
-                        {prog.ysws.name}
-                        {prog.site?.pinned && (
-                          <span
-                            style={{
-                              display: "inline-flex",
-                              alignItems: "center",
-                              gap: 4,
-                              padding: "2px 8px",
-                              borderRadius: 9999,
-                              background: "#ec3750",
-                              fontFamily: "var(--font-phantom)",
-                              fontSize: 11,
-                              fontWeight: "bold",
-                              color: "#fff",
-                              whiteSpace: "nowrap",
-                            }}
-                          >
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="white">
-                              <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z" />
-                            </svg>
-                            Pinned
-                          </span>
-                        )}
+                        <span
+                          style={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                            alignItems: "center",
+                            gap: 8,
+                            fontFamily: "var(--font-zarathustra)",
+                            fontSize: 22,
+                            color: "var(--foreground)",
+                          }}
+                        >
+                          {prog.ysws.name}
+                          {prog.site?.pinned && (
+                            <span
+                              style={{
+                                display: "inline-flex",
+                                alignItems: "center",
+                                gap: 4,
+                                padding: "2px 8px",
+                                borderRadius: 9999,
+                                background: "#ec3750",
+                                fontFamily: "var(--font-phantom)",
+                                fontSize: 11,
+                                fontWeight: "bold",
+                                color: "#fff",
+                                whiteSpace: "nowrap",
+                              }}
+                            >
+                              <svg width="10" height="10" viewBox="0 0 24 24" fill="white">
+                                <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z" />
+                              </svg>
+                              Pinned
+                            </span>
+                          )}
+                        </span>
+                        <span
+                          style={{
+                            fontFamily: "var(--font-phantom)",
+                            fontSize: 12,
+                            color: listingIssues.length > 0 ? "var(--red)" : "var(--muted)",
+                          }}
+                        >
+                          {listingIssues.length > 0
+                            ? `Required: ${listingIssues.join(", ")}`
+                            : recommendedFields.length > 0
+                              ? `Optional details missing: ${recommendedFields.join(", ")}`
+                              : "All listing details are complete"}
+                        </span>
+                      </div>
+                      <span
+                        style={{
+                          padding: "5px 10px",
+                          borderRadius: 9999,
+                          background: status.background,
+                          color: status.color,
+                          fontFamily: "var(--font-phantom)",
+                          fontSize: 12,
+                          fontWeight: "bold",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {status.label}
                       </span>
                       <span
                         style={{
                           fontFamily: "var(--font-phantom)",
                           fontSize: 13,
                           color: "var(--muted)",
+                          whiteSpace: "nowrap",
                         }}
                       >
-                        {parseLocalDate(prog.ysws.startDate).toLocaleDateString("en-GB", {
-                          day: "numeric",
-                          month: "short",
-                          year: "numeric",
-                        })}{" "}
+                        {prog.draft.startDate
+                          ? parseLocalDate(prog.draft.startDate).toLocaleDateString("en-GB", {
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                            })
+                          : "No start date"}{" "}
                         –{" "}
-                        {prog.ysws.endDate
-                          ? parseLocalDate(prog.ysws.endDate).toLocaleDateString("en-GB", {
+                        {prog.draft.endDate
+                          ? parseLocalDate(prog.draft.endDate).toLocaleDateString("en-GB", {
                               day: "numeric",
                               month: "short",
                               year: "numeric",
@@ -1735,18 +2063,71 @@ export default function EditPage() {
                     </button>
                     {expanded === prog.ysws.name && (
                       <div style={{ padding: "0 24px 24px", borderTop: "1px solid var(--border)" }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                            gap: 8,
+                            alignItems: "center",
+                            marginTop: 18,
+                            marginBottom: 18,
+                            padding: "12px 14px",
+                            borderRadius: 12,
+                            background:
+                              listingIssues.length > 0
+                                ? "rgba(236,55,80,.08)"
+                                : "rgba(25,135,84,.1)",
+                            fontFamily: "var(--font-phantom)",
+                            fontSize: 13,
+                            color: "var(--foreground)",
+                          }}
+                        >
+                          <strong>
+                            {listingIssues.length > 0
+                              ? "Required before listing:"
+                              : "Ready to list"}
+                          </strong>
+                          {listingIssues.length > 0 ? (
+                            listingIssues.map((issue) => (
+                              <span
+                                key={issue}
+                                style={{
+                                  padding: "3px 8px",
+                                  borderRadius: 9999,
+                                  background: "var(--surface)",
+                                  color: "var(--red)",
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                {issue}
+                              </span>
+                            ))
+                          ) : (
+                            <span>This program has everything required by /programs.</span>
+                          )}
+                          {!prog.draft.startDate && (
+                            <span style={{ flexBasis: "100%", color: "var(--muted)" }}>
+                              Add the start date in Listing basics below, then save changes.
+                            </span>
+                          )}
+                        </div>
                         <div style={{ marginTop: 20 }}>
                           <ProgramEditor
                             prog={prog}
                             onChange={(draft) => updateDraft(prog.ysws.name, draft)}
                             onSiteUpdate={(site) => updateSite(prog.ysws.name, site)}
+                            onSourceUpdate={(source) => updateSource(prog.ysws.name, source)}
+                            onSaved={(state) =>
+                              setListOrder((prev) => ({ ...prev, [prog.ysws.name]: state }))
+                            }
                             isAdmin={auth.isAdmin}
                           />
                         </div>
                       </div>
                     )}
                   </div>
-                ))}
+                );
+              })}
             </div>
           </>
         )}
