@@ -112,8 +112,7 @@ export default async function ClubPage({ params }: Props) {
 
   const [photoOne, photoTwo, photoThree, photoFour, photoFive, photoSix, perksPhotoOne] =
     shuffle(IMAGES);
-  const [stickerOne, stickerTwo, stickerThree, stickerFour, perksSticker] =
-    shuffle(STICKERS);
+  const [stickerOne, stickerTwo, stickerThree, stickerFour, perksSticker] = shuffle(STICKERS);
   return (
     <>
       <Navbar />
@@ -124,68 +123,37 @@ export default async function ClubPage({ params }: Props) {
             className={`${styles["clubs-photo"]} ${styles["clubs-photo-one"]}`}
             aria-hidden="true"
           >
-            <Image
-              src={photoOne}
-              alt=""
-              fill
-              priority
-              sizes="(max-width: 900px) 0px, 260px"
-            />
+            <Image src={photoOne} alt="" fill priority sizes="(max-width: 900px) 0px, 260px" />
           </div>
           <div
             className={`${styles["clubs-photo"]} ${styles["clubs-photo-two"]}`}
             aria-hidden="true"
           >
-            <Image
-              src={photoTwo}
-              alt=""
-              fill
-              sizes="(max-width: 900px) 0px, 250px"
-            />
+            <Image src={photoTwo} alt="" fill sizes="(max-width: 900px) 0px, 250px" />
           </div>
           <div
             className={`${styles["clubs-photo"]} ${styles["clubs-photo-three"]}`}
             aria-hidden="true"
           >
-            <Image
-              src={photoThree}
-              alt=""
-              fill
-              sizes="(max-width: 1100px) 0px, 190px"
-            />
+            <Image src={photoThree} alt="" fill sizes="(max-width: 1100px) 0px, 190px" />
           </div>
           <div
             className={`${styles["clubs-photo"]} ${styles["clubs-photo-four"]}`}
             aria-hidden="true"
           >
-            <Image
-              src={photoFour}
-              alt=""
-              fill
-              sizes="(max-width: 1100px) 0px, 190px"
-            />
+            <Image src={photoFour} alt="" fill sizes="(max-width: 1100px) 0px, 190px" />
           </div>
           <div
             className={`${styles["clubs-photo"]} ${styles["clubs-photo-five"]}`}
             aria-hidden="true"
           >
-            <Image
-              src={photoFive}
-              alt=""
-              fill
-              sizes="(max-width: 1100px) 0px, 170px"
-            />
+            <Image src={photoFive} alt="" fill sizes="(max-width: 1100px) 0px, 170px" />
           </div>
           <div
             className={`${styles["clubs-photo"]} ${styles["clubs-photo-six"]}`}
             aria-hidden="true"
           >
-            <Image
-              src={photoSix}
-              alt=""
-              fill
-              sizes="(max-width: 1100px) 0px, 160px"
-            />
+            <Image src={photoSix} alt="" fill sizes="(max-width: 1100px) 0px, 160px" />
           </div>
           <div className={styles["clubs-hero-inner"]}>
             <p className={styles["clubs-eyebrow"]}>Hack Club presents</p>
@@ -195,9 +163,8 @@ export default async function ClubPage({ params }: Props) {
               room!
             </h1>
             <p className={styles["clubs-hero-copy"]}>
-              A worldwide network of high school coding clubs. Make cool things,
-              find people who share your interests, and get help from a
-              community of hackers!
+              A worldwide network of high school coding clubs. Make cool things, find people who
+              share your interests, and get help from a community of hackers!
             </p>
             <div className={styles["clubs-actions"]}>
               <a
@@ -222,11 +189,7 @@ export default async function ClubPage({ params }: Props) {
             </div>
             <p className={styles["clubs-hero-signin-note"]}>
               Club member?{" "}
-              <a
-                href="https://clubs.hackclub.com/auth/member"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="https://clubs.hackclub.com/auth/member" target="_blank" rel="noreferrer">
                 Sign in with email
               </a>
             </p>
@@ -235,45 +198,25 @@ export default async function ClubPage({ params }: Props) {
             className={`${styles["clubs-sticker"]} ${styles["clubs-sticker-one"]}`}
             aria-hidden="true"
           >
-            <Image
-              src={stickerOne}
-              alt=""
-              fill
-              sizes="(max-width: 900px) 0px, 132px"
-            />
+            <Image src={stickerOne} alt="" fill sizes="(max-width: 900px) 0px, 132px" />
           </div>
           <div
             className={`${styles["clubs-sticker"]} ${styles["clubs-sticker-two"]}`}
             aria-hidden="true"
           >
-            <Image
-              src={stickerTwo}
-              alt=""
-              fill
-              sizes="(max-width: 900px) 0px, 132px"
-            />
+            <Image src={stickerTwo} alt="" fill sizes="(max-width: 900px) 0px, 132px" />
           </div>
           <div
             className={`${styles["clubs-sticker"]} ${styles["clubs-sticker-three"]}`}
             aria-hidden="true"
           >
-            <Image
-              src={stickerThree}
-              alt=""
-              fill
-              sizes="(max-width: 900px) 0px, 100px"
-            />
+            <Image src={stickerThree} alt="" fill sizes="(max-width: 900px) 0px, 100px" />
           </div>
           <div
             className={`${styles["clubs-sticker"]} ${styles["clubs-sticker-four"]}`}
             aria-hidden="true"
           >
-            <Image
-              src={stickerFour}
-              alt=""
-              fill
-              sizes="(max-width: 900px) 0px, 92px"
-            />
+            <Image src={stickerFour} alt="" fill sizes="(max-width: 900px) 0px, 92px" />
           </div>
         </section>
 
@@ -305,10 +248,7 @@ export default async function ClubPage({ params }: Props) {
           </div>
         </div>
 
-        <section
-          className={styles["clubs-perks"]}
-          aria-labelledby="perks-title"
-        >
+        <section className={styles["clubs-perks"]} aria-labelledby="perks-title">
           <div className={styles["clubs-perks-bg-layer"]} aria-hidden="true">
             <div className={styles["clubs-perks-dots"]} />
             <div className={styles["clubs-perks-glow"]} />
@@ -317,23 +257,13 @@ export default async function ClubPage({ params }: Props) {
             className={`${styles["clubs-perks-photo"]} ${styles["clubs-perks-photo-one"]}`}
             aria-hidden="true"
           >
-            <Image
-              src={perksPhotoOne}
-              alt=""
-              fill
-              sizes="(max-width: 1100px) 0px, 210px"
-            />
+            <Image src={perksPhotoOne} alt="" fill sizes="(max-width: 1100px) 0px, 210px" />
           </div>
           <div
             className={`${styles["clubs-perks-sticker"]} ${styles["clubs-perks-sticker-one"]}`}
             aria-hidden="true"
           >
-            <Image
-              src={perksSticker}
-              alt=""
-              fill
-              sizes="(max-width: 1100px) 0px, 96px"
-            />
+            <Image src={perksSticker} alt="" fill sizes="(max-width: 1100px) 0px, 96px" />
           </div>
           <div className={styles["clubs-perks-heading"]}>
             <p className={styles["clubs-eyebrow"]}>Club perks</p>
@@ -345,9 +275,7 @@ export default async function ClubPage({ params }: Props) {
             <p>Everything your club needs to grow!</p>
           </div>
           <div className={styles["clubs-perks-grid"]}>
-            <article
-              className={`${styles["clubs-perk"]} ${styles["clubs-perk-yellow"]}`}
-            >
+            <article className={`${styles["clubs-perk"]} ${styles["clubs-perk-yellow"]}`}>
               <div
                 className={`${styles["clubs-perk-sticker"]} ${styles["clubs-perk-sticker-sledding"]}`}
                 aria-hidden="true"
@@ -368,10 +296,7 @@ export default async function ClubPage({ params }: Props) {
                 height={48}
               />
               <h3>Club Starter</h3>
-              <p>
-                Create promotional materials for your club. Get up to $100 in
-                funding!
-              </p>
+              <p>Create promotional materials for your club. Get up to $100 in funding!</p>
               <a
                 href="https://startgrant.hackclub.com"
                 target="_blank"
@@ -381,9 +306,7 @@ export default async function ClubPage({ params }: Props) {
                 Explore Club Starter <Arrow />
               </a>
             </article>
-            <article
-              className={`${styles["clubs-perk"]} ${styles["clubs-perk-purple"]}`}
-            >
+            <article className={`${styles["clubs-perk"]} ${styles["clubs-perk-purple"]}`}>
               <div
                 className={`${styles["clubs-perk-sticker"]} ${styles["clubs-perk-sticker-heidi"]}`}
                 aria-hidden="true"
@@ -396,12 +319,27 @@ export default async function ClubPage({ params }: Props) {
               >
                 <Image src={pcbSticker} alt="" fill sizes="44px" />
               </div>
-              <span className={styles["clubs-perk-icon"]}><svg fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round" strokeMiterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="payment" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet" fill="currentColor" width="70" height="70"><path d="M16,7c-0.552,0 -1,0.448 -1,1l0,2.019l2,-0.004l0,-2.015c0,-0.552 -0.448,-1 -1,-1Z"/><path d="M17,24l0,-2.015l-2,0l0,2.015c0,0.552 0.448,1 1,1c0.552,0 1,-0.448 1,-1Z"/><path d="M21.909,12.004c0.107,0.542 -0.358,0.995 -0.91,0.995c-0.552,0.001 -0.942,-0.492 -1.25,-0.95c-0.402,-0.598 -0.499,-1.049 -3.749,-1.049c-3.25,0 -4,0 -4,2c0,2 0.606,2 4,2c5.143,0 6,0.8 6,4c0,2.95 -1.275,3.86 -5,3.985c-0.631,0.021 -1.369,0.021 -2,0c-2.872,-0.096 -4.559,-0.785 -4.924,-2.988c-0.091,-0.545 0.372,-0.997 0.924,-0.997c0.552,0 0.925,0.463 1.075,0.995c0.208,0.736 0.99,1.005 3.925,1.005c4,0 4,-0.5 4,-1.998l0,-0.004c0,-1.498 0,-1.998 -4,-1.998c-5.143,0 -6,-1 -6,-4c0,-2.766 1.275,-3.832 5,-3.981c0.631,-0.026 1.369,-0.025 2,-0.004c3.006,0 4.537,1.096 4.909,2.989Z"/></svg></span>
+              <span className={styles["clubs-perk-icon"]}>
+                <svg
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  strokeLinejoin="round"
+                  strokeMiterlimit="1.414"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-label="payment"
+                  viewBox="0 0 32 32"
+                  preserveAspectRatio="xMidYMid meet"
+                  fill="currentColor"
+                  width="70"
+                  height="70"
+                >
+                  <path d="M16,7c-0.552,0 -1,0.448 -1,1l0,2.019l2,-0.004l0,-2.015c0,-0.552 -0.448,-1 -1,-1Z" />
+                  <path d="M17,24l0,-2.015l-2,0l0,2.015c0,0.552 0.448,1 1,1c0.552,0 1,-0.448 1,-1Z" />
+                  <path d="M21.909,12.004c0.107,0.542 -0.358,0.995 -0.91,0.995c-0.552,0.001 -0.942,-0.492 -1.25,-0.95c-0.402,-0.598 -0.499,-1.049 -3.749,-1.049c-3.25,0 -4,0 -4,2c0,2 0.606,2 4,2c5.143,0 6,0.8 6,4c0,2.95 -1.275,3.86 -5,3.985c-0.631,0.021 -1.369,0.021 -2,0c-2.872,-0.096 -4.559,-0.785 -4.924,-2.988c-0.091,-0.545 0.372,-0.997 0.924,-0.997c0.552,0 0.925,0.463 1.075,0.995c0.208,0.736 0.99,1.005 3.925,1.005c4,0 4,-0.5 4,-1.998l0,-0.004c0,-1.498 0,-1.998 -4,-1.998c-5.143,0 -6,-1 -6,-4c0,-2.766 1.275,-3.832 5,-3.981c0.631,-0.026 1.369,-0.025 2,-0.004c3.006,0 4.537,1.096 4.909,2.989Z" />
+                </svg>
+              </span>
               <h3>Clubs Shop</h3>
-              <p>
-                Stickers, shirts, Raspberry Pis, and more to help your club
-                thrive.
-              </p>
+              <p>Stickers, shirts, Raspberry Pis, and more to help your club thrive.</p>
               <a
                 href="https://clubs.hackclub.com/"
                 target="_blank"
@@ -411,9 +349,7 @@ export default async function ClubPage({ params }: Props) {
                 Visit the shop <Arrow />
               </a>
             </article>
-            <article
-              className={`${styles["clubs-perk"]} ${styles["clubs-perk-blue"]}`}
-            >
+            <article className={`${styles["clubs-perk"]} ${styles["clubs-perk-blue"]}`}>
               <div
                 className={`${styles["clubs-perk-sticker"]} ${styles["clubs-perk-sticker-cascade"]}`}
                 aria-hidden="true"
@@ -429,9 +365,8 @@ export default async function ClubPage({ params }: Props) {
               />
               <h3>Spaces</h3>
               <p>
-                All-in-one web IDE to create, host and collaborate in with
-                over 500 supported languages and a variety of templates to
-                use.
+                All-in-one web IDE to create, host and collaborate in with over 500 supported
+                languages and a variety of templates to use.
               </p>
               <a
                 href="https://spaces.hackclub.com"
@@ -453,11 +388,7 @@ export default async function ClubPage({ params }: Props) {
               Explore all club perks <Arrow />
             </a>
           </div>
-          <Image
-            src={creature1}
-            alt="Canva"
-            className={styles["layover-creature1"]}
-          />
+          <Image src={creature1} alt="Canva" className={styles["layover-creature1"]} />
           <div
             className="wave-container"
             style={{
@@ -509,8 +440,8 @@ export default async function ClubPage({ params }: Props) {
               </h2>
             </div>
             <p>
-              Our YSWS programs reward clubs with coins for shipping projects.
-              Coins can be used in the{" "}
+              Our YSWS programs reward clubs with coins for shipping projects. Coins can be used in
+              the{" "}
               <span>
                 <a href="https://clubs.hackclub.com/">clubs shop</a>!
               </span>
@@ -518,207 +449,171 @@ export default async function ClubPage({ params }: Props) {
           </div>
           <div className={styles["clubs-scroll-wrap"]}>
             <div className={styles["clubs-scroll-container"]}>
-            <ul className={styles["clubs-scroll-row"]}>
-              <li style={{ display: "contents" }}>
-                <a
-                  href="https://boba.hackclub.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`${styles["clubs-project"]} ${styles["clubs-project-bobadrops"]}`}
-                >
-                  <div className={styles["clubs-project-content"]}>
-                    <Image
-                      src={bobaLogo}
-                      alt="Boba Drops"
-                      className={styles["clubs-project-logo"]}
-                    />
-                    <h3>Boba Drops</h3>
-                    <p>
-                      Host a boba workshop for your club, make a website, get free boba!
-                    </p>
-                    <Image
-                      src={bobaOrph}
-                      alt=""
-                      className={styles["clubs-project-icon-bobadrops"]}
-                    />
-                  </div>
-                </a>
-              </li>
-              <li style={{ display: "contents" }}>
-                <a
-                  href="https://fusering.hackclub.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`${styles["clubs-project"]} ${styles["clubs-project-fusering"]}`}
-                >
-                  <Image
-                    src={fuseRingBackground}
-                    alt=""
-                    fill
-                    sizes="275px"
-                    className={styles["clubs-project-background"]}
-                  />
-                  <div className={styles["clubs-project-content"]}>
-                    <Image
-                      src={fuseLogo}
-                      alt=""
-                      className={styles["clubs-project-logo"]}
-                    />
-                    <h3>FuseRing</h3>
-                    <p>
-                      Design a keyring and get it shipped to you with a
-                      backpack clip.
-                    </p>
-                  </div>
-                </a>
-              </li>
-              <li style={{ display: "contents" }}>
-                <a
-                  href="https://sprig.hackclub.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`${styles["clubs-project"]} ${styles["clubs-project-sprig"]}`}
-                >
-                  <Image
-                    src={sprigBackground}
-                    alt=""
-                    fill
-                    sizes="275px"
-                    className={styles["clubs-project-background"]}
-                  />
-                  <div className={styles["clubs-project-content"]}>
-                    <h3>Sprig</h3>
-                    <p>
-                      You ship a game made on the sprig game engine, we ship a sprig console!
-                    </p>
-                    <div className={styles["clubs-project-logo-sprig"]}>
-                      <Image src={sprigLogo} alt="Sprig" />
+              <ul className={styles["clubs-scroll-row"]}>
+                <li style={{ display: "contents" }}>
+                  <a
+                    href="https://boba.hackclub.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${styles["clubs-project"]} ${styles["clubs-project-bobadrops"]}`}
+                  >
+                    <div className={styles["clubs-project-content"]}>
+                      <Image
+                        src={bobaLogo}
+                        alt="Boba Drops"
+                        className={styles["clubs-project-logo"]}
+                      />
+                      <h3>Boba Drops</h3>
+                      <p>Host a boba workshop for your club, make a website, get free boba!</p>
+                      <Image
+                        src={bobaOrph}
+                        alt=""
+                        className={styles["clubs-project-icon-bobadrops"]}
+                      />
                     </div>
-                  </div>
-                </a>
-              </li>
-              <li style={{ display: "contents" }}>
-                <a
-                  href="https://terminalcraft.hackclub.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`${styles["clubs-project"]} ${styles["clubs-project-terminalcraft"]}`}
-                >
-                  <div className={styles["clubs-project-content"]}>
+                  </a>
+                </li>
+                <li style={{ display: "contents" }}>
+                  <a
+                    href="https://fusering.hackclub.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${styles["clubs-project"]} ${styles["clubs-project-fusering"]}`}
+                  >
                     <Image
-                      src={terminalCraftLogo}
+                      src={fuseRingBackground}
                       alt=""
-                      className={styles["clubs-project-logo"]}
+                      fill
+                      sizes="275px"
+                      className={styles["clubs-project-background"]}
                     />
-                    <h3>TerminalCraft</h3>
-                    <p>
-                      Develop a program that runs in the terminal, 
-                      earn a grant to spend on hardware and microcontrollers!
-                    </p>
-                  </div>
-                </a>
-              </li>
-              <li style={{ display: "contents" }}>
-                <a
-                  href="https://swirl.hackclub.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`${styles["clubs-project"]} ${styles["clubs-project-swirl"]}`}
-                >
-                  <div className={styles["clubs-project-content"]}>
+                    <div className={styles["clubs-project-content"]}>
+                      <Image src={fuseLogo} alt="" className={styles["clubs-project-logo"]} />
+                      <h3>FuseRing</h3>
+                      <p>Design a keyring and get it shipped to you with a backpack clip.</p>
+                    </div>
+                  </a>
+                </li>
+                <li style={{ display: "contents" }}>
+                  <a
+                    href="https://sprig.hackclub.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${styles["clubs-project"]} ${styles["clubs-project-sprig"]}`}
+                  >
                     <Image
-                      src={swirlLogo}
+                      src={sprigBackground}
                       alt=""
-                      className={styles["clubs-project-logo"]}
+                      fill
+                      sizes="275px"
+                      className={styles["clubs-project-background"]}
                     />
-                    <p>
-                      Build a cooler website with HTML and CSS, with a unique 
-                      feature like a favicon, and get free ice cream!
-                    </p>
-                    <Image
-                      src={swirlIcon}
-                      alt=""
-                      className={styles["clubs-project-icon-swirl"]}
-                    />
-                  </div>
-                </a>
-              </li>
-              <li style={{ display: "contents" }}>
-                <a
-                  href="https://toppings.hackclub.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`${styles["clubs-project"]} ${styles["clubs-project-toppings"]}`}
-                >
-                  <div className={styles["clubs-project-content"]}>
-                    <Image
-                      src={toppingsLogo}
-                      alt=""
-                      className={styles["clubs-project-logo"]}
-                    />
-                    <p>
-                      Add some extra flavor to your website, with CSS 
-                      and get toppings for your ice cream or boba!
-                    </p>
-                    <Image
-                      src={parrot}
-                      alt=""
-                      unoptimized
-                      className={styles["clubs-project-icon-toppings"]}
-                    />
-                  </div>
-                </a>
-              </li>
-              <li style={{ display: "contents" }}>
-                <a
-                  href="https://waffles.hackclub.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`${styles["clubs-project"]} ${styles["clubs-project-waffles"]}`}
-                >
-                  <div className={styles["clubs-project-content"]}>
-                    <Image
-                      src={wafflesLogo}
-                      alt=""
-                      className={styles["clubs-project-logo"]}
-                    />
-                    <h3>Waffles</h3>
-                    <p>
-                      Make a website that uses JavaScript, 
-                      and get free waffles!
-                    </p>
-                  </div>
-                </a>
-              </li>
-              <li style={{ display: "contents" }}>
-                <a
-                  href="https://downscale.hackclub.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`${styles["clubs-project"]} ${styles["clubs-project-downscale"]}`}
-                >
-                  <div className={styles["clubs-project-content"]}>
-                    <Image
-                      src={downscaleLogo}
-                      alt=""
-                      className={styles["clubs-project-logo"]}
-                    />
-                    <p>
-                      Make a retro game with PICO-8, get a grant for your club!
-                    </p>
-                  </div>
-                </a>
-              </li>
-            </ul>
+                    <div className={styles["clubs-project-content"]}>
+                      <h3>Sprig</h3>
+                      <p>You ship a game made on the sprig game engine, we ship a sprig console!</p>
+                      <div className={styles["clubs-project-logo-sprig"]}>
+                        <Image src={sprigLogo} alt="Sprig" />
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li style={{ display: "contents" }}>
+                  <a
+                    href="https://terminalcraft.hackclub.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${styles["clubs-project"]} ${styles["clubs-project-terminalcraft"]}`}
+                  >
+                    <div className={styles["clubs-project-content"]}>
+                      <Image
+                        src={terminalCraftLogo}
+                        alt=""
+                        className={styles["clubs-project-logo"]}
+                      />
+                      <h3>TerminalCraft</h3>
+                      <p>
+                        Develop a program that runs in the terminal, earn a grant to spend on
+                        hardware and microcontrollers!
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li style={{ display: "contents" }}>
+                  <a
+                    href="https://swirl.hackclub.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${styles["clubs-project"]} ${styles["clubs-project-swirl"]}`}
+                  >
+                    <div className={styles["clubs-project-content"]}>
+                      <Image src={swirlLogo} alt="" className={styles["clubs-project-logo"]} />
+                      <p>
+                        Build a cooler website with HTML and CSS, with a unique feature like a
+                        favicon, and get free ice cream!
+                      </p>
+                      <Image
+                        src={swirlIcon}
+                        alt=""
+                        className={styles["clubs-project-icon-swirl"]}
+                      />
+                    </div>
+                  </a>
+                </li>
+                <li style={{ display: "contents" }}>
+                  <a
+                    href="https://toppings.hackclub.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${styles["clubs-project"]} ${styles["clubs-project-toppings"]}`}
+                  >
+                    <div className={styles["clubs-project-content"]}>
+                      <Image src={toppingsLogo} alt="" className={styles["clubs-project-logo"]} />
+                      <p>
+                        Add some extra flavor to your website, with CSS and get toppings for your
+                        ice cream or boba!
+                      </p>
+                      <Image
+                        src={parrot}
+                        alt=""
+                        unoptimized
+                        className={styles["clubs-project-icon-toppings"]}
+                      />
+                    </div>
+                  </a>
+                </li>
+                <li style={{ display: "contents" }}>
+                  <a
+                    href="https://waffles.hackclub.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${styles["clubs-project"]} ${styles["clubs-project-waffles"]}`}
+                  >
+                    <div className={styles["clubs-project-content"]}>
+                      <Image src={wafflesLogo} alt="" className={styles["clubs-project-logo"]} />
+                      <h3>Waffles</h3>
+                      <p>Make a website that uses JavaScript, and get free waffles!</p>
+                    </div>
+                  </a>
+                </li>
+                <li style={{ display: "contents" }}>
+                  <a
+                    href="https://downscale.hackclub.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${styles["clubs-project"]} ${styles["clubs-project-downscale"]}`}
+                  >
+                    <div className={styles["clubs-project-content"]}>
+                      <Image src={downscaleLogo} alt="" className={styles["clubs-project-logo"]} />
+                      <p>Make a retro game with PICO-8, get a grant for your club!</p>
+                    </div>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
 
-        <section
-          className={styles["clubs-learn"]}
-          id="learn-more"
-          aria-labelledby="learn-title"
-        >
+        <section className={styles["clubs-learn"]} id="learn-more" aria-labelledby="learn-title">
           <p className={styles["clubs-eyebrow"]}>Learn more</p>
           <h2 id="learn-title">Learn more about:</h2>
           <div className={styles["clubs-path-grid"]}>
@@ -766,9 +661,8 @@ export default async function ClubPage({ params }: Props) {
             </h2>
             <div className={styles["clubs-intro-body"]}>
               <p>
-                Slack is where the community hangs out! Slack is a chat app
-                like Discord, but better! It has unlimited custom emojis and
-                uncapped file uploads.
+                Slack is where the community hangs out! Slack is a chat app like Discord, but
+                better! It has unlimited custom emojis and uncapped file uploads.
               </p>
               <a
                 href="https://slack.hackclub.com"

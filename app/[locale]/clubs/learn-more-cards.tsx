@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import type { ReactNode } from "react";
@@ -57,10 +57,9 @@ const newFaqs: Faq[] = [
     q: "What support does Hack Club provide?",
     a: (
       <>
-        A lot! Funding, hardware, ready-to-run workshops, stickers/posters, and
-        support from the Clubs team. Ships earn coins on <ShopLink />,
-        redeemable in the shop for grants, gear, and merch. In return, we ask
-        members to build and ship projects.
+        A lot! Funding, hardware, ready-to-run workshops, stickers/posters, and support from the
+        Clubs team. Ships earn coins on <ShopLink />, redeemable in the shop for grants, gear, and
+        merch. In return, we ask members to build and ship projects.
       </>
     ),
   },
@@ -99,10 +98,9 @@ const convertFaqs: Faq[] = [
     q: "What happens if my club doesn't ship for 6 months?",
     a: (
       <>
-        The club gets marked dormant (you may see 0 members/ships even if your
-        roster is fine). No worries though, just head to <ApplyLink />{" "}
-        and use the option to reconnect/&quot;rescue&quot; your existing club
-        rather than starting over.
+        The club gets marked dormant (you may see 0 members/ships even if your roster is fine). No
+        worries though, just head to <ApplyLink /> and use the option to
+        reconnect/&quot;rescue&quot; your existing club rather than starting over.
       </>
     ),
   },
@@ -110,10 +108,9 @@ const convertFaqs: Faq[] = [
     q: "What are the benefits of becoming a Hack Club?",
     a: (
       <>
-        Access to Hack Club&apos;s community, workshops, funding tools,
-        hardware perks, and coins from shipped projects, redeemable in the{" "}
-        <ShopLink />! The only ongoing requirement: ship every 6 months, meet
-        mainly in-person.
+        Access to Hack Club&apos;s community, workshops, funding tools, hardware perks, and coins
+        from shipped projects, redeemable in the <ShopLink />! The only ongoing requirement: ship
+        every 6 months, meet mainly in-person.
       </>
     ),
   },
@@ -175,19 +172,27 @@ function FaqItem({ faq, index, styles }: { faq: Faq; index: number; styles: Styl
   );
 }
 
+const noopSubscribe = () => () => {};
+const useIsMounted = () =>
+  useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false,
+  );
+
 export function LearnMoreCards({ styles }: { styles: Styles }) {
   const [open, setOpen] = useState<ModalKind>(null);
-  const [mounted, setMounted] = useState(false);
-  const [decor, setDecor] = useState<Decor>({ photos: [], stickers: [] });
-
-  useEffect(() => setMounted(true), []);
+  const mounted = useIsMounted();
+  const decor = useMemo<Decor>(() => {
+    if (!open) return { photos: [], stickers: [] };
+    return {
+      photos: shuffle(IMAGES).slice(0, 2),
+      stickers: shuffle(STICKERS).slice(0, 2),
+    };
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
-    setDecor({
-      photos: shuffle(IMAGES).slice(0, 2),
-      stickers: shuffle(STICKERS).slice(0, 2),
-    });
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(null);
     };
@@ -226,12 +231,8 @@ export function LearnMoreCards({ styles }: { styles: Styles }) {
             />
             <div className={styles["clubs-joining-card-overlay"]} />
             <div className={styles["clubs-joining-card-content"]}>
-              <h3 className={styles["clubs-joining-card-title"]}>
-                {card.title}
-              </h3>
-              <p className={styles["clubs-joining-card-body"]}>
-                {card.description}
-              </p>
+              <h3 className={styles["clubs-joining-card-title"]}>{card.title}</h3>
+              <p className={styles["clubs-joining-card-body"]}>{card.description}</p>
               <span className={`${styles["clubs-joining-card-link"]} cta-btn`}>
                 Learn more <Arrow />
               </span>
@@ -240,90 +241,92 @@ export function LearnMoreCards({ styles }: { styles: Styles }) {
         );
       })}
 
-      {modal && mounted && createPortal(
-        <div
-          className={styles["clubs-modal-backdrop"]}
-          role="presentation"
-          onMouseDown={(event) => {
-            if (event.target === event.currentTarget) setOpen(null);
-          }}
-        >
-          {decor.photos[0] && (
-            <div
-              className={`${styles["clubs-modal-decor-photo"]} ${styles["clubs-modal-decor-photo-left"]}`}
-              aria-hidden="true"
-            >
-              <Image src={decor.photos[0]} alt="" fill sizes="190px" />
-            </div>
-          )}
-          {decor.photos[1] && (
-            <div
-              className={`${styles["clubs-modal-decor-photo"]} ${styles["clubs-modal-decor-photo-right"]}`}
-              aria-hidden="true"
-            >
-              <Image src={decor.photos[1]} alt="" fill sizes="190px" />
-            </div>
-          )}
-          {decor.stickers[0] && (
-            <div
-              className={`${styles["clubs-modal-decor-sticker"]} ${styles["clubs-modal-decor-sticker-left"]}`}
-              aria-hidden="true"
-            >
-              <Image src={decor.stickers[0]} alt="" fill sizes="110px" />
-            </div>
-          )}
-          {decor.stickers[1] && (
-            <div
-              className={`${styles["clubs-modal-decor-sticker"]} ${styles["clubs-modal-decor-sticker-right"]}`}
-              aria-hidden="true"
-            >
-              <Image src={decor.stickers[1]} alt="" fill sizes="110px" />
-            </div>
-          )}
-          <dialog
-            open
-            className={styles["clubs-modal"]}
-            aria-modal="true"
-            aria-labelledby="clubs-modal-title"
+      {modal &&
+        mounted &&
+        createPortal(
+          <div
+            className={styles["clubs-modal-backdrop"]}
+            role="presentation"
+            onMouseDown={(event) => {
+              if (event.target === event.currentTarget) setOpen(null);
+            }}
           >
-            <Image
-              src={modal.bg}
-              alt=""
-              fill
-              sizes="620px"
-              className={styles["clubs-modal-photo"]}
-            />
-            <div className={styles["clubs-modal-photo-overlay"]} />
-            <button
-              type="button"
-              className={styles["clubs-modal-close"]}
-              onClick={() => setOpen(null)}
-              aria-label="Close"
+            {decor.photos[0] && (
+              <div
+                className={`${styles["clubs-modal-decor-photo"]} ${styles["clubs-modal-decor-photo-left"]}`}
+                aria-hidden="true"
+              >
+                <Image src={decor.photos[0]} alt="" fill sizes="190px" />
+              </div>
+            )}
+            {decor.photos[1] && (
+              <div
+                className={`${styles["clubs-modal-decor-photo"]} ${styles["clubs-modal-decor-photo-right"]}`}
+                aria-hidden="true"
+              >
+                <Image src={decor.photos[1]} alt="" fill sizes="190px" />
+              </div>
+            )}
+            {decor.stickers[0] && (
+              <div
+                className={`${styles["clubs-modal-decor-sticker"]} ${styles["clubs-modal-decor-sticker-left"]}`}
+                aria-hidden="true"
+              >
+                <Image src={decor.stickers[0]} alt="" fill sizes="110px" />
+              </div>
+            )}
+            {decor.stickers[1] && (
+              <div
+                className={`${styles["clubs-modal-decor-sticker"]} ${styles["clubs-modal-decor-sticker-right"]}`}
+                aria-hidden="true"
+              >
+                <Image src={decor.stickers[1]} alt="" fill sizes="110px" />
+              </div>
+            )}
+            <dialog
+              open
+              className={styles["clubs-modal"]}
+              aria-modal="true"
+              aria-labelledby="clubs-modal-title"
             >
-              ×
-            </button>
-            <h3 id="clubs-modal-title" className={styles["clubs-modal-title"]}>
-              {modal.modalTitle}
-            </h3>
+              <Image
+                src={modal.bg}
+                alt=""
+                fill
+                sizes="620px"
+                className={styles["clubs-modal-photo"]}
+              />
+              <div className={styles["clubs-modal-photo-overlay"]} />
+              <button
+                type="button"
+                className={styles["clubs-modal-close"]}
+                onClick={() => setOpen(null)}
+                aria-label="Close"
+              >
+                ×
+              </button>
+              <h3 id="clubs-modal-title" className={styles["clubs-modal-title"]}>
+                {modal.modalTitle}
+              </h3>
 
-            <div className={styles["clubs-modal-faqs"]}>
-              {modal.faqs.map((faq, index) => (
-                <FaqItem key={faq.q} faq={faq} index={index} styles={styles} />
-              ))}
-            </div>
+              <div className={styles["clubs-modal-faqs"]}>
+                {modal.faqs.map((faq, index) => (
+                  <FaqItem key={faq.q} faq={faq} index={index} styles={styles} />
+                ))}
+              </div>
 
-            <a
-              href="https://apply.hackclub.com"
-              target="_blank"
-              rel="noreferrer"
-              className={`${styles["clubs-modal-cta"]} cta-btn`}
-            >
-              Apply to Hack Club <Arrow />
-            </a>
-          </dialog>
-        </div>,
-        document.body,
-      )}
+              <a
+                href="https://apply.hackclub.com"
+                target="_blank"
+                rel="noreferrer"
+                className={`${styles["clubs-modal-cta"]} cta-btn`}
+              >
+                Apply to Hack Club <Arrow />
+              </a>
+            </dialog>
+          </div>,
+          document.body,
+        )}
     </>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 
 type Styles = Record<string, string>;
@@ -10,7 +10,11 @@ type StatKey = "online" | "channels" | "messages" | "members";
 type Stat = {
   key: StatKey;
   value: number;
-  labelKey: "joiningStatOnline" | "joiningStatChannels" | "joiningStatMessages" | "joiningStatMembers";
+  labelKey:
+    | "joiningStatOnline"
+    | "joiningStatChannels"
+    | "joiningStatMessages"
+    | "joiningStatMembers";
 };
 
 type SlackApiSnapshot = {
@@ -100,15 +104,26 @@ function StatIcon({ statKey }: { statKey: StatKey }) {
   );
 }
 
+function subscribeToReducedMotion(callback: () => void) {
+  const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  mediaQuery.addEventListener("change", callback);
+  return () => mediaQuery.removeEventListener("change", callback);
+}
+
+function usePrefersReducedMotion() {
+  return useSyncExternalStore(
+    subscribeToReducedMotion,
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    () => false,
+  );
+}
+
 function useCountUp(target: number, animate: boolean, delayMs: number) {
+  const reducedMotion = usePrefersReducedMotion();
   const [value, setValue] = useState(0);
 
   useEffect(() => {
-    if (!animate) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setValue(target);
-      return;
-    }
+    if (!animate || reducedMotion) return;
 
     let raf = 0;
     const duration = 900;
@@ -121,9 +136,9 @@ function useCountUp(target: number, animate: boolean, delayMs: number) {
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [animate, target, delayMs]);
+  }, [animate, reducedMotion, target, delayMs]);
 
-  return value;
+  return animate && reducedMotion ? target : value;
 }
 
 function StatBadge({
@@ -187,7 +202,13 @@ export function SlackStats({ styles }: { styles: Styles }) {
   return (
     <div ref={containerRef} className={styles["clubs-slack-stats"]}>
       {stats.map((stat, index) => (
-        <StatBadge key={stat.key} stat={stat} styles={styles} animate={visible} delay={index * 80} />
+        <StatBadge
+          key={stat.key}
+          stat={stat}
+          styles={styles}
+          animate={visible}
+          delay={index * 80}
+        />
       ))}
     </div>
   );
