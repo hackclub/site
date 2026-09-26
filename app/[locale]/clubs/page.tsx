@@ -340,7 +340,7 @@ export default async function ClubPage({ params }: Props) {
               <h3>{t("shopTitle")}</h3>
               <p>{t("shopBody")}</p>
               <a
-                href="https://clubs.hackclub.com/"
+                href="https://clubs.hackclub.com/shop"
                 target="_blank"
                 rel="noreferrer"
                 className={`${styles["clubs-joining-card-cta"]} cta-btn`}
@@ -438,7 +438,7 @@ export default async function ClubPage({ params }: Props) {
             <p>
               {t.rich("yswsBody", {
                 hl: (chunks) => <span>{chunks}</span>,
-                shop: (chunks) => <a href="https://clubs.hackclub.com/">{chunks}</a>,
+                shop: (chunks) => <a href="https://clubs.hackclub.com/shop">{chunks}</a>,
               })}
             </p>
           </div>

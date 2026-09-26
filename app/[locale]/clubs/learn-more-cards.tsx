@@ -20,7 +20,7 @@ const applyLink = (chunks: ReactNode) => (
 );
 
 const shopLink = (chunks: ReactNode) => (
-  <a href="https://clubs.hackclub.com" target="_blank" rel="noreferrer">
+  <a href="https://clubs.hackclub.com/shop" target="_blank" rel="noreferrer">
     {chunks}
   </a>
 );
