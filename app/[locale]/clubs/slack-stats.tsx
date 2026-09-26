@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { useTranslations } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
 
 type Styles = Record<string, string>;
 
@@ -153,6 +153,7 @@ function StatBadge({
   delay: number;
 }) {
   const t = useTranslations("Home");
+  const format = useFormatter();
   const value = useCountUp(stat.value, animate, delay);
 
   return (
@@ -165,7 +166,7 @@ function StatBadge({
         <StatIcon statKey={stat.key} />
       </span>
       <span className={styles["clubs-slack-stat-text"]}>
-        <strong>{value.toLocaleString("en-US")}</strong> {t(stat.labelKey)}
+        <strong>{format.number(value)}</strong> {t(stat.labelKey)}
       </span>
     </div>
   );

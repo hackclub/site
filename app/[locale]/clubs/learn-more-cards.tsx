@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import type { ReactNode } from "react";
+import { useTranslations } from "next-intl";
 import { BtnArrowSvg } from "@/components/landing/btn-arrow";
 import { IMAGES, STICKERS, shuffle } from "./random-media";
 
@@ -12,126 +13,76 @@ type ModalKind = "new" | "convert" | null;
 type Decor = { photos: string[]; stickers: string[] };
 type Faq = { q: string; a: ReactNode };
 
-const ApplyLink = () => (
+const applyLink = (chunks: ReactNode) => (
   <a href="https://apply.hackclub.com" target="_blank" rel="noreferrer">
-    apply.hackclub.com
+    {chunks}
   </a>
 );
 
-const ShopLink = () => (
+const shopLink = (chunks: ReactNode) => (
   <a href="https://clubs.hackclub.com" target="_blank" rel="noreferrer">
-    clubs.hackclub.com
+    {chunks}
   </a>
 );
 
-const newFaqs: Faq[] = [
-  {
-    q: "What is Hack Club?",
-    a: "A global nonprofit network of student-led coding clubs! Your club can be a place to code, build hardware, learn together, or experiment, whatever your members want.",
-  },
-  {
-    q: "Do I need to be an experienced programmer to start one?",
-    a: "Nope! Start with what you know and learn alongside your members as you go.",
-  },
-  {
-    q: "Who can join, and is there an age requirement?",
-    a: "Members must be 13–18 and able to attend your in-person meetings; they don't need to attend your school, so feel free to invite friends from anywhere nearby!",
-  },
-  {
-    q: "Do meetings have to be in person?",
-    a: "Yes, that's the main format. Online meetings can supplement it, but your club needs an established space (classroom, library, makerspace, cafe, etc.) for in-person meetings.",
-  },
-  {
-    q: "Do I need a teacher to start a Hack Club?",
-    a: "Not required by Hack Club, but recommended! Many schools require an adult supervisor for approval, and one can help with logistics like booking a room.",
-  },
-  {
-    q: "Can there be multiple Hack Clubs at my school?",
-    a: "Yes, if your school can support them without clubs competing for the same members or resources!",
-  },
-  {
-    q: "What can my Hack Club do?",
-    a: "Anything your members are excited about: workshops, projects, hackathons, hardware, you name it! You're not required to follow Hack Club's official programs (YSWS); other activities can often still count toward funding if real projects are being shipped.",
-  },
-  {
-    q: "What support does Hack Club provide?",
-    a: (
-      <>
-        A lot! Funding, hardware, ready-to-run workshops, stickers/posters, and support from the
-        Clubs team. Ships earn coins on <ShopLink />, redeemable in the shop for grants, gear, and
-        merch. In return, we ask members to build and ship projects.
-      </>
-    ),
-  },
-  {
-    q: "Can I add co-leaders?",
-    a: "Yes! The main leader can promote any member to co-leader from the members page.",
-  },
-  {
-    q: "What are the steps to start a club?",
-    a: (
-      <ol>
-        <li>
-          Apply at <ApplyLink /> (~10 min).
-        </li>
-        <li>Get school approval.</li>
-        <li>Run your first meeting and ship something!</li>
-      </ol>
-    ),
-  },
-];
+const NEW_FAQS = [
+  "whatIs",
+  "experience",
+  "ages",
+  "inPerson",
+  "teacher",
+  "multiple",
+  "activities",
+  "support",
+  "coLeaders",
+] as const;
 
-const convertFaqs: Faq[] = [
-  {
-    q: "If I convert my existing club into a Hack Club, do we have to do anything differently?",
-    a: "Nope! Keep your current name, members, and schedule while getting access to Hack Club's resources.",
-  },
-  {
-    q: "Do we have to only participate in Hack Club's programs?",
-    a: "No. Programs are optional; run your own workshops, hackathons, or other activities, whatever gets your members excited!",
-  },
-  {
-    q: "What are the requirements to stay an active club?",
-    a: "Ship at least one project every 6 months (by any leader or member), with meetings that are mainly in-person. That's it!",
-  },
-  {
-    q: "What happens if my club doesn't ship for 6 months?",
-    a: (
-      <>
-        The club gets marked dormant (you may see 0 members/ships even if your roster is fine). No
-        worries though, just head to <ApplyLink /> and use the option to
-        reconnect/&quot;rescue&quot; your existing club rather than starting over.
-      </>
-    ),
-  },
-  {
-    q: "What are the benefits of becoming a Hack Club?",
-    a: (
-      <>
-        Access to Hack Club&apos;s community, workshops, funding tools, hardware perks, and coins
-        from shipped projects, redeemable in the <ShopLink />! The only ongoing requirement: ship
-        every 6 months, meet mainly in-person.
-      </>
-    ),
-  },
-];
+const CONVERT_FAQS = ["sameClub", "programs", "requirements", "dormant", "benefits"] as const;
 
 const content = {
-  new: {
-    title: "Starting a new club",
-    description: "Start a new Hack Club!",
-    modalTitle: "Starting a Hack Club",
-    bg: "/assets/backImg2.webp",
-    faqs: newFaqs,
-  },
-  convert: {
-    title: "Converting an existing club",
-    description: "Turn your existing club into a Hack Club!",
-    modalTitle: "Converting an existing club",
-    bg: "/assets/backImg6.webp",
-    faqs: convertFaqs,
-  },
+  new: { bg: "/assets/backImg2.webp" },
+  convert: { bg: "/assets/backImg6.webp" },
 } as const;
+
+function useFaqs(kind: Exclude<ModalKind, null>): Faq[] {
+  const t = useTranslations("Clubs");
+  const links = { apply: applyLink, shop: shopLink };
+
+  if (kind === "convert") {
+    return CONVERT_FAQS.map((id) => ({
+      q: t(`convertFaqs.${id}.q`),
+      a: t.rich(`convertFaqs.${id}.a`, links),
+    }));
+  }
+
+  return [
+    ...NEW_FAQS.map((id) => ({
+      q: t(`newFaqs.${id}.q`),
+      a: t.rich(`newFaqs.${id}.a`, links),
+    })),
+    {
+      q: t("newFaqs.steps.q"),
+      a: (
+        <ol>
+          <li>{t.rich("newFaqs.steps.step1", links)}</li>
+          <li>{t("newFaqs.steps.step2")}</li>
+          <li>{t("newFaqs.steps.step3")}</li>
+        </ol>
+      ),
+    },
+  ];
+}
+
+function FaqList({ kind, styles }: { kind: Exclude<ModalKind, null>; styles: Styles }) {
+  const faqs = useFaqs(kind);
+  return (
+    <>
+      {faqs.map((faq, index) => (
+        <FaqItem key={faq.q} faq={faq} index={index} styles={styles} />
+      ))}
+    </>
+  );
+}
 
 const Arrow = () => (
   <span className="btn-arrow" aria-hidden="true">
@@ -181,6 +132,7 @@ const useIsMounted = () =>
   );
 
 export function LearnMoreCards({ styles }: { styles: Styles }) {
+  const t = useTranslations("Clubs");
   const [open, setOpen] = useState<ModalKind>(null);
   const mounted = useIsMounted();
   const decor = useMemo<Decor>(() => {
@@ -209,8 +161,6 @@ export function LearnMoreCards({ styles }: { styles: Styles }) {
     };
   }, [open]);
 
-  const modal = open ? content[open] : null;
-
   return (
     <>
       {(["new", "convert"] as const).map((kind) => {
@@ -231,17 +181,17 @@ export function LearnMoreCards({ styles }: { styles: Styles }) {
             />
             <div className={styles["clubs-joining-card-overlay"]} />
             <div className={styles["clubs-joining-card-content"]}>
-              <h3 className={styles["clubs-joining-card-title"]}>{card.title}</h3>
-              <p className={styles["clubs-joining-card-body"]}>{card.description}</p>
+              <h3 className={styles["clubs-joining-card-title"]}>{t(`${kind}Title`)}</h3>
+              <p className={styles["clubs-joining-card-body"]}>{t(`${kind}Body`)}</p>
               <span className={`${styles["clubs-joining-card-link"]} cta-btn`}>
-                Learn more <Arrow />
+                {t("learnMore")} <Arrow />
               </span>
             </div>
           </button>
         );
       })}
 
-      {modal &&
+      {open &&
         mounted &&
         createPortal(
           <div
@@ -290,7 +240,7 @@ export function LearnMoreCards({ styles }: { styles: Styles }) {
               aria-labelledby="clubs-modal-title"
             >
               <Image
-                src={modal.bg}
+                src={content[open].bg}
                 alt=""
                 fill
                 sizes="620px"
@@ -301,18 +251,16 @@ export function LearnMoreCards({ styles }: { styles: Styles }) {
                 type="button"
                 className={styles["clubs-modal-close"]}
                 onClick={() => setOpen(null)}
-                aria-label="Close"
+                aria-label={t("close")}
               >
                 ×
               </button>
               <h3 id="clubs-modal-title" className={styles["clubs-modal-title"]}>
-                {modal.modalTitle}
+                {t(`${open}ModalTitle`)}
               </h3>
 
               <div className={styles["clubs-modal-faqs"]}>
-                {modal.faqs.map((faq, index) => (
-                  <FaqItem key={faq.q} faq={faq} index={index} styles={styles} />
-                ))}
+                <FaqList kind={open} styles={styles} />
               </div>
 
               <a
@@ -321,7 +269,7 @@ export function LearnMoreCards({ styles }: { styles: Styles }) {
                 rel="noreferrer"
                 className={`${styles["clubs-modal-cta"]} cta-btn`}
               >
-                Apply to Hack Club <Arrow />
+                {t("applyCta")} <Arrow />
               </a>
             </dialog>
           </div>,

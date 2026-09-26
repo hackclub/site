@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
+import { useTranslations } from "next-intl";
 import { isValidEmail } from "@/lib/email";
 
 const F = "var(--font-phantom)";
@@ -21,6 +22,7 @@ const inputStyle = {
 };
 
 export function TeachersEmailSignup() {
+  const t = useTranslations("Teachers");
   const idPrefix = useId().replace(/:/g, "");
   const firstNameId = `${idPrefix}-first-name`;
   const lastNameId = `${idPrefix}-last-name`;
@@ -34,12 +36,12 @@ export function TeachersEmailSignup() {
   const submit = async () => {
     if (!firstName.trim() || !lastName.trim()) {
       setStatus("error");
-      setErrorMsg("Enter your first and last name");
+      setErrorMsg(t("invalidName"));
       return;
     }
     if (!isValidEmail(email)) {
       setStatus("error");
-      setErrorMsg("Enter a valid email address");
+      setErrorMsg(t("invalidEmail"));
       return;
     }
     setStatus("loading");
@@ -54,21 +56,17 @@ export function TeachersEmailSignup() {
         }),
       });
       if (!res.ok) {
-        const data = await res.json().catch(() => null);
         setStatus("error");
-        setErrorMsg(
-          (typeof data?.error === "string" && data.error) ||
-            `Something went wrong — try again (status ${res.status})`,
-        );
+        setErrorMsg(t("genericError"));
         return;
       }
       setStatus("success");
       setFirstName("");
       setLastName("");
       setEmail("");
-    } catch (err) {
+    } catch {
       setStatus("error");
-      setErrorMsg(err instanceof Error && err.message ? err.message : "Network error — try again");
+      setErrorMsg(t("networkError"));
     }
   };
 
@@ -96,7 +94,7 @@ export function TeachersEmailSignup() {
         <input
           id={firstNameId}
           type="text"
-          placeholder="first name"
+          placeholder={t("firstNamePlaceholder")}
           value={firstName}
           onChange={(e) => {
             setFirstName(e.target.value);
@@ -108,7 +106,7 @@ export function TeachersEmailSignup() {
         <input
           id={lastNameId}
           type="text"
-          placeholder="last name"
+          placeholder={t("lastNamePlaceholder")}
           value={lastName}
           onChange={(e) => {
             setLastName(e.target.value);
@@ -121,7 +119,7 @@ export function TeachersEmailSignup() {
       <input
         id={emailId}
         type="email"
-        placeholder="email"
+        placeholder={t("emailPlaceholder")}
         value={email}
         onChange={(e) => {
           setEmail(e.target.value);
@@ -151,11 +149,7 @@ export function TeachersEmailSignup() {
           cursor: disabled ? "default" : "pointer",
         }}
       >
-        {status === "success"
-          ? "Thanks — we'll be in touch!"
-          : status === "loading"
-            ? "…"
-            : "Express my interest"}
+        {status === "success" ? t("success") : status === "loading" ? "…" : t("submit")}
       </button>
       {status === "error" && (
         <p

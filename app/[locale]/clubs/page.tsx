@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
@@ -10,7 +10,7 @@ import { LearnMoreCards } from "./learn-more-cards";
 import { SlackStats } from "./slack-stats";
 import { IMAGES, STICKERS, shuffle } from "./random-media";
 import { buildPageMetadata } from "@/lib/seo";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import slackLogo from "./assets/slack.svg";
 import cascadeSticker from "./assets/cascade.avif";
 import sleddingSticker from "./assets/sledding.avif";
@@ -40,9 +40,10 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Clubs" });
   return buildPageMetadata({
-    title: "Hack Clubs",
-    description: "A place for high school hackers to build together!",
+    title: t("metaTitle"),
+    description: t("metaDescription"),
     canonical: "/clubs",
     locale,
   });
@@ -87,11 +88,13 @@ function JoiningCard({
 function PathCard({
   title,
   description,
+  cta,
   href,
   bg,
 }: {
   title: string;
   description: string;
+  cta: string;
   href: string;
   bg: string;
 }) {
@@ -99,7 +102,7 @@ function PathCard({
     <Link href={href} className={styles["clubs-joining-card"]}>
       <JoiningCard title={title} description={description} bg={bg}>
         <span className={`${styles["clubs-joining-card-link"]} cta-btn`}>
-          Learn more <Arrow />
+          {cta} <Arrow />
         </span>
       </JoiningCard>
     </Link>
@@ -109,6 +112,14 @@ function PathCard({
 export default async function ClubPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("Clubs");
+  const marquee = [
+    t("marqueeCode"),
+    t("marqueeFriends"),
+    t("marqueeBuild"),
+    t("marqueeBoba"),
+    t("marqueeRewards"),
+  ];
 
   const [photoOne, photoTwo, photoThree, photoFour, photoFive, photoSix, perksPhotoOne] =
     shuffle(IMAGES);
@@ -156,16 +167,9 @@ export default async function ClubPage({ params }: Props) {
             <Image src={photoSix} alt="" fill sizes="(max-width: 1100px) 0px, 160px" />
           </div>
           <div className={styles["clubs-hero-inner"]}>
-            <p className={styles["clubs-eyebrow"]}>Hack Club presents</p>
-            <h1>
-              Your school&apos;s
-              <span>most interesting</span>
-              room!
-            </h1>
-            <p className={styles["clubs-hero-copy"]}>
-              A worldwide network of high school coding clubs. Make cool things, find people who
-              share your interests, and get help from a community of hackers!
-            </p>
+            <p className={styles["clubs-eyebrow"]}>{t("heroEyebrow")}</p>
+            <h1>{t.rich("heroTitle", { accent: (chunks) => <span>{chunks}</span> })}</h1>
+            <p className={styles["clubs-hero-copy"]}>{t("heroCopy")}</p>
             <div className={styles["clubs-actions"]}>
               <a
                 className={`${styles["clubs-button"]} ${styles["clubs-button-red"]} cta-btn`}
@@ -173,7 +177,7 @@ export default async function ClubPage({ params }: Props) {
                 target="_blank"
                 rel="noreferrer"
               >
-                Start a club <Arrow />
+                {t("startClub")} <Arrow />
               </a>
               <a
                 className={`${styles["clubs-button"]} ${styles["clubs-button-outline"]} cta-btn`}
@@ -181,17 +185,20 @@ export default async function ClubPage({ params }: Props) {
                 target="_blank"
                 rel="noreferrer"
               >
-                Sign in
+                {t("signIn")}
               </a>
               <a className={styles["clubs-text-link"]} href="#learn-more">
-                Learn more <span aria-hidden="true">↓</span>
+                {t("learnMore")} <span aria-hidden="true">↓</span>
               </a>
             </div>
             <p className={styles["clubs-hero-signin-note"]}>
-              Club member?{" "}
-              <a href="https://clubs.hackclub.com/auth/member" target="_blank" rel="noreferrer">
-                Sign in with email
-              </a>
+              {t.rich("memberSignIn", {
+                link: (chunks) => (
+                  <a href="https://clubs.hackclub.com/auth/member" target="_blank" rel="noreferrer">
+                    {chunks}
+                  </a>
+                ),
+              })}
             </p>
           </div>
           <div
@@ -222,29 +229,21 @@ export default async function ClubPage({ params }: Props) {
 
         <div className={styles["clubs-marquee"]}>
           <div>
-            <span>CODE TOGETHER</span>
-            <i>✦</i>
-            <span>MAKE FRIENDS</span>
-            <i>✦</i>
-            <span>BUILD COOL STUFF</span>
-            <i>✦</i>
-            <span>DRINK BOBA</span>
-            <i>✦</i>
-            <span>GET REWARDS</span>
-            <i>✦</i>
+            {marquee.map((item) => (
+              <Fragment key={item}>
+                <span>{item}</span>
+                <i>✦</i>
+              </Fragment>
+            ))}
           </div>
 
           <div aria-hidden="true">
-            <span>CODE TOGETHER</span>
-            <i>✦</i>
-            <span>MAKE FRIENDS</span>
-            <i>✦</i>
-            <span>BUILD COOL STUFF</span>
-            <i>✦</i>
-            <span>DRINK BOBA</span>
-            <i>✦</i>
-            <span>GET REWARDS</span>
-            <i>✦</i>
+            {marquee.map((item) => (
+              <Fragment key={item}>
+                <span>{item}</span>
+                <i>✦</i>
+              </Fragment>
+            ))}
           </div>
         </div>
 
@@ -266,13 +265,13 @@ export default async function ClubPage({ params }: Props) {
             <Image src={perksSticker} alt="" fill sizes="(max-width: 1100px) 0px, 96px" />
           </div>
           <div className={styles["clubs-perks-heading"]}>
-            <p className={styles["clubs-eyebrow"]}>Club perks</p>
+            <p className={styles["clubs-eyebrow"]}>{t("perksEyebrow")}</p>
             <h2 id="perks-title">
-              Perks we offer your club.
+              {t("perksTitle1")}
               <br />
-              For free!
+              {t("perksTitle2")}
             </h2>
-            <p>Everything your club needs to grow!</p>
+            <p>{t("perksBody")}</p>
           </div>
           <div className={styles["clubs-perks-grid"]}>
             <article className={`${styles["clubs-perk"]} ${styles["clubs-perk-yellow"]}`}>
@@ -295,15 +294,15 @@ export default async function ClubPage({ params }: Props) {
                 width={48}
                 height={48}
               />
-              <h3>Club Starter</h3>
-              <p>Create promotional materials for your club. Get up to $100 in funding!</p>
+              <h3>{t("starterTitle")}</h3>
+              <p>{t("starterBody")}</p>
               <a
                 href="https://startgrant.hackclub.com"
                 target="_blank"
                 rel="noreferrer"
                 className={`${styles["clubs-joining-card-cta"]} cta-btn`}
               >
-                Explore Club Starter <Arrow />
+                {t("starterCta")} <Arrow />
               </a>
             </article>
             <article className={`${styles["clubs-perk"]} ${styles["clubs-perk-purple"]}`}>
@@ -326,7 +325,7 @@ export default async function ClubPage({ params }: Props) {
                   strokeLinejoin="round"
                   strokeMiterlimit="1.414"
                   xmlns="http://www.w3.org/2000/svg"
-                  aria-label="payment"
+                  aria-label={t("shopIconLabel")}
                   viewBox="0 0 32 32"
                   preserveAspectRatio="xMidYMid meet"
                   fill="currentColor"
@@ -338,15 +337,15 @@ export default async function ClubPage({ params }: Props) {
                   <path d="M21.909,12.004c0.107,0.542 -0.358,0.995 -0.91,0.995c-0.552,0.001 -0.942,-0.492 -1.25,-0.95c-0.402,-0.598 -0.499,-1.049 -3.749,-1.049c-3.25,0 -4,0 -4,2c0,2 0.606,2 4,2c5.143,0 6,0.8 6,4c0,2.95 -1.275,3.86 -5,3.985c-0.631,0.021 -1.369,0.021 -2,0c-2.872,-0.096 -4.559,-0.785 -4.924,-2.988c-0.091,-0.545 0.372,-0.997 0.924,-0.997c0.552,0 0.925,0.463 1.075,0.995c0.208,0.736 0.99,1.005 3.925,1.005c4,0 4,-0.5 4,-1.998l0,-0.004c0,-1.498 0,-1.998 -4,-1.998c-5.143,0 -6,-1 -6,-4c0,-2.766 1.275,-3.832 5,-3.981c0.631,-0.026 1.369,-0.025 2,-0.004c3.006,0 4.537,1.096 4.909,2.989Z" />
                 </svg>
               </span>
-              <h3>Clubs Shop</h3>
-              <p>Stickers, shirts, Raspberry Pis, and more to help your club thrive.</p>
+              <h3>{t("shopTitle")}</h3>
+              <p>{t("shopBody")}</p>
               <a
                 href="https://clubs.hackclub.com/"
                 target="_blank"
                 rel="noreferrer"
                 className={`${styles["clubs-joining-card-cta"]} cta-btn`}
               >
-                Visit the shop <Arrow />
+                {t("shopCta")} <Arrow />
               </a>
             </article>
             <article className={`${styles["clubs-perk"]} ${styles["clubs-perk-blue"]}`}>
@@ -364,17 +363,14 @@ export default async function ClubPage({ params }: Props) {
                 height={48}
               />
               <h3>Spaces</h3>
-              <p>
-                All-in-one web IDE to create, host and collaborate in with over 500 supported
-                languages and a variety of templates to use.
-              </p>
+              <p>{t("spacesBody")}</p>
               <a
                 href="https://spaces.hackclub.com"
                 target="_blank"
                 rel="noreferrer"
                 className={`${styles["clubs-joining-card-cta"]} cta-btn`}
               >
-                Explore Spaces <Arrow />
+                {t("spacesCta")} <Arrow />
               </a>
             </article>
           </div>
@@ -385,7 +381,7 @@ export default async function ClubPage({ params }: Props) {
               rel="noreferrer"
               className={`${styles["clubs-text-link"]} cta-btn`}
             >
-              Explore all club perks <Arrow />
+              {t("allPerksCta")} <Arrow />
             </a>
           </div>
           <Image src={creature1} alt="Canva" className={styles["layover-creature1"]} />
@@ -432,19 +428,18 @@ export default async function ClubPage({ params }: Props) {
         <section className={styles["clubs-ysws"]} aria-labelledby="ysws-title">
           <div className={styles["clubs-ysws-top"]}>
             <div>
-              <p className={styles["clubs-eyebrow"]}>Popular YSWS</p>
+              <p className={styles["clubs-eyebrow"]}>{t("yswsEyebrow")}</p>
               <h2 id="ysws-title">
-                You ship.
+                {t("yswsTitle1")}
                 <br />
-                <span>We ship!</span>
+                <span>{t("yswsTitle2")}</span>
               </h2>
             </div>
             <p>
-              Our YSWS programs reward clubs with coins for shipping projects. Coins can be used in
-              the{" "}
-              <span>
-                <a href="https://clubs.hackclub.com/">clubs shop</a>!
-              </span>
+              {t.rich("yswsBody", {
+                hl: (chunks) => <span>{chunks}</span>,
+                shop: (chunks) => <a href="https://clubs.hackclub.com/">{chunks}</a>,
+              })}
             </p>
           </div>
           <div className={styles["clubs-scroll-wrap"]}>
@@ -464,7 +459,7 @@ export default async function ClubPage({ params }: Props) {
                         className={styles["clubs-project-logo"]}
                       />
                       <h3>Boba Drops</h3>
-                      <p>Host a boba workshop for your club, make a website, get free boba!</p>
+                      <p>{t("bobaBody")}</p>
                       <Image
                         src={bobaOrph}
                         alt=""
@@ -490,7 +485,7 @@ export default async function ClubPage({ params }: Props) {
                     <div className={styles["clubs-project-content"]}>
                       <Image src={fuseLogo} alt="" className={styles["clubs-project-logo"]} />
                       <h3>FuseRing</h3>
-                      <p>Design a keyring and get it shipped to you with a backpack clip.</p>
+                      <p>{t("fuseringBody")}</p>
                     </div>
                   </a>
                 </li>
@@ -510,7 +505,7 @@ export default async function ClubPage({ params }: Props) {
                     />
                     <div className={styles["clubs-project-content"]}>
                       <h3>Sprig</h3>
-                      <p>You ship a game made on the sprig game engine, we ship a sprig console!</p>
+                      <p>{t("sprigBody")}</p>
                       <div className={styles["clubs-project-logo-sprig"]}>
                         <Image src={sprigLogo} alt="Sprig" />
                       </div>
@@ -531,10 +526,7 @@ export default async function ClubPage({ params }: Props) {
                         className={styles["clubs-project-logo"]}
                       />
                       <h3>TerminalCraft</h3>
-                      <p>
-                        Develop a program that runs in the terminal, earn a grant to spend on
-                        hardware and microcontrollers!
-                      </p>
+                      <p>{t("terminalcraftBody")}</p>
                     </div>
                   </a>
                 </li>
@@ -547,10 +539,7 @@ export default async function ClubPage({ params }: Props) {
                   >
                     <div className={styles["clubs-project-content"]}>
                       <Image src={swirlLogo} alt="" className={styles["clubs-project-logo"]} />
-                      <p>
-                        Build a cooler website with HTML and CSS, with a unique feature like a
-                        favicon, and get free ice cream!
-                      </p>
+                      <p>{t("swirlBody")}</p>
                       <Image
                         src={swirlIcon}
                         alt=""
@@ -568,10 +557,7 @@ export default async function ClubPage({ params }: Props) {
                   >
                     <div className={styles["clubs-project-content"]}>
                       <Image src={toppingsLogo} alt="" className={styles["clubs-project-logo"]} />
-                      <p>
-                        Add some extra flavor to your website, with CSS and get toppings for your
-                        ice cream or boba!
-                      </p>
+                      <p>{t("toppingsBody")}</p>
                       <Image
                         src={parrot}
                         alt=""
@@ -591,7 +577,7 @@ export default async function ClubPage({ params }: Props) {
                     <div className={styles["clubs-project-content"]}>
                       <Image src={wafflesLogo} alt="" className={styles["clubs-project-logo"]} />
                       <h3>Waffles</h3>
-                      <p>Make a website that uses JavaScript, and get free waffles!</p>
+                      <p>{t("wafflesBody")}</p>
                     </div>
                   </a>
                 </li>
@@ -604,7 +590,7 @@ export default async function ClubPage({ params }: Props) {
                   >
                     <div className={styles["clubs-project-content"]}>
                       <Image src={downscaleLogo} alt="" className={styles["clubs-project-logo"]} />
-                      <p>Make a retro game with PICO-8, get a grant for your club!</p>
+                      <p>{t("downscaleBody")}</p>
                     </div>
                   </a>
                 </li>
@@ -614,13 +600,14 @@ export default async function ClubPage({ params }: Props) {
         </section>
 
         <section className={styles["clubs-learn"]} id="learn-more" aria-labelledby="learn-title">
-          <p className={styles["clubs-eyebrow"]}>Learn more</p>
-          <h2 id="learn-title">Learn more about:</h2>
+          <p className={styles["clubs-eyebrow"]}>{t("learnEyebrow")}</p>
+          <h2 id="learn-title">{t("learnTitle")}</h2>
           <div className={styles["clubs-path-grid"]}>
             <LearnMoreCards styles={styles} />
             <PathCard
-              title="The Teacher Zone"
-              description="This is where you can find ways to support a Hack Club at your school!"
+              title={t("teacherZoneTitle")}
+              description={t("teacherZoneBody")}
+              cta={t("learnMore")}
               href="/teachers"
               bg="/assets/backImg10.webp"
             />
@@ -629,15 +616,15 @@ export default async function ClubPage({ params }: Props) {
               href="https://school-toolbox.hackclub.com"
               target="_blank"
               rel="noreferrer"
-              aria-label="School toolbox"
+              aria-label={t("toolboxTitle")}
             >
               <JoiningCard
-                title="School toolbox"
-                description="Resources for starting a Hack Club at your school!"
+                title={t("toolboxTitle")}
+                description={t("toolboxBody")}
                 bg="/assets/backImg13.webp"
               >
                 <span className={`${styles["clubs-joining-card-link"]} cta-btn`}>
-                  Learn more <Arrow />
+                  {t("learnMore")} <Arrow />
                 </span>
               </JoiningCard>
             </a>
@@ -655,15 +642,10 @@ export default async function ClubPage({ params }: Props) {
           </div>
           <div className={styles["clubs-intro-photo-overlay"]} aria-hidden="true" />
           <div className={styles["clubs-section-heading"]}>
-            <p className={styles["clubs-eyebrow"]}>Become a part of</p>
-            <h2>
-              The Hack Club Slack <em>Community.</em>
-            </h2>
+            <p className={styles["clubs-eyebrow"]}>{t("slackEyebrow")}</p>
+            <h2>{t.rich("slackTitle", { em: (chunks) => <em>{chunks}</em> })}</h2>
             <div className={styles["clubs-intro-body"]}>
-              <p>
-                Slack is where the community hangs out! Slack is a chat app like Discord, but
-                better! It has unlimited custom emojis and uncapped file uploads.
-              </p>
+              <p>{t("slackBody")}</p>
               <a
                 href="https://slack.hackclub.com"
                 target="_blank"
@@ -671,7 +653,7 @@ export default async function ClubPage({ params }: Props) {
                 className={`${styles["clubs-button"]} ${styles["clubs-button-red"]} cta-btn`}
               >
                 <Image src={slackLogo} alt="" width={20} height={20} />
-                Join the community <Arrow />
+                {t("slackCta")} <Arrow />
               </a>
             </div>
           </div>
@@ -682,11 +664,11 @@ export default async function ClubPage({ params }: Props) {
         </section>
 
         <section className={styles["clubs-closing"]}>
-          <p className={styles["clubs-eyebrow"]}>Get started now</p>
+          <p className={styles["clubs-eyebrow"]}>{t("closingEyebrow")}</p>
           <h2>
-            The best club
+            {t("closingTitle1")}
             <br />
-            at school is <em>yours.</em>
+            {t.rich("closingTitle2", { em: (chunks) => <em>{chunks}</em> })}
           </h2>
           <a
             className={`${styles["clubs-button"]} ${styles["clubs-button-red"]} cta-btn`}
@@ -694,7 +676,7 @@ export default async function ClubPage({ params }: Props) {
             target="_blank"
             rel="noreferrer"
           >
-            Start a Hack Club <Arrow />
+            {t("closingCta")} <Arrow />
           </a>
         </section>
       </main>

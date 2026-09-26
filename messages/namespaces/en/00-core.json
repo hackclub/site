@@ -421,51 +421,134 @@
     }
   },
   "Clubs": {
-    "metaTitle": "Hack Club Clubs — Start a Club",
-    "metaDescription": "Start a student-led coding club with Hack Club. Get workshops, mentorship, events, tools, and a global community.",
-    "heroTitle1": "Don't run your coding club alone.",
-    "heroTitle2": "Make it a Hack Club.",
-    "heroSubtext": "A global nonprofit network of high school coding clubs where teens build technical skills, real projects, and momentum.",
-    "applyNow": "Apply now",
-    "joinSlack": "Join the Slack",
-    "rundownKicker": "The Rundown",
-    "rundownTitle": "Clubs discovering the joy of code.",
-    "rundownBody": "Hack Clubs meet weekly in schools and communities. Leaders kick things off, members build websites, apps, and games at their own pace, then everyone demos what they made.",
-    "videoTitle": "Hack Club meetings",
-    "step1Title": "A group of teens gathers.",
-    "step1Body": "Leaders introduce a project direction and get everyone started.",
-    "step2Title": "Everyone starts building.",
-    "step2Body": "Members work independently and help each other ship something real.",
-    "step3Title": "Every meeting ends with demos.",
-    "step3Body": "Showing your work creates momentum, confidence, and community.",
-    "rundownFooter": "Clubs also run and attend hackathons, join year-long programs, and grow with other student leaders worldwide.",
-    "welcomeKicker": "Welcome To The Club",
-    "welcomeTitle": "By the students, for the students.",
-    "welcomeBody": "Learning to code should feel creative and social, not like another class. Every Hack Club is student-led and project-driven.",
-    "philosophyCta": "Our philosophy",
-    "runningKicker": "Hit The Ground Running",
-    "runningTitle": "Get your club going and growing.",
-    "featureLeaderTitle": "Leader community",
-    "featureLeaderBody": "Join thousands of leaders in the Hack Club Slack to share ideas, ask questions, and meet peers in <channel>#leaders</channel>.",
-    "featureWorkshopsTitle": "Workshops and jams",
-    "featureWorkshopsBody": "Use ready-to-run meeting content so beginners can build websites, games, bots, and more at <jams>Hack Club Jams</jams>.",
-    "featureStickersTitle": "Stickers and posters",
-    "featureStickersBody": "We ship physical materials to help you recruit members and create club culture fast.",
-    "featureFundingTitle": "Funding tools",
-    "featureFundingBody": "Raise and manage money through Hack Club's nonprofit infrastructure and spend on what your club needs.",
-    "featureEventsTitle": "Weekly events",
-    "featureEventsBody": "AMAs, hack nights, lock-ins, and weird internet events keep your members inspired all year.",
-    "featureExistingTitle": "Existing clubs welcome",
-    "featureExistingBody": "Already running a CS club? You can join Hack Club and keep your current name while using all our <resources>resources</resources>.",
-    "startTitle": "Start your club.",
-    "startBody": "It's online, free, and takes less than an hour to kick off.",
-    "applyStep1Title": "1. Application",
-    "applyStep1Body": "Tell us about your school and who is leading.",
-    "applyStep2Title": "2. School approval",
-    "applyStep2Body": "Get approval from your school for the club.",
-    "applyStep3Title": "3. First meeting",
-    "applyStep3Body": "Schedule your first session and start shipping projects.",
-    "applyCta": "Apply to Hack Club"
+    "metaTitle": "Hack Clubs",
+    "metaDescription": "A place for high school hackers to build together!",
+    "heroEyebrow": "Hack Club presents",
+    "heroTitle": "Your school's <accent>most interesting</accent> room!",
+    "heroCopy": "A worldwide network of high school coding clubs. Make cool things, find people who share your interests, and get help from a community of hackers!",
+    "startClub": "Start a club",
+    "signIn": "Sign in",
+    "learnMore": "Learn more",
+    "memberSignIn": "Club member? <link>Sign in with email</link>",
+    "marqueeCode": "CODE TOGETHER",
+    "marqueeFriends": "MAKE FRIENDS",
+    "marqueeBuild": "BUILD COOL STUFF",
+    "marqueeBoba": "DRINK BOBA",
+    "marqueeRewards": "GET REWARDS",
+    "perksEyebrow": "Club perks",
+    "perksTitle1": "Perks we offer your club.",
+    "perksTitle2": "For free!",
+    "perksBody": "Everything your club needs to grow!",
+    "starterTitle": "Club Starter",
+    "starterBody": "Create promotional materials for your club. Get up to $100 in funding!",
+    "starterCta": "Explore Club Starter",
+    "shopTitle": "Clubs Shop",
+    "shopBody": "Stickers, shirts, Raspberry Pis, and more to help your club thrive.",
+    "shopCta": "Visit the shop",
+    "shopIconLabel": "payment",
+    "spacesBody": "All-in-one web IDE to create, host and collaborate in with over 500 supported languages and a variety of templates to use.",
+    "spacesCta": "Explore Spaces",
+    "allPerksCta": "Explore all club perks",
+    "yswsEyebrow": "Popular YSWS",
+    "yswsTitle1": "You ship.",
+    "yswsTitle2": "We ship!",
+    "yswsBody": "Our YSWS programs reward clubs with coins for shipping projects. Coins can be used in the <hl><shop>clubs shop</shop>!</hl>",
+    "bobaBody": "Host a boba workshop for your club, make a website, get free boba!",
+    "fuseringBody": "Design a keyring and get it shipped to you with a backpack clip.",
+    "sprigBody": "You ship a game made on the sprig game engine, we ship a sprig console!",
+    "terminalcraftBody": "Develop a program that runs in the terminal, earn a grant to spend on hardware and microcontrollers!",
+    "swirlBody": "Build a cooler website with HTML and CSS, with a unique feature like a favicon, and get free ice cream!",
+    "toppingsBody": "Add some extra flavor to your website, with CSS and get toppings for your ice cream or boba!",
+    "wafflesBody": "Make a website that uses JavaScript, and get free waffles!",
+    "downscaleBody": "Make a retro game with PICO-8, get a grant for your club!",
+    "learnEyebrow": "Learn more",
+    "learnTitle": "Learn more about:",
+    "newTitle": "Starting a new club",
+    "newBody": "Start a new Hack Club!",
+    "newModalTitle": "Starting a Hack Club",
+    "convertTitle": "Converting an existing club",
+    "convertBody": "Turn your existing club into a Hack Club!",
+    "convertModalTitle": "Converting an existing club",
+    "teacherZoneTitle": "The Teacher Zone",
+    "teacherZoneBody": "This is where you can find ways to support a Hack Club at your school!",
+    "toolboxTitle": "School toolbox",
+    "toolboxBody": "Resources for starting a Hack Club at your school!",
+    "close": "Close",
+    "applyCta": "Apply to Hack Club",
+    "slackEyebrow": "Become a part of",
+    "slackTitle": "The Hack Club Slack <em>Community.</em>",
+    "slackBody": "Slack is where the community hangs out! Slack is a chat app like Discord, but better! It has unlimited custom emojis and uncapped file uploads.",
+    "slackCta": "Join the community",
+    "closingEyebrow": "Get started now",
+    "closingTitle1": "The best club",
+    "closingTitle2": "at school is <em>yours.</em>",
+    "closingCta": "Start a Hack Club",
+    "newFaqs": {
+      "whatIs": {
+        "q": "What is Hack Club?",
+        "a": "A global nonprofit network of student-led coding clubs! Your club can be a place to code, build hardware, learn together, or experiment, whatever your members want."
+      },
+      "experience": {
+        "q": "Do I need to be an experienced programmer to start one?",
+        "a": "Nope! Start with what you know and learn alongside your members as you go."
+      },
+      "ages": {
+        "q": "Who can join, and is there an age requirement?",
+        "a": "Members must be 13–18 and able to attend your in-person meetings; they don't need to attend your school, so feel free to invite friends from anywhere nearby!"
+      },
+      "inPerson": {
+        "q": "Do meetings have to be in person?",
+        "a": "Yes, that's the main format. Online meetings can supplement it, but your club needs an established space (classroom, library, makerspace, cafe, etc.) for in-person meetings."
+      },
+      "teacher": {
+        "q": "Do I need a teacher to start a Hack Club?",
+        "a": "Not required by Hack Club, but recommended! Many schools require an adult supervisor for approval, and one can help with logistics like booking a room."
+      },
+      "multiple": {
+        "q": "Can there be multiple Hack Clubs at my school?",
+        "a": "Yes, if your school can support them without clubs competing for the same members or resources!"
+      },
+      "activities": {
+        "q": "What can my Hack Club do?",
+        "a": "Anything your members are excited about: workshops, projects, hackathons, hardware, you name it! You're not required to follow Hack Club's official programs (YSWS); other activities can often still count toward funding if real projects are being shipped."
+      },
+      "support": {
+        "q": "What support does Hack Club provide?",
+        "a": "A lot! Funding, hardware, ready-to-run workshops, stickers/posters, and support from the Clubs team. Ships earn coins on <shop>clubs.hackclub.com</shop>, redeemable in the shop for grants, gear, and merch. In return, we ask members to build and ship projects."
+      },
+      "coLeaders": {
+        "q": "Can I add co-leaders?",
+        "a": "Yes! The main leader can promote any member to co-leader from the members page."
+      },
+      "steps": {
+        "q": "What are the steps to start a club?",
+        "step1": "Apply at <apply>apply.hackclub.com</apply> (~10 min).",
+        "step2": "Get school approval.",
+        "step3": "Run your first meeting and ship something!"
+      }
+    },
+    "convertFaqs": {
+      "sameClub": {
+        "q": "If I convert my existing club into a Hack Club, do we have to do anything differently?",
+        "a": "Nope! Keep your current name, members, and schedule while getting access to Hack Club's resources."
+      },
+      "programs": {
+        "q": "Do we have to only participate in Hack Club's programs?",
+        "a": "No. Programs are optional; run your own workshops, hackathons, or other activities, whatever gets your members excited!"
+      },
+      "requirements": {
+        "q": "What are the requirements to stay an active club?",
+        "a": "Ship at least one project every 6 months (by any leader or member), with meetings that are mainly in-person. That's it!"
+      },
+      "dormant": {
+        "q": "What happens if my club doesn't ship for 6 months?",
+        "a": "The club gets marked dormant (you may see 0 members/ships even if your roster is fine). No worries though, just head to <apply>apply.hackclub.com</apply> and use the option to reconnect/\"rescue\" your existing club rather than starting over."
+      },
+      "benefits": {
+        "q": "What are the benefits of becoming a Hack Club?",
+        "a": "Access to Hack Club's community, workshops, funding tools, hardware perks, and coins from shipped projects, redeemable in the <shop>clubs.hackclub.com</shop>! The only ongoing requirement: ship every 6 months, meet mainly in-person."
+      }
+    }
   },
   "Jobs": {
     "metaTitle": "Jobs — Hack Club",
