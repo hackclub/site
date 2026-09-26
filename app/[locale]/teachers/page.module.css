@@ -1,0 +1,375 @@
+.teacher-hero,
+.teacher-facts-section,
+.teacher-whats-section,
+.teacher-video-section,
+.teacher-engage-heading-section,
+.teacher-engage-section,
+.teacher-benefits-section,
+.teacher-signup-section {
+  padding-left: clamp(24px, 7vw, 100px);
+  padding-right: clamp(24px, 7vw, 100px);
+}
+
+.teacher-eyebrow {
+  margin: 0 0 10px;
+  font-family: var(--font-phantom);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+/* ── Shared decorative blobs ──────────────────────────────────── */
+.teacher-hero-blobs,
+.teacher-signup-blobs {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.teacher-blob-red,
+.teacher-blob-orange,
+.teacher-blob-blue,
+.teacher-blob-purple,
+.teacher-blob-teal {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.28;
+}
+.teacher-blob-red {
+  width: 420px;
+  height: 420px;
+  left: -120px;
+  top: -80px;
+  background: #ec3750;
+}
+.teacher-blob-orange {
+  width: 380px;
+  height: 380px;
+  right: -100px;
+  top: 40px;
+  background: #ff8c37;
+}
+.teacher-blob-blue {
+  width: 340px;
+  height: 340px;
+  left: 30%;
+  bottom: -200px;
+  background: #2d7dd2;
+}
+.teacher-blob-purple {
+  width: 360px;
+  height: 360px;
+  left: -100px;
+  bottom: -140px;
+  background: #7c4dff;
+}
+.teacher-blob-teal {
+  width: 340px;
+  height: 340px;
+  right: -80px;
+  top: -100px;
+  background: #12b886;
+}
+
+/* ── Hero ─────────────────────────────────────────────────────── */
+.teacher-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--background);
+  text-align: center;
+  padding-top: 120px;
+  padding-bottom: 70px;
+}
+.teacher-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 18px;
+  margin-bottom: 24px;
+  border-radius: 9999px;
+  background: var(--red);
+  font-family: var(--font-phantom);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.teacher-hero-title {
+  margin: 0 0 24px;
+  font-family: var(--font-zarathustra);
+  font-weight: 400;
+  font-size: clamp(40px, 6.5vw, 76px);
+  line-height: 1.08;
+  color: var(--foreground);
+}
+.teacher-hero-title-accent {
+  display: block;
+  color: var(--red);
+}
+.teacher-hero-lede {
+  max-width: 640px;
+  margin: 0 auto 36px;
+  font-family: var(--font-phantom);
+  font-size: clamp(16px, 2.2vw, 19px);
+  line-height: 1.55;
+  color: var(--muted);
+  text-wrap: balance;
+}
+.teacher-hero-signup {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 32px);
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+}
+.teacher-hero-signup-label {
+  font-family: var(--font-phantom);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+
+/* ── Facts: "Hack Club is:" ───────────────────────────────────── */
+.teacher-facts-section {
+  background: var(--surface);
+  padding-top: 80px;
+  padding-bottom: 80px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.teacher-facts-heading {
+  margin: 0 0 24px;
+  font-family: var(--font-zarathustra);
+  font-weight: 400;
+  font-size: clamp(32px, 4.5vw, 52px);
+  line-height: 1.05;
+  color: var(--foreground);
+}
+
+/* ── Shared "statement" paragraph (facts + benefits) ──────────── */
+.teacher-statement {
+  margin: 0;
+  font-family: var(--font-zarathustra);
+  font-weight: 400;
+  font-size: clamp(18px, 2.2vw, 24px);
+  line-height: 1.5;
+  color: var(--foreground);
+}
+.teacher-highlight {
+  font-weight: 700;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  border-radius: 6px;
+  padding: 0 6px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* ── What's a Hack Club ───────────────────────────────────────── */
+.teacher-whats-section {
+  background: var(--background);
+  padding-top: 80px;
+  padding-bottom: 80px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(24px, 6vw, 64px);
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.teacher-whats-sticker {
+  width: clamp(140px, 14vw, 200px);
+  flex-shrink: 0;
+  rotate: -8deg;
+  filter: drop-shadow(6px 8px 10px rgba(0, 0, 0, 0.18));
+}
+.teacher-whats-sticker img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.teacher-whats-content {
+  max-width: 620px;
+}
+.teacher-whats-heading {
+  margin: 0 0 24px;
+  font-family: var(--font-zarathustra);
+  font-weight: 400;
+  font-size: clamp(32px, 4.5vw, 52px);
+  line-height: 1.05;
+  color: var(--foreground);
+}
+.teacher-whats-body p {
+  font-family: var(--font-phantom);
+  font-size: clamp(18px, 2.3vw, 22px);
+  line-height: 1.55;
+  color: var(--foreground);
+  margin: 0 0 20px;
+}
+.teacher-whats-body p:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 700px) {
+  .teacher-whats-section {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+  .teacher-whats-sticker {
+    width: 130px;
+  }
+}
+
+/* ── Video ────────────────────────────────────────────────────── */
+.teacher-video-section {
+  background: var(--surface);
+  padding-top: 70px;
+  padding-bottom: 70px;
+  display: flex;
+  justify-content: center;
+}
+.teacher-video-card {
+  width: 100%;
+  max-width: 760px;
+}
+.teacher-video-embed {
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+.teacher-video-caption {
+  margin: 18px 0 0;
+  text-align: center;
+  font-family: var(--font-phantom);
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* ── Engage heading ───────────────────────────────────────────── */
+.teacher-engage-heading-section {
+  background: var(--background);
+  text-align: left;
+  padding-top: 80px;
+  padding-bottom: 24px;
+}
+.teacher-engage-heading {
+  font-family: var(--font-zarathustra);
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 400;
+  color: var(--foreground);
+  margin: 0;
+  line-height: 1.1;
+}
+
+/* ── Engage grid ──────────────────────────────────────────────── */
+.teacher-engage-section {
+  position: relative;
+  background: var(--background);
+  padding-top: 16px;
+  padding-bottom: 80px;
+}
+.teacher-engage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 640px) {
+  .teacher-engage-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 641px) and (max-width: 900px) {
+  .teacher-engage-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.teacher-engage-box {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000000;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 20px 20px 64px;
+}
+.teacher-engage-box-image {
+  object-fit: cover;
+  opacity: 0.2;
+}
+.teacher-engage-box-label {
+  position: relative;
+  font-family: var(--font-zarathustra);
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+.teacher-engage-box-body {
+  position: relative;
+  font-family: var(--font-phantom);
+  font-size: clamp(20px, 2.6vw, 26px);
+  color: #ffffff;
+  opacity: 0.85;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ── Benefits ─────────────────────────────────────────────────── */
+.teacher-benefits-section {
+  background: var(--surface);
+  padding-top: 70px;
+  padding-bottom: 80px;
+}
+.teacher-benefits-heading {
+  margin: 0 0 24px;
+  font-family: var(--font-zarathustra);
+  font-weight: 400;
+  font-size: clamp(32px, 4.5vw, 52px);
+  line-height: 1.05;
+  color: var(--foreground);
+}
+
+/* ── Final signup ─────────────────────────────────────────────── */
+.teacher-signup-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--background);
+  text-align: center;
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+.teacher-signup-heading {
+  margin: 0 auto 16px;
+  max-width: 680px;
+  font-family: var(--font-zarathustra);
+  font-weight: 400;
+  font-size: clamp(30px, 4.5vw, 50px);
+  line-height: 1.1;
+  color: var(--foreground);
+}
+.teacher-signup-lede {
+  margin: 0 auto 32px;
+  max-width: 520px;
+  font-family: var(--font-phantom);
+  font-size: clamp(16px, 2vw, 18px);
+  color: var(--muted);
+}

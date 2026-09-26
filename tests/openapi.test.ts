@@ -22,6 +22,7 @@ const UNDOCUMENTED = [
   "/api/programs/editable",
   "/api/site-programs/upload",
   "/api/parents-signup",
+  "/api/teachers-signup",
   "/api/auth/login",
   "/api/auth/callback",
   "/api/auth/logout",

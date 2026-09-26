@@ -46,6 +46,13 @@ export const AGENT_ROUTES: AgentRoute[] = [
     group: "start",
   },
   {
+    path: "/teachers",
+    namespace: "Teachers",
+    titleKey: "metaTitle",
+    descriptionKey: "metaDescription",
+    group: "start",
+  },
+  {
     path: "/map",
     namespace: "Map",
     titleKey: "metaTitle",
