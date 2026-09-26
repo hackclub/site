@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isValidEmail } from "@/lib/email";
+import { apiError } from "@/lib/api-error";
 
 export const dynamic = "force-dynamic";
 
@@ -10,78 +11,92 @@ function apiKey() {
   return process.env.TEACHERS_AIRTABLE_KEY;
 }
 
-function isNonEmptyString(value: unknown): value is string {
-  return typeof value === "string" && value.trim().length > 0;
-}
-
 export async function POST(req: NextRequest) {
-  try {
-    const key = apiKey();
-    if (!key) {
-      console.error("[teachers-signup] TEACHERS_AIRTABLE_KEY is not set");
-      return NextResponse.json({ error: "TEACHERS_AIRTABLE_KEY is not set" }, { status: 500 });
-    }
-
-    let body: unknown;
-    try {
-      body = await req.json();
-    } catch {
-      console.error("[teachers-signup] invalid JSON body");
-      return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
-    }
-
-    const { email, firstName, lastName } = body as {
-      email?: unknown;
-      firstName?: unknown;
-      lastName?: unknown;
-    };
-
-    if (!isValidEmail(email)) {
-      console.error("[teachers-signup] invalid email", email);
-      return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
-    }
-    if (!isNonEmptyString(firstName) || !isNonEmptyString(lastName)) {
-      console.error("[teachers-signup] missing first/last name", { firstName, lastName });
-      return NextResponse.json({ error: "First and last name are required" }, { status: 400 });
-    }
-
-    const res = await fetch(
-      `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(TABLE_NAME)}`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${key}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          records: [
-            {
-              fields: {
-                email: email.trim(),
-                "First Name": firstName.trim(),
-                "Last Name": lastName.trim(),
-              },
-            },
-          ],
-        }),
-      },
-    );
-
-    if (!res.ok) {
-      const airtableError = await res.text();
-      console.error("[teachers-signup] Airtable error", res.status, airtableError);
-      return NextResponse.json(
-        { error: "Failed to save signup", detail: airtableError },
-        { status: 502 },
-      );
-    }
-
-    return NextResponse.json({ ok: true });
-  } catch (err) {
-    console.error("[teachers-signup] unexpected error", err);
-    return NextResponse.json(
-      { error: err instanceof Error ? err.message : "Unexpected error" },
-      { status: 500 },
-    );
+  const key = apiKey();
+  if (!key) {
+    return apiError({
+      status: 500,
+      code: "server_misconfigured",
+      message: "TEACHERS_AIRTABLE_KEY is not set",
+    });
   }
+
+  let body: unknown;
+  try {
+    body = await req.json();
+  } catch {
+    return apiError({
+      status: 400,
+      code: "bad_request",
+      message: "Invalid JSON body",
+      hint: 'Send a JSON object such as {"email":"you@example.com"}.',
+    });
+  }
+
+  const firstName = (body as { firstName?: unknown })?.firstName;
+  if (
+    typeof firstName !== "string" ||
+    firstName.trim().length === 0 ||
+    firstName.trim().length > 200
+  ) {
+    return apiError({
+      status: 400,
+      code: "bad_request",
+      message: "Invalid first name",
+      hint: "Send a non-empty string in the `firstName` field.",
+    });
+  }
+
+  const lastName = (body as { lastName?: unknown })?.lastName;
+  if (
+    typeof lastName !== "string" ||
+    lastName.trim().length === 0 ||
+    lastName.trim().length > 200
+  ) {
+    return apiError({
+      status: 400,
+      code: "bad_request",
+      message: "Invalid last name",
+      hint: "Send a non-empty string in the `lastName` field.",
+    });
+  }
+
+  const email = (body as { email?: unknown })?.email;
+  if (!isValidEmail(email)) {
+    return apiError({
+      status: 400,
+      code: "bad_request",
+      message: "Invalid email address",
+      hint: "Send a valid address in the `email` field.",
+    });
+  }
+
+  const res = await fetch(
+    `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(TABLE_NAME)}`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        records: [
+          {
+            fields: {
+              email: email.trim(),
+              "First Name": firstName.trim(),
+              "Last Name": lastName.trim(),
+            },
+          },
+        ],
+      }),
+    },
+  );
+
+  if (!res.ok) {
+    console.error("[teachers-signup] Airtable error", res.status, await res.text());
+    return apiError({ status: 502, code: "upstream_error", message: "Failed to save signup" });
+  }
+
+  return NextResponse.json({ ok: true });
 }
