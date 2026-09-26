@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 import { buildPageMetadata } from "@/lib/seo";
 import { TeachersEmailSignup } from "@/components/teachers-email-signup";
-import hackersSticker from "./assests/hackers.png";
+import hackersSticker from "./assests/hackers.avif";
 import styles from "./page.module.css";
 
 const ACCENTS = ["#ec3750", "#ff8c37", "#2d7dd2", "#7c4dff", "#12b886"];
