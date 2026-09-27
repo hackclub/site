@@ -154,6 +154,17 @@
     "avatar": "https://cloud-jp1adkwpw-hack-club-bot.vercel.app/0image.png"
   },
   {
+    "name": "Alex Van Doren",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": true,
+    "bio": "Alex spends most of his time making boats go fast, but when he's not doing that, he designs software modelling his favourite physics problems. He's currently gap-yearing at Hack Club and is working on the YSWS team.",
+    "slackId": "U0823F39GV8",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U0823F39GV8/r"
+  },
+  {
     "name": "Anna Grace Benny",
     "department": "HQ",
     "role": "APAC Clubs",
@@ -515,6 +526,17 @@
     "email": "micha",
     "website": "https://mra.sh",
     "avatar": "https://cdn.hackclub.com/019c76bf-b916-70de-b6e7-2150d046613d/daoshd.png"
+  },
+  {
+    "name": "Neon",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": true,
+    "bio": "Hi I'm Neon, a 17 year old coder for Hack Club who works on the General YSWS's and other eng tasks!",
+    "slackId": "U07L45W79E1",
+    "website": "https://saahild.com",
+    "email": "neon",
+    "avatar": "https://cachet.hackclub.com/users/U07L45W79E1/r"
   },
   {
     "name": "Nick Do",

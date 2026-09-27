@@ -624,18 +624,6 @@
     "gapyear": true
   },
   {
-    "name": "Alex Van Doren",
-    "department": "HQ",
-    "role": "Engineering",
-    "acknowledged": false,
-    "bio": "Alex spends most of his time making boats go fast, but when he's not doing that, he designs software modelling his favourite physics problems. He's currently gap-yearing at Hack Club and is working on the YSWS team.",
-    "slackId": "U0823F39GV8",
-    "email": "",
-    "website": "",
-    "avatar": "https://cachet.hackclub.com/users/U0823F39GV8/r",
-    "gapyear": true
-  },
-  {
     "name": "Angad Behl",
     "department": "HQ",
     "role": "Engineering and Community",
@@ -1033,17 +1021,6 @@
     "email": "sofia",
     "website": "https://eeriergosling.dev",
     "avatar": "https://github.com/EerierGosling/Personal-Website/blob/main/public/hc-team-pfp.jpg?raw=true"
-  },
-  {
-    "name": "Neon",
-    "department": "HQ",
-    "role": "Engineering",
-    "acknowledged": false,
-    "bio": "Hi I'm Neon, a 17 year old coder for Hack Club who works on the General YSWS's and other eng tasks!",
-    "slackId": "U07L45W79E1",
-    "website": "https://saahild.com",
-    "email": "neon",
-    "avatar": "https://cachet.hackclub.com/users/U07L45W79E1/r"
   },
   {
     "name": "Mahad Kalam",
