@@ -363,6 +363,17 @@
     "avatar": "https://cloud-7319opjbc-hack-club-bot.vercel.app/0image.png"
   },
   {
+    "name": "Ivie Fonner",
+    "department": "HQ",
+    "role": "Club Infrastructure and Operations",
+    "acknowledged": true,
+    "bio": "Ivie (aka Charmunk) is a 14-year-old Hack Clubber from the DC area. When she is not coding, she enjoys sci-fi novels and playing card games. At Hack Club, she builds the underlying systems allowing Hack Club Clubs to run smoothly. She joined Hack Club in late 2024 and has been working on various projects since then.",
+    "slackId": "U04KEK4TS72",
+    "email": "ivie",
+    "website": "https://ivie.codes",
+    "avatar": "https://cdn.hackclub.com/019d8d6a-7de7-71f5-9798-d3c8ca3ec1db/2026_04_14_0pe_Kleki%20(1).png"
+  },
+  {
     "name": "Jasper Mayone",
     "department": "HQ",
     "role": "Community Resources",
