@@ -1560,5 +1560,16 @@
     "email": "stelle",
     "website": "https://stelle.codes",
     "avatar": "https://cdn.hackclub.com/01a0e05a-8d9a-7fda-9995-a64cf8a05095/Untitled32_20260717184910.png"
+  },
+  {
+    "name": "Antonio Archer",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Antonio Archer is a 20-year-old engineer who’s been technical since he was a child. He loves music, physical media, and operating systems.",
+    "slackId": "U07F6FMJ97U",
+    "email": "antonio",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/01a0e407-0af7-7860-bbf0-6686eed7292c/Slick_xqcBA3b84h.png"
   }
 ]
