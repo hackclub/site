@@ -1549,5 +1549,16 @@
     "email": "shreya",
     "website": "",
     "avatar": "https://cdn.hackclub.com/01a0c81b-96d6-7a24-ba0a-fff67b8d3ec8/0bedabd4416dd541648ed32127ce1861.jpg"
+  },
+  {
+    "name": "Stelle Tran",
+    "department": "HQ",
+    "role": "Events & Engineering",
+    "acknowledged": false,
+    "bio": "Stelle Tran (or stellenium online) is a 16-year-old Hack Clubber from the Bay Area. At Hack Club, she develops and runs various YSWS programs; currently, she's running Phantom, an escape room hackathon in Philadelphia planned for February 2027. In her free time, she enjoys listening to music, playing various video games, and telling stories in many different mediums!",
+    "slackId": "U07F6FMJ97U",
+    "email": "stelle",
+    "website": "https://stelle.codes",
+    "avatar": "https://cdn.hackclub.com/01a0e05a-8d9a-7fda-9995-a64cf8a05095/Untitled32_20260717184910.png"
   }
 ]
