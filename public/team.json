@@ -1334,6 +1334,18 @@
     "gapyear": true
   },
   {
+    "name": "Katie",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U06SQJ508LF",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U06SQJ508LF/r",
+    "gapyear": true
+  },
+  {
     "name": "Max H",
     "department": "HQ",
     "role": "Events & Programs",
