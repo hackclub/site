@@ -636,14 +636,24 @@
   {
     "name": "Annabel",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Engineering & Community",
     "acknowledged": false,
-    "bio": "Annabel is a 17 year old Hack Clubber from Australia. They're currently gap-yearing for Hack Club and have worked on several programs and the Athena initiative. They're an avid Celeste and Hollow Knight fan and love to play games in their free time. They also love to build things, and have built several tools for Hack Club.",
+    "bio": "Annabel is a 17 year old Hack Clubber from Australia. They've worked on several programs and the Athena initiative. They're an avid Celeste and Hollow Knight fan and love to play games in their free time. They also love to build things, and have built several tools for Hack Club.",
     "slackId": "U078J6H1XL3",
     "email": "annabel",
-    "gapyear": true,
     "website": "https://phthallo.com",
     "avatar": "https://i.ibb.co/DmYsryK/1733036812203.jpg"
+  },
+  {
+    "name": "Jiang Tongyu",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Tongyu is a 19-year-old Hack Clubber from Singapore who loves making games! She runs events and adventures at Hack Club SF. She also likes linguistics, making crafts, and sometimes writing music.",
+    "slackId": "U07DJMFAQQP",
+    "email": "tongyu",
+    "website": "https://tongyu.fish",
+    "avatar": "https://i.ibb.co/fYTBgRn2/tongyu.png"
   },
   {
     "name": "Dhyan",
