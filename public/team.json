@@ -884,9 +884,18 @@
     "staff": true
   },
   {
+    "name": "Emme",
+    "department": "HQ",
+    "role": "Quality & Integrity Manager",
+    "acknowledged": false,
+    "bio": "Emme started block-coding in Minecraft at 12, and things have only escalated from there. She's since attended over 7 Hack Club hackathons and contributes to Hack Club as a Quality & Integrity manager, overseeing the quality of programs and ensuring they align with Hack Club's mission. In her free time, she enjoys reading, hiking, and speculative evolution projects.",
+    "staff": true,
+    "avatar": "https://cdn.hackclub.com/01a0e933-e962-7818-a809-b6c1936b199d/emme.webp"
+  },
+  {
     "name": "Sebastian",
     "department": "HQ",
-    "role": "Quality and Integrity Manager",
+    "role": "Engineering (Orchard Maintenance)",
     "acknowledged": false,
     "bio": "Sebastian (a.k.a. Leafd) is a 18-year-old developer from México who likes making large-scale Minecraft events, loves working with Kubernetes, likes creating and learning new things, and sometimes does music production.",
     "slackId": "U07UBCSSQH3",
