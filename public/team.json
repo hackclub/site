@@ -691,15 +691,14 @@
   {
     "name": "Euan Ripper",
     "department": "HQ",
-    "role": "YSWS",
+    "role": "Engineering",
     "acknowledged": false,
     "bio": "Euan learned to code to automate a boring job at 16, He realised he loved coding and making so started to teach robotics to younger kids and now is building programs to teach kids all around the world at Hack Club",
     "bioHackFoundation": "",
     "slackId": "U06T30DNB3L",
     "email": "euan",
     "website": "",
-    "avatar": "https://i.ibb.co/nsDXYvPZ/Euan.jpg",
-    "staff": true
+    "avatar": "https://i.ibb.co/nsDXYvPZ/Euan.jpg"
   },
   {
     "name": "Evan Gan",
@@ -748,7 +747,7 @@
   {
     "name": "Joaquin Schere",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Despite studying computer science all of high school, Joaquin had never had the courage to build a project himself until his first Hack Club hackathon. That first all-nighter changed his life, and now he's proud to work in Partnerships and Communications for the Events team, securing meaningful benefits and experiences for Hack Clubbers. When he's not writing emails to intimidating tech innovators, you can find him playing guitar or building websites.",
     "slackId": "U083W5CCFDG",
@@ -793,7 +792,7 @@
   {
     "name": "Meghana Madiraju",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Hey, I'm Meghana. I'm a 17 year old that spends her free time messing around with robots and making PCBs. Now, I'm trying to get every teenager in the world to make their first printed circuit board.",
     "slackId": "U06P62WGWAV",
@@ -805,7 +804,7 @@
   {
     "name": "Kai Pereira",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Kai's an 18 year old hacker from west coast Canada who loves hacking on intricate hardware and software projects. You'll also find him hitting up every bubble tea shop, exploring the world aimlessly and going down every rabbit hole imaginable.",
     "slackId": "U04HJGA76H2",
@@ -817,7 +816,7 @@
   {
     "name": "Brendan Reynard",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Brendan is a a 17 year old from the east coast of Canada (PEI!) who likes lower level software and embedded systems. When he's not working on programs for Hack Club, he's cycling, skating, or working on other personal projects.",
     "slackId": "U08LEHUPSCR",
@@ -829,7 +828,7 @@
   {
     "name": "Selena Nguyen",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Selena is a student from Hamilton, Ontario and joined Hack Club through attending Apocalypse in 2024. She loves running events in her community including various hackathons and robotics competitions. In the meantime, she wants to keep learning and teaching others through workshops and programs!",
     "slackId": "U06U1CBK589",
@@ -840,7 +839,7 @@
   {
     "name": "Lewin Kelly",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U07JH9LU1NC",
@@ -852,7 +851,7 @@
   {
     "name": "Jolly Wang",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U08CJCZ2Z9S",
@@ -863,7 +862,7 @@
   {
     "name": "Sophia Duan",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Hi, I'm Sophia! I'm an 18-year-old maker from Ottawa, Canada who builds hardware projects and websites. I'm often rock climbing, reading sci-fi, or learning geography!",
     "slackId": "U083PK90X4G",
@@ -932,14 +931,24 @@
   {
     "name": "Asc",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Engineering",
     "acknowledged": false,
     "bio": "",
-    "gapyear": true,
     "slackId": "U082DPCGPST",
     "email": "ascpixi",
     "website": "https://ascpixi.dev",
     "avatar": "https://i.ibb.co/fGL56V9B/1000002893-1.jpg"
+  },
+  {
+    "name": "Darlene Wu",
+    "department": "HQ",
+    "role": "Quality and Integrity",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U07SX29CECA",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U07SX29CECA/r"
   },
   {
     "name": "Freddie Yershon",
@@ -973,7 +982,7 @@
   {
     "name": "David P",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "David is an 18 year old Hack Clubber from the UK, who got started with Hack Club 3 years ago. He's worked on Fusering, and now helps the Clubs team with operations and onboarding. In his free time, he enjoys 3D modelling and archery!",
     "email": "davidp@hackclub.com",
@@ -1279,7 +1288,7 @@
   {
     "name": "Nick Do",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Nick is an 18-year-old tinkering artist from Texas, USA! It helps run art and hardware programs as a gap year, and in its free time, can be found sewing or drawing.",
     "slackId": "U06FMCCDS1K",
@@ -1291,7 +1300,7 @@
   {
     "name": "Afia Ava",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Afia is an 18-year-old helping raise funds for Hack Club. She also runs Athena, Hack Club’s girls-only community. In her free time, she enjoys building hardware projects and reading fiction books.",
     "slackId": "U07RMG2DPQC",
@@ -1303,7 +1312,7 @@
   {
     "name": "Barnav Mitra",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Barnav is an 18-year-old engineer from New Jersey. At Hack Club, he focuses primarily on creating some of Hack Club's largest programs and satellites. Outside of Hack Club, he likes to create games at his studio, climb, and read comics.",
     "slackId": "U08RVF1BAN4",
@@ -1315,7 +1324,7 @@
   {
     "name": "Kaylee Dinh",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U08QMC72ZST",
@@ -1327,7 +1336,7 @@
   {
     "name": "Max H",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U078ZJHUKFW",
@@ -1339,7 +1348,7 @@
   {
     "name": "Antonio Archer",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Antonio Archer is a 20-year-old engineer who’s been technical since he was a child. He loves music, physical media, and operating systems.",
     "slackId": "U0BCQD74Y03",
@@ -1351,7 +1360,7 @@
   {
     "name": "Miguel",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U07VC9705D4",
@@ -1363,7 +1372,7 @@
   {
     "name": "Ren Leonard",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U081SNW7JUA",
@@ -1375,7 +1384,7 @@
   {
     "name": "Santi",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U08PD2ZB3DL",
@@ -1387,7 +1396,7 @@
   {
     "name": "Emma",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U07T7BUQMGF",
@@ -1399,7 +1408,7 @@
   {
     "name": "Kartikey Chauhan",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U05F4B48GBF",
@@ -1411,7 +1420,7 @@
   {
     "name": "Anson Chung",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U06P19MEXEZ",
@@ -1423,7 +1432,7 @@
   {
     "name": "Sebastian Hernandez",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U087BHR98AX",
@@ -1435,7 +1444,7 @@
   {
     "name": "Mihir Maroju",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U05PRRU5GSJ",
@@ -1447,7 +1456,7 @@
   {
     "name": "Liam Newbill",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U08EUSU38VC",
@@ -1459,7 +1468,7 @@
   {
     "name": "Fiona",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U09QSJ1V55Y",
@@ -1471,7 +1480,7 @@
   {
     "name": "Johnathan McPhilbin",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U0AA446NTJA",
@@ -1483,7 +1492,7 @@
   {
     "name": "Armand",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U07ABEP916X",
@@ -1495,7 +1504,7 @@
   {
     "name": "Rudy",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U079HV9PTC7",
@@ -1507,7 +1516,7 @@
   {
     "name": "Jenny",
     "department": "HQ",
-    "role": "Athena Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U07873N68ET",
@@ -1519,7 +1528,7 @@
   {
     "name": "Lola",
     "department": "HQ",
-    "role": "Athena Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U078JCFHQ3D",
@@ -1531,7 +1540,7 @@
   {
     "name": "Cisco",
     "department": "HQ",
-    "role": "Media Gap Year",
+    "role": "Media & Content",
     "acknowledged": false,
     "bio": "",
     "slackId": "U06F81ARRPA",
@@ -1543,7 +1552,7 @@
   {
     "name": "Lela Harkrader",
     "department": "HQ",
-    "role": "Media Gap Year",
+    "role": "Media & Content",
     "acknowledged": false,
     "bio": "",
     "slackId": "U0C0DD0QQRX",
@@ -1555,7 +1564,7 @@
   {
     "name": "Louisa",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U06EMBJH71S",
@@ -1567,7 +1576,7 @@
   {
     "name": "Jeremy",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U06UYA5GMB5",
@@ -1579,7 +1588,7 @@
   {
     "name": "Julia Do",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U0943NG73PA",
@@ -1591,25 +1600,13 @@
   {
     "name": "Amber",
     "department": "HQ",
-    "role": "Gap Year",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U054VC2KM9P",
     "email": "",
     "website": "",
     "avatar": "https://cachet.hackclub.com/users/U054VC2KM9P/r",
-    "gapyear": true
-  },
-  {
-    "name": "Darlene Wu",
-    "department": "HQ",
-    "role": "Gap Year",
-    "acknowledged": false,
-    "bio": "",
-    "slackId": "U07SX29CECA",
-    "email": "",
-    "website": "",
-    "avatar": "https://cachet.hackclub.com/users/U07SX29CECA/r",
     "gapyear": true
   },
   {
