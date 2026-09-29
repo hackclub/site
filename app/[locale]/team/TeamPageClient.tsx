@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
+import Markdown, { type Components } from "react-markdown";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 
@@ -74,6 +75,14 @@ function emailHref(email?: string) {
 
   return email.includes("@") ? `mailto:${email}` : `mailto:${email}@hackclub.com`;
 }
+
+const bioComponents: Components = {
+  a: ({ href, children }) => (
+    <a href={href} target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
+  ),
+};
 
 function BoardCard({
   img,
@@ -405,7 +414,17 @@ export default function TeamPageClient({
               {selectedMember.name}
             </h3>
             <p className="modal-role">{selectedMember.role}</p>
-            {selectedMember.bio && <p className="modal-bio">{selectedMember.bio}</p>}
+            {selectedMember.bio && (
+              <div className="modal-bio">
+                <Markdown
+                  allowedElements={["p", "a", "strong", "em"]}
+                  unwrapDisallowed
+                  components={bioComponents}
+                >
+                  {selectedMember.bio}
+                </Markdown>
+              </div>
+            )}
             <div className="modal-links">
               {emailHref(selectedMember.email) && (
                 <a href={emailHref(selectedMember.email)!} className="modal-link">
@@ -976,6 +995,15 @@ export default function TeamPageClient({
           font-size: 0.95rem;
           line-height: 1.5;
           color: var(--muted);
+        }
+
+        .modal-bio p {
+          margin: 0;
+        }
+
+        .modal-bio a {
+          color: var(--red);
+          text-decoration: underline;
         }
 
         .modal-links {
