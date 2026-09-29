@@ -176,6 +176,17 @@
     "avatar": "https://cloud-aomcbxj1t-hack-club-bot.vercel.app/0image.png"
   },
   {
+    "name": "Arcade Wise",
+    "department": "HQ",
+    "role": "YSWS Programs",
+    "acknowledged": true,
+    "bio": "",
+    "slackId": "U0AUS1V9Q4Q",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U0AUS1V9Q4Q/r"
+  },
+  {
     "name": "Arpan",
     "department": "HQ",
     "role": "Clubs Operation/Special Activities Director",
@@ -249,6 +260,17 @@
     "avatar": "https://i.ibb.co/XrBqbYF7/2026-01-27-0j2-Kleki.jpg"
   },
   {
+    "name": "Chan Kai Ling",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": true,
+    "bio": "Kai Ling is a Hack Clubber from Singapore that enjoys everything art, design and merchandising! Based in HQ-SF, she designs for + runs online events and in-person adventures. In her free time, she loves sewing, crows and making trinkets.",
+    "slackId": "U081RE37QEB",
+    "email": "kl",
+    "website": "https://kailings.garden",
+    "avatar": "https://i.ibb.co/ycBkjTvW/kl.jpg"
+  },
+  {
     "name": "Charlie Nicholson",
     "department": "HQ",
     "role": "YSWS & Events",
@@ -269,6 +291,29 @@
     "email": "cheru",
     "website": "",
     "avatar": "https://cloud-e98036o7p-hack-club-bot.vercel.app/0june_23_2024_image.jpg"
+  },
+  {
+    "name": "Clay Nicholson",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": true,
+    "bio": "Originally from Vermont, Clay joined Hack Club in 2022. In his free time, he enjoys mountain biking, playing ultimate frisbee, and skiing. In high school, Clay served as captain and programming/mechanical lead for two robotics teams. Today, he focuses primarily on creating hardware YSWS programs.",
+    "slackId": "U05JNJZJ0BS",
+    "email": "clay",
+    "website": "https://claynicholson.com/",
+    "avatar": "https://i.ibb.co/LzJnxXX1/1756333983052.jpg"
+  },
+  {
+    "name": "Dhamari Trice-Hanson",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": true,
+    "bio": "Dhamari is passionate about running programs surrounding music and entertainment. Coming from Detroit, he got his start in coding through Google's Code Next Detroit Lab, training 5-7 hours a week to get to where he is today.",
+    "bioHackFoundation": "",
+    "slackId": "U08RWM5U4L9",
+    "email": "dhamari",
+    "website": "",
+    "avatar": "https://i.ibb.co/QvzYRZm4/Dhamari.png"
   },
   {
     "name": "Dieter Schoening",
@@ -302,6 +347,17 @@
     "email": "",
     "website": "",
     "avatar": "https://cloud-4yg49snx8-hack-club-bot.vercel.app/0image_512x512.jpg"
+  },
+  {
+    "name": "Emma Borghi",
+    "department": "HQ",
+    "role": "AI and Robotics",
+    "acknowledged": true,
+    "bio": "Emma is a content creator from Italy, she started by participating in Hack Club's hackathons around the world, then she joined the team. She works in the AI and Robotic field, sharing content in Youtube, and now she organize YSWS programs",
+    "slackId": "U078DFX40A2",
+    "email": "emma",
+    "website": "",
+    "avatar": "https://i.ibb.co/vxNKbCpx/2026-01-27-0or-Kleki.jpg"
   },
   {
     "name": "Faisal Sayed",
@@ -491,6 +547,17 @@
     "avatar": "https://user-cdn.hackclub-assets.com/019c76b7-bf18-7905-bfb6-50126c71e3ff/3WGdxg.jpg"
   },
   {
+    "name": "Manitej Boorgu",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": true,
+    "bio": "",
+    "slackId": "U04QD71QWS0",
+    "email": "manitej",
+    "website": "https://manitej.com",
+    "avatar": "https://i.ibb.co/My8Y9q8D/manitej.jpg"
+  },
+  {
     "name": "Marianna Ludensky",
     "department": "HQ",
     "role": "Creative Lead",
@@ -533,6 +600,17 @@
     "email": "micha",
     "website": "https://mra.sh",
     "avatar": "https://cdn.hackclub.com/019c76bf-b916-70de-b6e7-2150d046613d/daoshd.png"
+  },
+  {
+    "name": "Nathan Alspaugh",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": true,
+    "bio": "Nathan is an 18 year old Hack Clubber from Texas. He's currently gap-yearing for Hack Club and launching cool programs. He's an avid Kerbal Space Program player, a future aerospace engineer, and enjoys tinkering with (and sometimes breaking) hardware.",
+    "slackId": "U05EZRFKRV4",
+    "email": "nathan@hackclub.com",
+    "website": "https://notaroomba.dev",
+    "avatar": "https://i.ibb.co/yF8tbz9G/1728316229074.jpg"
   },
   {
     "name": "Neon",
@@ -590,6 +668,27 @@
     "avatar": "https://cachet.hackclub.com/users/U08B2HD1JNA/r"
   },
   {
+    "name": "Reem Khalifa",
+    "department": "HQ",
+    "role": "Engineering & Community",
+    "acknowledged": true,
+    "bio": "Reem is a 17 year old Hack Clubber from New York City. She's currently gap-yearing for Hack Club's Athena Initiative, working to increase the number of girls and non-binary teens in tech. In her free time, you can either find her diving into a swimming pool or snuggled in bed reading a book with her cat.",
+    "slackId": "U06U80G86H1",
+    "email": "reem",
+    "website": "https://reemkhalifa.xyz",
+    "avatar": "https://i.ibb.co/CKV0Bvcz/reem.png"
+  },
+  {
+    "name": "Renran Sun",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": true,
+    "bio": "",
+    "slackId": "U07ACECRYM6",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U07ACECRYM6/r"
+  },
+  {
     "name": "Rishi Kothari",
     "department": "HQ",
     "role": "Summer Intern",
@@ -610,6 +709,17 @@
     "email": "sahiti",
     "website": "",
     "avatar": "https://cloud-m9lcvt46z-hack-club-bot.vercel.app/0qlinq_image_2387x2387.png"
+  },
+  {
+    "name": "Sam Liu",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": true,
+    "bio": "Sam is an 18-year-old Hack Clubber from Canada who loves building random stuff. Since joining Hack Club, he has supported hackers around the world through hackathons. Sam is currently gap-yearing at Hack Club to work on You Ship, We Ship programs.",
+    "slackId": "U03UBRVG2MS",
+    "email": "samliu",
+    "website": "https://samliu.dev",
+    "avatar": "https://i.ibb.co/0jzr1gN3/sam.png"
   },
   {
     "name": "Shawn Malluwa-Wadu",

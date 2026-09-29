@@ -5,9 +5,9 @@
     "role": "Community Moderation Lead",
     "acknowledged": false,
     "bio": "Louisa is a high schooler from Kenya who helps lead the Hack Club Community moderation dept",
-    "slackId": "",
+    "slackId": "U06EMBJH71S",
     "email": "louisa",
-    "website": "U06EMBJH71S",
+    "website": "",
     "avatar": "https://cachet.hackclub.com/users/U06EMBJH71S/r"
   },
   {
@@ -291,7 +291,7 @@
     "slackId": "U0AAWST7XGF",
     "email": "georgia",
     "website": "",
-    "avatar": "https://cdn.hackclub.com/019f80ae-9606-7394-ae62-f1c92c667af8/georgia.png"
+    "avatar": "https://cdn.hackclub.com/01a0e8dc-1a10-76fb-8259-e9fdd049de20/geo.webp"
   },
   {
     "name": "Luke Oldenburg",
@@ -612,18 +612,6 @@
     "avatar": "https://raw.githubusercontent.com/qcoral/assets/refs/heads/main/pfp-irl.png"
   },
   {
-    "name": "Nathan Alspaugh",
-    "department": "HQ",
-    "role": "Engineering",
-    "acknowledged": false,
-    "bio": "Nathan is an 18 year old Hack Clubber from Texas. He's currently gap-yearing for Hack Club and launching cool programs. He's an avid Kerbal Space Program player, a future aerospace engineer, and enjoys tinkering with (and sometimes breaking) hardware.",
-    "slackId": "U05EZRFKRV4",
-    "email": "nathan@hackclub.com",
-    "website": "https://notaroomba.dev",
-    "avatar": "https://i.ibb.co/yF8tbz9G/1728316229074.jpg",
-    "gapyear": true
-  },
-  {
     "name": "Angad Behl",
     "department": "HQ",
     "role": "Engineering and Community",
@@ -650,36 +638,22 @@
     "department": "HQ",
     "role": "Engineering & Community",
     "acknowledged": false,
-    "bio": "Annabel is a 17 year old Hack Clubber from Australia. They're currently gap-yearing for Hack Club and have worked on several programs and the Athena initiative. They're an avid Celeste and Hollow Knight fan and love to play games in their free time. They also love to build things, and have built several tools for Hack Club.",
+    "bio": "Annabel is a 17 year old Hack Clubber from Australia. They've worked on several programs and the Athena initiative. They're an avid Celeste and Hollow Knight fan and love to play games in their free time. They also love to build things, and have built several tools for Hack Club.",
     "slackId": "U078J6H1XL3",
     "email": "annabel",
-    "gapyear": true,
     "website": "https://phthallo.com",
     "avatar": "https://i.ibb.co/DmYsryK/1733036812203.jpg"
   },
   {
-    "name": "Chan Kai Ling",
+    "name": "Jiang Tongyu",
     "department": "HQ",
     "role": "Engineering",
     "acknowledged": false,
-    "bio": "Kai Ling is a Hack Clubber from Singapore that enjoys everything art, design and merchandising! Based in HQ-SF, she designs for + runs online events and in-person adventures. In her free time, she loves sewing, crows and making trinkets.",
+    "bio": "Tongyu is a 19-year-old Hack Clubber from Singapore who loves making games! She runs events and adventures at Hack Club SF. She also likes linguistics, making crafts, and sometimes writing music.",
     "slackId": "U07DJMFAQQP",
-    "email": "kl",
-    "website": "https://kailings.garden",
-    "avatar": "https://i.ibb.co/ycBkjTvW/kl.jpg",
-    "gapyear": true
-  },
-  {
-    "name": "Clay Nicholson",
-    "department": "HQ",
-    "role": "Engineering",
-    "acknowledged": false,
-    "bio": "Originally from Vermont, Clay joined Hack Club in 2022. In his free time, he enjoys mountain biking, playing ultimate frisbee, and skiing. In high school, Clay served as captain and programming/mechanical lead for two robotics teams. Today, he focuses primarily on creating hardware YSWS programs.",
-    "slackId": "U078DFX40A2",
-    "email": "clay",
-    "website": "https://claynicholson.com/",
-    "avatar": "https://i.ibb.co/LzJnxXX1/1756333983052.jpg",
-    "gapyear": true
+    "email": "tongyu",
+    "website": "https://tongyu.fish",
+    "avatar": "https://i.ibb.co/fYTBgRn2/tongyu.png"
   },
   {
     "name": "Dhyan",
@@ -704,31 +678,6 @@
     "avatar": "https://cdn.hackclub.com/019d8d6d-08a5-7512-949d-d561d6126815/2026_04_14_0pg_Kleki%20(1).png"
   },
   {
-    "name": "Emma Borghi",
-    "department": "HQ",
-    "role": "AI and Robotics",
-    "acknowledged": false,
-    "bio": "Emma is a content creator from Italy, she started by participating in Hack Club's hackathons around the world, then she joined the team. She works in the AI and Robotic field, sharing content in Youtube, and now she organize YSWS programs",
-    "slackId": "U078DFX40A2",
-    "email": "emma",
-    "website": "",
-    "avatar": "https://i.ibb.co/vxNKbCpx/2026-01-27-0or-Kleki.jpg",
-    "gapyear": true
-  },
-  {
-    "name": "Dhamari Trice-Hanson",
-    "department": "HQ",
-    "gapyear": true,
-    "role": "Engineering",
-    "acknowledged": false,
-    "bio": "Dhamari is passionate about running programs surrounding music and entertainment. Coming from Detroit, he got his start in coding through Google's Code Next Detroit Lab, training 5-7 hours a week to get to where he is today.",
-    "bioHackFoundation": "",
-    "slackId": "U08RWM5U4L9",
-    "email": "dhamari",
-    "website": "",
-    "avatar": "https://i.ibb.co/QvzYRZm4/Dhamari.png"
-  },
-  {
     "name": "Estella Gu",
     "department": "HQ",
     "role": "Engineering & Community",
@@ -749,8 +698,7 @@
     "slackId": "U06T30DNB3L",
     "email": "euan",
     "website": "",
-    "avatar": "https://i.ibb.co/nsDXYvPZ/Euan.jpg",
-    "gapyear": true
+    "avatar": "https://i.ibb.co/nsDXYvPZ/Euan.jpg"
   },
   {
     "name": "Evan Gan",
@@ -766,25 +714,14 @@
   {
     "name": "Gus Ruben",
     "department": "HQ",
-    "role": "Engineering",
+    "role": "YSWS Player-Coach",
     "acknowledged": false,
-    "gapyear": true,
     "bio": "",
     "slackId": "U07FCRNHS1J",
     "email": "gus",
     "website": "",
-    "avatar": "https://cachet.hackclub.com/users/U07FCRNHS1J/r"
-  },
-  {
-    "name": "Renran Sun",
-    "department": "HQ",
-    "role": "Engineering",
-    "acknowledged": false,
-    "gapyear": true,
-    "bio": "",
-    "slackId": "U07ACECRYM6",
-    "website": "",
-    "avatar": "https://cachet.hackclub.com/users/U07ACECRYM6/r"
+    "avatar": "https://cachet.hackclub.com/users/U07FCRNHS1J/r",
+    "staff": true
   },
   {
     "name": "Jenin Henin",
@@ -808,27 +745,16 @@
     "avatar": "https://cachet.hackclub.com/users/U020X4GCWSF/r"
   },
   {
-    "name": "Jiang Tongyu",
-    "department": "HQ",
-    "role": "Engineering",
-    "acknowledged": false,
-    "bio": "Tongyu is a 19-year-old Hack Clubber from Singapore who loves making games! She's taking a gap year at Hack Club SF to run events and adventures. She also likes linguistics, making crafts, and sometimes writing music.",
-    "slackId": "U07DJMFAQQP",
-    "email": "tongyu",
-    "website": "https://tongyu.fish",
-    "avatar": "https://i.ibb.co/fYTBgRn2/tongyu.png",
-    "gapyear": true
-  },
-  {
     "name": "Joaquin Schere",
     "department": "HQ",
-    "role": "Event Operations and Communications",
+    "role": "Events & Programs",
     "acknowledged": false,
-    "bio": "Despite studying computer science all of high school, Joaquin had never had the courage to build a project himself until his first Hack Club hackathon. That first all-nighter changed his life, and now he's proud to work in Partnerships and Communications for the Events team, securing meaningful benefits and experiences for Hack Clubbers. When he's not writing emails to intimidating tech innovators, you can find him playing guitar or building websites.",
+    "bio": "joaquin, also known as guac, is a YSWS gap year focused on building things that teach and inspire. in his free time you can find him donning ridiculous hats and playing the guitar.",
     "slackId": "U083W5CCFDG",
     "email": "joaquin",
     "website": "https://jschere.com",
-    "avatar": "https://i.ibb.co/S7ZkBdjL/joaquin.png"
+    "avatar": "https://i.ibb.co/S7ZkBdjL/joaquin.png",
+    "gapyear": true
   },
   {
     "name": "Jonathan Dong",
@@ -864,21 +790,9 @@
     "avatar": "https://cachet.hackclub.com/users/U07ULNFPQ4T/r"
   },
   {
-    "name": "Manitej Boorgu",
-    "department": "HQ",
-    "role": "Engineering",
-    "acknowledged": false,
-    "bio": "",
-    "slackId": "U04QD71QWS0",
-    "email": "manitej",
-    "website": "https://manitej.com",
-    "avatar": "https://i.ibb.co/My8Y9q8D/manitej.jpg",
-    "gapyear": true
-  },
-  {
     "name": "Meghana Madiraju",
     "department": "HQ",
-    "role": "Engineering & Event Operations",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Hey, I'm Meghana. I'm a 17 year old that spends her free time messing around with robots and making PCBs. Now, I'm trying to get every teenager in the world to make their first printed circuit board.",
     "slackId": "U06P62WGWAV",
@@ -890,7 +804,7 @@
   {
     "name": "Kai Pereira",
     "department": "HQ",
-    "role": "Engineering",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Kai's an 18 year old hacker from west coast Canada who loves hacking on intricate hardware and software projects. You'll also find him hitting up every bubble tea shop, exploring the world aimlessly and going down every rabbit hole imaginable.",
     "slackId": "U04HJGA76H2",
@@ -902,7 +816,7 @@
   {
     "name": "Brendan Reynard",
     "department": "HQ",
-    "role": "Engineering",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Brendan is a a 17 year old from the east coast of Canada (PEI!) who likes lower level software and embedded systems. When he's not working on programs for Hack Club, he's cycling, skating, or working on other personal projects.",
     "slackId": "U08LEHUPSCR",
@@ -914,7 +828,7 @@
   {
     "name": "Selena Nguyen",
     "department": "HQ",
-    "role": "Events & Engineering",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Selena is a student from Hamilton, Ontario and joined Hack Club through attending Apocalypse in 2024. She loves running events in her community including various hackathons and robotics competitions. In the meantime, she wants to keep learning and teaching others through workshops and programs!",
     "slackId": "U06U1CBK589",
@@ -925,7 +839,7 @@
   {
     "name": "Lewin Kelly",
     "department": "HQ",
-    "role": "Engineering",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U07JH9LU1NC",
@@ -937,7 +851,7 @@
   {
     "name": "Jolly Wang",
     "department": "HQ",
-    "role": "Engineering",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "",
     "slackId": "U08CJCZ2Z9S",
@@ -948,7 +862,7 @@
   {
     "name": "Sophia Duan",
     "department": "HQ",
-    "role": "Engineering",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Hi, I'm Sophia! I'm an 18-year-old maker from Ottawa, Canada who builds hardware projects and websites. I'm often rock climbing, reading sci-fi, or learning geography!",
     "slackId": "U083PK90X4G",
@@ -960,43 +874,28 @@
   {
     "name": "Olive Wu",
     "department": "HQ",
-    "role": "Engineering",
+    "role": "YSWS Player-Coach",
     "acknowledged": false,
     "bio": "Olive is a gap year working on the YSWS team this year at HC! In her free time, she loves to bake cupcakes, play cello, and work on fun projects. She also loves penguins.",
     "slackId": "U07BN55GN3D",
     "email": "olive",
     "website": "",
     "avatar": "https://i.ibb.co/0pJKd05H/2026-01-27-0ou-Kleki.jpg",
-    "gapyear": true
+    "staff": true
   },
   {
-    "name": "Reem Khalifa",
+    "name": "Emme",
     "department": "HQ",
-    "role": "Engineering & Community",
+    "role": "Quality & Integrity Manager",
     "acknowledged": false,
-    "bio": "Reem is a 17 year old Hack Clubber from New York City. She's currently gap-yearing for Hack Club's Athena Initiative, working to increase the number of girls and non-binary teens in tech. In her free time, you can either find her diving into a swimming pool or snuggled in bed reading a book with her cat.",
-    "slackId": "U06U80G86H1",
-    "email": "reem",
-    "website": "https://reemkhalifa.xyz",
-    "avatar": "https://i.ibb.co/CKV0Bvcz/reem.png",
-    "gapyear": true
-  },
-  {
-    "name": "Sam Liu",
-    "department": "HQ",
-    "role": "Engineering",
-    "acknowledged": false,
-    "bio": "Sam is an 18-year-old Hack Clubber from Canada who loves building random stuff. Since joining Hack Club, he has supported hackers around the world through hackathons. Sam is currently gap-yearing at Hack Club to work on You Ship, We Ship programs.",
-    "slackId": "U03UBRVG2MS",
-    "email": "samliu",
-    "website": "https://samliu.dev",
-    "avatar": "https://i.ibb.co/0jzr1gN3/sam.png",
-    "gapyear": true
+    "bio": "Emme started block-coding in Minecraft at 12, and things have only escalated from there. She's since attended over 7 Hack Club hackathons and contributes to Hack Club as a Quality & Integrity manager, overseeing the quality of programs and ensuring they align with Hack Club's mission. In her free time, she enjoys reading, hiking, and speculative evolution projects.",
+    "staff": true,
+    "avatar": "https://cdn.hackclub.com/01a0e933-e962-7818-a809-b6c1936b199d/emme.webp"
   },
   {
     "name": "Sebastian",
     "department": "HQ",
-    "role": "Quality and Integrity Manager",
+    "role": "Engineering (Orchard Maintenance)",
     "acknowledged": false,
     "bio": "Sebastian (a.k.a. Leafd) is a 18-year-old developer from México who likes making large-scale Minecraft events, loves working with Kubernetes, likes creating and learning new things, and sometimes does music production.",
     "slackId": "U07UBCSSQH3",
@@ -1044,11 +943,21 @@
     "role": "Engineering",
     "acknowledged": false,
     "bio": "",
-    "gapyear": true,
     "slackId": "U082DPCGPST",
     "email": "ascpixi",
     "website": "https://ascpixi.dev",
     "avatar": "https://i.ibb.co/fGL56V9B/1000002893-1.jpg"
+  },
+  {
+    "name": "Darlene Wu",
+    "department": "HQ",
+    "role": "Quality and Integrity",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U07SX29CECA",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U07SX29CECA/r"
   },
   {
     "name": "Freddie Yershon",
@@ -1082,12 +991,14 @@
   {
     "name": "David P",
     "department": "HQ",
-    "role": "Club Operations",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "David is an 18 year old Hack Clubber from the UK, who got started with Hack Club 3 years ago. He's worked on Fusering, and now helps the Clubs team with operations and onboarding. In his free time, he enjoys 3D modelling and archery!",
     "email": "davidp@hackclub.com",
     "website": "https://fletchworks.dev/",
-    "avatar": "https://cachet.hackclub.com/users/U06LWHNLL3B/r"
+    "avatar": "https://cachet.hackclub.com/users/U06LWHNLL3B/r",
+    "slackId": "U06LWHNLL3B",
+    "gapyear": true
   },
   {
     "name": "Wally",
@@ -1312,7 +1223,7 @@
     "role": "Welcomer",
     "acknowledged": false,
     "bio": "Louisa is a high schooler from Kenya who helps lead the Hack Club Community moderation dept",
-    "slackId": "",
+    "slackId": "U06EMBJH71S",
     "email": "louisa",
     "website": "",
     "avatar": "https://cachet.hackclub.com/users/U06EMBJH71S/r"
@@ -1386,7 +1297,7 @@
   {
     "name": "Nick Do",
     "department": "HQ",
-    "role": "Engineering",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Nick is an 18-year-old tinkering artist from Texas, USA! It helps run art and hardware programs as a gap year, and in its free time, can be found sewing or drawing.",
     "slackId": "U06FMCCDS1K",
@@ -1398,7 +1309,7 @@
   {
     "name": "Afia Ava",
     "department": "HQ",
-    "role": "Philanthropy & Engineering",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Afia is an 18-year-old helping raise funds for Hack Club. She also runs Athena, Hack Club’s girls-only community. In her free time, she enjoys building hardware projects and reading fiction books.",
     "slackId": "U07RMG2DPQC",
@@ -1410,13 +1321,313 @@
   {
     "name": "Barnav Mitra",
     "department": "HQ",
-    "role": "Engineering & Event Operations",
+    "role": "Events & Programs",
     "acknowledged": false,
     "bio": "Barnav is an 18-year-old engineer from New Jersey. At Hack Club, he focuses primarily on creating some of Hack Club's largest programs and satellites. Outside of Hack Club, he likes to create games at his studio, climb, and read comics.",
     "slackId": "U08RVF1BAN4",
     "email": "barnav@hackclub.com",
     "website": "jos.gg",
     "avatar": "https://cdn.hackclub.com/01a06000-d169-753d-9f98-c9629c8cb82c/FD781D00-7BD4-4275-B39A-9AF46FC4C54E_1_201_a.jpeg",
+    "gapyear": true
+  },
+  {
+    "name": "Kaylee Dinh",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U08QMC72ZST",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U08QMC72ZST/r",
+    "gapyear": true
+  },
+  {
+    "name": "Katie",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U06SQJ508LF",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U06SQJ508LF/r",
+    "gapyear": true
+  },
+  {
+    "name": "Max H",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U078ZJHUKFW",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U078ZJHUKFW/r",
+    "gapyear": true
+  },
+  {
+    "name": "Antonio Archer",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "Antonio Archer is a 20-year-old engineer who’s been technical since he was a child. He loves music, physical media, and operating systems.",
+    "slackId": "U0BCQD74Y03",
+    "email": "antonio",
+    "website": "",
+    "avatar": "https://cdn.hackclub.com/01a0e407-0af7-7860-bbf0-6686eed7292c/Slick_xqcBA3b84h.png",
+    "gapyear": true
+  },
+  {
+    "name": "Miguel",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U07VC9705D4",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U07VC9705D4/r",
+    "gapyear": true
+  },
+  {
+    "name": "Ren Leonard",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U081SNW7JUA",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U081SNW7JUA/r",
+    "gapyear": true
+  },
+  {
+    "name": "Beltran",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U08PD2ZB3DL",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U08PD2ZB3DL/r",
+    "gapyear": true
+  },
+  {
+    "name": "Emma",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U07T7BUQMGF",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U07T7BUQMGF/r",
+    "gapyear": true
+  },
+  {
+    "name": "Kartikey Chauhan",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U05F4B48GBF",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U05F4B48GBF/r",
+    "gapyear": true
+  },
+  {
+    "name": "Anson Chung",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U06P19MEXEZ",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U06P19MEXEZ/r",
+    "gapyear": true
+  },
+  {
+    "name": "Sebastian Hernandez",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U087BHR98AX",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U087BHR98AX/r",
+    "gapyear": true
+  },
+  {
+    "name": "Mihir Maroju",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U05PRRU5GSJ",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U05PRRU5GSJ/r",
+    "gapyear": true
+  },
+  {
+    "name": "Liam Newbill",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U08EUSU38VC",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U08EUSU38VC/r",
+    "gapyear": true
+  },
+  {
+    "name": "Fiona",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U09QSJ1V55Y",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U09QSJ1V55Y/r",
+    "gapyear": true
+  },
+  {
+    "name": "Johnathan McPhilbin",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U0AA446NTJA",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U0AA446NTJA/r",
+    "gapyear": true
+  },
+  {
+    "name": "Armand",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U07ABEP916X",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U07ABEP916X/r",
+    "gapyear": true
+  },
+  {
+    "name": "Rudy",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U079HV9PTC7",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U079HV9PTC7/r",
+    "gapyear": true
+  },
+  {
+    "name": "Jenny",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U07873N68ET",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U07873N68ET/r",
+    "gapyear": true
+  },
+  {
+    "name": "Lola",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U078JCFHQ3D",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U078JCFHQ3D/r",
+    "gapyear": true
+  },
+  {
+    "name": "Cisco",
+    "department": "HQ",
+    "role": "Media & Content",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U06F81ARRPA",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U06F81ARRPA/r",
+    "gapyear": true
+  },
+  {
+    "name": "Lela Harkrader",
+    "department": "HQ",
+    "role": "Media & Content",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U0C0DD0QQRX",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U0C0DD0QQRX/r",
+    "gapyear": true
+  },
+  {
+    "name": "Louisa",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U06EMBJH71S",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U06EMBJH71S/r",
+    "gapyear": true
+  },
+  {
+    "name": "Jeremy",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U06UYA5GMB5",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U06UYA5GMB5/r",
+    "gapyear": true
+  },
+  {
+    "name": "Julia Do",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U0943NG73PA",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U0943NG73PA/r",
+    "gapyear": true
+  },
+  {
+    "name": "Amber",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U054VC2KM9P",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U054VC2KM9P/r",
     "gapyear": true
   },
   {
@@ -1508,17 +1719,5 @@
     "email": "stelle",
     "website": "https://stelle.codes",
     "avatar": "https://cdn.hackclub.com/01a0e05a-8d9a-7fda-9995-a64cf8a05095/Untitled32_20260717184910.png"
-  },
-  {
-    "name": "Antonio Archer",
-    "department": "HQ",
-    "role": "Engineering",
-    "acknowledged": false,
-    "bio": "Antonio Archer is a 20-year-old engineer who’s been technical since he was a child. He loves music, physical media, and operating systems.",
-    "slackId": "U07F6FMJ97U",
-    "email": "antonio",
-    "website": "",
-    "avatar": "https://cdn.hackclub.com/01a0e407-0af7-7860-bbf0-6686eed7292c/Slick_xqcBA3b84h.png",
-    "gapyear": true
   }
 ]
