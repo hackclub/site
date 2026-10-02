@@ -27,9 +27,15 @@ export function TeachersEmailSignup() {
   const firstNameId = `${idPrefix}-first-name`;
   const lastNameId = `${idPrefix}-last-name`;
   const emailId = `${idPrefix}-email`;
+  const schoolId = `${idPrefix}-school`;
+  const stateId = `${idPrefix}-state`;
+  const countryId = `${idPrefix}-country`;
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [school, setSchool] = useState("");
+  const [state, setState] = useState("");
+  const [country, setCountry] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -53,6 +59,9 @@ export function TeachersEmailSignup() {
           firstName: firstName.trim(),
           lastName: lastName.trim(),
           email: email.trim(),
+          school: school.trim() || undefined,
+          state: state.trim() || undefined,
+          country: country.trim() || undefined,
         }),
       });
       if (!res.ok) {
@@ -64,6 +73,9 @@ export function TeachersEmailSignup() {
       setFirstName("");
       setLastName("");
       setEmail("");
+      setSchool("");
+      setState("");
+      setCountry("");
     } catch {
       setStatus("error");
       setErrorMsg(t("networkError"));
@@ -77,7 +89,10 @@ export function TeachersEmailSignup() {
       <style>{`
         #${firstNameId}::placeholder,
         #${lastNameId}::placeholder,
-        #${emailId}::placeholder {
+        #${emailId}::placeholder,
+        #${schoolId}::placeholder,
+        #${stateId}::placeholder,
+        #${countryId}::placeholder {
           opacity: 0.5;
         }
       `}</style>
@@ -125,12 +140,41 @@ export function TeachersEmailSignup() {
           setEmail(e.target.value);
           if (status === "error") setStatus("idle");
         }}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") submit();
-        }}
         disabled={disabled}
-        style={{ ...inputStyle, marginBottom: 14 }}
+        style={{ ...inputStyle, marginBottom: 10 }}
       />
+      <input
+        id={schoolId}
+        type="text"
+        placeholder={t("schoolPlaceholder")}
+        value={school}
+        onChange={(e) => setSchool(e.target.value)}
+        disabled={disabled}
+        style={{ ...inputStyle, marginBottom: 10 }}
+      />
+      <div style={{ display: "flex", gap: 10, marginBottom: 14 }}>
+        <input
+          id={stateId}
+          type="text"
+          placeholder={t("statePlaceholder")}
+          value={state}
+          onChange={(e) => setState(e.target.value)}
+          disabled={disabled}
+          style={inputStyle}
+        />
+        <input
+          id={countryId}
+          type="text"
+          placeholder={t("countryPlaceholder")}
+          value={country}
+          onChange={(e) => setCountry(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") submit();
+          }}
+          disabled={disabled}
+          style={inputStyle}
+        />
+      </div>
       <button
         type="button"
         onClick={submit}
