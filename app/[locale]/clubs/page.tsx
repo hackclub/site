@@ -181,7 +181,7 @@ export default async function ClubPage({ params }: Props) {
               </a>
               <a
                 className={`${styles["clubs-button"]} ${styles["clubs-button-outline"]} cta-btn`}
-                href="https://clubs.hackclub.com/auth/login"
+                href="https://clubs.hackclub.com/auth/"
                 target="_blank"
                 rel="noreferrer"
               >

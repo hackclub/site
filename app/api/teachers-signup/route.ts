@@ -71,6 +71,16 @@ export async function POST(req: NextRequest) {
     });
   }
 
+  const optionalText = (value: unknown): string | undefined => {
+    if (typeof value !== "string") return undefined;
+    const trimmed = value.trim();
+    return trimmed.length > 0 && trimmed.length <= 200 ? trimmed : undefined;
+  };
+
+  const school = optionalText((body as { school?: unknown })?.school);
+  const state = optionalText((body as { state?: unknown })?.state);
+  const country = optionalText((body as { country?: unknown })?.country);
+
   const res = await fetch(
     `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(TABLE_NAME)}`,
     {
@@ -86,6 +96,9 @@ export async function POST(req: NextRequest) {
               email: email.trim(),
               "First Name": firstName.trim(),
               "Last Name": lastName.trim(),
+              ...(school && { "School/Organization": school }),
+              ...(state && { State: state }),
+              ...(country && { Country: country }),
             },
           },
         ],
