@@ -98,6 +98,7 @@ export default async function BrandPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations("Brand");
 
+  // oxlint-disable-next-line react/purity -- server component, not called during client render
   const year = new Date().getFullYear();
   const bannerHtmlTop = `<a href="https://hackclub.com/"><img style="position: absolute; top: 0; left: 10px; border: 0; width: 256px; z-index: 999;" src="https://assets.hackclub.com/flag-orpheus-top.svg" alt="Hack Club"/></a>`;
   const bannerHtmlLeft = `<a href="https://hackclub.com/"><img style="position: absolute; top: 0; left: 10px; border: 0; width: 256px; z-index: 999;" src="https://assets.hackclub.com/flag-orpheus-left.svg" alt="Hack Club"/></a>`;

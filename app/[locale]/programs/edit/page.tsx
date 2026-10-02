@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { Navbar } from "@/components/Navbar";
 import { parseLocalDate } from "@/lib/programs";
 import type { SiteProgram, ProjectType, ProgramFormat } from "@/lib/site-programs";
@@ -78,7 +78,8 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
   const { draft, site, ysws } = prog;
   const logoUrl = site?.logoUrl ?? null;
   const bgImageUrl = draft.bgType === "image" ? (site?.bgImageUrl ?? null) : null;
-  const now = new Date();
+  // oxlint-disable-next-line react/purity
+  const now = useMemo(() => new Date(), []);
   // If no end date, program runs indefinitely (never ends)
   const isEnded = draft.endDate ? parseLocalDate(draft.endDate) < now : false;
   const isUpcoming =

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback, type ReactNode } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo, type ReactNode } from "react";
 import NextLink from "next/link";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
@@ -58,7 +58,8 @@ function ProgramCard({ event }: { event: Event }) {
   const locale = useLocale();
   const projectTypeLabel = useProjectTypeLabel();
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const now = new Date();
+  // oxlint-disable-next-line react/purity
+  const now = useMemo(() => new Date(), []);
   // If no end date, program runs indefinitely (never ends)
   const isEnded = event.endDate ? parseLocalDate(event.endDate) < now : false;
   const isUpcoming =

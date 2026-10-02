@@ -1,7 +1,7 @@
 "use client";
 import { useLocale, useTranslations } from "next-intl";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import type { Event } from "../../lib/events";
@@ -31,7 +31,8 @@ function EventCard({ event }: { event: Event }) {
   const tp = useTranslations("Programs");
   const locale = useLocale();
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const now = new Date();
+  // oxlint-disable-next-line react/purity
+  const now = useMemo(() => new Date(), []);
   const isUpcoming = parseLocalDate(event.startDate) > now;
   // endDate may be null for indefinite programs
   const endDate = event.endDate ? parseLocalDate(event.endDate) : null;

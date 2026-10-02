@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { Icon } from "./Icon";
 import { ThemeToggle } from "./ThemeToggle";
@@ -84,7 +85,8 @@ function LinkCol({ title, links }: { title: string; links: { label: string; href
 
 export function Footer() {
   const t = useTranslations("Footer");
-  const year = new Date().getFullYear();
+  // oxlint-disable-next-line react/purity
+  const year = useMemo(() => new Date().getFullYear(), []);
 
   const hcLinks = [
     { label: t("philosophy"), href: "/philosophy" },
