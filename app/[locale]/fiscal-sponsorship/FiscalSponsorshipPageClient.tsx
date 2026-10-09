@@ -21,8 +21,9 @@ const V = FISCAL_TYPOGRAPHY.sectionPaddingV;
 const H = FISCAL_TYPOGRAPHY.sectionPaddingH;
 
 const FEATURED_ORGANIZATIONS = MOCK_ORGANIZATIONS;
+const GRANT_CONTACT_EMAIL = "meagan@hackclub.com";
 
-function MobileAppAlert() {
+function GrantAlert() {
   const t = useTranslations("Hcb");
 
   return (
@@ -51,26 +52,6 @@ function MobileAppAlert() {
           flexWrap: "wrap" as const,
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            top: "14px",
-            right: "-24px",
-            backgroundColor: FISCAL_COLORS.primary,
-            color: "white",
-            transform: "rotate(45deg)",
-            width: "100px",
-            textAlign: "center" as const,
-            padding: "4px 0",
-            fontSize: "13px",
-            zIndex: 40,
-            fontWeight: "bold",
-            boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
-            fontFamily: FISCAL_TYPOGRAPHY.bodyFont,
-          }}
-        >
-          {t("mobileAlertNew")}
-        </div>
         <span
           style={{
             fontSize: "18px",
@@ -80,47 +61,44 @@ function MobileAppAlert() {
             minWidth: "200px",
           }}
         >
-          <strong style={{ fontSize: "20px" }}>{t("mobileAlertTitle")}</strong>
+          <strong style={{ fontSize: "20px" }}>{t("grantAlertTitle")}</strong>
           <br />
-          {t("mobileAlertBody")}
+          {t.rich("grantAlertBody", {
+            email: () => (
+              <a
+                href={`mailto:${GRANT_CONTACT_EMAIL}`}
+                style={{ color: FISCAL_COLORS.primary, textDecoration: "underline" }}
+              >
+                {GRANT_CONTACT_EMAIL}
+              </a>
+            ),
+          })}
         </span>
-        <div
+        <a
+          href={`mailto:${GRANT_CONTACT_EMAIL}`}
           style={{
-            display: "flex",
-            gap: "12px",
-            flexShrink: 0,
+            display: "inline-flex",
             alignItems: "center",
-            flexWrap: "wrap" as const,
+            justifyContent: "center",
+            flexShrink: 0,
+            minHeight: "44px",
+            padding: "0 22px",
+            background: "linear-gradient(180deg, #4fc3ff 0%, #2f8df6 100%)",
+            color: "white",
+            borderRadius: "9999px",
+            fontSize: "15px",
+            fontFamily: FISCAL_TYPOGRAPHY.bodyFont,
+            textDecoration: "none",
+            fontWeight: 800,
+            lineHeight: 1,
+            letterSpacing: "0.04em",
+            textTransform: "uppercase",
+            boxShadow: "0 8px 18px rgba(37, 99, 235, 0.24)",
+            whiteSpace: "nowrap",
           }}
         >
-          <a
-            href="https://apps.apple.com/us/app/hcb-by-hack-club/id6465424810"
-            target="_blank"
-            rel="noreferrer"
-            style={{ display: "block", height: "40px" }}
-          >
-            <img
-              src="/fiscal-sponsorship/apple-web-badge.svg"
-              alt={t("appStoreAlt")}
-              height={40}
-              style={{ height: "40px", width: "auto" }}
-            />
-          </a>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.hackclub.hcb"
-            target="_blank"
-            rel="noreferrer"
-            style={{ display: "block", height: "40px" }}
-          >
-            <Image
-              src="/fiscal-sponsorship/google-play-web-badge.webp"
-              alt={t("googlePlayAlt")}
-              width={135}
-              height={40}
-              style={{ height: "40px", width: "auto" }}
-            />
-          </a>
-        </div>
+          {t("grantAlertCta")}
+        </a>
       </div>
     </div>
   );
@@ -812,7 +790,7 @@ export default function FiscalSponsorshipPage() {
           `}</style>
         </header>
 
-        <MobileAppAlert />
+        <GrantAlert />
 
         <MobileAppSection />
 
