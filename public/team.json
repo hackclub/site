@@ -1010,6 +1010,17 @@
     "avatar": "https://cdn.hackclub.com/019e2bf0-18bc-7abd-88d4-b68156d12c88/1000123054.jpg"
   },
   {
+    "name": "Lucas Honda",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Lucas is a Hack Clubber from Sao Paulo, Brazil. Since joining the Hack Club, he has been fascinated by Sprig and is currently leading Sprig, putting all efforts to make it better. He loves all aspects of aviation, and scours the internet/skies looking for and investigating flying machines.",
+    "slackId": "U040N4ESCEL",
+    "email": "lucas",
+    "website": "https://devlucas.page",
+    "avatar": "https://cdn.hackclub.com/01a13bcf-8bec-710b-a1af-efefdc79f3f9/image_from_lucas_via_slack.jpg"
+  },
+  {
     "name": "Amber",
     "department": "Moderation",
     "role": "Moderation & Conduct",
