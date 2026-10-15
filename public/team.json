@@ -55,17 +55,6 @@
     "avatar": "https://i.ibb.co/Cp7kZ2gd/irtaza.jpg"
   },
   {
-    "name": "Lucas Honda",
-    "department": "Events",
-    "role": "Virtual Event Organizer",
-    "acknowledged": false,
-    "bio": "Lucas is a Hack Clubber from Sao Paulo, Brazil. Since joining the Hack Club, he has been fascinated by Sprig and is currently leading Sprig App Review Team, and working to make it the best it possibly can be. He is also member of Special Activities Division. He loves all aspects of aviation, and scours the internet/skies looking for and investigating flying machines. He spends a good portion of his time with his dog, a happy and playful dog.",
-    "slackId": "U040N4ESCEL",
-    "email": "lucas",
-    "website": "https://devlucas.page",
-    "avatar": "https://cdn.hackclub.com/019c76b7-bf18-7905-bfb6-50126c71e3ff/3WGdxg.jpg"
-  },
-  {
     "name": "Victorio",
     "department": "Events",
     "role": "Virtual Events Infra",
@@ -1019,6 +1008,17 @@
     "bio": "",
     "email": "wally@hackclub.com",
     "avatar": "https://cdn.hackclub.com/019e2bf0-18bc-7abd-88d4-b68156d12c88/1000123054.jpg"
+  },
+  {
+    "name": "Lucas Honda",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Lucas is a Hack Clubber from Sao Paulo, Brazil. Since joining the Hack Club, he has been fascinated by Sprig and is currently leading Sprig, putting all efforts to make it better. He loves all aspects of aviation, and scours the internet/skies looking for and investigating flying machines.",
+    "slackId": "U040N4ESCEL",
+    "email": "lucas",
+    "website": "https://devlucas.page",
+    "avatar": "https://cdn.hackclub.com/01a13bcf-8bec-710b-a1af-efefdc79f3f9/image_from_lucas_via_slack.jpg"
   },
   {
     "name": "Amber",
