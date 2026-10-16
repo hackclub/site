@@ -33,7 +33,7 @@ function FilterLink({
         gap: "0.8rem",
         padding: "0.2rem 0",
         textDecoration: "none",
-        color: active ? FISCAL_COLORS.primary : "#374151",
+        color: active ? FISCAL_COLORS.primaryText : "#374151",
         transition: "color 160ms ease, transform 160ms ease",
       }}
     >
@@ -152,7 +152,7 @@ function CategoryLinks({
                 height: compact ? "32px" : "36px",
                 borderRadius: "10px",
                 background: active ? "rgba(236, 55, 80, 0.12)" : "#e8edf5",
-                color: active ? FISCAL_COLORS.primary : "#384150",
+                color: active ? FISCAL_COLORS.primaryText : "#384150",
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",

@@ -341,7 +341,7 @@ export default function MobilePageClient() {
         }
 
         .mobile-article a {
-          color: #ec3750;
+          color: #be1e3a;
           text-decoration: none;
         }
 

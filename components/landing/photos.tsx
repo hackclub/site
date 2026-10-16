@@ -101,7 +101,7 @@ export async function HerePhotosSection() {
         <a
           href="https://www.youtube.com/@HackClubHQ"
           className="here-photos-youtube-link"
-          style={{ color: "var(--red)", textDecoration: "none" }}
+          style={{ color: "var(--red-text)", textDecoration: "underline" }}
         >
           {t("photosYoutube")}
         </a>

@@ -155,7 +155,7 @@ export function MarkdownPage({
         }
 
         .md-heading__anchor:hover {
-          color: var(--red);
+          color: var(--red-text);
         }
 
         .markdown-page__content h1 .md-heading__anchor {
@@ -168,7 +168,7 @@ export function MarkdownPage({
         }
 
         .markdown-page__content a {
-          color: var(--red);
+          color: var(--red-text);
           text-decoration: underline;
           text-underline-offset: 2px;
         }

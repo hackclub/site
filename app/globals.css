@@ -12,6 +12,9 @@
   --shadow-dd: 0 8px 32px rgba(0, 0, 0, 0.13);
   --nav-bg: rgba(255, 255, 255, 0.82);
   --red: #ec3750;
+  /* Brand red fails 4.5:1 for small text (4.02 on white). Use --red-text for
+     text under 24px (18.66px bold); keep --red for fills and display type. */
+  --red-text: #be1e3a;
   --orange: #ff8c37;
   --font-phantom: var(--font-phantom-src), system-ui, sans-serif;
   --font-zarathustra: var(--font-zarathustra-src), Georgia, serif;
@@ -27,6 +30,7 @@ html.dark {
   --muted: rgba(255, 246, 235, 0.7);
   --shadow-dd: 0 8px 32px rgba(0, 0, 0, 0.6);
   --nav-bg: rgba(23, 23, 29, 0.82);
+  --red-text: #ff5c72;
   color-scheme: dark;
 }
 
@@ -49,6 +53,7 @@ html.dark[data-theme-lock="light"] {
   --muted: rgba(23, 23, 29, 0.7);
   --shadow-dd: 0 8px 32px rgba(0, 0, 0, 0.13);
   --nav-bg: rgba(255, 255, 255, 0.82);
+  --red-text: #be1e3a;
   color-scheme: light;
 }
 
@@ -60,6 +65,7 @@ html.dark[data-theme-lock="light"] {
   --color-border: var(--border);
   --color-muted: var(--muted);
   --color-red: var(--red);
+  --color-red-text: var(--red-text);
   --color-orange: var(--orange);
   --font-phantom: var(--font-phantom);
   --font-zarathustra: var(--font-zarathustra);

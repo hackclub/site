@@ -3,7 +3,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import Icon from "@hackclub/icons";
+import { Icon } from "@/components/Icon";
 import { Link } from "@/i18n/navigation";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -386,7 +386,7 @@ export default async function OpenSourcePage({ params }: Props) {
         }
 
         .announcement-body a {
-          color: #ec3750;
+          color: #be1e3a;
           text-decoration: underline;
           text-underline-offset: 2px;
         }

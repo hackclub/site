@@ -258,7 +258,7 @@ export default async function JobsPage({ params }: Props) {
 
         .jobs-card__head span {
           font-size: 1.2rem;
-          color: var(--red);
+          color: var(--red-text);
         }
 
         .jobs-card p {

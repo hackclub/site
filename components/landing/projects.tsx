@@ -82,7 +82,7 @@ function ProjectCard({
               className="cta-btn"
               style={{
                 fontSize: 20,
-                color: "var(--red)",
+                color: "var(--red-text)",
                 textDecoration: "none",
                 fontFamily: "var(--font-phantom)",
                 display: "inline-flex",

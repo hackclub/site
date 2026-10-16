@@ -200,7 +200,7 @@ export function TeachersEmailSignup() {
           style={{
             fontFamily: F,
             fontSize: 14,
-            color: "var(--red)",
+            color: "var(--red-text)",
             margin: "12px 0 0",
             textAlign: "center",
           }}

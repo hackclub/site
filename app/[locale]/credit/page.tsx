@@ -470,7 +470,7 @@ export default async function CollegeCreditPage({ params }: Props) {
           font-family: var(--font-phantom);
           font-size: 0.95rem;
           font-weight: 700;
-          color: var(--red);
+          color: var(--red-text);
         }
 
         .credit-page > .site-footer {
