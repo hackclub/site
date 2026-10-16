@@ -257,14 +257,17 @@ export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
             href="https://hcb.hackclub.com/hq"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: "var(--red)", textDecoration: "underline" }}
+            style={{ color: "var(--red-text)", textDecoration: "underline" }}
           >
             {t("donorsSeeSpend")}
           </a>
         </p>
         <p style={{ margin: "0.75em 0 0" }}>
           {t("donorsBelieve")}{" "}
-          <Link href="/philanthropy" style={{ color: "var(--red)", textDecoration: "underline" }}>
+          <Link
+            href="/philanthropy"
+            style={{ color: "var(--red-text)", textDecoration: "underline" }}
+          >
             {t("donorsSupport")}
           </Link>
         </p>

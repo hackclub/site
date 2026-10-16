@@ -191,7 +191,7 @@ export function SafetyPage() {
           font-family: var(--font-phantom);
           font-weight: 700;
           font-size: 1.1rem;
-          color: var(--red);
+          color: var(--red-text);
         }
 
         .safety-help {
@@ -258,7 +258,7 @@ export function SafetyPage() {
           padding: 16px 22px;
           border-radius: 16px;
           background: var(--cream);
-          color: var(--red);
+          color: #be1e3a;
           font-family: var(--font-phantom);
           font-weight: 700;
           font-size: 1.05rem;

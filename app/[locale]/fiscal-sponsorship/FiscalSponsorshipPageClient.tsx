@@ -67,7 +67,7 @@ function GrantAlert() {
             email: () => (
               <a
                 href={`mailto:${GRANT_CONTACT_EMAIL}`}
-                style={{ color: FISCAL_COLORS.primary, textDecoration: "underline" }}
+                style={{ color: FISCAL_COLORS.primaryText, textDecoration: "underline" }}
               >
                 {GRANT_CONTACT_EMAIL}
               </a>
@@ -473,7 +473,10 @@ function BuiltByHackClub() {
           >
             {t.rich("builtByP1", {
               home: (chunks) => (
-                <Link href="/" style={{ color: FISCAL_COLORS.primary, textDecoration: "none" }}>
+                <Link
+                  href="/"
+                  style={{ color: FISCAL_COLORS.primaryText, textDecoration: "underline" }}
+                >
                   {chunks}
                 </Link>
               ),

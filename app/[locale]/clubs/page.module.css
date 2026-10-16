@@ -523,6 +523,8 @@
 }
 .clubs-perk-yellow {
   background: var(--clubs-yellow);
+  /* Pinned: inheriting --clubs-paper gives cream-on-yellow (1.38:1) in dark mode. */
+  color: #3d3d45;
 }
 .clubs-perk-purple {
   background: var(--clubs-purple);

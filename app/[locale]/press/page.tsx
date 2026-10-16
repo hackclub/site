@@ -435,7 +435,7 @@ export default async function PressPage({ params }: Props) {
 
         .press-hero__card--accent a {
           font-family: var(--font-phantom);
-          color: #ec3750;
+          color: #be1e3a;
           font-weight: 700;
           text-decoration: none;
         }
@@ -595,7 +595,7 @@ export default async function PressPage({ params }: Props) {
           font-family: var(--font-phantom);
           font-size: 0.8rem;
           font-weight: 700;
-          color: #ec3750;
+          color: var(--red-text);
           text-decoration: none;
           border-radius: 999px;
           padding: 5px 12px;

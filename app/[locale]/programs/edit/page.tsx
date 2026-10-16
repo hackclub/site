@@ -399,7 +399,7 @@ function UploadButton({
             marginTop: 6,
             background: "none",
             border: "none",
-            color: "var(--red)",
+            color: "var(--red-text)",
             fontFamily: "var(--font-phantom)",
             fontSize: 12,
             cursor: busy ? "default" : "pointer",
@@ -413,7 +413,7 @@ function UploadButton({
       {error && (
         <div
           style={{
-            color: "var(--red)",
+            color: "var(--red-text)",
             fontSize: 12,
             marginTop: 4,
             fontFamily: "var(--font-phantom)",
@@ -678,7 +678,7 @@ function PinToggle({
           style={{
             fontFamily: "var(--font-phantom)",
             fontSize: 12,
-            color: "var(--red)",
+            color: "var(--red-text)",
             paddingLeft: 4,
           }}
         >
@@ -1379,7 +1379,9 @@ function ProgramEditor({
             {saved ? "Saved ✓" : saving ? "Saving…" : "Save changes"}
           </button>
           {error && (
-            <span style={{ color: "var(--red)", fontSize: 13, fontFamily: "var(--font-phantom)" }}>
+            <span
+              style={{ color: "var(--red-text)", fontSize: 13, fontFamily: "var(--font-phantom)" }}
+            >
               {error}
             </span>
           )}
@@ -1605,7 +1607,7 @@ export default function EditPage() {
                 style={{
                   fontFamily: "var(--font-phantom)",
                   fontSize: 14,
-                  color: "var(--red)",
+                  color: "var(--red-text)",
                   margin: 0,
                 }}
               >
@@ -1689,7 +1691,7 @@ export default function EditPage() {
                     {auth.isAdmin && (
                       <>
                         {" "}
-                        · <strong style={{ color: "var(--red)", opacity: 1 }}>Admin</strong>
+                        · <strong style={{ color: "var(--red-text)", opacity: 1 }}>Admin</strong>
                       </>
                     )}
                   </>
@@ -1702,7 +1704,7 @@ export default function EditPage() {
                 style={{
                   background: "none",
                   border: "none",
-                  color: "var(--red)",
+                  color: "var(--red-text)",
                   fontFamily: "var(--font-phantom)",
                   fontSize: 14,
                   cursor: "pointer",
@@ -1742,7 +1744,7 @@ export default function EditPage() {
                         filter: "needs-attention",
                         label: "Needs attention",
                         count: needsAttentionCount,
-                        color: "var(--red)",
+                        color: "var(--red-text)",
                       },
                     ] as const
                   ).map((item) => (
@@ -1848,7 +1850,9 @@ export default function EditPage() {
             )}
 
             {loadError && (
-              <p style={{ color: "var(--red)", fontFamily: "var(--font-phantom)" }}>{loadError}</p>
+              <p style={{ color: "var(--red-text)", fontFamily: "var(--font-phantom)" }}>
+                {loadError}
+              </p>
             )}
             {programs === null && !loadError && (
               <p style={{ fontFamily: "var(--font-phantom)", opacity: 0.4 }}>Loading programs…</p>
@@ -1903,7 +1907,11 @@ export default function EditPage() {
                 const programState = getProgramState(prog);
                 const status =
                   programState === "blocked"
-                    ? { label: "Not listed", color: "var(--red)", background: "rgba(236,55,80,.1)" }
+                    ? {
+                        label: "Not listed",
+                        color: "var(--red-text)",
+                        background: "rgba(236,55,80,.1)",
+                      }
                     : programState === "visible"
                       ? {
                           label: "Visible now",
@@ -2058,7 +2066,7 @@ export default function EditPage() {
                             })
                           : "Ongoing"}
                       </span>
-                      <span style={{ color: "var(--red)", fontSize: 14, marginLeft: 8 }}>
+                      <span style={{ color: "var(--red-text)", fontSize: 14, marginLeft: 8 }}>
                         {expanded === prog.ysws.name ? "▲" : "▼"}
                       </span>
                     </button>
@@ -2096,7 +2104,7 @@ export default function EditPage() {
                                   padding: "3px 8px",
                                   borderRadius: 9999,
                                   background: "var(--surface)",
-                                  color: "var(--red)",
+                                  color: "var(--red-text)",
                                   fontWeight: "bold",
                                 }}
                               >

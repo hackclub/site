@@ -17,7 +17,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--red-text);
 }
 
 /* ── Shared decorative blobs ──────────────────────────────────── */

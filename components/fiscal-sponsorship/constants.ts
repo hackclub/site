@@ -3,6 +3,8 @@ export const FISCAL_COLORS = {
   background: "#ffffff",
   lightGray: "#f9fafc",
   primary: "#ec3750",
+  /** Text-safe primary (5.7:1 on white); `primary` fails 4.5:1 for small text. */
+  primaryText: "#be1e3a",
   orange: "#ff8c37",
   white: "#ffffff",
   shadow: "0 2px 16px rgba(0,0,0,0.10)",

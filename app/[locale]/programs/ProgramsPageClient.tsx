@@ -733,7 +733,7 @@ export default function ProgramsPage() {
             <a
               href="https://www.youtube.com/@HackClubHQ/videos"
               target="_blank"
-              style={{ color: "#ec3750", textDecoration: "none" }}
+              style={{ color: "var(--red-text)", textDecoration: "none" }}
             >
               {t("youtubeLink")}
               <span
@@ -931,7 +931,7 @@ export default function ProgramsPage() {
           <p
             style={{
               fontFamily: "var(--font-phantom)",
-              color: "#ec3750",
+              color: "var(--red-text)",
               fontSize: 16,
               textAlign: "center",
               marginBottom: 32,
@@ -989,7 +989,7 @@ export default function ProgramsPage() {
               href="https://slack.hackclub.com"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#ec3750", textDecoration: "none" }}
+              style={{ color: "var(--red-text)", textDecoration: "none" }}
             >
               {t("footerSlackLink")}
             </a>
@@ -1004,14 +1004,17 @@ export default function ProgramsPage() {
               margin: 0,
             }}
           >
-            <Link href="/programs/edit" style={{ color: "#ec3750", textDecoration: "none" }}>
+            <Link
+              href="/programs/edit"
+              style={{ color: "var(--red-text)", textDecoration: "none" }}
+            >
               Event editor
             </Link>
             {" · "}
             <NextLink
               href="/api/v1/docs"
               prefetch={false}
-              style={{ color: "#ec3750", textDecoration: "none" }}
+              style={{ color: "var(--red-text)", textDecoration: "none" }}
             >
               Events API
             </NextLink>
@@ -1019,7 +1022,7 @@ export default function ProgramsPage() {
             <NextLink
               href="/api/v1/events/rss"
               prefetch={false}
-              style={{ color: "#ec3750", textDecoration: "none" }}
+              style={{ color: "var(--red-text)", textDecoration: "none" }}
             >
               RSS feed
             </NextLink>
