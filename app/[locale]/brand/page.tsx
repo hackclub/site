@@ -4,6 +4,8 @@ import { WebfontCssBox } from "@/components/WebfontCssBox";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { buildPageMetadata } from "@/lib/seo";
+import { Link } from "@/i18n/navigation";
+import { BtnArrow } from "@/components/landing/btn-arrow";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -299,18 +301,29 @@ export default async function BrandPage({ params }: Props) {
           <p className="brand-section__lede">{t("uiLede")}</p>
         </div>
         <div className="brand-links">
-          <a className="brand-btn brand-btn--ghost" href="https://theme.hackclub.com/">
-            {t("exploreTheme")}
-          </a>
-          <a
-            className="brand-btn brand-btn--ghost"
-            href="https://github.com/hackclub/theme-starter"
+          <Link
+            href="https://design.hackclub.com"
+            className="cta-btn dark-btn"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "var(--foreground)",
+              color: "var(--background)",
+              borderRadius: 41,
+              height: 48,
+              paddingLeft: 28,
+              paddingRight: 28,
+              fontFamily: "var(--font-phantom)",
+              fontSize: 20,
+              fontWeight: "normal",
+              textDecoration: "none",
+              whiteSpace: "nowrap",
+              cursor: "pointer",
+            }}
           >
-            {t("themeStarterGithub")}
-          </a>
-          <a className="brand-btn brand-btn--ghost" href="https://github.com/hackclub/css">
-            {t("cssThemeGithub")}
-          </a>
+            {t("exploreTheme")} <BtnArrow />
+          </Link>
         </div>
       </section>
 
