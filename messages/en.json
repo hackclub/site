@@ -192,10 +192,8 @@
     "exploreIcons": "Explore Hack Club Icons",
     "uiKicker": "UI components",
     "uiTitle": "Hack Club themed sites.",
-    "uiLede": "Use our pre-made CSS and UI components to hackify your site.",
-    "exploreTheme": "Explore Hack Club Theme",
-    "themeStarterGithub": "Theme Starter on GitHub",
-    "cssThemeGithub": "CSS Theme on GitHub",
+    "uiLede": "Use our design system, available as pre-made CSS and UI components, to make your website look just as cool as ours.",
+    "exploreTheme": "Explore Hack Club's design system",
     "logoTitles": {
       "flag-orpheus-top": "Orpheus Flag Top",
       "flag-orpheus-left": "Orpheus Flag Left",
