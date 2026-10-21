@@ -241,7 +241,6 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return [
-      // RFC 9116 legacy location; serve the canonical file so the two never drift
       {
         source: "/security.txt",
         destination: "/.well-known/security.txt",
