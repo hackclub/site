@@ -346,72 +346,72 @@
   },
   "Shop": {
     "wordmarkAlt": "Hack Club Shop",
-    "title": "You raised a <red>Hack Clubber.</red>",
-    "body": "Every item in the Hack Club Shop is our thank-you for a donation, and every donation goes straight to the teenagers who build, ship, and dream at Hack Club.",
-    "cta": "Back a teenager →",
-    "caption": "501(c)(3) nonprofit · tax-deductible above the gift's value"
+    "title": "Hai cresciuto un <red>Hack Clubber.</red>",
+    "body": "Ogni oggetto nell'Hack Club Shop è il nostro ringraziamento per una donazione, e ogni donazione va direttamente ai teenager che costruiscono, spediscono, e sognano in Hack Club.",
+    "cta": "Torna un teenager →",
+    "caption": "501(c)(3) non profit · detraibile dalle tasse al di sopra del valore della donazione"
   },
   "OpenSource": {
     "metaTitle": "Open Source — Hack Club",
-    "metaDescription": "Explore our finances, code, and more.",
-    "heroTitle": "Open Source at Hack Club",
-    "heroLede": "Explore our finances, code, and more.",
-    "contribute": "Contribute",
-    "financesKicker": "Finances",
-    "financesTitle": "All open sourced through HCB Transparency Mode.",
+    "metaDescription": "Esplora le nostre finanze, il nostro codice e molto altro.",
+    "heroTitle": "Open Source in Hack Club",
+    "heroLede": "Esplora le nostre finanze, il nostro codice e molto altro.",
+    "contribute": "Contribuisci",
+    "financesKicker": "Finanze",
+    "financesTitle": "Tutto open sourced tramite la Modalità Trasparenza di HCB.",
     "financeHq": "Hack Club HQ",
     "financeMail": "Hack Club Mail Team",
-    "financeDiscretionary": "Hack Club Discretionary Fund",
+    "financeDiscretionary": "Hack Club Fondo Discrezionale",
     "financeSummer": "Summer of Making",
-    "codeKicker": "Code",
-    "codeTitle": "Want to contribute?",
-    "codeCopy": "Head to contribute.hackclub.com for current work and open tasks.",
+    "codeKicker": "Codice",
+    "codeTitle": "Vuoi contribuire?",
+    "codeCopy": "Vai su contribute.hackclub.com per il lavoro attuale e le task da completare.",
     "codeLink": "contribute.hackclub.com"
   },
   "Philosophy": {
-    "metaTitle": "Philosophy — Hack Club",
-    "metaDescription": "Hack Club's philosophy on coding, learning, and building a community of teenage makers.",
-    "heroLine1": "WE'RE",
-    "heroLine2": "AT OUR BEST",
-    "heroLine3": "WHEN WE'RE",
-    "heroLine4": "MAKING.",
-    "sealLine1": "THE HACK CLUB",
-    "sealLine2": "PHILOSOPHY",
-    "beliefsKicker": "What we believe",
-    "beliefsTitle": "A few beliefs that shape how we build.",
-    "joinKicker": "Join us",
-    "joinTitle": "Join the movement.",
-    "joinBody": "Start a Hack Club at your school or jump straight into our worldwide community of young makers.",
-    "startClub": "Start a club",
-    "joinSlack": "Join our Slack",
+    "metaTitle": "Filosofia — Hack Club",
+    "metaDescription": "La filosofia di Hack Club è basata sulla programmazione, l'apprendimento, e la creazione di una community di giovani maker.",
+    "heroLine1": "NOI DIAMO",
+    "heroLine2": "IL NOSTRO MEGLIO",
+    "heroLine3": "QUANDO STIAMO",
+    "heroLine4": "CREANDO",
+    "sealLine1": "LA NOSTRA",
+    "sealLine2": "FILOSOFIA",
+    "beliefsKicker": "Ciò in cui crediamo",
+    "beliefsTitle": "Alcuni principi che influenzano il nostro modo di costruire.",
+    "joinKicker": "Unisciti",
+    "joinTitle": "Unisciti al movimento.",
+    "joinBody": "Avvia un Hack Club alla tua scuola o salta dritto nella nosta community di giovani maker.",
+    "startClub": "Avvia un club",
+    "joinSlack": "Unisciti al nostro Slack",
     "rows": {
       "0": {
-        "title": "Coding is a",
-        "superText": "superpower.",
-        "body": "Learning to code is uniquely like gaining a superpower: it converts you from a consumer to a creator. Suddenly, computers become a tool for creating."
+        "title": "Programmare è un",
+        "superText": "superpotere.",
+        "body": "Imparare a programmare è quasi come acquisire un superpotere: ti trasforma da un consumatore ad un creatore. Improvvisamente, i computer diventano uno strumento per creare."
       },
       "1": {
-        "title": "Make, from anywhere.",
-        "body": "There's never been a better time for making: anywhere in the world, anyone with a laptop and an internet connection can learn to make an app. Building things has never been so globally democratized."
+        "title": "Crea, da ovunque.",
+        "body": "Non c'è mai stato un momento migliore per creare: in qualsiasi parte del mondo, chiunque abbia un laptop e una connessione internet può imparare a realizzare un'app. Creare cose non è mai stato così globalmente democratizzato."
       },
       "2": {
         "title": "Hack, hack, hack.",
-        "leadText": "The goal of Hack Club is to help you become a hacker.",
-        "body": "We want a space at every school where people are making interesting things with code, every week. Most schools don't provide that, so we're creating it in every school to make building things accessible to everyone."
+        "leadText": "L'obiettivo di Hack Club è di aiutarti a diventare un hacker.",
+        "body": "Vogliamo che in ogni scuola ci sia uno spazio dove le persone possano creare cose interessanti con la programmazione, ogni settimana. La maggior parte delle scuole non offre questa possibilità, quindi la stiamo creando in ogni istituto per rendere la creazione di progetti accessibile a tutti."
       },
       "3": {
-        "title": "Start building.",
-        "body": "Most coding classes teach you programming concepts instead of how to write real code. It's like trying to learn carpentry without any wood. So at Hack Club, you learn to code entirely through building things. You start with no experience and build and ship a project every meeting."
+        "title": "Inizia a costruire.",
+        "body": "La maggior parte dei corsi di programmazione insegna i concetti di base, non come scrivere un vero programma. È come cercare di imparare a fare il falegname senza avere il legno a disposizione. In Hack Club, invece, tu impari a programmare interamente costruendo qualcosa. Inizi senza esperienza e costruisci e invii un progetto ad ogni incontro."
       },
       "4": {
-        "title": "Learn as you build.",
-        "bodyPrefix": "Just as the best carpenters didn't learn in the classroom, neither did the best programmers. Through our",
-        "bodySuffix": "you'll be walked through building projects. Starting out, you won't understand how the code works, but you'll build understanding as you go. You'll get stuck along the way, but we're here to help.",
-        "linkLabel": "workshops"
+        "title": "Impara creando.",
+        "bodyPrefix": "Proprio come i migliori carpentieri non hanno imparato in classe, neanche i migliori programmatori lo hanno fatto. Attraverso i nostri",
+        "bodySuffix": "verrai guidato nella realizzazione di progetti. All'inizio non capirai come funziona il codice, ma acquisirai comprensione man mano che procedi. Rimarrai bloccato lungo il percorso, ma noi siamo qui per aiutarti.",
+        "linkLabel": "workshop"
       },
       "5": {
-        "title": "Be part of a community.",
-        "body": "Hack Club gives you a worldwide community of thousands of other young makers to talk to. We're artists, writers, engineers, tinkerers, campers, filmmakers, volunteers. We make things. We help one another. We have fun. Join us."
+        "title": "Sii parte di una community.",
+        "body": "Hack Club ti offre una community mondiale di giovani creatori con cui confrontarti. Siamo artisti, scrittori, ingegneri, inventori, campeggiatori, registi, volontari. Noi creiamo. Noi ci aiutiamo a vicenda. Noi ci divertiamo. Unisciti a noi."
       }
     }
   },
