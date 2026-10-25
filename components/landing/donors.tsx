@@ -317,16 +317,6 @@ export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
             padding-right: 24px;
           }
         }
-
-        .donors-open-line {
-          white-space: nowrap;
-        }
-
-        @media (max-width: 1000px) {
-          .donors-open-line {
-            white-space: normal;
-          }
-        }
       `}</style>
     </section>
   );
