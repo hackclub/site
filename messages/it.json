@@ -417,169 +417,169 @@
   },
   "Clubs": {
     "metaTitle": "Hack Clubs",
-    "metaDescription": "A place for high school hackers to build together!",
-    "heroEyebrow": "Hack Club presents",
-    "heroTitle": "Your school's <accent>most interesting</accent> room!",
-    "heroCopy": "A worldwide network of high school coding clubs. Make cool things, find people who share your interests, and get help from a community of hackers!",
-    "startClub": "Start a club",
+    "metaDescription": "Un luogo dove gli hacker delle scuole superiori possono costruire insieme!",
+    "heroEyebrow": "Hack Club presenta",
+    "heroTitle": "La stanza <accent>più interessante</accent> della tua scuola!",
+    "heroCopy": "Una rete mondiale di club di programmazione per studenti delle scuole superiori. Crea progetti pazzeschi, trova persone che condividono i tuoi interessi e ricevi supporto da una community di hacker!",
+    "startClub": "Avvia un club",
     "signIn": "Sign in",
-    "learnMore": "Learn more",
-    "memberSignIn": "Club member? <link>Sign in with email</link>",
-    "marqueeCode": "CODE TOGETHER",
-    "marqueeFriends": "MAKE FRIENDS",
-    "marqueeBuild": "BUILD COOL STUFF",
-    "marqueeBoba": "DRINK BOBA",
-    "marqueeRewards": "GET REWARDS",
-    "perksEyebrow": "Club perks",
-    "perksTitle1": "Perks we offer your club.",
-    "perksTitle2": "For free!",
-    "perksBody": "Everything your club needs to grow!",
+    "learnMore": "Scopri di più",
+    "memberSignIn": "Membro di un Club? <link>Registrati con l'email</link>",
+    "marqueeCode": "PROGRAMMA INSIEME",
+    "marqueeFriends": "FAI AMICIZIA",
+    "marqueeBuild": "COSTRUISCI COSE PAZZESCHE",
+    "marqueeBoba": "BEVI BOBA",
+    "marqueeRewards": "OTTIENI RICOMPENSE",
+    "perksEyebrow": "Vantaggi dei Club",
+    "perksTitle1": "Vantaggi che offriamo al tuo club.",
+    "perksTitle2": "Gratuitamente!",
+    "perksBody": "Tutto ciò di cui il tuo club a bisogno per crescere!",
     "starterTitle": "Club Starter",
-    "starterBody": "Create promotional materials for your club. Get up to $100 in funding!",
-    "starterCta": "Explore Club Starter",
-    "shopTitle": "Clubs Shop",
-    "shopBody": "Stickers, shirts, Raspberry Pis, and more to help your club thrive.",
-    "shopCta": "Visit the shop",
+    "starterBody": "Crea materiali promozionali per il tuo club. Ottieni fino a $100 di fondi!",
+    "starterCta": "Esplora il Club Starter",
+    "shopTitle": "Club Shop",
+    "shopBody": "Sticker, magliette, Raspberry Pi, e molto altro per sostenere la crescita del tuo club.",
+    "shopCta": "Visita lo shop",
     "shopIconLabel": "payment",
-    "spacesBody": "All-in-one web IDE to create, host and collaborate in with over 500 supported languages and a variety of templates to use.",
-    "spacesCta": "Explore Spaces",
-    "allPerksCta": "Explore all club perks",
-    "yswsEyebrow": "Popular YSWS",
+    "spacesBody": "Web IDE completo per creare, ospitare e collaborare in oltre 500 linguaggi supportati e una varietà di modelli pronti all'uso.",
+    "spacesCta": "Esplora Spaces",
+    "allPerksCta": "Scopri tutti i vantaggi per club",
+    "yswsEyebrow": "YSWS Popolari",
     "yswsTitle1": "You ship.",
     "yswsTitle2": "We ship!",
-    "yswsBody": "Our YSWS programs reward clubs with coins for shipping projects. Coins can be used in the <hl><shop>clubs shop</shop>!</hl>",
-    "bobaBody": "Host a boba workshop for your club, make a website, get free boba!",
-    "fuseringBody": "Design a keyring and get it shipped to you with a backpack clip.",
-    "sprigBody": "You ship a game made on the sprig game engine, we ship a sprig console!",
-    "terminalcraftBody": "Develop a program that runs in the terminal, earn a grant to spend on hardware and microcontrollers!",
-    "swirlBody": "Build a cooler website with HTML and CSS, with a unique feature like a favicon, and get free ice cream!",
-    "toppingsBody": "Add some extra flavor to your website, with CSS and get toppings for your ice cream or boba!",
-    "wafflesBody": "Make a website that uses JavaScript, and get free waffles!",
-    "downscaleBody": "Make a retro game with PICO-8, get a grant for your club!",
-    "learnEyebrow": "Learn more",
-    "learnTitle": "Learn more about:",
-    "newTitle": "Starting a new club",
-    "newBody": "Start a new Hack Club!",
-    "newModalTitle": "Starting a Hack Club",
-    "convertTitle": "Converting an existing club",
-    "convertBody": "Turn your existing club into a Hack Club!",
-    "convertModalTitle": "Converting an existing club",
-    "teacherZoneTitle": "The Teacher Zone",
-    "teacherZoneBody": "This is where you can find ways to support a Hack Club at your school!",
-    "toolboxTitle": "School toolbox",
-    "toolboxBody": "Resources for starting a Hack Club at your school!",
-    "close": "Close",
-    "applyCta": "Apply to Hack Club",
-    "slackEyebrow": "Become a part of",
-    "slackTitle": "The Hack Club Slack <em>Community.</em>",
-    "slackBody": "Slack is where the community hangs out! Slack is a chat app like Discord, but better! It has unlimited custom emojis and uncapped file uploads.",
-    "slackCta": "Join the community",
-    "closingEyebrow": "Get started now",
-    "closingTitle1": "The best club",
-    "closingTitle2": "at school is <em>yours.</em>",
-    "closingCta": "Start a Hack Club",
+    "yswsBody": "I nostri programmi YSWS premiano i club con coins per i progetti inviati. I coins possono essere usati nel <hl><shop>club shop</shop>!</hl>",
+    "bobaBody": "Organizza un boba workshop per il tuo club, crea un sito web, ottieni boba gratis!",
+    "fuseringBody": "Progetta un portachiavi e ricevilo con una clip per lo zaino.",
+    "sprigBody": "Spedisci un gioco realizzato con il motore di gioco sprig, noi spediamo una console sprig!",
+    "terminalcraftBody": "Sviluppa un programma che funzioni nel terminale, ottieni un finanziamento da spendere in hardware e microcontrollori!",
+    "swirlBody": "Crea un sito web accattivante con HTML e CSS, con una funzionalità unica come una favicon, e ricevi un gelato gratis!",
+    "toppingsBody": "Aggiungi un tocco di sapore in più al tuo sito web con CSS, e ottieni condimenti per il tuo gelato o boba!",
+    "wafflesBody": "Fai un sito web che usa JavaScript, e ottieni waffle gratis!",
+    "downscaleBody": "Fai un videogame retrò con PICO-8, e ottieni un buono per il tuo club!",
+    "learnEyebrow": "Scopri di più",
+    "learnTitle": "Scopri di più su:",
+    "newTitle": "Avviare un nuovo club",
+    "newBody": "Avviare un nuovo Hack Club!",
+    "newModalTitle": "Avviare un Hack Club",
+    "convertTitle": "Convertire un club esistente",
+    "convertBody": "Converti il tuo club già esistente in un Hack Club!",
+    "convertModalTitle": "Converti un club esistente",
+    "teacherZoneTitle": "La Zona Insegnanti",
+    "teacherZoneBody": "Qui puoi trovare i modi per supportare un Hack Club nella tua scuola!",
+    "toolboxTitle": "Toolbox per Scuole",
+    "toolboxBody": "Risorse per avviare un Hack Club nella tua scuola!",
+    "close": "Chiudi",
+    "applyCta": "Unisciti ad Hack Club",
+    "slackEyebrow": "Diventa parte della",
+    "slackTitle": "Hack Club Slack <em>Community.</em>",
+    "slackBody": "Slack è dove la community si ritrova! Slack è un app per chattare come Discord, ma meglio! Dispone di emoji personalizzate illimitate e caricamento di file senza limiti.",
+    "slackCta": "Unisciti alla community",
+    "closingEyebrow": "Inizia adesso",
+    "closingTitle1": "Il miglior club",
+    "closingTitle2": "della scuola è <em>vostro.</em>",
+    "closingCta": "Avvia un Hack Club",
     "newFaqs": {
       "whatIs": {
-        "q": "What is Hack Club?",
-        "a": "A global nonprofit network of student-led coding clubs! Your club can be a place to code, build hardware, learn together, or experiment, whatever your members want."
+        "q": "Cos'è Hack Club?",
+        "a": "Una rete globale senza scopo di lucro di club di programmazione gestiti da studenti! Il tuo club può essere un luogo dove programmare, costruire hardware, imparare insieme o sperimentare, tutto ciò che i tuoi membri desiderano."
       },
       "experience": {
-        "q": "Do I need to be an experienced programmer to start one?",
-        "a": "Nope! Start with what you know and learn alongside your members as you go."
+        "q": "Devo essere un programmatore esperto per iniziarne uno?",
+        "a": "No! Inizia con ciò che conosci e impara insieme ai tuoi membri man mano che procedi."
       },
       "ages": {
-        "q": "Who can join, and is there an age requirement?",
-        "a": "Members must be 13–18 and able to attend your in-person meetings; they don't need to attend your school, so feel free to invite friends from anywhere nearby!"
+        "q": "Chi può partecipare e ci sono requisiti di età?",
+        "a": "I membri devono avere tra i 13 e i 18 anni ed essere in grado di partecipare di persona alle riunioni; non è necessario che frequentino la tua scuola, quindi sentiti libero di invitare amici da qualsiasi luogo nelle vicinanze!"
       },
       "inPerson": {
-        "q": "Do meetings have to be in person?",
-        "a": "Yes, that's the main format. Online meetings can supplement it, but your club needs an established space (classroom, library, makerspace, cafe, etc.) for in-person meetings."
+        "q": "Le riunioni devono necessariamente svolgersi di persona?",
+        "a": "Sì, questo è il formato principale. Gli incontri online possono essere un aggiunta, ma il vostro club ha bisogno di uno spazio dedicato (aula, biblioteca, laboratorio, bar, etc.) per gli incontri di persona."
       },
       "teacher": {
-        "q": "Do I need a teacher to start a Hack Club?",
-        "a": "Not required by Hack Club, but recommended! Many schools require an adult supervisor for approval, and one can help with logistics like booking a room."
+        "q": "Ho bisogno di un insegnante per avviare un Hack Club?",
+        "a": "Non è richiesto da Hack Club, ma è consigliato! Molte scuole richiedono la presenza di un supervisore adulto per l'approvazione, e quest'ultimo può essere d'aiuto con gli aspetti logistici, come la prenotazione di una stanza."
       },
       "multiple": {
-        "q": "Can there be multiple Hack Clubs at my school?",
-        "a": "Yes, if your school can support them without clubs competing for the same members or resources!"
+        "q": "È possibile che nella mia scuola ci siano più Hack Club?",
+        "a": "Sì, se la tua scuola può supportarli senza che i club si contendano gli stessi membri o le stesse risorse!"
       },
       "activities": {
-        "q": "What can my Hack Club do?",
-        "a": "Anything your members are excited about: workshops, projects, hackathons, hardware, you name it! You're not required to follow Hack Club's official programs (YSWS); other activities can often still count toward funding if real projects are being shipped."
+        "q": "Cosa può fare il mio Hack Club?",
+        "a": "Qualsiasi cosa appassioni i tuoi membri: workshop, progetti, hackathon, hardware, qualsiasi cosa! Non sei obbligato a seguire i programmi ufficiali di Hack Club (YSWS); spesso anche altre attività possono contribuire al finanziamento se i progetti vengono effettivamente realizzati."
       },
       "support": {
-        "q": "What support does Hack Club provide?",
-        "a": "A lot! Funding, hardware, ready-to-run workshops, stickers/posters, and support from the Clubs team. Ships earn coins on <shop>clubs.hackclub.com</shop>, redeemable in the shop for grants, gear, and merch. In return, we ask members to build and ship projects."
+        "q": "Che tipo di supporto offre Hack Club?",
+        "a": "Hack Club offre tantissimo supporto! Finanziamenti, hardware, workshop pronti all'uso, sticker/poster e supporto dal team dei Club. Per ogni progetto inviato ottieni coins su <shop>clubs.hackclub.com</shop>, riscattabili nello shop per buoni, attrezzature e merchandising. In cambio, chiediamo ai membri di costruire ed inviare progetti."
       },
       "coLeaders": {
-        "q": "Can I add co-leaders?",
-        "a": "Yes! The main leader can promote any member to co-leader from the members page."
+        "q": "Posso aggiungere dei co-leader?",
+        "a": "Sì! Il leader principale può promuovere qualsiasi membro a co-leader dalla pagina dei membri."
       },
       "steps": {
-        "q": "What are the steps to start a club?",
-        "step1": "Apply at <apply>apply.hackclub.com</apply> (~10 min).",
-        "step2": "Get school approval.",
-        "step3": "Run your first meeting and ship something!"
+        "q": "Quali sono i passaggi per avviare un club?",
+        "step1": "Applicati su <apply>apply.hackclub.com</apply> (~10 min).",
+        "step2": "Ottieni l'approvazione della scuola.",
+        "step3": "Organizza la tua prima riunione ed invia qualcosa!"
       }
     },
     "convertFaqs": {
       "sameClub": {
-        "q": "If I convert my existing club into a Hack Club, do we have to do anything differently?",
-        "a": "Nope! Keep your current name, members, and schedule while getting access to Hack Club's resources."
+        "q": "Se converto il mio club esistente in un Hack Club, dobbiamo fare qualcosa di diverso?",
+        "a": "No! Mantieni il tuo nome attuale, i membri e il programma, ottenendo accesso alle risorse di Hack Club."
       },
       "programs": {
-        "q": "Do we have to only participate in Hack Club's programs?",
-        "a": "No. Programs are optional; run your own workshops, hackathons, or other activities, whatever gets your members excited!"
+        "q": "Dobbiamo partecipare solo ai programmi di Hack Club?",
+        "a": "No. I programmi sono facoltativi; organizza i tuoi workshop, hackathon o altre attività, qualsiasi cosa entusiasmi i tuoi membri!"
       },
       "requirements": {
-        "q": "What are the requirements to stay an active club?",
-        "a": "Ship at least one project every 6 months (by any leader or member), with meetings that are mainly in-person. That's it!"
+        "q": "Quali sono i requisiti per rimanere un club attivo?",
+        "a": "Invia almeno un progetto ogni 6 mesi (da parte di qualsiasi leader o membro), con riunioni che si svolgano principalmente di persona. Tutto qui!"
       },
       "dormant": {
-        "q": "What happens if my club doesn't ship for 6 months?",
-        "a": "The club gets marked dormant (you may see 0 members/ships even if your roster is fine). No worries though, just head to <apply>apply.hackclub.com</apply> and use the option to reconnect/\"rescue\" your existing club rather than starting over."
+        "q": "Cosa succede se il mio club non invia alcun progetto per 6 mesi?",
+        "a": "Il club viene contrassegnato come inattivo (potresti visualizzare 0 membri/invii di progetti, anche se la tua lista è corretta). Nessun problema, però: vai su <apply>apply.hackclub.com</apply> e utilizza l'opzione per riconnettere/\"salvare\" il tuo club esistente anziché ricominciare da capo."
       },
       "benefits": {
-        "q": "What are the benefits of becoming a Hack Club?",
-        "a": "Access to Hack Club's community, workshops, funding tools, hardware perks, and coins from shipped projects, redeemable in the <shop>clubs.hackclub.com</shop>! The only ongoing requirement: ship every 6 months, meet mainly in-person."
+        "q": "Quali sono i vantaggi di diventare un Hack Club?",
+        "a": "Accesso alla community di Hack Club, workshop, strumenti di finanziamento, hardware e coins derivanti dai progetti inviati, riscattabili su <shop>clubs.hackclub.com</shop>! L'unico requisito continuativo: inviare almeno un progetto ogni 6 mesi e incontrarsi principalmente di persona."
       }
     }
   },
   "Jobs": {
-    "metaTitle": "Jobs — Hack Club",
-    "metaDescription": "Join the Hack Club team. View open positions and apply to work with us.",
-    "heroTitle": "Join the Hack Club Team",
-    "heroLede": "We are a nonprofit building the best programs and adventures for teenage makers around the world. If you love making things, you will feel right at home.",
+    "metaTitle": "Opportunità di Lavoro — Hack Club",
+    "metaDescription": "Unisciti al team di Hack Club. Scopri le posizioni aperte e candidati per lavorare con noi.",
+    "heroTitle": "Unisciti al Team di Hack Club",
+    "heroLede": "Siamo un'organizzazione non profit che crea i migliori programmi e avventure per teenager in ​​tutto il mondo. Se ami creare cose, ti sentirai a casa.",
     "terminal": "$ ssh jobs.hackclub.com -p 1337",
-    "openRoles": "Open roles",
-    "emptyTitle": "No open roles at this time. Check back later!",
-    "emptyBody": "Interested in working with us? Email us at team@hackclub.com with how you'd like to contribute."
+    "openRoles": "Posizioni aperte",
+    "emptyTitle": "Al momento non ci sono posizioni aperte. Riprova più tardi!",
+    "emptyBody": "Sei interessato a lavorare con noi? Mandaci un email a team@hackclub.com specificando come vorresti contribuire."
   },
   "Alums": {
     "metaTitle": "Alumni — Hack Club",
-    "metaDescription": "Once a Hack Clubber, always a Hack Clubber. Stay connected to the community of makers, tinkers, and hackers you grew up with.",
-    "heroTitleLine1": "Once a Hack Clubber,",
-    "heroTitleLine2": "always a Hack Clubber.",
-    "heroLedeLine1": "Welcome back!",
-    "heroLedeLine2": "It's been a while, and we'd love to catch up.",
-    "heroLedeP2": "You're part of the Hack Club story, and we want to share what's been going on with us and learn what you've been up to.",
+    "metaDescription": "Una volta un Hack Clubber, per sempre un Hack Clubber. Rimani connesso alla community di maker, inventori, e hacker con cui sei cresciuto.",
+    "heroTitleLine1": "Una volta un Hack Clubber,",
+    "heroTitleLine2": "per sempre un Hack Clubber.",
+    "heroLedeLine1": "Bentornato!",
+    "heroLedeLine2": "È passato un po' di tempo, ci piacerebbe risentirci.",
+    "heroLedeP2": "Fai parte della storia dell'Hack Club, e vogliamo condividere con te quello che è successo e scoprire cosa hai fatto.",
     "emailPlaceholder": "alumni@hackclub.com",
-    "signUpCta": "Join the Alumni List",
+    "signUpCta": "Unisciti alla Lista Alumni",
     "sectionTitle": "Alumni community",
-    "card1Body": "Build a better world through joyful building, open source innovation, kindness, honesty, and curiosity.",
-    "card2Body": "Pay it forward by mentoring, judging, and enriching Hack Clubbers' experiences.",
-    "card3Body": "Help keep Hack Club free through your support, donations, and connections.",
-    "card4Body": "Make a strong community of friends and help each other with skills, jobs, and opportunities.",
-    "stayConnectedTitle": "Ways to stay connected",
+    "card1Body": "Costruire un mondo migliore attraverso la gioia di costruire, l'innovazione open source, la gentilezza, l'onestà e la curiosità.",
+    "card2Body": "Ricambia il favore facendo da mentore, valutando e arricchendo le esperienze degli Hack Clubber.",
+    "card3Body": "Contribuisci a mantenere Hack Club gratuito con il tuo supporto, le tue donazioni e le tue connessioni.",
+    "card4Body": "Create una solida rete di amicizie e aiutatevi a vicenda con competenze, lavoro e opportunità.",
+    "stayConnectedTitle": "Modi per rimanere in contatto",
     "stayConnectedItem1Title": "Alumni newsletter",
-    "stayConnectedItem1Body": "A quarterly update of happenings, cool projects, stories and alum updates from the Hack Club community.",
-    "stayConnectedItem2Title": "Reunions & meetups",
-    "stayConnectedItem2Body": "Get invitations to dinners, get-togethers and events to catch up with fellow alumni.",
-    "stayConnectedItem3Title": "Opportunities",
-    "stayConnectedItem3Body": "Receive information about our partner programs, internships, jobs, events, and much more.",
-    "stayConnectedItem4Title": "Giving back",
-    "stayConnectedItem4Body": "Help Hack Clubbers just like your younger self by mentoring them along their learning journey.",
-    "stayConnectedNote2": "All information on alumni will be on the newsletter."
+    "stayConnectedItem1Body": "Un aggiornamento trimestrale su eventi, progetti interessanti, storie e novità degli alumni dalla community di Hack Club.",
+    "stayConnectedItem2Title": "Riunioni e incontri",
+    "stayConnectedItem2Body": "Ricevi inviti a cene, incontri ed eventi per rimanere in contatto con gli altri alumni.",
+    "stayConnectedItem3Title": "Opportunità",
+    "stayConnectedItem3Body": "Ricevi informazioni sui nostri programmi partner, tirocini, offerte di lavoro, eventi, e molto altro.",
+    "stayConnectedItem4Title": "Restituisci",
+    "stayConnectedItem4Body": "Aiuta gli Hack Clubbers che sono proprio come te da giovane, guidandoli nel loro percorso di apprendimento.",
+    "stayConnectedNote2": "Tutte le informazioni sugli alumni saranno nella newsletter."
   },
   "Teachers": {
     "metaTitle": "For Teachers — Hack Club",
