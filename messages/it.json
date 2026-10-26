@@ -952,7 +952,7 @@
     "metaImageAlt": "HCB Mobile è qui!",
     "heroTitle": "<hcb>HCB</hcb> Mobile è qui!",
     "heroSubtitle": "Gestisci le tue organizzazioni HCB ovunque ti trovi. Emetti carte, visualizza le transazioni e molto altro!",
-    "date": "2 dicembre, 2025",
+    "date": "2 dicembre 2025",
     "p1": "Mi chiamo Mohamad, ho 17 anni e vengo dalla zona della Baia di San Francisco, ed ho appena rilasciato l'app mobile ufficiale di HCB.",
     "p2": "Se non ne avete mai sentito parlare, HCB è il supporto finanziario per oltre <strong>6.500 organizzazioni non profit, club e hackathon gestiti da teenager</strong>. Forniamo lo status di <strong>organizzazione non profit 501(c)(3)</strong>, l'accesso a un conto bancario, una piattaforma per la raccolta di donazioni e carte di debito a migliaia di giovani che cercano di fare del bene nelle loro comunità.",
     "p3": "Attualmente HCB gestisce in media <strong>6 milioni di dollari al mese</strong> (oltre 80 milioni di dollari nel corso della sua attività)<fn1>1</fn1>. Nell'ultimo anno, ho guidato il progetto per la creazione della prima app mobile in assoluto per l'intera comunità.",
@@ -980,99 +980,99 @@
     "applyNow": "Applicati ora"
   },
   "HcbOpenSource": {
-    "metaTitle": "HCB is now open source! | Hack Club",
-    "metaDescription": "Our fiscal sponsorship platform's codebase is now publicly available under the AGPL license and we're continuing to encourage transparency amongst nonprofits.",
-    "metaImageAlt": "HCB is now open source!",
-    "heroTitle": "<hcb>HCB</hcb> is now open source!",
-    "heroSubtitle": "Our fiscal sponsorship platform's <codebase>codebase</codebase> is now publicly available under the AGPL license and we're continuing to encourage transparency amongst nonprofits.",
-    "date": "Mar 29, 2025",
-    "authorsAria": "Post authors and date",
-    "titleSr": "HCB is now open source!",
-    "p1": "Hack Club launched HCB in 2018 to enable hackathons to raise and spend money through <fs>fiscal sponsorship</fs>. Since then, we've expanded to all nonprofit projects; our 12,000 users have transacted $50 million.",
-    "uiAlt": "HCB's user interface showing Hack Club HQ's transactions",
-    "p2": "Local student-run hackathons, robotics teams, and community groups use HCB as a nonprofit neobank to collect donations, send payments, issue debit cards, and gain 501(c)(3) status.",
-    "p3": "When we started HCB, it was developed in private for security reasons. That said, one of Hack Club's core principles has always been transparency — we <opensource>open source</opensource> our <finances>finances</finances>, <events>document how we run events</events>, and have 500+ public repositories on <github>GitHub</github>.",
-    "p4": "<strong><em><repo>github.com/hackclub/hcb</repo> is now public — check it out and star it.</em></strong>",
-    "p5": "Paired with our technical documentation, it's a great resource for anyone interested in building financial software or applications with Ruby on Rails. Our engineering work is also entirely public; the world can learn from our successes and mistakes.",
-    "p6": "Since 2018, over fifty people have made 10k+ commits to HCB (thank you!); we can't wait for more contributors to join us:",
-    "videoFallback": "Your browser does not support the video tag.",
-    "ps": "PS: if you're looking to start a nonprofit, we're accepting applications! Head over to <nonprofit>nonprofit.new</nonprofit> and we'll be in touch.",
-    "photoAlt": "Hack Club team launching the announcement live from San Francisco",
-    "photoCaption": "We're launching this live from SF!",
-    "welcomeTitle": "Teenager? New here? Welcome!",
-    "welcomeBody": "Hack Club is a global community of high school makers & student-led coding clubs. We've got a 24/7 Slack chatroom of 104k+ teenagers learning to code & building amazing projects, & you'll fit right in.",
-    "learnMore": "Learn more"
+    "metaTitle": "HCB è ora open source! | Hack Club",
+    "metaDescription": "Il codice sorgente della nostra piattaforma di sponsorizzazione fiscale è ora disponibile pubblicamente sotto licenza AGPL e continuiamo a promuovere la trasparenza tra le organizzazioni non profit.",
+    "metaImageAlt": "HCB è ora open source!",
+    "heroTitle": "<hcb>HCB</hcb> è ora open source!",
+    "heroSubtitle": "Il <codebase>codice sorgente</codebase> della nostra piattaforma di sponsorizzazione fiscale è ora disponibile pubblicamente sotto licenza AGPL e continuiamo a promuovere la trasparenza tra le organizzazioni non profit.",
+    "date": "29 marzo 2025",
+    "authorsAria": "Autori e data del post",
+    "titleSr": "HCB è ora open source!",
+    "p1": "Hack Club ha lanciato HCB nel 2018 per consentire agli hackathon di raccogliere e spendere denaro tramite <fs>sponsorizzazioni fiscali</fs>. Da allora, ci siamo espansi a tutti i progetti non profit; i nostri 12.000 utenti hanno gestito transazioni per un valore di 50 milioni di dollari.",
+    "uiAlt": "Interfaccia utente di HCB che mostra le transazioni della sede centrale di Hack Club.",
+    "p2": "Hackathon locali gestiti da studenti, squadre di robotica e gruppi comunitari utilizzano HCB come neobanca non profit per raccogliere donazioni, inviare pagamenti, emettere carte di debito e ottenere lo status 501(c)(3).",
+    "p3": "Quando abbiamo avviato HCB, lo sviluppo è avvenuto in privato per motivi di sicurezza. Detto questo, uno dei principi fondamentali di Hack Club è sempre stata la trasparenza — noi rendiamo <opensource>open source</opensource> le nostre <finances>finanze</finances>, <events>documentiamo come organizziamo eventi</events>, e abbiamo 500+ repository pubbliche su <github>GitHub</github>.",
+    "p4": "<strong><em><repo>github.com/hackclub/hcb</repo> è ora pubblico — dai un occhiata e mettici una stella.</em></strong>",
+    "p5": "Insieme alla nostra documentazione tecnica, rappresenta un'ottima risorsa per chiunque sia interessato a sviluppare software o applicazioni finanziarie con Ruby on Rails. Il nostro lavoro di ingegneria è inoltre completamente pubblico; il mondo intero può imparare dai nostri successi e dai nostri errori.",
+    "p6": "Dal 2018, oltre cinquanta persone hanno contribuito con più di 10.000 commit a HCB (grazie!); non vediamo l'ora che altri collaboratori si uniscano a noi:",
+    "videoFallback": "Il tuo browser non supporta il video tag.",
+    "ps": "PS: Se desideri avviare un'organizzazione non profit, accettiamo candidature! Visita il sito <nonprofit>nonprofit.new</nonprofit> e ti contatteremo.",
+    "photoAlt": "Il team di Hack Club lancia l'annuncio in diretta da San Francisco",
+    "photoCaption": "Stiamo lanciando questa diretta da SF!",
+    "welcomeTitle": "Teenager? Nuovo qui? Benvenuto!",
+    "welcomeBody": "Hack Club è una community globale di ragazzi delle scuole superiori appassionati di tecnologia e club di programmazione gestiti dagli studenti. Abbiamo una chat Slack attiva 24/7, con oltre 104.000 ragazzi che imparano a programmare e realizzano progetti straordinari, e ti troverai benissimo.",
+    "learnMore": "Scopri di più"
   },
   "HcbFeatures": {
-    "headline": "Powerful financial tools built by our nonprofit, for yours.",
-    "subtext": "Since day one, we've built beautiful, self-serve software to empower you to raise and spend money without administrative hassle. We're also open source!",
-    "transparencyMode": "See <em>Reboot</em>'s finances in Transparency Mode",
-    "openSourceGithub": "See our open source on GitHub",
-    "laptopAlt": "HCB dashboard shown in a laptop",
+    "headline": "Potenti strumenti finanziari creati dalla nostra organizzazione non profit, per la tua.",
+    "subtext": "Fin dal primo giorno, abbiamo creato un software intuitivo e facile da usare che ti permette di raccogliere e spendere fondi senza complicazioni amministrative. Inoltre, è open source!",
+    "transparencyMode": "Visualizza le finanze di <em>Reboot</em> in Modalità Trasparenza",
+    "openSourceGithub": "Vedi il nostro codice sorgente su GitHub",
+    "laptopAlt": "HCB dashboard mostrata su un laptop",
     "bank-account": {
-      "name": "Receive foundation grants",
-      "body": "with tax-deductible 501(c)(3) status."
+      "name": "Ricevi buoni dalla fondazione",
+      "body": "con status 501(c)(3) deducibile dalle tasse."
     },
     "card": {
-      "name": "Issue physical & virtual debit cards",
-      "body": "with receipt tracking & Apple Pay."
+      "name": "Emetti carte di debito fisiche e virtuali",
+      "body": "con tracciabilità delle ricevute & Apple Pay."
     },
     "web": {
-      "name": "Operate globally",
-      "body": "with a U.S. legal entity."
+      "name": "Opera in tutto il mondo",
+      "body": "come entità legale degli Stati Uniti."
     },
     "payment-transfer": {
-      "name": "Send money & reimburse",
-      "body": "via check, ACH, bank wire, & more."
+      "name": "Invia denaro e rimporsi",
+      "body": "tramite assegno, ACH, bonifico bancario e altro ancora."
     },
     "explore": {
-      "name": "Make your finances transparent",
-      "body": "to your team and optionally, public."
+      "name": "Rendi trasparenti le tue finanze",
+      "body": "al tuo team e, facoltativamente, al pubblico."
     },
     "docs": {
-      "name": "We file all your taxes",
-      "body": "automatically, including Form 990."
+      "name": "Ci occupiamo noi delle tasse",
+      "body": "automaticamente, includendo Form 990."
     },
     "admin": {
-      "name": "Pay team members",
-      "body": "with built-in payroll."
+      "name": "Paga i membri del team",
+      "body": "con il sistema di gestione paghe integrato."
     },
     "support": {
-      "name": "Accept donations of any size",
-      "body": "with a custom, embeddable online form."
+      "name": "Accetta donazioni di ogni taglia",
+      "body": "con un modulo online personalizzato e integrabile."
     },
     "leader": {
-      "name": "Get 24-hour support",
-      "body": "on weekdays with a dedicated point of contact."
+      "name": "Ricevi assistenza entro 24 ore",
+      "body": "nei giorni feriali con un referente dedicato."
     }
   },
   "HcbCategories": {
     "organizations": {
-      "label": "Nonprofits",
-      "miniLabel": "All",
+      "label": "Non profit",
+      "miniLabel": "Tutte",
       "description": ""
     },
     "first": {
-      "label": "FIRST Teams",
-      "description": "Everywhere from San Jose to Boston to New York, HCB powers teams of all sizes."
+      "label": "Team FIRST",
+      "description": "Ovunque da San Jose a Boston a New York, HCB alimenta team di tutte le dimensioni."
     },
     "hackathons": {
       "label": "Hackathons",
-      "description": "Hackers are using HCB to run hackathons that'll blow your mind away."
+      "description": "Hackers usano HCB per creare hackathon che ti lasceranno a bocca aperta."
     }
   },
   "HcbRegions": {
     "north-america": {
-      "label": "North America"
+      "label": "Nord America"
     },
     "south-america": {
-      "label": "South America"
+      "label": "Sud America"
     },
     "africa": {
       "label": "Africa"
     },
     "europe": {
-      "label": "Europe"
+      "label": "Europa"
     },
     "asia-oceania": {
       "label": "Asia & Oceania"
