@@ -8,6 +8,7 @@ import type { Event } from "../../lib/events";
 import { selectFeaturedEvents } from "../../lib/events";
 import { parseLocalDate } from "../../lib/programs";
 import { BtnArrow } from "./btn-arrow";
+import { TEXT_SHADOW } from "../programs/ProgramCardVisual";
 
 // ── Skeleton card ────────────────────────────────────────────────────────────
 function SkeletonCard() {
@@ -40,6 +41,7 @@ function EventCard({ event }: { event: Event }) {
   const background = event.background;
   const bgColor = background?.color ?? "var(--surface)";
   const textColor = theme?.text ?? "var(--foreground)";
+  const textShadow = theme?.textShadow ? TEXT_SHADOW : undefined;
   const accentColor = theme?.accent ?? "#ec3750";
   const logoUrl = event.logoUrl;
   const logoSize = theme?.logoSize ?? 48;
@@ -189,6 +191,7 @@ function EventCard({ event }: { event: Event }) {
               fontSize: 40,
               fontWeight: "normal",
               color: textColor,
+              textShadow,
               margin: "0 0 8px",
               lineHeight: 1,
               textAlign: "center",
@@ -208,6 +211,7 @@ function EventCard({ event }: { event: Event }) {
               fontFamily: "var(--font-phantom)",
               fontSize: 20,
               color: textColor,
+              textShadow,
               opacity: 0.9,
               margin: "0 0 4px",
               lineHeight: 1.2,
@@ -265,6 +269,7 @@ function EventCard({ event }: { event: Event }) {
               fontStyle: "italic",
               fontSize: 16,
               color: textColor,
+              textShadow,
               margin: 0,
               lineHeight: 1.2,
               paddingRight: 110,

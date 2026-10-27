@@ -2,6 +2,9 @@ import type { CSSProperties } from "react";
 import Image from "next/image";
 import { BtnArrowSvg } from "@/components/landing/btn-arrow";
 
+// Keeps light text legible over busy background images.
+export const TEXT_SHADOW = "0 1px 3px rgba(0, 0, 0, 0.6)";
+
 export type ProgramCardVisualProps = {
   name: string;
   logoUrl: string | null;
@@ -9,6 +12,7 @@ export type ProgramCardVisualProps = {
   bgColor: string;
   bgImageUrl: string | null;
   textColor: string;
+  textShadow?: boolean;
   accentColor: string;
   description: string | null;
   metaLines: string[];
@@ -36,6 +40,7 @@ export function ProgramCardVisual({
   bgColor,
   bgImageUrl,
   textColor,
+  textShadow = false,
   accentColor,
   description,
   metaLines,
@@ -55,6 +60,7 @@ export function ProgramCardVisual({
   interactive = false,
   fillHeight = true,
 }: ProgramCardVisualProps) {
+  const shadow = textShadow ? TEXT_SHADOW : undefined;
   const buttonStyle = {
     position: "relative",
     zIndex: 1,
@@ -169,6 +175,7 @@ export function ProgramCardVisual({
             fontSize: 40,
             fontWeight: "normal",
             color: textColor,
+            textShadow: shadow,
             margin: "0 0 8px",
             lineHeight: 1,
             textAlign: "center",
@@ -187,6 +194,7 @@ export function ProgramCardVisual({
             fontFamily: "var(--font-phantom)",
             fontSize: 20,
             color: textColor,
+            textShadow: shadow,
             opacity: 0.9,
             margin: "0 0 4px",
             lineHeight: 1.2,
@@ -205,6 +213,7 @@ export function ProgramCardVisual({
             fontStyle: "italic",
             fontSize: 20,
             color: textColor,
+            textShadow: shadow,
             opacity: 0.55,
             margin: "0 0 4px",
             lineHeight: 1.2,
@@ -247,6 +256,7 @@ export function ProgramCardVisual({
             fontStyle: "italic",
             fontSize: 16,
             color: textColor,
+            textShadow: shadow,
             margin: 0,
             lineHeight: 1.2,
             paddingRight: 110,
