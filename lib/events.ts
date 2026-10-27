@@ -19,6 +19,7 @@ export interface EventBackground {
 
 export interface EventTheme {
   text: string;
+  textShadow: boolean;
   accent: string;
   logoSize: number;
   button: {
@@ -123,6 +124,7 @@ function backgroundFor(site: SiteProgram): EventBackground {
 function themeFor(site: SiteProgram): EventTheme {
   return {
     text: site.textColor,
+    textShadow: site.textShadow,
     accent: site.accentColor,
     logoSize: site.logoSize,
     button: {

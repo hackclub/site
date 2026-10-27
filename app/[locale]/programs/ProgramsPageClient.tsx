@@ -154,6 +154,7 @@ function ProgramCard({ event }: { event: Event }) {
         bgColor={bgColor}
         bgImageUrl={bgImageUrl}
         textColor={textColor}
+        textShadow={theme?.textShadow ?? false}
         accentColor={accentColor}
         description={description}
         metaLines={metaLines}
