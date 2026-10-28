@@ -146,9 +146,9 @@
     "featureNonprofitName": "Nonprofit status",
     "featureDonationsName": "Donations & grants",
     "featureRecordsName": "Expense Report, ready",
-    "featureCardsName": "Team debit card",
+    "featureCardsName": "Student debit cards",
     "featureReimburseName": "Reimbursements",
-    "featureBalanceName": "Shared balance",
+    "featureBalanceName": "Granular controls",
     "allianceEyebrow": "Proven with FIRST",
     "allianceTitle": "2,000+ <first>FIRST</first> teams already run on HCB.",
     "allianceBody": "With the new FIRST and DI alliance, we're excited to welcome DI teams too.",
@@ -194,28 +194,28 @@
       "Take tap-to-pay donations at bake sales and car washes with the HCB mobile app.",
       "Apply for foundation and community grants that only fund 501(c)(3) organizations."
     ],
-    "featureRecordsLead": "Every purchase appears in your account right away, so you're not rebuilding a budget from a shoebox of receipts.",
+    "featureRecordsLead": "Every purchase a student makes shows up in the team's account right away, with who made it, so you're not rebuilding a budget from a shoebox of receipts.",
     "featureRecordsPoints": [
-      "Snap a photo of a receipt with your phone and attach it to the purchase.",
-      "HCB reminds you about purchases that are missing a receipt.",
+      "Students snap a photo of the receipt on their phone and attach it to the purchase.",
+      "HCB reminds them about purchases that are missing a receipt.",
       "See every expense in one list when you fill out your tournament Expense Report."
     ],
-    "featureCardsLead": "Issue debit cards that draw from your team's balance, for whoever buys Team Challenge materials.",
+    "featureCardsLead": "Give students their own debit cards that draw from the team's balance, so they can pick up Team Challenge materials themselves while you decide who gets a card.",
     "featureCardsPoints": [
-      "Order physical cards, or create virtual cards instantly.",
+      "Issue a physical or virtual card to each student who shops for the team.",
       "Add cards to Apple Pay or Google Pay.",
-      "Freeze or cancel a card from your phone if it's lost."
+      "Freeze or cancel any student's card from your phone the moment you need to."
     ],
-    "featureReimburseLead": "When a parent or co-Team Manager pays out of pocket, you can pay them back from the team's account.",
+    "featureReimburseLead": "When a student or parent pays out of pocket, you can pay them back from the team's account.",
     "featureReimbursePoints": [
       "Send money by ACH bank transfer, mailed check, and more.",
       "Each payment is saved with its receipt.",
       "No more keeping track of who owes whom."
     ],
-    "featureBalanceLead": "Invite your co-Team Manager and parents so everyone sees the same, up-to-date numbers.",
+    "featureBalanceLead": "Add students and parents to the team's account with exactly the access you choose: Managers can spend and approve, Members can use their card, Readers can only look.",
     "featureBalancePoints": [
-      "See your balance and every transaction in real time.",
-      "Choose who can spend and who can only view.",
+      "Decide who can spend and who can only view, and change it at any time.",
+      "Every transaction shows who made it, so nothing happens without you seeing it.",
       "Optionally make your finances public so donors can see where their money goes."
     ],
     "featureNonprofitImageAlt": "HCB's donation receipt email, which says the team is fiscally sponsored by Hack Club, a 501(c)(3) nonprofit, and gives the EIN",
@@ -223,7 +223,7 @@
     "featureRecordsImageAlt": "The team's HCB transactions list, where each purchase shows how many receipts are attached and one with none is flagged in orange",
     "featureCardsImageAlt": "An HCB card showing the cardholder's name and last four digits, with Freeze, Burn, and Rename buttons",
     "featureReimburseImageAlt": "An HCB reimbursement report for costume fabric marked Reimbursed, with its expense, receipt, and ACH payout details",
-    "featureBalanceImageAlt": "The team's HCB home page in Transparency Mode, with the account balance, a balance chart, and the team members list",
+    "featureBalanceImageAlt": "The team's HCB home page in Transparency Mode, with the account balance, a balance chart, and the team members list with their roles",
     "featuresBody": "Built around the DI season, from Regional and Affiliate Tournaments to Global Finals.",
     "chartEvents": {
       "2": "Team Number",

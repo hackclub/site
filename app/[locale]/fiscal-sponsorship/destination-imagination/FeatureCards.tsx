@@ -371,7 +371,7 @@ function TransparencyMockup() {
             <span className={styles.avatar}>AL</span>
             <span className={`${styles.avatar} ${styles.avatarMore}`}>+2</span>
           </div>
-          <p className={styles.appMuted}>2 managers · 3 readers</p>
+          <p className={styles.appMuted}>2 managers · 2 members · 1 reader</p>
         </div>
       </div>
     </div>

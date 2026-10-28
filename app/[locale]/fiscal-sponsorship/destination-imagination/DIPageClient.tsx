@@ -19,7 +19,7 @@ const FEATURE_KEYS = [
   { icon: "docs", key: "Records" },
   { icon: "card", key: "Cards" },
   { icon: "payment-transfer", key: "Reimburse" },
-  { icon: "view", key: "Balance" },
+  { icon: "controls", key: "Balance" },
 ] as const;
 // HCB's dark theme tokens, taken from hcb.hackclub.com's stylesheet.
 const HCB = {
