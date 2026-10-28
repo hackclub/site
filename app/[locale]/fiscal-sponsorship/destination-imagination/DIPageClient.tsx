@@ -35,9 +35,34 @@ const ACCENT = HCB.purple;
 const GREEN = "#33d6a6";
 const RED = "#ec3750";
 
+// Amounts in cents, index-aligned with the ledgerIncoming / ledgerOutgoing translation arrays.
+const INCOMING_AMOUNTS = [
+  [2500, 5000, 10000, 25000],
+  [18650, 23475],
+  [50000, 35000],
+  [41200, 38800],
+  [25000, 50000],
+  [100000],
+];
+const OUTGOING_AMOUNTS = [
+  [3842, 2719],
+  [6417, 4388],
+  [12500],
+  [14280],
+  [124000],
+  [5630, 8915],
+  [2396],
+  [4875, 6210],
+  [3120],
+  [17500],
+  [4489],
+  [21450],
+  [1863, 2457],
+];
+
 const usd = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
 
-type LedgerRow = { memo: string; incoming: boolean };
+type LedgerRow = { memo: string; incoming: boolean; amount: string };
 
 function buildColumns(incoming: string[], outgoing: string[], count: number): LedgerRow[][] {
   const length = incoming.length + outgoing.length;
@@ -46,9 +71,12 @@ function buildColumns(incoming: string[], outgoing: string[], count: number): Le
       const isIncoming = (i + col) % 3 === 0;
       const pool = isIncoming ? incoming : outgoing;
       const index = (i * (col + 2) + col * 5) % pool.length;
+      const options = (isIncoming ? INCOMING_AMOUNTS : OUTGOING_AMOUNTS)[index] ?? [0];
+      const cents = options[(i + col) % options.length];
       return {
         memo: pool[index],
         incoming: isIncoming,
+        amount: `${isIncoming ? "+" : "−"}${usd.format(cents / 100)}`,
       };
     }),
   );
@@ -182,6 +210,12 @@ function LedgerBackground({
                     style={{ backgroundColor: row.incoming ? GREEN : RED }}
                   />
                   <span className="ledger-memo">{row.memo}</span>
+                  <span
+                    className="ledger-amount"
+                    style={{ color: row.incoming ? GREEN : HCB.smoke }}
+                  >
+                    {row.amount}
+                  </span>
                 </div>
               ))}
             </div>
@@ -312,6 +346,12 @@ function LedgerBackground({
           flex: 1;
           overflow: hidden;
           text-overflow: ellipsis;
+        }
+
+        .ledger-amount {
+          flex-shrink: 0;
+          font-weight: 700;
+          font-variant-numeric: tabular-nums;
         }
 
         .ledger-chart {
