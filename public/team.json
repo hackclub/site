@@ -1730,5 +1730,17 @@
     "email": "stelle",
     "website": "https://stelle.codes",
     "avatar": "https://cdn.hackclub.com/01a0e05a-8d9a-7fda-9995-a64cf8a05095/Untitled32_20260717184910.png"
+  },
+  {
+    "name": "Karo",
+    "department": "HQ",
+    "role": "Events & Programs",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U088SJQAM35",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U088SJQAM35/r",
+    "gapyear": true
   }
 ]

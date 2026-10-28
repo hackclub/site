@@ -162,9 +162,10 @@ function schemas(): Record<string, Json> {
     EventTheme: {
       type: "object",
       description: "The event's card colours. `null` if the event has no swag yet.",
-      required: ["text", "accent", "logoSize", "button"],
+      required: ["text", "textShadow", "accent", "logoSize", "button"],
       properties: {
         text: { type: "string" },
+        textShadow: { type: "boolean" },
         accent: { type: "string" },
         logoSize: { type: "number" },
         button: {
