@@ -761,7 +761,6 @@ export function DIPageClient() {
     name: t(`feature${feature.key}Name`),
     lead: t(`feature${feature.key}Lead`),
     points: t.raw(`feature${feature.key}Points`) as string[],
-    imageAlt: t(`feature${feature.key}ImageAlt`),
   }));
 
   useEffect(() => {
@@ -936,16 +935,6 @@ export function DIPageClient() {
           </div>
         </section>
 
-        <section style={{ ...sectionPadding, backgroundColor: HCB.darker }}>
-          <SectionHeading
-            eyebrow={t("allianceEyebrow")}
-            title={t.rich("allianceTitle", { first: (chunks) => <i>{chunks}</i> })}
-            body={t("allianceBody")}
-          />
-          {/* Placeholder until Mark's endorsement quote and headshot arrive. */}
-          <QuoteCard quote={t("markQuote")} name={t("markName")} role={t("markRole")} />
-        </section>
-
         <section id="apply" style={sectionPadding}>
           <div
             style={{
@@ -1011,6 +1000,16 @@ export function DIPageClient() {
               </a>
             </p>
           </div>
+        </section>
+
+        <section style={{ ...sectionPadding, backgroundColor: HCB.darker }}>
+          <SectionHeading
+            eyebrow={t("allianceEyebrow")}
+            title={t.rich("allianceTitle", { first: (chunks) => <i>{chunks}</i> })}
+            body={t("allianceBody")}
+          />
+          {/* Placeholder until Mark's endorsement quote and headshot arrive. */}
+          <QuoteCard quote={t("markQuote")} name={t("markName")} role={t("markRole")} />
         </section>
       </main>
       <Footer />

@@ -1037,12 +1037,6 @@
       "Every transaction shows who made it, so nothing happens without you seeing it.",
       "Optionally make your finances public so donors can see where their money goes."
     ],
-    "featureNonprofitImageAlt": "HCB's donation receipt email, which says the team is fiscally sponsored by Hack Club, a 501(c)(3) nonprofit, and gives the EIN",
-    "featureDonationsImageAlt": "The team's HCB donation page with a fundraising goal bar, a donation amount field, and a Continue button, next to a phone taking a tap-to-pay donation",
-    "featureRecordsImageAlt": "The team's HCB transactions list, where each purchase shows how many receipts are attached and one with none is flagged in orange",
-    "featureCardsImageAlt": "An HCB card showing the cardholder's name and last four digits, with Freeze, Burn, and Rename buttons",
-    "featureReimburseImageAlt": "An HCB reimbursement report for costume fabric marked Reimbursed, with its expense, receipt, and ACH payout details",
-    "featureBalanceImageAlt": "The team's HCB home page in Transparency Mode, with the account balance, a balance chart, and the team members list with their roles",
     "featuresBody": "Built around the DI season, from Regional and Affiliate Tournaments to Global Finals.",
     "chartEvents": {
       "2": "Team Number",
