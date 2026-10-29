@@ -159,7 +159,7 @@ export function VideoSection() {
               marginBottom: 32,
             }}
           >
-            <YouTubeEmbed id="JkSquIVXXds" title={t("videoAria")} />
+            <YouTubeEmbed id="YQOjl_NyeZc" title={t("videoAria")} />
           </div>
 
           {/* Email signup */}
