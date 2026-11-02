@@ -116,7 +116,7 @@ export function Features() {
             <p
               style={{
                 fontSize: "14px",
-                color: FISCAL_COLORS.primary,
+                color: FISCAL_COLORS.primaryText,
                 margin: "0.5rem 0 0",
                 fontFamily: FISCAL_TYPOGRAPHY.bodyFont,
               }}
@@ -130,7 +130,7 @@ export function Features() {
             <p
               style={{
                 fontSize: "14px",
-                color: FISCAL_COLORS.primary,
+                color: FISCAL_COLORS.primaryText,
                 marginTop: "0.5rem",
                 fontFamily: FISCAL_TYPOGRAPHY.bodyFont,
               }}

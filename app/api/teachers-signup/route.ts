@@ -96,6 +96,7 @@ export async function POST(req: NextRequest) {
               email: email.trim(),
               "First Name": firstName.trim(),
               "Last Name": lastName.trim(),
+              Referral: "hackclub.com",
               ...(school && { "School/Organization": school }),
               ...(state && { State: state }),
               ...(country && { Country: country }),

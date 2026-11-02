@@ -867,7 +867,7 @@ export function HeroSection() {
           <Link
             href="/privacy-and-terms"
             style={{
-              color: "var(--red)",
+              color: "var(--red-text)",
               textDecoration: "underline",
               textUnderlineOffset: 2,
               pointerEvents: "auto",

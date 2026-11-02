@@ -849,7 +849,7 @@ export default function TeamPageClient({
           font-family: var(--font-phantom);
           font-size: 0.95rem;
           line-height: 1.3;
-          color: var(--red);
+          color: var(--red-text);
         }
 
         .pod--ink .person-card__role {
@@ -857,7 +857,7 @@ export default function TeamPageClient({
         }
 
         .lane--ink .person-card__role {
-          color: var(--red);
+          color: var(--red-text);
         }
 
         .person-card__bio {
@@ -986,7 +986,7 @@ export default function TeamPageClient({
           margin: 0 0 16px;
           font-family: var(--font-phantom);
           font-size: 1rem;
-          color: var(--red);
+          color: var(--red-text);
         }
 
         .modal-bio {
@@ -1002,7 +1002,7 @@ export default function TeamPageClient({
         }
 
         .modal-bio a {
-          color: var(--red);
+          color: var(--red-text);
           text-decoration: underline;
         }
 
@@ -1107,7 +1107,7 @@ export default function TeamPageClient({
           margin: 0;
           font-family: var(--font-phantom);
           font-size: 0.9rem;
-          color: var(--red);
+          color: var(--red-text);
           font-weight: 600;
         }
 

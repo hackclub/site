@@ -946,7 +946,7 @@ export default async function ParentsPage({ params }: Props) {
                   fontFamily: "var(--font-zarathustra)",
                   fontSize: "clamp(14px, 2vw, 20px)",
                   fontWeight: 400,
-                  color: "#ec3750",
+                  color: "var(--red-text)",
                   margin: 0,
                   opacity: 0.85,
                 }}

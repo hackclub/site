@@ -159,7 +159,7 @@ export function VideoSection() {
               marginBottom: 32,
             }}
           >
-            <YouTubeEmbed id="JkSquIVXXds" title={t("videoAria")} />
+            <YouTubeEmbed id="YQOjl_NyeZc" title={t("videoAria")} />
           </div>
 
           {/* Email signup */}
@@ -190,7 +190,7 @@ export function VideoSection() {
               href="/privacy-and-terms"
               className="video-terms-link"
               style={{
-                color: "var(--red)",
+                color: "var(--red-text)",
                 textDecoration: "underline",
                 textUnderlineOffset: 2,
                 pointerEvents: "auto",

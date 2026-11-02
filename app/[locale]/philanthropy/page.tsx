@@ -949,7 +949,7 @@ export default async function PhilanthropyPage({ params }: Props) {
         }
 
         .philanthropy-contact-grid a {
-          color: var(--red);
+          color: var(--red-text);
           text-decoration: none;
           font-weight: 700;
         }
@@ -1280,7 +1280,7 @@ export default async function PhilanthropyPage({ params }: Props) {
           text-decoration: none;
           font-family: var(--font-phantom);
           font-weight: 700;
-          color: var(--red);
+          color: var(--red-text);
           background: rgba(236, 55, 80, 0.1);
           padding: 6px 14px;
           border-radius: 999px;
@@ -1341,7 +1341,7 @@ export default async function PhilanthropyPage({ params }: Props) {
         .philanthropy-cta__card a {
           font-family: var(--font-phantom);
           font-weight: 700;
-          color: var(--red);
+          color: var(--red-text);
           text-decoration: none;
         }
 

@@ -83,7 +83,7 @@ export function OpenSource({
                 paddingLeft: "25px",
                 backgroundColor: "transparent",
                 border: `2px solid ${FISCAL_COLORS.primary}`,
-                color: FISCAL_COLORS.primary,
+                color: FISCAL_COLORS.primaryText,
                 borderRadius: "9999px",
                 fontSize: "16px",
                 fontFamily: FISCAL_TYPOGRAPHY.bodyFont,
@@ -99,7 +99,7 @@ export function OpenSource({
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.backgroundColor = "transparent";
-                el.style.color = FISCAL_COLORS.primary;
+                el.style.color = FISCAL_COLORS.primaryText;
               }}
             >
               {t("starOnGithub")}

@@ -309,7 +309,7 @@ function SectionHeading({
             letterSpacing: "0.16em",
             fontSize: 12,
             fontWeight: 700,
-            color: dark ? "rgba(255,255,255,0.72)" : FISCAL_COLORS.primary,
+            color: dark ? "rgba(255,255,255,0.72)" : FISCAL_COLORS.primaryText,
           }}
         >
           {eyebrow}
@@ -1048,9 +1048,9 @@ export function FirstPageClient() {
                 target="_blank"
                 rel="noreferrer"
                 style={{
-                  color: FISCAL_COLORS.primary,
+                  color: "#ff5c72",
                   textDecoration: "none",
-                  borderBottom: "1px solid #ec3750",
+                  borderBottom: "1px solid #ff5c72",
                 }}
               >
                 {t("seeOurFinances")}

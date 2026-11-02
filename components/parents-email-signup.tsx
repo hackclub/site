@@ -203,7 +203,7 @@ export function ParentsEmailSignup() {
           style={{
             fontFamily: F,
             fontSize: 14,
-            color: "var(--red)",
+            color: "var(--red-text)",
             margin: "-8px auto 12px",
             textAlign: "center",
           }}

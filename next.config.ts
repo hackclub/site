@@ -242,6 +242,10 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
+        source: "/security.txt",
+        destination: "/.well-known/security.txt",
+      },
+      {
         source: "/index.md",
         destination: "/api/markdown",
       },

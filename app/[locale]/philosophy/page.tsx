@@ -237,7 +237,7 @@ export default async function PhilosophyPage({ params }: Props) {
           height: 220px;
           border-radius: 50%;
           background: var(--paper);
-          color: var(--red);
+          color: #be1e3a;
           z-index: 3;
           display: flex;
           flex-direction: column;
@@ -351,7 +351,7 @@ export default async function PhilosophyPage({ params }: Props) {
         }
 
         .philosophy-card p a {
-          color: var(--red);
+          color: var(--red-text);
           text-decoration: underline;
           text-underline-offset: 2px;
           font-weight: 700;
