@@ -309,22 +309,22 @@ export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
           filter: invert(1);
         }
 
+        html:not([lang="it"]) .donors-open-line {
+          white-space: nowrap;
+        }
+
+        @media (max-width: 1000px) {
+          html:not([lang="it"]) .donors-open-line {
+            white-space: normal;
+          }
+        }
+
         @media (max-width: 900px) {
           .donors-headline {
             font-size: clamp(26px, 3.2vw, 44px) !important;
             white-space: normal !important;
             padding-left: 24px;
             padding-right: 24px;
-          }
-        }
-
-        .donors-open-line {
-          white-space: nowrap;
-        }
-
-        @media (max-width: 1000px) {
-          .donors-open-line {
-            white-space: normal;
           }
         }
       `}</style>
