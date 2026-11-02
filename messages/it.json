@@ -143,7 +143,13 @@
     "body": "Prova a tornare alla homepage per trovare ciò che stai cercando o esplora i nostri programmi per scoprire qualcosa di nuovo. Abbiamo aggiornato il nostro sito di recente, quindi alcune cose sono state spostate. Se pensi che qui dovrebbe esserci qualcosa che non c'è, faccelo sapere aprendo una issue sul nostro",
     "github": "repository GitHub",
     "goHome": "Torna alla homepage",
-    "explorePrograms": "Esplora i programmi"
+    "explorePrograms": "Esplora i programmi",
+    "agentLinksTitle": "Modi per trovare questa pagina in formato leggibile dalle macchine",
+    "agentLinksIntro": "Questa risposta è un vero errore HTTP 404. Su questo sito non esiste nulla a questo percorso.",
+    "agentLinksLlms": "llms.txt — un indice di tutte le pagine di questo sito",
+    "agentLinksSitemap": "sitemap.xml — tutti gli URL canonici",
+    "agentLinksOpenapi": "openapi.json — l’API JSON pubblica",
+    "agentLinksMarkdown": "Qualsiasi pagina può essere richiesta in formato Markdown con l’intestazione Accept: text/markdown"
   },
   "Brand": {
     "metaTitle": "Brand — Hack Club",
