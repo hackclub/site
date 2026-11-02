@@ -1,14 +1,14 @@
 [
   {
-    "name": "Louisa",
+    "name": "Junya Do",
     "department": "Moderation",
     "role": "Community Moderation Lead",
     "acknowledged": false,
-    "bio": "Louisa is a high schooler from Kenya who helps lead the Hack Club Community moderation dept",
-    "slackId": "U06EMBJH71S",
-    "email": "louisa",
-    "website": "",
-    "avatar": "https://cachet.hackclub.com/users/U06EMBJH71S/r"
+    "bio": "Junya is an enthusiastic programmer from the rainy place that is the UK. She is responsible for conduct and moderation at Hack Club, making the Slack a safer space with a friendly face. Outside of Hack Club she enjoys traveling around the world taking photos with her DSLR camera, and drowning in music!",
+    "slackId": "U082PAFDDS5",
+    "email": "junya",
+    "website": "https://github.com/junyali",
+    "avatar": "https://cachet.hackclub.com/users/U082PAFDDS5/r"
   },
   {
     "name": "Eesha",
@@ -623,17 +623,6 @@
     "avatar": "https://cachet.hackclub.com/users/U075RTSLDQ8/r"
   },
   {
-    "name": "Angad Behl",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
-    "acknowledged": false,
-    "bio": "Angad is a 16 year old Hack Clubber from Wisconsin. During his time in the Hack Club community, he's built a peer voting platform for over 2000 students, ran a YSWS providing travel stipends, and built moderation infrastructure for Hack Club. In his free time, he enjoys photography, travel, and pondering.",
-    "slackId": "U075RTSLDQ8",
-    "email": "angad",
-    "website": "https://angad.me",
-    "avatar": "https://cachet.hackclub.com/users/U075RTSLDQ8/r"
-  },
-  {
     "name": "Annabel",
     "department": "HQ",
     "role": "Engineering & Community",
@@ -1021,18 +1010,6 @@
     "avatar": "https://cdn.hackclub.com/01a13bcf-8bec-710b-a1af-efefdc79f3f9/image_from_lucas_via_slack.jpg"
   },
   {
-    "name": "Amber",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
-    "acknowledged": false,
-    "gapyear": true,
-    "bio": "Amber is a 17 year old student from Leicester (UK) who loves programming Slack apps and random scripts. She also has a deep passion for music and you'll rarely find her without headphones on. Since joining Hack Club, she's reviewed thousands of hours for Arcade, supported thousands of hackers in Arcade and around Slack, helped moderate the community, built tools for the community and welcomed new members all whilst drowning in coursework. Currently she's helping with moderation and events and also leads the Welcome team and, helping new members get settled in and feel at home whilst working on other Hack Club projects on the side.",
-    "slackId": "U054VC2KM9P",
-    "email": "amber",
-    "website": "https://transcental.dev",
-    "avatar": "https://cachet.hackclub.com/users/U054VC2KM9P/r"
-  },
-  {
     "name": "Kat",
     "department": "Welcoming",
     "role": "Welcomer",
@@ -1087,27 +1064,6 @@
     "website": "https://pianoman0.com"
   },
   {
-    "name": "Junya",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
-    "acknowledged": false,
-    "bio": "Junya is an enthusiastic programmer from the rainy place that is the UK. She is responsible for conduct and moderation at Hack Club, making the Slack a safer space with a friendly face. Outside of Hack Club she enjoys traveling around the world taking photos with her DSLR camera, and drowning in music!",
-    "slackId": "U082PAFDDS5",
-    "email": "",
-    "website": "",
-    "avatar": "https://cachet.hackclub.com/users/U082PAFDDS5/r"
-  },
-  {
-    "name": "Jeremy",
-    "department": "Moderation",
-    "role": "Moderation Engineering",
-    "acknowledged": false,
-    "bio": "",
-    "slackId": "U06UYA5GMB5",
-    "website": "https://jeremywoolley.com",
-    "avatar": "https://cdn.hackclub.com/019e4064-705b-71fd-95e8-4995c3690195/2026_05_19_0fj_Kleki%20(1).png"
-  },
-  {
     "name": "Felix Gao",
     "department": "Moderation",
     "role": "Moderation & Conduct",
@@ -1128,17 +1084,6 @@
     "email": "",
     "website": "",
     "avatar": "https://cachet.hackclub.com/users/U096NGLTF4K/r"
-  },
-  {
-    "name": "Julia Do",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
-    "acknowledged": false,
-    "bio": "Julia is a 17-year-old Hack Clubber who loves mangoes, karaoke, and creating projects that tell stories. When she's not working, you can probably find her on Slack!",
-    "slackId": "U0943NG73PA",
-    "email": "",
-    "website": "",
-    "avatar": "https://cachet.hackclub.com/users/U0943NG73PA/r"
   },
   {
     "name": "Felix Gao",
@@ -1229,17 +1174,6 @@
     "avatar": "https://cachet.hackclub.com/users/U03RG1Y7HNW/r"
   },
   {
-    "name": "Louisa",
-    "department": "Welcoming",
-    "role": "Welcomer",
-    "acknowledged": false,
-    "bio": "Louisa is a high schooler from Kenya who helps lead the Hack Club Community moderation dept",
-    "slackId": "U06EMBJH71S",
-    "email": "louisa",
-    "website": "",
-    "avatar": "https://cachet.hackclub.com/users/U06EMBJH71S/r"
-  },
-  {
     "name": "Parneel Bhakhri",
     "department": "Welcoming",
     "role": "Welcomer",
@@ -1304,6 +1238,17 @@
     "email": "sahil@conduct.hackclub.com",
     "website": "",
     "avatar": "https://cdn.hackclub.com/01a022cb-4489-73bb-9132-5db42f4f857c/sahilsquare%20-%20Copy.png"
+  },
+  {
+    "name": "Sunshine",
+    "department": "Moderation",
+    "role": "Conduct and Moderation",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U08Q6HZ8NR5",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.hackclub.com/users/U08Q6HZ8NR5/r"
   },
   {
     "name": "Nick Do",

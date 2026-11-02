@@ -76,7 +76,9 @@ export function buildPageMetadata({
                   ? "az_AZ"
                   : locale === "it"
                     ? "it_IT"
-                    : "en_US",
+                    : locale === "hi"
+                      ? "hi_IN"
+                      : "en_US",
       images: [
         {
           url: image,
