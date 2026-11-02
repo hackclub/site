@@ -61,6 +61,7 @@ describe("buildEvents", () => {
           Description: "Build hardware.",
           "Slack Channel": "#forge",
           "Accent Color": "#CA5924",
+          "Text Shadow": true,
           "Project Types": [{ name: "Electronics" }],
           Format: { name: "Both" },
           "In-Person Location": "Vermont",
@@ -82,6 +83,7 @@ describe("buildEvents", () => {
     expect(event.inPerson).toEqual({ start: null, end: null, location: "Vermont" });
     expect(event.pinned).toBe(true);
     expect(event.theme?.accent).toBe("#CA5924");
+    expect(event.theme?.textShadow).toBe(true);
   });
 
   test("leaves theme and background null when nobody has styled the card", () => {

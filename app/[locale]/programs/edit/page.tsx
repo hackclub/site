@@ -26,6 +26,7 @@ interface EditorProgram {
     bgType: "color" | "image";
     bgColor: string;
     textColor: string;
+    textShadow: boolean;
     accentColor: string;
     logoSize: number;
     buttonColor: string;
@@ -122,6 +123,7 @@ function CardPreview({ prog }: { prog: EditorProgram }) {
       bgColor={draft.bgColor}
       bgImageUrl={bgImageUrl}
       textColor={draft.textColor}
+      textShadow={draft.textShadow}
       accentColor={draft.accentColor}
       description={draft.description || null}
       metaLines={metaLines}
@@ -762,6 +764,7 @@ function ProgramEditor({
           bgType: prog.draft.bgType,
           bgColor: prog.draft.bgColor,
           textColor: prog.draft.textColor,
+          textShadow: prog.draft.textShadow,
           accentColor: prog.draft.accentColor,
           logoSize: prog.draft.logoSize,
           buttonColor: prog.draft.buttonColor,
@@ -1047,11 +1050,34 @@ function ProgramEditor({
         </div>
 
         {/* ── Colors ── */}
-        <ColorField
-          label="Text color"
-          value={d.textColor}
-          onChange={(v) => set({ textColor: v })}
-        />
+        <div style={{ display: "flex", alignItems: "flex-end", gap: 16 }}>
+          <ColorField
+            label="Text color"
+            value={d.textColor}
+            onChange={(v) => set({ textColor: v })}
+          />
+          <label
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              height: 36,
+              fontSize: 13,
+              fontWeight: "bold",
+              color: "var(--foreground)",
+              fontFamily: "var(--font-phantom)",
+              cursor: "pointer",
+            }}
+          >
+            <input
+              type="checkbox"
+              checked={d.textShadow}
+              onChange={(e) => set({ textShadow: e.target.checked })}
+              style={{ width: 18, height: 18, accentColor: "var(--red)", cursor: "pointer" }}
+            />
+            Text shadow
+          </label>
+        </div>
 
         {/* ── Button ── */}
         <div
@@ -1486,6 +1512,7 @@ export default function EditPage() {
               bgType: s?.bgType ?? "color",
               bgColor: s?.bgColor ?? "var(--surface)",
               textColor: s?.textColor ?? "var(--foreground)",
+              textShadow: s?.textShadow ?? false,
               accentColor: s?.accentColor ?? "#ec3750",
               logoSize: s?.logoSize ?? 48,
               buttonColor: s?.buttonColor ?? "",

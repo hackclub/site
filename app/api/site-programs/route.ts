@@ -50,6 +50,7 @@ type ValidatedBody = {
   bgType?: "color" | "image";
   bgColor?: string;
   textColor?: string;
+  textShadow?: boolean;
   accentColor?: string;
   clearLogo?: boolean;
   clearBg?: boolean;
@@ -102,7 +103,7 @@ function validateBody(
   if (!optNum(r.buttonBorderRadius, 0, 9999)) return bad("Invalid buttonBorderRadius");
   if (!optNum(r.buttonBorderWidth, 0, 64)) return bad("Invalid buttonBorderWidth");
 
-  for (const k of ["clearLogo", "clearBg", "pinned"] as const)
+  for (const k of ["clearLogo", "clearBg", "pinned", "textShadow"] as const)
     if (!optBool(r[k])) return bad(`Invalid ${k}`);
 
   if (!optHttpUrl(r.setLogoUrl)) return bad("Invalid setLogoUrl");
@@ -199,6 +200,7 @@ export async function POST(req: NextRequest) {
   if (body.description !== undefined) fields["Description"] = body.description;
   if (body.bgColor !== undefined) fields["Card BG Color"] = body.bgColor;
   if (body.textColor !== undefined) fields["Text Color"] = body.textColor;
+  if (body.textShadow !== undefined) fields["Text Shadow"] = body.textShadow;
   if (body.accentColor !== undefined) fields["Accent Color"] = body.accentColor;
   if (body.bgType !== undefined) fields["BG Type"] = body.bgType;
   if (body.clearLogo) fields["Logo"] = [];

@@ -19,6 +19,7 @@ export interface SiteProgram {
   bgType: "color" | "image";
   bgColor: string;
   textColor: string;
+  textShadow: boolean;
   accentColor: string;
   logoUrl: string | null;
   logoSize: number;
@@ -47,6 +48,7 @@ type RawRecord = {
     Description?: string;
     "Card BG Color"?: string;
     "Text Color"?: string;
+    "Text Shadow"?: boolean;
     "Accent Color"?: string;
     "BG Type"?: string;
     Logo?: { id?: string; url: string; filename: string }[];
@@ -93,6 +95,7 @@ export function parseRecord(r: RawRecord): SiteProgram {
     bgType: (fields["BG Type"] as "color" | "image") ?? "color",
     bgColor: fields["Card BG Color"] ?? "#ffffff",
     textColor: fields["Text Color"] ?? "#17171d",
+    textShadow: fields["Text Shadow"] === true,
     accentColor: fields["Accent Color"] ?? "#ec3750",
     logoUrl: fields.Logo?.[0]?.url ?? null,
     logoSize: fields["Logo Size"] ?? 48,
@@ -129,6 +132,7 @@ export const SITE_FIELDS = [
   "Description",
   "Card BG Color",
   "Text Color",
+  "Text Shadow",
   "Accent Color",
   "BG Type",
   "Logo",
