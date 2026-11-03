@@ -1,36 +1,107 @@
-.carousel {
-  position: relative;
+/* Desktop: a vertical tab list beside one feature panel. Mobile (≤820px): a one-card carousel. */
+
+.features {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+  gap: 20px;
+  align-items: stretch;
 }
 
-.viewport {
-  overflow: hidden;
-  border-radius: 12px;
-  touch-action: pan-y;
-}
-
-.track {
+.tabs {
   display: flex;
-  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+  flex-direction: column;
+  gap: 6px;
 }
 
-.feature {
-  flex: 0 0 100%;
-  min-width: 0;
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 0;
   border-radius: 12px;
+  background: transparent;
+  color: #8492a6;
+  font-family: var(--font-phantom);
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.tab:hover {
+  color: #e0e6ed;
+  background: rgba(37, 36, 41, 0.5);
+}
+
+.tabActive,
+.tabActive:hover {
+  color: #ffffff;
   background: #252429;
   box-shadow: inset 0 0 0 0.5px hsla(0, 0%, 100%, 0.25);
 }
 
-.body {
+.tabIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: clamp(24px, 4vw, 56px);
-  align-items: center;
-  min-height: 320px;
-  padding: clamp(28px, 4vw, 48px) clamp(28px, 5vw, 80px);
+  place-items: center;
+  flex-shrink: 0;
+  background: rgba(166, 51, 214, 0.18);
+  color: #a633d6;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.tabActive .tabIcon {
+  background: #a633d6;
+  color: #ffffff;
+}
+
+/* Every panel shares one grid cell, so the stage is as tall as the longest feature and doesn't jump. */
+.track {
+  display: grid;
+  height: 100%;
+}
+
+.viewport {
+  height: 100%;
+}
+
+.stage {
+  min-width: 0;
+}
+
+.feature {
+  grid-area: 1 / 1;
+  min-width: 0;
+  border-radius: 12px;
+  background: #252429;
+  box-shadow: inset 0 0 0 0.5px hsla(0, 0%, 100%, 0.25);
+  transition: opacity 220ms ease;
+}
+
+.feature[data-active="false"] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+  padding: clamp(28px, 3.5vw, 48px);
 }
 
 .counter {
+  display: none;
   margin: 0 0 10px;
   font-family: var(--font-phantom);
   font-size: 12px;
@@ -70,6 +141,7 @@
 
 .lead {
   margin: 0;
+  max-width: 620px;
   font-family: var(--font-phantom);
   font-size: 19px;
   line-height: 1.55;
@@ -94,13 +166,14 @@
   color: #e0e6ed;
 }
 
+.arrow,
+.dots {
+  display: none;
+}
+
 .arrow {
-  position: absolute;
-  top: 50%;
-  z-index: 2;
-  width: 52px;
-  height: 52px;
-  margin-top: -26px;
+  width: 44px;
+  height: 44px;
   border-radius: 9999px;
   border: 0;
   background: #252429;
@@ -115,21 +188,6 @@
 
 .arrow:hover {
   filter: brightness(1.25);
-}
-
-.arrowPrev {
-  left: -26px;
-}
-
-.arrowNext {
-  right: -26px;
-}
-
-.dots {
-  display: flex;
-  justify-content: center;
-  gap: 4px;
-  margin-top: 18px;
 }
 
 .dot {
@@ -158,53 +216,71 @@
   transform: scale(1.4);
 }
 
+.tab:focus-visible,
 .arrow:focus-visible,
 .dot:focus-visible {
   outline: 2px solid #a633d6;
   outline-offset: 3px;
 }
 
-@media (max-width: 1240px) {
-  .arrowPrev {
-    left: 12px;
-  }
-
-  .arrowNext {
-    right: 12px;
-  }
-}
-
 @media (max-width: 820px) {
-  .body {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    min-height: 0;
-    padding: 24px 20px 28px;
+  .features {
+    display: block;
   }
 
-  .arrow {
-    position: static;
-    margin: 0;
-    width: 44px;
-    height: 44px;
+  .tabs {
+    display: none;
   }
 
-  .dots {
-    margin-top: 14px;
-  }
-
-  .carousel {
+  .stage {
     display: grid;
     grid-template-columns: auto 1fr auto;
     grid-template-areas:
       "viewport viewport viewport"
       "prev dots next";
     align-items: center;
-    column-gap: 10px;
+    gap: 14px 10px;
   }
 
   .viewport {
     grid-area: viewport;
+    height: auto;
+    overflow: hidden;
+    border-radius: 12px;
+    touch-action: pan-y;
+  }
+
+  .track {
+    display: flex;
+    height: auto;
+    transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .feature {
+    flex: 0 0 100%;
+    transition: none;
+  }
+
+  .feature[data-active="false"] {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .body {
+    gap: 20px;
+    padding: 24px 20px 28px;
+  }
+
+  .counter {
+    display: block;
+  }
+
+  .name {
+    font-size: 30px;
+  }
+
+  .arrow {
+    display: block;
   }
 
   .arrowPrev {
@@ -217,11 +293,17 @@
 
   .dots {
     grid-area: dots;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .track,
+  .feature,
+  .tab,
+  .tabIcon,
   .dot::after,
   .arrow {
     transition: none;
