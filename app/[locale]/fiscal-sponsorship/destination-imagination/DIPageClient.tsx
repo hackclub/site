@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -808,6 +809,20 @@ export function DIPageClient() {
               textAlign: "center",
             }}
           >
+            {/* DI's full-color logo with white text, their official version for dark backgrounds. */}
+            <Image
+              src="/fiscal-sponsorship/destination-imagination/logo.png"
+              alt={t("logoAlt")}
+              width={3000}
+              height={750}
+              priority
+              style={{
+                display: "block",
+                width: "clamp(220px, 32vw, 320px)",
+                height: "auto",
+                margin: "0 auto 20px",
+              }}
+            />
             <p
               style={{
                 margin: "0 0 18px",

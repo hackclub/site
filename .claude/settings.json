@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(go vet *)",
+      "Bash(shellcheck *)",
+      "Bash(lpstat *)",
+      "Bash(dig *)",
+      "Bash(tailscale status *)",
+      "Bash(crontab -l)",
+      "Bash(gofmt -l .)",
+      "mcp__terminal__read_terminal",
+      "Bash(getent *)",
+      "Bash(dpkg -l *)",
+      "Bash(tailscale debug derp-map)",
+      "Bash(systemctl is-active *)"
+    ]
+  }
+}
