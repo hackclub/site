@@ -15,6 +15,7 @@
 }
 
 .tab {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -63,6 +64,27 @@
 .tabActive .tabIcon {
   background: #813dd6;
   color: #ffffff;
+}
+
+.tabProgress {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 0;
+  height: 2px;
+  border-radius: 9999px;
+  background: #813dd6;
+  transform-origin: left;
+  animation: tab-progress linear forwards;
+}
+
+@keyframes tab-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 /* Every panel shares one grid cell, so the stage is as tall as the longest feature and doesn't jump. */

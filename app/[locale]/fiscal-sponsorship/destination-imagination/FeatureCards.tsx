@@ -29,25 +29,29 @@ type Labels = {
 
 const SWIPE_THRESHOLD = 50;
 const AUTOPLAY_MS = 6000;
-// Keep in sync with the breakpoint in FeatureCards.module.css; wider screens get tabs.
-const CAROUSEL_QUERY = "(max-width: 820px)";
 
-function subscribeToCarousel(callback: () => void) {
-  const mediaQuery = window.matchMedia(CAROUSEL_QUERY);
-  mediaQuery.addEventListener("change", callback);
-  return () => mediaQuery.removeEventListener("change", callback);
+function mediaQueryStore(query: string) {
+  return {
+    subscribe(callback: () => void) {
+      const mediaQuery = window.matchMedia(query);
+      mediaQuery.addEventListener("change", callback);
+      return () => mediaQuery.removeEventListener("change", callback);
+    },
+    matches: () => window.matchMedia(query).matches,
+  };
 }
 
-function useIsCarousel() {
-  return useSyncExternalStore(
-    subscribeToCarousel,
-    () => window.matchMedia(CAROUSEL_QUERY).matches,
-    () => false,
-  );
+// Keep in sync with the breakpoint in FeatureCards.module.css; wider screens get tabs.
+const carouselQuery = mediaQueryStore("(max-width: 820px)");
+const reducedMotionQuery = mediaQueryStore("(prefers-reduced-motion: reduce)");
+
+function useMediaQuery(store: ReturnType<typeof mediaQueryStore>) {
+  return useSyncExternalStore(store.subscribe, store.matches, () => false);
 }
 
 export function FeatureCards({ items, labels }: { items: FeatureItem[]; labels: Labels }) {
-  const isCarousel = useIsCarousel();
+  const isCarousel = useMediaQuery(carouselQuery);
+  const reducedMotion = useMediaQuery(reducedMotionQuery);
   const baseId = useId();
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [index, setIndex] = useState(0);
@@ -57,6 +61,7 @@ export function FeatureCards({ items, labels }: { items: FeatureItem[]; labels: 
   const rootRef = useRef<HTMLElement | null>(null);
   const swipeStart = useRef<number | null>(null);
   const total = items.length;
+  const autoplaying = !stopped && !hovered && visible && !reducedMotion;
 
   // Any manual move stops the auto-advance for good.
   const go = (next: number) => {
@@ -92,11 +97,10 @@ export function FeatureCards({ items, labels }: { items: FeatureItem[]; labels: 
   }, []);
 
   useEffect(() => {
-    if (!isCarousel || stopped || hovered || !visible) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!autoplaying) return;
     const id = window.setTimeout(() => setIndex((i) => (i + 1) % total), AUTOPLAY_MS);
     return () => window.clearTimeout(id);
-  }, [isCarousel, stopped, hovered, visible, index, total]);
+  }, [autoplaying, index, total]);
 
   // Desktop is a vertical tablist; the arrow keys move through it as the WAI-ARIA tabs pattern expects.
   const onTabKeys = (event: KeyboardEvent) => {
@@ -148,6 +152,14 @@ export function FeatureCards({ items, labels }: { items: FeatureItem[]; labels: 
               <Icon glyph={item.icon} size={22} />
             </span>
             {item.name}
+            {/* Fills over one autoplay interval; it remounts whenever the timer restarts. */}
+            {i === index && autoplaying ? (
+              <span
+                className={styles.tabProgress}
+                style={{ animationDuration: `${AUTOPLAY_MS}ms` }}
+                aria-hidden="true"
+              />
+            ) : null}
           </button>
         ))}
       </div>
