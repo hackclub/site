@@ -711,6 +711,7 @@ function SectionHeading({
           letterSpacing: "-0.04em",
           color: "#ffffff",
           margin: 0,
+          textWrap: "balance",
         }}
       >
         {title}
@@ -723,6 +724,7 @@ function SectionHeading({
             lineHeight: 1.5,
             color: HCB.muted,
             margin: "14px 0 0",
+            textWrap: "balance",
           }}
         >
           {body}
