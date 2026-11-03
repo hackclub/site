@@ -682,7 +682,7 @@ function SectionHeading({
   title,
   body,
 }: {
-  eyebrow?: string;
+  eyebrow?: ReactNode;
   title: ReactNode;
   body?: ReactNode;
 }) {
@@ -755,6 +755,8 @@ const sectionPadding = {
 
 export function DIPageClient() {
   const t = useTranslations("HcbDI");
+  // FIRST's trademark policy: the word mark is always italic; ® goes on its first heading and first body use.
+  const italicFirst = (chunks: ReactNode) => <i>{chunks}</i>;
   const [stats, setStats] = useState<HCBStats>({});
   const features = FEATURE_KEYS.map((feature) => ({
     key: feature.key,
@@ -1009,9 +1011,9 @@ export function DIPageClient() {
 
         <section style={{ ...sectionPadding, backgroundColor: HCB.darker }}>
           <SectionHeading
-            eyebrow={t("allianceEyebrow")}
-            title={t.rich("allianceTitle", { first: (chunks) => <i>{chunks}</i> })}
-            body={t("allianceBody")}
+            eyebrow={t.rich("allianceEyebrow", { first: italicFirst })}
+            title={t.rich("allianceTitle", { first: italicFirst })}
+            body={t.rich("allianceBody", { first: italicFirst })}
           />
           {/* Placeholder until Mark's endorsement quote and headshot arrive. */}
           <QuoteCard quote={t("markQuote")} name={t("markName")} role={t("markRole")} />
