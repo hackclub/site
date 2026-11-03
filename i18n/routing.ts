@@ -14,6 +14,11 @@ const productionDomains = [
     locales: ["ru" as const],
   },
   {
+    domain: "it.hackclub.com",
+    defaultLocale: "it" as const,
+    locales: ["it" as const],
+  },
+  {
     domain: "fr.hackclub.com",
     defaultLocale: "fr" as const,
     locales: ["fr" as const],
@@ -33,6 +38,11 @@ const productionDomains = [
     defaultLocale: "az" as const,
     locales: ["az" as const],
   },
+  {
+    domain: "hi.hackclub.com",
+    defaultLocale: "hi" as const,
+    locales: ["hi" as const],
+  },
 ];
 
 const developmentDomains = [
@@ -45,6 +55,11 @@ const developmentDomains = [
     domain: "ru.localhost:3000",
     defaultLocale: "ru" as const,
     locales: ["ru" as const],
+  },
+  {
+    domain: "it.localhost:3000",
+    defaultLocale: "it" as const,
+    locales: ["it" as const],
   },
   {
     domain: "fr.localhost:3000",
@@ -66,10 +81,15 @@ const developmentDomains = [
     defaultLocale: "az" as const,
     locales: ["az" as const],
   },
+  {
+    domain: "hi.localhost:3000",
+    defaultLocale: "hi" as const,
+    locales: ["hi" as const],
+  },
 ];
 
 export const routing = defineRouting({
-  locales: ["en", "ru", "fr", "de", "es", "az"],
+  locales: ["en", "ru", "it", "fr", "de", "es", "az", "hi"],
   defaultLocale: "en",
   localePrefix: "never",
   localeDetection: false,
@@ -81,10 +101,12 @@ export type AppLocale = (typeof routing.locales)[number];
 export const localeDomains: Record<AppLocale, string> = {
   en: "https://hackclub.com",
   ru: "https://ru.hackclub.com",
+  it: "https://it.hackclub.com",
   fr: "https://fr.hackclub.com",
   de: "https://de.hackclub.com",
   es: "https://es.hackclub.com",
   az: "https://az.hackclub.com",
+  hi: "https://hi.hackclub.com",
 };
 
 export function getLocaleDomain(locale: string): string {
