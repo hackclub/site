@@ -1,4 +1,5 @@
-/* Desktop: a vertical tab list beside one feature panel. Mobile (≤820px): a one-card carousel. */
+/* Desktop: a vertical tab list beside one feature panel. Mobile (≤820px): a one-card carousel.
+   Purples are DI's: #813dd6 (accent) and #b95ddb (light), from their logo and site. */
 
 .features {
   display: grid;
@@ -52,15 +53,15 @@
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  background: rgba(166, 51, 214, 0.18);
-  color: #a633d6;
+  background: rgba(129, 61, 214, 0.18);
+  color: #b95ddb;
   transition:
     background-color 160ms ease,
     color 160ms ease;
 }
 
 .tabActive .tabIcon {
-  background: #a633d6;
+  background: #813dd6;
   color: #ffffff;
 }
 
@@ -125,7 +126,7 @@
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  background: #a633d6;
+  background: #813dd6;
   color: #ffffff;
 }
 
@@ -212,14 +213,14 @@
 }
 
 .dotActive::after {
-  background: #a633d6;
+  background: #813dd6;
   transform: scale(1.4);
 }
 
 .tab:focus-visible,
 .arrow:focus-visible,
 .dot:focus-visible {
-  outline: 2px solid #a633d6;
+  outline: 2px solid #813dd6;
   outline-offset: 3px;
 }
 

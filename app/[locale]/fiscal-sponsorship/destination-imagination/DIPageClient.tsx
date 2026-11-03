@@ -29,10 +29,10 @@ const HCB = {
   card: "#252429",
   smoke: "#e0e6ed",
   muted: "#8492a6",
-  purple: "#a633d6",
   outline: "inset 0 0 0 0.5px hsla(0, 0%, 100%, 0.25)",
 } as const;
-const ACCENT = HCB.purple;
+// DI's purple, from the logo cube and the buttons on destinationimagination.org.
+const ACCENT = "#813dd6";
 const GREEN = "#33d6a6";
 const RED = "#ec3750";
 
@@ -852,7 +852,7 @@ export function DIPageClient() {
                     style={{
                       WebkitTextStroke: `1px ${ACCENT}`,
                       WebkitTextFillColor: "#ffffff",
-                      textShadow: "0 0 18px rgba(166, 51, 214, 0.75)",
+                      textShadow: "0 0 18px rgba(129, 61, 214, 0.75)",
                     }}
                   >
                     {chunks}
