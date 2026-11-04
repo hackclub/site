@@ -1,7 +1,7 @@
 export function getAuthUrl(email?: string) {
   const url = new URL("https://slack.hackclub.com/slides/0");
   const t = email?.trim();
-  if (t) url.searchParams.set("email", encodeURIComponent(t));
+  if (t) url.searchParams.set("email", t);
   return url.toString();
 }
 

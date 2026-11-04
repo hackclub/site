@@ -338,6 +338,16 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
             );
           })}
 
+          <a
+            href="https://auth.hackclub.com/login"
+            className="nav-link"
+            style={ls(false)}
+            onMouseEnter={hIn}
+            onMouseLeave={hOut}
+          >
+            {t("login")}
+          </a>
+
           <ThemeToggle />
 
           <a
@@ -490,6 +500,22 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
               }}
             >
               {tc("joinCommunity")}
+            </a>
+            <a
+              href="https://auth.hackclub.com/login"
+              className="mobile-nav-item"
+              onClick={closeMenu}
+              style={{
+                fontFamily: F,
+                fontSize: 20,
+                color: txt,
+                textDecoration: "none",
+                textAlign: "center",
+                marginTop: 4,
+                display: "block",
+              }}
+            >
+              {t("login")}
             </a>
             <div className="mobile-nav-item" style={{ display: "flex", justifyContent: "center" }}>
               <ThemeToggle />
