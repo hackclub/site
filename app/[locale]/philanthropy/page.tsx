@@ -43,6 +43,7 @@ const donorTierNames = {
     "Ron Baron",
     "Jack Dorsey",
     "Vitalik Buterin",
+    "Ruth Cotter",
   ],
   tier100kto200k: [
     "Quinn Slack (3x)",
