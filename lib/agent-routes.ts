@@ -165,6 +165,13 @@ export const AGENT_ROUTES: AgentRoute[] = [
     group: "hcb",
   },
   {
+    path: "/fiscal-sponsorship/destination-imagination",
+    namespace: "HcbDI",
+    titleKey: "metaTitle",
+    descriptionKey: "metaDescription",
+    group: "hcb",
+  },
+  {
     path: "/fiscal-sponsorship/mobile",
     namespace: "HcbMobile",
     titleKey: "metaTitle",
