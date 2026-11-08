@@ -181,9 +181,8 @@
   },
   {
     "name": "Alex DeForrest",
-    "staff": true,
     "department": "HCB",
-    "role": "Operations Engineer",
+    "role": "Operations Contributor",
     "acknowledged": false,
     "bio": "",
     "slackId": "U02CWS020SD",
