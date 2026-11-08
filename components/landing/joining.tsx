@@ -756,7 +756,7 @@ export function JoiningSection() {
               </div>
               <p style={cardBodyStyle}>{t("joiningClubsBody1")}</p>
               <p style={cardBodyGapStyle}>{t("joiningClubsBody2")}</p>
-              <CardCta href="/clubs">{t("joiningClubsCta")}</CardCta>
+              <CardCta href="https://apply.hackclub.com">{t("joiningClubsCta")}</CardCta>
             </div>
           </div>
 
