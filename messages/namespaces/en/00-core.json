@@ -16,7 +16,9 @@
     "startNow": "Start now",
     "viewSource": "View source code",
     "pauseCarousel": "Pause auto-scrolling projects carousel",
-    "playCarousel": "Play auto-scrolling projects carousel"
+    "playCarousel": "Play auto-scrolling projects carousel",
+    "alreadyMember": "Already in Hack Club?",
+    "login": "Log in"
   },
   "Nav": {
     "about": "About",

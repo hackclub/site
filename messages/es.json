@@ -16,7 +16,9 @@
     "startNow": "Empieza ahora",
     "viewSource": "Ver el código fuente",
     "pauseCarousel": "Pausar el carrusel automático de proyectos",
-    "playCarousel": "Reproducir el carrusel automático de proyectos"
+    "playCarousel": "Reproducir el carrusel automático de proyectos",
+    "alreadyMember": "¿Ya eres parte de Hack Club?",
+    "login": "Iniciar sesión"
   },
   "Nav": {
     "about": "Acerca de",

@@ -16,7 +16,9 @@
     "startNow": "İndi başla",
     "viewSource": "Mənbə koduna bax",
     "pauseCarousel": "Layihələrin avtomatik sürüşməsini dayandır",
-    "playCarousel": "Layihələrin avtomatik sürüşməsini başlat"
+    "playCarousel": "Layihələrin avtomatik sürüşməsini başlat",
+    "alreadyMember": "Artıq Hack Club üzvüsünüz?",
+    "login": "Daxil ol"
   },
   "Nav": {
     "about": "Haqqında",

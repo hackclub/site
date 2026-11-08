@@ -139,6 +139,7 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
     { label: t("conduct"), href: "/conduct" },
     { label: t("privacy"), href: "/privacy-and-terms" },
     { label: t("safety"), href: "/safety" },
+    { label: t("login"), href: "https://auth.hackclub.com/login" },
   ];
 
   const links: Array<{ label: string; href?: string; dropdown?: Item[] }> = [
@@ -338,16 +339,6 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
             );
           })}
 
-          <a
-            href="https://auth.hackclub.com/login"
-            className="nav-link"
-            style={ls(false)}
-            onMouseEnter={hIn}
-            onMouseLeave={hOut}
-          >
-            {t("login")}
-          </a>
-
           <ThemeToggle />
 
           <a
@@ -501,22 +492,31 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
             >
               {tc("joinCommunity")}
             </a>
-            <a
-              href="https://auth.hackclub.com/login"
+            <div
               className="mobile-nav-item"
-              onClick={closeMenu}
-              style={{
-                fontFamily: F,
-                fontSize: 20,
-                color: txt,
-                textDecoration: "none",
-                textAlign: "center",
-                marginTop: 4,
-                display: "block",
-              }}
+              style={{ textAlign: "center", marginTop: 8 }}
             >
-              {t("login")}
-            </a>
+              <span
+                style={{
+                  fontFamily: F,
+                  fontSize: 14,
+                  color: muted,
+                }}
+              >
+                {tc("alreadyMember")}{" "}
+                <a
+                  href="https://auth.hackclub.com/login"
+                  onClick={closeMenu}
+                  style={{
+                    color: txt,
+                    textDecoration: "underline",
+                    textUnderlineOffset: 3,
+                  }}
+                >
+                  {tc("login")}
+                </a>
+              </span>
+            </div>
             <div className="mobile-nav-item" style={{ display: "flex", justifyContent: "center" }}>
               <ThemeToggle />
             </div>
