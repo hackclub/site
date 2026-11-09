@@ -1,6 +1,6 @@
 # Hack Club Events Safeguarding Policy
 
-All in-person Hack Club events (satellites and flagships) are required to follow our Youth Protection Policy. Please direct any inquiries to [deven@hackclub.com](mailto:deven@hackclub.com).
+All in-person Hack Club events (satellites and flagships) are required to follow our Youth Protection Policy. Please direct any inquiries to [safety@hackclub.com](safety@hackclub.com).
 
 1. Purpose
 
@@ -29,7 +29,7 @@ All in-person Hack Club events (satellites and flagships) are required to follow
 
     * Behavior must align with the Hack Club Code of Conduct: no bullying, harassment, discrimination, or inappropriate interpersonal conduct.
 
-    * All concerns or incidents must be reported swiftly (timeline based on our [triage chart](https://docs.google.com/document/d/1Ub8ssZchUejYTQvGggUVnVga6d3X8gBkkbTN9XkJOcI/edit?usp=sharing)) using our incident reporting form (see 6.3) and handled sensitively, with report confidentiality ensured. Incident reviewers must provide consistent support and provide solid reasoning for actions taken on a report.
+    * All concerns or incidents must be reported swiftly (timeline based on our [triage chart](https://attend.hackclub.com/docs/organizers/reporting-incidents)) using our incident reporting form (see 6.3) and handled sensitively, with report confidentiality ensured. Incident reviewers must provide consistent support and provide solid reasoning for actions taken on a report.
 
     * We adopt a "duty of care" mindset: proactively reducing risks, not just reacting to problems. All participants, volunteers, mentors and staff are required to report any concerns or incidents to the point of contact(s) / safeguarding officer.
 
@@ -171,13 +171,15 @@ All in-person Hack Club events (satellites and flagships) are required to follow
 
     * For every incident, the incident reporting form must be completed and submitted through the relevant administrative tool (i.e. Attend).
 
+    * Anyone can create a report through Attend's Incident Tool, which can be found [here](https://hack.club/incident), or at hack.club/incident.
+
     6.3 Mandated Reporting
 
     * Mandatory submission: All safeguarding incidents, regardless of severity, must be reported by the Event Lead or Safeguarding Officer through the Hack Club organizer dashboard as soon as possible; reports must be made within 18 hours of the incident occurring.
 
     * Confidentiality: Reports submitted via Hack Club tools are confidential and accessible only to Hack Club HQ staff and designated safeguarding personnel.
 
-    * Timeline: Report emergencies immediately to local emergency services. Urgent incidents (cases of immediate danger, serious harm, or where statutory reporting requirements take effect) must be reported to Hack Club HQ (after appropriate emergency services are contacted) immediately via phone ([+18556254225](tel:18556254225)) or email (<safeguarding@hackclub.com>) in addition to the form submission.
+    * Timeline: Report emergencies immediately to local emergency services. Urgent incidents (cases of immediate danger, serious harm, or where statutory reporting requirements take effect) must be reported to Hack Club HQ (after appropriate emergency services are contacted) immediately via phone ([+18556254225](tel:18556254225)) or email (<safety@hackclub.com>) in addition to the [form submission](https://hack.club/incident).
 
     * Consequences: Failure to submit a mandated report may result in organizers being barred from running future Hack Club events and may affect the event's insurance coverage and Hack Club support.
 
