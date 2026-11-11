@@ -9,7 +9,7 @@ export const PROGRAMS_CACHE_TAG = "programs";
 
 export function yswsListUrl(): string {
   const params = new URLSearchParams();
-  params.set("filterByFormula", "NOT({Start Date}='')");
+  params.set("filterByFormula", "AND(NOT({Start Date}=''), NOT({Unlisted}))");
   for (const field of YSWS_FIELDS) params.append("fields[]", field);
   params.append("sort[0][field]", "End Date");
   params.append("sort[0][direction]", "asc");
