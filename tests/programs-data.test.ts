@@ -107,7 +107,9 @@ describe("list URLs", () => {
       "End Date",
       "Website URL",
     ]);
-    expect(url.searchParams.get("filterByFormula")).toBe("NOT({Start Date}='')");
+    expect(url.searchParams.get("filterByFormula")).toBe(
+      "AND(NOT({Start Date}=''), NOT({Unlisted}))",
+    );
   });
 
   test("both URLs are offset-free, so a walk always starts at the first page", () => {
