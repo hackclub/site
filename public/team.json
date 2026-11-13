@@ -1663,5 +1663,16 @@
     "website": "",
     "avatar": "https://cachet.hackclub.com/users/U088SJQAM35/r",
     "gapyear": true
+  },
+  {
+    "name": "Sam Liu",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U03UBRVG2MS",
+    "email": "samliu",
+    "website": "https://samliu.dev",
+    "avatar": "https://cdn.hackclub.com/01a1d36e-36d9-75da-ad66-88482bdbe2fb/IMG_0531%202.jpg"
   }
 ]
