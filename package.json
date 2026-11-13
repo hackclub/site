@@ -33,7 +33,7 @@
     "@types/react-dom": "^19.3.0",
     "oxfmt": "^0.77.0",
     "oxlint": "^1.92.0",
-    "tailwindcss": "^4.3.4",
+    "tailwindcss": "^4.3.5",
     "typescript": "^7.0.2"
   }
 }
