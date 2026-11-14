@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { isValidEmail } from "@/lib/email";
 import { useTranslations } from "next-intl";
-import { sendToAuth } from "../../lib/send-auth";
+import { getLoginUrl, sendToAuth } from "../../lib/send-auth";
 
 interface EmailSignupInputProps {
   variant?: "hero" | "video" | "ready";
@@ -161,6 +161,29 @@ export function EmailSignupInput({ variant = "hero" }: EmailSignupInputProps) {
         >
           {tc("join")}
         </button>
+      </div>
+
+      <div
+        style={{
+          marginTop: 8,
+          textAlign: "center",
+          fontFamily: "var(--font-phantom)",
+          fontSize: 14,
+          color: "var(--muted)",
+        }}
+      >
+        {tc("alreadyMember")}{" "}
+        <a
+          href={getLoginUrl(e)}
+          style={{
+            color: "var(--foreground)",
+            textDecoration: "underline",
+            textUnderlineOffset: 3,
+            cursor: "pointer",
+          }}
+        >
+          {tc("login")}
+        </a>
       </div>
 
       {err && (

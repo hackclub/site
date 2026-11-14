@@ -16,7 +16,9 @@
     "startNow": "Inizia adesso",
     "viewSource": "Vedi il codice sorgente",
     "pauseCarousel": "Metti in pausa lo scorrimento automatico del carosello di progetti",
-    "playCarousel": "Riprendi lo scorrimento automatico del carosello di progetti"
+    "playCarousel": "Riprendi lo scorrimento automatico del carosello di progetti",
+    "alreadyMember": "Fai già parte di Hack Club?",
+    "login": "Accedi"
   },
   "Nav": {
     "about": "Chi siamo",
@@ -37,7 +39,8 @@
     "conduct": "Codice di condotta",
     "privacy": "Privacy e termini",
     "safety": "Sicurezza",
-    "donate": "Dona"
+    "donate": "Dona",
+    "login": "Accedi"
   },
   "Footer": {
     "tagline": "Per teenager, da teenager.",

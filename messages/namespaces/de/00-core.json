@@ -16,7 +16,9 @@
     "startNow": "Jetzt starten",
     "viewSource": "Quellcode anzeigen",
     "pauseCarousel": "Automatisch scrollendes Projektkarussell anhalten",
-    "playCarousel": "Automatisch scrollendes Projektkarussell starten"
+    "playCarousel": "Automatisch scrollendes Projektkarussell starten",
+    "alreadyMember": "Bereits bei Hack Club?",
+    "login": "Anmelden"
   },
   "Nav": {
     "about": "Über uns",
@@ -36,7 +38,8 @@
     "privacy": "Datenschutz und Nutzungsbedingungen",
     "safety": "Sicherheit",
     "donate": "Spenden",
-    "parents": "Eltern"
+    "parents": "Eltern",
+    "login": "Anmelden"
   },
   "Footer": {
     "tagline": "Für Jugendliche, von Jugendlichen.",

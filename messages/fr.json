@@ -16,7 +16,9 @@
     "startNow": "Commencer maintenant",
     "viewSource": "Voir le code source",
     "pauseCarousel": "Mettre en pause le carrousel de projets",
-    "playCarousel": "Lancer le défilement automatique du carrousel de projets"
+    "playCarousel": "Lancer le défilement automatique du carrousel de projets",
+    "alreadyMember": "Déjà membre de Hack Club ?",
+    "login": "Connexion"
   },
   "Nav": {
     "about": "À propos",
@@ -36,7 +38,8 @@
     "conduct": "Code de conduite",
     "privacy": "Confidentialité et conditions",
     "safety": "Sécurité",
-    "donate": "Faire un don"
+    "donate": "Faire un don",
+    "login": "Connexion"
   },
   "Footer": {
     "tagline": "Par des ados, pour des ados.",

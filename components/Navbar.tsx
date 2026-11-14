@@ -139,6 +139,7 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
     { label: t("conduct"), href: "/conduct" },
     { label: t("privacy"), href: "/privacy-and-terms" },
     { label: t("safety"), href: "/safety" },
+    { label: t("login"), href: "https://auth.hackclub.com/login" },
   ];
 
   const links: Array<{ label: string; href?: string; dropdown?: Item[] }> = [
@@ -491,6 +492,31 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
             >
               {tc("joinCommunity")}
             </a>
+            <div
+              className="mobile-nav-item"
+              style={{ textAlign: "center", marginTop: 8 }}
+            >
+              <span
+                style={{
+                  fontFamily: F,
+                  fontSize: 14,
+                  color: muted,
+                }}
+              >
+                {tc("alreadyMember")}{" "}
+                <a
+                  href="https://auth.hackclub.com/login"
+                  onClick={closeMenu}
+                  style={{
+                    color: txt,
+                    textDecoration: "underline",
+                    textUnderlineOffset: 3,
+                  }}
+                >
+                  {tc("login")}
+                </a>
+              </span>
+            </div>
             <div className="mobile-nav-item" style={{ display: "flex", justifyContent: "center" }}>
               <ThemeToggle />
             </div>
