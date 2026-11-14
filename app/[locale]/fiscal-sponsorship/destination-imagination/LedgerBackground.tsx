@@ -36,11 +36,16 @@ type LedgerRow = { memo: string; incoming: boolean; amount: string };
 
 function buildColumns(incoming: string[], outgoing: string[], count: number): LedgerRow[][] {
   const length = incoming.length + outgoing.length;
-  return Array.from({ length: count }, (_, col) =>
-    Array.from({ length }, (_, i) => {
+  return Array.from({ length: count }, (_, col) => {
+    // One counter per pool, offset per column, so every memo shows up and columns don't line up.
+    let incomingIndex = col * 2;
+    let outgoingIndex = col * 5;
+    return Array.from({ length }, (_, i) => {
       const isIncoming = (i + col) % 3 === 0;
       const pool = isIncoming ? incoming : outgoing;
-      const index = (i * (col + 2) + col * 5) % pool.length;
+      const index = isIncoming
+        ? incomingIndex++ % incoming.length
+        : outgoingIndex++ % outgoing.length;
       const options = (isIncoming ? INCOMING_AMOUNTS : OUTGOING_AMOUNTS)[index] ?? [0];
       const cents = options[(i + col) % options.length];
       return {
@@ -48,8 +53,8 @@ function buildColumns(incoming: string[], outgoing: string[], count: number): Le
         incoming: isIncoming,
         amount: `${isIncoming ? "+" : "−"}${usd.format(cents / 100)}`,
       };
-    }),
-  );
+    });
+  });
 }
 
 // One DI season for a sample team: [year, month (1-12), day, balance in cents].
@@ -109,6 +114,11 @@ const FILL_PATH = `${LINE_PATH} L${CHART_W} ${CHART_H} L0 ${CHART_H} Z`;
 
 type ChartHover = { index: number; left: number; top: number; flip: boolean };
 
+// Matches .tip's 14px offset from the dot; width and height leave room for the longest event label.
+const TIP_OFFSET = 14;
+const TIP_W = 200;
+const TIP_H = 80;
+
 // Owns the hover state on its own, so moving the pointer re-renders only the tooltip, not every ledger row.
 function ChartOverlay({
   rootRef,
@@ -128,6 +138,12 @@ function ChartOverlay({
     if (!root || !section) return;
 
     const onMove = (event: PointerEvent) => {
+      // The tooltip sits under the hero copy, so skip touch and anything over the text or the button.
+      const target = event.target instanceof Element ? event.target : null;
+      if (event.pointerType !== "mouse" || target?.closest("a, h1, p, li, img")) {
+        setHover(null);
+        return;
+      }
       const chart = chartRef.current?.getBoundingClientRect();
       const box = root.getBoundingClientRect();
       if (!chart || event.clientX < chart.left || event.clientX > chart.right) {
@@ -143,10 +159,30 @@ function ChartOverlay({
         setHover(null);
         return;
       }
+      const flip = left > box.width - 180;
+      // The tooltip renders under the hero copy, so never show it where it would land behind text
+      // (e.g. the badges row, which the chart's peaks reach). Size is a generous estimate of .tip.
+      const tipX = box.left + (flip ? left - TIP_OFFSET - TIP_W : left + TIP_OFFSET);
+      const tipY = box.top + top - TIP_OFFSET - TIP_H;
+      const blocked = [...section.querySelectorAll("h1, p, a, li, img")].some((el) => {
+        if (root.contains(el)) return false;
+        const r = el.getBoundingClientRect();
+        return (
+          r.width > 0 &&
+          tipX < r.right &&
+          tipX + TIP_W > r.left &&
+          tipY < r.bottom &&
+          tipY + TIP_H > r.top
+        );
+      });
+      if (blocked) {
+        setHover(null);
+        return;
+      }
       setHover((prev) =>
         prev?.index === index && prev.left === left && prev.top === top
           ? prev
-          : { index, left, top, flip: left > box.width - 180 },
+          : { index, left, top, flip },
       );
     };
     const onLeave = () => setHover(null);

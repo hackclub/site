@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import { Caveat } from "next/font/google";
 
 export const phantomSans = localFont({
   src: [
@@ -54,5 +55,13 @@ export const geologica = localFont({
   weight: "100 900",
   fallback: ["system-ui", "sans-serif"],
   adjustFontFallback: "Arial",
+  preload: false,
+});
+
+// Handwriting for small margin notes (the DI page). Self-hosted by next/font at build time.
+export const caveat = Caveat({
+  subsets: ["latin"],
+  weight: "600",
+  display: "swap",
   preload: false,
 });

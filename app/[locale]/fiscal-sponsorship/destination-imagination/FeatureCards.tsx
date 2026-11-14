@@ -8,6 +8,7 @@ import {
   useSyncExternalStore,
   type KeyboardEvent,
 } from "react";
+import Image from "next/image";
 import { Icon } from "@/components/Icon";
 import styles from "./FeatureCards.module.css";
 
@@ -17,17 +18,10 @@ export type FeatureItem = {
   name: string;
   lead: string;
   points: string[];
+  // A real screenshot of the feature in HCB.
+  image?: { src: string; alt: string; width: number; height: number };
 };
 
-type Labels = {
-  region: string;
-  previous: string;
-  next: string;
-  goTo: (number: number) => string;
-  counter: (current: number, total: number) => string;
-};
-
-const SWIPE_THRESHOLD = 50;
 const AUTOPLAY_MS = 6000;
 
 function mediaQueryStore(query: string) {
@@ -41,16 +35,55 @@ function mediaQueryStore(query: string) {
   };
 }
 
-// Keep in sync with the breakpoint in FeatureCards.module.css; wider screens get tabs.
-const carouselQuery = mediaQueryStore("(max-width: 820px)");
+// Keep in sync with the breakpoint in FeatureCards.module.css: narrower screens get an accordion,
+// wider screens get tabs.
+const stackedQuery = mediaQueryStore("(max-width: 820px)");
 const reducedMotionQuery = mediaQueryStore("(prefers-reduced-motion: reduce)");
 
 function useMediaQuery(store: ReturnType<typeof mediaQueryStore>) {
   return useSyncExternalStore(store.subscribe, store.matches, () => false);
 }
 
-export function FeatureCards({ items, labels }: { items: FeatureItem[]; labels: Labels }) {
-  const isCarousel = useMediaQuery(carouselQuery);
+function FeatureBody({ item, headingLevel }: { item: FeatureItem; headingLevel: "h3" | "none" }) {
+  return (
+    <div className={styles.body}>
+      <div className={styles.intro}>
+        {headingLevel === "h3" ? (
+          <div className={styles.heading}>
+            <span className={styles.icon}>
+              <Icon glyph={item.icon} size={26} />
+            </span>
+            <h3 className={styles.name}>{item.name}</h3>
+          </div>
+        ) : null}
+        <p className={styles.lead}>{item.lead}</p>
+      </div>
+      <ul className={styles.points}>
+        {item.points.map((point) => (
+          <li key={point}>
+            <Icon glyph="checkmark" size={26} style={{ color: "#33d6a6", flexShrink: 0 }} />
+            <span>{point}</span>
+          </li>
+        ))}
+      </ul>
+      {item.image ? (
+        // Screenshots are 2x captures; capping them at their natural size keeps HCB's UI text true to scale.
+        <div className={styles.shot} style={{ maxWidth: item.image.width / 2 }}>
+          <Image
+            src={item.image.src}
+            alt={item.image.alt}
+            width={item.image.width}
+            height={item.image.height}
+            sizes="(max-width: 820px) 92vw, 760px"
+          />
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+export function FeatureCards({ items, label }: { items: FeatureItem[]; label: string }) {
+  const isStacked = useMediaQuery(stackedQuery);
   const reducedMotion = useMediaQuery(reducedMotionQuery);
   const baseId = useId();
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -59,18 +92,14 @@ export function FeatureCards({ items, labels }: { items: FeatureItem[]; labels: 
   const [hovered, setHovered] = useState(false);
   const [visible, setVisible] = useState(false);
   const rootRef = useRef<HTMLElement | null>(null);
-  const swipeStart = useRef<number | null>(null);
   const total = items.length;
-  const autoplaying = !stopped && !hovered && visible && !reducedMotion;
+  // Only the desktop tabs auto-advance; on phones the reader opens what they want.
+  const autoplaying = !isStacked && !stopped && !hovered && visible && !reducedMotion;
 
   // Any manual move stops the auto-advance for good.
   const go = (next: number) => {
     setIndex(((next % total) + total) % total);
     setStopped(true);
-  };
-  const onArrowKeys = (event: KeyboardEvent) => {
-    if (event.key === "ArrowRight") go(index + 1);
-    if (event.key === "ArrowLeft") go(index - 1);
   };
 
   useEffect(() => {
@@ -127,19 +156,29 @@ export function FeatureCards({ items, labels }: { items: FeatureItem[]; labels: 
     tabRefs.current[next]?.focus();
   };
 
+  // Phones: an accordion, first item open, so six features don't stretch the page.
+  if (isStacked) {
+    return (
+      <section ref={rootRef} className={styles.accordion} aria-label={label}>
+        {items.map((item, i) => (
+          <details key={item.key} className={styles.item} open={i === 0}>
+            <summary className={styles.summary}>
+              <span className={styles.tabIcon}>
+                <Icon glyph={item.icon} size={22} />
+              </span>
+              <h3 className={styles.summaryName}>{item.name}</h3>
+              <Icon glyph="down-caret" size={24} className={styles.caret} />
+            </summary>
+            <FeatureBody item={item} headingLevel="none" />
+          </details>
+        ))}
+      </section>
+    );
+  }
+
   return (
-    <section
-      ref={rootRef}
-      className={styles.features}
-      aria-roledescription={isCarousel ? "carousel" : undefined}
-      aria-label={labels.region}
-    >
-      <div
-        className={styles.tabs}
-        role="tablist"
-        aria-orientation="vertical"
-        aria-label={labels.region}
-      >
+    <section ref={rootRef} className={styles.features} aria-label={label}>
+      <div className={styles.tabs} role="tablist" aria-orientation="vertical" aria-label={label}>
         {items.map((item, i) => (
           <button
             key={item.key}
@@ -172,103 +211,20 @@ export function FeatureCards({ items, labels }: { items: FeatureItem[]; labels: 
         ))}
       </div>
 
-      <div className={styles.stage}>
-        <button
-          type="button"
-          className={`${styles.arrow} ${styles.arrowPrev}`}
-          onClick={() => go(index - 1)}
-          onKeyDown={onArrowKeys}
-          aria-label={labels.previous}
-        >
-          ←
-        </button>
-        <button
-          type="button"
-          className={`${styles.arrow} ${styles.arrowNext}`}
-          onClick={() => go(index + 1)}
-          onKeyDown={onArrowKeys}
-          aria-label={labels.next}
-        >
-          →
-        </button>
-
-        <div
-          className={styles.viewport}
-          onPointerDown={(event) => {
-            if (isCarousel) swipeStart.current = event.clientX;
-          }}
-          onPointerUp={(event) => {
-            if (swipeStart.current === null) return;
-            const dx = event.clientX - swipeStart.current;
-            swipeStart.current = null;
-            if (dx <= -SWIPE_THRESHOLD) go(index + 1);
-            if (dx >= SWIPE_THRESHOLD) go(index - 1);
-          }}
-          onPointerCancel={() => {
-            swipeStart.current = null;
-          }}
-        >
+      <div className={styles.panels}>
+        {items.map((item, i) => (
           <div
-            className={styles.track}
-            style={isCarousel ? { transform: `translateX(-${index * 100}%)` } : undefined}
-            aria-live={isCarousel ? (autoplaying ? "off" : "polite") : undefined}
+            key={item.key}
+            id={`${baseId}-panel-${i}`}
+            className={styles.feature}
+            data-active={i === index}
+            role="tabpanel"
+            tabIndex={0}
+            aria-labelledby={`${baseId}-tab-${i}`}
           >
-            {items.map((item, i) => (
-              <article
-                key={item.key}
-                id={`${baseId}-panel-${i}`}
-                className={styles.feature}
-                data-active={i === index}
-                role={isCarousel ? undefined : "tabpanel"}
-                tabIndex={isCarousel ? undefined : 0}
-                aria-labelledby={isCarousel ? undefined : `${baseId}-tab-${i}`}
-                aria-roledescription={isCarousel ? "slide" : undefined}
-                aria-label={isCarousel ? labels.counter(i + 1, total) : undefined}
-                aria-hidden={isCarousel && i !== index ? true : undefined}
-                inert={isCarousel && i !== index}
-              >
-                <div className={styles.body}>
-                  <div className={styles.intro}>
-                    <p className={styles.counter}>{labels.counter(i + 1, total)}</p>
-                    <div className={styles.heading}>
-                      <span className={styles.icon}>
-                        <Icon glyph={item.icon} size={26} />
-                      </span>
-                      <h3 className={styles.name}>{item.name}</h3>
-                    </div>
-                    <p className={styles.lead}>{item.lead}</p>
-                  </div>
-                  <ul className={styles.points}>
-                    {item.points.map((point) => (
-                      <li key={point}>
-                        <Icon
-                          glyph="checkmark"
-                          size={26}
-                          style={{ color: "#33d6a6", flexShrink: 0 }}
-                        />
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
+            <FeatureBody item={item} headingLevel="h3" />
           </div>
-        </div>
-
-        <div className={styles.dots}>
-          {items.map((item, i) => (
-            <button
-              key={item.key}
-              type="button"
-              className={i === index ? `${styles.dot} ${styles.dotActive}` : styles.dot}
-              onClick={() => go(i)}
-              onKeyDown={onArrowKeys}
-              aria-label={labels.goTo(i + 1)}
-              aria-current={i === index}
-            />
-          ))}
-        </div>
+        ))}
       </div>
     </section>
   );

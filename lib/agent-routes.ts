@@ -170,6 +170,7 @@ export const AGENT_ROUTES: AgentRoute[] = [
     titleKey: "metaTitle",
     descriptionKey: "metaDescription",
     group: "hcb",
+    contentSlug: "destination-imagination",
   },
   {
     path: "/fiscal-sponsorship/mobile",

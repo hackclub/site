@@ -14,6 +14,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t("metaTitle"),
     description: t("metaDescription"),
     canonical: "/fiscal-sponsorship/destination-imagination",
+    // DI's official dark-background logo, unmodified, with its brand-guide clear space.
+    image: "/fiscal-sponsorship/destination-imagination/og-image.png",
+    imageAlt: t("ogImageAlt"),
     locale,
   });
 }
