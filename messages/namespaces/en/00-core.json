@@ -65,7 +65,8 @@
     "hackFoundation": "The Hack Foundation",
     "nonprofit": ", a 501(c)(3) nonprofit (EIN: 81-2908499).",
     "commit": "Commit {sha}",
-    "openSourceAt": ", open source at"
+    "openSourceAt": ", open source at",
+    "slack": "Slack"
   },
   "Home": {
     "stardance": "Check out Stardance, the largest free STEM event of the fall",
