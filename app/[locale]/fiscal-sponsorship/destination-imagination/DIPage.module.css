@@ -1,0 +1,213 @@
+/* Responsive pieces of the DI page that inline styles can't express. */
+
+/* Three DI photos under Mark's quote: a row on desktop, a swipeable strip on phones. */
+.photos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 1120px;
+  margin: clamp(40px, 6vw, 72px) auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+.photo {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  aspect-ratio: 4 / 3;
+  box-shadow: inset 0 0 0 0.5px hsla(0, 0%, 100%, 0.25);
+}
+
+.photo img {
+  object-fit: cover;
+}
+
+/* Every other tile sits a little lower, so the row reads like prints on a table, not a grid. */
+.photo:nth-child(2) {
+  transform: translateY(18px);
+}
+
+@media (max-width: 720px) {
+  .photos {
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-auto-columns: min(78%, 320px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 0 16px 8px;
+  }
+
+  .photos::-webkit-scrollbar {
+    display: none;
+  }
+
+  .photo {
+    scroll-snap-align: start;
+  }
+
+  .photo:nth-child(2) {
+    transform: none;
+  }
+}
+
+/* The features heading, with a handwritten note in the right margin on wide screens. */
+.featuresHeading {
+  position: relative;
+}
+
+.note {
+  position: absolute;
+  top: -6px;
+  right: 0;
+  width: 190px;
+  margin: 0;
+  color: #f88f00;
+  font-size: 26px;
+  line-height: 1.05;
+  text-align: center;
+  transform: rotate(-6deg);
+  pointer-events: none;
+}
+
+.noteArrow {
+  display: block;
+  width: 92px;
+  height: 48px;
+  margin: 4px 0 0 18px;
+  color: #f88f00;
+}
+
+@media (max-width: 1060px) {
+  .note {
+    position: static;
+    width: auto;
+    margin: -24px auto 32px;
+    transform: rotate(-3deg);
+  }
+
+  .noteArrow {
+    display: none;
+  }
+}
+
+/* Global Finals: copy and the season timeline on the left, a Global Finals photo on the right. */
+.finals {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.finalsPhoto {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  aspect-ratio: 4 / 5;
+  box-shadow: inset 0 0 0 0.5px hsla(0, 0%, 100%, 0.25);
+  transform: rotate(1.5deg);
+}
+
+.finalsPhoto img {
+  object-fit: cover;
+}
+
+@media (max-width: 860px) {
+  .finals {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .finalsPhoto {
+    aspect-ratio: 4 / 3;
+    transform: none;
+  }
+}
+
+/* Paragraphs wrap without leaving a lone word on the last line. */
+.page p,
+.page li,
+.page blockquote {
+  text-wrap: pretty;
+}
+
+/* Apply card: the pitch and button on the left, HCB's volume on the right, fine print below. */
+.applyCard {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 56px);
+  border-radius: 18px;
+  background-color: #252429;
+  box-shadow: inset 0 0 0 0.5px hsla(0, 0%, 100%, 0.25);
+  scroll-margin-top: 96px;
+}
+
+.applyMain {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+
+.applyContact {
+  margin: 20px 0 0;
+  max-width: 460px;
+  font-family: var(--font-phantom);
+  font-size: 15px;
+  line-height: 1.5;
+  color: #8492a6;
+}
+
+.statPanel {
+  padding: clamp(24px, 3vw, 32px);
+  border-radius: 14px;
+  background-color: #17171d;
+  box-shadow: inset 0 0 0 0.5px hsla(0, 0%, 100%, 0.18);
+}
+
+.statLabel {
+  margin: 0 0 8px;
+  font-family: var(--font-phantom);
+  font-size: 17px;
+  color: #8492a6;
+}
+
+.statHq {
+  margin: 20px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.12);
+  font-family: var(--font-phantom);
+  font-size: 15px;
+  line-height: 1.5;
+  color: #8492a6;
+}
+
+.legal {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px clamp(24px, 4vw, 48px);
+  margin-top: clamp(32px, 4vw, 48px);
+  padding-top: 24px;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.12);
+  font-family: var(--font-phantom);
+  font-size: 13px;
+  line-height: 1.5;
+  color: #8492a6;
+}
+
+.legal p {
+  margin: 0 0 8px;
+}
+
+@media (max-width: 860px) {
+  .applyMain,
+  .legal {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
