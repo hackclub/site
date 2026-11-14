@@ -3,7 +3,6 @@
 import { useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { Icon } from "./Icon";
-import { ThemeToggle } from "./ThemeToggle";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 
@@ -87,6 +86,16 @@ export function Footer() {
   const t = useTranslations("Footer");
   // oxlint-disable-next-line react/purity
   const year = useMemo(() => new Date().getFullYear(), []);
+
+  const scrollToTop = () => {
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReduced ? "auto" : "smooth",
+    });
+  };
 
   const hcLinks = [
     { label: t("philosophy"), href: "/philosophy" },
@@ -278,12 +287,36 @@ export function Footer() {
             hackclub/site
           </a>
         </p>
-        <ThemeToggle variant="footer" />
+        <button
+          type="button"
+          onClick={scrollToTop}
+          aria-label={t("backToTop")}
+          className="footer-back-to-top"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            color: "var(--paper)",
+            opacity: 0.8,
+            fontSize: 16,
+            fontFamily: "var(--font-phantom)",
+            fontWeight: 400,
+            padding: 0,
+            transition: "opacity 0.15s",
+          }}
+        >
+          <Icon glyph="up" size={20} />
+          <span>{t("backToTop")}</span>
+        </button>
       </div>
 
       <style>{`
         .footer-link:hover, .footer-link:focus-visible,
         .footer-social-link:hover, .footer-social-link:focus-visible,
+        .footer-back-to-top:hover, .footer-back-to-top:focus-visible,
         .footer-theme-toggle:hover, .footer-theme-toggle:focus-visible { opacity: 1 !important; }
 
         .site-footer-illustration--dark { display: none !important; }

@@ -64,7 +64,8 @@
     "hackFoundation": "The Hack Foundation",
     "nonprofit": ", organisme à but non lucratif 501(c)(3) (EIN : 81-2908499).",
     "commit": "Commit {sha}",
-    "openSourceAt": ", code source disponible sur"
+    "openSourceAt": ", code source disponible sur",
+    "backToTop": "Retour en haut"
   },
   "Home": {
     "stardance": "Découvre Stardance, le plus grand événement STEM gratuit de l’automne",

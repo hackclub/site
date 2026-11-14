@@ -65,7 +65,8 @@
     "hackFoundation": "The Hack Foundation",
     "nonprofit": ", 501(c)(3) statuslu qeyri-kommersiya təşkilatı (EIN: 81-2908499).",
     "commit": "Kod dəyişikliyi {sha}",
-    "openSourceAt": ", açıq mənbə kodunun ünvanı:"
+    "openSourceAt": ", açıq mənbə kodunun ünvanı:",
+    "backToTop": "Yuxarı qayıt"
   },
   "Home": {
     "stardance": "Payızın ən böyük pulsuz STEM tədbiri Stardance ilə tanış ol",
