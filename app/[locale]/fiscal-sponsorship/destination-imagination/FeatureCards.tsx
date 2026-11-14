@@ -83,22 +83,30 @@ export function FeatureCards({ items, labels }: { items: FeatureItem[]; labels: 
     observer.observe(node);
     const pause = () => setHovered(true);
     const resume = () => setHovered(false);
+    // Keyboard focus stops autoplay for good, so the selection never moves out from under a focused tab.
+    const stop = () => setStopped(true);
     node.addEventListener("mouseenter", pause);
     node.addEventListener("mouseleave", resume);
-    node.addEventListener("focusin", pause);
-    node.addEventListener("focusout", resume);
+    node.addEventListener("focusin", stop);
     return () => {
       observer.disconnect();
       node.removeEventListener("mouseenter", pause);
       node.removeEventListener("mouseleave", resume);
-      node.removeEventListener("focusin", pause);
-      node.removeEventListener("focusout", resume);
+      node.removeEventListener("focusin", stop);
     };
   }, []);
 
+  // Plays through the features once, then rests on the first one, so the motion doesn't run forever.
   useEffect(() => {
     if (!autoplaying) return;
-    const id = window.setTimeout(() => setIndex((i) => (i + 1) % total), AUTOPLAY_MS);
+    const id = window.setTimeout(() => {
+      if (index === total - 1) {
+        setIndex(0);
+        setStopped(true);
+      } else {
+        setIndex(index + 1);
+      }
+    }, AUTOPLAY_MS);
     return () => window.clearTimeout(id);
   }, [autoplaying, index, total]);
 
@@ -203,6 +211,7 @@ export function FeatureCards({ items, labels }: { items: FeatureItem[]; labels: 
           <div
             className={styles.track}
             style={isCarousel ? { transform: `translateX(-${index * 100}%)` } : undefined}
+            aria-live={isCarousel ? (autoplaying ? "off" : "polite") : undefined}
           >
             {items.map((item, i) => (
               <article
@@ -211,10 +220,11 @@ export function FeatureCards({ items, labels }: { items: FeatureItem[]; labels: 
                 className={styles.feature}
                 data-active={i === index}
                 role={isCarousel ? undefined : "tabpanel"}
+                tabIndex={isCarousel ? undefined : 0}
                 aria-labelledby={isCarousel ? undefined : `${baseId}-tab-${i}`}
                 aria-roledescription={isCarousel ? "slide" : undefined}
                 aria-label={isCarousel ? labels.counter(i + 1, total) : undefined}
-                aria-hidden={isCarousel && i !== index}
+                aria-hidden={isCarousel && i !== index ? true : undefined}
                 inert={isCarousel && i !== index}
               >
                 <div className={styles.body}>

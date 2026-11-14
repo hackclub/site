@@ -135,7 +135,7 @@
   },
   "HcbDI": {
     "metaTitle": "HCB for Destination Imagination Teams",
-    "metaDescription": "Give your Destination Imagination team access to a bank account, nonprofit status, and one place for every receipt.",
+    "metaDescription": "Give your Destination Imagination team access to a bank account, nonprofit status, and tax-deductible fundraising for tournaments and Global Finals.",
     "logoAlt": "Destination Imagination",
     "heroEyebrow": "For DI Team Managers",
     "heroTitle": "The financial home for <highlight>Destination Imagination</highlight> teams.",
@@ -146,14 +146,15 @@
     "featureNonprofitName": "Nonprofit status",
     "featureDonationsName": "Donations & grants",
     "featureRecordsName": "Expense Report, ready",
-    "featureCardsName": "Student debit cards",
+    "featureCardsName": "Team debit cards",
     "featureReimburseName": "Reimbursements",
-    "featureBalanceName": "Granular controls",
+    "featureBalanceName": "You stay in control",
     "allianceEyebrow": "Proven with <first>FIRST</first>®",
     "allianceTitle": "2,000+ <first>FIRST</first> teams already run on HCB.",
-    "allianceBody": "DI teams get the same tools, right alongside their <first>FIRST</first>® alliance partners.",
+    "allianceBody": "Now DI teams get the same tools: donation pages, team debit cards, and nonprofit status.",
+    "firstTrademark": "<first>FIRST</first>® is a registered trademark of For Inspiration and Recognition of Science and Technology.",
     "applyTitle": "Ready when your team is.",
-    "applyBody": "Open to every DI team, from Rising Stars to University.",
+    "applyBody": "Open to DI teams at every level, from Rising Stars! to University.",
     "soFarEnabled": "So far we have enabled",
     "inTransactions": "in transactions",
     "applyNow": "Apply now",
@@ -191,34 +192,51 @@
     "featureDonationsLead": "Every team gets its own donation page to share by email, text, or social media, and your nonprofit status opens up grants that were out of reach before.",
     "featureDonationsPoints": [
       "Embed the donation form on your team's website, or just share the link.",
-      "Take tap-to-pay donations at bake sales and car washes with the HCB mobile app.",
+      "Take tap-to-pay payments at bake sales and car washes with the HCB mobile app.",
       "Apply for foundation and community grants that only fund 501(c)(3) organizations."
     ],
-    "featureRecordsLead": "Every purchase a student makes shows up in the team's account right away, with who made it, so you're not rebuilding a budget from a shoebox of receipts.",
+    "featureRecordsLead": "Every card purchase shows up in the team's account right away, with who made it, so you're not rebuilding a budget from a shoebox of receipts.",
     "featureRecordsPoints": [
-      "Students snap a photo of the receipt on their phone and attach it to the purchase.",
-      "HCB reminds them about purchases that are missing a receipt.",
-      "See every expense in one list when you fill out your tournament Expense Report."
+      "Whoever made the purchase snaps a photo of the receipt and attaches it.",
+      "HCB sends reminders for any purchase that's missing a receipt.",
+      "When your team fills out its Expense Report, every purchase and receipt is already in one list."
     ],
-    "featureCardsLead": "Give students their own debit cards that draw from the team's balance, so they can pick up Team Challenge materials themselves while you decide who gets a card.",
+    "featureCardsLead": "Stop fronting team costs on your personal card. Team debit cards draw straight from the team's balance, and you choose who else can carry one, like an older student who shops for Team Challenge materials.",
     "featureCardsPoints": [
-      "Issue a physical or virtual card to each student who shops for the team.",
-      "Add cards to Apple Pay or Google Pay.",
-      "Freeze or cancel any student's card from your phone the moment you need to."
+      "Give a co-manager or older student Member access, and they can order their own card with a spending allowance you set.",
+      "Add cards to Apple Wallet or Google Wallet.",
+      "Freeze or cancel any card from your phone the moment you need to."
     ],
-    "featureReimburseLead": "When a student or parent pays out of pocket, you can pay them back from the team's account.",
+    "featureReimburseLead": "When you or another parent covers a cost out of pocket, the team's account pays you back.",
     "featureReimbursePoints": [
       "Send money by ACH bank transfer, mailed check, and more.",
       "Each payment is saved with its receipt.",
-      "No more keeping track of who owes whom."
+      "No more Venmo math or tracking who owes whom."
     ],
-    "featureBalanceLead": "Add students and parents to the team's account with exactly the access you choose: Managers can spend and approve, Members can use their card, Readers can only look.",
+    "featureBalanceLead": "Add co-managers, parents, and students to the team's account with exactly the access you choose: Managers can spend and approve, Members can use their card, Readers can only look.",
     "featureBalancePoints": [
       "Decide who can spend and who can only view, and change it at any time.",
-      "Every transaction shows who made it, so nothing happens without you seeing it.",
-      "Optionally make your finances public so donors can see where their money goes."
+      "Students can check the balance and add receipts for their own purchases, so they learn to run a budget while you keep approval.",
+      "Finances are public by default so donors can see where their money goes. You can make them private at any time."
     ],
     "featuresBody": "Built around the DI season, from Regional and Affiliate Tournaments to Global Finals.",
+    "globalFinalsEyebrow": "Global Finals",
+    "globalFinalsTitle": "Qualified for Global Finals? Start raising that day.",
+    "globalFinalsBody": "Registration, travel, and hotels can cost a team thousands of dollars, with only weeks between your Affiliate Tournament and the trip. Open your team's account early so your donation page is ready the moment you qualify.",
+    "globalFinalsSteps": [
+      {
+        "when": "Before your Affiliate Tournament",
+        "what": "Open your team's account and set up your donation page."
+      },
+      {
+        "when": "The day you qualify",
+        "what": "Share your donation page with family, neighbors, and local businesses."
+      },
+      {
+        "when": "On the road",
+        "what": "Pay for hotels, meals, and trading pins with team debit cards instead of your personal card."
+      }
+    ],
     "chartEvents": {
       "2": "Team Number",
       "5": "Car wash fundraiser",
@@ -231,7 +249,7 @@
       "18": "Global Finals hotel deposit",
       "20": "Ready for Global Finals"
     },
-    "markQuote": "[Placeholder: quote from Mark Giordono about HCB for DI teams goes here.]",
+    "markQuote": "HCB gives DI teams a simple way to raise, hold, and spend money. And because both DI and Hack Club are about youth empowerment, it's a natural fit: kids learning to run their own projects <em>and</em> their own budgets.",
     "markName": "Mark Giordono",
     "markRole": "CEO, Destination Imagination",
     "badgeNonprofit": "Nonprofit status",
