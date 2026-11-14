@@ -108,7 +108,7 @@ export function Footer() {
     { label: t("conduct"), href: "/conduct" },
     { label: t("safeguarding"), href: "/safeguarding" },
     { label: t("privacy"), href: "/privacy-and-terms" },
-    { label: t("slack"), href: "https://hackclub.enterprise.slack.com/"},
+    { label: t("slack"), href: "https://hackclub.enterprise.slack.com/" },
   ];
 
   return (
