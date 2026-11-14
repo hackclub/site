@@ -5,7 +5,6 @@ import { Link } from "@/i18n/navigation";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { EmailSignupInput } from "./email-signup";
-import { BtnArrowSvg } from "./btn-arrow";
 import { StickerEnvelopeLink } from "./stickers";
 
 /**
@@ -738,50 +737,6 @@ export function HeroSection() {
           pointerEvents: "none",
         }}
       >
-        {/* Stardance link */}
-        <a
-          href="https://stardance.hackclub.com/hackclubsite"
-          target="_blank"
-          rel="noopener"
-          className="mag-link hero-mag-link"
-          data-state={magHover}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexWrap: "wrap",
-            gap: 8,
-            fontFamily: "var(--font-phantom)",
-            fontSize: 20,
-            color: magHover === "in" ? "#ffffff" : "var(--muted)",
-            textDecoration: "none",
-            textAlign: "center",
-            marginBottom: 18,
-            pointerEvents: "auto",
-          }}
-          onMouseEnter={() => {
-            magHoverTimer.current = setTimeout(() => setMagHover("in"), 10);
-          }}
-          onMouseLeave={() => {
-            if (magHoverTimer.current) clearTimeout(magHoverTimer.current);
-            setMagHover(magHover === "in" ? "out" : "idle");
-          }}
-        >
-          {/* <span style={{ color: magHover === "in" ? "#ffffff" : "#ec3750" }}>✦</span> */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://cdn.hackclub.com/019e7ad9-26a3-75ba-afcb-2f384110ea6c/star.svg"
-            alt=""
-            width={177}
-            height={222}
-            style={{ width: 18, height: "auto", display: "block", flexShrink: 0 }}
-          />
-          {t("stardance")}
-          <span className="btn-arrow" aria-hidden="true">
-            <BtnArrowSvg />
-          </span>
-        </a>
-
         {/* Headline — forced 2-line wrap */}
         <h1
           style={{
