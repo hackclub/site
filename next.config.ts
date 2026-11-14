@@ -60,6 +60,11 @@ const nextConfig: NextConfig = {
         permanent: false,
       },
       {
+        source: "/fiscal-sponsorship/di",
+        destination: "/fiscal-sponsorship/destination-imagination",
+        permanent: false,
+      },
+      {
         source: "/hcb",
         destination: "/fiscal-sponsorship",
         permanent: true,

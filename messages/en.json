@@ -955,6 +955,164 @@
     "runHq": "We run Hack Club HQ on HCB!",
     "seeOurFinances": "See our finances."
   },
+  "HcbDI": {
+    "metaTitle": "Destination Imagination Team Fundraising and Finances | HCB",
+    "metaDescription": "Let your Destination Imagination team take tax-deductible donations through a 501(c)(3), and pay for tournaments and Global Finals with team debit cards.",
+    "ogImageAlt": "The Destination Imagination and HCB logos above the words: The financial home for Destination Imagination teams. Below is an HCB donation goal bar.",
+    "logoAlt": "Destination Imagination",
+    "heroEyebrow": "For Team Managers",
+    "heroTitle": "The financial home for <highlight>Destination Imagination</highlight> teams.",
+    "heroBody": "Give your team access to a bank account and nonprofit status, so everything from your Team Number to Global Finals travel comes out of the team's account, not your personal card.",
+    "openAccount": "Open an account",
+    "heroTrust": "HCB is run by Hack Club, a 501(c)(3) nonprofit, independently of Destination Imagination.",
+    "featuresEyebrow": "Features",
+    "featuresTitle": "Everything your team pays for, in one account.",
+    "featureNonprofitName": "Nonprofit status",
+    "featureDonationsName": "Donations & grants",
+    "featureRecordsName": "Receipts in one place",
+    "featureCardsName": "Team debit cards",
+    "featureReimburseName": "Reimbursements",
+    "featureBalanceName": "You stay in control",
+    "allianceTitle": "2,000+ <first>FIRST</first><reg>®</reg> teams already run on HCB.",
+    "allianceBody": "Now DI teams get the same tools. <link>See a <first>FIRST</first> team's public finances.</link>",
+    "costTitle": "One simple, transparent fee.",
+    "costBody": "You only pay when money comes in. The fee covers your team's nonprofit status, tax filings, donor receipts, and support. It goes to the Hack Club team that runs HCB, including paid teen interns working with mentors.",
+    "costPoints": [
+      {
+        "title": "Free to open",
+        "body": "No setup, legal, or monthly fees."
+      },
+      {
+        "title": "7% of what you raise",
+        "body": "Donations, grants, and deposits. On a $100 donation, $93 goes to your team."
+      },
+      {
+        "title": "No other fees",
+        "body": "No card, transaction, or credit card processing fees. No fee on refunds, either."
+      }
+    ],
+    "costTeams": "Running more than one team? We suggest one account per team to keep budgets separate, or one shared account if your teams share most costs.",
+    "applyTitle": "Ready when your team is.",
+    "applyBody": "Open to Destination Imagination teams at every level, any time of year. Applying takes about 5 minutes, and we review applications within a few business days.",
+    "soFarEnabled": "So far we have enabled",
+    "inTransactions": "in transactions",
+    "applyNow": "Apply now",
+    "contactQuestions": "Questions, or want HCB for your Affiliate? Email <email></email>.",
+    "runHq": "Hack Club runs on HCB, too.",
+    "seeOurFinances": "See our finances.",
+    "legalHcb": "HCB is a program of The Hack Foundation (d.b.a. Hack Club), a 501(c)(3) nonprofit (EIN: 81-2908499). Destination Imagination and its Affiliates don't manage HCB accounts.",
+    "legalTrademarks": "Destination Imagination® is a registered trademark of Destination Imagination, Inc. <first>FIRST</first>® is a registered trademark of For Inspiration and Recognition of Science and Technology (<first>FIRST</first>), which is not overseeing, involved with, or responsible for HCB.",
+    "legalPhotos": "Photos: Destination Imagination.",
+    "ledgerIncoming": [
+      "Donation",
+      "Tap to Pay donation",
+      "Check deposit",
+      "Car wash fundraiser",
+      "Local business sponsor",
+      "Grant"
+    ],
+    "ledgerOutgoing": [
+      "Craft store",
+      "Hardware store",
+      "Tournament registration",
+      "Team T-shirts",
+      "Hotel deposit · Global Finals",
+      "Parent reimbursement",
+      "Cardboard & duct tape",
+      "Pizza after practice",
+      "Paint & brushes",
+      "Team Number",
+      "Costume fabric",
+      "Trading pins · Global Finals",
+      "Instant Challenge practice supplies"
+    ],
+    "featureNonprofitLead": "Get access to 501(c)(3) nonprofit status for your team.",
+    "featureNonprofitPoints": [
+      "Donations are tax-deductible, and every online donor gets an emailed receipt automatically.",
+      "Apply for grants open to 501(c)(3) organizations and fiscally sponsored projects, with a letter from HCB confirming your fiscal sponsorship.",
+      "You never file nonprofit tax forms. HCB takes care of them, including Form 990."
+    ],
+    "featureDonationsLead": "Every team gets its own donation page to share by email, text, or social media.",
+    "featureDonationsPoints": [
+      "Embed the donation form on your team's website, or just share the link.",
+      "Accept Tap to Pay donations at fundraisers and team events with the HCB mobile app. No card reader needed.",
+      "Set a goal, like your Global Finals budget, and your donation page shows supporters how close you are."
+    ],
+    "featureRecordsLead": "Every card purchase shows up in the team's account right away, with who made it, so you're not rebuilding a budget from a shoebox of receipts.",
+    "featureRecordsPoints": [
+      "Whoever made the purchase snaps a photo of the receipt and attaches it.",
+      "HCB emails a weekly reminder about any card purchase that's missing a receipt.",
+      "When your team fills out its Expense Report, receipts for the Team Challenge materials it bought are already in one place."
+    ],
+    "featureCardsLead": "Stop fronting team costs on your personal card. Team debit cards draw straight from the team's balance, and you choose who else can carry one, like a student on the team who shops for Team Challenge materials.",
+    "featureCardsPoints": [
+      "Give a parent or a student on the team Member access, and they can order their own card. Set a spending allowance to cap what they can spend.",
+      "Add cards to Apple Wallet or Google Wallet.",
+      "Freeze or cancel any card from your phone the moment you need to."
+    ],
+    "featureReimburseLead": "When you or another parent covers a cost out of pocket, the team's account pays you back.",
+    "featureReimbursePoints": [
+      "Get paid back by direct deposit to your bank or by mailed check.",
+      "Each payment is saved with its receipt.",
+      "No more Venmo math or tracking who owes whom."
+    ],
+    "featureBalanceLead": "Add other Team Managers, parents, and students to the team's account with exactly the access you choose. Managers can do everything, including sending money and approving reimbursements. Members can spend with their own card. Readers can only view.",
+    "featureBalancePoints": [
+      "Leftover money stays with the team for next season. When a new Team Manager takes over, add them as a Manager and they pick up where you left off.",
+      "Give students Member access so they can use their own card, add receipts for what they buy, and learn to run a budget. You set their spending allowance and can freeze their card at any time.",
+      "Finances are public by default so donors can see where their money goes, along with who's on the team. You can make them private at any time."
+    ],
+    "featureNonprofitShotAlt": "An HCB donation form noting that the team will email a receipt for the donor's tax records",
+    "featureCardsShotAlt": "A team's HCB debit cards: active cards, a frozen card, new physical cards, and canceled cards",
+    "featureDonationsShotAlt": "An HCB donation page showing $3,540.88 raised toward a $9,000 goal, with lists of top and recent donors",
+    "featureReimburseShotAlt": "Travel reimbursements in an HCB ledger, from airport parking to a hotel, each with its receipt attached",
+    "featureRecordsShotAlt": "Team card purchases in an HCB ledger, each tagged and showing how many receipts are attached",
+    "featureBalanceShotAlt": "An HCB team page listing each person's role, like Manager or Member",
+    "featuresBody": "Raise it, spend it, and keep the receipts.",
+    "featuresNote": "yes, even the $175 Team Number",
+    "globalFinalsTitle": "Apply now. Be ready the day you qualify.",
+    "globalFinalsBody": "Registration, travel, and hotels for Destination Imagination Global Finals can cost thousands, with only weeks between your Affiliate Tournament and the trip. You can apply any time of year, so don't wait until you qualify.",
+    "globalFinalsSteps": [
+      {
+        "when": "Any time of year",
+        "what": "Apply for your team's account and set up your donation page. Approval usually takes a few days."
+      },
+      {
+        "when": "All season",
+        "what": "Fundraise as you go, from bake sales to local sponsors. Apply for grants, too, with a letter from HCB confirming your fiscal sponsorship."
+      },
+      {
+        "when": "March to April",
+        "what": "Qualified? Your donation page is already live, so share it with family, neighbors, and local businesses that same day."
+      },
+      {
+        "when": "May 20 to 23, 2027 · Kansas City",
+        "what": "Pay for hotels, meals, and trading pins with team debit cards."
+      }
+    ],
+    "chartEvents": {
+      "2": "Team Number",
+      "5": "Car wash fundraiser",
+      "7": "Local business sponsor",
+      "9": "Holiday donations",
+      "13": "Tournament registration",
+      "15": "Advanced to the Affiliate Tournament",
+      "16": "Qualified for Global Finals",
+      "17": "Global Finals fundraiser",
+      "18": "Global Finals hotel deposit",
+      "20": "Ready for Global Finals"
+    },
+    "markQuote": "HCB gives DI teams a simple way to raise, hold, and spend money. And because both DI and Hack Club are about youth empowerment, it's a natural fit: kids learning to run their own projects <em>and</em> their own budgets.",
+    "markName": "Mark Giordono",
+    "markRole": "CEO, Destination Imagination",
+    "photoBuilding": "A Destination Imagination team building their Team Challenge solution on the floor, seen from above",
+    "photoPresenting": "A young Destination Imagination team presenting in homemade costumes and props",
+    "photoTeamManagers": "Team Managers and students reading a map together at Global Finals",
+    "photoGlobalFinals": "A Destination Imagination team cheering at Global Finals",
+    "badgeNonprofit": "Nonprofit status",
+    "badgeDonations": "Tax-deductible donations",
+    "badgeCards": "Team debit cards"
+  },
   "HcbMobile": {
     "metaTitle": "HCB Mobile is here! — Hack Club",
     "metaDescription": "Manage your HCB organizations on the go. Issue cards, view transactions, and more!",
