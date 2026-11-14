@@ -5,7 +5,6 @@ import { Link } from "@/i18n/navigation";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { EmailSignupInput } from "./email-signup";
-import { BtnArrowSvg } from "./btn-arrow";
 import { StickerEnvelopeLink } from "./stickers";
 
 /**
