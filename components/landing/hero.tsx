@@ -737,9 +737,6 @@ export function HeroSection() {
           pointerEvents: "none",
         }}
       >
-          {/* <span style={{ color: magHover === "in" ? "#ffffff" : "#ec3750" }}>✦</span> */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-
         {/* Headline — forced 2-line wrap */}
         <h1
           style={{
