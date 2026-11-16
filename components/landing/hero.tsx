@@ -280,8 +280,6 @@ export function HeroSection() {
   const heroTopRef = useRef(0);
   const isHeroVisibleRef = useRef(true);
   const prefersReducedMotionRef = useRef(false);
-  const [magHover, setMagHover] = useState<"idle" | "in" | "out">("idle");
-  const magHoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const resetParallax = () => {
