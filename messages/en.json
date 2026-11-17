@@ -68,7 +68,8 @@
     "hackFoundation": "The Hack Foundation",
     "nonprofit": ", a 501(c)(3) nonprofit (EIN: 81-2908499).",
     "commit": "Commit {sha}",
-    "openSourceAt": ", open source at"
+    "openSourceAt": ", open source at",
+    "slack": "Slack"
   },
   "Home": {
     "stardance": "Check out Stardance, the largest free STEM event of the fall",
@@ -829,9 +830,9 @@
     "heroBody": "Start your nonprofit with The Hack Foundation's <strong>fiscal sponsorship program, HCB</strong>: a 501(c)(3) legal entity, bank account, automatic taxes & accounting, and best-in-class software.",
     "referredBy": "Referred by:",
     "applyNow": "Apply now",
-    "grantAlertTitle": "Need to move money quickly?",
-    "grantAlertBody": "Whether it is sending a grant, receiving incoming funding or setting up a fiscally sponsored project, HCB can get you set up fast so you can focus on your work! If you have $50k or more in committed funding, reach out to Meagan (<email></email>) to learn more.",
-    "grantAlertCta": "Email Meagan",
+    "grantAlertTitle": "Need a fiscal sponsor for your Coefficient Giving grant?",
+    "grantAlertBody": "Email Melanie and Paul at <email></email> and we'll get you set up fast.",
+    "grantAlertCta": "Get in touch",
     "appStoreAlt": "Download on the App Store",
     "googlePlayAlt": "Get it on Google Play",
     "pocketTitle": "HCB in your <primary>pocket</primary>",

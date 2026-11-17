@@ -1,6 +1,6 @@
 # Hack Club Events Safeguarding Policy
 
-All in-person Hack Club events (satellites and flagships) are required to follow our Youth Protection Policy. Please direct any inquiries to [safety@hackclub.com](safety@hackclub.com).
+All in-person Hack Club events (satellites and flagships) are required to follow our Youth Protection Policy. Please direct any inquiries to [safety@hackclub.com](mailto:safety@hackclub.com).
 
 1. Purpose
 
