@@ -21,9 +21,8 @@ const V = FISCAL_TYPOGRAPHY.sectionPaddingV;
 const H = FISCAL_TYPOGRAPHY.sectionPaddingH;
 
 const FEATURED_ORGANIZATIONS = MOCK_ORGANIZATIONS;
-const GRANT_CONTACT_EMAIL = "hcb@hackclub.com";
-// Prefilled subject so the shared inbox can route these to the right people on sight.
-const GRANT_CONTACT_HREF = `mailto:${GRANT_CONTACT_EMAIL}?subject=${encodeURIComponent("AI safety project")}`;
+const GRANT_CONTACT_EMAIL = "aisafety@hackclub.com";
+const GRANT_CONTACT_HREF = `mailto:${GRANT_CONTACT_EMAIL}`;
 
 function GrantAlert() {
   const t = useTranslations("Hcb");
