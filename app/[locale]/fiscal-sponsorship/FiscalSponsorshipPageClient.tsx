@@ -21,7 +21,8 @@ const V = FISCAL_TYPOGRAPHY.sectionPaddingV;
 const H = FISCAL_TYPOGRAPHY.sectionPaddingH;
 
 const FEATURED_ORGANIZATIONS = MOCK_ORGANIZATIONS;
-const GRANT_CONTACT_EMAIL = "meagan@hackclub.com";
+const GRANT_CONTACT_EMAIL = "aisafety@hackclub.com";
+const GRANT_CONTACT_HREF = `mailto:${GRANT_CONTACT_EMAIL}`;
 
 function GrantAlert() {
   const t = useTranslations("Hcb");
@@ -52,7 +53,7 @@ function GrantAlert() {
           flexWrap: "wrap" as const,
         }}
       >
-        <span
+        <div
           style={{
             fontSize: "18px",
             fontFamily: FISCAL_TYPOGRAPHY.bodyFont,
@@ -61,21 +62,24 @@ function GrantAlert() {
             minWidth: "200px",
           }}
         >
-          <strong style={{ fontSize: "20px" }}>{t("grantAlertTitle")}</strong>
-          <br />
-          {t.rich("grantAlertBody", {
-            email: () => (
-              <a
-                href={`mailto:${GRANT_CONTACT_EMAIL}`}
-                style={{ color: FISCAL_COLORS.primaryText, textDecoration: "underline" }}
-              >
-                {GRANT_CONTACT_EMAIL}
-              </a>
-            ),
-          })}
-        </span>
+          <strong style={{ display: "block", fontSize: "20px", textWrap: "balance" }}>
+            {t("grantAlertTitle")}
+          </strong>
+          <span style={{ display: "block", textWrap: "pretty" }}>
+            {t.rich("grantAlertBody", {
+              email: () => (
+                <a
+                  href={GRANT_CONTACT_HREF}
+                  style={{ color: FISCAL_COLORS.primaryText, textDecoration: "underline" }}
+                >
+                  {GRANT_CONTACT_EMAIL}
+                </a>
+              ),
+            })}
+          </span>
+        </div>
         <a
-          href={`mailto:${GRANT_CONTACT_EMAIL}`}
+          href={GRANT_CONTACT_HREF}
           style={{
             display: "inline-flex",
             alignItems: "center",

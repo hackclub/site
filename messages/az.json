@@ -65,7 +65,8 @@
     "hackFoundation": "The Hack Foundation",
     "nonprofit": ", 501(c)(3) statuslu qeyri-kommersiya təşkilatı (EIN: 81-2908499).",
     "commit": "Kod dəyişikliyi {sha}",
-    "openSourceAt": ", açıq mənbə kodunun ünvanı:"
+    "openSourceAt": ", açıq mənbə kodunun ünvanı:",
+    "slack": "Slack"
   },
   "Home": {
     "stardance": "Payızın ən böyük pulsuz STEM tədbiri Stardance ilə tanış ol",
@@ -322,6 +323,33 @@
     "invalidEmail": "Düzgün E-poçt ünvanı daxil et",
     "verifyFailed": "Sorğunu yoxlamaq mümkün olmadı — yenidən cəhd et",
     "genericError": "Nəsə səhv oldu — yenidən cəhd et"
+  },
+  "CollegeCredit": {
+    "metaTitle": "Məktəb və kollec təhsil krediti — Hack Club",
+    "metaDescription": "Məktəblərin və şagirdlərin Hack Club-da hazırladıqları layihələrə görə orta məktəb və ya kollec üzrə rəsmi təhsil krediti əldə etməsi.",
+    "heroTitle": "Məktəb və kollec təhsil krediti",
+    "heroLede": "Hack Club mühəndislik, süni intellekt və informatika bacarıqları üzrə yeniyetmələrin idarə etdiyi ən böyük qeyri-kommersiya icmasıdır. İndi şagirdlər Hack Club-da texniki layihələr hazırlayaraq orta məktəb və ya kollec üzrə təhsil krediti əldə edə bilərlər.",
+    "audienceTeachers": "Müəllimlər və məktəblər",
+    "askEducators": "Şagirdlərinizə informatika, mühəndislik və ya riyaziyyat üzrə pulsuz təhsil krediti qazanmaq imkanı vermək istəyirsiniz? Digər məktəblərin bunu necə təşkil etdiyini göstərə bilərik.",
+    "audienceParents": "Valideynlər",
+    "askParents": "Övladınız Hack Club-da layihə hazırlayır və ya qoşulmaq istəyir? Layihələrinin məktəbdə təhsil krediti kimi necə tanına biləcəyini öyrənmək üçün bizimlə əlaqə saxlayın.",
+    "audienceStudents": "Şagirdlər",
+    "askStudents": "Son 6 ayda Hack Club-da layihə hazırlamısan? Hazırladığın layihələrə görə orta məktəb və ya kollec üzrə təhsil krediti necə ala biləcəyini öyrənmək üçün bizimlə əlaqə saxla.",
+    "isTitle": "Hack Club:",
+    "isItem1": "ABŞ-da 13–18 yaşlılar üçün pulsuz mühəndislik təhsili verən ən böyük təşkilatdır.",
+    "isItem2": "İnformatika Müəllimləri Assosiasiyasının (CSTA) informatika və süni intellekt üzrə müəyyən etdiyi bütün standartlara cavab verən və ya onları aşan proqramdır.",
+    "isItem3": "ABŞ-ın 50 ştatının hamısında informatika üzrə ştat standartlarına cavab verən və ya onları aşan proqramdır.",
+    "isItem4": "Yeniyetmələrin ən yeni texnologiyaları öyrəndiyi və kollecə və ya işə müraciətlərində göstərə biləcəkləri layihələr hazırladığı məkandır.",
+    "isItem5": "Yeniyetmələrin texniki bacarıqlarla yanaşı sahibkarlıq, təşəbbüskarlıq, yaradıcılıq, etika və dizayn öyrənməsini dəstəkləyən icmadır.",
+    "contactLede": "Məktəblərin və şagirdlərin Hack Club-da hazırladıqları layihələrə görə orta məktəb və ya kollec üzrə rəsmi təhsil krediti necə əldə etdiyini öyrənmək üçün bizimlə əlaqə saxlayın:",
+    "contactHighSchool": "Orta məktəb üzrə təhsil krediti",
+    "contactHighSchoolName": "Christina Asquith",
+    "contactHighSchoolTitle": "Həmtəsisçi",
+    "contactCollege": "Kollec üzrə təhsil krediti",
+    "contactCollegeName": "Deven Jadhav",
+    "contactCollegeTitle": "Proqramlar üzrə aparat rəhbəri",
+    "getInTouch": "Əlaqə saxla",
+    "contactEither": "Orta məktəb və ya kollec üzrə təhsil krediti"
   },
   "Shop": {
     "wordmarkAlt": "Hack Club mağazası",
@@ -799,9 +827,9 @@
     "heroBody": "<strong>Maliyyə himayəsi proqramımız HCB</strong> ilə qeyri-kommersiya təşkilatını qur: 501(c)(3) statuslu hüquqi şəxs, bank hesabı, avtomatik vergi və mühasibat uçotu, üst səviyyəli proqram təminatı.",
     "referredBy": "Tövsiyə edən:",
     "applyNow": "İndi müraciət et",
-    "grantAlertTitle": "Pulu tez köçürmək lazımdır?",
-    "grantAlertBody": "Qrant göndərmək, daxil olan maliyyəni qəbul etmək və ya maliyyə himayəli layihə qurmaq olsun, HCB səni tez hazırlayır ki, işinə fokuslana biləsən! 50 min $ və ya daha çox təsdiqlənmiş maliyyən varsa, ətraflı məlumat üçün Meagan-a yaz (<email></email>).",
-    "grantAlertCta": "Meagan-a yaz",
+    "grantAlertTitle": "Süni intellekt təhlükəsizliyi layihən üçün maliyyə himayədarı lazımdır?",
+    "grantAlertBody": "Artıq maliyyə dəstəyi almısan? Melanie və Paul-a <email></email> ünvanı vasitəsilə yaz, qeydiyyatını tez tamamlayaq.",
+    "grantAlertCta": "Əlaqə saxla",
     "appStoreAlt": "App Store-dan endir",
     "googlePlayAlt": "Google Play-dən əldə et",
     "pocketTitle": "HCB <primary>cibində</primary>",
@@ -924,6 +952,164 @@
     "applyNow": "İndi müraciət et",
     "runHq": "Hack Club qərargahını HCB ilə idarə edirik!",
     "seeOurFinances": "Maliyyəmizə bax."
+  },
+  "HcbDI": {
+    "metaTitle": "Destination Imagination komandaları üçün ianə toplama və maliyyə | HCB",
+    "metaDescription": "Destination Imagination komandanla 501(c)(3) statusu əsasında vergidən çıxılan ianələr qəbul et, turnir və Global Finals xərclərini komanda debet kartları ilə ödə.",
+    "ogImageAlt": "Destination Imagination və HCB loqolarının altında Destination Imagination komandaları üçün maliyyə mərkəzi yazısı, daha aşağıda HCB ianə hədəfi qrafiki",
+    "logoAlt": "Destination Imagination",
+    "heroEyebrow": "Komanda rəhbərləri üçün",
+    "heroTitle": "<highlight>Destination Imagination</highlight> komandalarının maliyyə mərkəzi.",
+    "heroBody": "Komandana bank hesabı və qeyri-kommersiya statusu qazandır. Team Number haqqından Global Finals səfərinə qədər bütün xərclər şəxsi kartından deyil, komandanın hesabından ödənsin.",
+    "openAccount": "Hesab aç",
+    "heroTrust": "HCB, Destination Imagination-dan müstəqil fəaliyyət göstərən, 501(c)(3) statuslu qeyri-kommersiya təşkilatı Hack Club tərəfindən idarə olunur.",
+    "featuresEyebrow": "İmkanlar",
+    "featuresTitle": "Komandanın bütün xərcləri bir hesabda.",
+    "featureNonprofitName": "Qeyri-kommersiya statusu",
+    "featureDonationsName": "İanələr və qrantlar",
+    "featureRecordsName": "Qəbzlər bir yerdə",
+    "featureCardsName": "Komanda debet kartları",
+    "featureReimburseName": "Xərclərin ödənilməsi",
+    "featureBalanceName": "İdarəetmə sənin əlindədir",
+    "allianceTitle": "2 000-dən çox <first>FIRST</first><reg>®</reg> komandası artıq HCB-dən istifadə edir.",
+    "allianceBody": "İndi DI komandaları da eyni alətlərdən yararlana bilər. <link>Bir <first>FIRST</first> komandasının açıq maliyyə məlumatlarına bax.</link>",
+    "costTitle": "Sadə və şəffaf xidmət haqqı.",
+    "costBody": "Yalnız hesabına pul daxil olanda xidmət haqqı ödəyirsən. Bu haqq komandanın qeyri-kommersiya statusunu, vergi bəyannamələrini, ianə qəbzlərini və dəstəyi əhatə edir. Məbləğ HCB-ni idarə edən Hack Club komandasına, o cümlədən mentorlarla çalışan ödənişli yeniyetmə təcrübəçilərə gedir.",
+    "costPoints": [
+      {
+        "title": "Hesab açmaq pulsuzdur",
+        "body": "Qeydiyyat, hüquqi xidmət və aylıq abunə haqqı yoxdur."
+      },
+      {
+        "title": "Topladığın vəsaitin 7%-i",
+        "body": "İanələr, qrantlar və hesaba yatırılan vəsait. 100 dollarlıq ianənin 93 dolları komandanın hesabına gedir."
+      },
+      {
+        "title": "Başqa xidmət haqqı yoxdur",
+        "body": "Kart, əməliyyat və kredit kartı ödənişlərinin emalı üçün haqq yoxdur. Geri qaytarılan vəsaitdən də haqq tutulmur."
+      }
+    ],
+    "costTeams": "Birdən çox komanda idarə edirsən? Büdcələri ayırmaq üçün hər komandaya ayrıca hesab açmağı tövsiyə edirik. Xərclərin çoxunu ortaq ödəyirsinizsə, birgə hesabdan da istifadə edə bilərsiniz.",
+    "applyTitle": "Komandan hazır olanda başla.",
+    "applyBody": "İlin istənilən vaxtında, hər səviyyədə Destination Imagination komandası müraciət edə bilər. Müraciət təxminən 5 dəqiqə çəkir, ona isə bir neçə iş günü ərzində baxırıq.",
+    "soFarEnabled": "İndiyədək dəstəyimizlə",
+    "inTransactions": "məbləğində əməliyyat həyata keçirilib",
+    "applyNow": "İndi müraciət et",
+    "contactQuestions": "Sualın var, yaxud Affiliate üçün HCB istəyirsən? <email></email> ünvanına yaz.",
+    "runHq": "Hack Club qərargahı da HCB-dən istifadə edir.",
+    "seeOurFinances": "Maliyyə məlumatlarımıza bax.",
+    "legalHcb": "HCB, 501(c)(3) statuslu qeyri-kommersiya təşkilatı The Hack Foundation-ın (Hack Club adı ilə fəaliyyət göstərir) proqramıdır (EIN: 81-2908499). Destination Imagination və onun Affiliate bölmələri HCB hesablarını idarə etmir.",
+    "legalTrademarks": "Destination Imagination® Destination Imagination, Inc. şirkətinin qeydiyyatdan keçmiş ticarət nişanıdır. <first>FIRST</first>® For Inspiration and Recognition of Science and Technology təşkilatının qeydiyyatdan keçmiş ticarət nişanıdır. Həmin təşkilat (<first>FIRST</first>) HCB-yə nə nəzarət edir, nə də onun fəaliyyətində iştirak edir və ya ona görə məsuliyyət daşıyır.",
+    "legalPhotos": "Fotolar: Destination Imagination.",
+    "ledgerIncoming": [
+      "İanə",
+      "Tap to Pay ilə ianə",
+      "Çekin hesaba yatırılması",
+      "Avtoyuma ilə ianə toplama",
+      "Yerli biznesin sponsorluğu",
+      "Qrant"
+    ],
+    "ledgerOutgoing": [
+      "Əl işləri mağazası",
+      "Avadanlıq mağazası",
+      "Turnirə qeydiyyat",
+      "Komanda köynəkləri",
+      "Otel üçün ilkin ödəniş · Global Finals",
+      "Valideynə xərclərin ödənilməsi",
+      "Karton və yapışqan lent",
+      "Məşqdən sonra pizza",
+      "Boya və fırçalar",
+      "Team Number",
+      "Kostyum üçün parça",
+      "Mübadilə nişanları · Global Finals",
+      "Ani Tapşırıq məşqi üçün ləvazimatlar"
+    ],
+    "featureNonprofitLead": "Komandan üçün 501(c)(3) qeyri-kommersiya statusu əldə et.",
+    "featureNonprofitPoints": [
+      "İanələr vergidən çıxıla bilər və onlayn ianə edən hər kəs avtomatik olaraq e-poçtla qəbz alır.",
+      "HCB-nin maliyyə himayəsini təsdiqləyən məktubu ilə 501(c)(3) təşkilatları və maliyyə himayəsindəki layihələr üçün açıq qrantlara müraciət et.",
+      "Qeyri-kommersiya təşkilatının vergi bəyannamələrini sən təqdim etmirsən. Form 990 daxil olmaqla, bunlarla HCB məşğul olur."
+    ],
+    "featureDonationsLead": "Hər komanda e-poçt, mesaj və sosial şəbəkələrdə paylaşmaq üçün öz ianə səhifəsini alır.",
+    "featureDonationsPoints": [
+      "İanə formasını komandanın saytına yerləşdir və ya sadəcə keçidini paylaş.",
+      "HCB mobil tətbiqi ilə ianə tədbirlərində və komanda görüşlərində Tap to Pay vasitəsilə ianə qəbul et. Kart oxuyucu lazım deyil.",
+      "Global Finals büdcən kimi bir hədəf müəyyən et. İanə səhifəndə dəstəkçilər hədəfə nə qədər yaxınlaşdığını görəcəklər."
+    ],
+    "featureRecordsLead": "Kartla edilən hər alış və onu kimin etdiyi dərhal komandanın hesabında görünür. Büdcəni bir yığın qəbzdən yenidən qurmağa ehtiyac qalmır.",
+    "featureRecordsPoints": [
+      "Alışı edən şəxs qəbzin şəklini çəkib əməliyyata əlavə edir.",
+      "Qəbzi çatışmayan kart alışları barədə HCB hər həftə e-poçtla xatırlatma göndərir.",
+      "Komandan Xərc Hesabatını dolduranda Team Challenge materiallarının qəbzləri artıq bir yerdə olur."
+    ],
+    "featureCardsLead": "Komandanın xərclərini şəxsi kartınla ödəmə. Komanda debet kartları birbaşa komandanın balansından istifadə edir. Team Challenge materiallarını alan şagird kimi başqa kimə kart veriləcəyinə sən qərar verirsən.",
+    "featureCardsPoints": [
+      "Valideynə və ya komandadakı şagirdə Üzv icazəsi ver; o, öz kartını sifariş edə bilər. Xərcləmə həddi qoyaraq nə qədər pul xərcləyə biləcəyini müəyyən et.",
+      "Kartları Apple Wallet və ya Google Wallet-ə əlavə et.",
+      "İstənilən kartı lazım olan anda telefonundan dondur və ya ləğv et."
+    ],
+    "featureReimburseLead": "Komanda xərcini sən və ya başqa valideyn öz pulunuzla ödəyəndə, komandanın hesabından pulunuz geri ödənilir.",
+    "featureReimbursePoints": [
+      "Pulunu bank hesabına köçürmə və ya poçtla göndərilən çek vasitəsilə geri al.",
+      "Hər ödənişin qəbzi də onunla birlikdə saxlanılır.",
+      "Venmo xərclərini bölüşdürməyə və kimin kimə borclu olduğunu izləməyə ehtiyac yoxdur."
+    ],
+    "featureBalanceLead": "Digər komanda rəhbərlərinə, valideynlərə və şagirdlərə komandanın hesabında seçdiyin icazələri ver. Rəhbərlər pul göndərə və xərclərin ödənilməsini təsdiqləyə bilərlər. Üzvlər öz kartları ilə xərcləyə bilərlər. Yalnız Oxucu icazəsi olanlar məlumatlara baxa bilərlər.",
+    "featureBalancePoints": [
+      "Qalan pul növbəti mövsüm üçün komandanın hesabında qalır. Yeni komanda rəhbəri gələndə onu Rəhbər kimi əlavə et; o, işi davam etdirə bilər.",
+      "Şagirdlərə Üzv icazəsi ver ki, öz kartlarından istifadə etsinlər, alışların qəbzlərini əlavə etsinlər və büdcəni idarə etməyi öyrənsinlər. Xərcləmə həddini sən qoyursan və kartlarını istənilən vaxt dondura bilərsən.",
+      "Maliyyə məlumatları standart olaraq açıqdır; ianəçilər pulun hara xərcləndiyini və komandada kimlərin olduğunu görə bilirlər. İstənilən vaxt məlumatları məxfi edə bilərsən."
+    ],
+    "featureNonprofitShotAlt": "İanəçinin vergi uçotu üçün qəbzin e-poçtla göndəriləcəyini bildirən HCB ianə forması",
+    "featureCardsShotAlt": "Komandanın HCB debet kartları: aktiv və dondurulmuş kartlar, yeni fiziki və ləğv edilmiş kartlar",
+    "featureDonationsShotAlt": "9 000 dollarlıq hədəfə doğru 3 540,88 dollar toplandığını, əsas və son ianəçiləri göstərən HCB ianə səhifəsi",
+    "featureReimburseShotAlt": "HCB əməliyyat jurnalında hava limanı dayanacağından otelə qədər qəbzləri ilə qeyd olunmuş səfər xərclərinin ödənilməsi",
+    "featureRecordsShotAlt": "HCB əməliyyat jurnalında kateqoriyalara ayrılmış və əlavə edilmiş qəbzlərin sayı göstərilən komanda kartı alışları",
+    "featureBalanceShotAlt": "Hər kəsin Rəhbər və ya Üzv kimi rolunu göstərən HCB komanda səhifəsi",
+    "featuresBody": "Vəsait topla, xərclə və qəbzləri saxla.",
+    "featuresNote": "bəli, 175 dollarlıq Team Number haqqı da daxil",
+    "globalFinalsTitle": "İndi müraciət et. Vəsiqə qazandığın gün hazır ol.",
+    "globalFinalsBody": "Destination Imagination Global Finals turnirinə qeydiyyat, səfər və otel minlərlə dollara başa gələ bilər. Affiliate Tournament ilə səfər arasında cəmi bir neçə həftə olur. İlin istənilən vaxtı müraciət edə bilərsən; vəsiqə qazanana qədər gözləmə.",
+    "globalFinalsSteps": [
+      {
+        "when": "İlin istənilən vaxtında",
+        "what": "Komandan üçün hesab açmağa müraciət et və ianə səhifəni hazırla. Təsdiq adətən bir neçə gün çəkir."
+      },
+      {
+        "when": "Bütün mövsüm boyu",
+        "what": "Şirniyyat satışından yerli sponsorlara qədər ianə topla. HCB-nin maliyyə himayəsini təsdiqləyən məktubu ilə qrantlara da müraciət et."
+      },
+      {
+        "when": "Martdan aprelədək",
+        "what": "Vəsiqə qazandın? İanə səhifən artıq hazırdır; elə həmin gün onu ailən, qonşuların və yerli bizneslərlə paylaş."
+      },
+      {
+        "when": "20–23 may 2027 · Kanzas-Siti",
+        "what": "Otel, yemək və mübadilə nişanlarının pulunu komanda debet kartları ilə ödə."
+      }
+    ],
+    "chartEvents": {
+      "2": "Team Number",
+      "5": "Avtoyuma ilə ianə toplama",
+      "7": "Yerli biznesin sponsorluğu",
+      "9": "Bayram ianələri",
+      "13": "Turnirə qeydiyyat",
+      "15": "Affiliate Tournament mərhələsinə keçid",
+      "16": "Global Finals turnirinə vəsiqə",
+      "17": "Global Finals üçün ianə toplama",
+      "18": "Global Finals oteli üçün ilkin ödəniş",
+      "20": "Global Finals turnirinə hazır"
+    },
+    "markQuote": "HCB DI komandalarına pul toplamaq, saxlamaq və xərcləmək üçün rahat yol verir. DI və Hack Club gənclərin güclənməsini dəstəklədiyindən uşaqlar həm öz layihələrini <em>həm də</em> büdcələrini idarə etməyi öyrənirlər.",
+    "markName": "Mark Giordono",
+    "markRole": "Baş icraçı direktor, Destination Imagination",
+    "photoBuilding": "Destination Imagination komandası yuxarıdan görünən məkanın döşəməsində Team Challenge həllini hazırlayır",
+    "photoPresenting": "Gənc Destination Imagination komandası əl ilə hazırlanmış kostyumlar və rekvizitlərlə təqdimat edir",
+    "photoTeamManagers": "Komanda rəhbərləri və şagirdlər Global Finals tədbirində xəritəyə baxır",
+    "photoGlobalFinals": "Destination Imagination komandası Global Finals tədbirində sevinir",
+    "badgeNonprofit": "Qeyri-kommersiya statusu",
+    "badgeDonations": "Vergidən çıxılan ianələr",
+    "badgeCards": "Komanda debet kartları"
   },
   "HcbMobile": {
     "metaTitle": "HCB Mobile artıq buradadır! — Hack Club",
