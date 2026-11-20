@@ -30,6 +30,7 @@ const icons = [
   { label: "GitHub", href: "https://github.com/hackclub", glyph: "github" },
   { label: "YouTube", href: "https://www.youtube.com/c/HackClubHQ", glyph: "youtube" },
   { label: "Instagram", href: "https://www.instagram.com/starthackclub", glyph: "instagram" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/hack-club", glyph: "linkedin" },
   { label: "Email", href: "mailto:team@hackclub.com", glyph: "email" },
 ];
 
@@ -203,7 +204,7 @@ export function Footer() {
           >
             {t("phone")}
           </a>
-          <div style={{ display: "flex", gap: 12 }}>
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
             {icons.map((i) => (
               <a
                 key={i.label}
@@ -216,8 +217,8 @@ export function Footer() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  width: 56,
-                  height: 56,
+                  width: 48,
+                  height: 48,
                   borderRadius: 8,
                   background: "transparent",
                   flexShrink: 0,
@@ -225,7 +226,7 @@ export function Footer() {
                   color: "var(--paper)",
                 }}
               >
-                <Icon glyph={i.glyph} size={48} />
+                <Icon glyph={i.glyph} size={40} />
               </a>
             ))}
           </div>
