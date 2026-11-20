@@ -11,6 +11,7 @@ import insiderLogo from "./assets/insider-logo.svg";
 import wsjLogo from "./assets/wsj-logo.svg";
 import forbesLogo from "./assets/forbes-logo.svg";
 import copLogo from "./assets/cop.webp";
+import sevenDaysLogo from "./assets/seven-days-logo.webp";
 import nityaPhoto from "./assets/nitya.webp";
 import joshPhoto from "./assets/josh.webp";
 import augiePhoto from "./assets/augie.webp";
@@ -84,6 +85,11 @@ const additionalSupportersRU = [
 ];
 
 const pressLogos = [
+  {
+    href: "https://www.sevendaysvt.com/news/education-news/at-hack-club-in-burlington-teens-make-cool-stuff-using-big-techs-money/",
+    src: sevenDaysLogo,
+    alt: "Seven Days",
+  },
   {
     href: "https://www.mynbc5.com/article/nbc5-in-depth-burlingtons-hack-club-inspires-teens-to-build-with-artificial-intelligence/73375621",
     src: nbc5Logo,
@@ -583,7 +589,7 @@ export default async function PhilanthropyPage({ params }: Props) {
         </div>
       </section>
 
-      <div style={{ textAlign: "center", margin: "56px 0" }}>
+      <div className="philanthropy-download">
         <a
           href="https://cdn.hackclub.com/01a0b07d-cc54-72c9-8ada-e534cbbd85b5/hack-club-philanthropy.pdf"
           className="philanthropy-btn philanthropy-btn--red"
@@ -598,6 +604,16 @@ export default async function PhilanthropyPage({ params }: Props) {
       <Footer />
 
       <style>{`
+        .philanthropy-download {
+          text-align: center;
+          margin: 56px 0;
+          padding: 0 16px;
+        }
+
+        .philanthropy-download .philanthropy-btn {
+          width: auto;
+        }
+
         .philanthropy-btn--red {
           background: var(--red) !important;
           color: var(--paper) !important;
@@ -1131,7 +1147,7 @@ export default async function PhilanthropyPage({ params }: Props) {
         .philanthropy-press {
           margin-top: 28px;
           display: grid;
-          grid-template-columns: repeat(5, minmax(0, 1fr));
+          grid-template-columns: repeat(6, minmax(0, 1fr));
           gap: 18px;
           align-items: center;
         }
@@ -1142,7 +1158,7 @@ export default async function PhilanthropyPage({ params }: Props) {
           align-items: center;
           justify-content: center;
           border-radius: 18px;
-          padding: 18px;
+          padding: 24px 28px;
           background: var(--surface);
           border: 1px solid var(--border);
           box-shadow: 0 14px 30px rgba(91, 52, 18, 0.08);
@@ -1150,8 +1166,9 @@ export default async function PhilanthropyPage({ params }: Props) {
         }
 
         .philanthropy-press img {
-          max-width: 170px;
-          max-height: 56px;
+          max-width: min(150px, 88%);
+          max-height: 50px;
+          width: auto;
           height: auto;
           object-fit: contain;
         }
