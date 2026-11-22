@@ -23,6 +23,8 @@ const ALLOWED_MIME: Record<string, string> = {
   "image/webp": "webp",
 };
 
+const TINIFY_ORIGIN = "https://api.tinify.com";
+
 async function compressToWebp(
   input: Buffer,
 ): Promise<{ buffer: Buffer; mime: string; ext: string } | null> {
@@ -34,10 +36,11 @@ async function compressToWebp(
   const auth = `Basic ${Buffer.from(`api:${tinifyKey}`).toString("base64")}`;
 
   try {
-    const shrinkRes = await fetch("https://api.tinify.com/shrink", {
+    const shrinkRes = await fetch(`${TINIFY_ORIGIN}/shrink`, {
       method: "POST",
       headers: { Authorization: auth },
       body: new Uint8Array(input),
+      redirect: "error",
       signal: AbortSignal.timeout(15_000),
     });
     if (!shrinkRes.ok) {
@@ -50,10 +53,23 @@ async function compressToWebp(
       return null;
     }
 
-    const convertRes = await fetch(location, {
+    let convertUrl: URL;
+    try {
+      convertUrl = new URL(location, TINIFY_ORIGIN);
+    } catch {
+      console.error("[upload] Tinify shrink returned invalid Location header");
+      return null;
+    }
+    if (convertUrl.origin !== TINIFY_ORIGIN) {
+      console.error("[upload] Tinify shrink returned untrusted Location origin", convertUrl.origin);
+      return null;
+    }
+
+    const convertRes = await fetch(convertUrl, {
       method: "POST",
       headers: { Authorization: auth, "Content-Type": "application/json" },
       body: JSON.stringify({ convert: { type: ["image/webp"] } }),
+      redirect: "error",
       signal: AbortSignal.timeout(15_000),
     });
     if (!convertRes.ok) {
