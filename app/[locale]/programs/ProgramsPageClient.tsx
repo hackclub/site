@@ -1009,7 +1009,7 @@ export default function ProgramsPage() {
               href="/programs/edit"
               style={{ color: "var(--red-text)", textDecoration: "none" }}
             >
-              Event editor
+              {t("eventEditor")}
             </Link>
             {" · "}
             <NextLink
@@ -1017,7 +1017,7 @@ export default function ProgramsPage() {
               prefetch={false}
               style={{ color: "var(--red-text)", textDecoration: "none" }}
             >
-              Events API
+              {t("eventsApi")}
             </NextLink>
             {" · "}
             <NextLink
@@ -1025,7 +1025,7 @@ export default function ProgramsPage() {
               prefetch={false}
               style={{ color: "var(--red-text)", textDecoration: "none" }}
             >
-              RSS feed
+              {t("rssFeed")}
             </NextLink>
           </p>
         </div>

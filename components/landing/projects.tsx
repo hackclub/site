@@ -6,9 +6,11 @@ import { BtnArrow } from "./btn-arrow";
 function ProjectCard({
   project,
   viewSourceLabel,
+  t,
 }: {
   project: AirtableProject;
   viewSourceLabel: string;
+  t: Awaited<ReturnType<typeof getTranslations>>;
 }) {
   const { projectName, person, age, country, imageUrl, programName, playableUrl, codeUrl } =
     project;
@@ -68,10 +70,14 @@ function ProjectCard({
             flex: 1,
           }}
         >
-          <strong>{person}</strong>
-          {age ? ` (${age})` : ""}
-          {country ? ` from ${country}` : ""} made <strong>{projectName}</strong>
-          {programName ? ` for Hack Club ${programName}` : ""}.
+          {t.rich("projectAttribution", {
+            person,
+            age: age ? ` (${age})` : "",
+            country: country ? t("projectFrom", { country }) : "",
+            projectName,
+            program: programName ? t("projectFor", { programName }) : "",
+            bold: (chunks) => <strong>{chunks}</strong>,
+          })}
         </p>
         <div style={{ display: "flex", alignItems: "flex-end", gap: 8 }}>
           {playableUrl && (
@@ -90,7 +96,7 @@ function ProjectCard({
                 fontWeight: 600,
               }}
             >
-              Try it out <BtnArrow />
+              {t("projectTryItOut")} <BtnArrow />
             </a>
           )}
           {codeUrl && (
@@ -260,6 +266,7 @@ export async function ProjectsSection() {
               key={`${project.id}-${i}`}
               project={project}
               viewSourceLabel={viewSourceLabel}
+              t={t}
             />
           ))}
         </div>

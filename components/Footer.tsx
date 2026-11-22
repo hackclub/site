@@ -26,14 +26,6 @@ const sectionHeadingStyles = {
 } as const;
 const u = { color: "var(--paper)", textDecoration: "underline", textUnderlineOffset: 2 } as const;
 
-const icons = [
-  { label: "GitHub", href: "https://github.com/hackclub", glyph: "github" },
-  { label: "YouTube", href: "https://www.youtube.com/c/HackClubHQ", glyph: "youtube" },
-  { label: "Instagram", href: "https://www.instagram.com/starthackclub", glyph: "instagram" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/hack-club", glyph: "linkedin" },
-  { label: "Email", href: "mailto:team@hackclub.com", glyph: "email" },
-];
-
 const sha = process.env.NEXT_PUBLIC_COMMIT_SHA ?? "dev";
 
 function isExternal(href: string) {
@@ -44,7 +36,7 @@ function LinkCol({ title, links }: { title: string; links: { label: string; href
   return (
     <div
       style={
-        title === "Resources" || title === "Ресурсы" || title === "Ressourcen"
+        title === "Resources" || title === "Ресурсы" || title === "Ressourcen" || title === "资源"
           ? { minWidth: 140 }
           : undefined
       }
@@ -88,6 +80,14 @@ export function Footer() {
   const t = useTranslations("Footer");
   // oxlint-disable-next-line react/purity
   const year = useMemo(() => new Date().getFullYear(), []);
+
+  const icons = [
+    { label: "GitHub", href: "https://github.com/hackclub", glyph: "github" },
+    { label: "YouTube", href: "https://www.youtube.com/c/HackClubHQ", glyph: "youtube" },
+    { label: "Instagram", href: "https://www.instagram.com/starthackclub", glyph: "instagram" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/hack-club", glyph: "linkedin" },
+    { label: t("email"), href: "mailto:team@hackclub.com", glyph: "email" },
+  ];
 
   const hcLinks = [
     { label: t("philosophy"), href: "/philosophy" },
