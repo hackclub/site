@@ -65,7 +65,8 @@
     "hackFoundation": "द हैक फ़ाउंडेशन",
     "nonprofit": ", एक 501(c)(3) नॉनप्रॉफिट (EIN: 81-2908499)।",
     "commit": "कमिट {sha}",
-    "openSourceAt": ", ओपन सोर्स यहाँ:"
+    "openSourceAt": ", ओपन सोर्स यहाँ:",
+    "slack": "स्लैक"
   },
   "Home": {
     "stardance": "Stardance देखिए, इस फ़ॉल का सबसे बड़ा मुफ़्त STEM इवेंट",
