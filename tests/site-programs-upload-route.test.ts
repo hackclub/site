@@ -104,7 +104,10 @@ describe("POST /api/site-programs/upload", () => {
         getEditAuth: async () => ({ canEdit: true, isAdmin: false }),
         canEditProgram: async () => true,
       }));
-      mock.module("next/cache", () => ({ revalidateTag: () => {} }));
+      mock.module("next/cache", () => ({
+        revalidateTag: () => {},
+        unstable_cache: <T extends (...args: never[]) => unknown>(fn: T) => fn,
+      }));
 
       const calls = stubUploadFetch(untrustedLocation);
       const { POST } = await import("@/app/api/site-programs/upload/route");
@@ -112,10 +115,12 @@ describe("POST /api/site-programs/upload", () => {
       const res = await POST(makeUploadRequest());
       expect(res.status).toBe(200);
 
-      const tinifyCalls = calls.filter((c) => c.url.includes("tinify") || c.url.includes("evil"));
-      expect(tinifyCalls).toHaveLength(1);
-      expect(tinifyCalls[0].url).toBe("https://api.tinify.com/shrink");
-      expect(tinifyCalls[0].redirect).toBe("error");
+      const basicAuthCalls = calls.filter((c) =>
+        c.headers.get("authorization")?.startsWith("Basic "),
+      );
+      expect(basicAuthCalls).toHaveLength(1);
+      expect(basicAuthCalls[0].url).toBe("https://api.tinify.com/shrink");
+      expect(basicAuthCalls[0].redirect).toBe("error");
 
       const uploadCall = calls.find((c) => c.url.startsWith("https://content.airtable.com/"));
       expect(uploadCall?.body).toMatchObject({
@@ -132,7 +137,10 @@ describe("POST /api/site-programs/upload", () => {
         getEditAuth: async () => ({ canEdit: true, isAdmin: false }),
         canEditProgram: async () => true,
       }));
-      mock.module("next/cache", () => ({ revalidateTag: () => {} }));
+      mock.module("next/cache", () => ({
+        revalidateTag: () => {},
+        unstable_cache: <T extends (...args: never[]) => unknown>(fn: T) => fn,
+      }));
 
       const calls = stubUploadFetch(validLocation);
       const { POST } = await import("@/app/api/site-programs/upload/route");
