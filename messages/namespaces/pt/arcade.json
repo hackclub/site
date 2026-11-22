@@ -1,0 +1,137 @@
+{
+  "Arcade": {
+    "metaTitle": "Arcade — Hack Club",
+    "metaDescription": "O melhor hackathon de verão para estudantes do ensino médio. Crie projetos. Registre suas horas. Troque por prêmios.",
+    "comboAlt": "GitHub + Hack Club",
+    "heroTagline": "O verão é seu para criar",
+    "heroNote": "O Arcade terminou em 1º de setembro, mas você ainda pode entrar no <slack>Slack do Hack Club</slack>!",
+    "prizesHeroAlt": "Prêmios do Arcade",
+    "howToPlay": "Como jogar",
+    "step1Title": "Trabalhe em projetos",
+    "step1Text": "Mexa em algo legal. Por exemplo: fazer sua própria placa de circuito (PCB), construir seu próprio site, criar um app.",
+    "step2Title": "Acumule suas horas",
+    "step2Text": "Entre no <slack>Slack do Hack Club</slack> e use /hack no #arcade para registrar suas horas. Você ganha um ticket por hora dedicada.",
+    "step3Title": "Troque por prêmios",
+    "step3Text": "Use seus tickets para comprar prêmios para o seu próximo projeto, como kits de Arduino, mesas digitalizadoras e muito mais.",
+    "repeatLine": "Crie coisas. Ganhe coisas. Repita.",
+    "stickerLine": "Receba <stickers>adesivos grátis</stickers> e programe com outros estudantes do ensino médio!",
+    "buildingPrefix": "Você poderia estar construindo um(a)",
+    "seeMoreProjects": "Ver mais projetos",
+    "oneHourAtATime": "Uma hora de cada vez,",
+    "whatWillYouMake": "O que <you>você</you> vai criar neste verão?",
+    "buildWhateverTitle": "Construa o que quiser!",
+    "buildWhateverBody": "Qualquer projeto técnico vale. Você pode criar um jogo de RA, um painel de pixel art, um robô desenhista e muito mais. Sempre que for trabalhar no projeto, inicie o cronômetro da hack hour. Você ganha um ticket por hora.",
+    "dontKnowWhereToStart": "Não sabe por onde começar?",
+    "notSureWhatToMake": "Não sabe o que criar?",
+    "clickMeForIdeas": "Clique aqui para ver ideias!",
+    "arcadeEndedThanks": "O Arcade acabou! Obrigado por jogar.",
+    "needIdeaAlt": "Precisa de uma ideia?",
+    "prizesTitle": "<prizes>Prêmios</prizes> para turbinar o seu próximo projeto!",
+    "prizesSubtitle": "Troque por tickets. Somente para estudantes do ensino médio ou mais novos.",
+    "sneakPeek": "Isto é só uma <peek>prévia</peek>... muitos outros prêmios foram liberados ao longo do verão!",
+    "limited": "Edição limitada!",
+    "tickets": "{count, plural, one {# ticket} other {# tickets}}",
+    "moreAbout": "Mais sobre {name}",
+    "faqTitle": "Perguntas frequentes",
+    "closeJoin": "Entre,",
+    "closeBuild": "crie projetos de verdade.",
+    "closeShare": "Compartilhe com os amigos.",
+    "closeDialog": "Fechar janela",
+    "projectIdeas": {
+      "drawingRobot": "Robô desenhista",
+      "printer3d": "Impressora 3D",
+      "electricSkateboard": "Skate elétrico caseiro",
+      "pixelArtDisplay": "Painel de pixel art",
+      "smartGarden": "Jardim inteligente",
+      "cncMachine": "Máquina CNC",
+      "ledArt": "Arte interativa com LEDs",
+      "vrEscapeRoom": "Escape room em RV",
+      "imageRecognition": "App de reconhecimento de imagem",
+      "diyCamera": "Câmera caseira",
+      "multiplayerAr": "Jogo de RA multijogador",
+      "droneSwarm": "Coreografia de enxame de drones"
+    },
+    "projectCards": {
+      "elijah": "Finalmente publiquei meu clone de IA pessoal e me diverti demais vendo o que as outras pessoas fizeram com ele.",
+      "cupcakes": "Montando o robô Blot.",
+      "konstantinos": "Um drone que segue o maior objeto de uma cor escolhida."
+    },
+    "starters": {
+      "bobaName": "Boba drops",
+      "bobaDesc": "Crie um site e ganhe boba.",
+      "wizardName": "Wizard Orpheus",
+      "wizardDesc": "Crie um jogo de texto com IA.",
+      "binName": "The Bin",
+      "binDesc": "Monte um circuito online e ganhe as peças de graça.",
+      "sprigName": "Sprig",
+      "sprigDesc": "Crie um jogo em JS e jogue no seu próprio console.",
+      "onboardName": "OnBoard",
+      "onboardDesc": "Projete uma PCB e ganhe uma verba de US$ 100.",
+      "hackaccinoName": "Hackaccino",
+      "hackaccinoDesc": "Crie um site 3D e ganhe um frappuccino grátis.",
+      "blotName": "Blot",
+      "blotDesc": "Escreva código. Faça arte. Ganhe uma máquina de desenho.",
+      "ciderName": "Cider",
+      "ciderDesc": "Crie um app mobile e ganhe uma conta de desenvolvedor Apple.",
+      "easelName": "Easel",
+      "easelDesc": "Escreva uma linguagem de programação e ganhe fudge."
+    },
+    "prizeItems": {
+      "yubikey": {
+        "name": "YubiKey",
+        "description": "Modelo 5C NFC com logo do GitHub"
+      },
+      "bambuLab": {
+        "name": "Bambu Lab",
+        "smallName": "A1 mini"
+      },
+      "solderingIron": {
+        "name": "Ferro de solda",
+        "smallName": "+ solda"
+      },
+      "framework": {
+        "name": "Framework",
+        "smallName": "16 polegadas"
+      },
+      "flipper": {
+        "name": "Flipper",
+        "smallName": "Zero"
+      },
+      "macbook": {
+        "name": "MacBook",
+        "smallName": "Air M2"
+      },
+      "wacom": {
+        "name": "Wacom",
+        "smallName": "Intuos S"
+      },
+      "logitech": {
+        "name": "Logitech",
+        "smallName": "MX Mechanical"
+      },
+      "quest3": {
+        "name": "Quest 3"
+      }
+    },
+    "faq": {
+      "eligibleQ": "Quem pode participar?",
+      "eligibleA": "Você precisa estar no ensino médio ou ser mais novo. Só é preciso ter uma conta no GitHub e uma conta no Slack.",
+      "projectsQ": "Que tipos de projeto valem?",
+      "projectsA": "Os projetos precisam ser de código aberto e ter uma forma de as pessoas experimentarem. Documente o progresso conforme avança.",
+      "howManyQ": "Quantos projetos posso fazer?",
+      "howManyA": "Você pode enviar quantos projetos fizer. A gente só conta as horas.",
+      "costQ": "Quanto custa?",
+      "costA": "É gratuito. Algumas remessas podem ter taxas alfandegárias, dependendo do seu país.",
+      "helpQ": "Preciso de ajuda!",
+      "helpA": "Peça ajuda no canal #arcade-help do Slack do Hack Club.",
+      "hoursQ": "Minhas horas não foram contabilizadas!",
+      "hoursA": "As revisões são feitas por pessoas e podem levar alguns dias para aparecer.",
+      "teamQ": "Projeto em equipe vale?",
+      "teamA": "Vale, mas o seu trabalho individual precisa estar bem documentado.",
+      "schoolQ": "E trabalhos da escola ou de um emprego?",
+      "schoolA": "Se você está criando algo para a escola ou para o trabalho, não vale para o Arcade.",
+      "scrapQ": "O que conta como scrap?",
+      "scrapA": "O código precisa ter um commit. Compartilhe links para projetos como Sprig, Blot ou modelos 3D hospedados."
+    }
+  }
+}

@@ -1,0 +1,426 @@
+{
+  "Hcb": {
+    "metaTitle": "Patrocínio Fiscal — Hack Club",
+    "metaDescription": "Abra sua organização sem fins lucrativos com o HCB: uma entidade jurídica 501(c)(3), conta bancária, impostos e contabilidade automáticos e o melhor software da categoria.",
+    "heroTitleLine1": "A base",
+    "heroTitleLine2": "da sua organização sem fins lucrativos.",
+    "heroBody": "Abra sua organização sem fins lucrativos com o <strong>programa de patrocínio fiscal da The Hack Foundation, o HCB</strong>: uma entidade jurídica 501(c)(3), conta bancária, impostos e contabilidade automáticos e o melhor software da categoria.",
+    "referredBy": "Indicado por:",
+    "applyNow": "Inscreva-se agora",
+    "grantAlertTitle": "Precisa de um patrocinador fiscal para o seu projeto de segurança de IA?",
+    "grantAlertBody": "Já tem financiamento? Escreva para Melanie e Paul em <email></email> e deixaremos tudo pronto rapidinho.",
+    "grantAlertCta": "Entre em contato",
+    "appStoreAlt": "Baixar na App Store",
+    "googlePlayAlt": "Disponível no Google Play",
+    "pocketTitle": "O HCB no seu <primary>bolso</primary>",
+    "pocketBody": "O app oficial para celular permite gerenciar as finanças da sua organização, emitir cartões e muito mais!",
+    "pocketFeatureSpendingTitle": "Acompanhe os gastos da sua organização",
+    "pocketFeatureSpendingBody": "Fique por dentro do saldo e das transações da sua organização.",
+    "pocketFeatureTapTitle": "Receba doações com Tap to Pay",
+    "pocketFeatureTapBody": "Sem precisar de equipamento extra! Basta encostar qualquer cartão no celular.",
+    "pocketFeatureCardsTitle": "Emita, gerencie e adicione cartões",
+    "pocketFeatureCardsBody": "Adicione cartões direto na Apple Wallet e na Google Wallet.",
+    "pocketFeatureReceiptsTitle": "Envie comprovantes do jeito fácil",
+    "pocketFeatureReceiptsBody": "Tire uma foto ou envie um arquivo rapidinho!",
+    "readOurStory": "Leia a nossa história",
+    "installs": "{count} instalações",
+    "mobileMockupAlt": "Mockup do app do HCB para celular",
+    "orgsTitle": "Impulsionando organizações sem fins lucrativos de todos os tamanhos",
+    "statProcessed": "transações processadas",
+    "statProjects": "projetos",
+    "statSince": "atendendo organizações sem fins lucrativos desde",
+    "seeMoreOrgs": "Ver mais organizações",
+    "feesTitle": "Uma única taxa, simples e transparente:",
+    "feesRate": "7% da receita.",
+    "feesBody": "Essa taxa vai direto para a equipe de operações do Hack Club, incluindo estagiários adolescentes que trabalham com mentores. Isso nos permite entregar software e suporte da melhor qualidade, crescer de forma sustentável e, ao mesmo tempo, oferecer formação profissional remunerada a jovens de origens diversas.",
+    "noLegalFees": "Sem taxas jurídicas.",
+    "noStartupFees": "Sem taxa de adesão.",
+    "noTransactionFees": "Sem taxa por transação.",
+    "noCardIssuingFees": "Sem taxa de emissão de cartão.",
+    "noSubscriptionFees": "Sem mensalidade.",
+    "noCheckDepositFees": "Sem taxa para depósito de cheque.",
+    "noCreditCardProcessingFees": "Sem taxa de processamento de cartão de crédito.",
+    "builtByTitle": "Criado pelo Hack Club",
+    "builtByCollageAlt": "Milhares de adolescentes participam de eventos do Hack Club como este",
+    "builtByP1": "À medida que o <home>Hack Club</home> crescia, precisávamos de um jeito de dar mais poder aos nossos membros. Hoje temos mais de 60 mil estudantes do ensino médio envolvidos no Hack Club, com mais de 400 clubes pelo mundo.",
+    "builtByP2": "Criamos o HCB em 2018 para apoiar clubes e hackathons liderados por adolescentes. Depois de mostrá-lo a nossos parceiros educacionais, percebemos que tínhamos encontrado algo muito maior. Hoje, o HCB derruba barreiras financeiras e jurídicas para milhares de pessoas que fazem o bem em suas comunidades.",
+    "builtByEnvironment": "Como parte do nosso compromisso com o meio ambiente, o financiamento da operação e da equipe do HCB jamais virá da <fossil>indústria de combustíveis fósseis</fossil>.",
+    "openSourceTitle": "Infraestrutura de código aberto para organizações com patrocínio fiscal.",
+    "openSourceBody": "O HCB é de código aberto e construído em público, como muitos outros projetos do Hack Club. Venha construir com a gente a infraestrutura que sustenta organizações com patrocínio fiscal no mundo todo.",
+    "starOnGithub": "Dê uma estrela no GitHub",
+    "readAnnouncement": "Leia o anúncio",
+    "gourceAlt": "Histórico de commits do HCB visualizado com o Gource",
+    "signIn": "Entrar",
+    "forFunders": "Para financiadores",
+    "continueToHcb": "Continuar para o HCB",
+    "avatarAlt": "Avatar de {name} no HCB",
+    "contactQuestions": "Dúvidas? Escreva para <email></email> ou ligue para <phone></phone>",
+    "contactNotice": "Os cartões HCB Visa® Commercial são operados pela Stripe e emitidos pelo Celtic Bank."
+  },
+  "HcbDirectory": {
+    "metaTitle": "Diretório de Organizações | Hack Club",
+    "metaDescription": "Conheça as organizações e os projetos incríveis que usam o HCB para patrocínio fiscal.",
+    "metaBrowseAll": "Navegue pelas organizações que constroem sobre o HCB.",
+    "metaBrowseCategory": "Navegue pelas organizações do HCB na categoria {category}.",
+    "metaInRegion": "{category} em {region} | Hack Club",
+    "metaDirectoryInRegion": "Diretório de Organizações em {region} | Hack Club",
+    "metaBrowseRegion": "Navegue pelas organizações do HCB em {region}.",
+    "metaBrowseCategoryRegion": "Navegue pelas organizações do HCB na categoria {category} em {region}.",
+    "title": "Diretório de Organizações",
+    "titleInRegion": "{category} em {region}",
+    "description": "Conheça as organizações e os projetos que usam o HCB para patrocínio fiscal.",
+    "searchAria": "Buscar organizações",
+    "searchPlaceholder": "Busque por nome, descrição ou local",
+    "showing": "Exibindo {start}-{end} de {total}",
+    "pageOf": "Página {current} de {total}",
+    "pageSlash": "{current} / {total}",
+    "noOrgsTitle": "Nenhuma organização encontrada",
+    "noOrgsBody": "Tente outro termo de busca ou mude os filtros.",
+    "previous": "Anterior",
+    "next": "Próxima",
+    "filter": "Filtrar",
+    "regions": "Regiões",
+    "filterByCategory": "Filtrar por categoria",
+    "filterByRegion": "Filtrar por região",
+    "climateMetaTitle": "Organizações Climáticas | Hack Club",
+    "climateMetaDescription": "Organizações focadas no clima que usam o HCB para acelerar a ação ambiental e iniciativas de sustentabilidade.",
+    "climateMetaInRegion": "Organizações Climáticas em {region} | Hack Club",
+    "climateMetaBrowseRegion": "Conheça organizações focadas no clima em {region}.",
+    "climateTitle": "Organizações Climáticas",
+    "climateTitleInRegion": "Clima em {region}",
+    "climateDescription": "Organizações focadas no clima que usam o HCB para acelerar a ação ambiental e iniciativas de sustentabilidade.",
+    "noClimateTitle": "Nenhuma organização climática encontrada",
+    "noClimateBody": "Tente outro termo de busca ou outra região."
+  },
+  "HcbFirst": {
+    "metaTitle": "Kit Financeiro para Equipes FIRST | HCB",
+    "metaDescription": "O HCB é o clube de apoio ideal para equipes de FRC, FTC e FLL receberem bolsas, arrecadarem fundos, fazerem compras e muito mais.",
+    "heroTitle": "O clube de apoio ideal para <highlight>equipes de FRC, FTC e FLL</highlight>.",
+    "badgeNonprofit": "Status de organização sem fins lucrativos",
+    "badgeGrants": "Receba bolsas",
+    "badgeCards": "Cartões de débito",
+    "heroBody": "Criado por ex-participantes da <first>FIRST</first> para equipes da <first>FIRST</first>, o HCB é uma plataforma financeira completa usada por centenas de clubes, equipes e hackathons.",
+    "openAccount": "Abra uma conta",
+    "downloadPage": "Baixar esta página",
+    "jumpTestimonials": "Ir para os depoimentos",
+    "featuresEyebrow": "Recursos",
+    "featuresTitle": "Tudo de que você vai precisar.",
+    "featuresBody": "Organize as finanças da sua equipe em tempo real, receba bolsas, obtenha status de organização sem fins lucrativos e mais.<br></br>Use recursos criados por ex-participantes da <first>FIRST</first> para ajudar a sua equipe a ter sucesso.",
+    "dashboardAlt": "Painel do HCB exibido em um dispositivo",
+    "featureNonprofitName": "Status de organização sem fins lucrativos",
+    "featureNonprofitBody": "Passe a fazer parte da entidade jurídica do Hack Club e aproveite os benefícios do nosso status tributário 501(c)(3).",
+    "featureBalanceName": "Saldo e histórico",
+    "featureBalanceBody": "Mantenha todos da equipe, e além dela, informados com saldo e histórico de transações em tempo real.",
+    "featureCardsName": "Cartões de débito",
+    "featureCardsBody": "Emita cartões de débito físicos para todos os seus colegas de equipe.",
+    "featureGrantsName": "Bolsas e doações",
+    "featureGrantsBody": "Receba e deposite com facilidade dinheiro de bolsas e doações na sua conta. Você também ganha um formulário de doação online personalizável para compartilhar com amigos e família.",
+    "featureReimburseName": "Fluxo de reembolso",
+    "featureReimburseBody": "Reembolse os colegas de equipe por despesas com opções flexíveis de transferência, como ACH, cheques enviados pelo correio e mais.",
+    "featureSupportName": "Suporte a qualquer hora",
+    "featureSupportBody": "Com resposta em até 24 horas em dias úteis, você nunca fica na mão.",
+    "testimonialsTitle": "Equipes <first>FIRST</first> de todo o país funcionam com o HCB.",
+    "testimonialsBody": "De San Jose a Boston e Nova York, o HCB sustenta equipes de todos os tamanhos.",
+    "teamAlt": "Equipe {name}",
+    "logoAlt": "Logotipo de {name}",
+    "photoOf": "Foto de {name}",
+    "seeFinances": "Ver finanças",
+    "applyTitle": "Cadastre-se no HCB.",
+    "applyBody": "Aberto a Hack Clubs, hackathons e organizações de caridade nos Estados Unidos e no Canadá.",
+    "soFarEnabled": "Até agora, viabilizamos",
+    "inTransactions": "em transações",
+    "applyNow": "Inscreva-se agora",
+    "runHq": "O Hack Club HQ também roda no HCB!",
+    "seeOurFinances": "Veja as nossas finanças."
+  },
+  "HcbDI": {
+    "metaTitle": "Arrecadação e Finanças para Equipes de Destination Imagination | HCB",
+    "metaDescription": "Permita que a sua equipe de Destination Imagination receba doações dedutíveis de impostos por meio de uma 501(c)(3) e pague torneios e a Global Finals com cartões de débito da equipe.",
+    "ogImageAlt": "Os logotipos da Destination Imagination e do HCB acima da frase: O lar financeiro das equipes de Destination Imagination. Abaixo, uma barra de meta de doações do HCB.",
+    "logoAlt": "Destination Imagination",
+    "heroEyebrow": "Para Gerentes de Equipe",
+    "heroTitle": "O lar financeiro das equipes de <highlight>Destination Imagination</highlight>.",
+    "heroBody": "Dê à sua equipe acesso a uma conta bancária e a status de organização sem fins lucrativos, para que tudo, do Team Number às viagens para a Global Finals, saia da conta da equipe e não do seu cartão pessoal.",
+    "openAccount": "Abra uma conta",
+    "heroTrust": "O HCB é operado pelo Hack Club, uma organização sem fins lucrativos 501(c)(3), de forma independente da Destination Imagination.",
+    "featuresEyebrow": "Recursos",
+    "featuresTitle": "Tudo o que a sua equipe paga, em uma só conta.",
+    "featureNonprofitName": "Status de organização sem fins lucrativos",
+    "featureDonationsName": "Doações e bolsas",
+    "featureRecordsName": "Comprovantes em um só lugar",
+    "featureCardsName": "Cartões de débito da equipe",
+    "featureReimburseName": "Reembolsos",
+    "featureBalanceName": "Você no controle",
+    "allianceTitle": "Mais de 2.000 equipes <first>FIRST</first><reg>®</reg> já funcionam com o HCB.",
+    "allianceBody": "Agora as equipes de DI têm as mesmas ferramentas. <link>Veja as finanças públicas de uma equipe <first>FIRST</first>.</link>",
+    "costTitle": "Uma única taxa, simples e transparente.",
+    "costBody": "Você só paga quando entra dinheiro. A taxa cobre o status de organização sem fins lucrativos da sua equipe, as declarações de impostos, os recibos para doadores e o suporte. Ela vai para a equipe do Hack Club que opera o HCB, incluindo estagiários adolescentes remunerados que trabalham com mentores.",
+    "costPoints": [
+      {
+        "title": "Abrir é grátis",
+        "body": "Sem taxa de adesão, taxas jurídicas ou mensalidade."
+      },
+      {
+        "title": "7% do que você arrecadar",
+        "body": "Doações, bolsas e depósitos. Em uma doação de US$ 100, US$ 93 ficam com a sua equipe."
+      },
+      {
+        "title": "Nenhuma outra taxa",
+        "body": "Sem taxas de cartão, de transação ou de processamento de cartão de crédito. Nem sobre estornos."
+      }
+    ],
+    "costTeams": "Cuida de mais de uma equipe? Sugerimos uma conta por equipe para manter os orçamentos separados, ou uma conta compartilhada se as equipes dividirem a maior parte dos custos.",
+    "applyTitle": "Pronto quando a sua equipe estiver.",
+    "applyBody": "Aberto a equipes de Destination Imagination de todos os níveis, em qualquer época do ano. O cadastro leva cerca de 5 minutos e analisamos as solicitações em poucos dias úteis.",
+    "soFarEnabled": "Até agora, viabilizamos",
+    "inTransactions": "em transações",
+    "applyNow": "Inscreva-se agora",
+    "contactQuestions": "Dúvidas, ou quer o HCB para o seu Affiliate? Escreva para <email></email>.",
+    "runHq": "O Hack Club também roda no HCB.",
+    "seeOurFinances": "Veja as nossas finanças.",
+    "legalHcb": "O HCB é um programa da The Hack Foundation (d.b.a. Hack Club), uma organização sem fins lucrativos 501(c)(3) (EIN: 81-2908499). A Destination Imagination e seus Affiliates não administram contas do HCB.",
+    "legalTrademarks": "Destination Imagination® é marca registrada da Destination Imagination, Inc. <first>FIRST</first>® é marca registrada da For Inspiration and Recognition of Science and Technology (<first>FIRST</first>), que não supervisiona, não participa nem se responsabiliza pelo HCB.",
+    "legalPhotos": "Fotos: Destination Imagination.",
+    "ledgerIncoming": [
+      "Doação",
+      "Doação via Tap to Pay",
+      "Depósito de cheque",
+      "Lava-rápido beneficente",
+      "Patrocinador local",
+      "Bolsa"
+    ],
+    "ledgerOutgoing": [
+      "Loja de artesanato",
+      "Loja de ferragens",
+      "Inscrição no torneio",
+      "Camisetas da equipe",
+      "Sinal do hotel · Global Finals",
+      "Reembolso a pai/mãe",
+      "Papelão e fita adesiva",
+      "Pizza depois do treino",
+      "Tintas e pincéis",
+      "Team Number",
+      "Tecido para fantasias",
+      "Pins de troca · Global Finals",
+      "Materiais de treino para o Instant Challenge"
+    ],
+    "featureNonprofitLead": "Tenha acesso ao status de organização sem fins lucrativos 501(c)(3) para a sua equipe.",
+    "featureNonprofitPoints": [
+      "As doações são dedutíveis de impostos e todo doador online recebe um recibo por e-mail automaticamente.",
+      "Candidate-se a bolsas abertas a organizações 501(c)(3) e projetos com patrocínio fiscal, com uma carta do HCB confirmando o seu patrocínio fiscal.",
+      "Você nunca precisa preencher formulários fiscais de organização sem fins lucrativos. O HCB cuida disso, inclusive do Form 990."
+    ],
+    "featureDonationsLead": "Cada equipe tem a sua própria página de doação para compartilhar por e-mail, mensagem ou redes sociais.",
+    "featureDonationsPoints": [
+      "Incorpore o formulário de doação no site da sua equipe ou simplesmente compartilhe o link.",
+      "Receba doações via Tap to Pay em arrecadações e eventos da equipe com o app do HCB. Sem precisar de maquininha.",
+      "Defina uma meta, como o orçamento para a Global Finals, e a página de doação mostra aos apoiadores o quanto falta."
+    ],
+    "featureRecordsLead": "Toda compra no cartão aparece na conta da equipe na hora, com o nome de quem a fez, então você não precisa reconstruir um orçamento a partir de uma caixa de recibos.",
+    "featureRecordsPoints": [
+      "Quem fez a compra tira uma foto do comprovante e anexa.",
+      "O HCB envia por e-mail um lembrete semanal sobre qualquer compra no cartão que esteja sem comprovante.",
+      "Na hora de preencher o Expense Report, os comprovantes dos materiais do Team Challenge já estão todos em um só lugar."
+    ],
+    "featureCardsLead": "Chega de adiantar custos da equipe no seu cartão pessoal. Os cartões de débito da equipe usam direto o saldo da equipe, e você escolhe quem mais pode ter um, como um aluno da equipe que compra os materiais do Team Challenge.",
+    "featureCardsPoints": [
+      "Dê acesso de Membro a um pai ou mãe ou a um aluno da equipe e a pessoa poderá pedir o próprio cartão. Defina um limite de gastos para controlar quanto ela pode gastar.",
+      "Adicione os cartões à Apple Wallet ou à Google Wallet.",
+      "Bloqueie ou cancele qualquer cartão pelo celular no instante em que precisar."
+    ],
+    "featureReimburseLead": "Quando você ou outro pai ou mãe paga um custo do próprio bolso, a conta da equipe devolve o dinheiro.",
+    "featureReimbursePoints": [
+      "Receba o reembolso por depósito direto na sua conta bancária ou por cheque enviado pelo correio.",
+      "Cada pagamento fica salvo com o seu comprovante.",
+      "Chega de fazer conta no Venmo para saber quem deve a quem."
+    ],
+    "featureBalanceLead": "Adicione outros Gerentes de Equipe, pais e alunos à conta da equipe com exatamente o nível de acesso que você escolher. Gerentes podem fazer tudo, inclusive enviar dinheiro e aprovar reembolsos. Membros podem gastar com o próprio cartão. Leitores só podem visualizar.",
+    "featureBalancePoints": [
+      "O dinheiro que sobrar fica com a equipe para a próxima temporada. Quando um novo Gerente de Equipe assumir, adicione-o como Gerente e ele continua de onde você parou.",
+      "Dê aos alunos acesso de Membro para que usem o próprio cartão, anexem comprovantes do que compram e aprendam a administrar um orçamento. Você define o limite de gastos de cada um e pode bloquear o cartão a qualquer momento.",
+      "As finanças são públicas por padrão para que os doadores vejam para onde vai o dinheiro, junto com quem está na equipe. Você pode torná-las privadas quando quiser."
+    ],
+    "featureNonprofitShotAlt": "Um formulário de doação do HCB informando que a equipe enviará um recibo por e-mail para os registros fiscais do doador",
+    "featureCardsShotAlt": "Os cartões de débito de uma equipe no HCB: cartões ativos, um cartão bloqueado, novos cartões físicos e cartões cancelados",
+    "featureDonationsShotAlt": "Uma página de doação do HCB mostrando US$ 3.540,88 arrecadados para uma meta de US$ 9.000, com listas dos maiores doadores e dos mais recentes",
+    "featureReimburseShotAlt": "Reembolsos de viagem em um extrato do HCB, de estacionamento no aeroporto a hotel, cada um com o seu comprovante anexado",
+    "featureRecordsShotAlt": "Compras no cartão da equipe em um extrato do HCB, cada uma com etiqueta e o número de comprovantes anexados",
+    "featureBalanceShotAlt": "Uma página de equipe do HCB listando o papel de cada pessoa, como Gerente ou Membro",
+    "featuresBody": "Arrecade, gaste e guarde os comprovantes.",
+    "featuresNote": "sim, até o Team Number de US$ 175",
+    "globalFinalsTitle": "Inscreva-se agora. Esteja pronto no dia em que se classificar.",
+    "globalFinalsBody": "Inscrição, viagem e hotel para a Global Finals da Destination Imagination podem custar milhares de dólares, com apenas algumas semanas entre o seu Affiliate Tournament e a viagem. Você pode se inscrever em qualquer época do ano, então não espere até se classificar.",
+    "globalFinalsSteps": [
+      {
+        "when": "Qualquer época do ano",
+        "what": "Peça a conta da sua equipe e configure a página de doação. A aprovação costuma levar alguns dias."
+      },
+      {
+        "when": "Durante toda a temporada",
+        "what": "Arrecade aos poucos, de vendas de bolo a patrocinadores locais. Candidate-se também a bolsas, com uma carta do HCB confirmando o seu patrocínio fiscal."
+      },
+      {
+        "when": "De março a abril",
+        "what": "Classificou? Sua página de doação já está no ar, então compartilhe com família, vizinhos e comércios locais no mesmo dia."
+      },
+      {
+        "when": "20 a 23 de maio de 2027 · Kansas City",
+        "what": "Pague hotéis, refeições e pins de troca com os cartões de débito da equipe."
+      }
+    ],
+    "chartEvents": {
+      "2": "Team Number",
+      "5": "Lava-rápido beneficente",
+      "7": "Patrocinador local",
+      "9": "Doações de fim de ano",
+      "13": "Inscrição no torneio",
+      "15": "Avançou para o Affiliate Tournament",
+      "16": "Classificou-se para a Global Finals",
+      "17": "Arrecadação para a Global Finals",
+      "18": "Sinal do hotel da Global Finals",
+      "20": "Pronto para a Global Finals"
+    },
+    "markQuote": "O HCB dá às equipes de DI um jeito simples de arrecadar, guardar e gastar dinheiro. E como tanto a DI quanto o Hack Club têm a ver com dar autonomia aos jovens, é um encaixe natural: crianças aprendendo a tocar seus próprios projetos <em>e</em> seus próprios orçamentos.",
+    "markName": "Mark Giordono",
+    "markRole": "CEO, Destination Imagination",
+    "photoBuilding": "Uma equipe de Destination Imagination construindo a solução do Team Challenge no chão, vista de cima",
+    "photoPresenting": "Uma equipe jovem de Destination Imagination se apresentando com fantasias e adereços caseiros",
+    "photoTeamManagers": "Gerentes de equipe e alunos lendo um mapa juntos na Global Finals",
+    "photoGlobalFinals": "Uma equipe de Destination Imagination comemorando na Global Finals",
+    "badgeNonprofit": "Status de organização sem fins lucrativos",
+    "badgeDonations": "Doações dedutíveis de impostos",
+    "badgeCards": "Cartões de débito da equipe"
+  },
+  "HcbMobile": {
+    "metaTitle": "O HCB Mobile chegou! — Hack Club",
+    "metaDescription": "Gerencie suas organizações no HCB em qualquer lugar. Emita cartões, veja transações e muito mais!",
+    "metaImageAlt": "O HCB Mobile chegou!",
+    "heroTitle": "O <hcb>HCB</hcb> Mobile chegou!",
+    "heroSubtitle": "Gerencie suas organizações no HCB em qualquer lugar. Emita cartões, veja transações e muito mais!",
+    "date": "2 de dez. de 2025",
+    "p1": "Eu sou o Mohamad, tenho 17 anos, moro na região da Baía de São Francisco e acabei de lançar o app oficial do HCB para celular.",
+    "p2": "Se você nunca ouviu falar, o HCB é a base financeira de mais de <strong>6.500 organizações sem fins lucrativos</strong>, clubes e hackathons liderados por adolescentes. Oferecemos status de <strong>organização sem fins lucrativos 501(c)(3)</strong>, acesso a uma conta bancária, uma plataforma para receber doações e cartões de débito para milhares de jovens que tentam fazer o bem em suas comunidades.",
+    "p3": "O HCB processa, em média, <strong>US$ 6 milhões por mês</strong> (mais de US$ 80 milhões ao longo de sua história)<fn1>1</fn1>. No último ano, liderei o projeto de criar o primeiro app para celular de toda essa comunidade.",
+    "p4": "<em>O projeto inteiro é de código aberto no <github>GitHub</github> (adoraríamos ganhar uma ⭐️!).</em>",
+    "whyTitle": "Por que criar isso?",
+    "whyBody": "Esses adolescentes comandam equipes de robótica, hackathons e projetos sem fins lucrativos que melhoram a comunidade deles. Eles precisam de um jeito de gerenciar as finanças da organização direto do bolso. Com o HCB Mobile, eles poderão:",
+    "whyLi1": "Acompanhar o <strong>saldo da organização</strong> e as transações em qualquer lugar.",
+    "whyLi2": "Receber <strong>doações presenciais com tap to pay</strong>, perfeito para uma arrecadação ou um evento presencial! Sem equipamento extra. Basta encostar qualquer cartão de crédito ou débito no celular.",
+    "whyLi3": "<strong>Emitir novos cartões de débito</strong>, adicioná-los à <strong>Apple / Google Wallet</strong> e bloqueá-los ou cancelá-los direto do celular.",
+    "whyLi4": "<strong>Enviar comprovantes</strong> direto do aparelho ou associar comprovantes já existentes na Receipt Bin às transações com um toque.",
+    "techTitle": "A parte técnica",
+    "techP1": "Quando comecei a trabalhar neste app, eu queria usar código nativo como <strong>SwiftUI</strong> no iOS e <strong>Kotlin/Jetpack Compose</strong> no Android. Mas percebi que seria um sufoco para mim, um <strong>estudante em tempo integral</strong> com aulas, cuidar de duas bases de código. Eu teria que duplicar cada recurso criado para um sistema no outro e ainda lidar com todos os problemas de integração. Foi quando descobri o <strong>Expo</strong> (um framework de React Native), que me permitiu escrever um único app que funciona em vários dispositivos. Trabalhando com o Expo, aprendi a criar meus próprios Expo Modules (para conectar recursos de código nativo ao TypeScript) e técnicas de otimização como memoização e reciclagem de componentes.",
+    "techP2": "O lado não técnico do app também <em>não foi brincadeira</em>. Precisei trabalhar com as equipes de revisão de apps da Apple e do Google para obter <strong>entitlements restritos</strong> para recursos como o <strong>provisionamento de terminal tap to pay</strong> (viabilizado pela Stripe) e o <strong>push provisioning</strong> (que permite adicionar cartões à carteira de pagamentos direto do HCB Mobile). Levou vários meses e muitas trocas de e-mail até conseguirmos os entitlements de que precisávamos.",
+    "techP3": "Depois de mais de 250 horas de desenvolvimento, posso dizer que tenho muito orgulho do HCB Mobile, porque ele foi <strong>feito por adolescentes</strong> para facilitar a vida de adolescentes como eu que administram organizações e projetos sem fins lucrativos com o HCB. Além dos adolescentes, o HCB também apoia centenas de organizações lideradas por adultos, como grupos de ajuda mútua, projetos de código aberto e espaços comunitários.",
+    "downloadTitle": "Baixe o app!",
+    "appStoreAria": "Baixar o HCB na App Store",
+    "appStoreAlt": "Baixar na App Store",
+    "googlePlayAria": "Instalar o HCB pelo Google Play",
+    "googlePlayAlt": "Disponível no Google Play",
+    "footnote": "Esse valor não inclui as finanças do HQ (as nossas): <finances>finanças</finances>.",
+    "backToRef": "Voltar à referência",
+    "ctaTitle": "Quer abrir uma organização sem fins lucrativos?",
+    "ctaBody": "Estamos aceitando inscrições! Sem taxa de adesão, sem saldo mínimo e sem longa espera.",
+    "learnMore": "Saiba mais",
+    "applyNow": "Inscreva-se agora"
+  },
+  "HcbOpenSource": {
+    "metaTitle": "O HCB agora é de código aberto! | Hack Club",
+    "metaDescription": "O código da plataforma de patrocínio fiscal da The Hack Foundation agora está disponível publicamente sob a licença AGPL, e seguimos incentivando a transparência entre organizações sem fins lucrativos.",
+    "metaImageAlt": "O HCB agora é de código aberto!",
+    "heroTitle": "O <hcb>HCB</hcb> agora é de código aberto!",
+    "heroSubtitle": "O <codebase>código</codebase> da plataforma de patrocínio fiscal da The Hack Foundation agora está disponível publicamente sob a licença AGPL, e seguimos incentivando a transparência entre organizações sem fins lucrativos.",
+    "date": "29 de mar. de 2025",
+    "authorsAria": "Autores e data da publicação",
+    "titleSr": "O HCB agora é de código aberto!",
+    "p1": "O Hack Club lançou o HCB em 2018 para permitir que hackathons arrecadassem e gastassem dinheiro por meio de <fs>patrocínio fiscal</fs>. Desde então, expandimos para todos os projetos sem fins lucrativos; nossos 12 mil usuários movimentaram US$ 50 milhões.",
+    "uiAlt": "Interface do HCB mostrando as transações do Hack Club HQ",
+    "p2": "Hackathons organizados por estudantes, equipes de robótica e grupos comunitários usam o HCB como um neobanco para organizações sem fins lucrativos: para receber doações, enviar pagamentos, emitir cartões de débito e obter o status 501(c)(3).",
+    "p3": "Quando criamos o HCB, ele foi desenvolvido em sigilo por razões de segurança. Ainda assim, um dos princípios centrais do Hack Club sempre foi a transparência: nós <opensource>abrimos o código</opensource> de nossas <finances>finanças</finances>, <events>documentamos como organizamos eventos</events> e temos mais de 500 repositórios públicos no <github>GitHub</github>.",
+    "p4": "<strong><em><repo>github.com/hackclub/hcb</repo> agora é público. Dê uma olhada e deixe sua estrela.</em></strong>",
+    "p5": "Junto com a nossa documentação técnica, é um ótimo recurso para quem quer criar software financeiro ou aplicações com Ruby on Rails. Todo o nosso trabalho de engenharia também é público; o mundo pode aprender com nossos acertos e erros.",
+    "p6": "Desde 2018, mais de cinquenta pessoas fizeram mais de 10 mil commits no HCB (obrigado!), e mal podemos esperar para receber mais contribuidores:",
+    "videoFallback": "Seu navegador não é compatível com a tag de vídeo.",
+    "ps": "PS: se você quer abrir uma organização sem fins lucrativos, estamos aceitando inscrições! Acesse <nonprofit>nonprofit.new</nonprofit> e entraremos em contato.",
+    "photoAlt": "Equipe do Hack Club lançando o anúncio ao vivo de San Francisco",
+    "photoCaption": "Estamos lançando ao vivo de SF!",
+    "welcomeTitle": "Adolescente? Chegou agora? Bem-vindo!",
+    "welcomeBody": "O Hack Club é uma comunidade global de jovens criadores do ensino médio e clubes de programação liderados por estudantes. Temos um chat no Slack 24 horas por dia com mais de 104 mil adolescentes aprendendo a programar e criando projetos incríveis, e você vai se encaixar direitinho.",
+    "learnMore": "Saiba mais"
+  },
+  "HcbFeatures": {
+    "headline": "Ferramentas financeiras poderosas, criadas pela nossa organização sem fins lucrativos para a sua.",
+    "subtext": "Desde o primeiro dia, criamos um software bonito e de autoatendimento para você arrecadar e gastar dinheiro sem dor de cabeça administrativa. E também somos de código aberto!",
+    "transparencyMode": "Veja as finanças da <em>Reboot</em> no Modo Transparência",
+    "openSourceGithub": "Veja nosso código aberto no GitHub",
+    "laptopAlt": "Painel do HCB exibido em um notebook",
+    "bank-account": {
+      "name": "Receba bolsas de fundações",
+      "body": "com status 501(c)(3) dedutível de impostos."
+    },
+    "card": {
+      "name": "Emita cartões de débito físicos e virtuais",
+      "body": "com controle de comprovantes e Apple Pay."
+    },
+    "web": {
+      "name": "Opere no mundo todo",
+      "body": "com uma entidade jurídica americana."
+    },
+    "payment-transfer": {
+      "name": "Envie dinheiro e reembolse",
+      "body": "por cheque, ACH, transferência bancária e mais."
+    },
+    "explore": {
+      "name": "Deixe suas finanças transparentes",
+      "body": "para a sua equipe e, se quiser, para o público."
+    },
+    "docs": {
+      "name": "Cuidamos de todos os seus impostos",
+      "body": "automaticamente, inclusive do Form 990."
+    },
+    "admin": {
+      "name": "Pague os membros da equipe",
+      "body": "com folha de pagamento integrada."
+    },
+    "support": {
+      "name": "Receba doações de qualquer valor",
+      "body": "com um formulário online personalizado e incorporável."
+    },
+    "leader": {
+      "name": "Tenha suporte em 24 horas",
+      "body": "em dias úteis, com um ponto de contato dedicado."
+    }
+  },
+  "HcbCategories": {
+    "organizations": {
+      "label": "Organizações sem fins lucrativos",
+      "miniLabel": "Todas",
+      "description": ""
+    },
+    "first": {
+      "label": "Equipes FIRST",
+      "description": "De San Jose a Boston e Nova York, o HCB sustenta equipes de todos os tamanhos."
+    },
+    "hackathons": {
+      "label": "Hackathons",
+      "description": "Hackers estão usando o HCB para realizar hackathons de explodir a cabeça."
+    }
+  },
+  "HcbRegions": {
+    "north-america": {
+      "label": "América do Norte"
+    },
+    "south-america": {
+      "label": "América do Sul"
+    },
+    "africa": {
+      "label": "África"
+    },
+    "europe": {
+      "label": "Europa"
+    },
+    "asia-oceania": {
+      "label": "Ásia e Oceania"
+    }
+  }
+}
