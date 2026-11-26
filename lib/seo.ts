@@ -51,7 +51,10 @@ export function buildPageMetadata({
         ...(feed
           ? {
               "application/rss+xml": [
-                { url: `${origin}/api/v1/events/rss`, title: "Hack Club events" },
+                {
+                  url: `${origin}/api/v1/events/rss`,
+                  title: "Hack Club events",
+                },
               ],
             }
           : {}),
@@ -78,7 +81,10 @@ export function buildPageMetadata({
                     ? "it_IT"
                     : locale === "hi"
                       ? "hi_IN"
-                      : "en_US",
+                      : locale === "pt"
+                        ? "pt_BR"
+                        : "en_US",
+
       images: [
         {
           url: image,
