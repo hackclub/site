@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Navbar } from "../Navbar";
 
@@ -71,16 +72,17 @@ function makeBatch(seed: number, count: number, w: number, h: number) {
   return { stickers: out, seed: s };
 }
 
-const title = (p: Phase) => (p === "lost" ? "Sled destroyed" : "");
+const title = (p: Phase, t: (k: string) => string) => (p === "lost" ? t("gameSledDestroyed") : "");
 
-const body = (p: Phase, s: number) =>
-  p === "intro"
-    ? "Pilot the sled on the right. Move up and down with your mouse, finger, or arrow keys. Survive as long as you can without crashing into a sticker!"
-    : p === "lost"
-      ? `Score: ${fmt(s)}. Better luck next time!`
-      : "";
+const body = (
+  p: Phase,
+  s: number,
+  t: (k: string, values?: Record<string, string | number>) => string,
+) =>
+  p === "intro" ? t("gameInstructions") : p === "lost" ? t("gameLostScore", { score: fmt(s) }) : "";
 
 export function Game() {
+  const t = useTranslations("NotFound");
   const [phase, setPhase] = useState<Phase>("idle");
   const [arming, setArming] = useState(0);
   const [shipY, setShipY] = useState(0);
@@ -314,7 +316,7 @@ export function Game() {
           type="button"
           className="glitch-trigger"
           onClick={onTrigger}
-          aria-label="Tap the 404 three times to open Sticker Run"
+          aria-label={t("gameTriggerAria")}
         >
           <span className="glitch-layer base">404</span>
           <span className="glitch-layer cyan" aria-hidden="true">
@@ -389,20 +391,22 @@ export function Game() {
           </div>
 
           <div className="game-overlay__hud">
-            <div className="game-chip">Score {fmt(score)}</div>
+            <div className="game-chip">
+              {t("gameScore")} {fmt(score)}
+            </div>
             <button type="button" className="game-exit" onClick={close}>
-              Exit
+              {t("gameExit")}
             </button>
           </div>
 
           <div className={`game-overlay__panel game-overlay__panel--${phase}`}>
-            <h2 id="sticker-game-title">{title(phase)}</h2>
-            <p>{body(phase, score)}</p>
+            <h2 id="sticker-game-title">{title(phase, t)}</h2>
+            <p>{body(phase, score, t)}</p>
 
             {(phase === "intro" || phase === "lost") && (
               <div className="game-actions">
                 <button type="button" className="game-primary" onClick={start}>
-                  {phase === "intro" ? "Start run" : "Play again"}
+                  {phase === "intro" ? t("gameStart") : t("gamePlayAgain")}
                 </button>
               </div>
             )}

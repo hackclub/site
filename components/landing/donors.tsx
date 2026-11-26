@@ -180,7 +180,7 @@ export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
           >
             <Image
               src={donor.src}
-              alt="Donor logo"
+              alt={t("donorsLogoAlt")}
               width={donor.width}
               height={donor.height}
               className={donor.invert ? "donor-logo-image--invert" : undefined}
@@ -309,12 +309,12 @@ export function DonorsSection({ minimal }: { minimal?: boolean } = {}) {
           filter: invert(1);
         }
 
-        html:not([lang="it"]) .donors-open-line {
+        html:not([lang="it"]):not([lang="zh-CN"]):not([lang="zh"]) .donors-open-line {
           white-space: nowrap;
         }
 
         @media (max-width: 1000px) {
-          html:not([lang="it"]) .donors-open-line {
+          html:not([lang="it"]):not([lang="zh-CN"]):not([lang="zh"]) .donors-open-line {
             white-space: normal;
           }
         }

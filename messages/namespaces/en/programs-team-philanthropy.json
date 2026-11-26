@@ -51,7 +51,10 @@
     "footerSlackAfter": ", where new events are being announced all the time.",
     "footerEditBefore": "You can also",
     "footerEditLink": "edit an event here",
-    "footerEditAfter": "."
+    "footerEditAfter": ".",
+    "eventEditor": "Event editor",
+    "eventsApi": "Events API",
+    "rssFeed": "RSS feed"
   },
   "Team": {
     "metaTitle": "Team — Hack Club",

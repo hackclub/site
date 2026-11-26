@@ -38,6 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         es: "https://es.hackclub.com",
         az: "https://az.hackclub.com",
         hi: "https://hi.hackclub.com",
+        "zh-CN": getLocaleDomain("zh-CN"),
         "x-default": "https://hackclub.com",
       },
     },

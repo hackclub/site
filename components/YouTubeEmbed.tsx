@@ -1,8 +1,10 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export function YouTubeEmbed({ id, title = "Hack Club video" }: { id: string; title?: string }) {
+  const t = useTranslations("Common");
   const [isMounted, setIsMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -82,7 +84,7 @@ export function YouTubeEmbed({ id, title = "Hack Club video" }: { id: string; ti
       {isMounted && (
         <dialog
           open
-          aria-label="Video player"
+          aria-label={t("videoPlayer")}
           aria-modal="true"
           style={{
             position: "fixed",
@@ -105,7 +107,7 @@ export function YouTubeEmbed({ id, title = "Hack Club video" }: { id: string; ti
         >
           <button
             type="button"
-            aria-label="Close video"
+            aria-label={t("closeVideo")}
             onClick={requestClose}
             style={{
               position: "absolute",
@@ -128,7 +130,7 @@ export function YouTubeEmbed({ id, title = "Hack Club video" }: { id: string; ti
           >
             <button
               onClick={requestClose}
-              aria-label="Close video"
+              aria-label={t("closeVideo")}
               style={{
                 position: "absolute",
                 top: -40,

@@ -43,6 +43,11 @@ const productionDomains = [
     defaultLocale: "hi" as const,
     locales: ["hi" as const],
   },
+  {
+    domain: "zh-cn.hackclub.com",
+    defaultLocale: "zh-CN" as const,
+    locales: ["zh-CN" as const],
+  },
 ];
 
 const developmentDomains = [
@@ -86,10 +91,15 @@ const developmentDomains = [
     defaultLocale: "hi" as const,
     locales: ["hi" as const],
   },
+  {
+    domain: "zh-cn.localhost:3000",
+    defaultLocale: "zh-CN" as const,
+    locales: ["zh-CN" as const],
+  },
 ];
 
 export const routing = defineRouting({
-  locales: ["en", "ru", "it", "fr", "de", "es", "az", "hi"],
+  locales: ["en", "ru", "it", "fr", "de", "es", "az", "hi", "zh-CN"],
   defaultLocale: "en",
   localePrefix: "never",
   localeDetection: false,
@@ -107,6 +117,7 @@ export const localeDomains: Record<AppLocale, string> = {
   es: "https://es.hackclub.com",
   az: "https://az.hackclub.com",
   hi: "https://hi.hackclub.com",
+  "zh-CN": "https://zh-cn.hackclub.com",
 };
 
 export function getLocaleDomain(locale: string): string {
@@ -120,9 +131,8 @@ export function getLocaleFromHost(host: string | null | undefined): AppLocale {
   if (!host) return routing.defaultLocale;
   const hostname = host.split(":")[0].toLowerCase();
   const subdomain = hostname.split(".")[0];
-  return routing.locales.includes(subdomain as AppLocale)
-    ? (subdomain as AppLocale)
-    : routing.defaultLocale;
+  const matched = routing.locales.find((locale) => locale.toLowerCase() === subdomain);
+  return matched ?? routing.defaultLocale;
 }
 
 export function getRequestOrigin(

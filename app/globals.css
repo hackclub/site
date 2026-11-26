@@ -16,8 +16,11 @@
      text under 24px (18.66px bold); keep --red for fills and display type. */
   --red-text: #be1e3a;
   --orange: #ff8c37;
-  --font-phantom: var(--font-phantom-src), system-ui, sans-serif;
-  --font-zarathustra: var(--font-zarathustra-src), Georgia, serif;
+  --font-phantom:
+    var(--font-phantom-src), system-ui, -apple-system, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-zarathustra:
+    var(--font-zarathustra-src), Georgia, "Songti SC", "SimSun", "Noto Serif CJK SC", serif;
   color-scheme: light;
 }
 

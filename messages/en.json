@@ -16,7 +16,9 @@
     "startNow": "Start now",
     "viewSource": "View source code",
     "pauseCarousel": "Pause auto-scrolling projects carousel",
-    "playCarousel": "Play auto-scrolling projects carousel"
+    "playCarousel": "Play auto-scrolling projects carousel",
+    "videoPlayer": "Video player",
+    "closeVideo": "Close video"
   },
   "Nav": {
     "about": "About",
@@ -66,7 +68,8 @@
     "nonprofit": ", a 501(c)(3) nonprofit (EIN: 81-2908499).",
     "commit": "Commit {sha}",
     "openSourceAt": ", open source at",
-    "slack": "Slack"
+    "slack": "Slack",
+    "email": "Email"
   },
   "Home": {
     "stardance": "Check out Stardance, the largest free STEM event of the fall",
@@ -78,6 +81,10 @@
     "projectsTitle": "Imagine a world where",
     "projectsTitleAccent": "you made this:",
     "projectsSubtext": "100,000 teens started exactly where you are. We're here to help you build your first crazy thing.",
+    "projectAttribution": "<bold>{person}</bold>{age}{country} made <bold>{projectName}</bold>{program}.",
+    "projectFrom": " from {country}",
+    "projectFor": " for Hack Club {programName}",
+    "projectTryItOut": "Try it out",
     "projectsCtaFull": "See more projects in the 2025 magazine",
     "projectsCtaShort": "See more in the magazine",
     "eventsTitle": "Imagine a world where",
@@ -137,7 +144,8 @@
     "donorsDell": "Michael Dell (CEO of Dell)",
     "donorsAMD": "Dr. Lisa Su (CEO of AMD)",
     "donorsShopify": "Tobi Lutke (CEO of Shopify)",
-    "donorsGithub": "Tom Preston-Werner (Cofounder of GitHub)"
+    "donorsGithub": "Tom Preston-Werner (Cofounder of GitHub)",
+    "donorsLogoAlt": "Donor logo"
   },
   "NotFound": {
     "title": "We couldn't find this page.",
@@ -150,7 +158,15 @@
     "agentLinksLlms": "llms.txt — an index of every page on this site",
     "agentLinksSitemap": "sitemap.xml — every canonical URL",
     "agentLinksOpenapi": "openapi.json — the public JSON API",
-    "agentLinksMarkdown": "Any page can be fetched as Markdown with the header Accept: text/markdown"
+    "agentLinksMarkdown": "Any page can be fetched as Markdown with the header Accept: text/markdown",
+    "gameTriggerAria": "Tap the 404 three times to open Sticker Run",
+    "gameExit": "Exit",
+    "gameSledDestroyed": "Sled destroyed",
+    "gameInstructions": "Pilot the sled on the right. Move up and down with your mouse, finger, or arrow keys. Survive as long as you can without crashing into a sticker!",
+    "gameScore": "Score",
+    "gameLostScore": "Score: {score}. Better luck next time!",
+    "gameStart": "Start run",
+    "gamePlayAgain": "Play again"
   },
   "Brand": {
     "metaTitle": "Brand — Hack Club",
@@ -1295,7 +1311,10 @@
     "footerSlackAfter": ", where new events are being announced all the time.",
     "footerEditBefore": "You can also",
     "footerEditLink": "edit an event here",
-    "footerEditAfter": "."
+    "footerEditAfter": ".",
+    "eventEditor": "Event editor",
+    "eventsApi": "Events API",
+    "rssFeed": "RSS feed"
   },
   "Team": {
     "metaTitle": "Team — Hack Club",
